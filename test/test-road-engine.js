@@ -360,6 +360,12 @@ test('rg-chain-std errors an HG chain on an AXS-road drivetrain and a Flattop ch
   var r3 = ROAD.checkRoadBuild({ chain: rp('ch-sram-red-flattop'), cassette: rp('cs-sram-red-xg1290-1033') });
   eq(of(r3, 'rg-chain-std').length, 0, 'flattop on AXS road is right');
 });
+test('rg-chain-std treats sram-rival22-11 as HG (pre-Flattop), not Flattop', function(){
+  var r = ROAD.checkRoadBuild({ chain: rp('ch-sram-rival22'), cassette: rp('cs-sram-rival22-1132') });
+  eq(of(r, 'rg-chain-std').length, 0, 'PC-1170 (hg) on Rival 22 (sram-rival22-11 wants hg) is right');
+  var r2 = ROAD.checkRoadBuild({ chain: rp('ch-sram-red-flattop'), cassette: rp('cs-sram-rival22-1132') });
+  eq(errOf(r2, 'rg-chain-std').length, 1, 'a Flattop chain on Rival 22 errors — it predates Flattop and wants hg');
+});
 
 /* ---- R16 the 2x front end --------------------------------------------------- */
 test('rg-2x-control errors a 1x (no-front-shift) brifter on a 2x crank', function(){

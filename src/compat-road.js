@@ -77,6 +77,13 @@ var ROAD_VOCAB = {
                  'overdrive-aero'],    // Giant D-shaped "OverDrive Aero" (TCR/Defy/Propel)
   system:       ['shimano-road-12', 'shimano-road-11', 'shimano-grx-12', 'shimano-grx-11',
                  'sram-axs-road', 'sram-xplr-12', 'sram-xplr-13', 'sram-apex-mech-12',
+                 /* 'sram-rival22-11' ADDED road-depth-1 wave (2026-07-22): SRAM Rival 22, a
+                    real, still-listed (sram.com/en/sram/road/series/sram-rival) 2x11
+                    mechanical road groupset PRE-DATING Flattop — its own model pages
+                    (RD-RIV-B1/FD-RIV-B1/FC-RIV-2X11-A1/CS-PG-1130/CN-1170-A1) describe a
+                    standard HG-compatible 11-speed chain interface, a genuinely distinct
+                    system from sram-apex-mech-12 (T-Type/Flattop, 12-speed) — never conflate. */
+                 'sram-rival22-11',
                  'campag-ekar-13', 'campag-12', 'campag-11'],
   actuation:    ['mechanical', 'di2-wired', 'axs-wireless'],   // the road SPLIT of MTB's cable/electronic
   actuationBrake: ['hydraulic', 'mechanical'],             // caliper-side axis, distinct from shifter actuation
@@ -116,6 +123,7 @@ var ROAD_SYSTEM_CHAIN = {
   'shimano-grx-12': 'hg', 'shimano-grx-11': 'hg',
   'sram-axs-road': 'flattop', 'sram-xplr-12': 'flattop', 'sram-xplr-13': 'flattop',
   'sram-apex-mech-12': 'flattop',
+  'sram-rival22-11': 'hg',
   'campag-ekar-13': 'campag', 'campag-12': 'campag', 'campag-11': 'campag'
 };
 

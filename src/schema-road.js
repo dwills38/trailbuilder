@@ -81,6 +81,9 @@ var LOCAL_VOCAB = {
                  'cannondale-delta', 'overdrive-aero'],
   systemRoad:   ['shimano-road-12', 'shimano-road-11', 'shimano-grx-12', 'shimano-grx-11',
                  'sram-axs-road', 'sram-xplr-12', 'sram-xplr-13', 'sram-apex-mech-12',
+                 /* 'sram-rival22-11' ADDED road-depth-1 wave (2026-07-22) — see the matching
+                    comment in compat-road.js's ROAD_VOCAB.system for the sourcing/reasoning. */
+                 'sram-rival22-11',
                  'campag-ekar-13', 'campag-12', 'campag-11', 'flattop', 'hg', 'campag'],
   actuationRG:  ['mechanical', 'di2-wired', 'axs-wireless'],
   /* bbShellRoad — WIDENED this wave: 'bb90-road' (Trek bearing-in-frame),

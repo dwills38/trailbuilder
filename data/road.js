@@ -565,6 +565,57 @@ var ROAD_PARTS = [
     verified: true, lastChecked: '2026-07-21', source: 'https://www.sram.com/en/sram/models/db-apx-d1',
     note: 'road-10 wave (BUNDLED SHIFT-BRAKE SKU EXCEPTION): re-fetched sram.com/en/sram/models/db-apx-d1 (browser pane spec table) this session alongside sram.com/en/sram/models/sd-apx-d1 — "Apex Disc Brake" (DB-APX-D1), $225 MSRP, flat-mount hydraulic disc, "BRACKET (DISC BRAKE) Flat Mount 20mm offset" matching this row\'s mount/actuation exactly; this is the left-hand brake-only lever+caliper unit that pairs with SD-APX-D1\'s right-hand shift-brake unit — see sh-sram-apex-mech\'s note for the full per-side shape (SRAM prices this system per SIDE, not per shifter/brake SLOT). UPGRADES to verified:true under the 2026-07-21 bundled-shift-brake-SKU exception, extended to this per-side-bundle shape. PRICE is re-split proportionally to the prior 300:120 sample ratio: 141 + sh-sram-apex-mech\'s 354 = 495, the real two-lever total (270 SD-APX-D1 shift-brake + 225 DB-APX-D1 brake-only = 495) — replaces the prior unsourced 300+120=420. Honest per-slot ESTIMATE only, never a per-unit MSRP claim (THE PRICE RULE). Weight (380g) stays a nominal per-slot SAMPLE — neither page publishes any weight figure.' },
 
+  // ===== DRIVETRAIN — SRAM Rival 22 (2x11, mechanical, pre-Flattop) =========
+  // road-depth-1 wave (2026-07-22): SRAM Rival 22 is a real, STILL-LISTED
+  // 2x11 mechanical groupset (sram.com/en/sram/road/series/sram-rival —
+  // live product listing, unlike the plain "SRAM Apex" 2x mechanical series
+  // page, which returns "0 Products" / no live SKUs and was NOT added here
+  // per THE BAR: no plausible current spec exists for it). All rows fetched
+  // via WebFetch from individual sram.com/en/sram/models/<slug> pages.
+  // NEW VOCAB: 'sram-rival22-11' added to schema-road.js/compat-road.js this
+  // wave (ROAD_SYSTEM_CHAIN: 'hg') — Rival 22 predates SRAM's Flattop chain
+  // standard and uses a standard HG-compatible 11-speed driver/chain
+  // interface (CS-PG-1130 "compatible with non-XD driver bodies"; CN-1170-A1
+  // "11-speed powerchain", not Flattop) — genuinely distinct from
+  // sram-apex-mech-12 (T-Type/Flattop, 12-speed), never conflated.
+  // No brake caliper row: SB-RIV-HRD-A1's own product description already
+  // states "Two-piston hydraulic calipers with steel-backed organic pads" as
+  // part of the shifter SKU's bundled function (same BUNDLED SHIFT-BRAKE SKU
+  // shape as RED/Rival AXS elsewhere in this file) and no separate
+  // caliper-only SKU/price was found this pass (time-boxed) — flagged as a
+  // GAP, not a compat gap (the shifter's own brakeSystem/actuation fields
+  // already carry the real interface).
+  { id: 'sh-sram-rival22-hrd', cat: 'shifter', brand: 'SRAM', model: 'Rival 22 Shifters / Hydraulic Disc Brake (pair)', family: 'sram-rival22-hrd',
+    system: 'sram-rival22-11', speeds: 11, actuation: 'mechanical', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
+    weight: 620, price: 355,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.sram.com/en/sram/models/sb-riv-hrd-a1',
+    note: 'road-depth-1 wave: sram.com model page (SB-RIV-HRD-A1) confirms "SRAM Road EXACT ACTUATION 11-speed system", "Two-piston hydraulic calipers with steel-backed organic pads", DoubleTap mechanical shift, "2x drivetrain configuration", "Direct Mount or Flat Mount (no offset)" caliper brackets, $345-$365 MSRP (355 used as the midpoint). No weight published on the fetched page — 620g/pair is an unsourced sample estimate, flagged.' },
+  { id: 'rd-sram-rival22', cat: 'rearderailleur', brand: 'SRAM', model: 'Rival 22 Rear Derailleur', family: 'sram-rival22',
+    system: 'sram-rival22-11', speeds: 11, actuation: 'mechanical', maxCog: 32, cage: 'medium', mount: 'std-hanger',
+    weight: 250, price: 72,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.sram.com/en/sram/models/rd-riv-b1',
+    note: 'road-depth-1 wave: sram.com model page (RD-RIV-B1) confirms "11-speed", "Cage Options: Medium and Short" (this row: medium), "Maximum Cog: 28T or 32T" (this row: the 32T config, matching the CS-PG-1130 cassette below), "Exact Actuation (1:1 ratio)" mechanical, WiFLi-compatible. $65-$80 MSRP (72 used as the midpoint). No weight published — 250g is an unsourced sample estimate, flagged.' },
+  { id: 'fd-sram-rival22', cat: 'frontderailleur', brand: 'SRAM', model: 'Rival 22 Yaw Front Derailleur', family: 'sram-rival22',
+    system: 'sram-rival22-11', speeds: 11, actuation: 'mechanical', mount: 'braze-on',
+    weight: 95, price: 50,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.sram.com/en/sram/models/fd-riv-b1',
+    note: 'road-depth-1 wave: sram.com model page (FD-RIV-B1) confirms "11-speed compatible", "Mount Type: Braze-on (clamp styles also available)" (braze-on modeled per this catalog\'s one-mount-native-SKU convention), "Chainline: 45.0mm", "Yaw" cage rotation technology, $50 MSRP. No weight published — 95g is an unsourced sample estimate, flagged.' },
+  { id: 'cs-sram-rival22-1132', cat: 'cassette', brand: 'SRAM', model: 'Rival 22 PG-1130 11-32', family: 'sram-rival22-cass',
+    system: 'sram-rival22-11', speeds: 11, freehub: 'hg-road', minCog: 11, maxCog: 32,
+    weight: 300, price: 90,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.sram.com/en/sram/models/cs-pg-1130-a1',
+    note: 'road-depth-1 wave: sram.com model page (PG-1130) confirms "11-28t / 11-32t / 11-36t / 11-42t" gearing options (this row: the 11-32T config, matching rd-sram-rival22\'s 32T max capacity), "Compatible with non-XD driver bodies" (freehub:\'hg-road\', the catalog\'s existing generic standard-HG-driver token — matches Apex\'s own cs-sram-apex-xg1231-1144 correction elsewhere in this file), PowerGlide II. $75-$105 MSRP (90 used as the midpoint). No weight published — 300g is an unsourced sample estimate, flagged.' },
+  { id: 'ch-sram-rival22', cat: 'chain', brand: 'SRAM', model: 'Rival 22 PC-1170 Chain', family: 'sram-rival22',
+    system: 'hg', speeds: 11,
+    weight: 256, price: 55,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.sram.com/en/sram/models/cn-1170-a1',
+    note: 'road-depth-1 wave: sram.com model page (CN-1170-A1) confirms "11-speed", "114 links or 120 links", "Weight: 256g (based on 114 links)" (matches this row exactly, a real fetched figure — not a sample), PowerLock connector, "11-speed powerchain" (a standard HG-class chain, NOT Flattop — matches this row\'s system:\'hg\' and the ROAD_SYSTEM_CHAIN[\'sram-rival22-11\']=\'hg\' mapping added this wave). $55 MSRP.' },
+  { id: 'cr-sram-rival22-3011', cat: 'crankset', brand: 'SRAM', model: 'Rival 22 Crankset (BB30, 50/34)', family: 'sram-rival22-crank',
+    bb: '30mm', chainrings: '2x', ring: '50/34', ringStd: 'standard-12', speeds: 11, chainline: 45,
+    weight: 700, price: 205,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.sram.com/en/sram/models/fc-riv-2x11-a1',
+    note: 'road-depth-1 wave: sram.com model page (FC-RIV-2X11-A1) confirms "11-speed", "50/34T or 52/36T" chainring options (this row: the 50/34T SKU), "BB30/PF30-68mm and GXP/PF GXP 68mm" — TWO spindle-interface SKUs exist; this row models the BB30 variant (bb:\'30mm\', matching this catalog\'s existing crankBbRoad vocab exactly — the GXP variant was NOT modeled this pass since GXP has no matching token in crankBbRoad, a real vocab gap flagged rather than mis-mapped to \'24mm-road\'/\'30mm\'), "Chainline: 45.0mm". $195-$215 MSRP (205 used as the midpoint). No weight published — 700g is an unsourced sample estimate, flagged.' },
+
   // ===== ROTORS — SRAM Paceline / Paceline X depth (road-grind-1-sram wave) =
   // Rotor coverage was thin catalog-wide (3 rows total) before this pass.
   // The existing 'ro-sram-paceline-160' row (mount:'center-lock') maps to
