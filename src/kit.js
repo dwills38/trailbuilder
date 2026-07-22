@@ -905,6 +905,16 @@ var KIT_PARTS = [
     desc:'SPD-compatible lace-up gravity/enduro shoe — corrected from a flat-pedal row (GE700 is clipless). ride.shimano.com publishes no per-SKU weight; ~400g/shoe (800g/pair) is Shimano’s own reported figure per an NSMB review, size unspecified.',
     sourceType:'measured', weightSource:'https://nsmb.com/articles/shimano-ge7-gravity-spd-shoes/',
     verified:true, lastChecked:'2026-07-19', source:'https://ride.shimano.com/products/sh-ge700' },
+  { id:'sho-shimano-ge900', cat:'shoes', brand:'Shimano', model:'GE9 (SH-GE900)', price:250, weight:846,
+    soleType:'clipless', closure:'boa', disciplines:['enduro','dh'], sizes:['38','39','40','41','42','43','44','45','46','47','48'],
+    desc:'kit-breadth-3 (2026-07-22): the flagship tier above GE7/GE5 - "Shimano\'s benchmark,'
+      + ' high-end gravity shoe" per ride.shimano.com, TORBAL 2.0 midsole + ULTREAD GE outsole,'
+      + ' BOA dial + bash guard + instep strap, carbon-reinforced nylon midsole. Price $250 exact'
+      + ' match on ride.shimano.com. Shimano does not publish per-shoe weight; ~423g/shoe (846g/pair,'
+      + ' size 42) is a third-party retailer-measured figure, kept sourceType:measured per the'
+      + ' Shimano-rotor-class weight policy.',
+    sourceType:'measured', weightSource:'https://www.bike-discount.de/en/shimano-sh-ge900-mtb-gravity-enduro-shoes',
+    verified:true, lastChecked:'2026-07-22', source:'https://ride.shimano.com/products/sh-ge900' },
   { id:'sho-shimano-gr9', cat:'shoes', brand:'Shimano', model:'GR9 (SH-GF800)', price:200, weight:800,
     soleType:'flat', closure:'boa', disciplines:['enduro','dh'], sizes:['38','39','40','41','42','43','44','45','46','47','48'],
     desc:'Premium gravity flat shoe, BOA closure. The GR line (SH-GR901) was retired in favor of the GF (Gravity Flat) line on ride.shimano.com; row re-scoped to the live flagship SH-GF800. ride.shimano.com publishes no per-SKU weight — weight kept as the prior sample figure. Kit-6 (2026-07-20): price $200 re-confirmed exactly via ride.shimano.com/collections/mountain; formalizing verified:true (weight not required for kit apparel).',
