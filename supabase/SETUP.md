@@ -169,6 +169,11 @@ update. First batch (2026-07-21): "Dirt Jesus" (`held`, owner order). A pro-ride
 (current pros' first+last names, `held` so the real rider can claim theirs through the
 verified-pro flow) is generated separately and appended to the same file.
 
+A second, sibling batch file — **`supabase/forum-reserved-brands-influencers.sql`** (same
+idempotent convention, run it too) — holds manufacturer brand names pulled from every catalog
+(383 rows) plus prominent MTB/cycling YouTube creators/influencers (28 rows) and the owner's
+"Sploosh MTB" local add, all `held`.
+
 ## 10. Service log (Phase 5 — garage maintenance records)
 
 Signed-in riders can log service events ("fork lowers service", "new chain") against a saved
