@@ -1524,7 +1524,7 @@ var BMX_PARTS = [
     id: 'bmx-fr-chase-rsp50', cat: 'frame', brand: 'Chase', model: 'RSP 5.0',
     discipline: 'race', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 21, rearBrakeMount: 'disc', rearAxle: '10mm', frameOnly: true, weight: 1680, price: 609.99,
-    verified: true, lastChecked: '2026-07-21', source: 'https://chasebicycles.com/frames/chase-rsp-5-0-frame/',
+    verified: true,priceBasis:'third-party-listed',  lastChecked: '2026-07-21', source: 'https://chasebicycles.com/frames/chase-rsp-5-0-frame/',
     note: 'Full per-size geometry table fetched 2026-07-21 (chasebicycles.com/frames/chase-rsp-5-0-frame). This row = "Pro XL" size (21in/533.4mm top tube, the catalog\'s modeled size): Press Fit BB86 (mid), Integrated IS 42/52 head tube (integrated-1-1/8), Post-or-Flat-mount 120/140mm brakes (disc), Enclosed 3/8"-10mm rear dropout - CORRECTED rearAxle from a prior 14mm guess to the page\'s stated 10mm (all sizes share this spacing), weight 1.68kg=1680g from the same per-size table. No price on the page (frame-only Chase parts aren\'t sold direct); price stays the prior BRG Store sample per THE PRICE RULE.'
   },
   {
@@ -1614,13 +1614,13 @@ var BMX_PARTS = [
   // unconfirmed per-variant, so these stay unverified samples, not verified:true.
   {
     id: 'bmx-hb-colony-rick-865-28', cat: 'handlebar', brand: 'Colony', model: 'Rick Bars 8.65in',
-    clamp: '25.4mm', rise: 8.65, width: 28, weight: 1039, price: 109.99, verified: true, lastChecked: '2026-07-21',
+    clamp: '25.4mm', rise: 8.65, width: 28, weight: 1039, price: 109.99, verified: true,priceBasis:'third-party-listed',  lastChecked: '2026-07-21',
     source: 'https://colonybmx.com.au/products/rick-bars/',
     note: 'bmx-depth-7 (2026-07-21): VERIFIED. Re-fetched colonybmx.com.au/products/rick-bars/ directly (the raw page waves 2/3/5 had already curl-confirmed): "Rise: 8.7\" & 9.3\"", "Width: 28.0\".(8.65\" rise) 29\" (9.3\" rise)", "Weight: 1039 grams & 1056 grams" - EXACT match to this row\'s rise/width/weight. Price ($109.99) has no live figure on this AU brand page (no checkout price shown) - kept as the pre-existing danscomp.com-sourced sample per THE PRICE RULE (price never blocks verified:true once interfaces are confirmed).'
   },
   {
     id: 'bmx-hb-colony-rick-93-29', cat: 'handlebar', brand: 'Colony', model: 'Rick Bars 9.3in',
-    clamp: '25.4mm', rise: 9.3, width: 29, weight: 1056, price: 109.99, verified: true, lastChecked: '2026-07-21',
+    clamp: '25.4mm', rise: 9.3, width: 29, weight: 1056, price: 109.99, verified: true,priceBasis:'third-party-listed',  lastChecked: '2026-07-21',
     source: 'https://colonybmx.com.au/products/rick-bars/',
     note: 'bmx-depth-7 (2026-07-21): VERIFIED - same fetch and same reasoning as bmx-hb-colony-rick-865-28 (one product page covers both rise variants). 9.3in rise / 29in width / 1056g EXACT match. Price kept as the pre-existing sample per THE PRICE RULE.'
   },
