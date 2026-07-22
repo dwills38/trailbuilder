@@ -1,5 +1,30 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — THE THEME AUDIT LANDS: every text-contrast failure cleared, 8 pages × 4 themes
+
+- **ui/theme-consistency-audit merged (Opus, Douglas-ordered)**: 5 fix classes, CSS/colour
+  only, zero engine/data/markup changes, popup scan clean everywhere. (1) The predicted
+  vanishing-primary bug was REAL with themes swapped — Dark+Loam's `.btn` blanket outranked
+  `.btn.primary`; dialog buttons measured 1.00:1 (same colour as the dialog) → all ≥3.87:1.
+  (2) The BIGGEST find: the whole 16-control header nav was invisible in Dark/Loam (1.19-
+  1.47:1) → adopted the project's own .btn.ghost convention (3.55-3.63:1); RAD's naked
+  search field bordered. (3) RAD never declared color-scheme:dark on ANY page — UA-painted
+  #0000EE links (1.90:1) + light-scheme selects/scrollbars/autofill under dark purple; the
+  home-page link went 1.90→7.46. (4) Root-cause token fix: NEW --brand-text (per-theme
+  reading hue reusing each theme's own existing greens/pink — no invented hues) replacing
+  38 hand-patched color:var(--brand) uses; .sheet-ver had failed in all three dark themes.
+  (5) Two hardcoded-colour escapes fixed (KitBuilder's honesty badge was 1.56:1 in LIGHT;
+  the build sheet + spec-card share image still used the exact pre-AA greens the palette
+  comment had retired). Two of the audit's own false positives withdrawn with the RAD
+  checkerboard modeled; two of its own slips caught by its verification loop.
+- **Taste calls parked for Douglas (deliberately unchanged):** faint idle borders are house
+  style (lowest in LIGHT — options: leave/darken-all/dark-only); RAD .pick has no hover
+  feedback (one-liner ready); Light's Log-in boundary 2.83:1; the dead var() fallbacks
+  encoding retired values; slider THUMB ring ~2.87:1 in Dark (unmeasurable via
+  getComputedStyle — flagged, not fixed blind).
+- Gates: 7 OK, 988/988, tsc clean; deploy ships it (UI auto-ship on green gates + the
+  branch's exhaustive in-browser verification).
+
 ## 2026-07-22 — breadth wave 2: road-depth-2/3 + gravel-depth-1 + striders (road 240, gravel 288)
 
 - **catalog/road-depth-3 merged + coordinator completion**: first Cervélo (Caledonia-5)
