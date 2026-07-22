@@ -1757,6 +1757,50 @@ var BMX_PARTS = [
     verified: true, lastChecked: '2026-07-22',
     source: 'https://www.sparkysbrands.com/products/shadow-crowd-slim-pivotal-seat-black',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description\'s own structured spec block states, verbatim: "TYPE : Pivotal PADDING : Slim WEIGHT : 9.7 oz" (9.7oz = 275g, independently oz-stated, not the JSON shipping-weight field). "TYPE: Pivotal" directly confirms system:\'pivotal\'.'
+  },
+
+  // --- Eclat (eclatbmx.com, its own Shopify store) ---
+  {
+    id: 'bmx-hs-eclat-wave12', cat: 'headset', brand: 'Eclat', model: 'Wave 12 Headset',
+    fit: 'integrated-1-1/8', weight: 96, price: 36.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/wave-12-headset ("mid-stack 12mm top cap and x2 3mm spacers...6061-T6 alloy cnc machined, high-end sealed bearings"). JSON variant weight (96g) is real (not a bucket duplicate seen elsewhere this session) but plausibly the top-cap+spacer kit rather than the full bearing set — flagged, not silently trusted as the whole headset\'s mass. fit is display-only in checkBmxBuild (no rule reads it). Unverified sample.'
+  },
+  {
+    id: 'bmx-cr-eclat-tibiaxlt', cat: 'cranks', brand: 'Eclat', model: 'Tibia XLT Cranks',
+    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 770, price: 259.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/eclat-tibia-xlt-crank-1. Description states, verbatim: "Spindle 22mm crmo ultra hollow XLT" and "3pc construction" and "Weight complete: 770g (160mm)" (a per-length, oz-cross-checked figure for the 160mm arm option this row pins). ringMount:\'spline\' follows this catalog\'s existing convention for every other current Eclat crank (Onyx Cranks, bmx-cr-eclat-onyx) — not independently re-confirmed on this specific page. Unverified sample.'
+  },
+  {
+    id: 'bmx-ch-eclat-4stroke', cat: 'chain', brand: 'Eclat', model: '4 Stroke Halflink Chain',
+    pitch: '1/8', halfLink: true, weight: 454, price: 27.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://eclatbmx.com/products/4-stroke-halflink-chain',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "half link chain...Size 1/2\\" x 1/8\\"...Weight 454g (16.2oz : 1lbs)" — an independently oz-cross-checked figure (454g = 16.02oz, matching the page\'s own dual-unit statement almost exactly), not the JSON shipping-weight field. "half link" confirms halfLink:true.'
+  },
+  {
+    id: 'bmx-se-eclat-complexcombo', cat: 'seat', brand: 'Eclat', model: 'Complex Combo Seat (Kevlar)',
+    system: 'pivotal', price: 38.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/eclat-complex-combo-seat — an integrated seat+post combo ("25.4mm seat post, 200mm long...Bios Pivotal seat inspired s[hape]", the description\'s own phrasing pointing at this catalog\'s existing Eclat Bios Pivotal Seat as its design basis). system:\'pivotal\' follows from that stated lineage; not independently re-confirmed as a standalone claim on this specific page. Unverified sample (no reliable weight figure — the JSON variant weight is 0 across all three padding options).'
+  },
+  {
+    id: 'bmx-gr-eclat-filter', cat: 'grips', brand: 'Eclat', model: 'Filter Grip',
+    length: 164, flangeless: true, price: 10.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/filter-grips. Description states, verbatim: "one long-lasting flangeless grip...Now longer at 164mm". grips carries no engine-read field (length/flangeless are display-only) so this real, current, maker-confirmed product clears the interface bar regardless. Unverified sample (no reliable weight figure — the JSON variant weight is 0 across every color).'
+  },
+  {
+    id: 'bmx-hb-eclat-dive', cat: 'handlebar', brand: 'Eclat', model: 'Dive Bar',
+    clamp: '22.2mm', rise: 9.25, width: 29.5, price: 64.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/dive-bar. Description states, verbatim: "Rise 9.25\\" / 9.5\\" / 10\\" Width 29.5\\" Backsweep 12° Upsweep 2.5°...Clamping 22.2mm" (this row pins the 9.25in rise option). clamp is display-only in checkBmxBuild (no rule reads it). Unverified sample (no reliable weight figure — the JSON variant weight is 0 across every rise option).'
+  },
+  {
+    id: 'bmx-st-eclat-onyx', cat: 'stem', brand: 'Eclat', model: 'Onyx Stem',
+    clamp: '25.4mm', price: 47.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/onyx-stem. Description states, verbatim: "Available in Oversize (OS) 25.4mm clamping to fit our Strangler, Chocolate, Dive and other 25.4mm bars...Clamping 25.4mm oversize (OS) or 22.2mm" (this row pins the 25.4mm OS variant). clamp is display-only in checkBmxBuild. Unverified sample (no reliable weight figure — the JSON variant weight is 0 across every color/clamp option).'
+  },
+  {
+    id: 'bmx-fw-eclat-cortexta', cat: 'frontWheel', brand: 'Eclat', model: 'Cortex TA Front Hub',
+    wheelSize: '20', axle: '14mm', weight: 382, price: 99.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/eclat-cortex-ta-front-hub — a proprietary 14mm thru-axle (TA) front hub. Description states, verbatim: "14 mm thru-axle (TA) system...only compatible with 14 mm forks (check the Storm TA Fork)...Weight: 382 g (13.5 oz) – hub w/ thru-axle" (an oz-cross-checked figure independent of any Shopify shipping-weight field). axle:\'14mm\' is the maker\'s own literal spec, NOT the standard 10mm BMX front axle — this hub will only fit a fork of the same declared axle value in checkBmxBuild, so no false "fits" is created by cataloging it accurately even though no matching TA fork is in this catalog yet. wheelSize:\'20\' is Eclat\'s catalog-wide freestyle standard (not independently re-stated on this hub-only page). Unverified sample.'
   }
 ];
 
