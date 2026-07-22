@@ -206,6 +206,20 @@ standard); a post-mount caliper doesn't bolt to a flat-mount frame without an ad
 the MTB `brakeMount` (`PM`/`FM`)** — different meaning, a false-green generator. ruleId
 `rg-brake-mount`. Adapter tier (post→flat) is a dormant WARNING.
 
+> **SHIPPED STATE (supersedes the two adapter-tier lines above; see the rule comment in
+> `src/compat-road.js` for the sources).** R18 is no longer a plain exact-match ERROR:
+> - **2026-07-22 — I.S. tier:** a **post-mount caliper on an I.S. chassis** is an adapter-tier
+>   WARNING with a structured `fix` (Shimano SM-MA-\*P/S, Hope HBIS20/HBIS40).
+> - **2026-07-22 — FM↔PM tiers, Douglas ruled option A:** **both** directions are adapter-tier
+>   WARNINGS with a structured `fix`, ported from the live MTB rule 8 on mechanic corpus
+>   BRK-28/29 — post-mount caliper on a flat-mount chassis via Shimano's SM-MA "Flat mount type"
+>   line (DM-SMMA00A-01), flat-mount caliper on a post-mount chassis via Wolf Tooth's Post to
+>   Flat Mount adapter (message keeps its +20 mm-rotor-step and boss-clearance caveats). The
+>   "rarely pays off" line above described cost/faff, not fitment, and never was the blocker;
+>   the tier is no longer dormant, and the two engines now agree.
+> - **Still an ERROR:** a **flat-mount caliper on an I.S. chassis** (no mainstream maker path),
+>   and an **I.S. caliper** on anything else (dormant — no I.S. caliper is cataloged).
+
 **R19 — Brifter integration (lever + shifter are one unit). [NEW]** — ERROR/INFO.
 On a drop bar the brake lever and shifter are the **same SKU**, so the brifter's
 `brakeSystem` (hydraulic-disc / mechanical-disc / rim) must match the calipers **and** its
@@ -409,3 +423,9 @@ sourced manufacturer/standards data. The exact-match/definitional halves (R1–R
 R17, R18, R20, and the ERROR side of R5) are safe to ship active; the adapter tiers and fuzzy
 thresholds (R5 adapters, R6 capacity numbers, R8 cap, R16 numbers, R19 mechanical-hydraulic)
 stay dormant-until-sourced.
+
+> **Update 2026-07-22:** R18's adapter tiers have since cleared that bar and shipped ACTIVE (see
+> the R18 shipped-state note in §1) — sourced to Shimano's DM-SMMA00A-01 mount-adapter dealer
+> manual, Hope's brake-mounts page, and Wolf Tooth's Post to Flat Mount product page via mechanic
+> corpus BRK-28/29. That is the "activate per sourced manufacturer data" path working as written,
+> not an exception to it. The remaining tiers/thresholds listed above are still dormant.

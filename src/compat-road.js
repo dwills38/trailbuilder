@@ -1014,8 +1014,8 @@ function checkRoadBuild(build){
   /* R18. Brake mount: caliper vs frame/fork — flat-mount is the road/gravel
         disc standard (Shimano-designed; CrankSmith + bicycles.stackexchange
         fetched for the analysis doc) and a caliper of the wrong mount class
-        does not bolt to it as built. Exact-match ERROR by default, with ONE
-        DIRECTION-AWARE ADAPTER TIER ported from the live MTB rule 8
+        does not bolt to it as built. Exact-match ERROR by default, with the
+        DIRECTION-AWARE ADAPTER TIERS ported from the live MTB rule 8
         (src/compat.js; bias-audit 2026-07-17 HIGH-1, the same rule-9/6-bolt-
         on-Center-Lock template):
 
@@ -1058,17 +1058,46 @@ function checkRoadBuild(build){
             GRAVEL_VOCAB/schema-road's brakeMountRG, and no I.S. caliper is
             cataloged) — but the branch order above is direction-aware NOW, so
             it is already correct the day one is entered (the rule-9 precedent).
-          - FLAT-MOUNT <-> POST-MOUNT, both directions: unchanged ERROR. The
-            post-to-flat adapter tier the analysis doc mentions is still
-            deliberately NOT claimed here ("rarely pays off" is not a
-            documented fits-with-adapter fact; [MECHANIC REVIEW]). NOTE the
-            deliberate divergence from MTB rule 8, which DOES warn both ways off
-            Shimano's SM-MA flat-mount line and Wolf Tooth's Post-to-Flat
-            (mechanic corpus BRK-28/29, 2026-07-18): re-opening that deferral is
-            a separate ruling, not this rule's to make. Flagged, not changed.
+        FLAT-MOUNT <-> POST-MOUNT, BOTH DIRECTIONS -> adapter-tier WARNINGS
+        (Douglas ruled option A, 2026-07-22, re-opening the deferral this rule
+        shipped with; the divergence from MTB rule 8 is closed and the two
+        engines now agree). This is a PORT, not new research: the citations and
+        the caveat wording are MTB rule 8's own, from mechanic corpus BRK-28/29
+        (2026-07-17/18), which resolved the earlier BRK-17 contradiction by
+        finding a mainstream maker path in EACH direction:
+          - POST-MOUNT caliper on a FLAT-MOUNT chassis -> Shimano's SM-MA
+            adapter line has a dedicated "Flat mount type" section listing
+            flat-mount-chassis/post-mount-caliper part numbers (SM-MA-F140P/D,
+            SM-MA-F160P/D front; SM-MA-R140P/D, SM-MA-R160P/D, SM-MA-R160D/D
+            rear) — si.shimano.com DM-SMMA00A-01 "Mount Adapter" dealer's
+            manual, the same document the I.S. tier above rests on. Rotor-size-
+            specific, so the message names one example rather than promising a
+            universal part.
+          - FLAT-MOUNT caliper on a POST-MOUNT chassis -> Wolf Tooth's Post to
+            Flat Mount Brake Adapter (wolftoothcomponents.com, fetched
+            2026-07-17), a real mainstream SKU. Its message MUST keep both of
+            the maker's caveats, because they are what make this a "check it"
+            and not a clean fit: the adapter only steps the rotor size UP
+            (+20 mm — 140 native -> 160, 160 -> 180, 180 -> 200) and it needs
+            sufficient boss clearance (the maker states a 13 mm minimum and
+            names Fox Step Cast forks as incompatible).
+        The analysis doc's older "rarely pays off" line described cost/faff, not
+        fitment — it never was a fits-with-adapter finding either way, so it
+        neither blocked this nor supports reverting it.
+        WHAT THIS DOES NOT TOUCH: the I.S. tier above (2026-07-22) is unchanged,
+        and FM-caliper-on-I.S. stays an ERROR below — flat-mount->I.S. still has
+        no mainstream maker path (only the boutique A.S. Solutions part, rotor-
+        size-limited and explicitly "not compatible with all IS frames/forks"),
+        so a `fix` there would itself be a false "fits".
+        LIVE REACH: every gravel/road frame and fork in the catalog is
+        flat-mount, and the one post-mount caliper (Hope RX4+ Postmount) was a
+        guaranteed hard error against all of them — that whole cross-product is
+        now a yellow adapter warning. The reverse direction (a flat-mount
+        caliper on a post-mount chassis) is dormant-but-correct: no road/gravel
+        frame or fork row is post-mount yet.
         Applied symmetrically to the rear (frame) and front (fork) mount. */
-  /** @param {any} caliper @param {any} mountPart @param {string} caliperSlot @param {string} mountSlot @param {string} endLabel @param {string} adapterEg */
-  function brakeMountCheck(caliper, mountPart, caliperSlot, mountSlot, endLabel, adapterEg){
+  /** @param {any} caliper @param {any} mountPart @param {string} caliperSlot @param {string} mountSlot @param {string} endLabel @param {string} adapterEg @param {string} fmAdapterEg */
+  function brakeMountCheck(caliper, mountPart, caliperSlot, mountSlot, endLabel, adapterEg, fmAdapterEg){
     if(!caliper || !mountPart) return;
     var cm = caliper.mount, pm = mountPart.brakeMount;
     if(cm == null || pm == null || cm === pm) return;   // dormant without either field
@@ -1076,14 +1105,22 @@ function checkRoadBuild(build){
       warn('rg-brake-mount', [caliperSlot, mountSlot],
         endLabel + ' brake mount: ' + roadNameOf(caliper) + ' is a post-mount caliper and ' + roadNameOf(mountPart) + ' has an I.S. (International Standard) mount - fits with a size-specific I.S.-to-post-mount adapter (e.g. Shimano ' + adapterEg + ', or Hope HBIS20/HBIS40), matched to your rotor size.',
         {kind: 'adapter', name: 'I.S.-to-post-mount caliper adapter, ' + endLabel.toLowerCase() + ' (rotor-size-specific, e.g. Shimano ' + adapterEg + ')'});
+    else if(cm === 'post-mount' && pm === 'flat-mount')
+      warn('rg-brake-mount', [caliperSlot, mountSlot],
+        endLabel + ' brake mount: ' + roadNameOf(caliper) + ' is a post-mount caliper and ' + roadNameOf(mountPart) + ' has a flat mount - fits with a Shimano SM-MA flat-mount-to-post-mount adapter (e.g. ' + fmAdapterEg + '), matched to your rotor size.',
+        {kind: 'adapter', name: 'flat-mount-to-post-mount caliper adapter, ' + endLabel.toLowerCase() + ' (e.g. Shimano ' + fmAdapterEg + ')'});
+    else if(cm === 'flat-mount' && pm === 'post-mount')
+      warn('rg-brake-mount', [caliperSlot, mountSlot],
+        endLabel + ' brake mount: ' + roadNameOf(caliper) + ' is a flat-mount caliper and ' + roadNameOf(mountPart) + ' has a post mount - fits with a post-mount-to-flat-mount adapter (e.g. Wolf Tooth Post to Flat Mount); the adapter only steps the rotor size up (+20mm) and needs sufficient boss clearance.',
+        {kind: 'adapter', name: 'post-mount-to-flat-mount caliper adapter, ' + endLabel.toLowerCase() + ' (e.g. Wolf Tooth Post to Flat Mount)'});
     else if(cm === 'flat-mount' && pm === 'is-mount')
       err('rg-brake-mount', [caliperSlot, mountSlot],
         endLabel + ' brake mount mismatch: ' + roadNameOf(caliper) + ' is a flat-mount caliper and ' + roadNameOf(mountPart) + ' has an I.S. (International Standard) mount. The adapters makers publish for an I.S. mount take a POST-mount caliper (Shimano SM-MA-*P/S, Hope HBIS20/HBIS40) - pick a post-mount caliper for this frame/fork.');
     else
       err('rg-brake-mount', [caliperSlot, mountSlot], endLabel + ' brake mount mismatch: ' + roadNameOf(caliper) + ' is ' + cm + ' and ' + roadNameOf(mountPart) + ' takes ' + pm + ' calipers.');
   }
-  brakeMountCheck(rBrake, frame, 'rearBrake', 'frame', 'Rear', 'SM-MA-R160P/S');
-  brakeMountCheck(fBrake, fork, 'frontBrake', 'fork', 'Front', 'SM-MA-F160P/S');
+  brakeMountCheck(rBrake, frame, 'rearBrake', 'frame', 'Rear', 'SM-MA-R160P/S', 'SM-MA-R160P/D');
+  brakeMountCheck(fBrake, fork, 'frontBrake', 'fork', 'Front', 'SM-MA-F160P/S', 'SM-MA-F160P/D');
 
   /* R19. Brifter/caliper coupling — on a drop bar the brake lever and shifter
         are ONE SKU, so the levers' brake system must be able to actuate the

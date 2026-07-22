@@ -433,12 +433,82 @@ test('rg-brake-system errors any disc/rim class mix, silent all-disc', function(
 });
 
 /* ---- R18 brake mount --------------------------------------------------------- */
-test('rg-brake-mount errors a post-mount caliper on a flat-mount frame/fork', function(){
+/* NOTE the severity change (engine/road-fm-pm-adapter, Douglas ruled option A,
+   2026-07-22): this case USED to assert a hard error, under the rule's original
+   [MECHANIC REVIEW] deferral. It is not weakened here — it is pinned harder. The
+   deferral was re-opened and closed on mechanic corpus BRK-28/29's manufacturer
+   sources, so the assertion moves from "1 error" to the strictly more specific
+   "0 errors AND exactly 1 warning AND it carries a structured adapter fix AND the
+   message names the right end's Shimano part number". The flat-on-flat silence
+   negative below is unchanged. */
+test('rg-brake-mount: post-mount caliper on a FLAT-MOUNT frame is an adapter warning, not an error', function(){
   var pmCaliper = syn(rp('br-sram-red-axs'), { id: 'br-syn-pm', mount: 'post-mount' });
-  var r = ROAD.checkRoadBuild({ frame: rp('fr-specialized-sworks-tarmac-sl8'), rearBrake: pmCaliper });
-  eq(errOf(r, 'rg-brake-mount').length, 1);
+  var frame = rp('fr-specialized-sworks-tarmac-sl8');
+  eq(frame.brakeMount, 'flat-mount', 'the flat-mount chassis this tier unblocks');
+  var r = ROAD.checkRoadBuild({ frame: frame, rearBrake: pmCaliper });
+  eq(errOf(r, 'rg-brake-mount').length, 0, 'never a false "won\'t fit" — Shimano publishes the adapter');
+  var w = warnOf(r, 'rg-brake-mount');
+  eq(w.length, 1);
+  ok(/SM-MA-R160P\/D/.test(w[0].msg), 'names the REAR flat-mount-chassis adapter example: ' + w[0].msg);
+  ok(!/SM-MA-R160P\/S/.test(w[0].msg), 'not the I.S. part number — /D is the flat-mount line, /S the I.S. one');
+  eq(w[0].slots.join(','), 'rearBrake,frame');
+  ok(w[0].fix && w[0].fix.kind === 'adapter', 'carries the structured adapter fix');
+  ok(/flat-mount-to-post-mount/.test(w[0].fix.name), 'fix names the direction: ' + w[0].fix.name);
   var r2 = ROAD.checkRoadBuild({ fork: rp('fk-specialized-tarmac-sl8'), frontBrake: rp('br-sram-red-axs') });
   eq(of(r2, 'rg-brake-mount').length, 0, 'flat on flat');
+});
+
+test('rg-brake-mount: the flat-mount adapter tier applies symmetrically at the FORK end', function(){
+  var pmCaliper = syn(rp('br-sram-red-axs'), { id: 'br-syn-pm2', mount: 'post-mount' });
+  var fork = rp('fk-specialized-tarmac-sl8');
+  eq(fork.brakeMount, 'flat-mount');
+  var r = ROAD.checkRoadBuild({ fork: fork, frontBrake: pmCaliper });
+  eq(errOf(r, 'rg-brake-mount').length, 0);
+  var w = warnOf(r, 'rg-brake-mount');
+  eq(w.length, 1);
+  ok(/SM-MA-F160P\/D/.test(w[0].msg), 'the FRONT part number, not the rear one: ' + w[0].msg);
+  eq(w[0].slots.join(','), 'frontBrake,fork');
+  ok(/front/.test(w[0].fix.name), 'the fix is end-labelled: ' + w[0].fix.name);
+});
+
+test('rg-brake-mount: a FLAT-mount caliper on a POST-mount chassis warns, keeping BOTH Wolf Tooth caveats', function(){
+  // dormant on real data (no road/gravel frame or fork row is post-mount), so
+  // the chassis is synthetic — the caliper is a real cataloged flat-mount row.
+  var pmFrame = syn(gp('gfr-kona-sutra-ltd'), { id: 'gfr-syn-pm-chassis', brakeMount: 'post-mount' });
+  var r = ROAD.checkRoadBuild({ frame: pmFrame, rearBrake: gp('gbr-shimano-grx-br-rx820') });
+  eq(errOf(r, 'rg-brake-mount').length, 0, 'Wolf Tooth publishes this direction — not a won\'t-fit');
+  var w = warnOf(r, 'rg-brake-mount');
+  eq(w.length, 1);
+  ok(/Wolf Tooth Post to Flat Mount/.test(w[0].msg), 'names the maker part: ' + w[0].msg);
+  // the two caveats are what make this a "check it" rather than a clean fit —
+  // dropping either would overclaim the adapter (BRK-29's own limits).
+  ok(/\+20mm/.test(w[0].msg), 'keeps the +20mm rotor-step caveat: ' + w[0].msg);
+  ok(/boss clearance/.test(w[0].msg), 'keeps the boss-clearance caveat: ' + w[0].msg);
+  ok(w[0].fix && w[0].fix.kind === 'adapter', 'carries the structured adapter fix');
+  ok(/post-mount-to-flat-mount/.test(w[0].fix.name), 'fix names the direction: ' + w[0].fix.name);
+  // and symmetrically at the fork end
+  var pmFork = syn(gp('gfk-genesis-croixdefer-steel'), { id: 'gfk-syn-pm-chassis', brakeMount: 'post-mount' });
+  var rf = ROAD.checkRoadBuild({ fork: pmFork, frontBrake: gp('gbr-shimano-grx-br-rx820') });
+  eq(errOf(rf, 'rg-brake-mount').length, 0);
+  var wf = warnOf(rf, 'rg-brake-mount');
+  eq(wf.length, 1);
+  eq(wf[0].slots.join(','), 'frontBrake,fork');
+  ok(/\+20mm/.test(wf[0].msg) && /boss clearance/.test(wf[0].msg), 'the caveats travel to the front end too');
+});
+
+test('rg-brake-mount: the two FM<->PM directions are DISTINCT verdicts, not one shared message', function(){
+  // the verdict-identity contract: same ruleId + same slots, so only the message
+  // separates them. A copy-paste that gave both directions one message would
+  // make the dots and any dedup treat a Shimano fix as a Wolf Tooth one.
+  var pmCaliper = syn(gp('gbr-shimano-grx-br-rx820'), { id: 'gbr-syn-pm-cal', mount: 'post-mount' });
+  var wA = warnOf(ROAD.checkRoadBuild({ frame: gp('gfr-kona-sutra-ltd'), rearBrake: pmCaliper }), 'rg-brake-mount')[0];
+  var pmFrame = syn(gp('gfr-kona-sutra-ltd'), { id: 'gfr-syn-pm-chassis2', brakeMount: 'post-mount' });
+  var wB = warnOf(ROAD.checkRoadBuild({ frame: pmFrame, rearBrake: gp('gbr-shimano-grx-br-rx820') }), 'rg-brake-mount')[0];
+  ok(wA && wB, 'both directions fire');
+  ok(wA.msg !== wB.msg, 'different messages');
+  ok(wA.fix.name !== wB.fix.name, 'different fixes');
+  ok(/Shimano/.test(wA.fix.name) && !/Shimano/.test(wB.fix.name), 'the Shimano path is the flat-mount-chassis one only');
+  ok(!/Wolf Tooth/.test(wA.msg) && /Wolf Tooth/.test(wB.msg), 'the Wolf Tooth path is the post-mount-chassis one only');
 });
 
 /* ---- R18 I.S.-mount adapter tier (engine/gravel-is-mount, 2026-07-22) --------
@@ -517,6 +587,54 @@ test('rg-brake-mount stays DORMANT when either side does not state its mount', f
     'frame mount unknown != mismatched');
   eq(of(ROAD.checkRoadBuild({ rearBrake: gp('gbr-hope-rx4-plus-postmount-min') }), 'rg-brake-mount').length, 0,
     'a caliper with no frame at all');
+  // the same dormancy on the FM<->PM axis: an unstated mount is UNKNOWN, never
+  // a mismatch, so neither adapter tier may fire off a missing field.
+  var noMountFlatCal = syn(gp('gbr-shimano-grx-br-rx820'), { id: 'gbr-syn-nomount2' });
+  delete noMountFlatCal.mount;
+  var pmFrame2 = syn(gp('gfr-kona-sutra-ltd'), { id: 'gfr-syn-pm-chassis3', brakeMount: 'post-mount' });
+  eq(of(ROAD.checkRoadBuild({ frame: pmFrame2, rearBrake: noMountFlatCal }), 'rg-brake-mount').length, 0,
+    'post-mount chassis + caliper of unknown mount stays dormant');
+  var noMountFork = syn(gp('gfk-genesis-croixdefer-steel'), { id: 'gfk-syn-nomount' });
+  delete noMountFork.brakeMount;
+  var pmCal2 = syn(gp('gbr-shimano-grx-br-rx820'), { id: 'gbr-syn-pm-cal2', mount: 'post-mount' });
+  eq(of(ROAD.checkRoadBuild({ fork: noMountFork, frontBrake: pmCal2 }), 'rg-brake-mount').length, 0,
+    'post-mount caliper + fork of unknown mount stays dormant');
+});
+
+test('LIVE CATALOG PROBE: the Hope RX4+ post-mount caliper now reads YELLOW, not RED, on every flat-mount chassis', function(){
+  // The whole point of the ruling, checked against the real datasets rather
+  // than synthetics: before this change the catalog's ONLY post-mount caliper
+  // was a guaranteed hard error against every flat-mount frame and fork in
+  // road+gravel — i.e. it was unbuildable everywhere except the single I.S.
+  // frame. Yellow-not-red is asserted per chassis, on real rows only.
+  var hope = gp('gbr-hope-rx4-plus-postmount-min');
+  eq(hope.mount, 'post-mount', 'the catalog\'s one post-mount caliper');
+  /** @type {any[]} */
+  var chassis = [];
+  [GD.GRAVEL_PARTS, RD.ROAD_PARTS].forEach(function(/** @type {any[]} */ set){
+    set.forEach(function(p){
+      if((p.cat === 'frame' || p.cat === 'fork') && p.brakeMount === 'flat-mount') chassis.push(p);
+    });
+  });
+  ok(chassis.length > 50, 'the flat-mount chassis population is the bulk of the catalog: ' + chassis.length);
+  chassis.forEach(function(c){
+    var build = c.cat === 'frame' ? { frame: c, rearBrake: hope } : { fork: c, frontBrake: hope };
+    var r = ROAD.checkRoadBuild(build);
+    eq(errOf(r, 'rg-brake-mount').length, 0, c.id + ' must not hard-error the RX4+');
+    var w = warnOf(r, 'rg-brake-mount');
+    eq(w.length, 1, c.id + ' raises exactly one adapter warning');
+    ok(w[0].fix && w[0].fix.kind === 'adapter', c.id + ' carries the structured fix');
+    var wantPn = c.cat === 'frame' ? 'SM-MA-R160P/D' : 'SM-MA-F160P/D';
+    ok(w[0].msg.indexOf(wantPn) >= 0, c.id + ' names the right end\'s part number: ' + w[0].msg);
+  });
+  // and the flat-mount calipers that share those frames stay clean — the tier
+  // must not have turned R18 into a rule that fires on everything.
+  var flatCal = gp('gbr-shimano-grx-br-rx820');
+  eq(flatCal.mount, 'flat-mount');
+  chassis.forEach(function(c){
+    var build = c.cat === 'frame' ? { frame: c, rearBrake: flatCal } : { fork: c, frontBrake: flatCal };
+    eq(of(ROAD.checkRoadBuild(build), 'rg-brake-mount').length, 0, c.id + ' + a flat-mount caliper stays silent');
+  });
 });
 
 test('the Marin Nicasio+ BRAKE END is unblocked: every cataloged caliper choice is now legal or honestly explained', function(){
