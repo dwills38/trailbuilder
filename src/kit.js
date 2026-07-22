@@ -572,6 +572,22 @@ var KIT_PARTS = [
     desc:'Page cites a Virginia Tech 5-star rating; no CPSC/EN/ASTM standard code stated, so no `certs` asserted.',
     verified:true, lastChecked:'2026-07-14', source:'https://troyleedesigns.com/products/sp25-flowline-helmet-w-mips-point-black-charcoal' },
 
+  /* -- Helmets, women's fit (kit-breadth-3, 2026-07-22): the helmet cell had ZERO fitCut:'womens'
+     rows. Giro's own Women's Series copy states plainly "they do not feature a unique women's
+     fit" (just style/color range) — a shrink-it-and-pink-it line, so it is deliberately excluded.
+     Liv (Giant's women's-specific brand) is different: both pages below state the shell is
+     "created with an all-new, rounder head form" — a genuine sourced anatomical-fit claim, not
+     just colorways — so these are the real inclusion. Neither Liv page publishes a helmet weight
+     or a CPSC/EN/ASTM code, so both stay weightless/cert-free rather than guessed. -- */
+  { id:'hm-liv-rail-mips', cat:'helmet', brand:'Liv', model:'Rail MIPS', price:189.99,
+    type:'half-shell', rotational:'mips', fitCut:'womens', disciplines:['trail','enduro'], sizes:['S','M'],
+    desc:'Women\'s-specific trail/enduro helmet, "created with an all-new, rounder head form for increased fit range" (Liv\'s own copy) — a genuine fit claim, not a recolored unisex shell. No weight or CPSC/EN/ASTM code published on the page.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.liv-cycling.com/us/liv-rail-womens-helmet-liv-2023' },
+  { id:'hm-liv-roost-mips', cat:'helmet', brand:'Liv', model:'Roost MIPS', price:109.99,
+    type:'half-shell', rotational:'mips', fitCut:'womens', disciplines:['trail'], sizes:['S','M'],
+    desc:'Budget-tier women\'s-specific trail helmet, same "all-new, rounder head form" fit claim as the Rail. No weight or CPSC/EN/ASTM code published on the page.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.liv-cycling.com/us/roost-helmet-liv-2023?partnumber=800002698' },
+
   /* -- Shoes (soleType required: flat / clipless) -- */
   { id:'sho-fiveten-freerider-pro', cat:'shoes', brand:'Five Ten', model:'Freerider Pro', price:160, weight:696,
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['40','41','42','43','44','45','46','47'],
