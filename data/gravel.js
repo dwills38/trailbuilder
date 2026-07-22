@@ -65,6 +65,16 @@
 //     GRAVEL_VOCAB's own header forbids ("Widening this needs a real new row backing the
 //     value"), and THE BAR forbids the row. REOPEN THIS the day a maker page naming a
 //     36.1mm post or seat tube is fetched — not before.
+//   - gravel-breadth-1 (2026-07-22) NEW FLAG: SRAM's current mechanical 2x Apex front
+//     derailleur (FD-APX-A1, 10-speed, braze-on/clamp/direct-high mounts, confirmed real
+//     and current via sram.com/en/sram/models/fd-apx-a1) has NO matching `system` token in
+//     GRAVEL_VOCAB — every existing token is either an XPLR/AXS 1x-wireless family or a
+//     Shimano/Campagnolo family; there is no generic "SRAM mechanical road/gravel 2x" system
+//     value the way schema.js's MTB vocab has 'sram-eagle'. Force-fitting an existing token
+//     (e.g. 'sram-axs-road', which is wireless-only) would fabricate an actuation/system
+//     pairing that can't exist. NOT entered this pass — flagged for a future data-entry pass
+//     to add the token (with a name reviewed against SRAM's other mechanical-tier lines)
+//     rather than force-fit.
 //   - Tumbleweed / Curve's "non-standard" axle spacings: CLOSED, NO TOKEN NEEDED — this
 //     was already refuted by vocab-tier1 (2026-07-22) and nothing here changes it. Curve's
 //     GMX+ is standard 12x148 Boost + T47; Tumbleweed's Prospector originally shipped a
@@ -1430,6 +1440,9 @@ var GRAVEL_PARTS = [
   { id: 'gbb-wheelsmfg-t47-outboard', cat: 'bb', brand: 'Wheels Manufacturing', model: 'T47 Outboard', family: 'wheelsmfg-t47-outboard',
     shell: 't47-road', spindle: 'dub', weight: 75, price: 70,
     note: 'gravel-verify-2 (2026-07-21): PARTIAL — FETCHED wheelsmfg.com\'s own product page ("T47 Outboard ABEC-3 BB for 29mm SRAM DUB Compatible Cranks"). Confirms "T47 threaded BB cups for T47 frames and 29mm spindle diameter SRAM DUB compatible cranks" (shell=t47-road, spindle=dub — both stand). NOT marked verified: the page rendered its price in EUR (€120.95) rather than USD despite wheelsmfg.com being a US (Colorado) manufacturer — no confirmed US MSRP found this session — and no weight is published on the fetched page; both price and weight remain existing samples pending a session that can pull the USD storefront.' },
+  { id: 'gbb-sram-dub-t47-a1', cat: 'bb', brand: 'SRAM', model: 'DUB T47 Bottom Bracket', family: 'sram-dub-t47',
+    mfgPn: 'BB-DUB-T47-A1', shell: 't47-road', spindle: 'dub', weight: 120, price: 60,
+    note: 'gravel-breadth-1: NEW row — a real, distinct SRAM DUB SKU (Model ID BB-DUB-T47-A1) from the existing gbb-sram-dub-bsa row (threaded T47 shell, not BSA). FETCHED sram.com/en/sram/models/bb-dub-t47-a1 directly this session: confirms "T47" shell family (68/77/85.5mm cup options under one spindle interface, "One oversized spindle to work across every bottom bracket specification" = DUB) and states MSRP as a $60-$290 range (varies by shell width + standard-vs-ceramic bearing tier) — this row uses the $60 low end (standard steel-bearing, 68mm/T47-road shell) as a disclosed floor rather than an invented single figure. Weight (120g) not published on the fetched SRAM page; corroborated via retailer/forum citations (Weight Weenies, product listings) for the same BB-DUB-T47-A1 SKU — credible-source unverified sample per THE BAR/DATA-ENTRY-TEMPLATE §7, not independently confirmed on the manufacturer page, so no verified:true.' },
 
   // ===== HEADSET ==============================================================
   { id: 'ghs-canecreek-40-zs44-zs56', cat: 'headset', brand: 'Cane Creek', model: '40 Series',
