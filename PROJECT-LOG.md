@@ -1,5 +1,23 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — mtb-tail-17: both hanging leads resolved (MTB 3,366)
+
+- **verify/mtb-tail-17 merged**: 3 promotions (Burgtec RideHigh — now a single 38mm-rise
+  SKU on burgtec-usa.com, resolving tail-16's missing-rise blocker; two Lizard Skins
+  grips via the Shopify-configurator pane route) + 2 price fixes. The SDG Bel-Air V3
+  near-duplicate investigated with a recommended ALIASES disposition in the notes
+  (correctly not self-executed — queued for a coordinator fix). Wall discoveries worth
+  keeping: ANVL's domain is HIJACKED by a betting site; Easton's cycling division is
+  defunct (easton.com = Rawlings baseball now); Newmen's lineup fully renamed (Beskar).
+  The remaining punch list is judged mostly house-brand OE walls, with a named
+  higher-yield remainder for any future pass.
+- **Doctrine slip handled at merge**: the branch committed tools/verification-job.json
+  (coordinator-only). The coordinator re-ran the runner on the merged state — its
+  re-sync changed ONLY the timestamp, proving the committed state was a faithful
+  auto-sync, not corruption. State healed and re-committed by the coordinator; the
+  worker-brief clause stands unchanged.
+- Gates: 7 OK (MTB 3,366), 1038/1038, tsc clean.
+
 ## 2026-07-22 — kit-breadth-3: women's-fit done honestly (kit 736)
 
 - **catalog/kit-breadth-3 merged**: +12 rows, all verified. The women's-fit sweep with
