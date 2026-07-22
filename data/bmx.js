@@ -282,7 +282,7 @@ var BMX_PARTS = [
     family: 'united-supreme', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
     headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
     frameOnly: false, price: 465.00,
-    note: 'Frame spec pulled from the Supreme complete-bike page; also offered in 20.75in top tube. U-brake is the classic "990"-style mount, removable.'
+    note: 'WALL, checked 2026-07-21 (bmx-sweep-4): unitedbikeco.com\'s current BMX BIKES collection (fetched via browser pane) lists only the "United Recruit" line (16/18/18.5/20.25in, pre-order Aug/Sep 2026) - no "Supreme" model exists in the current maker catalog at all, confirming it is fully discontinued (not merely complete-bike-only). This row\'s spec (bbShell:mid, headTube:integrated-1-1/8, rearBrakeMount:u-brake "990", rearAxle:14mm, topTube:20.5, also offered 20.75in) is corroborated by numerous consistent retailer complete-bike listings (timelessbmxdistro.com, 5150bmx.com, skatehut.co.uk, americancycle.com - all quoting the identical official spec sheet text) but none is a fetchable maker page, so THE BAR cannot be met - left unverified/unchanged. Flagged for the coordinator: likely candidate for a `status:"discontinued"` tag rather than further verification attempts (no live maker source will ever exist for this model).'
   },
   {
     id: 'bmx-fr-mongoose-legionl60', cat: 'frame', brand: 'Mongoose', model: 'Legion L60',
@@ -430,7 +430,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-stolen-team', cat: 'cranks', brand: 'Stolen', model: 'Team Cranks',
-    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', price: 189.99
+    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', price: 189.99,
+    note: 'UNCONFIRMED, checked 2026-07-21 (bmx-sweep-4): fetched stolenbrand.com/collections/cranks (17 products, current maker storefront) - the full "Team" crankset is NOT sold today; current complete-crankset lineup is Odin, Mob V4, and Talon V2. Only Team-compatible SPARE parts remain listed ("TEAM/TALON CRANK SPINDLE", "TEAM 19MM CRANK BOLT KIT", "TEAM 22 CRANK BOLT KIT", "TEAM 2.5 CRANK BOLT KIT"), confirming a 22mm Team variant existed (matching this row\'s spindle:22mm) but is discontinued as a complete SKU. A third-party retailer listing (samsbmx.com, "Stolen Bikes Team 22 Bmx Cranks") independently corroborates spindle:22mm, 3-piece-equivalent (P2 arms + 1-piece spindle/sprocket boss), 48-spline, 876g, but sourceType:retailer cannot verify per THE BAR. Left unverified/unchanged; flagged for the coordinator as likely discontinued.'
   },
   {
     id: 'bmx-cr-profile-race-22', cat: 'cranks', brand: 'Profile Racing', model: 'Race Cranks 22mm',
@@ -575,8 +576,12 @@ var BMX_PARTS = [
     note: 'Freecoaster, 9T driver, 14mm chromoly axle bolts, RHD/LHD both available, weight (623g/22oz) and price ($169.99, was $199.99) all confirmed on the fetched maker page.'
   },
   {
-    id: 'bmx-rh-primo-remix', cat: 'rearWheel', brand: 'Primo', model: 'Remix Cassette Hub',
-    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 89.99
+    id: 'bmx-rh-primo-remix', cat: 'rearWheel', brand: 'Primo', model: 'Remix V3 Cassette Hub',
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 151.00,
+    verified: true, lastChecked: '2026-07-21',
+    source: 'https://primostranger.com/products/primo-remix-v3-hub',
+    note: 'bmx-sweep-4: current Remix generation is "V3" (model corrected, id kept per append-only policy). Fetched primostranger.com (Primo BMX\'s own storefront - "By PRIMO BMX"): confirms driverTeeth:9 ("1 pc 9t driver") and side:both (RHD/LHD/color variants all listed) exactly; driverType:cassette matches (the Remix line is Primo\'s cassette-hub family, distinct from any freecoaster). axle:14mm retained - the maker page\'s "true 17mm Female axle system" describes the axle BARREL/shaft OD, not the bolt-diameter convention this catalog\'s axle field uses; multiple retailer spec sheets (winstanleysbmx.com, sourcebmx.com) independently confirm "Chromoly 14mm female bolts" for the same V3 generation, matching the existing 14mm value. Price CORRECTED 89.99 -> 151.00 (maker\'s own listed USD price).'
+
   },
   {
     id: 'bmx-rh-profile-elite-freecoaster', cat: 'rearWheel', brand: 'Profile Racing', model: 'Z Coaster Hub',
@@ -676,7 +681,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-ti-veetireco-speedster', cat: 'tire', brand: 'Vee Tire Co', model: 'Speedster 1-3/8"',
-    wheelSize: '20', width: 1.375, casing: 'race-slick', maxPsi: 110, price: 19.99
+    wheelSize: '20', width: 1.375, casing: 'race-slick', maxPsi: 110, price: 19.99,
+    note: 'FLAGGED FOR THE COORDINATOR (bmx-sweep-4, 2026-07-21), NOT RETARGETED per dispatch instruction: confirmed veetires.com\'s current "Speedster" (singular, no size suffix) is an e-bike/fat-tire product, a wrong-product match for this BMX row - see bmx-sweep-3\'s prior finding. The REAL current BMX-lineup product is "Speedster BMX" (veetires.com/products/speedster-bmx-1, under the site\'s BMX/Street discipline finder), which DOES list a 20x1 3/8 variant with a full tech-spec table: ETRTO 37-451, MPC compound, B-Proof (Aramid Belt), 27 TPI, wire bead, Max 100 PSI (not this row\'s 110), 385g +/-. Note this does NOT exactly match the lead\'s cited "VRB316 FB 90TPI SpeedSter LSG" clearance-listing spec either - the current 20x1 3/8 Speedster BMX SKU is 27 TPI/MPC, while 90TPI/LSG only appears on the 24in-wheel variants of the same product line on the current site; the 90TPI/LSG 20in SKU may itself be an older/retired running change. Leaving retargeting (new id vs. correcting this one, and which exact spec vintage) to the coordinator.'
   },
   {
     id: 'bmx-ti-odyssey-aitken', cat: 'tire', brand: 'Odyssey', model: 'Aitken Tire 2.45"',
@@ -686,7 +692,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-ti-duo-svs', cat: 'tire', brand: 'DUO Brand', model: 'SVS Tire 2.3"',
-    wheelSize: '20', width: 2.3, casing: 'park', maxPsi: 95, price: 26.99
+    wheelSize: '20', width: 2.3, casing: 'park', maxPsi: 95, price: 26.99,
+    note: 'WALL, checked 2026-07-21 (bmx-sweep-4): duobrand.com (the maker\'s own site, confirmed via browser pane, not just a WebFetch failure - the store itself returns "This store is unavailable", a dead Shopify storefront) cannot be fetched. DATA POINT FOR THE COORDINATOR, NOT VERIFIED (retailer sourcing only, does not meet THE BAR): many independent retailers (dkbicycles.com, systemcycle.com, jdcyclesupply.com, probmxbikes.com) consistently describe the current SVS as a 20x2.25in tire (inflated width 2.22in/56.5mm), MAX PRESSURE 60PSI (not this row\'s 95) and ~592g/20.9oz - this catalog row\'s width:2.3/maxPsi:95 do not match that consensus, but cannot be corrected without a maker source per THE BAR. Left unchanged; flagged for the coordinator as a likely stale spec pending the maker site coming back online.'
   },
   {
     id: 'bmx-ti-colony-griplock-24', cat: 'tire', brand: 'Colony', model: 'Grip Lock Tire 2.35"',
@@ -739,7 +746,9 @@ var BMX_PARTS = [
   // ===== BRAKES =========================================================
   {
     id: 'bmx-br-diacompe-990', cat: 'brake', brand: 'Dia-Compe', model: '990 U-Brake',
-    mount: 'u-brake', price: 34.99, note: 'The original "990" that gave U-brakes their nickname on BMX.'
+    mount: 'u-brake', weight: 280, price: 34.99,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.diacompe.com.tw/product/ad990/',
+    note: 'bmx-sweep-4: fetched the maker\'s own Taiwan HQ site (diacompe.com.tw), the current "AD990" listing under BMX/Diacompe. Confirms mount:u-brake (cold forged aluminum arms, dual spring tension adjustment - the classic "990"-mount U-brake this catalog row and the id both reference) and states "280g/Wheel" - weight ADDED (no prior value). No price is published on the maker page (no e-commerce on diacompe.com.tw) - price kept as the prior 34.99 sample, unconfirmed against the source (THE PRICE RULE).'
   },
   {
     id: 'bmx-br-odyssey-evo25', cat: 'brake', brand: 'Odyssey', model: 'Evo 2.5 U-Brake',
@@ -750,7 +759,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-br-tektro-vbrake', cat: 'brake', brand: 'Tektro', model: 'Race V-Brake',
-    mount: 'v-brake', price: 19.99
+    mount: 'v-brake', price: 19.99,
+    note: 'UNCONFIRMED, checked 2026-07-21 (bmx-sweep-4): tektro.com\'s current BMX/MTB linear-pull (V-brake) lineup lists M530 (158g/wheel), J310 (155g/wheel), and 837AL - no model literally named "Race V-Brake" exists in the current catalog (tektro.com/en/category/3, tektro.com/bmx product pages). mount:v-brake is a plausible generic classification (all Tektro linear-pull brakes share the V-brake mount), but no maker page names this exact product, so left unverified/unchanged rather than guessing a specific SKU match. Flagged for the coordinator - possible discontinued/generic-name row, same failure class as the retired bmx-hb-sandm-speedball phantom name.'
   },
   {
     id: 'bmx-br-chase-rsp-vbrake', cat: 'brake', brand: 'Chase', model: 'RSP Race V-Brake',
@@ -758,9 +768,10 @@ var BMX_PARTS = [
     note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (see bmx-fk-chase-rsp note). Left unchanged, not verified.'
   },
   {
-    id: 'bmx-br-mankind-truth-ubrake', cat: 'brake', brand: 'Mankind', model: 'Truth U-Brake',
-    mount: 'u-brake', weight: 168, price: 74.99,
-    note: 'CNC machined 6061-T6 alloy, includes CNC alloy cable hanger + straddle cable.'
+    id: 'bmx-br-mankind-truth-ubrake', cat: 'brake', brand: 'Mankind', model: 'Truth V2 U-Brake',
+    mount: 'u-brake', weight: 144, price: 74.99,
+    verified: true, lastChecked: '2026-07-21', source: 'https://mankindbmx.com/produkte/truth-v2-u-bremse/',
+    note: 'bmx-sweep-4: current lineup name is "Truth V2" (model corrected from the prior "Truth U-Brake" placeholder, id kept per append-only policy). Maker page (mankindbmx.com, German storefront) confirms mount:u-brake (CNC 6061-T6 aluminum U-brake, wider design clears tires up to 2.4in) and states "Gewicht: 144 g" - weight CORRECTED 168 -> 144g to match exactly. No USD price is published on this EUR-region page (no e-commerce checkout shown) - price kept as the prior 74.99 sample, unconfirmed against the source (THE PRICE RULE).'
   },
 
   // ===== HANDLEBAR ======================================================
@@ -1083,8 +1094,10 @@ var BMX_PARTS = [
   {
     id: 'bmx-fr-wethepeople-trust', cat: 'frame', brand: 'WeThePeople', model: 'Trust',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
-    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
-    price: 549.99, note: 'Front-load street frame, currently sold as the Trust CS/FC complete bike. wethepeoplebmx.de/bikes/trust (fetched 2026-07-17) confirms 4130 full crmo, 127mm head tube (integrated-1-1/8), and an Eclat Talon u-brake rear - matching rearBrakeMount/headTube here. bbShell and rearAxle are NOT confirmed by that page (no standalone frame-only product page exists on the current site), so left unverified.'
+    topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 549.99,
+    verified: true, lastChecked: '2026-07-21', source: 'https://wethepeoplebmx.de/bikes/trust',
+    note: 'bmx-sweep-4: frameOnly CORRECTED true -> false - the current wethepeoplebmx.de/frames aftermarket-frame collection (fetched in full) does NOT list a standalone "Trust" frame SKU; it is sold only inside the Trust CS / Trust FC complete bikes, closing this row under the complete-bike-only frame exception (VERIFY-PROTOCOL, Douglas 2026-07-20). Raw-fetched the Trust CS complete-bike spec page: "WETHEPEOPLE TRUST FRAME, 4130 FULL CRMO... 127MM HEAD TUBE" (headTube:integrated-1-1/8 confirmed), "BB: SALT MID BB, 19MM, PRESS FIT" (bbShell:mid CONFIRMED - was previously unconfirmed), "REAR HUB: ECLAT CORTEX CASSETTE HUB... 14MM HOLLOW AXLE" (rearAxle:14mm CONFIRMED - was previously unconfirmed), "BRAKES: ECLAT TALON ALLOY U-BRAKE REAR" (rearBrakeMount:u-brake confirmed), geometry table "A - TOP TUBE LENGTH: 21\"" (topTube CORRECTED 20.75 -> 21 to match this exact colorway/spec page). Page states "WEIGHT: TBC KG / TBC LBS" (to-be-confirmed, no frame-only weight will ever exist per the complete-bike-only case) and no price is shown (regional site, no checkout) - price kept as the prior 549.99 sample, its basis undisclosed until now: THIS PRICE IS UNCONFIRMED AGAINST THE FETCHED SOURCE, likely a stale complete-bike-adjacent estimate (THE PRICE RULE covers a missing/sample price, not a claim of accuracy).'
   },
   {
     id: 'bmx-se-wethepeople-team', cat: 'seat', brand: 'WeThePeople', model: 'Team Pivotal Seat',
@@ -1094,7 +1107,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-rh-wethepeople-oem-9', cat: 'rearWheel', brand: 'WeThePeople', model: 'OEM Cassette Hub',
-    driverType: 'cassette', driverTeeth: 9, side: 'RHD', axle: '14mm', price: 74.99
+    driverType: 'cassette', driverTeeth: 9, side: 'RHD', axle: '14mm', price: 74.99,
+    note: 'UNCONFIRMED, checked 2026-07-21 (bmx-sweep-4): no standalone "OEM Cassette Hub" SKU found under the WeThePeople brand name - wethepeoplebmx.de/hub-hubguards-ov (the current aftermarket hub collection) lists only named hub models (Helix, Hybrid, Supreme, Arrow), never a plain "OEM" hub. The generic 9T/14mm/cassette spec IS corroborated as the as-shipped complete-bike hub on multiple current WTP builds - e.g. the Justice bike page states "REAR HUB: SALT PRO cassette hub, fully sealed, 9t, 14mm axle, 36h" (a Salt-branded OEM spec, WTP\'s in-house parts brand) and the Trust CS page states "ECLAT CORTEX CASSETTE HUB... 9T DRIVER, 14MM HOLLOW AXLE" (an Eclat-branded OEM spec, also WTP-family) - but neither is sold or named as a standalone "WeThePeople OEM Cassette Hub" product, so a confident 1:1 SKU match cannot be made. driverTeeth/axle/driverType all line up with both OEM specs found, so left unchanged; flagged for the coordinator as a possible id/brand mismatch (may be more accurately modeled as bmx-rh-salt-pro or bmx-rh-eclat-cortex under a new id, per append-only policy).'
   },
 
   // ---- Eclat (new brand to the catalog) --------------------------------
