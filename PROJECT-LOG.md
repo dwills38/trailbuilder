@@ -4770,3 +4770,18 @@ pre-commit (never assume field order; window edits to the record) — same lesso
 worker hit the same day; both self-caught. RESUME POINT: brand CST, then the giants
 (RockShox 519, Fox 149, Maxxis 99...) — slice B needs several more sessions. Gates green.
 Report: .claude/worker-reports/pb-mtb-b2.md.
+
+## 2026-07-22 — tier-2 drivetrain design packet merged (tools/TIER2-DRIVETRAIN-DESIGN.md)
+Q2 (shimano-11) DISSOLVED: the premise was stale — shimano-11 live since ede27a3, the full
+M5100 group verified 2026-07-21, live-engine probe of an M5100 Honzo build = clean. W1
+(the Honzo desc's obsolete "vocab does not yet cover" sentence) fixed in this merge; W2
+(base-alloy cb-kona-honzo row, re-fetch konaworld.com) queued as an ordinary grind chip.
+Q1 (gravel mullet) is a REAL decision for Douglas: 4 SRAM-documented configs, options A-D
+costed, B (Eagle tokens + AXS exemption + sourced pullRatio field, staged) recommended —
+the mechanical Apex mullet (M3) is what breaks the cheap option. Two pre-existing findings
+need follow-up: (a) sram-apex-mech-12 token conflates Flattop/Eagle chain standards — split
+or guard-note before the next wave; (b) ROAD_VOCAB/ROAD_SYSTEM_CHAIN drift makes R15
+silently dormant for the live GRX-10 tier — extend the golden vocab pin + lint every system
+token has a chain entry (protects Q1's implementation too). All claims manufacturer-cited
+(12 sources; support.sram.com via the Exa lane). Gates green.
+Report: .claude/worker-reports/t2-drivetrain-design.md.
