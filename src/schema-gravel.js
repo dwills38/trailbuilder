@@ -43,26 +43,64 @@ function dateOk(v, today){
 /** @type {Object.<string, Array<string|number>>} */
 var GRAVEL_VOCAB = {
   wheel:        ['700c', '650b'],
-  rearAxle:     ['12x142', '12x148'],   // '12x148' (Boost, MTB-derived) added gravel-verify-1 (2026-07-21) — the Salsa Cutthroat's own frame-specs table states "Rear Spacing 148 x 12 mm Thru-axle" (a drop-bar-mountain-bike bikepacking platform, not a road-derived 142mm frame); a real, sourced value, not a guess.
+  rearAxle:     ['12x142', '12x148', '135x9-qr', '135x10-qr'],   // '12x148' (Boost, MTB-derived) added gravel-verify-1 (2026-07-21) — the Salsa Cutthroat's own frame-specs table states "Rear Spacing 148 x 12 mm Thru-axle" (a drop-bar-mountain-bike bikepacking platform, not a road-derived 142mm frame); a real, sourced value, not a guess. '135x9-qr'/'135x10-qr' added vocab-tier1 (2026-07-22) — QR (not thru-axle) rear spacing, real on several older/budget gravel platforms this file previously flagged rather than force-fit as 12x142: '135x9-qr' is the classic 9mm-skewer QR standard (a retailer spec table states the Marin Nicasio+'s rear axle verbatim as "135x9mm Quick-Release Axle"); '135x10-qr' is the wider 10mm-skewer class named on this file's Kona Rove AL ("10x135mm rear axle", Joytech-hub spec table) and Salsa Journeyman ("10 x 135mm, QR", Salsa's own archived spec page) rows — two independent makers naming the same 10mm/135mm QR combination, distinct from the narrower 9mm class.
   axle:         ['12x100', '12x142', 'lefty-proprietary', '15x100'],
   hub:          ['12x100', '12x142'],
   brakeMount:   ['flat-mount'],
   brakeSystem:  ['disc-flat', 'disc', 'disc-hydraulic'],
-  bb:           ['bsa-road', 'bb86', 'bb30a', 'pf30', '24mm-road', 'dub', 'dub-wide', 'ultra-torque', 'bbright', 't47-road', 'bb386evo', 't47-86', 'pf92'],   // 'pf86' retired 2026-07-21 — merged into 'bb86' (same physical 86.5mm press-fit shell; see schema-road.js's header note). Fixes the 2 Giant Revolt frames that had NO matching BB row under the old split. 'pf92' added gravel-verify-1 (2026-07-21) — the Salsa Cutthroat's own frame-specs table states "Bottom Bracket Press Fit BB92, 41 x 92 mm", an MTB-style 92mm press-fit shell distinct from every existing gravel BB token (BB86 is 86.5mm).
+  bb:           ['bsa-road', 'bb86', 'bb30a', 'pf30', '24mm-road', 'dub', 'dub-wide', 'ultra-torque', 'bbright', 't47-road', 'bb386evo', 't47-86', 'pf92', 'square-taper', 'bsa-73', 't47a-bbright'],   // 'pf86' retired 2026-07-21 — merged into 'bb86' (same physical 86.5mm press-fit shell; see schema-road.js's header note). Fixes the 2 Giant Revolt frames that had NO matching BB row under the old split. 'pf92' added gravel-verify-1 (2026-07-21) — the Salsa Cutthroat's own frame-specs table states "Bottom Bracket Press Fit BB92, 41 x 92 mm", an MTB-style 92mm press-fit shell distinct from every existing gravel BB token (BB86 is 86.5mm). 'square-taper' added vocab-tier1 (2026-07-22) — an older/budget touring-adjacent shell real on the Marin Nicasio+ (a retailer spec table states verbatim "Sealed Cartridge Bearings, Square Taper"), the exact non-fit this file's own header comment previously logged rather than force-fit. 'bsa-73' added vocab-tier1 (2026-07-22) — a 73mm-wide English-threaded MTB-derived shell, real on the Kona Sutra LTD (its own dedicated build spec table states "B/B SRAM GXP 73mm", corroborated by a bikepacking.com review's "73mm bottom bracket shell... 68mm shells be damned"), distinct from the narrower 68mm bsa-road token already in this vocab. 't47a-bbright' added vocab-tier1 (2026-07-22) — an asymmetric T47-threaded shell (Cervelo's own evolution of its BBRight standard, distinct from both the plain 't47-road' and 'bbright' tokens already in this vocab). Directly FETCHED cervelo.com/en-US/bikes/aspero (the manufacturer's own current Aspero platform page): "Aspero uses the asymmetrical T47a threaded bottom bracket we pioneered on R5-CX... allows us to deliver the benefits of BBRight in a more user-friendly form" — corroborated identically by a directly-fetched bikeradar.com Aspero-5 review build table ("Bottom bracket SRAM DUB Wide Ceramic, T47 BBright") and bikerumor.com ("a threaded T47 bottom bracket – well an asymmetric BBRight T47a BB"). No Aspero-5 catalog row was added this pass: the same review's build table also names an "FSA IS2 1-1/4, 45°x45° / 1-1/2, 36°x45°" headset — a 1-1/4-to-1-1/2 tapered class, WIDER than this vocab's existing generic 'tapered' token (which every other tapered gravel frame/fork in this file implicitly means as 1-1/8-to-1-1/2) — outside this pass's ratified steerer scope (only 'tapered'/'straight-1-1-8'/'straight-1-1-4' were ratified), so forcing plain 'tapered' onto it would be a false interface claim; deferred to a future pass alongside a steerer-vocab widening.
   shell:        ['bsa-road', 't47-road', 'bb86', 't47-86'],
-  spindle:      ['24mm-road', 'dub'],
+  spindle:      ['24mm-road', 'dub', 'square-taper'],   // 'square-taper' added vocab-tier1 (2026-07-22), paired with the bb shell token above — the matching crank-side interface for a square-taper BB shell (no cataloged gravel crank currently uses it; landed for schema completeness alongside the shell token, same discipline as every other shell/spindle pair in this vocab).
   seatpost:     ['27.2', '31.6', '30.9', 'proprietary'],
   // dropperDiameter — split from the 'seatpost' vocab above: a dropper is
   // always a real round tube (never the rigid-seatpost 'proprietary' token,
   // which would falsely validate a dropper diameter that can't exist).
   dropperDiameter: ['27.2', '31.6', '30.9'],
-  steerer:      ['tapered'],
-  frontDerailleurMount: ['none', 'braze-on'],
+  steerer:      ['tapered', 'straight-1-1-8', 'straight-1-1-4'],
+  // 'straight-1-1-8' mirrors road's existing token (schema-road.js steererRG) — same
+  // 28.6mm/1-1/8in constant-diameter steer tube, now confirmed on multiple gravel rows
+  // (see GRAVEL_VOCAB usage sites below) rather than only a road-frame phenomenon.
+  // 'straight-1-1-4' is a genuinely different, wider constant-diameter tube (1-1/4in,
+  // ~31.75mm) seen stated verbatim on the Canyon Grizl CF SL fork spec ("Fork steer tube
+  // diameter: 1 1/4\"") — the same class Wilier's own gravel-adjacent forks were logged
+  // against in this file's header comment; never conflated with the narrower 1-1/8 token.
+  frontDerailleurMount: ['none', 'braze-on', 'band-28.6'],
+  // 'band-28.6' added vocab-tier1 (2026-07-22) — a clamp-on (not brazed/bolted-boss) FD mount
+  // at the common 28.6mm seat-tube-adjacent diameter, real on two independently-fetched
+  // rows this file previously logged as vocab-blocked rather than force-fit as braze-on:
+  // the All-City Gorilla Monsoon ("Front Derailleur Type Band Clamp") and the Bombtrack
+  // Hook EXT ("Front derailleur clamp diameter: 28.6 mm", "Frame front derailleur
+  // compatible: yes").
   material:     ['alloy', 'steel', 'titanium'],
+  // 'sliding' ported from src/schema.js's MTB dropoutType (vocab-tier1, 2026-07-22) — an
+  // adjustable-chainstay-length dropout mechanism real on bikepacking-oriented gravel
+  // frames this file's header comment previously logged as a schema gap (no dropoutType
+  // field existed at all): Salsa's own Fargo product page describes its "Alternator
+  // Dropouts" verbatim as "Adjusts chainstay length to modify ride traits and tire fit
+  // (with adjustable swing plates)" and "Tensions chain for single-speed use". Landed
+  // dormant like MTB's own field — no gravel single-speed/ss-tension rule exists yet,
+  // so this is display/annotation only until one does, same land-dormant-then-activate
+  // template rule 18/14c already use. Only the one real value ratified this pass; the
+  // other three MTB tokens (horizontal/ecc-bb/vertical) are NOT added without their own
+  // flagged gravel row.
+  dropoutType:  ['sliding'],
   freehub:      ['xdr', 'n3w', 'micro-spline-road', 'hg-road'],
   rotorMount:   ['center-lock'],
-  casing:       ['tcs-light', 'tcs-tough', 'zsg', 'shieldwall', 'protection', 'hardwall', 'super-ground', 'exo', 'tubeless-complete', 'trail', 'standard', 'extralight', 'endurance'],
-  compound:     ['fast-rolling', 'high-grip', 'std', 'blackchili', 'smartnet', 'addix-speedgrip', 'addix', 'dual', 'dynamic-rs', 'g2'],
+  casing:       ['tcs-light', 'tcs-tough', 'zsg', 'shieldwall', 'protection', 'hardwall', 'super-ground', 'exo', 'tubeless-complete', 'trail', 'standard', 'extralight', 'endurance', 'light-supple'],
+  compound:     ['fast-rolling', 'high-grip', 'std', 'blackchili', 'smartnet', 'addix-speedgrip', 'addix', 'dual', 'dynamic-rs', 'g2', 'puregrip'],
+  // Display-only casing/compound SKU-axis tokens ratified vocab-tier1 (2026-07-22) —
+  // brand-native names, never feed checkBuild: 'light-supple' is Teravail's own casing-
+  // tier name ("Light & Supple, Black" on the Sparwood 700x56 row's own fetched page,
+  // teravail.com/products/sparwood-tire — the row previously fell back to the closest
+  // approximation, 'extralight'). 'puregrip' is Continental's own compound name ("PureGrip
+  // Compound" on the Terra Trail ShieldWall 650x47 row's own fetched Tire Range PDF — the
+  // row previously fell back to 'std'). WTB's own casing-tier naming (TCS Light/TCS Tough,
+  // seen on its Breakout MTB tire and used identically across its gravel line) was
+  // investigated for a matching gap and found to be FULLY covered already by the existing
+  // tcs-light/tcs-tough tokens — no new token added, not a real gap. Specialized's
+  // "GRIPTON"/"2Bliss Ready" naming is real (directly fetched on this catalog's road.js
+  // Cotton TLR rows) but no gravel Specialized tire is cataloged yet to carry it — deferred
+  // to a future data-entry pass rather than adding an unused token with no backing row.
   actuation:    ['di2-wired', 'mechanical', 'axs-wireless', 'hydraulic'],
   side:         ['pair'],
   system:       ['shimano-grx-12', 'shimano-grx-11', 'shimano-grx-10', 'sram-xplr-12', 'sram-xplr-13', 'sram-apex-mech-12',
@@ -118,7 +156,7 @@ var GRAVEL_SCHEMA = {
     bb:{type:'string',vocab:'bb'}, seatpost:{type:'string',vocab:'seatpost'}, steerer:{type:'string',vocab:'steerer'},
     maxTireByWheel:{type:'map'}, frontDerailleurMount:{type:'string',vocab:'frontDerailleurMount'},
     frameOnly:{type:'bool'}, material:{type:'string',vocab:'material',optional:true},
-    gen:{type:'string',optional:true}
+    gen:{type:'string',optional:true}, dropoutType:{type:'string',vocab:'dropoutType',optional:true}
   },
   fork: {
     wheel:{type:'strArray',vocab:'wheel'}, axle:{type:'string',vocab:'axle'}, steerer:{type:'string',vocab:'steerer'},

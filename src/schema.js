@@ -59,7 +59,15 @@ var VOCAB = {
      '10x135-bolt' (a 10mm BOLT-thru axle, not a 5mm quick-release skewer,
      used on DJ/street frames) - conflating any of these would be a false
      "fits" on a hub/frame pairing. Added cb-grind6-trek-giant-ht 2026-07-16. */
-  rearAxle:     ['Boost148', 'SuperBoost157', '142x12', '150x12', '10x135-bolt', 'Boost141', '135x5-qr'],
+  rearAxle:     ['Boost148', 'SuperBoost157', '142x12', '150x12', '10x135-bolt', 'Boost141', '135x5-qr', '9x135-bolt'],
+  // '9x135-bolt' added vocab-tier1 (2026-07-22) — same diameter-x-spacing-bolt naming as
+  // the existing 10x135-bolt token, one size down: a 3/8in (9mm) bolt-on solid rear axle,
+  // real on the budget Mongoose Fireball SS dirt-jump hardtail (Mongoose's own product
+  // page, int.mongoose.com/products/fireball-ss: "Tectonic T1... 9 mm x 135 mm dropout,
+  // replaceable hanger" + "Rear Hub Xposure, aluminum, sealed-bearing, 3/8" x 135 mm,
+  // 32H, 6-bolt" — corroborated identically across 3 independent listings of the same
+  // SKU, closing the "Mongoose Fireball's 9x135 bolt dropout needs a vocab call" flag
+  // logged at the hardtail-breadth-2 wave).
   /* 20x110 = the MODERN dual-crown standard, 20x110 BOOST (BoxXer D1, Fox 40
      2025). '20x110-nonboost' = the legacy/standard DH spacing some forks still
      use (Marzocchi Bomber 58 - maker page states "20x110 DH (non-Boost)").

@@ -164,6 +164,12 @@ test('FM (flat mount) is valid brakeMount vocab; unknown mounts still rejected',
   eq(probs(p).length, 0);
   some(probs(over('bk-magura-mt7', { mount:'XYZ' })), 'mount');
 });
+test('9x135-bolt (vocab-tier1, 2026-07-22) is valid rearAxle vocab; unknown axle spacings still rejected', function(){
+  var p = over('fr-mongoose-fireball-ss', { rearAxle:'9x135-bolt' });
+  delete p.verified; delete p.lastChecked; delete p.source;   // provenance-date noise
+  eq(probs(p).length, 0);
+  some(probs(over('fr-mongoose-fireball-ss', { rearAxle:'9x142-bolt' })), 'rearAxle');
+});
 test('IS (International Standard) is valid brakeMount vocab - widened grind-7 w5 after confirming IS is a genuinely distinct, non-interchangeable-without-adapter mount (51mm bolt spacing parallel to axle vs PM 74.2mm perpendicular)', function(){
   var p = over('bk-magura-mt7', { mount:'IS' });
   delete p.verified; delete p.lastChecked; delete p.source; delete p.priceBasis;   // provenance-date noise

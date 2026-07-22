@@ -41,6 +41,177 @@ test('an out-of-vocab bb value is caught', function(){
   ok(probs.some(function(m){ return /bb.*not in bb/.test(m); }), probs.join('\n'));
 });
 
+// vocab-tier1 (2026-07-22): ratified straight-steerer tokens (mirrors road's
+// existing straight-1-1-8; straight-1-1-4 is the wider Wilier-class gap) —
+// positive (each validates clean) + negative (still an exact-match vocab,
+// not a wildcard) coverage for both.
+test('straight-1-1-8 steerer is a valid gravel frame value', function(){
+  var frame = aFrame();
+  var p = Object.assign({}, frame, { steerer: 'straight-1-1-8' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('straight-1-1-4 steerer is a valid gravel frame value', function(){
+  var frame = aFrame();
+  var p = Object.assign({}, frame, { steerer: 'straight-1-1-4' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('an out-of-vocab steerer value is still caught', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { steerer: 'straight-1-inch' });
+  var probs = S.validateGravelPart(bad, TODAY);
+  ok(probs.some(function(m){ return /steerer.*not in steerer/.test(m); }), probs.join('\n'));
+});
+
+// vocab-tier1 (2026-07-22): ratified QR rear-axle tokens — 135x9-qr (the
+// classic 9mm-skewer class, Marin Nicasio+) and 135x10-qr (the wider
+// 10mm-skewer class, Kona Rove AL / Salsa Journeyman) — positive + negative.
+test('135x9-qr rear axle is a valid gravel frame value', function(){
+  var frame = aFrame();
+  var p = Object.assign({}, frame, { rearAxle: '135x9-qr' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('135x10-qr rear axle is a valid gravel frame value', function(){
+  var frame = aFrame();
+  var p = Object.assign({}, frame, { rearAxle: '135x10-qr' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('an out-of-vocab rearAxle value is still caught', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { rearAxle: '135x12-qr' });
+  var probs = S.validateGravelPart(bad, TODAY);
+  ok(probs.some(function(m){ return /rearAxle.*not in rearAxle/.test(m); }), probs.join('\n'));
+});
+
+// vocab-tier1 (2026-07-22): ratified square-taper BB shell token (frame bb
+// field) + its matching crank spindle token — positive + negative.
+test('square-taper bb is a valid gravel frame value', function(){
+  var frame = aFrame();
+  var p = Object.assign({}, frame, { bb: 'square-taper' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('an out-of-vocab bb value distinct from square-taper is still caught', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { bb: 'octalink' });
+  var probs = S.validateGravelPart(bad, TODAY);
+  ok(probs.some(function(m){ return /bb.*not in bb/.test(m); }), probs.join('\n'));
+});
+
+test('square-taper is a valid crankset bb value too (same shared bb vocab as the frame field)', function(){
+  var crank = D.GRAVEL_PARTS.find(function(x){ return x.cat === 'crankset'; });
+  if(!crank) throw new Error('no gravel crankset row found in data/gravel.js');
+  var p = Object.assign({}, crank, { bb: 'square-taper' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('square-taper is a valid standalone bb-part spindle value', function(){
+  var bbPart = D.GRAVEL_PARTS.find(function(x){ return x.cat === 'bb'; });
+  if(!bbPart) throw new Error('no gravel bb-part row found in data/gravel.js');
+  var p = Object.assign({}, bbPart, { spindle: 'square-taper' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+// vocab-tier1 (2026-07-22): ratified bsa-73 shell token (Kona Sutra LTD) —
+// positive + negative.
+test('bsa-73 bb is a valid gravel frame value', function(){
+  var frame = aFrame();
+  var p = Object.assign({}, frame, { bb: 'bsa-73' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('an out-of-vocab bb value distinct from bsa-73 is still caught', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { bb: 'bsa-100' });
+  var probs = S.validateGravelPart(bad, TODAY);
+  ok(probs.some(function(m){ return /bb.*not in bb/.test(m); }), probs.join('\n'));
+});
+
+// vocab-tier1 (2026-07-22): ratified t47a-bbright shell token (Cervelo
+// Aspero-5's asymmetric T47/BBright hybrid) — positive + negative.
+test('t47a-bbright bb is a valid gravel frame value', function(){
+  var frame = aFrame();
+  var p = Object.assign({}, frame, { bb: 't47a-bbright' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('an out-of-vocab bb value distinct from t47a-bbright is still caught', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { bb: 't47a-road' });
+  var probs = S.validateGravelPart(bad, TODAY);
+  ok(probs.some(function(m){ return /bb.*not in bb/.test(m); }), probs.join('\n'));
+});
+
+// vocab-tier1 (2026-07-22): ratified display-only casing/compound SKU-axis
+// tokens (never feed checkBuild) — puregrip (Continental) + light-supple
+// (Teravail) — positive + negative.
+/** @returns {any} */
+function aTire(){
+  var p = D.GRAVEL_PARTS.find(function(x){ return x.cat === 'tire'; });
+  if(!p) throw new Error('no gravel tire row found in data/gravel.js');
+  return p;
+}
+
+test('puregrip compound is a valid gravel tire value', function(){
+  var tire = aTire();
+  var p = Object.assign({}, tire, { compound: 'puregrip' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('light-supple casing is a valid gravel tire value', function(){
+  var tire = aTire();
+  var p = Object.assign({}, tire, { casing: 'light-supple' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('an out-of-vocab compound/casing value is still caught', function(){
+  var tire = aTire();
+  var badCompound = Object.assign({}, tire, { compound: 'ultragrip' });
+  ok(S.validateGravelPart(badCompound, TODAY).some(function(m){ return /compound.*not in compound/.test(m); }));
+  var badCasing = Object.assign({}, tire, { casing: 'super-supple' });
+  ok(S.validateGravelPart(badCasing, TODAY).some(function(m){ return /casing.*not in casing/.test(m); }));
+});
+
+// vocab-tier1 (2026-07-22): ratified band-28.6 front-derailleur-mount token
+// (clamp-on, not brazed/bolted-boss) — positive + negative.
+test('band-28.6 frontDerailleurMount is a valid gravel frame value', function(){
+  var frame = aFrame();
+  var p = Object.assign({}, frame, { frontDerailleurMount: 'band-28.6' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('an out-of-vocab frontDerailleurMount value is still caught', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { frontDerailleurMount: 'band-31.8' });
+  var probs = S.validateGravelPart(bad, TODAY);
+  ok(probs.some(function(m){ return /frontDerailleurMount.*not in frontDerailleurMount/.test(m); }), probs.join('\n'));
+});
+
+// vocab-tier1 (2026-07-22): ratified dropoutType field (ported from MTB's
+// dropoutType, gravel-scoped to 'sliding' only) — optional, positive +
+// negative, plus proof it's absent-safe (no gravel row uses it yet).
+test('a frame with no dropoutType is still valid (the field is optional)', function(){
+  var frame = aFrame();
+  eq(frame.dropoutType, undefined, 'sanity: no live gravel row uses dropoutType yet');
+  eq(S.validateGravelPart(frame, new Date()).length, 0);
+});
+
+test('sliding dropoutType is a valid gravel frame value', function(){
+  var frame = aFrame();
+  var p = Object.assign({}, frame, { dropoutType: 'sliding' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('an out-of-vocab dropoutType value is caught', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { dropoutType: 'horizontal' });
+  var probs = S.validateGravelPart(bad, TODAY);
+  ok(probs.some(function(m){ return /dropoutType.*not in dropoutType/.test(m); }), probs.join('\n'));
+});
+
 test('a missing required field is caught', function(){
   var frame = aFrame();
   var bad = Object.assign({}, frame); delete bad.rearAxle;

@@ -113,6 +113,19 @@ test('rg-rear-axle errors a QR hub on a thru-axle frame', function(){
   eq(of(r2, 'rg-rear-axle').length, 0, '12x142 on 12x142');
 });
 
+test('rg-rear-axle: ratified QR tokens (vocab-tier1, 2026-07-22) match their own class, error against thru-axle and each other', function(){
+  var frame9 = gp('gfr-marin-nicasio-plus');   // real row, rearAxle:'135x9-qr'
+  var wheel9 = syn(gp('grw-dtswiss-g1800-650b'), { id: 'grw-syn-135x9', hub: '135x9-qr' });
+  var r = ROAD.checkRoadBuild({ frame: frame9, rearWheel: wheel9 });
+  eq(of(r, 'rg-rear-axle').length, 0, '135x9-qr frame + 135x9-qr wheel (matched class) fits');
+  var thruWheel = syn(gp('grw-dtswiss-g1800-650b'), { id: 'grw-syn-thru', hub: '12x142' });
+  var r2 = ROAD.checkRoadBuild({ frame: frame9, rearWheel: thruWheel });
+  eq(errOf(r2, 'rg-rear-axle').length, 1, 'thru-axle wheel in a 135x9-qr frame errors');
+  var wheel10 = syn(gp('grw-dtswiss-g1800-650b'), { id: 'grw-syn-135x10', hub: '135x10-qr' });
+  var r3 = ROAD.checkRoadBuild({ frame: frame9, rearWheel: wheel10 });
+  eq(errOf(r3, 'rg-rear-axle').length, 1, '135x10-qr wheel in a 135x9-qr frame errors — the two QR diameter classes are never interchangeable');
+});
+
 /* ---- R4 steerer ----------------------------------------------------------- */
 test('rg-steerer errors frame/fork and headset/fork mismatches, silent matched', function(){
   var straightFork = syn(rp('fk-canyon-ultimate-cfslx'), { id: 'fk-syn-straight', steerer: 'straight-1-1-8' });
@@ -123,6 +136,19 @@ test('rg-steerer errors frame/fork and headset/fork mismatches, silent matched',
   eq(errOf(r2, 'rg-headset-steerer').length, 1, 'straight-steerer headset on a tapered fork');
   var r3 = ROAD.checkRoadBuild({ frame: rp('fr-canyon-ultimate-cfslx'), fork: rp('fk-canyon-ultimate-cfslx'), headset: gp('ghs-canecreek-40-zs44-zs56') });
   eq(of(r3, 'rg-steerer').length + of(r3, 'rg-headset-steerer').length, 0, 'tapered end to end');
+});
+
+test('rg-steerer: straight-1-1-4 (vocab-tier1, 2026-07-22) fits its own class, errors against tapered and against straight-1-1-8', function(){
+  var frame114 = gp('gfr-canyon-grizl-cf-sl');   // real row, steerer:'straight-1-1-4'
+  var fork114 = syn(gp('gfk-cannondale-topstone-carbon'), { id: 'gfk-syn-114', steerer: 'straight-1-1-4' });
+  var r = ROAD.checkRoadBuild({ frame: frame114, fork: fork114 });
+  eq(of(r, 'rg-steerer').length, 0, 'straight-1-1-4 frame + straight-1-1-4 fork (matched class) fits');
+  var taperedFork = gp('gfk-cannondale-topstone-carbon');   // real row, steerer:'tapered'
+  var r2 = ROAD.checkRoadBuild({ frame: frame114, fork: taperedFork });
+  eq(errOf(r2, 'rg-steerer').length, 1, 'tapered fork in a straight-1-1-4 frame errors');
+  var fork118 = syn(gp('gfk-cannondale-topstone-carbon'), { id: 'gfk-syn-118', steerer: 'straight-1-1-8' });
+  var r3 = ROAD.checkRoadBuild({ frame: frame114, fork: fork118 });
+  eq(errOf(r3, 'rg-steerer').length, 1, 'straight-1-1-8 fork in a straight-1-1-4 frame errors — the two straight classes are never interchangeable');
 });
 
 test('proprietary steerer systems: same-system fits, cross-system and standard both error (Douglas-ruled 2026-07-21)', function(){
@@ -381,6 +407,10 @@ test('rg-fd-mount errors an FD on a frame with no FD provision', function(){
   eq(errOf(r, 'rg-fd-mount').length, 1, 'the Grail is a 1x-only frame');
   var r2 = ROAD.checkRoadBuild({ frame: rp('fr-specialized-sworks-tarmac-sl8'), frontDerailleur: gp('gfd-sram-force-axs-fd') });
   eq(of(r2, 'rg-fd-mount').length, 0, 'braze-on frame takes the FD');
+});
+test('rg-fd-mount: band-28.6 (vocab-tier1, 2026-07-22) takes an FD same as braze-on — presence-only, not exact-matched', function(){
+  var r = ROAD.checkRoadBuild({ frame: gp('gfr-bombtrack-hook-ext'), frontDerailleur: gp('gfd-sram-force-axs-fd') });
+  eq(of(r, 'rg-fd-mount').length, 0, 'band-28.6 frame takes the FD, same as braze-on');
 });
 test('rg-fd-capacity: warns only off a part-carried capacity + parseable ring pair', function(){
   var bigSpread = syn(rp('cr-sram-red-axs-crank'), { id: 'cr-syn-5334', ring: '53/34' });

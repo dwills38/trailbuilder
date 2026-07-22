@@ -417,6 +417,12 @@ var BMX_PARTS = [
     brakeMount: 'v-brake', weight: 420, price: 94.99,
     note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (confirmed via its own nav: Bikes/Frames/Gear/Technologies/Team only - no Parts or Components section, no fork/crank/sprocket/brake/bar/stem/pedal product pages exist on the site). Left unchanged, not verified.'
   },
+  {
+    id: 'bmx-fk-speedline-elite-carbon-junior-expert', cat: 'fork', brand: 'Speedline', model: 'Elite Carbon Junior/Expert',
+    discipline: 'race', wheelSize: '20', steerer: 'integrated-1', axle: '10mm',
+    brakeMount: 'v-brake', weight: 300, price: 349.95,
+    note: 'vocab-tier1 (2026-07-22): closes the "Speedline fork/headset tiers the flags blocked" item. FETCHED supercrossbmx.com/pages/carbon-forks-compared directly (Speedline\'s own authorized storefront comparison page) — its own spec table states verbatim: "Speedline Elite Carbon | Junior / Expert | Mini-Expert | 1\\" Full Carbon | — | 300g | 3/8\\" | 20\\", 24\\" Cruiser | $349.95" -> steerer:integrated-1 (this file\'s newly-ratified bare-1in-bore token), axle:10mm (this catalog\'s established 3/8in=10mm mapping, no new token needed per the explicit out-of-scope ruling on a separate 3/8in token), weight 300g, price $349.95 exact. This row models the 20" size (the 24" Cruiser size shares the same weight/price per the table\'s single row). brakeMount:v-brake is an INFERRED same-tier sample matching this catalog\'s other race-discipline forks (Chase RSP, Redline Forklift Pro) — not independently confirmed on the fetched page, which describes only the carbon construction and steerer/dropout/weight facts. Left unverified: brakeMount is inferred, not maker-page-direct. NOTE: Speedline\'s companion "Tapered Carbon Pro" fork (1-1/8"-1.5" tapered, 453g, $399.95) was investigated but NOT entered — its comparison-table row states "20mm" dropouts only (not 3/8"/10mm), and this catalog\'s BMX_VOCAB.axle is [\'10mm\',\'14mm\'] only; a 20mm BMX front-axle token was not part of this pass\'s ratified scope, so entering that fork would need either a fabricated axle value or a new unratified token — deferred to a future vocab pass.'
+  },
 
   // ===== HEADSETS ======================================================
   {
@@ -436,6 +442,18 @@ var BMX_PARTS = [
     fit: 'integrated-1-1/8', price: 19.99,
     verified: true, lastChecked: '2026-07-17', source: 'https://saltbmx.com/products/salt-pro-headset',
     note: 'WeThePeople in-house parts brand (Salt). Maker page confirms int. 1-1/8in sealed fit; lists EUR21.99 (region price), catalog USD price left as prior sample.'
+  },
+  {
+    id: 'bmx-hs-speedline-mini-1in', cat: 'headset', brand: 'Speedline', model: 'Mini 1" Sealed Bearing Integrated Headset',
+    fit: 'integrated-1', price: 39.95,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.supercrossbmx.com/products/speedline-parts-sealed-bearing-integrated-bmx-racing-headsets',
+    note: 'vocab-tier1 (2026-07-22): closes the "Speedline fork/headset tiers the flags blocked" item, pairing with the new bmx-fk-speedline-elite-carbon-junior-expert fork row. FETCHED supercrossbmx.com directly (Speedline\'s own authorized storefront) — its own product page lists three size variants ("1\\" Mini", "1 1/8\\" Pro", "1 1/8\\" - 1.5\\" Pro Tapered") on one SKU family, price range "$39.95 - $74.95" across all sizes/colors; page copy: "1\\" Mini Headsets: Typically used on Micro, Mini, Junior, Expert, or Any Campy Style Integrated Frame you wish to use a 1\\" Fork and Stem on" -> fit:integrated-1 (this file\'s newly-ratified bare-1in-bore token). Price $39.95 is the range\'s low end (the base-color 1" Mini tier is the cheapest of the three sizes on this listing) — not a per-variant-exact figure, so promoted to verified:true on the fit/interface fact only, per this catalog\'s established convention of counting only the fetched-and-confirmed field toward a verified claim.'
+  },
+  {
+    id: 'bmx-hs-speedline-tapered', cat: 'headset', brand: 'Speedline', model: '1-1/8"-1.5" Pro Tapered Sealed Bearing Integrated Headset',
+    fit: 'integrated-tapered-1-1/8-1.5', price: 59.95,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.supercrossbmx.com/products/speedline-parts-sealed-bearing-integrated-bmx-racing-headsets',
+    note: 'vocab-tier1 (2026-07-22): closes the "Speedline fork/headset tiers the flags blocked" item, the ratified-token-backing row for BMX_VOCAB.headTube\'s new integrated-tapered-1-1/8-1.5 token. Same fetched supercrossbmx.com page as the Mini 1in row above: "1 1/8\\" - 1.5\\" Pro Tapered Headsets: Typically used on Pro size and Larger Frames with Tapered Head Tubes. They can be used with 1.5\\" or 1 1/8\\" forks. An adapter for 1 1/8\\" is included with your purchase... The 1 1/8\\" - 1.5\\" Taper comes with 2 (two) bottom races to fit both the 1 1/8\\" Fork and the 1.5\\" Fork" -> fit:integrated-tapered-1-1/8-1.5. Price $59.95 is the middle of the listing\'s "$39.95 - $74.95" range (the Pro Tapered tier sits above the base Mini tier and at or below the top Pro tier on this catalog\'s typical size-ordered pricing) — not a per-variant-exact figure, promoted to verified:true on the fit/interface fact only, same convention as the Mini row.'
   },
   {
     id: 'bmx-hs-flybikes-integrated', cat: 'headset', brand: 'Fly Bikes', model: 'Integrated Headset',
@@ -927,7 +945,24 @@ var BMX_PARTS = [
     note: 'No standalone "Slim Pivotal Seat" found for Total BMX; closest real products are the "Logo Slim Combo Seat" and "Killabee Slim Combo Bee Seat" (seat+post combo units, not sold as a bare seat). system:pivotal is plausible (Total\'s combo seats use pivotal-style mounting) but not confirmed against an exact matching SKU, so left unverified. RECONFIRMED 2026-07-21 (bmx-sweep-3): totalbmx.com/collections/seats (maker\'s own current 2-product collection) still lists only those same two Combo Seat SKUs ($52.00 each) - no bare pivotal seat sold separately. Left unverified/unchanged.'
   },
 
+  {
+    id: 'bmx-se-kink-global-stealth', cat: 'seat', brand: 'Kink', model: 'Global Stealth Seat',
+    system: 'stealth', weight: 337, price: 34.95,
+    note: 'vocab-tier1 (2026-07-22): closes the bmx-depth-9 flag ("Mission\'s Stealth-mechanism seats stayed skipped/tallied, the Kink precedent"). kinkbmx.com/products/global-stealth-seat itself did not render a usable spec table this session (JS-shell only via both WebFetch and Exa) — WebSearch-corroborated across 3+ independent retailers (Albe\'s BMX, SkatesUSA, Unleaded BMX) converging on "four panel design... The Stealth system installs with a 5mm allen key and allows for a clean looking seat without the need for a slotted top patch like traditional Pivotal systems" (confirms system:stealth — no top patch/slot, matching the Stealth seatpost row\'s own maker-page description of the same mechanism), price $34.95 (regular, Albe\'s BMX; $26.95 was a sale price, not used per THE PRICE RULE), weight ~11.9oz -> 337g. Retailer-corroborated, not a direct manufacturer fetch — stays unverified sample.'
+  },
+  {
+    id: 'bmx-se-mission-carrier-stealth', cat: 'seat', brand: 'Mission', model: 'Carrier Stealth Seat',
+    system: 'stealth', price: 27.99,
+    note: 'vocab-tier1 (2026-07-22): closes the bmx-depth-9 flag alongside the Kink row above. Mission BMX\'s real current product is the "Carrier Stealth Seat" (missionbmx.com/products/carrier-stealth-v2-seat-kit, sold as a seat+post kit; this row models the seat half) — WebSearch-corroborated across retailer listings (Source BMX, Albe\'s, BMXGuru, Tread Bike Shop) all naming the same product: "The Stealth system means there is no need for a patch in the top of the seat... works with both Pivotal and Stealth seat posts" (confirms system:stealth and the cross-compatibility this pass\'s bmx-seat-system rule now models). missionbmx.com itself not independently re-fetched this session — retailer-corroborated, not manufacturer-direct. Price is a same-tier sample matching this catalog\'s other budget-brand pivotal-class seats; not counted toward a verified claim. Left unverified.'
+  },
+
   // ===== SEATPOST =======================================================
+  {
+    id: 'bmx-sp-kink-stealth-post', cat: 'seatpost', brand: 'Kink', model: 'Stealth Seat Post',
+    diameter: 25.4, system: 'stealth', weight: 116, price: 39.99,
+    verified: true, lastChecked: '2026-07-22', source: 'https://kinkbmx.com/products/stealth-seat-post',
+    note: 'vocab-tier1 (2026-07-22): closes the bmx-depth-9 flag ("Mission\'s Stealth-mechanism seats stayed skipped/tallied, the Kink precedent"). FETCHED kinkbmx.com/products/stealth-seat-post directly — its own Tech Specs table states verbatim "Diameter 25.4mm", "System Stealth", "Length Small 75mm, Medium 180mm, Large 330mm", "Weight Small 2.0oz, Medium 4.1oz, Large 6.8oz" (this row models the Medium: 4.1oz = 116g), "$39.99". Page copy: "Leap frogging off the original Pivotal seat system, the Stealth system offers a way to install your seat without fishing an allen key through the top patch... the anchoring seat bolt can be threaded from the bottom... Note: You can also use traditional Pivotal seats with Stealth seat posts" — the real cross-compatibility fact this pass\'s bmx-seat-system rule now models. All engine-read fields maker-page-confirmed — promoted to verified:true.'
+  },
   {
     id: 'bmx-sp-cult-pivotal-post', cat: 'seatpost', brand: 'Cult', model: 'Pivotal Seatpost',
     diameter: 25.4, system: 'pivotal', price: 29.99,
