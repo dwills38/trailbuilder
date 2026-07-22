@@ -207,7 +207,12 @@ var GRAVEL_SCHEMA = {
     bb:{type:'string',vocab:'bb'}, seatpost:{type:'string',vocab:'seatpost'}, steerer:{type:'string',vocab:'steerer'},
     maxTireByWheel:{type:'map'}, frontDerailleurMount:{type:'string',vocab:'frontDerailleurMount'},
     frameOnly:{type:'bool'}, material:{type:'string',vocab:'material',optional:true},
-    gen:{type:'string',optional:true}, dropoutType:{type:'string',vocab:'dropoutType',optional:true}
+    gen:{type:'string',optional:true}, dropoutType:{type:'string',vocab:'dropoutType',optional:true},
+    // rg-smalls-1 (2026-07-22): mirrors src/schema.js's MTB `udh` field, but
+    // optional here (unlike MTB's required bool) — most gravel frames in
+    // this catalog have no sourced UDH fact at all, and R20 (rg-xplr-udh)
+    // already reads an absent field as "not recorded", never a guess.
+    udh:{type:'bool',optional:true}
   },
   fork: {
     wheel:{type:'strArray',vocab:'wheel'}, axle:{type:'string',vocab:'axle'}, steerer:{type:'string',vocab:'steerer'},
