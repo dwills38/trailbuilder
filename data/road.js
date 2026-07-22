@@ -1740,7 +1740,7 @@ var ROAD_PARTS = [
   { id: 'hb-pro-vibe-superlight', cat: 'handlebar', brand: 'PRO', model: 'Vibe Superlight', family: 'pro-vibe-superlight',
     clamp: '31.8', dropBar: true, reach: 80, drop: 130, width: 400,
     weight: 157, price: 130,
-    verified: true, lastChecked: '2026-07-21', source: 'https://www.pro-bikegear.com/products/pro-vibe-superlight-handlebar',
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.pro-bikegear.com/products/pro-vibe-superlight-handlebar', priceBasis: 'third-party-listed',
     note: 'road-12 wave: FETCHED pro-bikegear.com directly. Product copy + spec table: "130 millimeter drop, 80 millimeter reach" (DROP CORRECTED 125->130, REACH CORRECTED 75->80), "31.8 millimeter clamping diameter" (confirmed), "available in 38-, 40- and 42-centimeter widths" (confirms width:400 is a real SKU) with a per-width weight row "154g / 157g / 160g" for 380/400/420 — 157g is this row\'s 400mm figure (WEIGHT CORRECTED 210->157).' },
   { id: 'st-pro-vibe', cat: 'stem', brand: 'PRO', model: 'Vibe', family: 'pro-vibe-stem',
     clamp: '31.8', steerer: '1-1-8', length: 100,
