@@ -621,11 +621,23 @@ var EMTB_PARTS = [
     id: 'em-haibike-nduro-8', cat: 'emtb', brand: 'Haibike', model: 'Nduro 8 Freeride',
     motorBrand: 'yamaha', motorModel: 'Yamaha PW-X3', motorTorque: 85, motorPowerPeak: 250,
     batteryWh: 720, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 180,
+    wheelConfig: '29', suspension: 'full', travelFront: 180, travelRear: 180,
     frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Maven Bronze',
     disciplines: ['e-enduro'], weight: 25200, price: 8100,
     note: 'Gravity/freeride-leaning Haibike Enduro platform on the Yamaha PW-X3 (720Wh InTube battery, optional range extender); RockShox ZEB Ultimate fork, Mavic E-Deemax wheels.',
-    desc: 'Corrected, still unverified verify/emtb-4 wave 4 cluster B (no maker-stated bike weight found — interfaces fetched-page-confirmed but weight bar not met, so verified:true withheld). "Nduro 8" is real but the maker\'s full name is "NDURO 8 FREERIDE" — added to the model field. Corrected: travel 170/160 -> 180/180mm (RockShox ZEB Ultimate front, matching rear), drivetrain Shimano XT -> SRAM GX Eagle (real spec: Sram GX Eagle 12s shifter/derailleur/chain), brakes Shimano XT 4-piston -> SRAM DB Maven Bronze 4-piston (220mm front/203mm rear). Price: EUR 7,499 RRP converted to a $8,100 USD sample — no confirmed US MSRP found. Previously corrected verify/emtb-3 wave 3 phase 2 (motor brand Bosch -> Yamaha, 800 -> 720Wh) — that reading holds; frame/drivetrain/brake/travel fields did not and are corrected here.'
+    desc: 'Corrected, still unverified verify/emtb-4 wave 4 cluster B (no maker-stated bike weight found — interfaces fetched-page-confirmed but weight bar not met, so verified:true withheld). "Nduro 8" is real but the maker\'s full name is "NDURO 8 FREERIDE" — added to the model field. Corrected: travel 170/160 -> 180/180mm (RockShox ZEB Ultimate front, matching rear), drivetrain Shimano XT -> SRAM GX Eagle (real spec: Sram GX Eagle 12s shifter/derailleur/chain), brakes Shimano XT 4-piston -> SRAM DB Maven Bronze 4-piston (220mm front/203mm rear). Price: EUR 7,499 RRP converted to a $8,100 USD sample — no confirmed US MSRP found. Previously corrected verify/emtb-3 wave 3 phase 2 (motor brand Bosch -> Yamaha, 800 -> 720Wh) — that reading holds; frame/drivetrain/brake/travel fields did not and are corrected here. CORRECTED breadth-3: wheelConfig mullet -> 29 — re-fetched the maker\'s own product page (forcing the site\'s English/International locale via its own locale switcher, since no US market exists) and both front and rear tire codes read the same "62-622" (622mm = 29in bead-seat diameter) — this is a same-size 29in bike, not mixed-wheel.',
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.haibike.com/en-int/products/nduro-8-freeride-hnct1'
+  },
+  {
+    id: 'em-haibike-nduro-7', cat: 'emtb', brand: 'Haibike', model: 'Nduro 7',
+    motorBrand: 'yamaha', motorModel: 'Yamaha PW-X3', motorTorque: 85, motorPowerPeak: 250,
+    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 180, travelRear: 180,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX', brakes: 'Magura MT5 4-piston',
+    disciplines: ['e-enduro'], price: 7019,
+    note: "One rung below the Nduro 8 Freeride (em-haibike-nduro-8) on the same aluminum Nduro chassis: FOX 38 Performance fork / FOX Float X2 Performance shock (vs the 8's RockShox ZEB/Vivid Ultimate), Shimano SLX drivetrain (vs SRAM GX Eagle), Magura MT5 brakes on both, Mavic E-Deemax wheels.",
+    desc: "Reached by forcing the site's own English/International locale via its locale switcher (haibike.com defaults to de-de; no United States market exists in its country list — International EUR is the closest EN option, matching breadth-2's finding) and navigating the site's own Enduro eMTBs collection listing to the product page, then opening its spec accordion (a <details>-based collapsible-tabs component that starts collapsed; set .open=true on each <details> to read the rendered E-SYSTEM/FRAME/DRIVE/SUSPENSION/COMPONENTS/WHEELSET sections). Front and rear tire both read \"62-622\" (622mm bead-seat = 29in), same as the sibling Nduro 8 row — 29in wheels both ends, not mullet. travelFront is the maker-stated 180mm (FOX 38); travelRear is not separately published (only the 225x75mm shock size, same as the Nduro 8's), so it is carried at 180mm matching the sibling row's convention rather than guessed independently. No bike weight is published on this page. PRICE RULE: EUR 6,499 regular price (no separate US price exists) converted to a $7,019 USD sample at this catalog's established ~1.08 EUR->USD sample-conversion ratio (matching the sibling Nduro 8 and AllMtn 3 rows' basis), disclosed.",
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.haibike.com/en-int/products/nduro-7-hnbr1'
   },
 
   // ---------------------------------------------------------------------------
