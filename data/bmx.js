@@ -1890,6 +1890,63 @@ var BMX_PARTS = [
     id: 'bmx-se-sunday-scribblesv2-pivotal', cat: 'seat', brand: 'Sunday', model: 'Scribbles v2 Seat (Aaron Ross signature)',
     system: 'pivotal', price: 46.99,
     note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-scribbles-v2-seat-aaron-ross-signature-multicolor — this handle\'s variant is titled "Pivotal" (the page also separately offers a "Fat/Pivotal or Cruiser/Railed" split, matching this catalog\'s existing Silva Brick pattern above). JSON weight (635g) discarded as the same shipping-bucket figure. Unverified sample.'
+  },
+
+  // --- Fiend (fiendbmx.com, its own Shopify store — only 1 Fiend row existed before this pass) ---
+  {
+    id: 'bmx-hs-fiend-lowintegrated', cat: 'headset', brand: 'Fiend', model: 'Integrated Low Headset',
+    fit: 'integrated-1-1/8', price: 27.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/intergrated-low-headset ("integrated 45x45 headset...2 precision sealed cartridge bearings"). fit is display-only in checkBmxBuild. JSON weight (227g) discarded — identical to two other unrelated Fiend products fetched this session (the Belmont Peg, the Half Link Chain), the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-cr-fiend-teamv2', cat: 'cranks', brand: 'Fiend', model: 'Team V2 Cranks',
+    spindle: '22mm', pieces: '2-piece', ringMount: 'spline', weight: 964, price: 209.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/fiend-team-2-cranks. Description states, verbatim: "2pc design...48 spline 22mm hollow chromoly spindle...Weight:34ozs. @ 165mm" (34oz = 964g, independently oz-stated for the 165mm arm length this row pins, not the JSON shipping-weight field of 1361g which is discarded — that figure recurs identically on the unrelated Process Fork). ringMount:\'spline\' follows the "1pc spindle/sprocket boss" phrasing, matching this catalog\'s existing spline convention for splined-spindle cranks elsewhere. Unverified sample.'
+  },
+  {
+    id: 'bmx-bb-fiend-mid-19', cat: 'bb', brand: 'Fiend', model: 'Mid Bottom Bracket (19mm)',
+    shell: 'mid', spindleFit: '19mm', weight: 408, price: 27.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/mid-bottom-bracket ("Mid BB bearing kit...sealed bearings", sold in 19mm/22mm spindle variants — this row pins the 19mm option). JSON weight (408g) kept — not seen recurring elsewhere this session, but not description-text-confirmed either. Unverified sample.'
+  },
+  {
+    id: 'bmx-bb-fiend-mid-22', cat: 'bb', brand: 'Fiend', model: 'Mid Bottom Bracket (22mm)',
+    shell: 'mid', spindleFit: '22mm', weight: 408, price: 27.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/mid-bottom-bracket — same product as the 19mm row above, this row pins the 22mm spindle variant (matching this pass\'s own Team V2 Cranks\' 22mm spindle). Unverified sample.'
+  },
+  {
+    id: 'bmx-sp-fiend-reynolds-25', cat: 'sprocket', brand: 'Fiend', model: 'Reynolds Sprocket 25T',
+    teeth: 25, mount: 'spline', pitch: '1/8', weight: 272, price: 42.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/reynolds-sprocket ("CNC machined...offset teeth for better chain alignment. Includes 19mm & 22mm spindle adaptors"). mount:\'spline\' and pitch:\'1/8\' follow this catalog\'s existing convention for splined-spindle-adapter sprockets of this style (matching the Odyssey/Eclat precedent already in this catalog) — not independently re-confirmed on this specific page. Unverified sample.'
+  },
+  {
+    id: 'bmx-ch-fiend-halflink', cat: 'chain', brand: 'Fiend', model: 'PYC P121 Half Link Chain',
+    pitch: '1/8', halfLink: true, price: 29.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/pyc-p121-half-link-chain. Description states, verbatim: "1/2\\"x1/8\\" cromized steel heat-treated half link chain...90 links" — confirms both pitch:\'1/8\' and halfLink:true directly. JSON weight (227g) discarded — identical to the unrelated Integrated Low Headset row above, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-hb-fiend-team-925', cat: 'handlebar', brand: 'Fiend', model: 'Team Bars 9.25in',
+    clamp: '22.2mm', rise: 9.25, width: 29, price: 86.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/team-bars. Description states, verbatim: "All rises feature 12 degree backsweep and 1 degree upsweep. All rises are 29\\" wide" (sold in 9.25\\"/9.5\\"/9.75\\" rise; this row pins the 9.25in option). clamp is display-only in checkBmxBuild. JSON weight (907g) discarded — identical to the unrelated Cab V2 Freecoaster Hub row below, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-st-fiend-mills', cat: 'stem', brand: 'Fiend', model: 'Mills Stem',
+    clamp: '22.2mm', price: 49.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/fiend-mills-stem (Lew Mills signature — "48MM reach, 23MM rise"). clamp is display-only. JSON weight (454g) discarded — identical to two other unrelated Fiend products fetched this session (the Reynolds V2 Seat, the Reynolds Pedals), the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-se-fiend-reynoldsv2', cat: 'seat', brand: 'Fiend', model: 'Reynolds V2 Pivotal Seat',
+    system: 'pivotal', price: 49.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/reynolds-v2-seat (Garrett Reynolds signature). Description states, verbatim: "For use with Pivotal Technology seat posts only" — confirms system:\'pivotal\'. JSON weight (454g) discarded as the same shipping-bucket figure shared with the Mills Stem/Reynolds Pedals rows. Unverified sample.'
+  },
+  {
+    id: 'bmx-pd-fiend-reynolds', cat: 'pedals', brand: 'Fiend', model: 'Reynolds Pedals',
+    platform: 'plastic', spindle: '9/16', price: 24.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/reynolds-pedals. Description states, verbatim: "Nylon composite concave body...9/16\\" chromoly spindle" (nylon composite -> platform:\'plastic\'). Pedals carry zero checkBmxBuild rules. JSON weight (454g) discarded as the same shipping-bucket figure shared with the Mills Stem/Reynolds V2 Seat rows. Unverified sample.'
+  },
+  {
+    id: 'bmx-rh-fiend-cabv2freecoaster', cat: 'rearWheel', brand: 'Fiend', model: 'Cab V2 Freecoaster Hub',
+    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', weight: 588, price: 139.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/cab-freecoaster. Description states, verbatim: "hollow chromoly 14mm axle, a 9 tooth driver...Weight 20.75ozs" (20.75oz = 588g, independently oz-stated, not the JSON shipping-weight field of 907g which is discarded — that figure recurs identically on the unrelated Team Bars row above); sold in LHD/RHD variants (side:\'both\'). Unverified sample.'
   }
 ];
 
