@@ -1,5 +1,20 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — road-depth-1: the mid-tier drivetrains land (road 263, suite 989)
+
+- **catalog/road-depth-1 merged**: +23 rows — Shimano 105 R7000 (full mechanical group,
+  verified via productinfo browser-pane), Sora R3000 2x9, SRAM Rival 22 (with a RATIFIED
+  new system token sram-rival22-11 mapped to HG — Rival 22 pre-dates Flattop; distinct
+  from sram-apex-mech-12 — plus a pinning engine test, suite 988→989), Campagnolo Centaur
+  (its pages live even though delisted from the landing page). Honest refusals: plain old
+  2x SRAM Apex has "0 Products" on its own series page (THE BAR — not entered); Centaur's
+  FD mount unstated (skipped, not defaulted).
+- **Real schema gap surfaced: road brakes have no RIM-CALIPER shape** (mount vocab is
+  flat/post only) — blocks genuine caliper rows for BOTH rim-brake-only tiers (Sora,
+  Centaur). Joins the vocab-ruling packet. Other follow-ups: BR-R7070 dropped-SKU wall
+  (R7170 covers it), Rival 22 GXP-spindle variant needs a crankBbRoad 'gxp' token.
+- Gates: 7 OK (road 263/226 verified), 989/989, tsc clean.
+
 ## 2026-07-22 — THE THEME AUDIT LANDS: every text-contrast failure cleared, 8 pages × 4 themes
 
 - **ui/theme-consistency-audit merged (Opus, Douglas-ordered)**: 5 fix classes, CSS/colour
