@@ -2541,6 +2541,14 @@ var KIT_PARTS = [
      below: a cert is a safety claim (fetched-source-only per KIT-BUILDER-SCOPE.md
      §2a) and manufacturer product pages could not be reliably fetched during this
      pass - absence is honest; a guessed EN 1621-1 level would not be. */
+  { id:'knp-oneal-parkfr-carbon', cat:'kneepad', brand:'O\'Neal', model:'Park FR Knee Pads CARBON', price:75,
+    disciplines:['trail','enduro'], sizes:['S/M','L/XL'],
+    desc:'Entered seat-19 (2026-07-22) on Douglas\'s ruling replacing the retired retailer-bundle'
+      + ' knee/shin row (shg-oneal-parkfr, see KIT_ALIASES). Identity from kit-13\'s 2026-07-21'
+      + ' browser-pane fetch of oneal.eu: "O\'NEAL PARK FR Knee pads CARBON", EUR69.99 regular'
+      + ' price, knee-only. Price is an undisclosed-rate EUR->USD sample estimate; no US maker'
+      + ' price found and no weight published - stays UNVERIFIED sample until a fresh maker fetch'
+      + ' pins price/spec.', lastChecked:'2026-07-22' },
   { id:'knp-gform-pro-x3', cat:'kneepad', brand:'G-Form', model:'Pro-X3 Knee', price:74.99, weight:280,
     disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL','2XL'],
     desc:'Weight per pair (approx, not published on the fetched page - kept as prior sample). Fetched g-form.com: CORRECTED price $70 -> $74.99, sizes corrected to XS-2XL. Page states "PPE II certified" without naming an EN1621 standard number, so no certs token added per THE BAR (a vague claim doesn\'t meet the safety-claim bar).',
@@ -3306,15 +3314,11 @@ var KIT_PARTS = [
   { id:'shg-flyracing-5pivot', cat:'shinguard', brand:'Fly Racing', model:'5 Pivot Knee/Shin Guard', price:99.95,
     disciplines:['dh'], sizes:['S/M','L/XL','XXL'],
     desc:'5-pivot ergonomic hinge shin plate tracks front-to-back and side-to-side leg motion; per pair. Weight not published. Corrected price ($159.95 sample -> $99.95), confirmed consistently across multiple retailers (MotoSport, RevZilla, Cycle Gear) quoting the FLY Racing product copy verbatim; the flyracing.com product page itself (flyracing.com/5-pivot-knee-guards/) 404s on direct fetch. Retailers also repeat a CE EN1621-1 Level 1 claim, but per THE BAR that cert is intentionally NOT added here since it was not confirmed on a fetched maker page (retailer-mirrored text is not sufficient for a safety claim).' },
-  { id:'shg-oneal-parkfr', cat:'shinguard', brand:'O\'Neal', model:'Park FR MTB Knee/Shin Guard', price:69.99,
-    disciplines:['trail','enduro'], sizes:['S/M','L/XL'],
-    desc:'Lightweight elastic-Velcro slip-on with perforated foam; per pair. Weight not published.'
-      + ' ATTEMPTED kit-13 (2026-07-21): oneal.eu/en/search?q=park+fr (browser pane) returns exactly'
-      + ' one current match - "O\'NEAL PARK FR Knee pads CARBON" (EUR69.99 regular price, knee-only,'
-      + ' no shin coverage) - a different SKU from this catalog row\'s knee/shin combo (the US-market'
-      + ' non-carbon knee/shin combo that RevZilla/Cycle Gear/BTO Sports carry as retailers). Could'
-      + ' not find the exact knee/shin combo on a maker page this pass; identity/current-availability'
-      + ' stays unconfirmed. Left unverified, no fields changed.' },
+  /* RETIRED seat-19 (2026-07-22): shg-oneal-parkfr - the knee/shin combo exists only on
+     retailer pages (RevZilla/Cycle Gear/BTO Sports); O'Neal's own site sells the Park FR
+     as KNEE-ONLY. Douglas ruled 2026-07-22: catalog the maker's knee-only SKU ("I imagine
+     the knee/shin combo is what a retailer is doing themselves"). Retargeted via
+     KIT_ALIASES -> knp-oneal-parkfr-carbon (the real maker product, cat kneepad). */
   { id:'shg-answer-apex', cat:'shinguard', brand:'Answer', model:'Apex Knee/Shin Guard', price:44.99,
     disciplines:['dh'], sizes:['One Size'], verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-20',
     desc:'Motocross-heritage injection-molded plastic knee/shin guard, DH crossover; per pair. Re-fetched answerracing.com/apex-knee-guards/ 2026-07-20: price $44.99 confirmed again (product currently shown out of stock, MSRP unaffected); page states no weight and no cert, so both stay omitted rather than guessed.',
@@ -3518,9 +3522,6 @@ var KIT_PARTS = [
     type:'glasses', sizes:['OSFA'],
     desc:'Kit-6 (2026-07-20): fetched uvex-sports.com EU eyewear page (browser pane) -- confirms the model is CURRENT (article S5320662216), EUR99.95 RRP (no US price -- uvexsports.us\'s 20-product US lineup has moved on to sportstyle 235/236, not 227). Price is a same-tier EUR->USD sample ($108, basis disclosed) per THE PRICE RULE; weight not published, kept as sample.',
     verified:true, priceBasis:'regional-conversion', source:'https://www.uvex-sports.com/en/eyewear/sports-eyewear/uvex-sportstyle-227-black-mat-mirsilver-4043197345482', lastChecked:'2026-07-20' },
-  { id:'ewr-cairn-ride', cat:'eyewear', brand:'Cairn', model:'Ride', price:29, weight:28,
-    type:'glasses', sizes:['OSFA'],
-    desc:'CORRECTION 2026-07-16: multiple independent retailers (AlpinStore, Kidinn/tradeinn) and cairn-sport.com\'s own site-search list "Ride" as a JUNIOR/kids sunglasses model (ages ~8-12, flexible frame, rubber temple grip), retailing around EUR17-27 - not the $80 adult "Photochromic" MTB glasses this row previously claimed. No current adult Cairn cycling-glasses model is named "Ride" (the adult lineup is Roc/Trax/Core/Flyin per cairn-sport.com). Price corrected to a converted USD estimate from the EUR26.99 regular retail price; the "Photochromic" claim is dropped since no source confirms it. cairn-sport.com itself returned 429/404 on every direct fetch attempt this session, so this stays an UNVERIFIED sample correction, not a verified row. FLAGGED for a product-scope decision: this may not belong in an adult MTB kit catalog at all (see report).', lastChecked:'2026-07-16' },
   { id:'ewr-salice-016rw', cat:'eyewear', brand:'Salice', model:'016 RW', price:137, weight:26,
     type:'glasses', sizes:['OSFA'],
     desc:'Kit-6 (2026-07-20): confirmed the 016 model is CURRENT on salice.co.uk (Salice\'s official UK/US-priced site, browser pane) -- standard "SALICE 016 SUNGLASSES MIRROR LENS" runs $137 across all colorways (polarised $192, light-adaptive $172 tiers also exist). The site categorizes by lens-color name rather than the "RW" designation retailers use; could not confirm "RW" maps to a specific one of those colorways, but the base 016 mirror-lens price ($137) is a solid floor for this row. Price corrected from a stale $70 sample.',
@@ -3631,7 +3632,8 @@ var KIT_PARTS = [
    than throwing (mirrors bmx.html's load() - see KitBuilder/index.html). */
 /** @type {Object.<string, string>} */
 var KIT_ALIASES = {
-  'jsy-fox-ranger-foxguard-ls': 'jsy-fox-defend'   // kit-10 (2026-07-21): no Fox "Foxguard" jersey ever existed; coordinator-approved retarget to the Defend LS (style #32367), the guard-compatible jersey in Fox's live line - see tools/verify-notes-kit.md "Kit Wave 10".
+  'jsy-fox-ranger-foxguard-ls': 'jsy-fox-defend',  // kit-10 (2026-07-21): no Fox "Foxguard" jersey ever existed; coordinator-approved retarget to the Defend LS (style #32367), the guard-compatible jersey in Fox's live line - see tools/verify-notes-kit.md "Kit Wave 10".
+  'shg-oneal-parkfr': 'knp-oneal-parkfr-carbon'    // seat-19 (2026-07-22): Douglas ruled the knee/shin combo is a retailer bundle, not a maker SKU; retargeted to the maker's knee-only Park FR CARBON.
 };
 /** @param {string|null|undefined} id @returns {string|null|undefined} */
 function canonicalKitId(id){ return (id && Object.prototype.hasOwnProperty.call(KIT_ALIASES, id)) ? KIT_ALIASES[id] : id; }
