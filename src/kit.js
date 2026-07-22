@@ -3066,6 +3066,15 @@ var KIT_PARTS = [
     coverage:'back', certs:['en1621-2-l2'], disciplines:['trail','enduro'],
     desc:'kit-breadth-1 (2026-07-22): the higher-coverage tier above the Airflow (arm-scott-airflow) - maker copy states it is "designed for level 2" and Scott\'s own PROTECTORS PDF lists the AIRFLOW PRO B2502 plate at Level 2. No maker-published weight found.',
     verified:true, lastChecked:'2026-07-22', source:'https://www.scott-sports.com/us/en/products/apparel-equipment-mw-equipment-body-protection' },
+  { id:'arm-leatt-reaflex-womens', cat:'bodyarmor', brand:'Leatt', model:'ReaFlex Body Protector - Women', price:384, weight:1064,
+    coverage:'chest-back', certs:['en1621-2-l1','en1621-3'], fitCut:'womens', disciplines:['enduro','dh'], sizes:['XXS','XS','S','M','L'],
+    desc:'kit-breadth-3 (2026-07-22): bodyarmor had ZERO fitCut:\'womens\' rows. Genuinely distinct'
+      + ' from Leatt\'s men\'s ReaFlex, not a recolor - "3D pre-curved designed specifically for the'
+      + ' female form" with its own slimmer BraceOn neck-brace interface and its own size run'
+      + ' (XXS-L, 148-178cm). CE certified front EN1621-3 Level 1, back EN1621-2 Level 1 (also'
+      + ' carries EN1621-1 Level 1 on the elbow/shoulder sleeve, which has no bodyarmor cert vocab'
+      + ' token so is left unstated). Weight "from 1.064kg" (US product page) — the lightest listed spec.',
+    verified:true, lastChecked:'2026-07-22', source:'https://us.leatt.com/products/body-protector-reaflex-women' },
 
   /* -- Neck braces (niche; no universal cert standard - certs stay dormant).
      Comprehensive sweep of the 4 recognized market brands (Leatt, Alpinestars,
