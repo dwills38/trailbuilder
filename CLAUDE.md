@@ -217,9 +217,13 @@ Category-specific fields (enforced by `schema.js` → `SCHEMA`, using vocabulari
   single-speed), while `wheelPositionFilled` now counts the position filled from EITHER slot
   (`positionPeersOf`). So a rigid post completes a geared enduro build and a dropper completes a DJ
   build; never both required, never neither. Distinct from `altOf`, which is an AND path (a wheel
-  needs hub AND rim). Rules 13/13c still fire on whichever post is picked. The DH-discipline and
-  `noStockDropper` dropper drops are UNCHANGED and now exempt the seat position outright — 24
-  complete-bike rows fill no post at all — see the `slotRequired()` header in `compat.js`. Frames may carry
+  needs hub AND rim). Rules 13/13c still fire on whichever post is picked. **The DH-discipline and
+  `noStockDropper` seat exemptions were RETIRED 2026-07-22** (Douglas: "every bike requires some post
+  and DH bikes often have rigid posts") — EVERY frame now requires exactly one seat slot (a rigid
+  post fills it on DH/hardtail bikes just like a dropper does), the `noStockDropper` field was
+  deleted catalog-wide (it had no other reader), and the 24 previously-postless complete-bike rows
+  all carry a real cataloged post (`catalog/cb-rigid-posts-1` + `fix/marlin7-dropper`). See the
+  `slotRequired()` header in `compat.js`. Frames may carry
   `driveMode:'single-speed'` (single-speed-only; drops shifter/derailleur/cassette/dropper +
   ALL brake slots from completeness — brakeless is a valid complete build, Douglas 2026-07-13)
   and `dropoutType` (`horizontal`/`sliding`/`ecc-bb`/`vertical`); chains/cranksets may carry

@@ -3623,10 +3623,16 @@
                              : '<span class="pr">'+(typeof p.weight==='number'?p.weight+' g · ':'')+money(p.price)+'</span>'; }
         // Position peers (GROUPS' `position`, compat.js): the SEAT position is
         // filled by EITHER a dropper or a rigid post (Douglas 2026-07-22), so an
-        // empty seat slot must never read "not needed for this frame" while its
-        // partner is still a live way to complete the build. Falls through to
-        // the old wording only when the position is genuinely exempt (a DH /
-        // noStockDropper frame, where neither slot is required).
+        // empty seat slot reads "(using the X instead)" when its partner is
+        // filled, else "(dropper or rigid post — either completes the build)".
+        // As of the 2026-07-22 seat-exemption retirement EVERY frame requires
+        // some post, so the seat position is ALWAYS required — the empty-and-
+        // not-required "" fallthrough (which would drop to "(not needed for this
+        // frame)") is now unreachable for a seat slot; posNote is always one of
+        // the two seat phrasings above. The "(not needed for this frame)" wording
+        // still serves other slots a frame legitimately drops (a single-speed
+        // frame's shifter/derailleur/cassette/brakes, an integrated-cassette
+        // wheel's cassette), so it stays in the fallback ternary below.
         var peers = slot.position ? g.slots.filter(function(s2){ return s2.position===slot.position && s2.key!==slot.key; }) : [];
         var peerFilled = peers.filter(function(s2){ return !!res[s2.key]; })[0];
         var posNote = !peers.length ? ''

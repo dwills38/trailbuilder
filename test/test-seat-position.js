@@ -21,12 +21,16 @@
    Distinct from `altOf`, which is an AND path (frontWheel needs a hub AND a
    rim) — that contract is re-pinned here so the two never blur.
 
-   NOT changed, deliberately (see the slotRequired() header in compat.js): the
-   DH-discipline and `noStockDropper` dropper drops. They predate the rigid
-   seatpost category and now do only one thing — exempt the seat position
-   ENTIRELY — and 24 catalog complete-bike rows plus two golden DH builds
-   depend on that. Pinned below so retiring them is a deliberate act, not a
-   silent drift.
+   RETIRED 2026-07-22 (Douglas: "every bike requires some post and DH bikes
+   often have rigid posts") — see the slotRequired() header in compat.js: the
+   DH-discipline and `noStockDropper` dropper drops. They predated the rigid
+   seatpost category, and their only remaining effect was to exempt the seat
+   position ENTIRELY. Now that the 24 complete-bike rows that leaned on them all
+   carry a real cataloged post (catalog/cb-rigid-posts-1 + fix/marlin7-dropper)
+   and the golden DH builds run their real stock rigid posts, the exemption was
+   removed and `noStockDropper` deleted catalog-wide. So EVERY frame now requires
+   exactly one seat slot — zero exemptions. Pinned below; this completes the
+   seatpost-completeness end state its own report proposed.
    ========================================================================== */
 var U = require('./test-util.js');
 var C = U.C, B = U.B, part = U.part, eq = U.eq, ok = U.ok, some = U.some;
@@ -51,22 +55,17 @@ function missingRequired(map){
 function requiredSeatSlots(frame){
   return ['dropper','seatpost'].filter(function(k){ return C.slotRequired(slotByKey(k), frame); });
 }
-/** @param {any} frame @returns {boolean} does an existing rule exempt the seat position outright? */
-function seatExempt(frame){
-  return !!(frame && ((frame.disciplines || []).indexOf('dh') >= 0 || frame.noStockDropper));
-}
+/* ---- 1. The requiredness contract: exactly one of the two, on EVERY frame - */
 
-/* ---- 1. The requiredness contract: one of the two, never both ------------ */
-
-test('every frame in the catalog requires exactly ONE seat slot — never both, never neither (bar the documented exemptions)', function(){
-  var exemptSeen = 0;
+test('EVERY frame in the catalog requires exactly ONE seat slot — never both, never neither, ZERO exemptions (Douglas 2026-07-22)', function(){
+  // Seat exemptions retired 2026-07-22 ("every bike requires some post"): every
+  // frame requires exactly one seat slot — the dropper for a geared frame, the
+  // rigid post for a single-speed one (the inverted require). No frame is exempt
+  // any more; a rigid post fills the seat position wherever a dropper would.
   C.PARTS.filter(function(p){ return p.cat === 'frame'; }).forEach(function(f){
     var req = requiredSeatSlots(f);
-    ok(req.length <= 1, f.id + ' must never require BOTH a dropper and a rigid post (got ' + req.join('+') + ')');
-    if(seatExempt(f)){ exemptSeen++; eq(req.length, 0, f.id + ' is seat-exempt (DH / noStockDropper)'); }
-    else eq(req.length, 1, f.id + ' must require exactly one seat slot (a bike needs SOME post)');
+    eq(req.length, 1, f.id + ' must require exactly one seat slot (never zero — a bike needs SOME post; never both '  + req.join('+') + ')');
   });
-  ok(exemptSeen > 0, 'the exemption branch must actually be exercised by the live catalog');
 });
 
 test('which of the two carries the requirement is unchanged: dropper for geared, rigid post for single-speed', function(){
@@ -161,18 +160,15 @@ test('rules 13 / 13c still fire on whichever post is picked', function(){
   some(shim.warnings, 'shim', 'a smaller rigid post still raises the reducing-shim warning');
 });
 
-test('the DH / noStockDropper seat exemptions are unchanged (any postless complete bikes still depend on them)', function(){
-  // Pinned, not endorsed. These two flags now do only one thing: let a frame
-  // count complete with NO post at all. That was right for neither bike in the
-  // real world — both ship a rigid post — but as of catalog/cb-rigid-posts-1 +
-  // the marlin7-dropper fix (2026-07-22), every complete-bike row that used to
-  // rely on this exemption has since gained a real cataloged seatpost/dropper
-  // fill, closing the data gap this pin was guarding. The exemption mechanism
-  // itself stays pinned directly against `requiredSeatSlots` below (so a
-  // future frame relying on it is still caught); the postless-bikes loop is
-  // now a zero-or-more structural check, not an existence assertion.
-  eq(requiredSeatSlots(part('fr-commencal-supreme-dh-v5')).length, 0, 'DH-discipline frame: seat position exempt');
-  eq(requiredSeatSlots(part('fr-canyon-lux-world-cup-cf')).length, 0, 'noStockDropper frame: seat position exempt');
+test('the DH / noStockDropper seat exemptions are RETIRED — those frames now require a post, and NO complete bike is postless (Douglas 2026-07-22)', function(){
+  // This completes the seatpost-completeness end state its own report proposed.
+  // The two flags that used to exempt the seat position are gone: a
+  // DH-discipline frame and a frame that once carried noStockDropper now BOTH
+  // require exactly one seat slot, which a real rigid post (or a dropper) fills.
+  eq(requiredSeatSlots(part('fr-commencal-supreme-dh-v5')).join(), 'dropper', 'DH-discipline frame: seat position now REQUIRED (dropper slot; a rigid post fills it)');
+  eq(requiredSeatSlots(part('fr-canyon-lux-world-cup-cf')).join(), 'dropper', 'formerly-noStockDropper XC frame: seat position now REQUIRED');
+  // And the data gap is fully closed: with the exemptions gone, ANY postless
+  // complete-bike row would read INCOMPLETE — so there must be exactly zero.
   /** @param {any} p @returns {Object.<string,string>} */
   function fillsOf(p){ return p.fills || {}; }
   var postless = C.PARTS.filter(function(p){
@@ -180,11 +176,7 @@ test('the DH / noStockDropper seat exemptions are unchanged (any postless comple
     var f = fillsOf(p);
     return !f.dropper && !f.seatpost;
   });
-  postless.forEach(function(cb){
-    var frame = C.byId(fillsOf(cb).frame);
-    ok(seatExempt(frame), cb.id + ' is postless and MUST sit on a seat-exempt frame (' +
-       fillsOf(cb).frame + ') — otherwise it now reads incomplete');
-  });
+  eq(postless.length, 0, 'no complete bike may be postless now (each would read incomplete): ' + postless.map(function(p){ return p.id; }).join(', '));
 });
 
 test('slotRequired itself returns exactly what it returned before this change', function(){
