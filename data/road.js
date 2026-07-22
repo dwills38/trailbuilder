@@ -1790,7 +1790,7 @@ var ROAD_PARTS = [
   { id: 'sp-ritchey-comp-two-bolt', cat: 'seatpost', brand: 'Ritchey', model: 'Comp 2-Bolt', family: 'ritchey-comp-two-bolt',
     diameter: '27.2', setback: 25,
     weight: 260, price: 45,
-    verified: true, lastChecked: '2026-07-21', source: 'https://ritcheylogic.com/bike/seatposts/comp-2-bolt-seatpost',
+    verified: true, lastChecked: '2026-07-21', source: 'https://ritcheylogic.com/bike/seatposts/comp-2-bolt-seatpost', priceBasis: 'third-party-listed',
     note: 'road-13 wave: Ritchey identity chase. FETCHED ritcheylogic.com/bike/seatposts/comp-2-bolt-seatpost directly (WebFetch, no wall) — the maker\'s current name is "Comp 2-Bolt Seatpost" (MODEL CORRECTED from the row\'s prior "Comp Two-Bolt" spelling to match, id kept, append-only — this is the same product, not a different one; the prior row already had the specs right). Spec table: "Diameter Options: 26.8, 27.0, 27.2, 30.9, 31.4, 31.6mm" (confirms diameter:\'27.2\' is a real SKU), "Setback/Offset: 25mm" (SETBACK CORRECTED 15->25 — an exact match to the maker\'s stated offset, the prior 15mm was wrong), "Weight: 260g (27.2x350mm)" (EXACT match to this row\'s pre-existing 260g, confirming it), "Material: 6061 alloy". No price on the page; this row\'s existing $45 sample stays. Entry-tier alloy post — fills the gap for the Allez\'s 27.2mm non-proprietary seat tube (the only other 27.2 post in this file, the Zipp SL Speed, is a premium carbon part).' },
   { id: 'bt-fizik-vento-microtex-tacky', cat: 'bartape', brand: 'Fizik', model: 'Racefeel 2mm Tacky', family: 'fizik-vento-microtex',
     weight: 77, price: 30,
