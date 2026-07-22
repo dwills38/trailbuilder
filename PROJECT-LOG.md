@@ -1,5 +1,23 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — cb-sheets-13: EVERY complete-bike wall was stale (MTB 3,309)
+
+- **verify/cb-sheets-13 merged**: Cannondale, Norco, Propain, Specialized — none is a real
+  wall; all render full spec pages via the browser pane once the per-SKU URL is found off
+  the rendered category listing (the prior 403/JS-shell notes were tooling gaps). Work
+  landed: Cannondale 7/7 (Habit HT 3 had REAL generation drift — fork XCR34→XCM34, a
+  duplicated Breakout rear tire → Trail Boss, price fix; Habit HT 2 verified against its
+  own archived /2023 URL with the new current-gen HT2 flagged for row-minting; Jekyll
+  $7,199→$6,249); Specialized 6 promoted + Epic WC price precision, Chisel correctly NOT
+  forced; Trek Remedy lifecycle resolved (whole line discontinued to closeout framesets —
+  both rows are legitimate retired snapshots); Norco Range C2 + Propain Tyee Sig-1
+  re-confirmed exact. Propain's WAF softened — Exa reaches the Signature Spec tables now.
+- **Follow-ups queued**: Norco Sight Gen 5 is a genuine new platform (needs row-minting,
+  not a fix); Norco's other 12 + Propain's other 7 rows are now unwalled for a direct
+  grind; the new Cannondale Habit HT 2 current-gen row; the Propain 170mm-vs-160mm fork
+  substitution now has a second corroborating source (dedicated review when picked up).
+- Gates: 7 OK (MTB 3,309), 988/988, tsc clean, harness fully clean.
+
 ## 2026-07-22 — gravel-verify-4: every 429 wall falls, gravel 150/255
 
 - **verify/gravel-verify-4 merged**: all six of verify-3's rate-limit walls cleared via
