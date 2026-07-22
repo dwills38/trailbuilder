@@ -461,6 +461,18 @@ var EMTB_PARTS = [
     desc: 'Verified vs the maker page. Motor generation corrected verify/emtb-3 wave 3 phase 2 (SyncDrive Pro2 -> Pro 3). Further corrected verify/emtb-4 wave 4 cluster B: drivetrain SRAM X0 Eagle Transmission -> SRAM XX Eagle Transmission AXS, brakes SRAM Code Ultimate -> SRAM Maven Ultimate 4-piston 200mm CenterLine (the real (2026) US top-tier build), weight matches the maker-stated 22.3kg (size M) exactly, price corrected $9,999 -> the real US MSRP $13,500.',
     verified: true, lastChecked: '2026-07-20', source: 'https://www.giant-bicycles.com/us/reign-advanced-eplus-0'
   },
+  {
+    id: 'em-giant-reign-e-plus-2', cat: 'emtb', brand: 'Giant', model: 'Reign E+ 2',
+    family: 'giant-reign-e-plus', modelYear: 2024,
+    motorBrand: 'giant', motorModel: 'SyncDrive Pro2', motorTorque: 85,
+    batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Cues LinkGlide 11-speed', brakes: 'Shimano Deore 4-piston',
+    disciplines: ['e-enduro'], price: 6500,
+    note: "Entry-tier aluminum Reign E+, one rung below the carbon Reign Advanced E+ 0 (em-giant-reign-e-plus-0): mullet wheels (29in front / 27.5in rear), Fox 38 Rhythm E-Optimized fork, Fox Float X Performance shock, 800Wh non-slim EnergyPak (vs the Advanced's slimmer 560Wh pack).",
+    desc: "Reached via the giant-bicycles.com Electric Mountain category listing (breadth-3, driving the site's own filter/listing UI rather than guessing a slug — the current live lineup no longer surfaces Trance X E+ at all, only Talon E+/Stance E+/Reign E+). Fetched the maker's own Reign E+ 2 (2024) product page directly: frame/fork/shock/drivetrain/brakes/battery/travel all maker-stated. No bike weight is published on the page (boilerplate 'have your local dealer weigh it' text in place of a figure) — weight left unset rather than guessed, matching the phantom-number discipline used elsewhere in this catalog.",
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.giant-bicycles.com/us/bikes-reign-eplus'
+  },
 
   // ---------------------------------------------------------------------------
   // Cannondale depth (Moterra 1 + Moterra SL lightweight)
