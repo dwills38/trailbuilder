@@ -97,7 +97,7 @@ var BMX_PARTS = [
     id: 'bmx-fr-colony-sweettooth', cat: 'frame', brand: 'Colony', model: 'Sweet Tooth',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.7, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
-    price: 429.99, note: 'Alex Hiam signature frame; real published sizes are 18.9/19.2/20.4/20.7/21in (corrected from a non-existent 20.6in) — ships bossless with a removable brake-tab kit sold separately, so brakeless-stock is correct. Currently sold only via Colony\'s AU distributor/retail channel, not colonybmx.com.au\'s own current frame lineup, so it does not clear the manufacturer-own-page verification bar; weight/price remain sample.'
+    price: 429.99, note: 'Alex Hiam signature frame; real published sizes are 18.9/19.2/20.4/20.7/21in (corrected from a non-existent 20.6in) — ships bossless with a removable brake-tab kit sold separately, so brakeless-stock is correct. Currently sold only via Colony\'s AU distributor/retail channel, not colonybmx.com.au\'s own current frame lineup, so it does not clear the manufacturer-own-page verification bar; weight/price remain sample. RECONFIRMED 2026-07-21 (bmx-sweep-3): colonybmx.com.au/products/category/frames/ (maker\'s own current 9-product Frames category - Prody/Cadet 20/18/16/Bloody Oath Kit/Rico/Enishi/Prisma/Blaster/Horizon Alloy) still has no "Sweet Tooth". Left unverified/unchanged.'
   },
   {
     id: 'bmx-fr-haro-downtown', cat: 'frame', brand: 'Haro', model: 'Downtown',
@@ -127,7 +127,8 @@ var BMX_PARTS = [
     id: 'bmx-fr-stranger-level', cat: 'frame', brand: 'Stranger Bikes', model: 'Level',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.9, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
-    price: 439.99
+    price: 439.99,
+    note: 'WALL, checked 2026-07-21 (bmx-sweep-3): strangerco.com/collections/frames (Stranger\'s own current-lineup Shopify collection) lists 6 in-stock frames - Ballast Evo, RPG, Royale, Alley Cat - no "Level" model. Retailer pages (Albe\'s/Dan\'s Comp/5150/Stacked) still sell a "Stranger Level" complete bike dated 2021, so this is a discontinued-from-current-manufacturer-lineup case (the same pattern as GT Fly/Fly Bikes Nassau/Haro Downtown DLX), not a fabricated name. Left unverified/unchanged - no manufacturer source confirms these interfaces today.'
   },
   {
     id: 'bmx-fr-fiend-typeo', cat: 'frame', brand: 'Fiend', model: 'Type O',
@@ -192,14 +193,14 @@ var BMX_PARTS = [
     id: 'bmx-fr-haro-lineage-master', cat: 'frame', brand: 'Haro', model: 'Lineage Master',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 21.0, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
-    price: 499.99, note: 'Heritage reissue of Haro\'s original Master freestyle frame.'
+    price: 499.99, note: 'Heritage reissue of Haro\'s original Master freestyle frame. WALL, checked 2026-07-21 (bmx-sweep-3): harobikes.com/collections/bmx (Haro\'s own current Freestyle collection, 10 products) lists La Bastille Cassette, Hoover, Dana, Clairemont, Burgess, Blvd, Downtown 24/20/18/16 - no "Lineage Master" or any "Lineage" model. Not on the live site at all (unlike Downtown DLX, no archived Haro spec page was located either). Left unverified/unchanged.'
   },
   {
     id: 'bmx-fr-haro-downtown-dlx', cat: 'frame', brand: 'Haro', model: 'Downtown DLX',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
     price: 449.99,
-    note: 'BMX wave 4: CORRECTED, NOT VERIFIED. No current harobikes.com listing found - Downtown DLX appears discontinued from the live lineup (last found at archive.harobikes.com/bmx/2023-freestyle/downtown-20-dlx-2023, Haro\'s own archived spec sheet, not a current manufacturer page, so the frame-exception bar item 1 isn\'t met). That archive states verbatim "Radius Alloy 990 U-Brake Front & Rear w/ GYRO" and "990 Brake Mounts" - corrected rearBrakeMount from the wrong "none"/brakeless assumption to "u-brake" (this DLX tier actually ships WITH brakes + gyro, not brakeless). Also corrected topTube 20.75->20.5: the archive\'s geometry table lists only two sizes (19.5in and 20.5in), no 20.75in option exists. Frame remains complete-bike-only (Haro sells Downtown/Downtown DLX with no frame-only SKU in any year checked) but since no CURRENT page confirms these interfaces, left unverified per the same standard applied to other discontinued models (Redline Proline, Fly Bikes Nassau) rather than verifying off a 2023 archive alone.'
+    note: 'BMX wave 4: CORRECTED, NOT VERIFIED. No current harobikes.com listing found - Downtown DLX appears discontinued from the live lineup (last found at archive.harobikes.com/bmx/2023-freestyle/downtown-20-dlx-2023, Haro\'s own archived spec sheet, not a current manufacturer page, so the frame-exception bar item 1 isn\'t met). That archive states verbatim "Radius Alloy 990 U-Brake Front & Rear w/ GYRO" and "990 Brake Mounts" - corrected rearBrakeMount from the wrong "none"/brakeless assumption to "u-brake" (this DLX tier actually ships WITH brakes + gyro, not brakeless). Also corrected topTube 20.75->20.5: the archive\'s geometry table lists only two sizes (19.5in and 20.5in), no 20.75in option exists. Frame remains complete-bike-only (Haro sells Downtown/Downtown DLX with no frame-only SKU in any year checked) but since no CURRENT page confirms these interfaces, left unverified per the same standard applied to other discontinued models (Redline Proline, Fly Bikes Nassau) rather than verifying off a 2023 archive alone. RECONFIRMED WALL 2026-07-21 (bmx-sweep-3): harobikes.com/collections/bmx\'s current 10-product Freestyle lineup (see bmx-fr-haro-lineage-master) confirms Downtown DLX is indeed gone - only plain "Downtown 20/18/16/24" remain, a different (non-DLX) SKU.'
   },
   {
     id: 'bmx-fr-bsd-focus', cat: 'frame', brand: 'BSD', model: 'Focus',
@@ -344,7 +345,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-fk-haro-downtown', cat: 'fork', brand: 'Haro', model: 'Downtown Fork',
     discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
-    brakeMount: 'none', weight: 680, price: 99.99, note: 'Companion fork to the Downtown/Downtown DLX frames; commonly run brakeless.'
+    brakeMount: 'none', weight: 680, price: 99.99, note: 'Companion fork to the Downtown/Downtown DLX frames; commonly run brakeless. WALL, checked 2026-07-21 (bmx-sweep-3): no standalone fork found on harobikes.com\'s current 10-product Freestyle lineup (see bmx-fr-haro-lineage-master) - Haro does not sell aftermarket forks separately in the current storefront at all (complete-bikes-only brand). Left unverified/unchanged.'
   },
   {
     id: 'bmx-fk-chase-rsp', cat: 'fork', brand: 'Chase', model: 'RSP Race Fork',
@@ -727,7 +728,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-pg-totalbmx-rotary', cat: 'sprocket', brand: 'Total BMX', model: 'Rotary Sprocket 25T',
     teeth: 25, mount: 'spline', pitch: '1/8', weight: 59, price: 32.99,
-    note: 'RECATEGORIZED pegs->sprocket 2026-07-17 (audit): "Rotary" is a Total BMX SPROCKET (CNC 7075-T6, 25T/28T, 59g at 25T, 1/8in, bolt-drive with 19/22/24mm spindle adapters - modeled as spline per the sprocket-mount convention), never a peg (confirmed via sourcebmx.com/products/total-bmx-rotary-sprocket + 5150bmx.com/products/rotary-sprocket). Id retains the legacy bmx-pg- prefix (ids are append-only). Left unverified (retailer specs, not a fetched maker spec table).'
+    note: 'RECATEGORIZED pegs->sprocket 2026-07-17 (audit): "Rotary" is a Total BMX SPROCKET (CNC 7075-T6, 25T/28T, 59g at 25T, 1/8in, bolt-drive with 19/22/24mm spindle adapters - modeled as spline per the sprocket-mount convention), never a peg (confirmed via sourcebmx.com/products/total-bmx-rotary-sprocket + 5150bmx.com/products/rotary-sprocket). Id retains the legacy bmx-pg- prefix (ids are append-only). Left unverified (retailer specs, not a fetched maker spec table). WALL, checked 2026-07-21 (bmx-sweep-3): totalbmx.com/collections/sprockets (maker\'s own current 2-product collection) lists only Killabee Sprocket variants - no "Rotary" - confirming it is discontinued from the current storefront, matching the retailer-only sourcing already on this row. Left unverified/unchanged.'
   },
   {
     id: 'bmx-pg-flybikes-vandal', cat: 'pegs', brand: 'Fly Bikes', model: 'Vandal Pegs',
@@ -846,7 +847,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-se-totalbmx-slim', cat: 'seat', brand: 'Total BMX', model: 'Slim Pivotal Seat',
     system: 'pivotal', price: 24.99,
-    note: 'No standalone "Slim Pivotal Seat" found for Total BMX; closest real products are the "Logo Slim Combo Seat" and "Killabee Slim Combo Bee Seat" (seat+post combo units, not sold as a bare seat). system:pivotal is plausible (Total\'s combo seats use pivotal-style mounting) but not confirmed against an exact matching SKU, so left unverified.'
+    note: 'No standalone "Slim Pivotal Seat" found for Total BMX; closest real products are the "Logo Slim Combo Seat" and "Killabee Slim Combo Bee Seat" (seat+post combo units, not sold as a bare seat). system:pivotal is plausible (Total\'s combo seats use pivotal-style mounting) but not confirmed against an exact matching SKU, so left unverified. RECONFIRMED 2026-07-21 (bmx-sweep-3): totalbmx.com/collections/seats (maker\'s own current 2-product collection) still lists only those same two Combo Seat SKUs ($52.00 each) - no bare pivotal seat sold separately. Left unverified/unchanged.'
   },
 
   // ===== SEATPOST =======================================================
@@ -1393,12 +1394,12 @@ var BMX_PARTS = [
   {
     id: 'bmx-fw-alienation-sabbath', cat: 'frontWheel', brand: 'Alienation', model: 'Sabbath Front',
     axle: '10mm', wheelSize: '20', price: 129.99,
-    note: 'Race front wheel; axle/wheel-size per the near-universal modern BMX race standard (brand+model confirmed on alienationbmx.com, per-spec page not fetched).'
+    note: 'CORRECTED 2026-07-21 (bmx-sweep-3): alienationbmx.com/portfolio/sabbath-front (raw-fetched, maker\'s own product page, browser pane) confirms the model is real and current ("Vandal tubeless compatible, double wall & welded seam...Featuring Alienation`s Venus Hub...DT SS 2.0 straight gauge") but describes it as intended for STREET use, not race - the prior note\'s "Race front wheel" characterization was an unsourced guess and is corrected here. The page states NEITHER wheelSize NOR axle mm (the load-bearing fields checkBmxBuild reads), so both remain unconfirmed sample values - not verified.'
   },
   {
     id: 'bmx-rh-alienation-sabbath', cat: 'rearWheel', brand: 'Alienation', model: 'Sabbath Rear',
     driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 149.99,
-    note: 'Race rear wheel, cassette driver only (race hubs are cassette-only). Driver tooth count per today\'s de-facto 9T standard - brand+model confirmed on alienationbmx.com, per-spec page not fetched.'
+    note: 'CORRECTED 2026-07-21 (bmx-sweep-3): alienationbmx.com/portfolio/black-sabbath (raw-fetched, maker\'s own product page, browser pane) confirms this is a STREET wheel, not race - "Intended for street use", "Featuring Alienation`s Venus Hub with 9 tooth driver" (driverTeeth:9 CONFIRMED), "Available in Left and Right-hand drive options" (side:both CONFIRMED). The page does not state driverType as literally "cassette" (Venus Hub is not spelled out as cassette-vs-freecoaster on this page) or an axle mm figure - those two load-bearing fields remain unconfirmed; not verified. Prior note\'s "race rear wheel...race hubs are cassette-only" reasoning is retracted (unsourced assumption).'
   },
 
   // ---- Depth-5 (2026-07-17): disc-era race frame + Fit/S&M/Cult/Odyssey/
