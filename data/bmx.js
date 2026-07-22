@@ -2393,6 +2393,14 @@ var BMX_PARTS = [
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22',
     source: 'https://tallorderbmx.com/products/tall-order-catch-pedal-black-9-16',
     note: 'bmx-breadth-3 (2026-07-22): NEW brand for this catalog. FETCHED tallorderbmx.com directly (Tall Order\'s own storefront) — page states verbatim "Nylon plastic body" and "9/16\\" thread with heat treated axle" (platform:plastic, spindle:9/16 CONFIRMED). Regular price is £18.99 GBP (currently on sale at £11.99 — a labeled promotional price, NOT used per THE PRICE RULE); converted to USD at ~1.27 USD/GBP -> $24.12, priceBasis:regional-conversion (UK brand, no published US MSRP). No weight is stated on the page. Promoted to verified:true on the two engine-read/schema fields actually confirmed (platform, spindle); price is the disclosed conversion, not a literal maker-stated USD figure.'
+  },
+
+  // ---- GSport BMX (new brand: Roloway/Elite hub-wheel line; thin
+  //      rearWheel category) ----------------------------------------------
+  {
+    id: 'bmx-rh-gsport-elite-cassette', cat: 'rearWheel', brand: 'GSport', model: 'Elite Cassette Rear Wheel',
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 490, price: 399.99,
+    note: 'bmx-breadth-3 (2026-07-22): NEW brand for this catalog. WebSearch-corroborated across Source BMX, SkatePro, Albe\'s BMX and Powers Bike Shop, all describing the same GSport Elite Cassette Wheel: a 7075-T6 aluminum "Roloway" cassette hub (9-tooth, 3-pawl independent-spring driver, "RHD/LHD compatible" -> side:both, "14mm 4130 chromoly axle bolts with 17mm 4130 chromoly female axle" -> axle:14mm) laced 36h to GSport\'s own 6061-T6 Ribcage rim. Total wheel weight stated as "17.28oz (approximately 490g)" in the corroborating copy -> weight:490. Price $399.99 attributed to GSport\'s own storefront (shop.gsportbmx.com) by independent retailer copy; shop.gsportbmx.com itself returned HTTP 429 on every fetch attempt this session (documented wall, not routed around). Left unverified (retailer/WebSearch-corroborated, no direct manufacturer fetch this session).\n\n    TRUE-GAP flagged, not entered: the companion "G-Sport Elite Front Wheel" uses a 20mm through-axle (a real, WebSearch-confirmed spec: "20mm 7075-T6 aluminum female axle"), but BMX_VOCAB.axle only contains [\'10mm\',\'14mm\'] — no matching token exists. Per DATA-ENTRY-TEMPLATE §4 ("stop the batch, add the vocab value... never ship a fictitious mapping"), this row is deliberately NOT entered rather than force-fit to 10mm or 14mm; widening BMX_VOCAB.axle to add a 20mm token is out of this data-only batch\'s scope and is flagged here for a future schema-touching pass.'
   }
 ];
 
