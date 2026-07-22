@@ -282,7 +282,7 @@ var BMX_PARTS = [
     family: 'united-supreme', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
     headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
     frameOnly: false, price: 465.00,
-    note: 'Frame spec pulled from the Supreme complete-bike page; also offered in 20.75in top tube. U-brake is the classic "990"-style mount, removable.'
+    note: 'WALL, checked 2026-07-21 (bmx-sweep-4): unitedbikeco.com\'s current BMX BIKES collection (fetched via browser pane) lists only the "United Recruit" line (16/18/18.5/20.25in, pre-order Aug/Sep 2026) - no "Supreme" model exists in the current maker catalog at all, confirming it is fully discontinued (not merely complete-bike-only). This row\'s spec (bbShell:mid, headTube:integrated-1-1/8, rearBrakeMount:u-brake "990", rearAxle:14mm, topTube:20.5, also offered 20.75in) is corroborated by numerous consistent retailer complete-bike listings (timelessbmxdistro.com, 5150bmx.com, skatehut.co.uk, americancycle.com - all quoting the identical official spec sheet text) but none is a fetchable maker page, so THE BAR cannot be met - left unverified/unchanged. Flagged for the coordinator: likely candidate for a `status:"discontinued"` tag rather than further verification attempts (no live maker source will ever exist for this model).'
   },
   {
     id: 'bmx-fr-mongoose-legionl60', cat: 'frame', brand: 'Mongoose', model: 'Legion L60',
@@ -691,7 +691,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-ti-duo-svs', cat: 'tire', brand: 'DUO Brand', model: 'SVS Tire 2.3"',
-    wheelSize: '20', width: 2.3, casing: 'park', maxPsi: 95, price: 26.99
+    wheelSize: '20', width: 2.3, casing: 'park', maxPsi: 95, price: 26.99,
+    note: 'WALL, checked 2026-07-21 (bmx-sweep-4): duobrand.com (the maker\'s own site, confirmed via browser pane, not just a WebFetch failure - the store itself returns "This store is unavailable", a dead Shopify storefront) cannot be fetched. DATA POINT FOR THE COORDINATOR, NOT VERIFIED (retailer sourcing only, does not meet THE BAR): many independent retailers (dkbicycles.com, systemcycle.com, jdcyclesupply.com, probmxbikes.com) consistently describe the current SVS as a 20x2.25in tire (inflated width 2.22in/56.5mm), MAX PRESSURE 60PSI (not this row\'s 95) and ~592g/20.9oz - this catalog row\'s width:2.3/maxPsi:95 do not match that consensus, but cannot be corrected without a maker source per THE BAR. Left unchanged; flagged for the coordinator as a likely stale spec pending the maker site coming back online.'
   },
   {
     id: 'bmx-ti-colony-griplock-24', cat: 'tire', brand: 'Colony', model: 'Grip Lock Tire 2.35"',
