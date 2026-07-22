@@ -320,9 +320,9 @@ var ROAD_VOCAB_MAP = [
             {cats: ['frontwheel'], field: 'hub'} ],
     why: 'Both sides of R2 (fork.axle vs frontwheel.hub). GRAVEL_VOCAB.axle vocabs fork.axle only, so it IS this axis — but it holds fork-side-only values (\'lefty-proprietary\', \'15x100\'), which is why this table is explicit that a listed token is not a claim it can appear on both sides. Same shared-`hub` reasoning as rearAxle.' },
 
-  { key: 'steerer', schemaRoad: ['steererRG'], schemaGravel: ['steerer'], schemaShared: ['steerer'], rules: 'R4 (rg-steerer, rg-headset-steerer)',
+  { key: 'steerer', schemaRoad: ['steererRG'], schemaGravel: ['steerer'], rules: 'R4 (rg-steerer, rg-headset-steerer)',
     rows: [ {cats: ['frame', 'fork', 'headset'], field: 'steerer'} ],
-    why: 'R4 reads frame/fork/headset ONLY. GRAVEL_VOCAB.steerer is listed as both mapped and shared because it additionally vocabs stem.steerer — a stem\'s clamp bore, a different axis R4 never reads, and one the two datasets do not even spell alike (road stems say \'1-1-8\', gravel stems say \'tapered\'). Stems and cockpits are therefore OUT of the selector and out of this table; see ROAD_VOCAB_MAP_EXCLUDED.' },
+    why: 'R4 reads frame/fork/headset ONLY. Both schema keys map here outright — but each ALSO reaches a stem: schema-gravel vocab-checks stem.steerer against its `steerer` key, and schema-road parks the stem-side token \'1-1-8\' in steererRG while leaving stem.steerer itself un-vocab\'d. A stem\'s CLAMP BORE is not a fork\'s steerer standard (the two datasets do not even spell it alike — road stems say \'1-1-8\', gravel stems say \'tapered\'), and R4 never reads a stem, so stem/cockpit rows are OUT of the selector. Those two sub-uses are recorded as pseudo-entries in ROAD_VOCAB_MAP_EXCLUDED — an excluded SUB-USE of a mapped key, which is not the same thing as a key shared between two mapped axes.' },
 
   { key: 'system', keys: ['system', 'chainStd'], schemaRoad: ['systemRoad'], schemaGravel: ['system'], rules: 'R13, R15',
     rows: [ {cats: ['shifter', 'frontderailleur', 'rearderailleur', 'cassette', 'chain'], field: 'system'} ],
@@ -379,38 +379,43 @@ var ROAD_VOCAB_MAP = [
    (test-road-golden.js pins it), so a new key cannot land unclassified. An entry
    here is a decision with a reason, never an oversight — and for the two entries
    that exist BECAUSE a mapping would have been wrong, the reason is the finding. */
-/** @typedef {{schema: 'road'|'gravel', key: string, why: string}} RoadVocabExclusion */
+/** `pseudo: true` marks an entry that is NOT a vocab key but a documented
+   EXCLUDED SUB-USE of a key mapped above (a merged key one of whose fields
+   belongs to no engine axis) — the completeness pin skips those, so they can
+   never be mistaken for a key that exists.
+   @typedef {{schema: 'road'|'gravel', key: string, pseudo?: boolean, why: string}} RoadVocabExclusion */
 /** @type {RoadVocabExclusion[]} */
 var ROAD_VOCAB_MAP_EXCLUDED = [
   /* --- the two that a naive superset lint would have got WRONG ------------- */
-  { schema: 'road', key: 'steererRG_stemSide', why: 'NOT A KEY OF ITS OWN — recorded here because steererRG (mapped to `steerer` above) additionally accepts \'1-1-8\', and the STEM/COCKPIT side of that token is excluded from the steerer axis. All 14 rows carrying \'1-1-8\' are road stem.steerer (11) or cockpit.steerer (3), both of which schema-road leaves un-vocab\'d as plain strings; no frame/fork/headset row in either dataset uses it (they all use \'straight-1-1-8\'), and R4 reads no stem or cockpit. Mapping it in would put two spellings of one interface on a single exact-match axis — the pf86/bb86 false-mismatch shape. Flagged to the coordinator as a suspected duplicate spelling inside steererRG; retiring it is a schema call, not this pass\'s.' },
-  { schema: 'gravel', key: 'dropperDiameter_actuation', why: 'NOT A KEY OF ITS OWN — records that GRAVEL_VOCAB.actuation\'s DROPPER use (dropper.actuation) is excluded from both actuation axes. A dropper remote\'s actuation is a third meaning of the word: no engine rule reads it (R14 covers shifter-vs-derailleur, brifterBrakeCheck covers the caliper), and schema-road has no dropper category at all, so there is no road-side counterpart to correspond to. Its live values happen to overlap ROAD_VOCAB.actuation (\'mechanical\'/\'axs-wireless\'), which is precisely why mapping it by token similarity would have looked right and been wrong.' },
+  { schema: 'road', key: 'steererRG_stemSide', pseudo: true, why: 'NOT A KEY OF ITS OWN — recorded here because steererRG (mapped to `steerer` above) additionally accepts \'1-1-8\', and the STEM/COCKPIT side of that token is excluded from the steerer axis. All 14 rows carrying \'1-1-8\' are road stem.steerer (11) or cockpit.steerer (3), both of which schema-road leaves un-vocab\'d as plain strings; no frame/fork/headset row in either dataset uses it (they all use \'straight-1-1-8\'), and R4 reads no stem or cockpit. Mapping it in would put two spellings of one interface on a single exact-match axis — the pf86/bb86 false-mismatch shape. Flagged to the coordinator as a suspected duplicate spelling inside steererRG; retiring it is a schema call, not this pass\'s.' },
+  { schema: 'gravel', key: 'steerer_stemSide', pseudo: true, why: 'NOT A KEY OF ITS OWN — the gravel half of the exclusion above. GRAVEL_VOCAB.steerer (mapped to the `steerer` axis) additionally vocabs stem.steerer, where the cataloged rows carry \'tapered\' — a stem clamping the 1-1/8in upper section of a tapered steerer, i.e. the stem\'s clamp bore rather than the fork\'s steerer standard. R4 reads no stem, the two datasets spell this axis differently (gravel \'tapered\' vs road \'1-1-8\'), and folding stems into the R4 selector would put two unrelated meanings on one exact-match compare.' },
+  { schema: 'gravel', key: 'dropperDiameter_actuation', pseudo: true, why: 'NOT A KEY OF ITS OWN — records that GRAVEL_VOCAB.actuation\'s DROPPER use (dropper.actuation) is excluded from both actuation axes. A dropper remote\'s actuation is a third meaning of the word: no engine rule reads it (R14 covers shifter-vs-derailleur, brifterBrakeCheck covers the caliper), and schema-road has no dropper category at all, so there is no road-side counterpart to correspond to. Its live values happen to overlap ROAD_VOCAB.actuation (\'mechanical\'/\'axs-wireless\'), which is precisely why mapping it by token similarity would have looked right and been wrong.' },
 
   /* --- non-engine axes: real data, but no rule reads them ------------------ */
   { schema: 'road', key: 'side', why: 'shifter.side (left/right/pair) — inventory/packaging fact. No rule reads it; the engine models the brifter PAIR as one slot.' },
-  { schema: 'gravel', key: 'side', why: 'Same axis as road\'s `side`, same reason.' },
+  { schema: 'gravel', key: 'side', why: 'shifter.side — the same packaging axis as schema-road\'s `side`, excluded for the same reason: no rule reads it, and this engine models the brifter pair as a single slot.' },
   { schema: 'road', key: 'cage', why: 'rearderailleur.cage (short/medium/long/xplr/mullet) — R6 uses the RD\'s numeric maxCog, never the cage name.' },
-  { schema: 'gravel', key: 'cage', why: 'Same axis as road\'s `cage`, same reason.' },
+  { schema: 'gravel', key: 'cage', why: 'rearderailleur.cage — the same axis as schema-road\'s `cage`, excluded for the same reason: R6 reads the RD\'s numeric maxCog, never the cage name.' },
   { schema: 'road', key: 'ringStdRG', why: 'crankset.ringStd. The MTB engine has a T-Type-chainring-vs-Transmission-chain rule; this engine has NO ringStd rule, so the axis is unread. Recorded as a coverage note for the mechanic review — adding a rule is a separate, sourced decision, and a lint over an unread axis would imply coverage that does not exist.' },
-  { schema: 'gravel', key: 'ringStd', why: 'Same axis as road\'s `ringStdRG`, same reason.' },
+  { schema: 'gravel', key: 'ringStd', why: 'crankset.ringStd — the same axis as schema-road\'s `ringStdRG`, excluded for the same reason: this engine has no chainring-standard rule at all, so linting the axis would imply coverage that does not exist.' },
   { schema: 'road', key: 'pedalStyleRoad', why: 'pedal.style. Pedal threading is universal 9/16in, so no pedal rule exists in any of this project\'s engines.' },
-  { schema: 'gravel', key: 'style', why: 'Same axis as road\'s `pedalStyleRoad`, same reason.' },
+  { schema: 'gravel', key: 'style', why: 'pedal.style — the same axis as schema-road\'s `pedalStyleRoad`, excluded for the same reason: pedal threading is universal 9/16in, so no pedal rule exists in any engine here.' },
   { schema: 'road', key: 'discipline', why: 'disciplines[] — filter/annotation only, never a verdict input (the same contract src/schema.js states for the MTB catalog).' },
-  { schema: 'gravel', key: 'material', why: 'frame.material — display/filter only.' },
-  { schema: 'gravel', key: 'casing', why: 'tire.casing — brand-native SKU axis, display/filter only.' },
-  { schema: 'gravel', key: 'compound', why: 'tire.compound — brand-native SKU axis, display/filter only.' },
+  { schema: 'gravel', key: 'material', why: 'frame.material (alloy/steel/titanium) — a display and filter facet. No rule reads frame material, and schema-road has no counterpart key at all, so there is nothing to correspond to.' },
+  { schema: 'gravel', key: 'casing', why: 'tire.casing — a brand-native SKU axis (every maker names its own casing tiers), display and filter only. R9 reads a tire\'s numeric width, never its casing.' },
+  { schema: 'gravel', key: 'compound', why: 'tire.compound — a brand-native SKU axis like `casing`, display and filter only; no rule reads rubber compound.' },
   { schema: 'gravel', key: 'suspension', why: 'fork.suspension (rigid/suspension) — descriptive; no road/gravel rule branches on it.' },
   { schema: 'gravel', key: 'dropoutType', why: 'frame.dropoutType — landed dormant by its own wave (no gravel single-speed/chain-tension rule exists), display only until one does.' },
 
   /* --- numeric axes: not tokens ------------------------------------------- */
   { schema: 'gravel', key: 'speeds', why: 'NUMERIC. ROAD_VOCAB holds string token sets only; R13 compares speed COUNTS arithmetically, so a token list would be the wrong shape for it. schema-gravel enumerating the counts it accepts is its own business.' },
-  { schema: 'gravel', key: 'minCog', why: 'NUMERIC, same reason as `speeds` (R6 compares cog numbers).' },
+  { schema: 'gravel', key: 'minCog', why: 'cassette.minCog — NUMERIC, excluded for the same reason as `speeds`: ROAD_VOCAB holds string token sets, while R6 compares cog counts arithmetically.' },
 
   /* --- provenance/lifecycle: catalog metadata, not interfaces -------------- */
   { schema: 'road', key: 'status', why: 'Lifecycle (current/discontinued/recalled) — catalog metadata, never a fit input.' },
-  { schema: 'gravel', key: 'status', why: 'Same axis as road\'s `status`, same reason.' },
-  { schema: 'road', key: 'priceBasis', why: 'Price provenance — catalog metadata, never a fit input.' },
-  { schema: 'gravel', key: 'priceBasis', why: 'Same axis as road\'s `priceBasis`, same reason.' }
+  { schema: 'gravel', key: 'status', why: 'Lifecycle — the same axis as schema-road\'s `status`, excluded for the same reason: catalog metadata (current/discontinued/recalled), never a fit input.' },
+  { schema: 'road', key: 'priceBasis', why: 'Price provenance — catalog metadata recording how a price was established. Never a fit input, and deliberately never an engine axis: pricing must not reach checkRoadBuild.' },
+  { schema: 'gravel', key: 'priceBasis', why: 'Price provenance — the same axis as schema-road\'s `priceBasis`, excluded for the same reason: catalog metadata, never a fit input.' }
 ];
 
 /** Tokens of the named ROAD_VOCAB key(s), for the lint and any caller that needs
