@@ -76,7 +76,17 @@ var ROAD_VOCAB = {
      it (post-mount caliper = adapter warning, flat-mount caliper = error). No token
      here claims it can appear on both sides: 'is-mount' is frame/fork-side only
      (no I.S. caliper is cataloged), exactly as R18's own note records. */
-  brakeMount:   ['flat-mount', 'post-mount', 'is-mount'],
+  /* 'rim-caliper' ADDED schema/vocab-widen-ab (2026-07-22, Douglas-ruled group A) —
+     the recessed-nut mount of a pre-disc road caliper. UNLIKE 'is-mount' it is a
+     BOTH-SIDES token by construction: the caliper side is live now (Shimano
+     BR-R3000, the row this pass unblocks), and the chassis side is dormant until
+     a rim-brake frame/fork is sourced (data/road.js's v1 decision is disc-only).
+     schema-road's new disc/rim cross-rule keeps the two halves from ever
+     disagreeing with their own brakeSystem. R18 never compares this token against
+     a disc mount: brakeMountCheck now returns early when the two ends are of
+     different brake CLASSES, because R17 already errors on that and "rim-caliper
+     vs flat-mount" is not an adapter question. */
+  brakeMount:   ['flat-mount', 'post-mount', 'is-mount', 'rim-caliper'],
   /* rearAxle carries BOTH sides of rule R2/R3's exact-match compare: a frame's
      `rearAxle` and a rear wheel's `hub`. RECONCILED engine/road-vocab-lint
      (2026-07-22): '12x148', '135x9-qr' and '135x10-qr' were live in
@@ -129,7 +139,13 @@ var ROAD_VOCAB = {
                  // with zero engine changes. Precedent: gravel's 'lefty-proprietary' axle.
                  'cannondale-delta',   // Cannondale "Delta" 1-1/8→1-1/4 non-round (SuperSix EVO)
                  'overdrive-aero',     // Giant D-shaped "OverDrive Aero" (TCR/Defy/Propel)
-                 'bmc-ics-flat'],      // BMC ICS "flat steerer" — Teammachine SLR 01 owner's manual: ICS-cockpit-only, standard round stems explicitly incompatible
+                 'bmc-ics-flat',       // BMC ICS "flat steerer" — Teammachine SLR 01 owner's manual: ICS-cockpit-only, standard round stems explicitly incompatible
+                 /* 'cervelo-d-shaped' ADDED schema/vocab-widen-ab (2026-07-22), the FIRST
+                    per-system proprietary steerer on the GRAVEL side of this shared axis —
+                    Cervelo's own 2026 Aspero-5 service reference (Frame Code FM164) states
+                    "Fork Steerer Type: Cervelo D-Shaped". Same doctrine as the three road
+                    tokens above; full sourcing at GRAVEL_VOCAB.steerer in schema-gravel.js. */
+                 'cervelo-d-shaped'],
   system:       ['shimano-road-12', 'shimano-road-11', 'shimano-grx-12', 'shimano-grx-11',
                  /* 'shimano-grx-10' RECONCILED engine/road-vocab-lint (2026-07-22): the
                     RX400 2x10 tier landed in GRAVEL_VOCAB.system and on 4 data/gravel.js
@@ -198,20 +214,33 @@ var ROAD_VOCAB = {
      names the BB unit's SPINDLE interface; the frame's shell is threaded) — a
      catalog-data question, out of this pass's scope, so the token is documented as
      accepted-and-in-use rather than quietly dropped.
-     DELIBERATELY NOT RECONCILED: GRAVEL_VOCAB.bb also accepts 't47a-bbright', but
-     that key is MERGED (it vocabs frame.bb AND crankset.bb — shells and spindles in
-     one list) and NO row uses the token, so nothing in the schemas' own usage says
-     which side it belongs to. Attributing it by name alone would be exactly the
-     guess THE BAR forbids; the data lint will force the decision the day a row
-     lands. */
+     't47a-bbright' RESOLVED schema/vocab-widen-ab (2026-07-22) — EXACTLY as the
+     note it replaces predicted. It previously read: "DELIBERATELY NOT RECONCILED:
+     GRAVEL_VOCAB.bb also accepts 't47a-bbright', but that key is MERGED (it vocabs
+     frame.bb AND crankset.bb — shells and spindles in one list) and NO row uses the
+     token, so nothing in the schemas' own usage says which side it belongs to...
+     the data lint will force the decision the day a row lands." A row has now
+     landed: gfr-cervelo-aspero-5 carries it as frame.bb, so the token is
+     attributed to the SHELL side by usage rather than by name. Cervelo's own 2026
+     Aspero-5 service reference states it verbatim — "Bottom Bracket Type/Width:
+     T47 BBright (T47A) Left cup: Inboard T47, Right cup: Outboard T47" — i.e. an
+     asymmetric threaded SHELL standard, never a crank spindle, which is also why
+     it stays OUT of crankBb below. */
   bbShell:      ['bsa-road', 'bb86', 'bb386evo', 'bbright', 'pf30', 't47-road', 'italian',
-                 'bb90-road', 'bb30a', 't47-86', 'pf92', 'bsa-73', 'square-taper'],
+                 'bb90-road', 'bb30a', 't47-86', 'pf92', 'bsa-73', 'square-taper', 't47a-bbright'],
   /* 'square-taper' RECONCILED engine/road-vocab-map (2026-07-22) from
      GRAVEL_VOCAB.spindle, which vocabs bb.spindle ONLY — an unambiguous one-field
      key, so the crank-side attribution needs no guess. No cataloged gravel crank or
      BB uses it yet (schema-gravel landed it for shell/spindle-pair completeness);
      it is listed because this table documents what the validators ACCEPT. */
-  crankBb:      ['dub', 'dub-wide', '24mm-road', '30mm', 'ultra-torque', 'square-taper'],
+  /* 'gxp' ADDED schema/vocab-widen-ab (2026-07-22) alongside the schema-road
+     widening — SRAM's pre-DUB 24/22mm stepped spindle, backed by the Rival 22
+     GXP crank row this pass enters (sram.com FC-RIV-2X11-A1: spindle options
+     "30mm, GXP"). Never merge with '24mm-road': a GXP non-drive spindle end is
+     22mm and seats on the bearing inner race, so a Shimano 24mm BB does not
+     take it — merging them would be the pf86/bb86 false-MATCH shape, the
+     mirror of the false-mismatch one. */
+  crankBb:      ['dub', 'dub-wide', '24mm-road', '30mm', 'ultra-torque', 'square-taper', 'gxp'],
   /* seatpostDia = R12's bore axis, and R12 compares a FRAME's `seatpost` against a
      post's/dropper's `diameter`. 'proprietary' RECONCILED engine/road-vocab-map
      (2026-07-22) as the FRAME-SIDE SENTINEL for an aero/D-shaped bore (R12 branches
@@ -277,8 +306,10 @@ var ROAD_VOCAB = {
    `schemaGravel` name the keys whose token set belongs to this axis, and
    `schemaShared` names merged keys that only partly do; NOTHING here claims
    every token of a listed key is in the ROAD_VOCAB key (the deliberate
-   non-reconciliations are documented at the tokens above: gravel `axle`'s
-   '12x142', gravel `bb`'s 't47a-bbright'). It is also, like ROAD_VOCAB itself,
+   non-reconciliation still standing is documented at the token above: gravel
+   `axle`'s '12x142'. Gravel `bb`'s 't47a-bbright' USED to be the second one and
+   was resolved in schema/vocab-widen-ab, 2026-07-22, when a row finally forced
+   the shell-vs-spindle call). It is also, like ROAD_VOCAB itself,
    INERT AT RUNTIME: checkRoadBuild never reads it, so nothing here can change a
    verdict.
    ========================================================================== */
@@ -339,7 +370,7 @@ var ROAD_VOCAB_MAP = [
   { key: 'bbShell', schemaRoad: ['bbShellRoad'], schemaGravel: ['shell'], schemaShared: ['bb'], rules: 'R11 (rg-bb-shell)',
     rows: [ {cats: ['frame'], field: 'bb'},
             {cats: ['bb'], field: 'shell'} ],
-    why: 'The FRAME-shell half of R11. schema-road\'s bbShellRoad vocabs frame.bb + bb.shell together, and GRAVEL_VOCAB.shell vocabs bb.shell alone — both unambiguous. GRAVEL_VOCAB.bb is SHARED: it vocabs frame.bb (a shell) AND crankset.bb (a spindle) from one list holding both kinds, so its tokens can only be attributed by the row that uses them. That is why \'t47a-bbright\', which no row uses, is deliberately left unattributed.' },
+    why: 'The FRAME-shell half of R11. schema-road\'s bbShellRoad vocabs frame.bb + bb.shell together, and GRAVEL_VOCAB.shell vocabs bb.shell alone — both unambiguous. GRAVEL_VOCAB.bb is SHARED: it vocabs frame.bb (a shell) AND crankset.bb (a spindle) from one list holding both kinds, so its tokens can only be attributed by the row that uses them. That is exactly how \'t47a-bbright\' was resolved in schema/vocab-widen-ab (2026-07-22): it sat here unattributed for as long as no row used it, and became a SHELL token the moment gfr-cervelo-aspero-5 carried it as frame.bb — attribution by usage, never by name.' },
 
   { key: 'crankBb', schemaRoad: ['crankBbRoad'], schemaGravel: ['spindle'], schemaShared: ['bb'], rules: 'R11 (rg-bb-spindle), rg-bb-advisory',
     rows: [ {cats: ['crankset'], field: 'bb'},
@@ -562,8 +593,21 @@ function roadSlotRequired(slot, build){
   var b = build || {};
   if(slot.key === 'frontDerailleur')
     return !!(b.crankset && b.crankset.chainrings === '2x');
-  if(slot.key === 'frontRotor' || slot.key === 'rearRotor')
-    return !(b.frame && typeof b.frame.brakeSystem === 'string' && b.frame.brakeSystem.indexOf('rim') === 0);
+  if(slot.key === 'frontRotor' || slot.key === 'rearRotor'){
+    if(b.frame && typeof b.frame.brakeSystem === 'string' && b.frame.brakeSystem.indexOf('rim') === 0) return false;
+    /* WIDENED schema/vocab-widen-ab (2026-07-22): the frame is not the only part
+       that can settle this. Once a RIM caliper is picked at an end, that end has
+       no rotor to buy — and with no rim-brake FRAME cataloged yet (data/road.js's
+       v1 disc-only decision), the frame test alone would have told a Sora
+       rim-brake build it was "incomplete" until it bought two rotors it can
+       never fit. Per-end, because the ends are independent slots.
+       Completeness only — never a fit verdict (the slotRequired contract); a
+       genuinely mixed disc/rim build is R17's ERROR, not this function's
+       business. */
+    var endBrake = b[slot.key === 'frontRotor' ? 'frontBrake' : 'rearBrake'];
+    if(endBrake && typeof endBrake.brakeSystem === 'string' && endBrake.brakeSystem.indexOf('rim') === 0) return false;
+    return true;
+  }
   if((slot.key === 'handlebar' || slot.key === 'stem') && b.cockpit) return false;
   if(slot.key === 'seatpost' && b.dropper) return false;
   return true;
@@ -1101,6 +1145,18 @@ function checkRoadBuild(build){
     if(!caliper || !mountPart) return;
     var cm = caliper.mount, pm = mountPart.brakeMount;
     if(cm == null || pm == null || cm === pm) return;   // dormant without either field
+    /* CLASS GUARD (schema/vocab-widen-ab, 2026-07-22, with the rim-caliper
+       widening). A disc caliper against a rim-brake chassis (or the reverse) is
+       not a MOUNT question at all — R17 already errors on the class mismatch in
+       the words that actually explain it, and "rim-caliper vs flat-mount" adds
+       only a second, mount-shaped restatement that invites an adapter reading
+       where no adapter exists. Both sides must state a known class for this to
+       bite, so an unknown/absent brakeSystem leaves the mount check exactly as
+       it was. NO EXISTING VERDICT CHANGES: every road/gravel frame, fork and
+       caliper cataloged before this pass is disc, so the two classes could not
+       differ. */
+    var ccls = roadBrakeClass(caliper.brakeSystem), mcls = roadBrakeClass(mountPart.brakeSystem);
+    if(ccls && mcls && ccls !== mcls) return;
     if(cm === 'post-mount' && pm === 'is-mount')
       warn('rg-brake-mount', [caliperSlot, mountSlot],
         endLabel + ' brake mount: ' + roadNameOf(caliper) + ' is a post-mount caliper and ' + roadNameOf(mountPart) + ' has an I.S. (International Standard) mount - fits with a size-specific I.S.-to-post-mount adapter (e.g. Shimano ' + adapterEg + ', or Hope HBIS20/HBIS40), matched to your rotor size.',

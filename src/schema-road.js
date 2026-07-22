@@ -52,6 +52,18 @@ function isNum(v){ return typeof v === 'number' && isFinite(v); }
 function isBool(v){ return typeof v === 'boolean'; }
 /** @param {any} v */
 function urlOk(v){ return isStr(v) && /^https?:\/\//.test(v); }
+/** disc-vs-rim CLASS of a brakeSystem token. Deliberately the SAME prefix test
+ *  as src/compat-road.js's roadBrakeClass (R17), duplicated rather than imported
+ *  because this file is a standalone browser-global validator with no imports —
+ *  if one is ever changed, change both. Returns null for an unknown token so the
+ *  cross-rule below stays silent rather than guessing.
+ *  @param {any} v @returns {'disc'|'rim'|null} */
+function brakeClassOf(v){
+  if(typeof v !== 'string') return null;
+  if(v.indexOf('disc') === 0) return 'disc';
+  if(v.indexOf('rim') === 0) return 'rim';
+  return null;
+}
 /** @param {any} v @param {Date} today */
 function dateOk(v, today){
   if(!isStr(v) || !/^\d{4}-\d{2}-\d{2}$/.test(v)) return false;
@@ -69,7 +81,24 @@ var LOCAL_VOCAB = {
   wheelRG:      ['700c', '650b'],
   freehubRG:    ['hg-road', 'hg-l2', 'micro-spline-road', 'xdr', 'n3w', 'campag-11'],
   brakeSystem:  ['disc-flat', 'disc-post', 'rim-caliper', 'disc-hydraulic', 'disc-mechanical', 'rim'],
-  brakeMountRG: ['flat-mount', 'post-mount'],
+  /* CALIPER-to-chassis mount. 'rim-caliper' ADDED schema/vocab-widen-ab
+     (2026-07-22, Douglas-ruled group A): the pre-disc road standard — a single
+     recessed nut through the frame's brake bridge / the fork crown, which is
+     why it is a MOUNT token and not merely a brakeSystem one. Backed by a real
+     row this pass unblocks: Shimano's BR-R3000, whose own productinfo.shimano.com
+     spec table states "Type: NEW SUPER SLR Dual pivot" and itemises the mount
+     itself as "Assembly pivot nut (mm) Front 10.5/12.5/18.0/27.0/32.0, Rear 10.5"
+     — the recessed-nut lengths for different bridge thicknesses. data/road.js's
+     own Sora block had logged this as "a genuine SCHEMA GAP, not fabricated or
+     omitted by oversight" and left the caliper out rather than force it into the
+     disc-only shape.
+     WHY ITS OWN TOKEN, not a shared 'rim': a rim-brake chassis can also carry
+     cantilever/V-brake BOSSES (real on older cross/touring frames), which is a
+     genuinely different mount taking a genuinely different caliper. Naming this
+     one after the standard it is leaves room for a 'canti-boss' token later
+     without either becoming a false match for the other — the same per-system
+     discipline steererRG already applies below. */
+  brakeMountRG: ['flat-mount', 'post-mount', 'rim-caliper'],
   rearAxleRG:   ['12x142', 'qr130', 'qr135'],
   frontAxleRG:  ['12x100', 'qr100'],
   steererRG:    ['tapered', 'straight-1-1-8', '1-1-8',
@@ -108,7 +137,17 @@ var LOCAL_VOCAB = {
   /* 'ultra-torque' ADDED road-2 wave: Campagnolo's own splined half-axle
      spindle interface (Super Record/Record/Chorus) — a distinct standard
      from SRAM DUB / Shimano 24mm / a generic 30mm spindle, never conflate. */
-  crankBbRoad:  ['dub', 'dub-wide', '24mm-road', '30mm', 'ultra-torque'],
+  /* 'gxp' ADDED schema/vocab-widen-ab (2026-07-22, Douglas-ruled group A):
+     SRAM's pre-DUB 24/22 mm stepped spindle — a distinct interface from DUB
+     (28.99 mm) and from a generic 30 mm, and NOT Shimano's straight 24 mm
+     ('24mm-road'): a GXP crank's non-drive end steps down to 22 mm and seats
+     against the bearing's inner race, so the two are not interchangeable.
+     Backed by the row this pass unblocks: SRAM's own FC-RIV-2X11-A1 model page
+     lists the Rival 22 crank's bottom-bracket options verbatim as
+     "BB30/PF30-68mm, GXP/PF GXP 68mm" and its spindle options as "30mm, GXP".
+     data/road.js's cr-sram-rival22-3011 note had recorded the GXP SKU as
+     "a real vocab gap flagged rather than mis-mapped to '24mm-road'/'30mm'". */
+  crankBbRoad:  ['dub', 'dub-wide', '24mm-road', '30mm', 'ultra-torque', 'gxp'],
   seatpostDiaRG:['27.2', '30.9', '31.6'],
   clampRG:      ['31.8', '35'],
   frontDerailleurMount: ['braze-on', 'band', 'none'],
@@ -265,10 +304,21 @@ var ROAD_SCHEMA = {
     lower: {type:'string'},
     steerer: {type:'string', vocab:'steererRG'}
   },
+  /* brake — `pistons` became CONDITIONAL in schema/vocab-widen-ab (2026-07-22):
+     a rim caliper has no pistons at all (it is a cable-pulled dual-pivot arm
+     pair), so requiring the field is what kept every real rim caliper out of
+     this catalog. It is now optional here and governed by the disc/rim
+     cross-rule in validateRoadPart — required on a disc row, FORBIDDEN on a rim
+     row — which is strictly stronger than the old unconditional requirement:
+     the old shape could not have caught `pistons:2` on a rim caliper.
+     `reach` is the rim-caliper-only arch dimension (mm, pad-slot centre to
+     pivot) that decides whether a caliper spans a given frame's bridge-to-rim
+     distance; optional, and the same cross-rule keeps it off disc rows. */
   brake: {
     brakeSystem: {type:'string', vocab:'brakeSystem'},
     mount: {type:'string', vocab:'brakeMountRG'},
-    pistons: {type:'number'},
+    pistons: {type:'number', optional:true},
+    reach: {type:'number', optional:true},
     actuation: {type:'string', vocab:'actuationBrake'},
     leverPair: {type:'string', optional:true}
   },
@@ -405,6 +455,43 @@ function validateRoadPart(p, today){
       }
     }
   });
+
+  /* CROSS-RULES — disc vs rim (schema/vocab-widen-ab, 2026-07-22).
+     The rim-caliper widening above made three previously-impossible rows
+     expressible, so each is closed here rather than left to reviewer vigilance.
+     All three are SILENT when the class is unknown or the field is absent —
+     absence means unknown, never a guess (the engine's own contract). */
+  if(p.cat === 'brake'){
+    var bcls = brakeClassOf(p.brakeSystem);
+    /* (a) pistons: the count IS the disc-caliper spec, and a rim caliper has
+       none. Replaces the old unconditional requirement in both directions. */
+    if(bcls === 'disc' && !('pistons' in p && p.pistons != null))
+      bad('a disc brake row requires "pistons" (the piston count is the caliper spec)');
+    if(bcls === 'rim' && 'pistons' in p && p.pistons != null)
+      bad('a rim brake row must not carry "pistons" - a rim caliper is a cable-pulled arm pair, not a piston caliper');
+    /* (b) reach is the rim-caliper arch dimension; it means nothing on a disc. */
+    if(bcls === 'disc' && 'reach' in p && p.reach != null)
+      bad('"reach" is a rim-caliper arch dimension - a disc caliper has no reach');
+    /* (c) mount and system must agree: the whole point of a distinct
+       'rim-caliper' MOUNT token is that it cannot appear on a disc caliper (or
+       vice versa), which is what would silently green a nonsense row. */
+    if(bcls === 'disc' && p.mount === 'rim-caliper')
+      bad('mount "rim-caliper" contradicts brakeSystem "' + p.brakeSystem + '" (a disc caliper does not bolt to a brake bridge)');
+    if(bcls === 'rim' && 'mount' in p && p.mount != null && p.mount !== 'rim-caliper')
+      bad('a rim brake row with brakeSystem "' + p.brakeSystem + '" must use mount "rim-caliper", not "' + p.mount + '"');
+  }
+  /* (d) the CHASSIS half of the same agreement — a frame/fork's brakeMount and
+     its brakeSystem describe one decision, so they must not disagree. Keeps a
+     future rim-brake frame row honest the day one is entered (none exists yet:
+     data/road.js's v1 design decision is disc-only), and keeps the disc frames
+     that exist today from ever acquiring a rim mount by a copy-paste. */
+  if(p.cat === 'frame' || p.cat === 'fork'){
+    var ccls = brakeClassOf(p.brakeSystem);
+    if(ccls === 'disc' && p.brakeMount === 'rim-caliper')
+      bad('brakeMount "rim-caliper" contradicts brakeSystem "' + p.brakeSystem + '" on a ' + p.cat);
+    if(ccls === 'rim' && 'brakeMount' in p && p.brakeMount != null && p.brakeMount !== 'rim-caliper')
+      bad('a rim-brake ' + p.cat + ' (brakeSystem "' + p.brakeSystem + '") must use brakeMount "rim-caliper", not "' + p.brakeMount + '"');
+  }
 
   // reject stray fields not in the category's schema or the common set —
   // catches typos (a field spelled differently than every other row).

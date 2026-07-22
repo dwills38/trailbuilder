@@ -500,8 +500,31 @@ test('RECONCILED: the tokens this pass added are present, and each is backed by 
   /* deliberately NOT reconciled (see the notes at the tokens): attributing these
      would have been a guess, so they must stay out until a row forces the call */
   ok(ROAD.ROAD_VOCAB.frontAxle.indexOf('12x142') < 0, 'rear spacing must not enter the FRONT axle axis');
-  ok(ROAD.ROAD_VOCAB.bbShell.indexOf('t47a-bbright') < 0 && ROAD.ROAD_VOCAB.crankBb.indexOf('t47a-bbright') < 0,
-    'an unused token from a MERGED gravel key cannot be attributed to a side without a guess');
+});
+
+test('RESOLVED BY A ROW: t47a-bbright is a SHELL, attributed by usage the moment a frame carried it', function(){
+  /* This pin REPLACES (and is strictly stronger than) the old one, which read:
+       ok(bbShell.indexOf('t47a-bbright') < 0 && crankBb.indexOf('t47a-bbright') < 0,
+          'an unused token from a MERGED gravel key cannot be attributed to a side
+           without a guess');
+     That was correct for as long as NO row used the token: GRAVEL_VOCAB.bb is a
+     merged key holding frame SHELLS and crank SPINDLES in one list, so the side
+     could not be known. schema/vocab-widen-ab (2026-07-22) landed the row the old
+     note said would "force the decision", so the assertion flips from "stays
+     unattributed" to "attributed to the shell side, and still NOT to the spindle
+     side" — the guess is still forbidden, it is simply no longer a guess.
+     Deliberately proved from the LIVE DATA, not asserted: if the backing row ever
+     disappears, this fails rather than leaving a dangling token behind. */
+  ok(ROAD.ROAD_VOCAB.bbShell.indexOf('t47a-bbright') >= 0,
+    'the SHELL axis must now document it - a frame row carries it as frame.bb');
+  ok(ROAD.ROAD_VOCAB.crankBb.indexOf('t47a-bbright') < 0,
+    'the SPINDLE axis must NOT: T47a names an asymmetric threaded SHELL, and no crank or BB row carries it as a spindle');
+
+  var shellRows = ALL_PARTS.filter(function(/** @type {any} */ p){ return p.cat === 'frame' && p.bb === 't47a-bbright'; });
+  ok(shellRows.length > 0, 'the attribution must rest on a real frame row, never on the token name');
+  eq(ALL_PARTS.filter(function(/** @type {any} */ p){
+    return (p.cat === 'crankset' && p.bb === 't47a-bbright') || (p.cat === 'bb' && p.spindle === 't47a-bbright');
+  }).length, 0, 'no crank/BB row may claim it as a spindle - that is what would make the shell attribution a guess');
 });
 
 test('vocab lint NEGATIVE: the data-token lint actually bites (a synthetic out-of-vocab row must fail it)', function(){

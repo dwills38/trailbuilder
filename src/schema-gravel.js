@@ -78,7 +78,24 @@ var GRAVEL_VOCAB = {
   // always a real round tube (never the rigid-seatpost 'proprietary' token,
   // which would falsely validate a dropper diameter that can't exist).
   dropperDiameter: ['27.2', '31.6', '30.9'],
-  steerer:      ['tapered', 'straight-1-1-8', 'straight-1-1-4'],
+  steerer:      ['tapered', 'straight-1-1-8', 'straight-1-1-4', 'cervelo-d-shaped'],
+  /* 'cervelo-d-shaped' ADDED schema/vocab-widen-ab (2026-07-22) — REQUIRED to
+     enter the Cervelo Aspero-5, the row that backs this file's previously
+     unbacked 't47a-bbright' bb token (Douglas-ruled group B). Cervelo's own
+     2026 Aspero-5 service reference (CER-ALB-EX-V1, Frame Code FM164) states
+     the steerer verbatim as "Fork Steerer Type: Cervelo D-Shaped" — a genuinely
+     non-round tube, not a round tapered one, and its headset bearings are
+     Cervelo part numbers (HS-082 1-1/4" 45x45, HS-110 1-1/2" 36x45) rather than
+     a S.H.I.S. standard pair. Forcing 'tapered' here would be a FALSE FIT: R4 is
+     exact-match, so a round tapered fork/headset would green against this frame
+     and no round steerer clamps a D-shaped tube.
+     Follows the per-system proprietary-steerer doctrine Douglas ratified
+     2026-07-21 for the road side (cannondale-delta / overdrive-aero /
+     bmc-ics-flat in schema-road.js): ONE TOKEN PER SYSTEM, never a shared
+     'proprietary' value — a shared token would let a Cervelo D-shaped fork
+     "fit" a Giant OverDrive Aero frame. NOTE FOR THE COORDINATOR: this token is
+     the one part of group B that reaches beyond the literal packet; the only
+     alternative was to leave the Aspero-5 unentered and t47a-bbright unbacked. */
   // 'straight-1-1-8' mirrors road's existing token (schema-road.js steererRG) — same
   // 28.6mm/1-1/8in constant-diameter steer tube, now confirmed on multiple gravel rows
   // (see GRAVEL_VOCAB usage sites below) rather than only a road-frame phenomenon.

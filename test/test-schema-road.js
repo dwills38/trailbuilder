@@ -224,3 +224,74 @@ test('STAGED ROLLOUT: a verified road row with NO priceBasis stays legal while P
   eq(S.PRICE_BASIS_STRICT, false, 'PRICE_BASIS_STRICT flipped — the backfill must be complete in EVERY catalog first');
   eq(S.validateRoadPart(roadPbRow(), TODAY).length, 0);
 });
+
+/* =============================================================================
+   RIM-CALIPER WIDENING (schema/vocab-widen-ab, 2026-07-22)
+   `pistons` went from unconditionally REQUIRED to conditional on the disc/rim
+   class. That is only an improvement if the conditional version is STRICTER,
+   so every branch is pinned below — including the two the old shape could not
+   express at all (pistons on a rim caliper; a mount contradicting its system).
+   ========================================================================== */
+/** @param {Object.<string, any>} [over] @returns {any} */
+function discBrakeRow(over){
+  return Object.assign({ id: 'br-test-disc-caliper', cat: 'brake', brand: 'Test', model: 'Disc Caliper',
+    brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2, actuation: 'hydraulic', price: 100 }, over || {});
+}
+/** @param {Object.<string, any>} [over] @returns {any} */
+function rimBrakeRow(over){
+  return Object.assign({ id: 'br-test-rim-caliper', cat: 'brake', brand: 'Test', model: 'Rim Caliper',
+    brakeSystem: 'rim-caliper', mount: 'rim-caliper', reach: 51, actuation: 'mechanical', price: 60 }, over || {});
+}
+
+test('rim-caliper: a real rim caliper row validates clean (the shape that used to be impossible)', function(){
+  eq(S.validateRoadPart(rimBrakeRow(), TODAY).length, 0);
+  var live = D.ROAD_PARTS.find(function(x){ return x.id === 'br-shimano-sora-r3000-caliper'; });
+  if(!live) throw new Error('the Sora BR-R3000 row this widening was for is missing from data/road.js');
+  eq(S.validateRoadPart(live, TODAY).length, 0, 'and validate clean');
+  eq(live.mount, 'rim-caliper'); ok(!('pistons' in live), 'a rim caliper states no piston count');
+});
+
+test('rim-caliper: `pistons` is still REQUIRED on a disc row (the widening must not have loosened it)', function(){
+  var p = discBrakeRow(); delete p.pistons;
+  ok(S.validateRoadPart(p, TODAY).some(function(m){ return /requires "pistons"/.test(m); }),
+    'a disc caliper with no piston count must still be rejected');
+});
+
+test('rim-caliper: `pistons` on a RIM row is now REJECTED (the old unconditional shape could not catch this)', function(){
+  ok(S.validateRoadPart(rimBrakeRow({ pistons: 2 }), TODAY).some(function(m){ return /must not carry "pistons"/.test(m); }));
+});
+
+test('rim-caliper: `reach` is rim-only', function(){
+  eq(S.validateRoadPart(rimBrakeRow(), TODAY).length, 0, 'reach is legal on a rim caliper');
+  ok(S.validateRoadPart(discBrakeRow({ reach: 51 }), TODAY).some(function(m){ return /"reach" is a rim-caliper arch dimension/.test(m); }),
+    'and meaningless on a disc caliper');
+});
+
+test('rim-caliper: a caliper\'s mount and its brakeSystem may not contradict each other', function(){
+  ok(S.validateRoadPart(discBrakeRow({ mount: 'rim-caliper' }), TODAY).some(function(m){ return /contradicts brakeSystem/.test(m); }),
+    'a disc caliper cannot bolt to a brake bridge');
+  ok(S.validateRoadPart(rimBrakeRow({ mount: 'flat-mount' }), TODAY).some(function(m){ return /must use mount "rim-caliper"/.test(m); }),
+    'and a rim caliper cannot take a flat mount');
+});
+
+test('rim-caliper: the CHASSIS half of the same agreement is enforced on frames and forks', function(){
+  var frame = aFrame();
+  ok(S.validateRoadPart(Object.assign({}, frame, { brakeMount: 'rim-caliper' }), TODAY)
+      .some(function(m){ return /contradicts brakeSystem/.test(m); }),
+    'a disc frame must not acquire a rim mount by copy-paste');
+  ok(S.validateRoadPart(Object.assign({}, frame, { brakeSystem: 'rim-caliper' }), TODAY)
+      .some(function(m){ return /must use brakeMount "rim-caliper"/.test(m); }),
+    'and a rim-brake frame must not keep a flat mount');
+  /* dormant-but-correct: the whole rim-brake frame shape validates the day one is sourced */
+  eq(S.validateRoadPart(Object.assign({}, frame, { brakeSystem: 'rim-caliper', brakeMount: 'rim-caliper' }), TODAY).length, 0,
+    'a genuinely rim-brake frame is expressible - the v1 disc-only catalog is a DATA decision, not a schema wall');
+});
+
+test('gxp: the crank spindle token is accepted, and is NOT a spelling of 24mm-road', function(){
+  var crank = D.ROAD_PARTS.find(function(x){ return x.id === 'cr-sram-rival22-gxp-5034'; });
+  if(!crank) throw new Error('the SRAM Rival 22 GXP crank row this token was added for is missing from data/road.js');
+  eq(S.validateRoadPart(crank, TODAY).length, 0);
+  eq(crank.bb, 'gxp');
+  ok(S.LOCAL_VOCAB.crankBbRoad.indexOf('gxp') >= 0 && S.LOCAL_VOCAB.crankBbRoad.indexOf('24mm-road') >= 0,
+    'both tokens exist SEPARATELY - merging them would be a false MATCH on an exact-match axis');
+});

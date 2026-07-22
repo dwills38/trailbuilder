@@ -900,7 +900,12 @@ var ROAD_PARTS = [
     bb: '30mm', chainrings: '2x', ring: '50/34', ringStd: 'standard-12', speeds: 11, chainline: 45,
     weight: 700, price: 205,
     verified: true, lastChecked: '2026-07-21', source: 'https://www.sram.com/en/sram/models/fc-riv-2x11-a1', priceBasis: 'msrp-confirmed',
-    note: 'road-depth-1 wave: sram.com model page (FC-RIV-2X11-A1) confirms "11-speed", "50/34T or 52/36T" chainring options (this row: the 50/34T SKU), "BB30/PF30-68mm and GXP/PF GXP 68mm" — TWO spindle-interface SKUs exist; this row models the BB30 variant (bb:\'30mm\', matching this catalog\'s existing crankBbRoad vocab exactly — the GXP variant was NOT modeled this pass since GXP has no matching token in crankBbRoad, a real vocab gap flagged rather than mis-mapped to \'24mm-road\'/\'30mm\'), "Chainline: 45.0mm". $195-$215 MSRP (205 used as the midpoint). No weight published — 700g is an unsourced sample estimate, flagged.' },
+    note: 'road-depth-1 wave: sram.com model page (FC-RIV-2X11-A1) confirms "11-speed", "50/34T or 52/36T" chainring options (this row: the 50/34T SKU), "BB30/PF30-68mm and GXP/PF GXP 68mm" — TWO spindle-interface SKUs exist; this row models the BB30 variant (bb:\'30mm\'), "Chainline: 45.0mm". $195-$215 MSRP (205 used as the midpoint). No weight published — 700g is an unsourced sample estimate, flagged. VOCAB GAP CLOSED schema/vocab-widen-ab (2026-07-22): this note previously ended "the GXP variant was NOT modeled this pass since GXP has no matching token in crankBbRoad, a real vocab gap flagged rather than mis-mapped to \'24mm-road\'/\'30mm\'". crankBbRoad now carries \'gxp\' and the sibling SKU is entered below as cr-sram-rival22-gxp-5034.' },
+  { id: 'cr-sram-rival22-gxp-5034', cat: 'crankset', brand: 'SRAM', model: 'Rival 22 Crankset (GXP, 50/34)', family: 'sram-rival22-crank',
+    bb: 'gxp', chainrings: '2x', ring: '50/34', ringStd: 'standard-12', speeds: 11, chainline: 45,
+    price: 205,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.sram.com/en/sram/models/fc-riv-2x11-a1', priceBasis: 'msrp-confirmed',
+    note: 'schema/vocab-widen-ab (2026-07-22): the GXP-spindle sibling of cr-sram-rival22-3011, entered as its own row now that crankBbRoad carries \'gxp\' — the vocab gap that row\'s own note flagged. RE-FETCHED sram.com/en/sram/models/fc-riv-2x11-a1 this session: the spec table lists the bottom-bracket options verbatim as "BB30/PF30-68mm, GXP/PF GXP 68mm" and the spindle options as "30mm, GXP", i.e. SRAM itself sells this crank in TWO non-interchangeable spindle interfaces — the flat-SKU split this catalog models as separate rows (tools/DATA-ENTRY-TEMPLATE.md), not as one row with a guessed spindle. Same page confirms "11-speed", "50/34T, 52/36T" (this row: the 50/34T SKU, mirroring its sibling), "Chainline 45.0mm" and crank lengths "170mm, 172.5mm, 175mm". PRICE: the page states a family range "$195 - $215"; 205 is the same midpoint the sibling row uses, from the same page and with the same priceBasis — a deliberate consistency, disclosed here rather than silently differing. WEIGHT: SRAM publishes none for this model ("Weight: Based on crankset without bottom bracket" with no figure); unlike the sibling, which carries a 700g estimate from an earlier convention, this row states NO weight rather than propagating an invented number.' },
 
   // ===== ROTORS — SRAM Paceline / Paceline X depth (road-grind-1-sram wave) =
   // Rotor coverage was thin catalog-wide (3 rows total) before this pass.
@@ -1096,19 +1101,23 @@ var ROAD_PARTS = [
   // dual-control lever — no ST-R3000 hydraulic-disc variant exists on
   // productinfo (only -R/-L rim-brake SKUs are listed under the ST-R3000
   // family; unlike Tiagra 4700/105, Sora never shipped a disc-hydraulic
-  // integrated lever of this generation). This catalog's brake schema
-  // (schema-road.js ROAD_SCHEMA.brake) requires `mount` (vocab
-  // brakeMountRG: flat-mount/post-mount only) and `pistons` — there is NO
-  // rim-caliper-shaped brake row possible in this schema, so BR-R3000 (the
-  // real NEW SUPER SLR dual-pivot rim caliper) is a genuine SCHEMA GAP, not
-  // fabricated or omitted by oversight: flagging for a future rim-brake
-  // vocab widening rather than forcing it into the disc-only brake shape.
-  // The six drivetrain rows below still enter cleanly (shifter.brakeSystem
-  // accepts 'rim-caliper' per LOCAL_VOCAB.brakeSystem) and are dormant
-  // against every current-catalog frame (all disc, per the road-4 v1
-  // decision) until a rim-brake frame is sourced — same real-part/dormant-
-  // compat pattern already used elsewhere in this file (e.g. the Cane Creek
-  // headset rows before any frame sourced headTubeUpper/Lower).
+  // integrated lever of this generation).
+  // SCHEMA GAP CLOSED — schema/vocab-widen-ab (2026-07-22, Douglas-ruled
+  // group A). This block previously ended: "This catalog's brake schema
+  // (schema-road.js ROAD_SCHEMA.brake) requires `mount` (vocab brakeMountRG:
+  // flat-mount/post-mount only) and `pistons` — there is NO rim-caliper-shaped
+  // brake row possible in this schema, so BR-R3000 (the real NEW SUPER SLR
+  // dual-pivot rim caliper) is a genuine SCHEMA GAP... flagging for a future
+  // rim-brake vocab widening rather than forcing it into the disc-only brake
+  // shape." That widening has now landed: brakeMountRG gained 'rim-caliper',
+  // `pistons` became conditional on the disc/rim class, and BR-R3000 is
+  // entered below as br-shimano-sora-r3000-caliper.
+  // The rows in this block stay DORMANT against every current-catalog frame
+  // (all disc, per the road-4 v1 decision) until a rim-brake frame is
+  // sourced — same real-part/dormant-compat pattern already used elsewhere in
+  // this file (e.g. the Cane Creek headset rows before any frame sourced
+  // headTubeUpper/Lower). Picking this caliper alongside any cataloged frame
+  // is a TRUE won't-fit (R17's disc-vs-rim class error), not a false one.
   { id: 'sh-shimano-sora-r3000', cat: 'shifter', brand: 'Shimano', model: 'Sora ST-R3000 (pair)', family: 'shimano-sora-r3000',
     system: 'shimano-road-11', speeds: 9, actuation: 'mechanical', brakeSystem: 'rim-caliper', side: 'pair', frontShift: true,
     weight: 480, price: 130,
@@ -1139,6 +1148,11 @@ var ROAD_PARTS = [
     weight: 830, price: 65,
     verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/FC-R3000', priceBasis: 'third-party-listed',
     note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Chainring combination 50-34T" (only combination offered — no 52/36 or 53/39 option at this tier, unlike 105/Tiagra above), "Chain line (mm) 43.5", "2-PIECE CRANKSET ✔" / "Compatible bottom bracket type: Outboard" (bb:\'24mm-road\', same interface family as Tiagra/105 despite the different construction name). Average weight not itemized on the fetched page ("Average weight (g)... -"); 830g is an unsourced sample estimate, flagged. Price unsourced sample.' },
+  { id: 'br-shimano-sora-r3000-caliper', cat: 'brake', brand: 'Shimano', model: 'Sora BR-R3000 Dual-Pivot Caliper (pair)', family: 'shimano-sora-r3000',
+    brakeSystem: 'rim-caliper', mount: 'rim-caliper', reach: 51, actuation: 'mechanical', leverPair: 'sh-shimano-sora-r3000',
+    price: 60,
+    verified: true, lastChecked: '2026-07-22', source: 'https://productinfo.shimano.com/en/product/BR-R3000',
+    note: 'schema/vocab-widen-ab (2026-07-22): THE ROW THIS FILE\'S OWN SORA BLOCK FLAGGED AS SCHEMA-BLOCKED, now enterable — the FIRST rim-caliper row in this catalog. FETCHED productinfo.shimano.com/en/product/BR-R3000 via the browser pane (WebFetch returns only the nav shell on this host, the same wall the rest of this block documents). Its spec table states verbatim: "Series SORA", "Model no. BR-R3000", "Type NEW SUPER SLR Dual pivot" (brakeSystem/mount rim-caliper — a cable-pulled dual-pivot arm pair, no pistons, which is exactly what the old unconditional `pistons` requirement made inexpressible), "Reach (mm) 51" (reach:51 — the arch dimension, an exact page figure), "Compatibility NEW SUPER SLR" (the lever interface it shares with this block\'s ST-R3000 brifter, recorded as leverPair), "Brake shoe Standard R55C4 / Optional choice R50T4", and "Quick release lever ✔". The mount itself is itemized as "Assembly pivot nut (mm) Front 10.5 / 12.5 / 18.0 / 27.0 / 32.0, Rear 10.5" — the recessed-nut lengths for different brake-bridge and fork-crown thicknesses, i.e. the page\'s own confirmation that this is a recessed-nut mount and not a disc interface. PAIR CONVENTION: entered as one "(pair)" row filling both brake slots, matching every other brake row in this file; Shimano lists front and rear under this one model number, distinguished only by the pivot-nut length above. NOT ENTERED AS FIELDS (deliberately, no rule reads them and unused fields are dead data): the page\'s "Maximum tire size 28C" and "Rim width (mm) 19-28" are real caliper-arch clearance limits — flagged for a future rim-caliper-clearance rule rather than stored now. Average weight NOT published ("Average weight (g) -") so no weight is claimed — the field is omitted, not sampled. Price is not published on productinfo either: $60/pair is an UNSOURCED SAMPLE estimate, which is why this row states no priceBasis (verified covers the interfaces only).' },
 
 
   // ===== FRONT DERAILLEURS — Shimano road (R9200/R8100/R7100) + GRX ========
