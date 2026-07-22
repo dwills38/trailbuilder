@@ -2172,6 +2172,12 @@ var ROAD_PARTS = [
     verified: true, lastChecked: '2026-07-22', source: 'https://shop.tokenproducts.com/products/tk015b', priceBasis: 'msrp-confirmed',
     note: 'road-breadth-6 wave: FETCHED shop.tokenproducts.com (Token\'s own storefront) directly - a fifth headset-category brand. Price "$99.00 USD" taken verbatim (a real current maker-store MSRP). tokenproducts.com\'s companion spec page (tokenproducts.com/headsets/external/tk015b) confirms "SHIS Code: ZS44/28.6 | ZS56/40" and "Steerer: 1-1/8\" – 1.5\"" (upper/lower/steerer fields, tapered per this catalog\'s bore-token convention) plus "190 g" weight - an independent EU retailer (bikestacja.pl) lists the identical SHIS codes and the same 190g figure for the same SKU, confirming it\'s a real, currently-sold product.' },
 
+  // --- rotor (was 7) ---
+  { id: 'ro-trp-tr25-160', cat: 'rotor', brand: 'TRP', model: 'TR25 160mm', family: 'trp-tr25',
+    size: 160, mount: 'center-lock', weight: 139, price: 71,
+    verified: true, lastChecked: '2026-07-22', source: 'https://trpcycling.com/products/tr25', priceBasis: 'msrp-confirmed',
+    note: 'road-breadth-6 wave: FETCHED trpcycling.com (TRP\'s own current storefront) directly - a fourth rotor-category brand (SRAM/Shimano/Hope already cataloged). Spec table: "Two-piece center-lock disc rotor in 1.8mm thickness", "Weight: ... 160mm: 139 g" and price "$71.49" both taken verbatim from the live product page - an independent bike24.com listing of the same SKU (TRP160-25) confirms mount:"center-lock" and the identical 139g figure.' },
+
 ];
 
 // ---------------------------------------------------------------------------
