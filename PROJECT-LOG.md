@@ -1,5 +1,28 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — SEAT 17 WRAP: vocab-tier1 lands, the seat closes
+
+- **schema/vocab-tier1 merged (the seat's final harvest — Douglas's Tier-1 ratification
+  implemented)**: 13 token-group commits — gravel gains straight-1-1-8/-1-1-4 steerers,
+  QR axles (135x9/x10), square-taper, bsa-73, band-28.6 FD, dropoutType:'sliding',
+  t47a-bbright, puregrip/light-supple; MTB gains 9x135-bolt (+ the Mongoose Fireball SS
+  row); BMX gains the stealth seat system WITH the maker-cited Pivotal↔Stealth
+  cross-compat engine rule (a plain exact-match would have false-errored a real fit) +
+  the 1in/tapered headTube classes (+3 Speedline rows). Rows unblocked: Grail/Grizl/Sutra
+  LTD/Hook EXT promoted; the Surly Straggler GENERATION SPLIT resolved (classic pinned,
+  2025 refresh its own row). ★ The worker SELF-CAUGHT a fabricated-URL promotion on two
+  rows and reverted them with an audit of every other promotion — the PHANTOM-NUMBER
+  doctrine internalized. Premise-stale findings: Tumbleweed/Curve need no tokens (Curve
+  is standard Boost+T47; Tumbleweed = the new QR token), 36.1mm post unconfirmable, WTB
+  casings already covered. Deferred honestly: gravel I.S. port (the queued Tier-2 engine
+  item), Fargo/Áspero-5 full rows, BMX 20mm axle. Suite 1,054→1,086 (+32).
+- **SEAT 17 CLOSING STATE**: 6,963 parts / 4,716 verified across seven catalogs (MTB
+  5,105/3,366 · kit 736/578 · BMX 344/174 · gravel 318/212 · road 307/266 · EMTB 108/83 ·
+  striders 45/37) · 1,086 tests / tsc clean / harness fully clean · priceBasis burndowns:
+  kit 0, striders 0, EMTB 9, BMX 34, road 155, gravel 212 (redo queued), MTB 2,063 ·
+  ~75 worker branches harvested, 2 rejected · handoff docs (SEAT 18 block + refreshed
+  HANDOFF-CHIPS) already on main.
+
 ## 2026-07-22 — the 6th token lands (Douglas: "yes third party token") + pb-emtb-2
 
 - **schema/pb-third-party-listed merged**: 'third-party-listed' in the enum across all 7
