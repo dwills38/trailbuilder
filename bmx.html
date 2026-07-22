@@ -33,6 +33,12 @@
 -->
 <style>
   :root{
+    /* --brand used as TEXT. --brand itself is tuned to carry a WHITE label on a
+       filled button, so as a FOREGROUND it lands at 2.3-3.1:1 on every surface
+       token of the dark themes (--bg/--card/--chip/--ok-bg/--warn-bg/--err-bg) and
+       at 4.4:1 on rad's --chip/--warn-bg. This is the same hue re-derived for
+       reading on those surfaces (worst case 5.2:1). Light keeps --brand as-is. */
+    --brand-text:#1f6f4a;
     --ink:#1c2321; --ink-soft:#566058; --line:#e3e6e2; --bg:#f6f7f4;
     --card:#ffffff; --brand:#1f6f4a; --brand-d:#16523a; --accent:#9a3412;
     --ok:#166534; --ok-bg:#e7f5ec; --warn:#92400e; --warn-bg:#fdf3e1;
@@ -41,6 +47,8 @@
     --hdr-bg:#123f2b; --hdr-topo:rgba(255,255,255,.11);
   }
   html.dark{
+    /* brand-as-text; see the :root --brand-text note */
+    --brand-text:#6fcf97;
     color-scheme:dark;
     --ink:#e6ebe7; --ink-soft:#a8b3ab; --line:#3a423d; --bg:#161a18;
     --card:#1f2522; --brand:#1f6f4a; --brand-d:#123f2b; --accent:#e0703c;
@@ -50,6 +58,8 @@
     --hdr-bg:#0c2b1c; --hdr-topo:rgba(255,255,255,.09);
   }
   html.loam{
+    /* brand-as-text; see the :root --brand-text note */
+    --brand-text:#7ecb8e;
     color-scheme:dark;
     --ink:#f2e8d8; --ink-soft:#c2ad92; --line:#3c2e22; --bg:#1a1310;
     --card:#241a13; --brand:#2f7048; --brand-d:#1e4a30; --accent:#e2a94a;
@@ -59,6 +69,8 @@
     --hdr-bg:#14301f; --hdr-topo:rgba(242,232,216,.11);
   }
   html.rad{
+    /* brand-as-text; see the :root --brand-text note */
+    --brand-text:#ff5cd9;
     /* RAD is a DARK theme too — dark & loam both declare this, rad never did, so
        the UA kept light-scheme defaults under it: an unstyled link rendered #0000EE
        on the near-black card (1.90:1, proven on home.html), and native select
@@ -184,7 +196,7 @@
   html.rad .pcard{box-shadow:0 0 0 1px var(--line)}
   .pcard.selected{border-color:var(--brand);box-shadow:0 0 0 2px rgba(31,111,74,.16)}
   html.rad .pcard.selected{box-shadow:0 0 0 2px var(--accent),0 0 16px rgba(0,229,255,.5)}
-  .pcard .kind{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--brand);font-weight:700}
+  .pcard .kind{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--brand-text);font-weight:700}
   .pcard .name{font-weight:700;font-size:14px}
   .pcard .spec{font-size:12px;color:var(--ink-soft);min-height:16px}
   .prov{font-size:11px;min-height:16px}
@@ -196,7 +208,7 @@
   .price{font-weight:700;font-size:13px;white-space:nowrap}
   .price .wt{color:var(--ink-soft);font-weight:500;font-size:11px;margin-left:5px}
   .picks{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-  .pick{border:1px solid var(--brand);color:var(--brand);background:var(--card);border-radius:8px;padding:6px 10px;
+  .pick{border:1px solid var(--brand);color:var(--brand-text);background:var(--card);border-radius:8px;padding:6px 10px;
     font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap}
   .pick:hover{background:var(--ok-bg)}
   html.dark .pick,html.loam .pick{color:var(--ok)}
@@ -350,7 +362,7 @@
   .cat-empty{color:var(--ink-soft);font-size:13px;padding:18px 4px}
 
   footer{max-width:1380px;margin:0 auto;padding:22px 24px 40px;color:var(--ink-soft);font-size:12px;border-top:1px solid var(--line)}
-  footer a{color:var(--brand)}
+  footer a{color:var(--brand-text)}
   html.dark footer a,html.loam footer a{color:var(--ok)}
 
   @media (max-width:880px){
@@ -399,7 +411,7 @@
     #mobileBar.ok .mb-v{color:var(--ok)} #mobileBar.warn .mb-v{color:var(--warn)} #mobileBar.err .mb-v{color:var(--err)}
     #mobileBar .mb-t{font-weight:800;white-space:nowrap}
     #mobileBar .mb-w{color:var(--ink-soft);font-size:11.5px;white-space:nowrap}
-    #mobileBar .mb-go{color:var(--brand);font-weight:800;font-size:12px;white-space:nowrap}
+    #mobileBar .mb-go{color:var(--brand-text);font-weight:800;font-size:12px;white-space:nowrap}
     main{padding-bottom:92px}
     footer{padding-bottom:118px}
   }
