@@ -4878,3 +4878,25 @@ out-of-stock) — the BMX burndown is effectively DONE at 33-with-reasons. Bread
 Buzz pair (pane + same-origin Shopify fetch), 3 stealth seats (shipping-weight buckets
 correctly discarded), 3 Kink cb frames. Gates green post-merge.
 Reports: pb-mtb-b3.md, bmx-pb-breadth-1.md.
+
+## 2026-07-22 — emtb-pb-clear + road-vocab-lint merged (suite 1097 to 1103)
+EMTB: 4 msrp-confirmed off browser-pane re-fetches (Trek's "Comp. Value" MSRP-next-to-sale
+pattern; Giant literal $6,500; Santa Cruz Heckler SL PRICE CORRECTED 7500 to 9699 off the
+now-USD-serving page) + 5 honest blanks (Cannondale/Merida no-price dealer posture, Rocky
+Mountain comparison-page, Propain configurator "from" price not a fixed-SKU MSRP). Breadth
+retries: Giant Stance E+ travel conflict STANDS (both quotes on record); Haibike ALLMTN
+travelRear wall RESOLVED (maker Shopify JSON states 160mm f/r) — full row queued as a future
+emtb entry. ROAD-VOCAB-LINT (adversarial review passed): R15 was PROVEN silently dormant for
+the live GRX-10 tier (Flattop/Ekar chains turned green against RX400) — fixed with Shimano's
+own "Compatible chain | HG-X 10-speed" citation; 3 pure-function lints now guard the failure
+CLASS (proven to bite by reverting the fix: exactly the 2 positive lints failed); rearAxle
+vocab reconciled incl. 135x9-qr (load-bearing within the hour vs the gravel-qr merge); Apex
+Eagle guard (2 independent discriminators) now ENFORCES Douglas's no-mullet exclusion; the
+worker also found the shared SD-APX-D1 lever cannot disambiguate the two Apex chain standards
+— strengthens the future split case. Residual: 8 more ROAD_VOCAB fields drift but none feeds
+a rule lookup (documentation drift, not dormancy) — needs a field-mapping ratification before
+widening the lint (queued). Worker containment self-audit: caught + removed its own tmp-dir
+stray; LESSON: a bare /tmp resolves to TWO different out-of-bounds places (Windows Temp
+parent under Bash, a drive-root tmp under Node) — always write the scratchpad path
+explicitly. Gates + harness green.
+Reports: emtb-pb-clear.md, road-vocab-lint.md.
