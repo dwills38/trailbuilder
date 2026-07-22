@@ -2624,6 +2624,21 @@ var KIT_PARTS = [
     desc:'Pull-on soft-covered hard-shell gravity knee pad with an internal knee cup + compression-molded'
       + ' side panels; pairs with Kali\'s Casa shin guard for extended coverage. Price confirmed via the'
       + ' .js JSON endpoint ($88.00, price==compare_at_price). No weight or CE/EN1621 standard published.' },
+  /* -- kit-breadth-1 (2026-07-22): Scott had ZERO kneepad rows despite an active
+     current-season MTB protection line (scott-sports.com/us's Body Protection
+     category) - the first two below are its D3O LP1-plated guards (cert confirmed
+     off Scott's own PROTECTORS technical PDF); Mission Evo is Scott's strapless
+     EVA-pad tier, maker-stated PPE cat. I (below the EN1621-1 pass/fail bar, so no
+     certs token per the fetched-source-only rule). -- */
+  { id:'knp-scott-soldier', cat:'kneepad', brand:'Scott', model:'Soldier Knee Guard', mfgPn:'419976-0001', price:89.99, weight:328,
+    certs:['en1621-1-l1'], disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
+    desc:'Removable D3O LP1 flexible plate, strapless minimalist sleeve. Price/model USD-confirmed on the maker\'s current US Body Protection catalog; cert (EN1621-1:2012 Level 1, "LP1 L1 KNEE") confirmed on Scott\'s own PROTECTORS technical PDF. Weight (328g, size L pair) is a reviewer-measured figure, not maker-published.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.scott-sports.com/us/en/products/apparel-equipment-mw-equipment-body-protection',
+    sourceType:'measured', weightSource:'https://www.bikeradar.com/reviews/clothing/armour-and-pads/knee-pads/scott-soldier-knee-guards-review' },
+  { id:'knp-scott-missionevo', cat:'kneepad', brand:'Scott', model:'Mission Evo Knee Pads', mfgPn:'274525', price:69.99,
+    disciplines:['trail'], sizes:['S','M','L','XL'],
+    desc:'Strapless stretch-mesh sleeve, EVA pad, no hard shell/plate - maker-stated PPE cat. I (below the EN1621-1 pass/fail threshold, so untagged rather than mis-certed). No weight published.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.scott-sports.com/ca/en/product/scott-mission-evo-knee-pads' },
 
   /* -- Elbow pads (per pair) -- (grind/kit-elbowpad, expanded 2026-07-14: two rows
      fetch-verified against their own manufacturer product page - price, weight and
@@ -2763,6 +2778,14 @@ var KIT_PARTS = [
     certs:['en1621-1-l1'], disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL'],
     desc:'kit-breadth-1 (2026-07-22): removable Level 1 3S visco-elastic pad, the elbow counterpart to the Knee Guards Pro (knp-sweetprotection-kneeguardspro).',
     verified:true, lastChecked:'2026-07-22', source:'https://www.sweetprotection.com/us/en/elbow-guards-pro-black/' },
+  { id:'elp-scott-soldier', cat:'elbowpad', brand:'Scott', model:'Soldier Elbow Guard', mfgPn:'4199780001010', price:79.99,
+    certs:['en1621-1-l1'], disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
+    desc:'kit-breadth-1 (2026-07-22): removable D3O LP1 flexible plate, the elbow counterpart to the Soldier Knee Guard (knp-scott-soldier); cert confirmed on Scott\'s own PROTECTORS technical PDF ("LP1 L1 ELBOW"). No weight published.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.scott-sports.com/us/en/products/apparel-equipment-mw-equipment-body-protection' },
+  { id:'elp-scott-missionevo', cat:'elbowpad', brand:'Scott', model:'Mission Evo Elbow Pads', mfgPn:'2745260001006', price:64.99,
+    disciplines:['trail'], sizes:['S','M','L','XL'],
+    desc:'kit-breadth-1 (2026-07-22): strapless stretch-mesh EVA pad, the elbow counterpart to the Mission Evo Knee Pads (knp-scott-missionevo) - same maker-stated PPE cat. I, untagged rather than mis-certed. No weight published.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.scott-sports.com/us/en/products/apparel-equipment-mw-equipment-body-protection' },
 
   /* -- Body armor (coverage optional) -- */
   { id:'arm-fox-baseframe-pro', cat:'bodyarmor', brand:'Fox', model:'Baseframe Pro D3O', price:214.95, weight:640,
@@ -2953,6 +2976,15 @@ var KIT_PARTS = [
     coverage:'chest-back', disciplines:['enduro','dh'], sizes:['S','M','L','XL'],
     desc:'Fuller-coverage jacket version of the Airframe, with shoulder protection added. CORRECTED 2026-07-17: price is the fetched $329.95 list (was sample $260, an understatement; page currently on sale at $230.98, list used per policy). foxracing.com now catalogs this under Moto rather than MTB, but it remains a real, currently-sold crossover chest guard - kept, not removed.',
     verified:true, lastChecked:'2026-07-17', source:'https://www.foxracing.com/product/airframe-pro-jacket-ce-chest-guard/19909.html' },
+  { id:'arm-scott-airflow', cat:'bodyarmor', brand:'Scott', model:'Back Protector Airflow', mfgPn:'4206111007010', price:140, weight:486,
+    coverage:'back', certs:['en1621-2-l1'], disciplines:['trail','enduro'],
+    desc:'kit-breadth-1 (2026-07-22): D3O Airflow plate back-only protector - Scott had zero bodyarmor rows. Price USD-confirmed on the maker\'s current US Body Protection catalog; cert (EN1621-2:2014, Full Back, Level 1) confirmed on Scott\'s own PROTECTORS technical PDF. Weight (486g) is a third-party retailer-measured spec sheet figure, not maker-published on the US page.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.scott-sports.com/us/en/products/apparel-equipment-mw-equipment-body-protection',
+    sourceType:'measured', weightSource:'https://www.alpinstore.com/en/618114-scott-sco-back-protector-airflow-blackwhite.html' },
+  { id:'arm-scott-airflowpro', cat:'bodyarmor', brand:'Scott', model:'Back Protector Airflow Pro', mfgPn:'4206121007011', price:170,
+    coverage:'back', certs:['en1621-2-l2'], disciplines:['trail','enduro'],
+    desc:'kit-breadth-1 (2026-07-22): the higher-coverage tier above the Airflow (arm-scott-airflow) - maker copy states it is "designed for level 2" and Scott\'s own PROTECTORS PDF lists the AIRFLOW PRO B2502 plate at Level 2. No maker-published weight found.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.scott-sports.com/us/en/products/apparel-equipment-mw-equipment-body-protection' },
 
   /* -- Neck braces (niche; no universal cert standard - certs stay dormant).
      Comprehensive sweep of the 4 recognized market brands (Leatt, Alpinestars,
