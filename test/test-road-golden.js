@@ -228,6 +228,282 @@ test('vocab lint: every system + rearAxle token a data row uses exists in ROAD_V
   eq(hubGaps.length, 0, 'rear hub tokens missing from ROAD_VOCAB:\n  ' + hubGaps.join('\n  '));
 });
 
+/* =============================================================================
+   WIDENED SURFACE  (engine/road-vocab-map, 2026-07-22)
+   -----------------------------------------------------------------------------
+   The lint above covers the two axes the first pass could justify (system,
+   rearAxle). It stopped there because the field-key correspondence between
+   ROAD_VOCAB, schema-road's LOCAL_VOCAB and schema-gravel's GRAVEL_VOCAB is
+   genuinely ambiguous for several fields — three GRAVEL_VOCAB keys are MERGED
+   across engine axes (`hub` = both wheel ends, `bb` = shells AND spindles,
+   `actuation` = shifters AND calipers AND droppers), so a token-level superset
+   lint would have manufactured bogus gaps.
+   src/compat-road.js's ROAD_VOCAB_MAP now ratifies that correspondence
+   explicitly and maps the merged keys by ROWS (category + field) instead of by
+   tokens, which is unambiguous. These tests drive the lint off that table, so
+   the guarded surface grows with the map rather than with a hardcoded list here.
+   ========================================================================== */
+
+/** LINT 2b — the whole mapped surface: for every axis in ROAD_VOCAB_MAP, every
+ *  token its rows carry must live in the ROAD_VOCAB key(s) that axis owns.
+ *  `tokensOf` is INJECTED (not read off ROAD_VOCAB directly) for the same reason
+ *  the other lints take their tables as parameters: the negatives can then hand
+ *  it a miniature vocab and prove the mechanism bites without touching either
+ *  real catalog. @param {any[]} mapEntries @param {any[]} rows
+ *  @param {function(string[]): string[]} tokensOf @returns {string[]} */
+function mappedSurfaceGaps(mapEntries, rows, tokensOf){
+  /** @type {string[]} */ var gaps = [];
+  mapEntries.forEach(function(e){
+    var keys = ROAD.roadVocabMapKeys(e);
+    var allowed = tokensOf(keys);
+    var label = 'ROAD_VOCAB.' + keys.join(' + ROAD_VOCAB.') + ' (' + e.key + ' axis, ' + e.rules + ')';
+    e.rows.forEach(function(/** @type {any} */ sel){
+      var subset = rows.filter(function(/** @type {any} */ p){ return sel.cats.indexOf(p.cat) >= 0; });
+      gaps = gaps.concat(dataTokenGaps(subset, sel.field, allowed, label));
+    });
+  });
+  return gaps;
+}
+
+test('vocab lint: EVERY mapped axis stays inside ROAD_VOCAB (the whole surface, map-driven)', function(){
+  var gaps = mappedSurfaceGaps(ROAD.ROAD_VOCAB_MAP, ALL_PARTS, ROAD.roadVocabTokens);
+  eq(gaps.length, 0, 'tokens a real row uses that the engine union table does not document:\n  ' + gaps.join('\n  '));
+});
+
+test('vocab map: row selectors are unambiguous (no category+field claimed by two axes)', function(){
+  /* Two axes claiming one (cat, field) would mean a token is measured against
+     two different allow-lists — one of them wrong. It would also make the
+     per-axis negative below count two failures where it expects one, so this
+     pin protects the lint's own arithmetic as well as its meaning. */
+  /** @type {Object.<string, string>} */ var owner = {};
+  ROAD.ROAD_VOCAB_MAP.forEach(function(/** @type {any} */ e){
+    e.rows.forEach(function(/** @type {any} */ sel){
+      sel.cats.forEach(function(/** @type {string} */ c){
+        var pair = c + '.' + sel.field;
+        ok(!owner[pair], pair + ' is claimed by both the ' + owner[pair] + ' and ' + e.key + ' axes');
+        owner[pair] = e.key;
+      });
+    });
+  });
+  /* the field-name traps this table exists to disambiguate, pinned explicitly:
+     four categories carry a field called `mount` on four unrelated axes, and
+     `bb` means a SHELL on a frame but a SPINDLE on a crankset. */
+  eq(owner['brake.mount'], 'brakeMount', 'a caliper mount is the R18 axis');
+  eq(owner['rotor.mount'], 'rotorMount', 'a rotor mount is the R7 axis');
+  eq(owner['frontderailleur.mount'], 'fdMount', 'an FD mount is the R16b axis');
+  eq(owner['rearderailleur.mount'], 'rdMount', 'an RD mount is the R20 axis');
+  eq(owner['frame.bb'], 'bbShell', 'a frame bb is a SHELL standard');
+  eq(owner['crankset.bb'], 'crankBb', 'a crankset bb is a SPINDLE interface');
+});
+
+test('vocab map: every schema vocab key is classified exactly once (mapped or excluded)', function(){
+  /* The guard against the NEXT drift of this class: a new key added to either
+     validator with no decision recorded here would otherwise be silently
+     unlinted - which is how shimano-grx-10 shipped inert in the first place. */
+  /** @type {Object.<string, string[]>} */ var seen = {road: [], gravel: []};
+  /** @type {Object.<string, string[]>} */ var shared = {road: [], gravel: []};
+  /** @param {'road'|'gravel'} which @param {string} key @param {string} where */
+  function claim(which, key, where){
+    ok(seen[which].indexOf(key) < 0, 'schema-' + which + ' key "' + key + '" is classified twice (second at ' + where + ')');
+    seen[which].push(key);
+  }
+  ROAD.ROAD_VOCAB_MAP.forEach(function(/** @type {any} */ e){
+    ok(e.why && e.why.length > 40, e.key + ' must record WHY the correspondence holds');
+    ok(e.rows.length > 0, e.key + ' must name the rows it is measured over');
+    ROAD.roadVocabMapKeys(e).forEach(function(/** @type {string} */ k){
+      ok(Object.prototype.hasOwnProperty.call(ROAD.ROAD_VOCAB, k), e.key + ' maps to ROAD_VOCAB.' + k + ', which does not exist');
+    });
+    e.schemaRoad.forEach(function(/** @type {string} */ k){
+      ok(Object.prototype.hasOwnProperty.call(SR.LOCAL_VOCAB, k), e.key + ' names schema-road key "' + k + '", which does not exist');
+      claim('road', k, e.key);
+    });
+    e.schemaGravel.forEach(function(/** @type {string} */ k){
+      ok(Object.prototype.hasOwnProperty.call(SG.GRAVEL_VOCAB, k), e.key + ' names schema-gravel key "' + k + '", which does not exist');
+      claim('gravel', k, e.key);
+    });
+    /* schemaShared keys are MERGED across axes, so they are named by more than
+       one entry BY DESIGN and are not exclusively claimed - but they must still
+       be real, and they are still classified (that is what makes them not a
+       silent gap). Tallied separately so the "exactly once" rule above stays
+       exact for the keys that really do belong to one axis. */
+    (e.schemaShared || []).forEach(function(/** @type {string} */ k){
+      var inRoad = Object.prototype.hasOwnProperty.call(SR.LOCAL_VOCAB, k);
+      var inGravel = Object.prototype.hasOwnProperty.call(SG.GRAVEL_VOCAB, k);
+      ok(inRoad || inGravel, e.key + ' names shared key "' + k + '", which exists in neither schema');
+      if(inRoad) shared.road.push(k);
+      if(inGravel) shared.gravel.push(k);
+    });
+  });
+  /* A "shared" key that only ever appears once is not shared - it is a mapping
+     that was never finished, and it would sit outside the exactly-once rule
+     while looking classified. Either state is a decision; this pins which. */
+  ['road', 'gravel'].forEach(function(/** @type {any} */ which){
+    shared[which].filter(function(k, i, a){ return a.indexOf(k) === i; }).forEach(function(k){
+      ok(shared[which].filter(function(x){ return x === k; }).length > 1,
+        'schema-' + which + ' key "' + k + '" is marked shared but only one axis names it - map it outright or EXCLUDE it');
+      ok(seen[which].indexOf(k) < 0,
+        'schema-' + which + ' key "' + k + '" is both exclusively claimed and marked shared - it cannot be both');
+    });
+  });
+  ROAD.ROAD_VOCAB_MAP_EXCLUDED.forEach(function(/** @type {any} */ x){
+    ok(x.why && x.why.length > 40, 'excluded key "' + x.key + '" must record the reason - an exclusion is a decision, not an oversight');
+    if(x.pseudo) return;   // a documented excluded SUB-USE of a mapped key, not a key
+    var table = x.schema === 'road' ? SR.LOCAL_VOCAB : SG.GRAVEL_VOCAB;
+    ok(Object.prototype.hasOwnProperty.call(table, x.key), 'excluded schema-' + x.schema + ' key "' + x.key + '" does not exist');
+    claim(x.schema, x.key, 'EXCLUDED');
+  });
+  /* both directions: nothing classified twice (above), nothing left unclassified.
+     THIS is the guard against the next drift of this class - a key added to
+     either validator with no decision recorded fails here, loudly, instead of
+     quietly sitting outside every lint. */
+  var missRoad = Object.keys(SR.LOCAL_VOCAB).filter(function(k){ return seen.road.indexOf(k) < 0 && shared.road.indexOf(k) < 0; });
+  eq(missRoad.length, 0, 'schema-road vocab keys with no ROAD_VOCAB_MAP decision (map them or EXCLUDE them with a reason): ' + missRoad.join(', '));
+  var missGravel = Object.keys(SG.GRAVEL_VOCAB).filter(function(k){ return seen.gravel.indexOf(k) < 0 && shared.gravel.indexOf(k) < 0; });
+  eq(missGravel.length, 0, 'schema-gravel vocab keys with no ROAD_VOCAB_MAP decision (map them or EXCLUDE them with a reason): ' + missGravel.join(', '));
+});
+
+test('vocab lint NEGATIVE: the widened lint bites PER AXIS (a doctored row at every mapped field must fail it)', function(){
+  /* Hermetic, like every negative in this file: synthetic rows against the real
+     MAP but a MINIATURE vocab, so no real catalog is involved and the proof is
+     of the mechanism. One doctored row per axis, at that axis's own first row
+     selector - so the coverage claim ("every mapped axis is guarded") is proven
+     axis by axis rather than asserted once over the union. */
+  ok(ROAD.ROAD_VOCAB_MAP.length >= 18, 'the map covers the engine surface (' + ROAD.ROAD_VOCAB_MAP.length + ' axes)');
+  ROAD.ROAD_VOCAB_MAP.forEach(function(/** @type {any} */ e){
+    var sel = e.rows[0], cat = sel.cats[0];
+    /** @type {Object.<string, any>} */
+    var row = {id: 'synthetic-' + e.key + '-row', cat: cat};
+    row[sel.field] = 'zzz-not-a-real-token';
+    /* a one-token miniature vocab: the real ROAD_VOCAB is never consulted, so a
+       future widening of it cannot silently make this negative stop biting */
+    var gaps = mappedSurfaceGaps(ROAD.ROAD_VOCAB_MAP, [row], function(){ return ['zzz-the-only-legal-token']; });
+    eq(gaps.length, 1, 'a bogus ' + cat + '.' + sel.field + ' token must be caught exactly once by the ' + e.key + ' axis');
+    ok(gaps[0].indexOf('synthetic-' + e.key + '-row') >= 0 && gaps[0].indexOf('zzz-not-a-real-token') >= 0
+       && gaps[0].indexOf(e.key + ' axis') >= 0,
+      'and must name the row, the token AND the axis: ' + gaps[0]);
+    /* the same row carrying a LEGAL token must stay clean - a lint that flags
+       everything is as useless as one that flags nothing */
+    row[sel.field] = 'zzz-the-only-legal-token';
+    eq(mappedSurfaceGaps(ROAD.ROAD_VOCAB_MAP, [row], function(){ return ['zzz-the-only-legal-token']; }).length, 0,
+      'an in-vocab ' + cat + '.' + sel.field + ' row must NOT be flagged');
+  });
+});
+
+test('vocab lint NEGATIVE: a mapped axis pointing at a non-existent ROAD_VOCAB key fails loudly', function(){
+  /* roadVocabTokens throws rather than returning [] on an unknown key. An empty
+     allow-list would make dataTokenGaps flag EVERY row (a false-failure storm),
+     and a permissive one would pass everything - the silent-dormancy shape.
+     Neither is acceptable, so the typo is a hard error. */
+  var threw = false;
+  try { ROAD.roadVocabTokens(['no-such-vocab-key']); } catch(err){ threw = true; ok(/no such|has no key/i.test(String(err.message)), String(err.message)); }
+  ok(threw, 'an unknown ROAD_VOCAB key must throw, never yield a silent empty allow-list');
+  eq(ROAD.roadVocabTokens(['chainStd']).length, ROAD.ROAD_VOCAB.chainStd.length, 'a real key resolves to its tokens');
+  eq(ROAD.roadVocabTokens(['system', 'chainStd']).length,
+     ROAD.ROAD_VOCAB.system.length + ROAD.ROAD_VOCAB.chainStd.length, 'a multi-key axis unions its tokens');
+});
+
+/* ---- the EXCLUSIONS, pinned as exclusions ---------------------------------
+   An exclusion is a load-bearing decision, not an absence: each one below was
+   the alternative to a mapping that would have been WRONG, so each is pinned in
+   both directions - the token stays out of the axis, AND the rows that carry it
+   stay out of the lint's selectors. Without these pins a later "tidy-up" could
+   quietly re-add the token and reintroduce the exact false-verdict shape the
+   exclusion exists to prevent. */
+test('EXCLUDED: steerer "1-1-8" is the stem/cockpit clamp bore, NOT a fork steerer standard', function(){
+  ok(ROAD.ROAD_VOCAB.steerer.indexOf('1-1-8') < 0,
+    '"1-1-8" must stay OUT of the R4 axis: it would sit alongside "straight-1-1-8" on an exact-match compare (the pf86/bb86 false-mismatch shape)');
+  ok(SR.LOCAL_VOCAB.steererRG.indexOf('1-1-8') >= 0,
+    'the token is real and schema-road accepts it - the exclusion is about which AXIS it belongs to, not whether it exists');
+
+  /* the evidence the decision rests on, re-derived from the live data rather
+     than trusted: every row carrying it is a stem or one-piece cockpit, and no
+     frame/fork/headset row uses it (they all use "straight-1-1-8") */
+  var carriers = ALL_PARTS.filter(function(/** @type {any} */ p){ return p.steerer === '1-1-8'; });
+  ok(carriers.length > 0, 'the token is in live use (if it ever hits 0, retiring it becomes a schema call worth making)');
+  carriers.forEach(function(/** @type {any} */ p){
+    ok(p.cat === 'stem' || p.cat === 'cockpit', p.id + ' carries steerer "1-1-8" on cat "' + p.cat + '" - R4 reads frame/fork/headset, so this token has reached a rule-read field');
+  });
+  ALL_PARTS.filter(function(/** @type {any} */ p){ return p.cat === 'frame' || p.cat === 'fork' || p.cat === 'headset'; })
+    .forEach(function(/** @type {any} */ p){
+      ok(p.steerer !== '1-1-8', p.id + ' (' + p.cat + ') uses "1-1-8" where R4 reads it - it must use "straight-1-1-8"');
+    });
+
+  /* and the rows are out of the lint's reach by construction */
+  ROAD.ROAD_VOCAB_MAP.forEach(function(/** @type {any} */ e){
+    e.rows.forEach(function(/** @type {any} */ sel){
+      if(sel.field !== 'steerer') return;
+      ok(sel.cats.indexOf('stem') < 0 && sel.cats.indexOf('cockpit') < 0,
+        'the steerer axis must not measure stem/cockpit rows - that is a clamp bore, a different axis');
+    });
+  });
+  ok(ROAD.ROAD_VOCAB_MAP_EXCLUDED.some(function(/** @type {any} */ x){ return /1-1-8/.test(x.why); }),
+    'and the decision must be recorded in ROAD_VOCAB_MAP_EXCLUDED with its reason');
+});
+
+test('EXCLUDED: "hydraulic" belongs to the CALIPER axis - the reported actuation gap was a merged-key artifact', function(){
+  ok(ROAD.ROAD_VOCAB.actuation.indexOf('hydraulic') < 0,
+    '"hydraulic" must stay OUT of R14\'s control axis - a brifter is mechanical/di2-wired/axs-wireless, never hydraulic');
+  ok(ROAD.ROAD_VOCAB.actuationBrake.indexOf('hydraulic') >= 0, 'it already lives on the caliper axis, which is why the "gap" was not one');
+  ok(SG.GRAVEL_VOCAB.actuation.indexOf('hydraulic') >= 0, 'the merged gravel key that made it look like a gap');
+
+  /* re-derived from live data: hydraulic appears only on brake rows */
+  ALL_PARTS.filter(function(/** @type {any} */ p){ return p.actuation === 'hydraulic'; })
+    .forEach(function(/** @type {any} */ p){
+      eq(p.cat, 'brake', p.id + ' carries actuation "hydraulic" outside the caliper axis');
+    });
+  /* and the dropper sub-use is excluded from BOTH actuation axes */
+  ROAD.ROAD_VOCAB_MAP.forEach(function(/** @type {any} */ e){
+    e.rows.forEach(function(/** @type {any} */ sel){
+      if(sel.field === 'actuation') ok(sel.cats.indexOf('dropper') < 0, 'a dropper remote is a third meaning of "actuation"; no rule reads it');
+    });
+  });
+  ok(ROAD.ROAD_VOCAB_MAP_EXCLUDED.some(function(/** @type {any} */ x){ return /dropper/i.test(x.why) && /actuation/i.test(x.why); }),
+    'and the dropper exclusion must be recorded with its reason');
+});
+
+test('RECONCILED: the tokens this pass added are present, and each is backed by a real row or an accepting schema', function(){
+  /* Regression pins for the reconciliation, each stating what backs it. These
+     are ROAD_VOCAB entries only - no schema vocab was widened and no catalog row
+     changed, so "backed by" means: some row already uses it, or a validator
+     already accepts it (the union this table is defined as). */
+  /** @param {string} key @param {string} token */
+  function has(key, token){
+    ok(/** @type {any} */ (ROAD.ROAD_VOCAB)[key].indexOf(token) >= 0, 'ROAD_VOCAB.' + key + ' must document "' + token + '"');
+  }
+  has('brakeSystem', 'disc-is');       has('brakeMount', 'is-mount');
+  has('frontAxle', 'lefty-proprietary'); has('frontAxle', '15x100');
+  has('bbShell', 't47-86');            has('bbShell', 'pf92');
+  has('bbShell', 'bsa-73');            has('bbShell', 'square-taper');
+  has('crankBb', 'square-taper');      has('seatpostDia', 'proprietary');
+  has('fdMount', 'band-28.6');
+  has('rotorMount', 'center-lock');    has('rotorMount', '6-bolt');
+
+  /* the ones a row backs - proven against the live data, not asserted */
+  /** @param {string} token @param {string} field @param {string[]} cats */
+  function usedBy(token, field, cats){
+    var n = ALL_PARTS.filter(function(/** @type {any} */ p){ return cats.indexOf(p.cat) >= 0 && p[field] === token; }).length;
+    ok(n > 0, '"' + token + '" is documented as live on ' + cats.join('/') + '.' + field + ' - if no row uses it, say so instead');
+  }
+  usedBy('disc-is', 'brakeSystem', ['frame']);            usedBy('is-mount', 'brakeMount', ['frame']);
+  usedBy('lefty-proprietary', 'axle', ['fork']);          usedBy('15x100', 'axle', ['fork']);
+  usedBy('t47-86', 'bb', ['frame']);                      usedBy('pf92', 'bb', ['frame']);
+  usedBy('bsa-73', 'bb', ['frame']);                      usedBy('square-taper', 'bb', ['frame']);
+  usedBy('proprietary', 'seatpost', ['frame']);           usedBy('band-28.6', 'frontDerailleurMount', ['frame']);
+  usedBy('center-lock', 'rotorMount', ['frontwheel', 'rearwheel']);
+
+  /* and the two that NO row backs, documented as accepted-but-unused rather than
+     dressed up as live: schema-gravel's spindle vocab accepts 'square-taper' for
+     a bb.spindle, and no cataloged crank or BB uses it yet. */
+  ok(SG.GRAVEL_VOCAB.spindle.indexOf('square-taper') >= 0, 'the crankBb side rests on schema-gravel accepting it for bb.spindle');
+  eq(ALL_PARTS.filter(function(/** @type {any} */ p){ return p.cat === 'bb' && p.spindle === 'square-taper'; }).length, 0,
+    'no row uses it yet - documented as accepted, never claimed as in-use');
+  /* deliberately NOT reconciled (see the notes at the tokens): attributing these
+     would have been a guess, so they must stay out until a row forces the call */
+  ok(ROAD.ROAD_VOCAB.frontAxle.indexOf('12x142') < 0, 'rear spacing must not enter the FRONT axle axis');
+  ok(ROAD.ROAD_VOCAB.bbShell.indexOf('t47a-bbright') < 0 && ROAD.ROAD_VOCAB.crankBb.indexOf('t47a-bbright') < 0,
+    'an unused token from a MERGED gravel key cannot be attributed to a side without a guess');
+});
+
 test('vocab lint NEGATIVE: the data-token lint actually bites (a synthetic out-of-vocab row must fail it)', function(){
   /* hermetic, for the same reasons as the chain-lint negatives above: synthetic
      rows against a synthetic vocab, so neither real catalog is involved. */
