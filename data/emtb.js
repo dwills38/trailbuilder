@@ -289,6 +289,7 @@ var EMTB_PARTS = [
   },
   {
     id: 'em-ibis-oso', cat: 'emtb', brand: 'Ibis', model: 'Oso TR',
+    family: 'ibis-oso',
     motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 120, motorPowerPeak: 750,
     batteryWh: 600, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
@@ -297,6 +298,17 @@ var EMTB_PARTS = [
     note: "Ibis's second-generation modular Oso platform (HD/TR/S travel classes) stayed on Bosch — did not follow the industry trend to DJI Avinox — with a smaller, lower-mounted 600Wh battery (down from 800Wh) plus an optional 250Wh PowerMore extender. This is the base $8,499 mechanical build (SRAM Eagle 90 Transmission + Maven Base); a $9,699 SRAM AXS/GX Eagle Transmission + Maven Silver build is also offered.",
     desc: 'Verified vs the maker page. Gen/battery corrected verify/emtb-3 wave 3 phase 2 (Gen 5 CX confirmed, 800Wh -> 600Wh, drivetrain matched to the real TR mechanical build) — that reading holds and is now maker-page-confirmed exactly: SRAM Eagle 90 Transmission derailleur/shifter, SRAM Maven Base brakes/SRAM Centerline 220mm rotors, RockShox Lyrik Base 160mm fork, RockShox Super Deluxe Select+ 230x60mm shock, price $8,499 exact match. Torque corrected verify/emtb-4 wave 4 cluster B: 100 -> 120Nm ("up to 120 Nm" on the current bikes/oso-tr page — a firmware/torque update since an earlier 100Nm reading). Weight set to the maker-stated 22.77kg complete-build claimed figure (size XM, with frame protection + tire sealant, no pedals).',
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://www.ibiscycles.com/bikes/oso-tr'
+  },
+  {
+    id: 'em-ibis-oso-tr-gx-axs', cat: 'emtb', brand: 'Ibis', model: 'Oso TR GX AXS',
+    family: 'ibis-oso', motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 120, motorPowerPeak: 750,
+    batteryWh: 600, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission (AXS)', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 9699,
+    note: 'The mid-tier build on the same Oso TR chassis as em-ibis-oso (SRAM Eagle 90 mechanical/Maven Base) — swaps in a wireless SRAM GX Eagle Transmission (AXS Pod shifter, XS-1275 T-Type 10-52T cassette) and SRAM Maven Silver brakes, plus an upgraded RockShox Lyrik Ultimate fork (vs the base build\'s Lyrik Base); same RockShox Super Deluxe Select+ 230x60mm shock, motor and battery as the base build.',
+    desc: 'Verified vs the maker\'s interactive build-configurator on the same product page as em-ibis-oso (ibiscycles.com/bikes/oso-tr) — selecting the "$9699" build tier via the browser pane (a JS click on the price-selector button; the static page/WebFetch only shows the default $8499 build\'s spec table) rendered the tier-specific component table: "RockShox Lyrik, Ultimate, 160mm" fork, "SRAM Maven, Silver" brakes, "SRAM GX Eagle Transmission" rear derailleur, "SRAM AXS Pod" shifter, "SRAM XS 1275 Transmission, T-Type, 10-52T" cassette, "SRAM GX Eagle Transmission, T-Type" chain — motor/battery/frame/travel/wheel fields match the base build\'s already-confirmed spec (unchanged across tiers per the page). No per-tier complete-bike weight is published (only the base build\'s 22.77kg figure, which does not apply to this heavier-brakes/AXS-electronics build), left null rather than guessed.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.ibiscycles.com/bikes/oso-tr'
   },
   {
     id: 'em-santa-cruz-vala-al-deore', cat: 'emtb', brand: 'Santa Cruz', model: 'Vala AL Deore 2026',
