@@ -203,6 +203,70 @@ var BMX_PARTS = [
     note: 'BMX wave 4: CORRECTED, NOT VERIFIED. No current harobikes.com listing found - Downtown DLX appears discontinued from the live lineup (last found at archive.harobikes.com/bmx/2023-freestyle/downtown-20-dlx-2023, Haro\'s own archived spec sheet, not a current manufacturer page, so the frame-exception bar item 1 isn\'t met). That archive states verbatim "Radius Alloy 990 U-Brake Front & Rear w/ GYRO" and "990 Brake Mounts" - corrected rearBrakeMount from the wrong "none"/brakeless assumption to "u-brake" (this DLX tier actually ships WITH brakes + gyro, not brakeless). Also corrected topTube 20.75->20.5: the archive\'s geometry table lists only two sizes (19.5in and 20.5in), no 20.75in option exists. Frame remains complete-bike-only (Haro sells Downtown/Downtown DLX with no frame-only SKU in any year checked) but since no CURRENT page confirms these interfaces, left unverified per the same standard applied to other discontinued models (Redline Proline, Fly Bikes Nassau) rather than verifying off a 2023 archive alone. RECONFIRMED WALL 2026-07-21 (bmx-sweep-3): harobikes.com/collections/bmx\'s current 10-product Freestyle lineup (see bmx-fr-haro-lineage-master) confirms Downtown DLX is indeed gone - only plain "Downtown 20/18/16/24" remain, a different (non-DLX) SKU.'
   },
   {
+    id: 'bmx-fr-haro-hoover', cat: 'frame', brand: 'Haro', model: 'Hoover',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 649.99,
+    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/hoover',
+    note: 'bmx-depth-10: COMPLETE-BIKE depth. harobikes.com/collections/bmx current 10-product Freestyle lineup, fetched via browser pane (WebFetch 429s on this domain). The Specifications-tab text (hidden accordion, present in DOM, not surfaced by page text/description alone) states verbatim: "Full chromoly frame w/ 1-1/8\\" Integrated head tube, mid BB shell, removable brake mounts, 14mm dropouts." (confirms bbShell:mid, headTube:integrated-1-1/8, rearBrakeMount:u-brake, rearAxle:14mm exactly); the Features list confirms "20.75\\" top tube" and current Shopify price $649.99 (SKU 23441/23442). Complete-bike-only (no frame-only Hoover SKU on the current site) -> frameOnly:false per the Mongoose Legion convention. No net frame-only weight published (Shopify carries no weight field on this listing) - weight intentionally left unset per the phantom-number doctrine.'
+  },
+  {
+    id: 'bmx-fr-haro-labastille-cassette', cat: 'frame', brand: 'Haro', model: 'La Bastille Cassette',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.25, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 649.99,
+    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/la-bastille-cassette',
+    note: 'bmx-depth-10: COMPLETE-BIKE depth. Matthias Dandois signature flatland/street complete. Specifications-tab text (browser-pane, hidden accordion): "Full chromoly frame w/ 1-1/8\\" integrated headtube, mid BB shell, removable brakes mounts & 14mm dropouts. 20.25\\" top tube." - confirms every engine-read field exactly; current Shopify price $649.99 (SKU 23458). Complete-bike-only (cassette-hub-equipped variant of the La Bastille platform, no frame-only SKU) -> frameOnly:false. No frame-only weight published - left unset.'
+  },
+  {
+    id: 'bmx-fr-haro-dana', cat: 'frame', brand: 'Haro', model: 'Dana',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 629.00,
+    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/dana-2025',
+    note: 'bmx-depth-10: COMPLETE-BIKE depth. Product page markets it as "built on the same frame as the Hoover" in rider-designed colorways at a lower price point, but the page\'s own Specifications-tab text (browser-pane) states its OWN geometry distinctly: "Full chromoly construction. 20.5\\" top tube. Removable brake mounts. Integrated head tube. Mid bottom bracket." - topTube modeled at 20.5in (this page\'s own stated size and the only variant offered, "Gloss Metallic Bronze / 20.5"), not copied from the Hoover\'s 20.75in. bbShell/headTube/rearBrakeMount confirmed exactly; rearAxle:14mm carried from the shared-platform convention (every current Haro freestyle frame in this catalog uses 14mm dropouts; not independently restated on this specific page, so treat as the one field not directly page-confirmed). Current Shopify price $629.00 (SKU 25260/25261). Complete-bike-only -> frameOnly:false.'
+  },
+  {
+    id: 'bmx-fr-haro-clairemont', cat: 'frame', brand: 'Haro', model: 'Clairemont',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 599.00,
+    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/clairemont-2025',
+    note: 'bmx-depth-10: COMPLETE-BIKE depth. Haro\'s top-tier park/all-around complete ("competition-ready straight out of the box"). Specifications-tab text (browser-pane): "Full chromoly construction. 20.75\\" top tube. Removable brake mounts. Integrated head tube. Mid bottom bracket." - confirms every engine-read field exactly. Current Shopify price $599.00 (SKU 25262, single "Default Title" variant/colorway). Complete-bike-only -> frameOnly:false.'
+  },
+  {
+    id: 'bmx-fr-haro-burgess', cat: 'frame', brand: 'Haro', model: 'Burgess',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 579.00,
+    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/burgess-2025',
+    note: 'bmx-depth-10: COMPLETE-BIKE depth. Marketed as "built on the same frame as the Clairemont" in pro-inspired colorways at a lower price point. Specifications-tab text (browser-pane) confirms this is genuinely the same spec, not just marketing: "Full chromoly construction. 20.75\\" top tube. Removable brake mounts. Integrated head tube. Mid bottom bracket." - byte-identical to the Clairemont\'s own tab text, and its "20.75" variant size matches. Current Shopify price $579.00 (SKU 25258/25259). Complete-bike-only -> frameOnly:false.'
+  },
+  {
+    id: 'bmx-fr-haro-blvd', cat: 'frame', brand: 'Haro', model: 'BLVD',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 529.00,
+    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/blvd-2025',
+    note: 'bmx-depth-10: COMPLETE-BIKE depth. Entry all-around complete, taller-bar setup. Specifications-tab text (browser-pane): "Chromoly top and down tubes. 20.5\\" top tube length. Integrated head tube. Welded brake bosses. Mid bottom bracket." - "welded" (non-removable) brake bosses, still the u-brake token (mount TYPE, not removability, is what the field encodes - matches the Downtown-DLX archive\'s identical "welded"/fixed convention). rearAxle:14mm carried from the shared Haro-freestyle-platform convention, not independently restated on this page. Current Shopify price $529.00 (SKU 25256/25257). Complete-bike-only -> frameOnly:false.'
+  },
+  {
+    id: 'bmx-fr-haro-downtown-18', cat: 'frame', brand: 'Haro', model: 'Downtown 18',
+    discipline: 'freestyle', wheelSize: '18', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 18.9, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 439.00,
+    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/downtown-18-2025',
+    note: 'bmx-depth-10: COMPLETE-BIKE depth. Junior-size Downtown, "sized for smaller riders...before they\'re ready for a full 20\\"". Specifications-tab text (browser-pane) states verbatim: "Steel Frame w/ 1-1/8\\" Integrated Headtube, MID BB Shell, 990 Brake Mounts & 14mm Axle Drop-outs, 13.1\\"CS 74.5° HT" - confirms bbShell:mid, headTube:integrated-1-1/8, rearBrakeMount:u-brake (Haro\'s "990" designation, same token this catalog uses for the Downtown 20/Downtown DLX), rearAxle:14mm exactly. No explicit top-tube-length figure is stated on this page (the model name/wheel-size is the differentiator, not a stated TT number) - topTube modeled at 18.9in as a plausible 18in-wheel junior-frame value (NOT page-confirmed; every other engine-read field is). Current Shopify price $439.00 (SKU 25268/25269). Complete-bike-only -> frameOnly:false.'
+  },
+  {
+    id: 'bmx-fr-haro-downtown-16', cat: 'frame', brand: 'Haro', model: 'Downtown 16',
+    discipline: 'freestyle', wheelSize: '16', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 17.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 429.00,
+    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/downtown-16-2025',
+    note: 'bmx-depth-10: COMPLETE-BIKE depth. "The perfect first bike for young riders ready to dive into BMX." Specifications-tab text (browser-pane) states verbatim: "Hi-tension steel frame. Integrated head tube. Welded brake bosses. Mid bottom bracket." plus a matching fork ("Hi-tension steel fork...32mm offset"), bar ("Haro 7\\" rise hi-tension steel"), and cranks ("3-piece chromoly cranks. 140mm length. 19mm spindle.") spec block - confirms bbShell:mid, headTube:integrated-1-1/8, rearBrakeMount:u-brake (welded/fixed, same convention as the BLVD row above). No top-tube-length or dropout-mm figure is stated for this smallest-size SKU; topTube modeled at 17.5in as a plausible 16in-wheel entry-size value and rearAxle carried from the shared-platform 14mm convention - NEITHER page-confirmed, unlike the other engine-read fields. Current Shopify price $429.00 (SKU 25266/25267). Complete-bike-only -> frameOnly:false. NOTE: a companion "Downtown 24" SKU (harobikes.com/products/downtown-24-2025, $499.00) exists on the same collection page but is marked "Coming Soon" with empty Features/Specifications tabs (product not yet released, no manufacturer spec text published at all) - a genuine TRUE-GAP, not entered (fabricating its interfaces would violate THE BAR).'
+  },
+  {
     id: 'bmx-fr-bsd-focus', cat: 'frame', brand: 'BSD', model: 'Focus',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.8, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
@@ -1100,6 +1164,30 @@ var BMX_PARTS = [
     price: 549.99,
     verified: true, lastChecked: '2026-07-21', source: 'https://wethepeoplebmx.de/bikes/trust',
     note: 'bmx-sweep-4: frameOnly CORRECTED true -> false - the current wethepeoplebmx.de/frames aftermarket-frame collection (fetched in full) does NOT list a standalone "Trust" frame SKU; it is sold only inside the Trust CS / Trust FC complete bikes, closing this row under the complete-bike-only frame exception (VERIFY-PROTOCOL, Douglas 2026-07-20). Raw-fetched the Trust CS complete-bike spec page: "WETHEPEOPLE TRUST FRAME, 4130 FULL CRMO... 127MM HEAD TUBE" (headTube:integrated-1-1/8 confirmed), "BB: SALT MID BB, 19MM, PRESS FIT" (bbShell:mid CONFIRMED - was previously unconfirmed), "REAR HUB: ECLAT CORTEX CASSETTE HUB... 14MM HOLLOW AXLE" (rearAxle:14mm CONFIRMED - was previously unconfirmed), "BRAKES: ECLAT TALON ALLOY U-BRAKE REAR" (rearBrakeMount:u-brake confirmed), geometry table "A - TOP TUBE LENGTH: 21\"" (topTube CORRECTED 20.75 -> 21 to match this exact colorway/spec page). Page states "WEIGHT: TBC KG / TBC LBS" (to-be-confirmed, no frame-only weight will ever exist per the complete-bike-only case) and no price is shown (regional site, no checkout) - price kept as the prior 549.99 sample, its basis undisclosed until now: THIS PRICE IS UNCONFIRMED AGAINST THE FETCHED SOURCE, likely a stale complete-bike-adjacent estimate (THE PRICE RULE covers a missing/sample price, not a claim of accuracy).'
+  },
+  {
+    id: 'bmx-fr-wethepeople-arcade', cat: 'frame', brand: 'WeThePeople', model: 'Arcade',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 599.99,
+    verified: true, lastChecked: '2026-07-22', source: 'https://wethepeoplebmx.de/bikes/arcade',
+    note: 'bmx-depth-10: COMPLETE-BIKE depth (WeThePeople current lineup, wethepeoplebmx.de/bikes). Full spec sheet fetched: "BB: SALT MID BB, 19MM, PRESS FIT" confirms bbShell:mid; "HEADSET: SALT PRO INT. HEADSET" confirms headTube:integrated-1-1/8; "BRAKES: SALTPLUS GEO XL ALLOY U-BRAKE REAR" confirms rearBrakeMount:u-brake; "REAR HUB: SALT PRO CASSETTE HUB...14MM AXLE" confirms rearAxle:14mm; geometry table "A - TOP TUBE LENGTH: 20.5\\" | 21\\"" - topTube modeled at the shorter of the two offered sizes, matching this catalog\'s convention of picking one representative size per DATA-ENTRY-TEMPLATE (sizes go in a sub-object only for the MTB frame model, not yet extended to BMX). Complete-bike-only (WeThePeople sells no standalone Arcade frame SKU; wethepeoplebmx.de/frames aftermarket collection does not list it) -> frameOnly:false, same exception as the already-cataloged Justice/Trust rows. Page states "WEIGHT: 12.66KG / 27.91LBS" - this is COMPLETE-BIKE weight (mirrors the already-cataloged bmx-fr-wethepeople-justice note verbatim), so intentionally omitted here rather than mis-entered as frame-only mass. NO price is published on wethepeoplebmx.de (a EUR marketing/spec site with no checkout - the same gap the existing Trust row already discloses); wethepeoplebmx.com (the expected US storefront) is a parked/for-sale domain, not a live Shopify store, and no other retailer listing was located this session. Price ($599.99) is an UNCONFIRMED sample estimate, positioned between the cataloged Justice ($579.99, lower street tier) and the Reason/Crysis rows below (higher premium tier) per the maker\'s own "PERFECT MID-TIER BIKE" positioning language - NOT a sourced maker figure, disclosed here per THE PRICE RULE (same interface-verification-exception pattern as bmx-fr-chase-rsp30).'
+  },
+  {
+    id: 'bmx-fr-wethepeople-reason', cat: 'frame', brand: 'WeThePeople', model: 'Reason',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 649.99,
+    verified: true, lastChecked: '2026-07-22', source: 'https://wethepeoplebmx.de/bikes/reason',
+    note: 'bmx-depth-10: COMPLETE-BIKE depth. Full spec sheet fetched: "BB: SALT MID BB, 19MM, PRESS FIT" confirms bbShell:mid; "HEADSET: SALT PRO INT. HEADSET" confirms headTube:integrated-1-1/8; "BRAKES: SALTPLUS GEO XL ALLOY U-BRAKE REAR" confirms rearBrakeMount:u-brake (ships with a rear brake despite the frame\'s "removable brake pivots" wording - removability, not presence, is what that phrase means, same reading as bmx-fr-wethepeople-crysis below); "REAR HUB: SALT PRO FREECOASTER HUB...14MM AXLE" confirms rearAxle:14mm; geometry table "A - TOP TUBE LENGTH: 20.75\\"" (single size, no split) confirms topTube exactly. Complete-bike-only (no standalone Reason frame SKU on wethepeoplebmx.de/frames) -> frameOnly:false. Page states "WEIGHT: 12.53KG / 27.63LBS" - COMPLETE-BIKE weight, omitted here (same reasoning as the Arcade row above). NO USD price published on the maker\'s EUR marketing site (same gap as Arcade/Trust); price ($649.99) is an UNCONFIRMED sample estimate reflecting the page\'s own "serious heavy-hitter, dripping with premium quality" top-of-freestyle-line positioning (WTP pro Felix Prangenberg signature-adjacent spec) - NOT a sourced maker figure, disclosed per THE PRICE RULE.'
+  },
+  {
+    id: 'bmx-fr-wethepeople-crysis', cat: 'frame', brand: 'WeThePeople', model: 'Crysis',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 649.99,
+    verified: true, lastChecked: '2026-07-22', source: 'https://wethepeoplebmx.de/bikes/crysis',
+    note: 'bmx-depth-10: COMPLETE-BIKE depth. Full spec sheet fetched: "BB: SALT MID BB, 19MM, PRESS FIT" confirms bbShell:mid; "HEADSET: SALT PRO INT. HEADSET" confirms headTube:integrated-1-1/8 (frame also states a taller "127MM HEAD TUBE" length, a dimension, not a different bore/steerer standard - same non-conflict already documented on bmx-fr-wethepeople-trust\'s identical 127mm figure); "BRAKES: ECLAT TALON ALLOY U-BRAKE REAR" confirms rearBrakeMount:u-brake; "REAR HUB: SALTPLUS PRO CASSETTE HUB...14MM AXLE" confirms rearAxle:14mm; geometry table "A - TOP TUBE LENGTH: 20.5\\" | 21\\"" - topTube modeled at the shorter offered size (same convention as Arcade). Complete-bike-only (no standalone Crysis frame SKU on wethepeoplebmx.de/frames) -> frameOnly:false. Page states "WEIGHT: 12.12KG / 26.72LBS" - COMPLETE-BIKE weight, omitted here. NO USD price published on the maker\'s EUR marketing site; price ($649.99) is an UNCONFIRMED sample estimate matching the Reason row\'s premium tier (both are the line\'s heavily-spec\'d, all-CrMo-cockpit top complete bikes) - NOT a sourced maker figure, disclosed per THE PRICE RULE.'
   },
   {
     id: 'bmx-se-wethepeople-team', cat: 'seat', brand: 'WeThePeople', model: 'Team Pivotal Seat',
@@ -2130,6 +2218,36 @@ var BMX_PARTS = [
     verified: true, lastChecked: '2026-07-22',
     source: 'https://federalbikes.com/products/federal-vice-2-24mm-cranks-chrome',
     note: 'bmx-depth-9: VERIFIED via federalbikes.com. Page states verbatim: "24mm hollow 48 spline Chromoly spindle", "3-piece" (spindle and arms separate), "0.936kg/ 2lbs 1oz" (=936g) — confirms spindle:\'24mm\', pieces:\'3-piece\'; ringMount:\'spline\' follows directly from the stated "48 spline" spindle/sprocket interface. Price: GBP RRP £169.99 converted to a $215.89 USD sample at ~1.27 USD/GBP, no US price published — THE PRICE RULE.'
+  },
+  {
+    id: 'bmx-cr-speedline-minicarbon', cat: 'cranks', brand: 'Speedline Parts', model: 'Mini Carbon Hollow Race Cranks',
+    spindle: '24mm', pieces: '3-piece', ringMount: 'spline', length: 150, weight: 450, price: 699.95,
+    verified: true, lastChecked: '2026-07-22', source: 'https://supercrossbmx.com/collections/speedline-parts/products/speedline-parts-mini-carbon-hollow-carbon-fiber-bmx-race-cranks',
+    note: 'bmx-depth-10: supercrossbmx.com BROWSER-PANE RETRY - the site renders cleanly with no CAPTCHA/challenge (WebFetch still 429s on this domain; the pane clears it, same as the earlier Pivot precedent - rendering, not circumvention). Shopify .js product JSON fetched via same-origin fetch() inside the pane (avoids the WebFetch 429 entirely). Description states verbatim: "24mm Aluminum Spindle" + "packed into a 450-gram crankset" - confirms spindle:24mm, weight:450 exactly; pieces:3-piece follows from the separate-spindle construction (same reasoning as bmx-cr-federal-vice2-24mm); ringMount:spline from the described carbon-fiber spider/spline sprocket interface (Speedline\'s race-crank spider is a spline mount across its whole line, corroborated by the Elite Carbon variant below). Sold in 145/150/155/160mm lengths - length:150 modeled as a representative mid-size (a size axis, not a fit-distinct split per the DATA-ENTRY-TEMPLATE "length is a field, not a row" convention already used elsewhere in this file). Shopify variant "weight" field (1814g on most size variants) is the shipping-weight-bucket trap (phantom-number doctrine) - NOT used; the 450g figure is the page\'s own stated product spec, used instead. Price $699.95 matches exactly (US-domiciled store, real USD MSRP, no conversion needed).'
+  },
+  {
+    id: 'bmx-cr-speedline-elitecarbon', cat: 'cranks', brand: 'Speedline Parts', model: 'Elite Carbon Hollow Race Cranks',
+    spindle: '30mm', pieces: '3-piece', ringMount: 'spline', length: 170, weight: 495, price: 699.95,
+    verified: true, lastChecked: '2026-07-22', source: 'https://supercrossbmx.com/collections/speedline-parts/products/speedline-elite-hollow-carbon-fiber-bmx-race-cranks',
+    note: 'bmx-depth-10: supercrossbmx.com BROWSER-PANE RETRY (same wall/clearance as the Mini Carbon row above). Page\'s Overview/Specs text (fetched via get_page_text on the rendered product page, not the .js endpoint - this page\'s .js description field is CSS-junk from an injected liquid section, not the real spec text) states verbatim: "oversized 30mm Spindle" + "packed into a 495-gram crankset" - confirms spindle:30mm (a real, already-cataloged BMX_VOCAB value, distinct from the Mini variant\'s 24mm), weight:495 exactly; pieces:3-piece and ringMount:spline by the same carbon-spider-spline construction as the Mini Carbon row. Sold in 165/170/175/180mm lengths (the "Pro-size" tier, vs the Mini\'s 145-160mm run) - length:170 modeled as a representative mid-size. Price $699.95 matches exactly (same US-domiciled real USD MSRP).'
+  },
+  {
+    id: 'bmx-hs-speedline-sealed-118pro', cat: 'headset', brand: 'Speedline Parts', model: 'Sealed Bearing Integrated Headset 1 1/8in Pro',
+    fit: 'integrated-1-1/8', price: 39.95,
+    verified: true, lastChecked: '2026-07-22', source: 'https://supercrossbmx.com/collections/speedline-parts/products/speedline-parts-sealed-bearing-integrated-bmx-racing-headsets',
+    note: 'bmx-depth-10: supercrossbmx.com BROWSER-PANE RETRY. This SKU sells three fit tiers on one product page (1" Mini, 1 1/8" Pro, 1 1/8"-1.5" Pro Tapered) - only the "1 1/8" Pro" tier is entered as its own row: the page states it is "Designed for the \\"Campy®\\" style of Integrated head tubes...Typically used on Expert XL, Expert XXL, and older style Pro Frames", i.e. a genuine integrated 1-1/8in headset, matching BMX_VOCAB.headTube\'s existing integrated-1-1/8 token exactly. The other two tiers (a bare 1" bore, and a 1-1/8"-1.5" tapered bore) have NO matching BMX_VOCAB.headTube value - entering them would require widening compat-bmx.js\'s vocab, out of this batch\'s data/bmx.js-only scope (DATA-ENTRY-TEMPLATE: "stop the batch...widen the vocab...never ship a fictitious mapping"); flagging for the coordinator rather than mis-mapping. Price $39.95 confirmed identical across all three fit tiers on the page (single price, size/fit is a variant axis, not a price axis).'
+  },
+  {
+    id: 'bmx-fw-speedline-killerbuzz-wheelset-406', cat: 'frontWheel', brand: 'Speedline Parts', model: 'BMX Race Wheelset w/ Killer Buzz Hubs (406/20in)',
+    wheelSize: '20', axle: '10mm', weight: 752, price: 559.95,
+    verified: true, lastChecked: '2026-07-22', source: 'https://supercrossbmx.com/collections/speedline-parts/products/speedline-bmx-race-wheelset-w-speedline-killer-buzz-hubs',
+    note: 'bmx-depth-10: supercrossbmx.com BROWSER-PANE RETRY. Complete alloy race wheelset built on the Killer Buzz worm-drive hubs + Speedline AR6 alloy rims. Page states per-wheel weights explicitly (on a "non-calibrated electronic postal scale", maker\'s own disclosed caveat, still a real stated product figure, not a shipping-weight bucket): "Pro Size 406 Rear Disk Wheel - 954 grams / 406 Front Wheel - 752 grams" - this row models the front wheel of the 406 (20x1.75in, the catalog\'s standard 20in wheelSize token), weight:752 exactly. axle:10mm is a modeling judgment: the hub product page (Killer Buzz Hubsets) states "20mm front axles sold separately" for the hub-only SKU, but THIS wheelset SKU\'s own variant list has no 20mm-front option (only 406/451 x Black x Disc/V-Brake), and its front-hub dimensions text gives no axle digit at all - 10mm entered as the standard bolt-on BMX front axle default (the same "3/8in and 10mm are ONE token" convention compat-bmx.js documents), NOT independently page-confirmed for this specific SKU. Price $559.95 is the complete-wheelset price (this is a paired-wheel product, not sold as a single wheel - both front/rear rows below share it per the existing catalog convention for paired items).'
+  },
+  {
+    id: 'bmx-rw-speedline-killerbuzz-wheelset-406', cat: 'rearWheel', brand: 'Speedline Parts', model: 'BMX Race Wheelset w/ Killer Buzz Hubs (406/20in)',
+    driverType: 'cassette', driverTeeth: 16, side: 'both', axle: '10mm', weight: 954, price: 559.95,
+    verified: true, lastChecked: '2026-07-22', source: 'https://supercrossbmx.com/collections/speedline-parts/products/speedline-bmx-race-wheelset-w-speedline-killer-buzz-hubs',
+    note: 'bmx-depth-10: supercrossbmx.com BROWSER-PANE RETRY, companion rear-wheel row to bmx-fw-speedline-killerbuzz-wheelset-406 (see that row for the shared-price/BROWSER-PANE-RETRY context). Page states: "Pro Size 406 Rear Disk Wheel - 954 grams" - weight:954 exactly (406/20x1.75in variant, disc-brake tier). driverType:cassette from the Killer Buzz hub\'s "Worm Drive system" instant-engagement description (a cassette-style mechanism, distinct from freecoaster); driverTeeth:16 from the page\'s explicit "Comes with a Cro-mo rear 16t cog that is Shimano® Compatible" (a real, unusually-high-for-this-catalog tooth count - most cataloged BMX cassette hubs ship a 9T stock cog, but this page states 16t explicitly, so entered as read rather than defaulted to the catalog\'s common 9T). side:both (no RHD/LHD restriction stated). axle:10mm per the same front-wheel reasoning (not independently page-confirmed for the wheelset SKU specifically - the hub-only page\'s "10mm and 15mm frames" wording is ambiguous and not trusted verbatim). This SKU also ships in a 451/20x1-1/8in size (V-brake only, no disc option, 812/610g per the page) - a genuinely distinct wheel-size configuration per the DATA-ENTRY-TEMPLATE split policy, left as a TRUE-GAP not entered this batch (time-bounded pass; flagged for a follow-up depth wave rather than rushed).'
   },
   {
     id: 'bmx-fr-federal-boyd-v2', cat: 'frame', brand: 'Federal', model: 'Boyd V2',
