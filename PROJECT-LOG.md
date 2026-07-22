@@ -4758,3 +4758,15 @@ prior fetch waves and were spot-checked sound). Lesson for the standing set: THI
 LISTED ASSERTS "MAKER PUBLISHES NO PRICE" — for SRAM-sourced rows that claim is checkable
 and usually FALSE; never default it onto a sram.com-sourced row. Gates green post-merge.
 Report: .claude/worker-reports/pb-road-2.md.
+
+## 2026-07-22 — pb-mtb-b2 merged: MTB slice B2 opened, 35 rows (5 brands), burndown 2063 -> ~2029
+Honest partial on the big slice (1,875-row pool, 94 brands): ACID, Airdrop, Antidote,
+Banshee, Bontrager fully classified via real re-fetches (trekbikes.com is WebFetch/Exa-thin;
+browser pane carried all 17 Bontrager URLs). 9 msrp-confirmed, 23 discontinued-no-msrp (all
+on pages Trek itself tags ARCHIVED — rows already carried status:'discontinued', so the
+doctrine's current-product ban is satisfied), 2 regional-conversion, 1 oe-only-no-msrp, 0
+blanks needed. Worker caught its own bulk-edit regex corrupting unrelated rows via git diff
+pre-commit (never assume field order; window edits to the record) — same lesson pb-road-2's
+worker hit the same day; both self-caught. RESUME POINT: brand CST, then the giants
+(RockShox 519, Fox 149, Maxxis 99...) — slice B needs several more sessions. Gates green.
+Report: .claude/worker-reports/pb-mtb-b2.md.
