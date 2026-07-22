@@ -1,5 +1,17 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — kit-breadth-3: women's-fit done honestly (kit 736)
+
+- **catalog/kit-breadth-3 merged**: +12 rows, all verified. The women's-fit sweep with
+  REAL rigor — Liv helmets (genuine "rounder head form" engineering) accepted while
+  Giro's Women's Series was REFUSED on Giro's own admission ("no anatomic difference…"),
+  POC's women's-fit kneepads exposed as a filter over unisex SKUs (kneepads honestly stay
+  at 0 women's rows), the EVOC vest's copy-paste men's description disqualified it.
+  Landed: first women's helmet/eyewear/bodyarmor rows, pants 1→4, Fox Defend gloves
+  (+ a genuine youth SKU), Stamp Lace + Shimano GE900 (measured-weight policy). Kit 736
+  (578 verified). Its rows predate the priceBasis mandate — they join the burndown.
+  Gates: 7 OK, 1038/1038, tsc clean.
+
 ## 2026-07-22 — PRICE-BASIS PROVENANCE SHIPS + gravel-5 + emtb-3
 
 - **schema/price-basis-provenance merged (Douglas's "verified means the pricing was
