@@ -1,5 +1,24 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — gravel-verify-5: the frames pass (gravel 166/258)
+
+- **verify/gravel-verify-5 merged**: all 32 candidate frames covered — 12 promoted/
+  completed (Fuji Jari's bsa-road was a REAL FABRICATION, actually T47-86; 3T Exploro
+  Race had three wrong fields at once: bb pf30→bb386evo, seatpost 27.2→proprietary, FD
+  none→braze-on; Topstone Carbon 4's bb30a confirmed against a misleading search
+  snippet); 4 real spec corrections (Kona Sutra LTD had been proxied from the WRONG
+  spec table — base Sutra vs LTD; Nicasio+ is 650b-only; Bombtrack's old clearance was
+  the fork's, not the frame's); 8 already-thorough rows correctly left. Also fixed a
+  hardcoded-TODAY staleness bug in test-schema-gravel.js (same pattern as the sibling
+  test's documented fix — reviewed, not a weakening).
+- **THE VOCAB PACKET IS NOW URGENT**: 6 token classes block real sourced rows —
+  straight steerer (6+ frames incl. both Canyons), QR rear axle (2), square-taper BB,
+  73mm-English BB, I.S. brake mount (NEW), band-clamp FD mount (NEW, 2 frames). Plus
+  the Surly Straggler generation split (classic vs 2025 refresh — which gen is the
+  row?). All flagged in-row with maker wording; nothing force-fit. Douglas's
+  consolidated ruling is the single biggest gravel unlock remaining.
+- Gates: 7 OK (gravel 166/258), 988/988, tsc clean.
+
 ## 2026-07-22 — mtb-tail-15: the Syncros cluster closes (MTB 3,315)
 
 - **verify/mtb-tail-15 merged**: all 22 remaining Syncros cockpit/saddle rows
