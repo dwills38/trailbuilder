@@ -491,6 +491,11 @@ var BMX_PARTS = [
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://totalbmx.com/products/total-bmx-tech-gyro-black',
     note: 'bmx-breadth-4 (2026-07-22): VERIFIED. Directly fetched totalbmx.com: "Total BMX Tech Gyro - Black...Weight 0.032kg/ 1.1oz" -> 32g CONFIRMED; "Regular price $55.00 USD" CONFIRMED. steererFit/cableRouting are display-only in checkBmxBuild (no rule reads a gyro steerer fit or cable routing - VERIFY-PROTOCOL\'s BMX small-parts exception), so their unconfirmed values (the near-universal 1-1/8in integrated + dual-cable config every other cataloged gyro uses) do not block verification.'
   },
+  {
+    id: 'bmx-gy-saltplus-georotor', cat: 'gyro', brand: 'Salt', model: 'SaltPlus GEO Rotor',
+    steererFit: 'integrated-1-1/8', cableRouting: 'dual', weight: 72, price: 44.99,
+    note: 'bmx-breadth-4 (2026-07-22): UNVERIFIED sample. Directly fetched saltbmx.com/products/saltplus-geo-rotor: "Size: for 1 1/8\\" headtubes" -> steererFit CONFIRMED; "Weight: 72g (2.54oz : 0.15lbs)" -> weight CONFIRMED. cableRouting left at the catalog-standard \'dual\' (not itself stated on this page; SaltPlus separately sells a "Dual Upper Gyro Cable" for this same rotor line, consistent with dual routing). Maker page carries NO price (redirects off-site to a "Kingdom Store" distributor with no price shown) - retailer prices span $39.99 (thesecretbmx.com, listed sold-out) to $58.95 (SkatePro, EUR-region); $44.99 (LUXBMX-adjacent midpoint) entered as an approximate sample, not a confirmed MSRP. Left unverified: no source page states a USD price.'
+  },
 
   // ===== CRANKS ========================================================
   {
@@ -856,6 +861,12 @@ var BMX_PARTS = [
     id: 'bmx-br-chase-rsp-vbrake', cat: 'brake', brand: 'Chase', model: 'RSP Race V-Brake',
     mount: 'v-brake', weight: 180, price: 34.99,
     note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (see bmx-fk-chase-rsp note). Left unchanged, not verified.'
+  },
+  {
+    id: 'bmx-br-saltplus-geoxl', cat: 'brake', brand: 'Salt', model: 'SaltPlus GEO XL Brake',
+    mount: 'u-brake', weight: 189, price: 28.52,
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://saltbmx.com/products/saltplus-geo-xl-brake',
+    note: 'bmx-breadth-4 (2026-07-22): VERIFIED. Directly fetched saltbmx.com: described verbatim as an "extra-large u-brake for modern 2.40\\" tires" -> mount:\'u-brake\' CONFIRMED (the checkBmxBuild-read field); "189 g (6.7 oz)" -> weight CONFIRMED. Maker states price only in EUR (€24.99, rear-position XL u-brake) — converted at 1.1412 USD/EUR (the spot rate on 2026-07-22, per public FX quotes) = $28.52, disclosed as priceBasis:\'regional-conversion\' per schema-bmx.js LOCAL_VOCAB.'
   },
   {
     id: 'bmx-br-mankind-truth-ubrake', cat: 'brake', brand: 'Mankind', model: 'Truth V2 U-Brake',
