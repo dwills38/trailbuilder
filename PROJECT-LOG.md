@@ -1,5 +1,19 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — mtb-cb-breadth-1: three bikes done right (MTB 5,105 parts)
+
+- **catalog/mtb-cb-breadth-1 merged**: Commencal Meta V5 Essential, Vitus Escarpe 27 CRX
+  (its M1700 wheels initially entered Center-Lock, CAUGHT by validate's own lint against
+  the sheet's stated 6-bolt rotor and re-entered per template §6a — the gate working),
+  Polygon Siskiu T8 27.5 — each a full fetch→cross-check→mint→verify cycle with real
+  bundle savings shown honestly. Sight C2: 3 of 5 "missing" tiers already existed; the 2
+  real ones minted (Centerline S2 rotors on Norco's naming — sram.com Cloudflare-walled;
+  the SRAM-MTH-hub wheelset, distinct from C1's DT350s); the CB row honestly blocked
+  AGAIN — $8,536 sum vs $8,999 MSRP, a narrowing $463 gap, same class as C1's $1,271.
+  NEW VOCAB FIND: Kona Honzo's stock 11-speed Shimano Deore has NO system token
+  (shimano-12 only) — joins the consolidated packet; flagged, not faked.
+- Gates: 7 OK (5,105 parts), 1038/1038, tsc clean, harness fully clean.
+
 ## 2026-07-22 — mtb-tail-17: both hanging leads resolved (MTB 3,366)
 
 - **verify/mtb-tail-17 merged**: 3 promotions (Burgtec RideHigh — now a single 38mm-rise
