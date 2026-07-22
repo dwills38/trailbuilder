@@ -728,6 +728,11 @@ var BMX_PARTS = [
     teeth: 9, fitsDriver: 'cassette', pitch: '1/8', price: 13.99,
     note: 'UNRESOLVED: no standalone Colony cassette-cog SKU found on colonybmx.com.au — cogs there ship bundled with a hub (e.g. the Wasp Race Cassette Hub comes with a 16T cog) rather than sold separately under this name. Flagged for the coordinator; unverified sample, not sourced.'
   },
+  {
+    id: 'bmx-rc-odyssey-freewheel-13', cat: 'rearCog', brand: 'Odyssey', model: 'Freewheel 13T (RHD)',
+    teeth: 13, fitsDriver: 'freewheel', pitch: '1/8', price: 21.99,
+    note: 'bmx-breadth-4 (2026-07-22): real current product, directly fetched shop.odysseybmx.com/products/freewheel-13t-rhd (a genuine standalone thread-on freewheel, unlike most cataloged rearCog rows which found only hub-bundled cogs). Title "ODYSSEY FREEWHEEL 13T" + "Regular price $21.99" CONFIRM teeth:13 and price directly; "RHD version only fits flip-flop or compact drive hubs" confirms it is a thread-on freewheel body (fitsDriver:\'freewheel\', the checkBmxBuild-read field distinguishing it from a cassette/freecoaster cog). pitch:\'1/8\' is the catalog-standard BMX freestyle default (not itself stated on this specific page, and pitch IS engine-read per bmx-chain-pitch, so verified:true is withheld) - only the RHD 13T size is sold; no other teeth options exist on the maker\'s site.'
+  },
 
   // ===== FRONT WHEEL ====================================================
   {
