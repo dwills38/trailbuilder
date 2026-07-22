@@ -83,7 +83,8 @@ var BMX_PARTS = [
     id: 'bmx-fr-subrosa-salinas', cat: 'frame', brand: 'Subrosa', model: 'Salinas',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
-    price: 399.99
+    price: 399.99,
+    note: 'WALL, checked 2026-07-21 (bmx-sweep-2): subrosabrand.com\'s frame category/product URLs (product-category/frames/, product/simo-frame/, and this row\'s implied slug) all resolve to a stale cached 2012 "Frames updated" placeholder post - a structural site wall, not a per-product 404. The current homepage\'s only listed frame is "Simo Frame"; Salinas is not shown. Left unverified/unchanged - no reachable manufacturer page to confirm bbShell/rearBrakeMount.'
   },
   {
     id: 'bmx-fr-sandm-holmes', cat: 'frame', brand: 'S&M', model: 'Holmes',
@@ -140,7 +141,7 @@ var BMX_PARTS = [
     id: 'bmx-fr-redline-proline', cat: 'frame', brand: 'Redline', model: 'Proline',
     discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: true,
-    price: 399.99, note: 'Long-running Redline race platform, threaded Euro BB shell.'
+    price: 399.99, note: 'Long-running Redline race platform, threaded Euro BB shell. WALL, checked 2026-07-21 (bmx-sweep-2): diamondback.com/collections/redline-bmx (Redline\'s current parent-brand storefront) lists 6 current products - PL-26, RL275, SQB-26, MX20, Proline Expert XL, Proline Expert - no plain "Proline" base model. This row is the pre-Expert-tier base platform (a real historical Redline name, distinct from the already-verified bmx-fr-redline-prolineexpert), but it is not among current SKUs, so left unverified/unchanged.'
   },
   {
     id: 'bmx-fr-chase-rsp30', cat: 'frame', brand: 'Chase', model: 'RSP 3.0',
@@ -228,14 +229,14 @@ var BMX_PARTS = [
     family: 'subrosa-malum', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
     headTube: 'integrated-1-1/8', topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm',
     frameOnly: false, price: 659.99,
-    note: 'Frame spec pulled from the Malum complete-bike page (Source BMX); BB is 19mm-spindle Mid per the complete-bike crank/BB callout.'
+    note: 'Frame spec pulled from the Malum complete-bike page (Source BMX); BB is 19mm-spindle Mid per the complete-bike crank/BB callout. WALL, checked 2026-07-21 (bmx-sweep-2): subrosabrand.com structurally unreachable per bmx-fr-subrosa-salinas\'s finding (every frame URL serves a stale 2012 placeholder); the existing Source BMX retailer basis cannot upgrade to verified:true (sourceType:retailer is validator-rejected on verified rows). Left unverified/unchanged.'
   },
   {
     id: 'bmx-fr-subrosa-salvador', cat: 'frame', brand: 'Subrosa', model: 'Salvador',
     family: 'subrosa-salvador', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
     headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
     frameOnly: false, price: 796.00,
-    note: 'Frame spec pulled from the Salvador complete-bike page (Source BMX); hi-ten frame with chromoly top/down tube, entry-to-intermediate tier.'
+    note: 'Frame spec pulled from the Salvador complete-bike page (Source BMX); hi-ten frame with chromoly top/down tube, entry-to-intermediate tier. WALL, checked 2026-07-21 (bmx-sweep-2): subrosabrand.com structurally unreachable per bmx-fr-subrosa-salinas\'s finding (every frame URL serves a stale 2012 placeholder); the existing Source BMX retailer basis cannot upgrade to verified:true (sourceType:retailer is validator-rejected on verified rows). Left unverified/unchanged.'
   },
   {
     id: 'bmx-fr-mankind-sunchaser', cat: 'frame', brand: 'Mankind', model: 'Sunchaser (Ed Black)',
@@ -337,7 +338,8 @@ var BMX_PARTS = [
   {
     id: 'bmx-fk-redline-forkliftpro', cat: 'fork', brand: 'Redline', model: 'Forklift Pro',
     discipline: 'race', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
-    brakeMount: 'v-brake', weight: 450, price: 89.99
+    brakeMount: 'v-brake', weight: 450, price: 89.99,
+    note: 'WALL, checked 2026-07-21 (bmx-sweep-2): diamondback.com/collections/redline-bmx (Redline\'s current parent-brand storefront) lists only 6 complete bikes (PL-26, RL275, SQB-26, MX20, Proline Expert XL, Proline Expert) - no standalone-parts collection found, and direct product-slug guesses (forklift-pro-fork, forklift-pro) both 404/timeout. Left unverified/unchanged - no manufacturer page reachable to confirm wheelSize/brakeMount.'
   },
   {
     id: 'bmx-fk-haro-downtown', cat: 'fork', brand: 'Haro', model: 'Downtown Fork',
@@ -1418,7 +1420,7 @@ var BMX_PARTS = [
     id: 'bmx-fr-redline-roam', cat: 'frame', brand: 'Redline', model: 'Roam',
     discipline: 'race', wheelSize: '20', bbShell: 'american', headTube: 'integrated-1-1/8',
     topTube: 19.1, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: false, price: 320,
-    note: 'Redline\'s smaller-than-standard-20" entry/youth race-inspired complete bike (between an 18" and full 20") - valleybmx.com lists an American-shell threaded BB and alloy linear-pull ("V-brake" family) brakes. Price is the listed non-sale MSRP.'
+    note: 'Redline\'s smaller-than-standard-20" entry/youth race-inspired complete bike (between an 18" and full 20") - valleybmx.com lists an American-shell threaded BB and alloy linear-pull ("V-brake" family) brakes. Price is the listed non-sale MSRP. WALL, checked 2026-07-21 (bmx-sweep-2): also absent from diamondback.com/collections/redline-bmx\'s current 6-product lineup (PL-26, RL275, SQB-26, MX20, Proline Expert XL, Proline Expert); direct product-slug fetch (diamondback.com/products/roam) timed out. Left unverified/unchanged - no manufacturer page reachable to confirm bbShell/rearBrakeMount.'
   },
   {
     id: 'bmx-fr-fitbikeco-mixtapev2', cat: 'frame', brand: 'Fit Bike Co', model: 'Mixtape V2',
