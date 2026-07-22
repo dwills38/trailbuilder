@@ -1350,3 +1350,10 @@ insert into public.reserved_usernames (norm, label, kind, note) values
   (public.profile_norm('Sterre Vervloet'), 'Sterre Vervloet', 'held', 'Cyclocross (UCI CX) World Cup pro — cx.procyclingstats.com, 2026 season'),
   (public.profile_norm('Amandine Muller'), 'Amandine Muller', 'held', 'Cyclocross (UCI CX) World Cup pro — cx.procyclingstats.com, 2026 season')
 on conflict (norm) do nothing;
+
+-- 2026-07-22 — Douglas's ruling (seat 19): reserve the 100% brand as "100%" and "100Percent",
+-- explicitly NOT the bare string "100" ("no, reserve 100% and 100Percent though").
+insert into public.reserved_usernames (norm, label, kind, note) values
+  (public.profile_norm('100%'), '100%', 'held', 'manufacturer (eyewear/apparel) — Douglas''s ruling 2026-07-22: reserve 100% and 100Percent, not bare "100"'),
+  (public.profile_norm('100Percent'), '100Percent', 'held', 'manufacturer (eyewear/apparel) spelled-out form — Douglas''s ruling 2026-07-22')
+on conflict (norm) do nothing;
