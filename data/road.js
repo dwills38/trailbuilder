@@ -476,7 +476,7 @@ var ROAD_PARTS = [
   { id: 'rw-mavic-cosmic-slr45', cat: 'rearwheel', brand: 'Mavic', model: 'Cosmic SLR 45 Disc 23mm', family: 'mavic-cosmic-slr45',
     wheel: '700c', hub: '12x142', freehub: 'hg-road', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 23, maxTire: 32,
     weight: 805, price: 2729,
-    verified: true, lastChecked: '2026-07-22', source: 'https://www.mavic.com/en-us/p/cosmic-slr-45-disc-23mm-rr2607',
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.mavic.com/en-us/p/cosmic-slr-45-disc-23mm-rr2607', priceBasis: 'msrp-confirmed',
     note: 'road-depth-4 wave: same mavic.com rr2607 fetch as the front row. "Weight Rear: 805 g", "Freewheel: Shimano HG road / Sram XD road" (confirms the two-driver split modeled across the pair; this row is the HG-road option -> freehub:\'hg-road\'). Same maxTire-inference and freehub-variant-gap caveats as the front row.' },
 
   { id: 'fw-campagnolo-scirocco-disc', cat: 'frontwheel', brand: 'Campagnolo', model: 'Scirocco Disc 2-Way Fit', family: 'campagnolo-scirocco',
