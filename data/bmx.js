@@ -430,7 +430,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-stolen-team', cat: 'cranks', brand: 'Stolen', model: 'Team Cranks',
-    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', price: 189.99
+    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', price: 189.99,
+    note: 'UNCONFIRMED, checked 2026-07-21 (bmx-sweep-4): fetched stolenbrand.com/collections/cranks (17 products, current maker storefront) - the full "Team" crankset is NOT sold today; current complete-crankset lineup is Odin, Mob V4, and Talon V2. Only Team-compatible SPARE parts remain listed ("TEAM/TALON CRANK SPINDLE", "TEAM 19MM CRANK BOLT KIT", "TEAM 22 CRANK BOLT KIT", "TEAM 2.5 CRANK BOLT KIT"), confirming a 22mm Team variant existed (matching this row\'s spindle:22mm) but is discontinued as a complete SKU. A third-party retailer listing (samsbmx.com, "Stolen Bikes Team 22 Bmx Cranks") independently corroborates spindle:22mm, 3-piece-equivalent (P2 arms + 1-piece spindle/sprocket boss), 48-spline, 876g, but sourceType:retailer cannot verify per THE BAR. Left unverified/unchanged; flagged for the coordinator as likely discontinued.'
   },
   {
     id: 'bmx-cr-profile-race-22', cat: 'cranks', brand: 'Profile Racing', model: 'Race Cranks 22mm',
@@ -575,8 +576,12 @@ var BMX_PARTS = [
     note: 'Freecoaster, 9T driver, 14mm chromoly axle bolts, RHD/LHD both available, weight (623g/22oz) and price ($169.99, was $199.99) all confirmed on the fetched maker page.'
   },
   {
-    id: 'bmx-rh-primo-remix', cat: 'rearWheel', brand: 'Primo', model: 'Remix Cassette Hub',
-    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 89.99
+    id: 'bmx-rh-primo-remix', cat: 'rearWheel', brand: 'Primo', model: 'Remix V3 Cassette Hub',
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 151.00,
+    verified: true, lastChecked: '2026-07-21',
+    source: 'https://primostranger.com/products/primo-remix-v3-hub',
+    note: 'bmx-sweep-4: current Remix generation is "V3" (model corrected, id kept per append-only policy). Fetched primostranger.com (Primo BMX\'s own storefront - "By PRIMO BMX"): confirms driverTeeth:9 ("1 pc 9t driver") and side:both (RHD/LHD/color variants all listed) exactly; driverType:cassette matches (the Remix line is Primo\'s cassette-hub family, distinct from any freecoaster). axle:14mm retained - the maker page\'s "true 17mm Female axle system" describes the axle BARREL/shaft OD, not the bolt-diameter convention this catalog\'s axle field uses; multiple retailer spec sheets (winstanleysbmx.com, sourcebmx.com) independently confirm "Chromoly 14mm female bolts" for the same V3 generation, matching the existing 14mm value. Price CORRECTED 89.99 -> 151.00 (maker\'s own listed USD price).'
+
   },
   {
     id: 'bmx-rh-profile-elite-freecoaster', cat: 'rearWheel', brand: 'Profile Racing', model: 'Z Coaster Hub',
@@ -1087,8 +1092,10 @@ var BMX_PARTS = [
   {
     id: 'bmx-fr-wethepeople-trust', cat: 'frame', brand: 'WeThePeople', model: 'Trust',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
-    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
-    price: 549.99, note: 'Front-load street frame, currently sold as the Trust CS/FC complete bike. wethepeoplebmx.de/bikes/trust (fetched 2026-07-17) confirms 4130 full crmo, 127mm head tube (integrated-1-1/8), and an Eclat Talon u-brake rear - matching rearBrakeMount/headTube here. bbShell and rearAxle are NOT confirmed by that page (no standalone frame-only product page exists on the current site), so left unverified.'
+    topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 549.99,
+    verified: true, lastChecked: '2026-07-21', source: 'https://wethepeoplebmx.de/bikes/trust',
+    note: 'bmx-sweep-4: frameOnly CORRECTED true -> false - the current wethepeoplebmx.de/frames aftermarket-frame collection (fetched in full) does NOT list a standalone "Trust" frame SKU; it is sold only inside the Trust CS / Trust FC complete bikes, closing this row under the complete-bike-only frame exception (VERIFY-PROTOCOL, Douglas 2026-07-20). Raw-fetched the Trust CS complete-bike spec page: "WETHEPEOPLE TRUST FRAME, 4130 FULL CRMO... 127MM HEAD TUBE" (headTube:integrated-1-1/8 confirmed), "BB: SALT MID BB, 19MM, PRESS FIT" (bbShell:mid CONFIRMED - was previously unconfirmed), "REAR HUB: ECLAT CORTEX CASSETTE HUB... 14MM HOLLOW AXLE" (rearAxle:14mm CONFIRMED - was previously unconfirmed), "BRAKES: ECLAT TALON ALLOY U-BRAKE REAR" (rearBrakeMount:u-brake confirmed), geometry table "A - TOP TUBE LENGTH: 21\"" (topTube CORRECTED 20.75 -> 21 to match this exact colorway/spec page). Page states "WEIGHT: TBC KG / TBC LBS" (to-be-confirmed, no frame-only weight will ever exist per the complete-bike-only case) and no price is shown (regional site, no checkout) - price kept as the prior 549.99 sample, its basis undisclosed until now: THIS PRICE IS UNCONFIRMED AGAINST THE FETCHED SOURCE, likely a stale complete-bike-adjacent estimate (THE PRICE RULE covers a missing/sample price, not a claim of accuracy).'
   },
   {
     id: 'bmx-se-wethepeople-team', cat: 'seat', brand: 'WeThePeople', model: 'Team Pivotal Seat',
@@ -1098,7 +1105,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-rh-wethepeople-oem-9', cat: 'rearWheel', brand: 'WeThePeople', model: 'OEM Cassette Hub',
-    driverType: 'cassette', driverTeeth: 9, side: 'RHD', axle: '14mm', price: 74.99
+    driverType: 'cassette', driverTeeth: 9, side: 'RHD', axle: '14mm', price: 74.99,
+    note: 'UNCONFIRMED, checked 2026-07-21 (bmx-sweep-4): no standalone "OEM Cassette Hub" SKU found under the WeThePeople brand name - wethepeoplebmx.de/hub-hubguards-ov (the current aftermarket hub collection) lists only named hub models (Helix, Hybrid, Supreme, Arrow), never a plain "OEM" hub. The generic 9T/14mm/cassette spec IS corroborated as the as-shipped complete-bike hub on multiple current WTP builds - e.g. the Justice bike page states "REAR HUB: SALT PRO cassette hub, fully sealed, 9t, 14mm axle, 36h" (a Salt-branded OEM spec, WTP\'s in-house parts brand) and the Trust CS page states "ECLAT CORTEX CASSETTE HUB... 9T DRIVER, 14MM HOLLOW AXLE" (an Eclat-branded OEM spec, also WTP-family) - but neither is sold or named as a standalone "WeThePeople OEM Cassette Hub" product, so a confident 1:1 SKU match cannot be made. driverTeeth/axle/driverType all line up with both OEM specs found, so left unchanged; flagged for the coordinator as a possible id/brand mismatch (may be more accurately modeled as bmx-rh-salt-pro or bmx-rh-eclat-cortex under a new id, per append-only policy).'
   },
 
   // ---- Eclat (new brand to the catalog) --------------------------------
