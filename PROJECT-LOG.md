@@ -1,5 +1,30 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — fixpacks land: bmx-fixpack-1 + gravel-fabfix-3 + mtb-tail-14
+
+- **fix/bmx-fixpack-1 merged (BMX 130/229)**: Vee Speedster retargeted to the real
+  "Speedster BMX" 20x1-3/8 (ETRTO 37-451, 27 TPI, 100 PSI, 385g) and verified — price
+  honestly kept sample (the page's $35.70 spans a variant picker and the exact size shows
+  Unavailable); United Supreme retired with NO fake successor (Recruit is unrelated;
+  "Supreme" survives only as a spare-parts line); WTP OEM hub tombstoned (BMX has no
+  ALIASES mechanism — in-file comment confirms status/supersededBy is the tool) → new
+  bmx-rh-salt-ex-cassette row, maker-sourced (548g; Salt's "Pro" name is gone, EX is the
+  spec-identical current gen; €119.99 not converted, price stays sample).
+- **fix/gravel-fabfix-3 merged (gravel 258 parts, 154 verified)**: all four flags RESOLVED
+  — Terreno Zero retired (Vittoria's own page: "T10, formerly the Terreno Zero"; real
+  745g tube-type successor row added verified); Terreno Mix corrected IN PLACE (the row's
+  own tubeless:true attribute uniquely selects CX Endurance 415g — not a coin flip);
+  Goodyear Connector retired (Tubeless-Complete/dynamic-rs tier gone; 120tpi successor
+  verified); 3T Superergo retired as FABRICATED (fourth independent pass, nothing at
+  15°/260g ever existed; LTD 6°/204g successor verified). goodyearbike.com URL drift
+  noted (WebFetch 404s where verify-4 fetched — Exa fallback immediately).
+- **verify/mtb-tail-14 merged (MTB 3,312)**: 3 more Syncros promotions; the Syncros
+  naming-drift pattern mapped (no Hixon 2.0/Kaslo/rigid Duncan 1.5 in the current lineup
+  — retirement candidates; Fraser 2.0-vs-1.0 genuinely ambiguous, not guessed). 22
+  Syncros rows remain the biggest cockpit opportunity. ODI/Wolf Tooth/Thomson/Ergon
+  punch-list re-check: already at the weight-publication ceiling, correctly unchanged.
+- Gates: 7 OK (MTB 3,312 · gravel 154/258 · BMX 130/229), 988/988, tsc clean.
+
 ## 2026-07-22 — cb-sheets-13: EVERY complete-bike wall was stale (MTB 3,309)
 
 - **verify/cb-sheets-13 merged**: Cannondale, Norco, Propain, Specialized — none is a real
