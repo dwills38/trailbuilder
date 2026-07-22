@@ -36,48 +36,62 @@ are the enum, blank beats a wrong token.
 
 ---
 
-## Queue (dispatch when lanes free — refreshed by seat 18 after the 2026-07-22 finishing-wave harvest)
+## Queue (dispatch when lanes free — refreshed by seat 18 after the second 2026-07-22 wave)
 
-Burndowns after the wave: **MTB 1,895 · gravel 153 · road 3 · BMX 34 · EMTB 9 · kit 0 · striders 0.**
-All seven wave chips harvested + merged (pb-gravel-2, pb-road-2, pb-mtb-a2/b2/c2,
-gravel-is-mount, t2-drivetrain-design). Lessons now standing: NEVER default third-party-listed
-onto a sram.com-sourced row (SRAM publishes prices — pb-road-2 catch); a maker price RANGE is
-not a literal figure (no msrp-confirmed, no midpoint inventions — two rulings same day).
+State after both waves: **MTB burndown 1,777 · gravel 153 · road 3 · BMX 33 (all with honest
+per-row reasons — effectively done) · EMTB 5 · kit 0 · striders 0** · 5,116 MTB parts · kit 749
+· suite 1,103 tests. Standing lessons: SRAM publishes prices (never default third-party-listed
+on a sram.com row); a maker RANGE is never a literal figure; regional-conversion needs a
+DISCLOSED conversion (the Continental sample-price catch); "price = sample" in a desc means
+BLANK; a bare /tmp is out-of-bounds two different ways — write scratch paths explicitly.
 
-### 1. [Sonnet, medium] PB FINISHING — MTB slice B3 (frames/forks/shocks/wheels/tires, resume at CST)
-Continue backfill/pb-mtb-b2's alphabetical grind from brand CST (then Cane Creek 77, RockShox
-519, Fox 149, Maxxis 99...). Same protocol as pb-mtb-b2 (real re-fetches of stored source
-URLs; the two range/SRAM lessons above; blank beats a wrong token). Branch backfill/pb-mtb-b3,
-report pb-mtb-b3.md.
+### 1. [Sonnet, medium] PB FINISHING — MTB slice B4 (resume at Cube; Fox/Maxxis/RockShox INCLUDED)
+Continue the alphabetical grind from Cube (then Deviate, Devinci, DT Swiss 70, DVO 55...).
+B3's resume list said "skip Fox/Maxxis/RockShox" with NO recorded reason — no ruling excludes
+them; INCLUDE them (RockShox/SRAM model pages publish MSRPs, so they're actually the easy
+msrp-confirmed class). Same protocol + the standing lessons above. NOTE: Exa credits were
+exhausted 2026-07-22 — verify Exa works before relying on it; stagger WebFetch on Shopify
+storefronts (Cane Creek 429 lesson). Branch backfill/pb-mtb-b4, report pb-mtb-b4.md.
 
-### 2. [Sonnet, low] Smalls fix-pack: flagged price leads
-One branch, four bounded items: (a) ro-sram-centerline-200-6b — stored $45 is BELOW the
-fetched $50-65 page range; re-fetch, decide honest price/basis per the range ruling (blank +
-note if no per-size figure). (b) gfr-cinelli-kingzydeco2 — re-fetch cinelli-milano.com's own
-price page to settle the mixed-domain provenance. (c) gch-sram-red-flattop's road sibling
-ch-sram-red-flattop — variant-exact re-fetch (stored $130 above the $110-120 range). (d) W2
-from the tier-2 packet: add cb-kona-honzo (base alloy $1,299) — RE-FETCH konaworld.com, never
-trust the 2026-07-16 desc. Branch fix/price-leads-1, report price-leads-1.md.
+### 2. [Sonnet, medium] 11-speed completebikes: Kona Honzo + Ragley Big Al (now genuinely unblocked)
+The stale CLAUDE.md vocab line is fixed — shimano-11 is live with the full M5100 group
+verified. (a) Enter the 3 part rows the Honzo build still lacks, maker/OE-attested: Vee Flow
+Snap Tackee 29 front + Crown Gem DCC 29 rear tires, the WTB ST i30 TCS / Shimano centerlock
+Boost wheel pair, Shimano RT30 160+180 CL rotors; then cb-kona-honzo ($1,299 re-confirmed
+2026-07-22, fills per price-leads-1-report.md's fetched build table). (b) Ragley Big Al 1.0:
+same pattern (SL-M5100/RD-M5100/11-51T stock; ragleybikes.com fetches clean). Completeness
+invariant must pass — a stock part with no honest row gets its row entered properly or the cb
+waits; never a gap, never an invention. Branch catalog/cb-11speed-1, report cb-11speed-1.md.
 
-### 3. [Sonnet, medium] Gravel QR rear wheels (unbreaks 4 frames)
-gravel-is-mount finding B: 4 QR gravel frames (Nicasio+ 135x9-qr, Kona Rove AL + 2 more
-135x10-qr) have ZERO compatible rear wheels — every gravel rearwheel is 12x142. Enter real
-QR-hub gravel/all-road wheelsets (maker-page-sourced; the pair-row doctrine). Also check
-front-wheel QR coverage while there. Branch catalog/gravel-qr-wheels, report gravel-qr-wheels.md.
+### 3. [Opus, high] ROAD_VOCAB field-mapping ratification + lint widening
+road-vocab-lint's residual: 8 ROAD_VOCAB fields drift from the schema vocabs (disc-is,
+is-mount, 1-1-8, hydraulic, t47-86, square-taper, proprietary, band-28.6) — documentation
+drift, no live wrong verdict. Work: ratify the explicit field-key correspondence table between
+ROAD_VOCAB / schema-road / schema-gravel (the ambiguous cases are documented in
+road-vocab-lint.md §5 — gravel hub serves both wheel ends; fork axle ≠ hub vocab), then widen
+LINT 2 to the whole mapped surface. Adversarial review at merge. Branch
+engine/road-vocab-map, report road-vocab-map.md.
 
-### 4. [Opus, high] Road/gravel vocab-integrity hardening (t2 finding b)
-ROAD_VOCAB/ROAD_SYSTEM_CHAIN drift makes R15 SILENTLY DORMANT for the live GRX-10 tier (and
-rearAxle tokens 12x148/135x10-qr are undeclared). Extend test-road-golden's vocab pin to
-system (+ rearAxle), add a lint asserting every system token has a ROAD_SYSTEM_CHAIN entry,
-and add the missing entries. Also t2 finding (a): guard the sram-apex-mech-12 token (Flattop
-vs Apex-Eagle chain conflation) — split or a hard warning note at the token per the
-coordinator's pick at review. Adversarial review at merge. Branch engine/road-vocab-lint,
-report road-vocab-lint.md.
+### 4. [Sonnet, low] EMTB: Haibike ALLMTN CF 11 TRN/IQ entry
+The travelRear wall is resolved (maker Shopify .js JSON states 160mm f/r — route documented in
+emtb-pb-clear.md). Enter the full row: every verdict-driving + display field independently
+maker-confirmed via the <handle>.js JSON route; priceBasis honest. data/emtb.js only; keep
+the Douglas-facing summary compact. Branch catalog/emtb-haibike-allmtn, report
+emtb-haibike-allmtn.md.
 
-### 5+. Breadth round 4 leads (unchanged — each catalog's last report names them)
-Road alloy staples/Fulcrum retry · gravel Vulpine-S/Kanzo-Fast · BMX 451 Killer Buzz/completes ·
-kit glove depth/youth · EMTB Stance E+/Pinion blocks · MTB Norco Sight bundle-gaps, cb breadth,
-the ~50-brand cockpit tail.
+### 5. [Sonnet, medium] Santa Cruz Bronson trim fill (a real fetch wall — pane craft needed)
+Bronson X0 AXS / X0 AXS RSV / S / R / Deore trims are uncataloged; the build-kit table sits
+behind a JS "See All Specs" interaction that defeated both the pane and WebFetch on 2026-07-22.
+Try the known techniques (pointer-event sequences per the Radix-accordion lesson; a products/
+<handle>.js JSON probe; the localized-site route). If the wall stands after honest attempts,
+document and stop — never guess a build kit. Branch catalog/sc-bronson-trims, report
+sc-bronson-trims.md.
+
+### 6. Held walls (dispatch only when something changes)
+135x10-qr wheels (no maker publishes one — gravel-qr-wheels.md) · QR-front gravel forks (no
+vocab token; needs sourcing + schema) · Giant Stance E+ (maker copy self-conflicts) · Commencal
+frame-only prices (Vue configurator state wall) · Canyon Strive CFR (member-gated) · the
+Bronson wall above if attempt 2 fails.
 
 **★ DOUGLAS'S FULL OPEN-QUESTION QUEUE (consolidated 2026-07-22 at seat-17 wrap per the
 standing rule — "make sure any outstanding questions for me will be saved for the next
