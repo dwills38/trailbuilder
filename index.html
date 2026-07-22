@@ -3621,9 +3621,21 @@
         var right='';
         if(p){ right = bundle ? '<span class="pr">in kit</span>'
                              : '<span class="pr">'+(typeof p.weight==='number'?p.weight+' g · ':'')+money(p.price)+'</span>'; }
+        // Position peers (GROUPS' `position`, compat.js): the SEAT position is
+        // filled by EITHER a dropper or a rigid post (Douglas 2026-07-22), so an
+        // empty seat slot must never read "not needed for this frame" while its
+        // partner is still a live way to complete the build. Falls through to
+        // the old wording only when the position is genuinely exempt (a DH /
+        // noStockDropper frame, where neither slot is required).
+        var peers = slot.position ? g.slots.filter(function(s2){ return s2.position===slot.position && s2.key!==slot.key; }) : [];
+        var peerFilled = peers.filter(function(s2){ return !!res[s2.key]; })[0];
+        var posNote = !peers.length ? ''
+                    : peerFilled ? ' (using the '+(peerFilled.cat==='dropper'?'dropper':'rigid post')+' instead)'
+                    : [slot].concat(peers).some(function(s2){ return slotRequired(s2, res.frame, eRW); })
+                      ? ' (dropper or rigid post — either completes the build)' : '';
         var altNote = slot.altOf ? ' (optional — or pick a complete wheel above)'
                     : altSlotsOf(slot.key).length ? (wheelPositionFilled(res,slot.key)?' (using hub + rim instead, below)':' (or build from hub + rim, below)')
-                    : '';
+                    : posNote;
         var nm = p ? (esc(p.brand)+' '+esc(p.model) + (p.verified===true && p.source?' <span class="vchk" title="Verified against the manufacturer'+(p.lastChecked?' on '+esc(p.lastChecked):'')+' ('+esc(window.priceBasisLabel(p))+')">✓</span>':''))
                    : (altNote ? ('— '+slot.label.toLowerCase()+altNote+' —')
                      : ('— '+slot.label.toLowerCase()+(slot.optional?' (optional)':(!slotRequired(slot,res.frame,eRW)?(slot.key==='cassette'?' (built into the rear wheel)':' (not needed for this frame)'):''))+' —'));
