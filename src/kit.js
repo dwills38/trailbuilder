@@ -3362,6 +3362,14 @@ var KIT_PARTS = [
   { id:'shg-tsg-tempera2', cat:'shinguard', brand:'TSG', model:'Temper A 2.0 Knee-Shinguard', price:145.75, weight:524,
     disciplines:['dh'], sizes:['S','M','L','XL'], desc:'Arti-Lage impact knee pad + removable hard-shell shin guard, Kevlar-stretch panel; per pair. Weight maker-stated ("524 g") on the fetched ridetsg.com product page. Price is EUR134.95 (VAT incl.) converted to a $145.75 USD sample at ~1.08 USD/EUR (no confirmed US-dollar storefront) -- basis disclosed per THE PRICE RULE. Cert protocol (PPE TS0002, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-20', source:'https://ridetsg.com/shop/kneeshinguard-temper-a-20/7102801-40-030' },
+  { id:'shg-ixs-cleaver', cat:'shinguard', brand:'iXS', model:'Cleaver Knee-Shin Guards', price:124.90,
+    disciplines:['enduro','dh'],
+    desc:'ArmadilloDuo hard-shell knee/shin combo, AeroMesh moisture-wicking sleeve, race-oriented; per pair. ixs.com (fetch attempted twice, both 429 rate-limited) could not be confirmed directly -- price is Vital MTB\'s listed $124.90 (a Walmart retailer listing showed $115.95 on sale, same product). A third-party retailer figure cites 550 g per pair but that is unconfirmed against any maker page, so weight is left unset rather than carried forward on a shaky basis. Kit gap-fill: brand had zero prior shinguard rows.',
+    sourceType:'retailer' },
+  { id:'shg-scott-grenade-evo', cat:'shinguard', brand:'Scott', model:'Grenade Evo Shin Guards', price:63.99,
+    disciplines:['enduro','dh'], sizes:['OSFA'],
+    desc:'D3O padding, stretch/mesh sleeve, velcro-attaches to the Grenade Evo knee guards (also compatible with most competitors\' knee pads); one-size. Fetched scott-sports.com (model 274520): confirms one-size, "surpasses CE standards" via D3O but states no specific EN standard/level, so no cert token is tagged; the maker page lists no price. $63.99 is Bikeinn\'s listed retail price (a Ciclimattio EU listing showed EUR69.90). Weight not published anywhere found. Kit gap-fill: brand had zero prior shinguard rows.',
+    source:'https://www.scott-sports.com/global/en/product/scott-grenade-evo-shin-guards' },
 
   /* -- Eyewear (type required: glasses / goggles) -- */
   { id:'ewr-oakley-sutro', cat:'eyewear', brand:'Oakley', model:'Sutro', price:203, weight:32,
