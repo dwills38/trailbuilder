@@ -1801,6 +1801,38 @@ var BMX_PARTS = [
     id: 'bmx-fw-eclat-cortexta', cat: 'frontWheel', brand: 'Eclat', model: 'Cortex TA Front Hub',
     wheelSize: '20', axle: '14mm', weight: 382, price: 99.99,
     note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/eclat-cortex-ta-front-hub — a proprietary 14mm thru-axle (TA) front hub. Description states, verbatim: "14 mm thru-axle (TA) system...only compatible with 14 mm forks (check the Storm TA Fork)...Weight: 382 g (13.5 oz) – hub w/ thru-axle" (an oz-cross-checked figure independent of any Shopify shipping-weight field). axle:\'14mm\' is the maker\'s own literal spec, NOT the standard 10mm BMX front axle — this hub will only fit a fork of the same declared axle value in checkBmxBuild, so no false "fits" is created by cataloging it accurately even though no matching TA fork is in this catalog yet. wheelSize:\'20\' is Eclat\'s catalog-wide freestyle standard (not independently re-stated on this hub-only page). Unverified sample.'
+  },
+
+  // --- Kink (kinkbmx.com, its own Shopify store) ---
+  {
+    id: 'bmx-st-kink-brute', cat: 'stem', brand: 'Kink', model: 'Brute Stem',
+    clamp: '22.2mm', weight: 320, price: 29.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/brute-stem. Description states, verbatim: "48mm reach, 31.5mm rise...Weight 11.3oz" (11.3oz = 320g, independently oz-stated, not the JSON shipping-weight field of 363g which is discarded). Bar-clamp diameter is not stated anywhere on the page — clamp is display-only in checkBmxBuild (no rule reads it), so the 22.2mm sample value does not gate. Unverified sample.'
+  },
+  {
+    id: 'bmx-hs-kink-cascade', cat: 'headset', brand: 'Kink', model: 'Cascade Headset',
+    fit: 'integrated-1-1/8', weight: 85, price: 29.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/cascade-headset. Description states, verbatim: "two precision sealed bearings...Weight 3.0oz" (3.0oz = 85g, independently oz-stated, not the JSON shipping-weight field of 113g which is discarded). fit is display-only in checkBmxBuild. Unverified sample.'
+  },
+  {
+    id: 'bmx-hb-kink-union-95', cat: 'handlebar', brand: 'Kink', model: 'Union 4pc Bars 9.5in',
+    clamp: '22.2mm', rise: 9.5, width: 29.5, weight: 1168, price: 89.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/union-bars. Description states, verbatim: "Rise 9\\", 9.5\\" Width 29.5\\" Backsweep 12 Degrees Upsweep 1 Degree...Weight 41.2oz (9.5\\")" — this row pins the 9.5in rise variant the page\'s own weight figure names (41.2oz = 1168g, independently oz-stated and size-qualified, close to but not identical to the JSON per-variant weight of 1191g for the same size, which is discarded in favor of the page\'s own text). clamp is display-only. Unverified sample.'
+  },
+  {
+    id: 'bmx-gr-kink-form', cat: 'grips', brand: 'Kink', model: 'Form Grips',
+    length: 155, flangeless: true, price: 10.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/form-grips. Description states, verbatim: "Length 155mm...Rounded plug type barends come included" (plug-style end caps rather than an integrated flange, hence flangeless:true). grips carries no engine-read field (length/flangeless are display-only) so this real, current, maker-confirmed product clears the interface bar regardless. Unverified sample (no stated weight figure on the page).'
+  },
+  {
+    id: 'bmx-ti-kink-wake-245', cat: 'tire', brand: 'Kink', model: 'Wake Tire 2.45in',
+    wheelSize: '20', width: 2.45, casing: 'park', maxPsi: 60, weight: 700, price: 29.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/wake-tire. Description states, verbatim: "Sizes 2.45\\" Pressure 60psi Bead Wire Weight 24.7oz" (24.7oz = 700g, independently oz-stated, not the JSON shipping-weight field of 768g which is discarded); "great for a range of surfaces, from street to park to dirt" confirms casing:\'park\'. wheelSize:\'20\' is Kink\'s catalog-wide freestyle standard, NOT independently re-stated on this specific page (unlike Cult, no already-verified sibling row establishes "every Kink product is 20in" in this catalog), so the row stays unverified on that basis alone despite the otherwise-exact weight/PSI match.'
+  },
+  {
+    id: 'bmx-st-kink-gavel', cat: 'stem', brand: 'Kink', model: 'Gavel Topload Stem',
+    clamp: '22.2mm', weight: 323, price: 64.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/gavel-stem. Description states, verbatim: "wide 50mm clamping area...Weight 11.4oz" (11.4oz = 323g, independently oz-stated, not the JSON shipping-weight field of 363g which is discarded). Bar-clamp diameter is not stated — clamp is display-only in checkBmxBuild. Unverified sample.'
   }
 ];
 
