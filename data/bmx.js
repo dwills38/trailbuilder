@@ -1553,13 +1553,106 @@ var BMX_PARTS = [
     length: 160, flangeless: false, price: 10.99, verified: true, lastChecked: '2026-07-21',
     source: 'https://shop.odysseybmx.com/products/odyssey-broc-grip-bright-red',
     note: 'bmx-depth-7 (2026-07-21): VERIFIED, upgrading from the prior danscomp.com retailer basis. Directly fetched shop.odysseybmx.com/products/odyssey-broc-grip-bright-red (the maker\'s own current listing, titled "Odyssey BROC Grip"): "Broc Raiford signature", "Comfortable ribbed design", "Par Ends included", "160mm length". length CORRECTED 158 -> 160mm to match the maker\'s own figure exactly (the retailer listing\'s 158mm was close but not exact). `grips` carries no engine-read field (length/flangeless are display-only) so this real, current, maker-confirmed product clears the interface bar regardless; flangeless left unchanged (not stated either way on the page, not fabricated).'
-  }
+  },
   // bmx-gr-odyssey-keyboard REMOVED 2026-07-17 (preflight audit fix): a near-duplicate of
   // bmx-gr-odyssey-aaronross (same real product - the Odyssey Keyboard v1 Grip, Aaron Ross's
   // signature colorway). aaronross was re-fetched against shop.odysseybmx.com directly
   // (length corrected to the maker-listed 158mm, price to $10.99); this row's 143mm/$11.99
   // figures came from an older danscomp.com listing and are superseded. Verified nothing else
   // in data/bmx.js, src/, or test/ referenced this id before removing.
+
+  // ===== BMX-DEPTH-8 ADDITIONS (2026-07-22) — breadth lane, small-parts long tail ==========
+  // Method: raw `curl -A "Mozilla/5.0"` of each brand's Shopify products.json + per-handle
+  // /products/<handle>.js (never a WebSearch/WebFetch summary — the wave-2 phantom-number
+  // doctrine). Every row below names a real, currently-listed product; a Shopify JSON `weight`
+  // field was DISCARDED (not carried into this row) whenever it repeated identically across
+  // clearly-unrelated products on the same store (the documented shipping-weight-bucket tell) —
+  // weight is then simply omitted rather than guessed. `mount:'spline'` on Odyssey sprockets
+  // follows the existing catalog convention already applied to the Utility Pro rows (every
+  // current Odyssey freestyle sprocket in this catalog uses that value; not independently
+  // re-confirmed per-row here either).
+
+  // --- Odyssey (shop.odysseybmx.com) ---
+  {
+    id: 'bmx-fk-odyssey-f32', cat: 'fork', brand: 'Odyssey', model: 'F32',
+    discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
+    brakeMount: 'u-brake', price: 189,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-f32-forks-gloss-black. Shopify tags state "Brake Mounts:990" (u-brake) and "Wheel Size:20\"" verbatim (raw JSON, not a search summary). The JSON weight field (2268g) is discarded — it recurs identically on the unrelated F25 fork below, the documented shipping-weight-bucket tell — so weight is left unset rather than guessed. Unverified sample.'
+  },
+  {
+    id: 'bmx-fk-odyssey-f25', cat: 'fork', brand: 'Odyssey', model: 'F25',
+    discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
+    brakeMount: 'u-brake', price: 189,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-f25-forks-gloss-black. Same F-Series line as the F32 above; tags state "Brake Mounts:990" and "Wheel Size:20\"". JSON weight (2268g) discarded as the same shipping-bucket figure as the F32 row. Unverified sample.'
+  },
+  {
+    id: 'bmx-fk-odyssey-r15', cat: 'fork', brand: 'Odyssey', model: 'R15',
+    discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
+    brakeMount: 'none', price: 169.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-r15-forks-gloss-black. Shopify tags state "Brake Mounts:None" and "Wheel Size:20\"" verbatim, same brakeless R-Series pattern as the catalog\'s existing R32 fork. JSON weight (3629g) discarded — an implausibly heavy figure for a brakeless BMX fork, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-rh-odyssey-hexagram', cat: 'rearWheel', brand: 'Odyssey', model: 'Hexagram Cassette Hub',
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 626, price: 209.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-hexagram-cassette-hub-anodized-black. Description text states "All-new 9T driver design" and "RHD/LHD switchable"; "14mm" hollow-axle bore is a catalog-standard BMX rear axle (BMX-MODEL.md sec.5), not independently re-quoted per this row. 626g JSON weight kept (does not repeat elsewhere in this session\'s fetches, so not flagged as a bucket figure) but not description-text-confirmed — unverified sample.'
+  },
+  {
+    id: 'bmx-st-odyssey-boyd', cat: 'stem', brand: 'Odyssey', model: 'BOYD Stem',
+    clamp: '25.4mm', price: 89.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-boyd-stem-anodized-silver ("Boyd Hilder Signature", 6061-T6 aluminum). Tags state "Reach:52mm"/"Rise:30mm" but BMX_SCHEMA\'s stem category carries neither field (clamp only, display-only per checkBmxBuild), so they are not stored. JSON weight (454g) discarded — identical to the unrelated Grandstand v2 pedal row below, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-pd-odyssey-grandstandv2', cat: 'pedals', brand: 'Odyssey', model: 'Grandstand v2 Alloy Pedals',
+    platform: 'alloy', spindle: '9/16', price: 36.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-grandstand-v2-alloy-pedals-black. Description states "proprietary 14mm heat-treated chromoly spindle with 17mm wrench flats" driving a standard 9/16in pedal thread, and an alloy body ("Alloy" tag). JSON weight (454g) discarded — identical to the unrelated BOYD stem row above, the shipping-bucket tell. Pedals carry zero checkBmxBuild rules (platform/spindle are display-only), so this real, current product clears the interface bar regardless. Unverified sample (weight only).'
+  },
+  {
+    id: 'bmx-sp-odyssey-boydsprocket-28', cat: 'sprocket', brand: 'Odyssey', model: 'BOYD Sprocket 28T',
+    teeth: 28, mount: 'spline', pitch: '1/8', weight: 172, price: 56.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-boyd-sprocket-coffee ("Boyd Hilder\'s new signature sprocket", CNC 7075-T6 aluminum, sold in 25T/28T/30T — this row pins the 28T variant, JSON weight 172g consistent across all three tooth counts). mount:\'spline\' and pitch:\'1/8\' follow this catalog\'s existing convention for every other current Odyssey freestyle sprocket (not independently re-confirmed on this specific page, which does not state either field). Unverified sample.'
+  },
+  {
+    id: 'bmx-rh-odyssey-hazardlite-24', cat: 'rearWheel', brand: 'Odyssey', model: 'Hazard Lite Cassette 24in Wheel',
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 279.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-hazard-lite-cassette-24-wheel-black — a 24" cruiser build wheel (C5 Cassette Hub laced to the Hazard Lite Rim). Description states "9T or 10T driver" (this row pins 9T) and "RHD/LHD switchable"; "14mm, 4130 chromoly hollow axle" stated explicitly. rearWheel\'s BMX_SCHEMA carries no wheelSize field (dormant for this category, same as every other rearWheel row) so the 24" size is name-only, matching BMX-MODEL.md sec.15 open-question 7\'s 24" cruiser scope. JSON weight (6350g) discarded — implausible for a 24" BMX wheel, the shipping-bucket tell (whole-box weight). Unverified sample.'
+  },
+  {
+    id: 'bmx-sp-odyssey-pivotalpost', cat: 'seatpost', brand: 'Odyssey', model: 'Pivotal Seat Post (High Polished)',
+    diameter: 25.4, system: 'pivotal', weight: 227, price: 44.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://shop.odysseybmx.com/products/odyssey-pivotal-seat-post-polished',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description text states, verbatim: "Diameter: 25.4mm Length: 200mm Weight: 5oz" (5oz = 227g, EXACT match to the JSON variant weight — a real per-SKU figure, not a shipping-bucket coincidence, since it is independently stated in ounces in the page\'s own spec list). "Compatible only with Pivotal style seats" confirms system:\'pivotal\'.'
+  },
+  {
+    id: 'bmx-se-odyssey-bigstitch-fat', cat: 'seat', brand: 'Odyssey', model: 'Big Stitch Fat Seat',
+    system: 'pivotal', weight: 386, price: 37.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-big-stitch-fat-seat-white. Description states "Available in Slim or Fat options. Black. Pivotal only" — confirms system:\'pivotal\'. JSON weight (386g) kept, not description-text-confirmed. Unverified sample.'
+  },
+  {
+    id: 'bmx-se-odyssey-bigstitch-slim', cat: 'seat', brand: 'Odyssey', model: 'Big Stitch Slim Seat',
+    system: 'pivotal', price: 39.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-big-stitch-slim-seat-black-denim-w-fluorescent-yellow-embroidery. Description states "Available in Slim or Fat options...Pivotal Only" — confirms system:\'pivotal\'. JSON weight (635g) discarded — identical across this handle and the unrelated Aitken/BROC seat rows below, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-se-odyssey-aitken-pivotal', cat: 'seat', brand: 'Odyssey', model: 'Aitken Pivotal Seat',
+    system: 'pivotal', price: 35.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-aitken-pivotal-seat-dark-brown — Mike Aitken signature seat, "Available in Pivotal or Railed" (this handle is the pivotal variant). JSON weight (635g) discarded as the same shipping-bucket figure shared with the Big Stitch Slim / BROC rows. Unverified sample (weight only).'
+  },
+  {
+    id: 'bmx-se-odyssey-aitken-railed', cat: 'seat', brand: 'Odyssey', model: 'Aitken Railed Seat',
+    system: 'standard', price: 35.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-aitken-railed-seat-dark-brown — same Mike Aitken signature seat, railed (system:\'standard\') variant of the pivotal row above. JSON weight (635g) discarded as the same shipping-bucket figure. Unverified sample (weight only).'
+  },
+  {
+    id: 'bmx-se-odyssey-broc-pivotal', cat: 'seat', brand: 'Odyssey', model: 'BROC Pivotal Seat',
+    system: 'pivotal', price: 37.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-broc-pivotal-seat-white-perforated — Broc Raiford signature seat, "Available in pivotal or cruiser railed" (this handle is the pivotal variant). JSON weight (635g) discarded as the same shipping-bucket figure shared with the Aitken/Big Stitch rows. Unverified sample (weight only).'
+  },
+  {
+    id: 'bmx-se-odyssey-broc-cruiser-railed', cat: 'seat', brand: 'Odyssey', model: 'BROC Cruiser Railed Seat',
+    system: 'standard', price: 32.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-broc-cruiser-railed-seat-white-perforated — same Broc Raiford seat, cruiser-railed (system:\'standard\') variant. JSON weight (635g) discarded as the same shipping-bucket figure. Unverified sample (weight only).'
+  }
 ];
 
 // Node/test consumption only — the browser path stays plain globals, matching
