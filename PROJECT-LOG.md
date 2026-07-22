@@ -4857,3 +4857,24 @@ blurred: NO maker page states a 10x135 QR option (Kona Rove/Journeyman/Straggler
 stay open) and 0 of 4 QR frames have a buildable FRONT (no QR fork token exists) — two
 follow-up chips queued. Gates green post-merge.
 Reports: price-leads-1-report.md, gravel-qr-wheels.md.
+
+## 2026-07-22 — pb-mtb-b3 + bmx-pb-breadth-1 merged: MTB 1895 -> 1776, BMX 344 -> 352 parts
+B3 (9 brands, CST->Crankbrothers): 119 msrp-confirmed off literal page figures (Cane Creek 77
+across 8 pages; 13 Crankbrothers rounded samples corrected to real $X99.99 maker prices), 21
+honest blanks (CST "From $35" starting price; Cannondale/Canyon complete-only frames incl. the
+member-gated Strive CFR; Commencal's A-La-Carte Vue configurator = genuine JS-state wall, all
+three fetch lanes tried). ADVERSARIAL CATCH #3 of the day, same class as pb-road-2: 17
+Continental tires stamped regional-conversion when their own desc says "price = sample" and
+the Tire Range PDF lists EUR RANGES — all 17 reverted to blank (two coordinator passes; the
+id-window script missed 4 whose diff hunks split the id from the stamp — final diff verified
+119 stamps exactly). LESSON REINFORCED: regional-conversion requires a DISCLOSED conversion of
+a specific maker figure, never a sample near an EUR range. Worker flags: Exa credits EXHAUSTED
+mid-session (top up before the next fetch-heavy chip); Lux World Cup CF's pre-existing
+price-vs-trim discrepancy stands; unexplained "skip Fox/Maxxis/RockShox" in its resume list —
+b4's chip must include them (no ruling ever excluded them). Resume: Cube. BMX: pb pass = 1
+real stamp (Kink Stealth post msrp-confirmed) + 2 re-fetched-still-blank Colony rows; 33
+remaining blanks all carry honest per-row reasons (AUD/EUR-only, ranges, complete-only frames,
+out-of-stock) — the BMX burndown is effectively DONE at 33-with-reasons. Breadth: 451 Killer
+Buzz pair (pane + same-origin Shopify fetch), 3 stealth seats (shipping-weight buckets
+correctly discarded), 3 Kink cb frames. Gates green post-merge.
+Reports: pb-mtb-b3.md, bmx-pb-breadth-1.md.
