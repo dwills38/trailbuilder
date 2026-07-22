@@ -219,6 +219,17 @@ real total of both side-SKUs, and document the per-side shape in `note` so a fut
 misled into thinking a pair bundle exists. This does not relax item 1 for any other field, and does
 not apply where a maker DOES publish a clean per-unit price/weight (use that instead).
 
+**Extended to SEATPOSTS (Douglas, ruled directly in chat 2026-07-22 — the SEVENTH exception
+class):** rigid seatposts across every catalog. Rationale: weight is not engine-read for the
+category (only `diameter`/`setback`/`proprietary`+`forFrames` feed any compat rule), and makers
+frequently publish no seatpost weight at all (trekbikes' KVF page and cannondale.com's SAVE page
+both lack a weight field entirely). `verified:true` attests the INTERFACES — every engine-read
+field raw-confirmed on the maker's own page; WEIGHT stays a disclosed sample with its basis in
+the `note`. First applications (promoted at ratification): `sp-trek-domane-slr-kvf`,
+`sp-cannondale-synapse-save` (data/road.js). As with every exception class: does not relax the
+interface bar, does not apply where the maker DOES publish a weight (use it — e.g. the Giant
+Variant post's maker-stated 195g).
+
 ### JS-rendered ≠ bot-walled (kit wave 3, 2026-07-19 — try the browser pane before declaring a wall)
 
 **specialized.com and 100percent.com defeat WebFetch/Exa but render CLEANLY in the browser
