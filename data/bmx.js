@@ -2383,6 +2383,16 @@ var BMX_PARTS = [
     id: 'bmx-pg-fiction-steel', cat: 'pegs', brand: 'Fiction', model: 'Steel Freestyle Pegs',
     axleFit: '14mm', material: 'steel', reducerIncluded: true, price: 30.95,
     note: 'bmx-breadth-3 (2026-07-22): real current Fiction product, WebSearch-corroborated (SkatePro $30.95): "made from solid Chromoly steel...come in sets of either 2 pieces or 4 pieces, designed for 14mm axles and with spacers included for 10mm setup" -> axleFit:14mm, material:steel, reducerIncluded:true (the 10mm spacers). Price entered at the single-peg-equivalent SkatePro figure; the page also sells 2- and 4-peg bundles at proportional prices, not modeled as separate rows (bundle count is a quantity axis, not a fit-distinct SKU per DATA-ENTRY-TEMPLATE §1). Left unverified (retailer-corroborated, no manufacturer page fetched).'
+  },
+
+  // ---- Tall Order BMX (new brand: UK, founded 2016 by Bas Keep; thin
+  //      pedals category) -------------------------------------------------
+  {
+    id: 'bmx-pd-tallorder-catch', cat: 'pedals', brand: 'Tall Order', model: 'Catch Pedals',
+    platform: 'plastic', spindle: '9/16', price: 24.12,
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22',
+    source: 'https://tallorderbmx.com/products/tall-order-catch-pedal-black-9-16',
+    note: 'bmx-breadth-3 (2026-07-22): NEW brand for this catalog. FETCHED tallorderbmx.com directly (Tall Order\'s own storefront) — page states verbatim "Nylon plastic body" and "9/16\\" thread with heat treated axle" (platform:plastic, spindle:9/16 CONFIRMED). Regular price is £18.99 GBP (currently on sale at £11.99 — a labeled promotional price, NOT used per THE PRICE RULE); converted to USD at ~1.27 USD/GBP -> $24.12, priceBasis:regional-conversion (UK brand, no published US MSRP). No weight is stated on the page. Promoted to verified:true on the two engine-read/schema fields actually confirmed (platform, spindle); price is the disclosed conversion, not a literal maker-stated USD figure.'
   }
 ];
 
