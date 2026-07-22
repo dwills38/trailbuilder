@@ -66,6 +66,8 @@
  * @property {function(Build):CompatResult} checkBuild
  * @property {function(Verdict):string} verdictKey
  * @property {function(string):string[]} altSlotsOf
+ * @property {function(*):string} priceBasisLabel      src/pricing.js — price-provenance wording
+ * @property {function(*):boolean} priceMsrpConfirmed  src/pricing.js — true only for a confirmed MSRP
  */
 
 /**
@@ -89,7 +91,7 @@
  * @typedef {Object} OwnedVsBuyRow
  * @property {string} slotKey
  * @property {string} slotLabel
- * @property {{id:string, brand:string, model:string, price:number}} part
+ * @property {{id:string, brand:string, model:string, price:number, priceNote:string, priceConfirmed:boolean}} part
  * @property {boolean} owned
  * @property {boolean} qtyShort
  * @property {OwnedVsBuyAlt[]} alternatives   to-buy rows only (else empty)
@@ -106,6 +108,9 @@
  * @property {{build:Totals, ownedValue:number, toBuy:number, kitGap:boolean}} totals
  *   ownedValue / toBuy sum the rows' own MSRPs; kitGap = the build's total
  *   is billing at least one bundle, so these per-part sums don't add up to it.
+ * @property {number} toBuySamplePriced  of the to-buy rows, how many price into the
+ *   remaining-cost subtotal from a SAMPLE price (not a confirmed MSRP) — a ✓ Verified
+ *   spec is not the same claim as a confirmed price (Douglas's 2026-07-22 ruling).
  */
 
 /** @param {Part} p @returns {number} */
@@ -153,7 +158,8 @@ function ownedVsBuyModel(res, presetBy, ownedQty, deps){
     if(owned) remaining[cid]--;
     rows.push({
       slotKey: s.key, slotLabel: s.label,
-      part: { id: p.id, brand: p.brand, model: p.model, price: _ovbPrice(p) },
+      part: { id: p.id, brand: p.brand, model: p.model, price: _ovbPrice(p),
+        priceNote: deps.priceBasisLabel(p), priceConfirmed: deps.priceMsrpConfirmed(p) },
       owned: owned,
       qtyShort: !owned && !!inv[cid],
       alternatives: []
@@ -190,11 +196,14 @@ function ownedVsBuyModel(res, presetBy, ownedQty, deps){
   });
 
   var t = deps.buildTotals(res, presetBy);
-  var sumAll = 0, ownedValue = 0, toBuy = 0, nOwned = 0, nBuy = 0;
+  var sumAll = 0, ownedValue = 0, toBuy = 0, nOwned = 0, nBuy = 0, toBuySamplePriced = 0;
   rows.forEach(function(r){
     sumAll += r.part.price;
     if(r.owned){ ownedValue += r.part.price; nOwned++; }
-    else { toBuy += r.part.price; nBuy++; }
+    else {
+      toBuy += r.part.price; nBuy++;
+      if(!r.part.priceConfirmed) toBuySamplePriced++;
+    }
   });
 
   return {
@@ -204,7 +213,8 @@ function ownedVsBuyModel(res, presetBy, ownedQty, deps){
     altExcluded: altExcluded,
     rows: rows,
     counts: { owned: nOwned, toBuy: nBuy },
-    totals: { build: t, ownedValue: ownedValue, toBuy: toBuy, kitGap: sumAll !== t.price }
+    totals: { build: t, ownedValue: ownedValue, toBuy: toBuy, kitGap: sumAll !== t.price },
+    toBuySamplePriced: toBuySamplePriced
   };
 }
 
@@ -251,7 +261,9 @@ function renderOwnedVsBuyHtml(model, helpers){
            : '<span class="ovb-buy">to buy</span>'
              + (r.qtyShort ? '<div class="ovb-qty">you own this part, but every owned unit is already counted for another slot of this build</div>' : ''))
        + '</td>'
-       + '<td class="ovb-num">' + esc(money(r.part.price)) + '</td>'
+       + '<td class="ovb-num">' + esc(money(r.part.price))
+         + (!r.owned && !r.part.priceConfirmed ? ' <span class="ovb-pnote" title="' + esc(r.part.priceNote) + '">†</span>' : '')
+       + '</td>'
        + '</tr>';
     if(!r.owned && r.alternatives.length){
       h += '<tr class="ovb-alts"><td colspan="4"><span class="ovb-alts-label">Also in your inventory for this slot:</span><ul>';
@@ -276,6 +288,14 @@ function renderOwnedVsBuyHtml(model, helpers){
 
   if(model.totals.kitGap){
     h += '<p class="ovb-note">This build’s total is billing a kit/bundle price, which these per-part sums don’t apply — a partially-owned kit can’t be bought partially at the kit price, so the to-buy subtotal counts each remaining part at its own MSRP.</p>';
+  }
+  if(model.toBuySamplePriced){
+    // A ✓ Verified spec is not the same claim as a confirmed MSRP (Douglas's
+    // 2026-07-22 ruling) — the subtotal still sums each part's own `price`
+    // either way, this only discloses which of those prices are sample data.
+    h += '<p class="ovb-note">' + model.toBuySamplePriced + ' of the ' + model.counts.toBuy
+       + ' to-buy price' + (model.counts.toBuy === 1 ? '' : 's') + (model.toBuySamplePriced === 1 ? ' is' : ' are')
+       + ' sample data, not a confirmed manufacturer MSRP — the remaining-cost subtotal above may be off from the real price.</p>';
   }
   if(model.altExcluded){
     h += '<p class="ovb-note">' + model.altExcluded + ' owned part–slot pairing' + (model.altExcluded === 1 ? ' was' : 's were')

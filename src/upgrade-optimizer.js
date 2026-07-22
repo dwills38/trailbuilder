@@ -65,6 +65,8 @@
  * @property {function(Verdict):string} verdictKey
  * @property {function(string):string[]} altSlotsOf
  * @property {function((string|null|undefined)):(Part|null)} byId
+ * @property {function(*):string} priceBasisLabel      src/pricing.js — price-provenance wording
+ * @property {function(*):boolean} priceMsrpConfirmed  src/pricing.js — true only for a confirmed MSRP
  */
 
 /**
@@ -89,6 +91,10 @@
  * @property {number} costPerGram    price / gramsSaved — the ranking key
  * @property {('g'|'w')} state       'w' = fits but adds warning(s) (yellow-dot tier)
  * @property {string[]} warnings     the engine's new-warning messages, verbatim
+ * @property {string} priceNote        candidate price-provenance wording (priceBasisLabel) —
+ *   a ✓ Verified SPEC does not imply a confirmed MSRP (Douglas's 2026-07-22 ruling); the $/g
+ *   math still runs on `price` either way, this only marks the row honestly.
+ * @property {boolean} priceConfirmed  true only when the candidate's MSRP is confirmed
  */
 
 /**
@@ -179,7 +185,8 @@ function upgradeOptimizerModel(build, deps){
         gramsSaved: saved, price: cand.price,
         costPerGram: cand.price / saved,
         state: d.newWarnings.length ? 'w' : 'g',
-        warnings: d.newWarnings.map(String)
+        warnings: d.newWarnings.map(String),
+        priceNote: deps.priceBasisLabel(cand), priceConfirmed: deps.priceMsrpConfirmed(cand)
       });
     });
   });
@@ -252,7 +259,9 @@ function renderUpgradeOptimizerHtml(model, opts, helpers){
               : '')
          + '</td>'
          + '<td class="uo-num">' + r.gramsSaved.toLocaleString() + ' g</td>'
-         + '<td class="uo-num">' + esc(money(r.price)) + '</td>'
+         + '<td class="uo-num">' + esc(money(r.price))
+           + (r.priceConfirmed ? '' : ' <span class="uo-pnote" title="' + esc(r.priceNote) + '">†</span>')
+         + '</td>'
          + '<td class="uo-num uo-cpg">' + esc(_uoPerGram(r.costPerGram)) + '</td>'
          + '</tr>';
     });
@@ -260,6 +269,15 @@ function renderUpgradeOptimizerHtml(model, opts, helpers){
     if(model.rows.length > shown.length){
       h += '<p class="uo-more">…and ' + (model.rows.length - shown.length)
          + ' more (showing the top ' + shown.length + ' — the ranking continues in the same math).</p>';
+    }
+    // A ✓ Verified SPEC is not the same claim as a confirmed MSRP (Douglas's
+    // 2026-07-22 ruling) — the ranking still runs on `price` either way, this
+    // just discloses which ranked candidates' prices are sample data.
+    var samplePriced = model.rows.filter(function(r){ return !r.priceConfirmed; }).length;
+    if(samplePriced){
+      h += '<p class="uo-pricenote">† ' + samplePriced + ' of ' + model.rows.length
+         + ' ranked candidate price' + (model.rows.length === 1 ? '' : 's')
+         + (samplePriced === 1 ? ' is' : ' are') + ' sample data, not a confirmed manufacturer MSRP.</p>';
     }
   } else {
     h += '<p class="uo-none">No honestly rankable upgrades found for this build — a swap is ranked only when '

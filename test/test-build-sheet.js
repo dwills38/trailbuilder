@@ -9,6 +9,10 @@
 var U = require('./test-util.js');
 var C = U.C, B = U.B, part = U.part, eq = U.eq, ok = U.ok, some = U.some;
 var BS = require('../src/build-sheet.js');
+var P = require('../src/pricing.js');
+
+/** @typedef {import('../src/types.js').Part} Part */
+/** @typedef {import('../src/types.js').Build} Build */
 
 /** The real engine pieces, injected the same way index.html injects them. */
 var DEPS = {
@@ -16,8 +20,27 @@ var DEPS = {
   checkBuild: C.checkBuild, buildTotals: C.buildTotals, bundleActive: C.bundleActive,
   byId: C.byId, partVerified: C.partVerified, partWeight: C.partWeight,
   slotRequired: C.slotRequired, effectiveWheel: C.effectiveWheel,
-  wheelPositionFilled: C.wheelPositionFilled
+  wheelPositionFilled: C.wheelPositionFilled,
+  priceBasisLabel: P.priceBasisLabel, priceMsrpConfirmed: P.priceMsrpConfirmed
 };
+
+/** Hand-built resolved build (mixing catalog parts and synthetic clones) — same
+ * cast-through-* reason B() exists for the id path (test-upgrade-optimizer.js's bl()).
+ * @param {Object.<string, Part>} o @returns {Build} */
+function bl(o){ return /** @type {Build} */ (/** @type {*} */ (o)); }
+
+/** A synthetic part cloned off a real catalog part — id/fields tweaked for one
+ * test, NEVER pushed into the real catalog (test-upgrade-optimizer.js's clone()).
+ * @param {string} baseId @param {Object.<string, *>} patch @returns {Part} */
+function clone(baseId, patch){
+  var o = Object.assign({}, part(baseId));
+  Object.keys(patch).forEach(function(k){
+    var v = patch[k];
+    if(v === undefined){ delete (/** @type {*} */(o))[k]; }
+    else { (/** @type {*} */(o))[k] = v; }
+  });
+  return /** @type {Part} */ (o);
+}
 
 /* Same helper shapes the app injects (tbMoney / index.html's grams). */
 /** @param {number} n */
@@ -113,24 +136,71 @@ test('model: wheels built from hub+rim count as filled (wheelPositionFilled path
   eq(m.counts.filled, m.counts.required, 'split-wheel golden build must count as complete');
 });
 
+/* ---- price-basis provenance (Douglas's 2026-07-22 ruling: a ✓ Verified spec
+   is not the same claim as a confirmed MSRP) — build-sheet's follow-up. ------ */
+
+test('model: every row carries priceNote/priceConfirmed from the injected pricing.js, verbatim', function(){
+  var m = model(GOOD);
+  m.groups.forEach(function(g){ g.rows.forEach(function(r){
+    var p = part(r.id);
+    eq(r.priceNote, P.priceBasisLabel(p), r.slotKey + ' priceNote must be priceBasisLabel(part)');
+    eq(r.priceConfirmed, P.priceMsrpConfirmed(p), r.slotKey + ' priceConfirmed must be priceMsrpConfirmed(part)');
+  }); });
+});
+
+test('model: priceConfirmedCount counts only rows that are BOTH verified and a confirmed MSRP', function(){
+  // A verified tire (real catalog row) with no priceBasis at all — sample price despite a verified spec.
+  var m0 = model({ frontTire:'ti-maxxis-assegai-29-25-exop-mg' });
+  ok(C.partVerified(part('ti-maxxis-assegai-29-25-exop-mg')), 'fixture must actually be spec-verified');
+  eq(m0.verifiedCount, 1);
+  eq(m0.priceConfirmedCount, 0, 'no priceBasis on this row => sample price, not counted as confirmed');
+
+  // Synthetic verified row WITH a confirmed MSRP.
+  var confirmed = clone('ti-maxxis-assegai-29-25-exop-mg', { id:'ti-test-msrp-confirmed', priceBasis:'msrp-confirmed' });
+  var m1 = BS.buildSheetModel(bl({ frontTire: confirmed }), {}, DEPS);
+  eq(m1.verifiedCount, 1);
+  eq(m1.priceConfirmedCount, 1, 'a verified row with priceBasis:msrp-confirmed must count');
+
+  // An UNVERIFIED synthetic row must never count even with priceBasis set — the
+  // schema only ever allows priceBasis on verified rows, but the model must not
+  // trust that blindly (defense-in-depth, understate never overclaim).
+  var unverifiedButBasis = clone('gr-oneup-lockon', { id:'gr-test-unverified-basis', verified:undefined, source:undefined, priceBasis:'msrp-confirmed' });
+  var m2 = BS.buildSheetModel(bl({ grips: unverifiedButBasis }), {}, DEPS);
+  eq(m2.verifiedCount, 0);
+  eq(m2.priceConfirmedCount, 0, 'an unverified row must never count toward priceConfirmedCount');
+});
+
+test('model: totals/verdicts/counts are byte-identical regardless of priceBasis — price-note is display-only', function(){
+  var plain = model(GOOD);
+  var confirmed = clone('sa-wtb-volt', { priceBasis:'msrp-confirmed' });
+  var withBasis = BS.buildSheetModel(bl(/** @type {*} */ (Object.assign({}, B(GOOD), { saddle: confirmed }))), {}, DEPS);
+  eq(JSON.stringify(withBasis.totals), JSON.stringify(plain.totals), 'totals must not change with priceBasis');
+  eq(JSON.stringify(withBasis.errors), JSON.stringify(plain.errors));
+  eq(JSON.stringify(withBasis.warnings), JSON.stringify(plain.warnings));
+  eq(JSON.stringify(withBasis.counts), JSON.stringify(plain.counts));
+  eq(withBasis.headline.text, plain.headline.text);
+});
+
 /* ---- renderer ----------------------------------------------------------- */
 
 test('render: hostile part strings are escaped, never raw HTML', function(){
   /** @type {any} */
   var hostile = {
     groups: [{ key:'g', label:'<b>Group</b>', bundle:{brand:'<i>K</i>', model:'"kit"', price:5},
-      rows: [{ slotKey:'frame', slotLabel:'<Frame>', id:'x', brand:'<script>alert(1)</script>', model:'M&M', price:1, weight:100, verified:true, inBundle:false }] }],
+      rows: [{ slotKey:'frame', slotLabel:'<Frame>', id:'x', brand:'<script>alert(1)</script>', model:'M&M', price:1, weight:100, verified:true, inBundle:false,
+        priceNote:'<img src=y onerror=alert(2)>', priceConfirmed:false }] }],
     counts: {filled:1, required:2},
     totals: {price:1, weight:100, missingWeight:false},
     headline: {kind:'ok', text:'✓ No conflicts found'},
     errors: ['<img src=x onerror=alert(1)>'], warnings: [], infos: [],
-    verifiedCount: 1, partCount: 1
+    verifiedCount: 1, partCount: 1, priceConfirmedCount: 0
   };
   var html = BS.renderBuildSheetHtml(hostile, { shareUrl:'https://x/#b="><script>', generated:'<2026>' }, HELPERS);
   eq(html.indexOf('<script>'), -1, 'raw script tag must never appear');
   eq(html.indexOf('<img'), -1, 'raw img tag must never appear');
   ok(html.indexOf('&lt;script&gt;alert(1)&lt;/script&gt;') >= 0, 'escaped brand present');
   ok(html.indexOf('&lt;img src=x onerror=alert(1)&gt;') >= 0, 'escaped verdict present');
+  ok(html.indexOf('&lt;img src=y onerror=alert(2)&gt;') >= 0, 'escaped price-note title present');
   ok(html.indexOf('&lt;2026&gt;') >= 0, 'generated date escaped');
 });
 
@@ -180,15 +250,42 @@ test('render: verified rows carry the ✓ badge, unverified rows do not', functi
   }
 });
 
+test('render: the verified badge title names the price basis too — spec-verified is not price-confirmed', function(){
+  var confirmed = clone('ti-maxxis-assegai-29-25-exop-mg', { id:'ti-test-render-confirmed', priceBasis:'msrp-confirmed' });
+  var m1 = BS.buildSheetModel(bl({ frontTire: confirmed }), {}, DEPS);
+  var html1 = BS.renderBuildSheetHtml(m1, META, HELPERS);
+  ok(html1.indexOf(C.esc(P.priceBasisLabel({ priceBasis:'msrp-confirmed' }))) >= 0, 'confirmed-MSRP wording present in the badge title');
+
+  var m2 = model({ frontTire:'ti-maxxis-assegai-29-25-exop-mg' });   // real catalog row, no priceBasis => sample price
+  var html2 = BS.renderBuildSheetHtml(m2, META, HELPERS);
+  ok(html2.indexOf(C.esc(P.priceBasisLabel({}))) >= 0, 'sample-price wording present in the badge title even though the spec is verified');
+});
+
+test('render: the price-confirmation footer line appears only when verified rows exist, and reports the real split', function(){
+  var confirmed = clone('ti-maxxis-assegai-29-25-exop-mg', { id:'ti-test-footer-confirmed', priceBasis:'msrp-confirmed' });
+  var m = BS.buildSheetModel(bl({ frontTire: confirmed, grips: part('gr-oneup-lockon') }), {}, DEPS);
+  var html = BS.renderBuildSheetHtml(m, META, HELPERS);
+  ok(html.indexOf('confirmed MSRP price') >= 0, 'price-confirmation sentence present');
+  ok(html.indexOf(String(m.priceConfirmedCount)) >= 0, 'confirmed count appears');
+
+  // No verified rows at all -> the sentence must not appear (nothing to disclose).
+  var unverifiedOnly = clone('gr-oneup-lockon', { id:'gr-test-no-verified', verified:undefined, source:undefined });
+  var m0 = BS.buildSheetModel(bl({ grips: unverifiedOnly }), {}, DEPS);
+  eq(m0.verifiedCount, 0);
+  var html0 = BS.renderBuildSheetHtml(m0, META, HELPERS);
+  eq(html0.indexOf('confirmed MSRP price'), -1, 'nothing to disclose when no rows are verified at all');
+});
+
 test('render: missing weights degrade honestly (— on the row, + suffix on the total)', function(){
   /** @type {any} */
   var m = {
     groups: [{ key:'g', label:'G', bundle:null,
-      rows: [{ slotKey:'frame', slotLabel:'Frame', id:'x', brand:'B', model:'M', price:100, weight:null, verified:false, inBundle:false }] }],
+      rows: [{ slotKey:'frame', slotLabel:'Frame', id:'x', brand:'B', model:'M', price:100, weight:null, verified:false, inBundle:false,
+        priceNote:P.priceBasisLabel({}), priceConfirmed:false }] }],
     counts: {filled:1, required:20},
     totals: {price:100, weight:2000, missingWeight:true},
     headline: {kind:'ok', text:'✓ No conflicts found'},
-    errors: [], warnings: [], infos: [], verifiedCount: 0, partCount: 1
+    errors: [], warnings: [], infos: [], verifiedCount: 0, partCount: 1, priceConfirmedCount: 0
   };
   var html = BS.renderBuildSheetHtml(m, META, HELPERS);
   ok(html.indexOf('—') >= 0, 'weightless row shows a dash');
