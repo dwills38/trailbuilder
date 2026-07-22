@@ -65,16 +65,52 @@
 //     GRAVEL_VOCAB's own header forbids ("Widening this needs a real new row backing the
 //     value"), and THE BAR forbids the row. REOPEN THIS the day a maker page naming a
 //     36.1mm post or seat tube is fetched — not before.
-//   - gravel-breadth-1 (2026-07-22) NEW FLAG: SRAM's current mechanical 2x Apex front
-//     derailleur (FD-APX-A1, 10-speed, braze-on/clamp/direct-high mounts, confirmed real
-//     and current via sram.com/en/sram/models/fd-apx-a1) has NO matching `system` token in
-//     GRAVEL_VOCAB — every existing token is either an XPLR/AXS 1x-wireless family or a
-//     Shimano/Campagnolo family; there is no generic "SRAM mechanical road/gravel 2x" system
-//     value the way schema.js's MTB vocab has 'sram-eagle'. Force-fitting an existing token
-//     (e.g. 'sram-axs-road', which is wireless-only) would fabricate an actuation/system
-//     pairing that can't exist. NOT entered this pass — flagged for a future data-entry pass
-//     to add the token (with a name reviewed against SRAM's other mechanical-tier lines)
-//     rather than force-fit.
+//   - gravel-breadth-1 (2026-07-22) FLAG, CLOSED as a NEGATIVE finding by
+//     catalog/gravel-components-1 (2026-07-22): the "SRAM current mechanical 2x Apex FD"
+//     premise doesn't hold up under a second look. FD-APX-A1 only lives on SRAM's
+//     /service/ support subdomain (spec pages for discontinued parts, not the live
+//     /sram/models/ current-catalog path) — SRAM's ACTUAL current Apex line (2023+
+//     Apex/Apex AXS, the exact line already backing this file's system:'sram-apex-mech-12'
+//     token) is confirmed 1x-only across both mechanical and electronic tiers by two
+//     independent 2023-launch sources (bikeradar.com, velomotion.net: "no front derailleur"
+//     offered at all). There is no currently-sold SRAM Apex 2x mechanical front derailleur
+//     to back a new system token for — the vocab gap this flag worried about doesn't
+//     actually need filling. Reopen only if a future pass finds a genuinely current SRAM
+//     mechanical-2x-gravel product line this research missed.
+//   - catalog/gravel-components-1 (2026-07-22) NEW FLAGS, real products found this pass
+//     whose specs don't fit the current vocab — logged, not force-fit:
+//     · Microshift Sword FD-G7020 (a real, current, gravel-appropriate mechanical 2x-10
+//       front derailleur — microshift.com/models/fd-g7020, 108g braze-on, band-28.6 mount
+//       option also real) has no matching GRAVEL_VOCAB.system token at all (Microshift
+//       isn't represented anywhere in this vocab, unlike every other brand here). Needs a
+//       new system token (e.g. 'microshift-sword-10') PLUS matching shifter/rear-derailleur/
+//       chain rows before Microshift can enter this catalog as a full drivetrain — a bigger
+//       lift than one FD row, deferred to a future pass rather than half-entering the brand.
+//     · The crankset `bb` vocab's shell tokens (bsa-road/bb86/bb30a/pf30/24mm-road/dub/
+//       dub-wide/ultra-torque/bbright/t47-road/bb386evo/t47-86/pf92/square-taper/bsa-73/
+//       t47a-bbright) don't cover several real gravel-crank spindle interfaces found this
+//       pass: Praxis M30 and White Industries' 30mm spindle (both cross-compatible across
+//       MULTIPLE shells depending on which BB is paired — T47/BSA/PF30/etc. — so there's no
+//       single honest token to assign without picking one specific BB pairing, which would
+//       be a narrower claim than the crank itself makes). Real products (Praxis Zayante
+//       Carbon-GR, White Industries G30) were found and researched but NOT entered this
+//       pass for exactly this reason — forcing any single shell token onto a cross-BB
+//       spindle interface would misrepresent it. Needs a documented convention (or a
+//       dedicated "spindle interface" field distinct from "shell") before these cranks can
+//       honestly enter the catalog.
+//     · GRAVEL_VOCAB.dropperDiameter (27.2/31.6/30.9) has no 34.9mm token, even though
+//       several real, current 34.9mm dropper SKUs exist and were found this pass
+//       (Bontrager Line Elite 34.9, Crankbrothers Highline 3, 9point8 Fall Line standard,
+//       PNW Rainier Gen 3's 34.9mm option) — each has a smaller-diameter sibling SKU that
+//       WAS entered this pass (31.6mm/30.9mm), so no gap in buildability today, but the
+//       34.9mm-specific SKUs themselves aren't enterable until this token is widened.
+//     · The pedal `style` vocab (only 'clip') has no flat/hybrid token. Shimano's PD-EH500
+//       (a real, current, single-sided-SPD-with-a-flat-reverse-side pedal,
+//       ride.shimano.com/products/pd-eh500, 383g/pair, $85) was found and researched but
+//       NOT entered — forcing style:'clip' on it would imply a normal dual-sided clip
+//       pedal like every other cataloged row, which isn't an honest description of a
+//       hybrid pedal. Needs a 'hybrid' or 'flat' token (with its own honest semantics)
+//       before this SKU — and any true flat pedal — can enter the catalog.
 //   - Tumbleweed / Curve's "non-standard" axle spacings: CLOSED, NO TOKEN NEEDED — this
 //     was already refuted by vocab-tier1 (2026-07-22) and nothing here changes it. Curve's
 //     GMX+ is standard 12x148 Boost + T47; Tumbleweed's Prospector originally shipped a
