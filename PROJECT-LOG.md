@@ -5049,3 +5049,31 @@ Worker tooling note propagated: backslashes do NOT survive this shell's heredocs
 Edit tool for JS string literals (the coordinator hit the identical trap twice today).
 Gates + harness green.
 Report: road-vocab-map.md.
+
+## 2026-07-22 — sc-bronson-trims merged (5130 to 5138 parts): the Santa Cruz JS wall is DOWN
+mtb-cb-breadth-2 documented the "See All Specs" build-kit table as a wall that beat both the
+pane and WebFetch. The craft retry broke it. ROOT CAUSE + TECHNIQUE (propagate this):
+santacruzbicycles.com is Shopify running an ALPINE.JS tab widget — each [role=tab] carries
+x-on:click/x-on:focus. A bare el.click() AND a full dispatched PointerEvent sequence both left
+aria-selected unchanged (Alpine's handler never fires for script-dispatched events); calling
+el.focus() IMMEDIATELY BEFORE el.click() fires Alpine's select() reliably. That is the Radix
+lesson's Alpine cousin: FOCUS-THEN-CLICK. Separately, the MY27 Deore trim lives on a product
+page using a different widget whose drawer content is ALREADY server-rendered (display:none) —
+a plain click surfaces it, the Haro hidden-DOM pattern. Also mapped: Shopify products.json IS
+useful for variant discovery + live availability (confirmed all 5 trims are current, available
+SKUs) but carries NO build-kit spec data — marketing body_html only. Don't chase it for specs.
+LANDED: 5 Bronson complete bikes (R $4,999 / S $5,899 / Deore $4,799 / X0 AXS $8,299 / X0 AXS
+RSV $9,349) on the unmodified existing frame row (interfaces confirmed identical across every
+trim + model year sampled — the Hightower C-vs-CC precedent) + 10 OE wheel rows (new DT370,
+Shimano TC500/600 and I9 1/1 hub variants on already-cataloged Reserve rims), split front-29/
+rear-27.5 because the Bronson 5 is a mullet. ZERO other new part rows — everything else matched
+existing rows exactly.
+COORDINATOR VERIFICATION: all 5 builds probe 0 errors / 0 WARNINGS (the Kona lesson applied);
+the branch adds NO verified:true row, so no priceBasis obligation — the 9 Reserve rows the
+scan flags are PRE-EXISTING burndown, not new debt (diff-confirmed).
+Worker self-caught the same overbroad-edit trap that has now bitten four workers today: its
+first pass reused 29in-only rear wheels on a mullet frame via a broad sed, breaking two
+UNRELATED existing builds — npm test caught it, fixed before any commit. The suite keeps
+earning its keep as the guardrail against exactly this.
+Gates green.
+Report: sc-bronson-trims.md.
