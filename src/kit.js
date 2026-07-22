@@ -3211,6 +3211,11 @@ var KIT_PARTS = [
     desc:'The women\'s-cut counterpart to the men\'s V7 row above - same six-pad D3O chest/back/shoulder/elbow construction, own SKU and own MSRP (a real distinct row per the same reasoning already used elsewhere in this catalog for gendered variants, not a duplicate). Same "CE EN 1621-1" (limb standard) claim, no bodyarmor-tier cert token applies. MSRP $199.99 confirmed via a WebSearch snippet quoting the direct product page (the fetched page itself renders in EUR/discounted-variant pricing, so the confirmed USD figure is used per pricing policy). No weight published. Added kit-breadth-6.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://demon-united.com/products/demon-united-x-v7-d3o%C2%AE-womens-impact-padded-top' },
 
+  { id:'arm-tsg-chest-guard-adult', cat:'bodyarmor', brand:'TSG', model:'Chest Guard Adult', price:151.15, weight:600,
+    coverage:'chest-back', certs:['en1621-3'], disciplines:['trail','enduro'], sizes:['One Size'],
+    desc:'TSG\'s first cataloged bodyarmor row (a genuine 0-SKU gap found while extending its already-cataloged elbowpad/kneepad/shinguard lines, kit-breadth-6) - lightweight articulated full-torso protector, memory-foam pads, 3D Triple Layer Foam with air channels, one size fits 160-195cm body height. Fetched ridetsg.com product page: "EN 1621-2:2014, BS EN/EN 1621-3:2018" - the back standard (EN1621-2) states no L1/L2 level so is left untagged, only the level-less chest standard `en1621-3` is entered. Weight maker-stated (600g). Price is EUR139.95 (VAT incl.) converted to a $151.15 USD sample at ~1.08 USD/EUR (no confirmed US-dollar storefront - matches the existing TSG-row convention in this catalog).',
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-22', source:'https://www.ridetsg.com/shop/chest-guard-adult/74013-90-102/' },
+
   /* -- Body armor grind batch 3 (2026-07-14) -- */
   { id:'arm-poc-vpd-system-back', cat:'bodyarmor', brand:'POC', model:'VPD System Back', price:200, weight:540,
     coverage:'back', certs:['en1621-2-l1'], disciplines:['trail','enduro'],
