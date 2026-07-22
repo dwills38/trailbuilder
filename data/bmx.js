@@ -2345,6 +2345,62 @@ var BMX_PARTS = [
     rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true, price: 469.89,
     lastChecked: '2026-07-22', source: 'https://federalbikes.com/products/federal-boyd-v2-frame-matt-white',
     note: 'bmx-depth-9: Federal\'s own product page (fetched directly) states geometry (top tube 20.2-21.5", head angle 75.2°, ICS2 wishbone/dropouts) but NOT bbShell/headTube-type/brakeMount/rearAxle explicitly. Those four engine-read fields are sourced instead from a third-party retailer (kunstform.org) quoting Federal\'s own official spec sheet verbatim: "BB Shell Type: Mid BB", integrated headset ("75.2°" head tube angle, no threading mentioned), "removable brake hardware...delivery of the frame is without removable brake bosses" (ships brakeless stock -> rearBrakeMount:\'none\'), "Investment cast, 4130 CrMo, 5mm thick, 14mm slots" (-> rearAxle:\'14mm\'). Because THE BAR requires raw confirmation on the MAKER\'S OWN page for verified:true and this frame\'s own page does not state these fields, left unverified despite the strong retailer corroboration (sourceType:retailer, per policy, cannot itself carry verified:true). topTube:21.0 picked as a representative mid-size from the frame\'s five-size run (20.2/20.7/21/21.2/21.5"). Price: GBP RRP £369.99 converted to a $469.89 USD sample at ~1.27 USD/GBP, no US price published — THE PRICE RULE.'
+  },
+
+  // =======================================================================
+  // bmx-breadth-3 (2026-07-22): BREADTH pass targeting the catalog's thinnest
+  // categories (headset 11, pegs 11, pedals 11, rearWheel/frontWheel) with
+  // brands not previously covered by any depth pass. Fetch ethics per
+  // VERIFY-PROTOCOL: WebFetch -> Exa -> browser pane -> documented wall;
+  // several manufacturer storefronts (tallorderbmx.com, shop.gsportbmx.com,
+  // sourcebmx.com) 429/403'd repeatedly this session (documented walls, not
+  // routed around). Unverified rows below follow the DATA-ENTRY-TEMPLATE §7
+  // "credible source" tier (retailer/WebSearch-corroborated real products,
+  // no fabricated specs) rather than manufacturer-fetched verification.
+  // -----------------------------------------------------------------------
+
+  // ---- Merritt (existing brand, only 1 prior row — thin coverage; adds to
+  //      the thin headset category, not one of the 9 depth-passed brands) --
+  {
+    id: 'bmx-hs-merritt-lowtop', cat: 'headset', brand: 'Merritt', model: 'Low Top Integrated Headset',
+    fit: 'integrated-1-1/8', price: 27.95,
+    note: 'bmx-breadth-3 (2026-07-22): real current Merritt product ("for riders with high head tubes with low clearance or a shorter fork base" - a low-stack integrated 1-1/8in headset), WebSearch-corroborated across SkatePro ($27.95) and BMXGuru/C&W Cycle (listed $29.99, several colorways). merrittbmx.com itself was not located/fetched this session. Price entered at the SkatePro US-dollar figure ($27.95); the BMXGuru figure is close but not identical (color-variant pricing on that retailer). Left unverified (retailer-corroborated, not manufacturer-fetched).'
+  },
+  {
+    id: 'bmx-hs-merritt-hightop', cat: 'headset', brand: 'Merritt', model: 'High Top Integrated Headset',
+    fit: 'integrated-1-1/8', weight: 82, price: 29.99,
+    note: 'bmx-breadth-3 (2026-07-22): companion tier to the Low Top row above - "Campy spec integrated headset" for riders needing a taller stack (20mm CNC 6061 aluminum cap vs the Low Top\'s 10mm), two sealed bearings, aluminum compression ring. FETCHED bmxguru.com/products/merritt-high-top-1-1-8-integrated-bmx-headset-bronze directly, which states price $29.99 and "Stack Height: 20mm" verbatim; weight (82g / 2.9oz) corroborated by an independent WebSearch summary of the same product line, not itself restated on the fetched bmxguru.com page. bmxguru.com is a RETAILER, not Merritt\'s own site, so this cannot carry verified:true per the sourceType:retailer-is-rejected-on-verified-rows policy even though the page itself was fetched directly - left unverified.'
+  },
+
+  // ---- Fiction BMX (new brand: a Stolen-family parts brand; thin headset +
+  //      pegs categories) -------------------------------------------------
+  {
+    id: 'bmx-hs-fiction-savage', cat: 'headset', brand: 'Fiction', model: 'Savage Headset',
+    fit: 'integrated-1-1/8', price: 19.95,
+    note: 'bmx-breadth-3 (2026-07-22): NEW brand for this catalog. Real current Fiction product, WebSearch-corroborated across SkatePro ($19.95), Dan\'s Comp, Albe\'s BMX and Stolen Brand (Fiction\'s parent/sister brand storefront, $19.99) all describing the same SKU: "45x45º integrated 1-1/8in headset for modern head tubes with built-in cups... two precision sealed Campy spec bearings, a CNC machined alloy dust cover with 11mm stack height." No manufacturer-direct page located/fetched this session (Fiction has no clearly separate storefront from Stolen Brand\'s site). Price entered at the SkatePro figure. Left unverified (retailer-corroborated).'
+  },
+  {
+    id: 'bmx-pg-fiction-steel', cat: 'pegs', brand: 'Fiction', model: 'Steel Freestyle Pegs',
+    axleFit: '14mm', material: 'steel', reducerIncluded: true, price: 30.95,
+    note: 'bmx-breadth-3 (2026-07-22): real current Fiction product, WebSearch-corroborated (SkatePro $30.95): "made from solid Chromoly steel...come in sets of either 2 pieces or 4 pieces, designed for 14mm axles and with spacers included for 10mm setup" -> axleFit:14mm, material:steel, reducerIncluded:true (the 10mm spacers). Price entered at the single-peg-equivalent SkatePro figure; the page also sells 2- and 4-peg bundles at proportional prices, not modeled as separate rows (bundle count is a quantity axis, not a fit-distinct SKU per DATA-ENTRY-TEMPLATE §1). Left unverified (retailer-corroborated, no manufacturer page fetched).'
+  },
+
+  // ---- Tall Order BMX (new brand: UK, founded 2016 by Bas Keep; thin
+  //      pedals category) -------------------------------------------------
+  {
+    id: 'bmx-pd-tallorder-catch', cat: 'pedals', brand: 'Tall Order', model: 'Catch Pedals',
+    platform: 'plastic', spindle: '9/16', price: 24.12,
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22',
+    source: 'https://tallorderbmx.com/products/tall-order-catch-pedal-black-9-16',
+    note: 'bmx-breadth-3 (2026-07-22): NEW brand for this catalog. FETCHED tallorderbmx.com directly (Tall Order\'s own storefront) — page states verbatim "Nylon plastic body" and "9/16\\" thread with heat treated axle" (platform:plastic, spindle:9/16 CONFIRMED). Regular price is £18.99 GBP (currently on sale at £11.99 — a labeled promotional price, NOT used per THE PRICE RULE); converted to USD at ~1.27 USD/GBP -> $24.12, priceBasis:regional-conversion (UK brand, no published US MSRP). No weight is stated on the page. Promoted to verified:true on the two engine-read/schema fields actually confirmed (platform, spindle); price is the disclosed conversion, not a literal maker-stated USD figure.'
+  },
+
+  // ---- GSport BMX (new brand: Roloway/Elite hub-wheel line; thin
+  //      rearWheel category) ----------------------------------------------
+  {
+    id: 'bmx-rh-gsport-elite-cassette', cat: 'rearWheel', brand: 'GSport', model: 'Elite Cassette Rear Wheel',
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 490, price: 399.99,
+    note: 'bmx-breadth-3 (2026-07-22): NEW brand for this catalog. WebSearch-corroborated across Source BMX, SkatePro, Albe\'s BMX and Powers Bike Shop, all describing the same GSport Elite Cassette Wheel: a 7075-T6 aluminum "Roloway" cassette hub (9-tooth, 3-pawl independent-spring driver, "RHD/LHD compatible" -> side:both, "14mm 4130 chromoly axle bolts with 17mm 4130 chromoly female axle" -> axle:14mm) laced 36h to GSport\'s own 6061-T6 Ribcage rim. Total wheel weight stated as "17.28oz (approximately 490g)" in the corroborating copy -> weight:490. Price $399.99 attributed to GSport\'s own storefront (shop.gsportbmx.com) by independent retailer copy; shop.gsportbmx.com itself returned HTTP 429 on every fetch attempt this session (documented wall, not routed around). Left unverified (retailer/WebSearch-corroborated, no direct manufacturer fetch this session).\n\n    TRUE-GAP flagged, not entered: the companion "G-Sport Elite Front Wheel" uses a 20mm through-axle (a real, WebSearch-confirmed spec: "20mm 7075-T6 aluminum female axle"), but BMX_VOCAB.axle only contains [\'10mm\',\'14mm\'] — no matching token exists. Per DATA-ENTRY-TEMPLATE §4 ("stop the batch, add the vocab value... never ship a fictitious mapping"), this row is deliberately NOT entered rather than force-fit to 10mm or 14mm; widening BMX_VOCAB.axle to add a 20mm token is out of this data-only batch\'s scope and is flagged here for a future schema-touching pass.'
   }
 ];
 
