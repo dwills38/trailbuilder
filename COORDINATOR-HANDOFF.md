@@ -26,6 +26,90 @@ seat does the housekeeping automatically — Douglas never renames/unpins/archiv
 
 ---
 
+## ★★★ SEAT 18 — START HERE (succession from seat 17, 2026-07-22) ★★★
+
+Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today>-s18 -b
+coord/<today>-s18 origin/main` (Hard rule #5 — containment hook LIVE). Run the gates
+yourself, never trust doc counts. **State at handoff (finalized at seat-17 wrap — re-run
+validate for live figures): ~7,000 parts / ~4,750 verified across SEVEN catalogs (MTB
+5,104 · kit 736 · BMX 338 · gravel 317 · road 307 · EMTB 108 · striders 45) · suite 1,054
+tests / 42 files · tsc clean · verdict harness fully clean · SEVEN validators · the
+PRICE-PROVENANCE system is LIVE (priceBasis enum, per-catalog burndown counters in
+validate's output, PRICE_BASIS_STRICT constants ×6 pinned false — YOU flip them when every
+burndown reads 0; kit already reads 0).**
+
+**★ SEATING SEQUENCE (in order):**
+1. **Succession handshake** — send_message the session titled "Main Coordinator (Seat 17)"
+   (id: likely `local_2ee15a25-52b9-4f69-bb09-093435a6eb3a`, derived from its scratchpad
+   uuid; find by title via list_sessions if that fails) asking it to set_session_title you
+   to "Main Coordinator (Seat 18)"; archive it on confirm. If it never wakes, one line to
+   Douglas, don't block.
+2. **RE-ARM BOTH session-lifetime watchers IMMEDIATELY** (they die with the seat): (a) the
+   hourly fleet-sweep cron (off-minute; include the Untitled-session check — the app's
+   auto-titling fails on big paste-bursts, identify via search_session_transcripts on
+   branch names and set_session_title); (b) the persistent Monitor on
+   `D:\MTB Bike Builder\.claude\worker-reports` (bash mtime loop, `declare -A` seen-map
+   seeded with existing files; NOTE: it survives a process restart badly — if you see a
+   "no completion record" notification, RE-ARM it and do a catch-up sweep incl.
+   worktree-local `worker-reports` folders, the known drop-location leak). The four
+   durable scheduled tasks (daily bug-triage, monthly drift 6th, monthly bias 12th,
+   quarterly recall) survive on their own — do NOT recreate.
+3. Read **HANDOFF-CHIPS.md** (refreshed at seat-17 wrap: the priceBasis FINISHING-WAVE
+   queue + Douglas's full open-question queue incl. the REPEATED-REMINDER Supabase item)
+   + memory MEMORY.md + CLAUDE.md Hard rules 1-5.
+
+**★ IN FLIGHT AT HANDOFF:** check the fleet — seat 17's last dispatches were
+schema/pb-third-party-listed (the 6th-token chip), backfill/pb-emtb-2, and
+schema/vocab-tier1; whatever wasn't harvested by wrap is yours (the report-drop protocol
++ STAND-DOWN clauses make this safe). "Affiliate Setup" = Partnerships lane, never touch;
+bug-triage vessels accumulate daily, harmless.
+
+**★ RULES EARNED THIS SEAT (beyond the standing set — details in PROJECT-LOG 2026-07-21/22):**
+· **ARCHIVES BATCH LAST, NEVER MID-LOOP** (Douglas): harvest EVERYTHING pending first
+  (merge→gates→push→log→cleanup), then fire all archive_session calls in one batch so his
+  approval clicks come as one rapid run. In memory: parallel-work-delivery.
+· **NEVER ACT ON AN UNANSWERED QUESTION** (Douglas): silence ≠ consent; first ask lives in
+  chat/HANDOFF, second ignored ask enters `_PDFs/OPEN-QUESTIONS.pdf` (regenerate in place,
+  never remove until he rules; the file can be viewer-locked — retry later). In memory:
+  open-questions-pdf.
+· **The REVIEW GATE now has teeth — two branches were REJECTED this seat**: pb-emtb
+  (invented 83 recollection-based bikes instead of its backfill task — mass memory-derived
+  specs are the grind-1 pattern) and pb-gravel (156 current products force-fit into
+  discontinued-no-msrp). Read reports adversarially; reject whole branches when the defect
+  is systemic; keep the report file for the record; re-dispatch with the failure named.
+· **Backfill classification doctrine**: desc-disclosed basis assigns without a fetch;
+  keyword windows MATCH SIBLING PARTS' language (read the full desc — the pb-mtb-b trap);
+  a note supporting NO class stays blank; retailer-corroborated real-USD figures read as
+  msrp-confirmed (three workers converged; revisit if Douglas objects).
+· **Worker-committed job files self-heal**: if a branch commits verification-job.json
+  against doctrine, run the runner once on the merged state — a timestamp-only re-sync
+  diff proves the committed state was a faithful auto-sync (tail-17 case).
+· **Catalog-state test assumptions go stale mid-wave**: tests pinning "no X anywhere in
+  the catalog" break the moment a parallel wave lands X — rewrite as relationships
+  computed from the parts' live state (the ovb sample-tally fix, done twice in one hour).
+· **Technique finds**: blisterreview.com renders in the pane (measured-weight source
+  class, config-exact only); supercrossbmx.com's 429 falls to the pane + same-origin
+  fetch(); Radix accordions need real pointer-event sequences; Haro specs live in hidden
+  DOM tabs; Giant's search needs its category listing instead; federalbikes.com (not
+  federalbikeco); Fezzari is now Ari Bikes; ANVL's domain is hijacked; Easton cycling is
+  defunct; I9+WeAreOne merged (Fuse = their E-BIKE tier, never enters MTB).
+· **Exact-match tokens need their PAIR row** (bmc-ics-flat lesson): a proprietary
+  steerer/mount token without its matching fork/caliper = an unbuildable frame (the
+  IS-mount trap). Check at merge for any new per-system token.
+
+**Standing workflow (unchanged):** four gates (+harness on engine-read changes) on every
+merge; UI auto-ships on green gates + browser verify + popup scan; engine/error-tier =
+adversarial review; only taxonomy/money/visual-taste/account/business decisions to
+Douglas, kept SHORT; ANSWER-FIRST; paste-blocks with [Model, effort] headers; archive
+wrapped-up worker sessions without asking, BATCHED LAST; at YOUR wrap-up consolidate all
+outstanding Douglas questions into HANDOFF-CHIPS.md and pass this instruction forward
+(succession rule 5). Seat-17 trail: PROJECT-LOG.md's ~35 entries dated 2026-07-21→22 (the
+biggest seat yet: ~70 branches harvested, breadth lanes opened on Douglas's word across
+all six non-MTB catalogs, the price-provenance system shipped ruling-to-mechanism-to-
+backfill in one day, theme audit landed, 1,710 reserved usernames, two honest rejections).
+
+---
+
 ## ★★★ SEAT 17 — START HERE (succession from seat 16, 2026-07-21 evening) ★★★
 
 Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today>-s17 -b
