@@ -72,6 +72,18 @@ var GRAVEL_VOCAB = {
   // Hook EXT ("Front derailleur clamp diameter: 28.6 mm", "Frame front derailleur
   // compatible: yes").
   material:     ['alloy', 'steel', 'titanium'],
+  // 'sliding' ported from src/schema.js's MTB dropoutType (vocab-tier1, 2026-07-22) — an
+  // adjustable-chainstay-length dropout mechanism real on bikepacking-oriented gravel
+  // frames this file's header comment previously logged as a schema gap (no dropoutType
+  // field existed at all): Salsa's own Fargo product page describes its "Alternator
+  // Dropouts" verbatim as "Adjusts chainstay length to modify ride traits and tire fit
+  // (with adjustable swing plates)" and "Tensions chain for single-speed use". Landed
+  // dormant like MTB's own field — no gravel single-speed/ss-tension rule exists yet,
+  // so this is display/annotation only until one does, same land-dormant-then-activate
+  // template rule 18/14c already use. Only the one real value ratified this pass; the
+  // other three MTB tokens (horizontal/ecc-bb/vertical) are NOT added without their own
+  // flagged gravel row.
+  dropoutType:  ['sliding'],
   freehub:      ['xdr', 'n3w', 'micro-spline-road', 'hg-road'],
   rotorMount:   ['center-lock'],
   casing:       ['tcs-light', 'tcs-tough', 'zsg', 'shieldwall', 'protection', 'hardwall', 'super-ground', 'exo', 'tubeless-complete', 'trail', 'standard', 'extralight', 'endurance'],
@@ -131,7 +143,7 @@ var GRAVEL_SCHEMA = {
     bb:{type:'string',vocab:'bb'}, seatpost:{type:'string',vocab:'seatpost'}, steerer:{type:'string',vocab:'steerer'},
     maxTireByWheel:{type:'map'}, frontDerailleurMount:{type:'string',vocab:'frontDerailleurMount'},
     frameOnly:{type:'bool'}, material:{type:'string',vocab:'material',optional:true},
-    gen:{type:'string',optional:true}
+    gen:{type:'string',optional:true}, dropoutType:{type:'string',vocab:'dropoutType',optional:true}
   },
   fork: {
     wheel:{type:'strArray',vocab:'wheel'}, axle:{type:'string',vocab:'axle'}, steerer:{type:'string',vocab:'steerer'},

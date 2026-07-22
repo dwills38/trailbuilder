@@ -145,6 +145,28 @@ test('an out-of-vocab frontDerailleurMount value is still caught', function(){
   ok(probs.some(function(m){ return /frontDerailleurMount.*not in frontDerailleurMount/.test(m); }), probs.join('\n'));
 });
 
+// vocab-tier1 (2026-07-22): ratified dropoutType field (ported from MTB's
+// dropoutType, gravel-scoped to 'sliding' only) — optional, positive +
+// negative, plus proof it's absent-safe (no gravel row uses it yet).
+test('a frame with no dropoutType is still valid (the field is optional)', function(){
+  var frame = aFrame();
+  eq(frame.dropoutType, undefined, 'sanity: no live gravel row uses dropoutType yet');
+  eq(S.validateGravelPart(frame, new Date()).length, 0);
+});
+
+test('sliding dropoutType is a valid gravel frame value', function(){
+  var frame = aFrame();
+  var p = Object.assign({}, frame, { dropoutType: 'sliding' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('an out-of-vocab dropoutType value is caught', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { dropoutType: 'horizontal' });
+  var probs = S.validateGravelPart(bad, TODAY);
+  ok(probs.some(function(m){ return /dropoutType.*not in dropoutType/.test(m); }), probs.join('\n'));
+});
+
 test('a missing required field is caught', function(){
   var frame = aFrame();
   var bad = Object.assign({}, frame); delete bad.rearAxle;

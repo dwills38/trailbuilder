@@ -43,16 +43,24 @@
 // KNOWN SCHEMA-VOCAB NON-FITS (gravel-9, 2026-07-21) — real products found this pass whose
 // specs don't fit the current vocab; logged rather than force-fit (a missing row beats a
 // wrong one, same discipline as an unactivated compat rule). vocab-tier1 (2026-07-22)
-// RATIFIED and closed the steerer + square-taper items below (both now real GRAVEL_VOCAB
-// tokens, applied to their flagged rows) — remaining open items:
-//   - slider dropouts (adjustable-chainstay-length dropouts on some steel/adventure frames,
-//     e.g. certain Surly/Salsa builds) — no dropout-type field exists on the gravel frame
-//     schema at all yet (MTB's `dropoutType` enum was never ported).
+// RATIFIED and closed the steerer + square-taper + dropoutType items below (all now real
+// GRAVEL_VOCAB tokens; dropoutType:'sliding' is landed dormant, backed by Salsa's own
+// Fargo product page, but no catalog row uses it yet — a full Fargo row hit modeling
+// snags beyond ratified scope: its "29in"/"27.5+" mountain-platform wheel sizing needs
+// care mapping onto 700c/650b, and its FD clamp option is a 34.9mm bracket, not the
+// 28.6mm band-28.6 token this pass ratified — deferred to a future data-entry pass) —
+// remaining open items:
 //   - 36.1mm seatpost diameter (a handful of older/boutique steel frames) — GRAVEL_VOCAB.
-//     seatpost is ['27.2','31.6','30.9','proprietary'] only.
+//     seatpost is ['27.2','31.6','30.9','proprietary'] only. vocab-tier1 (2026-07-22)
+//     searched for a real backing product and found none confidently verifiable this
+//     pass — left un-ratified rather than guessed.
 //   - Tumbleweed / Curve's non-standard axle spacings on their bikepacking-oriented gravel
-//     frames (their own boutique thru-axle/QR variants, not the catalog's 12x100/12x142
-//     convention) — no matching rearAxle/frontAxle token.
+//     frames — vocab-tier1 (2026-07-22) re-researched this and found Curve's GMX+ is
+//     actually standard 12x148 Boost + T47 (no gap after all); Tumbleweed's Prospector
+//     originally shipped a 135mm QR rear (now representable via this pass's ratified
+//     135x9-qr token) before adding thru-axle options — the "non-standard" framing was
+//     stale. No new axle token was needed; a future data-entry pass can add a real
+//     Tumbleweed Prospector row using the existing 135x9-qr token.
 // None of these are activated here; a future pass should widen the vocab + add the real rows
 // once there's appetite for the schema change, per the same land-dormant-then-activate template
 // rule 18/14c already use in src/compat.js.
