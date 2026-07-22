@@ -1112,6 +1112,11 @@
 
   /* 🤘 RAD mode — purely cosmetic easter egg, zero honesty-bar risk (see CLAUDE.md roadmap) */
   html.rad{
+    /* RAD is a DARK theme too — dark & loam both declare this, rad never did, so
+       the UA kept light-scheme defaults under it: an unstyled link rendered #0000EE
+       on the near-black card (1.90:1, proven on home.html), and native select
+       popups / scrollbars / autofill / date pickers all painted light-on-light. */
+    color-scheme:dark;
     --ink:#f4eaff; --ink-soft:#c9a6ff; --line:#ff2fd0; --bg:#150029;
     --card:#22093f; --brand:#ff2fd0; --brand-d:#a3007f; --accent:#00e5ff;
     --ok:#39ff14; --ok-bg:#0a2e12; --warn:#ffe600; --warn-bg:#332b00;
