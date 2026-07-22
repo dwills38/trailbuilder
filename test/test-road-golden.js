@@ -245,6 +245,78 @@ test('vocab lint NEGATIVE: the data-token lint actually bites (a synthetic out-o
   ok(arr[0].indexOf('650b-mini-bogus') >= 0, arr[0]);
 });
 
+/* ---- FINDING A guard: 'sram-apex-mech-12' is XPLR/Flattop ONLY -------------
+   ROAD_SYSTEM_CHAIN maps this token to 'flattop'. That is correct for all four
+   rows using it today (SRAM Apex XPLR), but the token is NAMED for the whole
+   mechanical Apex tier and Apex EAGLE is the other half of it — and Apex Eagle
+   takes an EAGLE chain. sram.com's own Apex Eagle rear-derailleur page
+   (RD-APX-152-D1) specs "Chain Technology | Eagle" and its features say "Use
+   with Eagle chain"; the same page gives the tier's mechanical discriminator,
+   "RD Minimum (Cassette) | 50" / "Compatible with 50T and 52T Eagle cassettes",
+   against Apex XPLR's 44T ceiling. Filing an Apex Eagle row under this token
+   would give a false "won't fit" against its correct Eagle chain AND a false
+   "fits" for a Flattop chain. This test does NOT split the token — that is a
+   coordinator/Douglas call and is queued; it pins the precondition that makes
+   today's single mapping honest, and fails loudly the moment it stops holding. */
+/** LINT 3 — Eagle-tier rows hiding under a Flattop-mapped token. Pure over its
+ *  input, like the two lints above, so the negative case can prove it bites.
+ *  @param {any[]} rows @returns {string[]} */
+function apexEagleGaps(rows){
+  /** @type {string[]} */ var gaps = [];
+  rows.filter(function(p){ return p.system === 'sram-apex-mech-12'; }).forEach(function(p){
+    /* mechanical discriminator: SRAM's Apex Eagle floor is a 50T cassette,
+       against Apex XPLR's 44T ceiling. */
+    if(typeof p.maxCog === 'number' && p.maxCog >= 50)
+      gaps.push(p.id + ' carries maxCog ' + p.maxCog + 'T (>= SRAM\'s 50T Apex Eagle floor), so it is an Apex EAGLE part. '
+        + 'Apex Eagle takes an EAGLE chain, not Flattop (sram.com RD-APX-152-D1: "Chain Technology | Eagle"). '
+        + 'Give it its OWN system token + ROAD_SYSTEM_CHAIN entry + an "eagle" chainStd token before entering it.');
+    /* naming discriminator: catches rows carrying no cog figure at all
+       (shifters, cranks) - SRAM brands the tier "Apex Eagle" explicitly. */
+    var name = [p.id, p.family, p.model].filter(function(v){ return typeof v === 'string'; }).join(' ');
+    if(/eagle/i.test(name))
+      gaps.push(p.id + ' is named as an Eagle-tier part but is filed under sram-apex-mech-12, which R15 maps to a '
+        + 'Flattop chain. Apex Eagle needs its own system token first.');
+  });
+  return gaps;
+}
+
+test('FINDING A guard: every sram-apex-mech-12 row is XPLR/Flattop, never Apex Eagle', function(){
+  var rows = ALL_PARTS.filter(function(/** @type {any} */ p){ return p.system === 'sram-apex-mech-12'; });
+  ok(rows.length > 0, 'the token is in use - if this ever hits 0, retire the token rather than leaving it dangling');
+  eq(ROAD.ROAD_SYSTEM_CHAIN['sram-apex-mech-12'], 'flattop', 'the mapping this guard protects');
+  var gaps = apexEagleGaps(ALL_PARTS);
+  eq(gaps.length, 0, 'Eagle-tier rows filed under a Flattop-mapped token:\n  ' + gaps.join('\n  '));
+});
+
+test('FINDING A guard NEGATIVE: the Apex-Eagle guard actually bites (synthetic Eagle rows must fail it)', function(){
+  /* hermetic: synthetic rows only, both real catalogs untouched. */
+  /* (a) the cassette/RD shape - caught by SRAM's own 50T Apex Eagle floor.
+     Deliberately named with NO "Eagle" anywhere, so this proves the mechanical
+     discriminator stands on its own: an Eagle-tier row filed under a neutral
+     product name is still caught. */
+  var byCog = apexEagleGaps([{id: 'gca-synthetic-apex-1052', system: 'sram-apex-mech-12',
+    family: 'sram-apex-mech', model: 'SRAM PG-1231', maxCog: 52}]);
+  eq(byCog.length, 1, 'a 52T cassette under this token is an Apex Eagle part and must be caught');
+  ok(byCog[0].indexOf('50T Apex Eagle floor') >= 0 && byCog[0].indexOf('EAGLE chain') >= 0,
+    'and must say WHY it is wrong + what to do: ' + byCog[0]);
+
+  /* (b) the shifter/crank shape - no cog figure at all, caught by the name */
+  var byName = apexEagleGaps([{id: 'grd-synthetic-apex-eagle-rd', system: 'sram-apex-mech-12',
+    family: 'sram-apex-eagle', model: 'SRAM Apex Eagle RD'}]);
+  ok(byName.length >= 1, 'an Eagle-named row carrying no maxCog must still be caught');
+  ok(byName.some(function(/** @type {string} */ g){ return g.indexOf('own system token') >= 0; }), byName.join(' | '));
+
+  /* (c) a genuine XPLR row of the same tier must NOT be flagged - a false
+     "won't fit" on the entry path is as bad as a miss */
+  eq(apexEagleGaps([{id: 'gca-synthetic-apex-xplr-1144', system: 'sram-apex-mech-12',
+    family: 'sram-apex-xplr-cassette', model: 'SRAM PG-1231', maxCog: 44}]).length, 0,
+    'a real Apex XPLR row (44T, no Eagle branding) stays clean');
+
+  /* (d) rows under OTHER system tokens are out of scope entirely */
+  eq(apexEagleGaps([{id: 'gca-synthetic-eagle-other', system: 'sram-xplr-12',
+    model: 'Eagle something', maxCog: 52}]).length, 0, 'the guard is scoped to sram-apex-mech-12 only');
+});
+
 /* ---- off-live containment (CLAUDE.md hard rule 3) -------------------------- */
 test('OFF-LIVE: nothing the site serves loads compat-road.js or the road/gravel data', function(){
   var root = path.join(__dirname, '..');
