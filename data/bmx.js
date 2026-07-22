@@ -44,7 +44,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
     weight: 2245, price: 449.99,
-    verified: true, lastChecked: '2026-07-11', source: 'https://kinkbmx.com/products/williams-frame',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-11', source: 'https://kinkbmx.com/products/williams-frame',
     note: 'Nathan Williams signature frame; also offered in 20.5/21/21.25in top tube.'
   },
   {
@@ -52,14 +52,14 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
     price: 579.99,
-    verified: true, lastChecked: '2026-07-11', source: 'https://wethepeoplebmx.de/bikes/justice',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-11', source: 'https://wethepeoplebmx.de/bikes/justice',
     note: 'Weight fetched (12.03kg) is COMPLETE BIKE weight, not frame-only, so weight is omitted here to avoid a wrong frame-weight field. BB is a Salt "Mid" pressed for 19mm spindle.'
   },
   {
     id: 'bmx-fr-cult-gateway', cat: 'frame', brand: 'Cult', model: 'Gateway',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
-    price: 469.99, verified: true, lastChecked: '2026-07-21',
+    price: 469.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-21',
     source: 'https://cultcrew.com/products/025-gateway-black',
     note: 'bmx-depth-7 (2026-07-21): VERIFIED under the frames complete-bike-only exception (VERIFY-PROTOCOL.md, case b), which post-dates the 2026-07-17 check that first found this row. Re-fetched cultcrew.com/products/025-gateway-black.js: "20.5\" TT" (topTube CONFIRMED), "Integrated Headset" (headTube CONFIRMED), "Sealed Mid Bottom Bracket" (bbShell:mid CONFIRMED), "990 U-Brake" (rearBrakeMount:u-brake CONFIRMED) - every checkBmxBuild-read frame field (wheelSize/bbShell/rearBrakeMount) is confirmed against the exact complete bike\'s own fetched page. frameOnly CORRECTED true -> false: Gateway has no frame-only SKU on cultcrew.com, it exists ONLY inside this complete bike, matching case (b)\'s pattern exactly. price CORRECTED 429.99 -> 469.99 (the real complete-bike MSRP, no longer a frameset-price placeholder now that frameOnly is honestly false). rearAxle (14mm) is not stated on the page and is NOT checkBmxBuild-read (display-only) - left as the pre-existing sample, does not block verification.'
   },
@@ -104,7 +104,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
     price: 469.00,
-    verified: true, lastChecked: '2026-07-20', source: 'https://harobikes.com/products/downtown-20-2025',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://harobikes.com/products/downtown-20-2025',
     note: 'BMX wave 4 (frame-exception harvest): sold as a complete bike only (no frame-only SKU) - verified on interfaces alone per the 2026-07-20 policy extension. Current-year page (downtown-20-2025) states: "Hi-tension steel frame. 20.5\\" top tube. Integrated head tube. Welded brake bosses. Mid bottom bracket." (confirms bbShell:mid, headTube, topTube:20.5 exactly) and current Shopify price $469.00 (corrected from $379.99). The 2025 page names the brake bosses but not the mount TYPE explicitly; cross-checked against Haro\'s own archived spec sheet for the same current-generation model (archive.harobikes.com/bmx/2023-freestyle/downtown-20-2023, same 20.5in TT / Mid BB / integrated-headtube frame, unchanged since), which states verbatim "990 Brake Mounts" and "Brakes: Radius Alloy 990 U-Brake" - confirms rearBrakeMount:u-brake and rearAxle:14mm ("14mm Axle Drop-outs") exactly. No frame-only weight exists on either page (Shopify\'s "weight" field is a shipping-weight bucket, not net product weight, per the wave-2 phantom-number doctrine - not used); weight intentionally left unset.'
   },
   {
@@ -112,7 +112,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'american', headTube: 'integrated-1-1/8',
     topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
     price: 299.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://www.mongoose.com/products/legion-l20-m20',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.mongoose.com/products/legion-l20-m20',
     note: 'Complete bike only (Mongoose does not sell this frame separately). Maker page corrects bbShell to American loose-ball (catalog previously had mid, wrong) and price to $299.99 (was $349.99); confirms 14mm sealed-cassette rear axle, threadless integrated 1-1/8in headset, U-brake.'
   },
   {
@@ -149,7 +149,7 @@ var BMX_PARTS = [
     discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
     topTube: 21.0, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: true,
     weight: 1532, price: 549.99,
-    verified: true, lastChecked: '2026-07-21', source: 'https://chasebicycles.com/frames/frame-archives/chase-rsp-3-0/',
+    verified: true, priceBasis: 'discontinued-no-msrp', lastChecked: '2026-07-21', source: 'https://chasebicycles.com/frames/frame-archives/chase-rsp-3-0/',
     note: 'Every engine-read field confirmed against chasebicycles.com\'s RSP 3.0 frame-archive page (re-fetched 2026-07-21, raw text cross-checked - a discontinued frame, archive-only): wheelSize=20in (standard), bbShell=euro (page: "BSA Threaded BB on both the earlier RSP frames"), rearBrakeMount=v-brake (V-brake-only frame); weight 1532g is the same page\'s per-size table for the 21.0in/Pro-XL row (this row\'s modeled size). headTube and rearAxle are catalog-required but display-only in checkBmxBuild (no rule reads them) and the archive page states neither, so both stay unconfirmed samples per the interface-verification exception - retained unchanged rather than guessed. Price (549.99) has no located source on this or any other fetched page (2016-era discontinued frame, no surviving retailer listing found); kept as a pre-existing sample figure with NO disclosed original basis - flagged here rather than presented as MSRP, per THE PRICE RULE.'
   },
   {
@@ -171,7 +171,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
     price: 675.00,
-    verified: true, lastChecked: '2026-07-17', source: 'https://gtbicycles.com/products/pro-performer-20',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://gtbicycles.com/products/pro-performer-20',
     note: 'GT\'s long-running heritage/old-school reissue platform, sold as a complete bike ("GT BMX Pro Performer 20"). bbShell (Sealed Mid 22mm), headTube (Integrated 1-1/8in), rearBrakeMount (U-brake) and rearAxle (14mm dropout / 3/8in cassette) all confirmed. topTube corrected 20.5 -> 20.75in. Price corrected 469.99 -> 675.00 (Shopify variant JSON, gtbicycles.com/products/pro-performer-20.js).'
   },
   {
@@ -186,7 +186,7 @@ var BMX_PARTS = [
     discipline: 'race', wheelSize: '20', bbShell: 'spanish', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'disc', rearAxle: '10mm', frameOnly: false,
     price: 900.00,
-    verified: true, lastChecked: '2026-07-17', source: 'https://gtbicycles.com/products/speed-series-pro',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://gtbicycles.com/products/speed-series-pro',
     note: 'GT\'s race-team-tier complete bike. bbShell corrected euro -> spanish (frame is BB86 press-fit, unthreaded - the "Spanish BB" token, not the threaded Euro shell). rearBrakeMount corrected v-brake -> disc (disc-brake-only frame, "AL CNC/Forged Quick Change Disc Dropout system"). AUDIT 2026-07-17: was mistakenly \'caliper\' (rim-caliper token) after the earlier v-brake->caliper edit; re-corrected to the \'disc\' token added the same day (BMX_VOCAB.brakeMount), so the Avid BB5 (mount:\'disc\') and other disc calipers match instead of false-erroring. PREFLIGHT FIX 2026-07-17 (schema-bmx.js catch): rearAxle re-corrected 15mm -> 10mm - re-fetched gtbicycles.com/products/speed-series-pro, which lists "AL CNC/Forged Quick Change Disc Dropout SyStem" with "3/8\\" Dropouts" (the axle spec) and a separate "15mm" DROPOUT SLOT WIDTH figure the earlier pass mistook for the axle diameter; 3/8in is the standard BMX_VOCAB \'10mm\' token, matching every other race-frame row\'s rear axle. headTube (integrated 1-1/8-1.5 taper) and topTube (20.75in Pro size) confirmed. Price corrected 799.99 -> 900.00 (gtbicycles.com/products/speed-series-pro.js); the separate frame-only SKU (gtbicycles.com/products/speed-series-pro-frame) is $262.50 for reference, not used here since this row is frameOnly:false.'
   },
   {
@@ -207,7 +207,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
     price: 649.99,
-    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/hoover',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://harobikes.com/products/hoover',
     note: 'bmx-depth-10: COMPLETE-BIKE depth. harobikes.com/collections/bmx current 10-product Freestyle lineup, fetched via browser pane (WebFetch 429s on this domain). The Specifications-tab text (hidden accordion, present in DOM, not surfaced by page text/description alone) states verbatim: "Full chromoly frame w/ 1-1/8\\" Integrated head tube, mid BB shell, removable brake mounts, 14mm dropouts." (confirms bbShell:mid, headTube:integrated-1-1/8, rearBrakeMount:u-brake, rearAxle:14mm exactly); the Features list confirms "20.75\\" top tube" and current Shopify price $649.99 (SKU 23441/23442). Complete-bike-only (no frame-only Hoover SKU on the current site) -> frameOnly:false per the Mongoose Legion convention. No net frame-only weight published (Shopify carries no weight field on this listing) - weight intentionally left unset per the phantom-number doctrine.'
   },
   {
@@ -215,7 +215,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.25, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
     price: 649.99,
-    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/la-bastille-cassette',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://harobikes.com/products/la-bastille-cassette',
     note: 'bmx-depth-10: COMPLETE-BIKE depth. Matthias Dandois signature flatland/street complete. Specifications-tab text (browser-pane, hidden accordion): "Full chromoly frame w/ 1-1/8\\" integrated headtube, mid BB shell, removable brakes mounts & 14mm dropouts. 20.25\\" top tube." - confirms every engine-read field exactly; current Shopify price $649.99 (SKU 23458). Complete-bike-only (cassette-hub-equipped variant of the La Bastille platform, no frame-only SKU) -> frameOnly:false. No frame-only weight published - left unset.'
   },
   {
@@ -223,7 +223,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
     price: 629.00,
-    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/dana-2025',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://harobikes.com/products/dana-2025',
     note: 'bmx-depth-10: COMPLETE-BIKE depth. Product page markets it as "built on the same frame as the Hoover" in rider-designed colorways at a lower price point, but the page\'s own Specifications-tab text (browser-pane) states its OWN geometry distinctly: "Full chromoly construction. 20.5\\" top tube. Removable brake mounts. Integrated head tube. Mid bottom bracket." - topTube modeled at 20.5in (this page\'s own stated size and the only variant offered, "Gloss Metallic Bronze / 20.5"), not copied from the Hoover\'s 20.75in. bbShell/headTube/rearBrakeMount confirmed exactly; rearAxle:14mm carried from the shared-platform convention (every current Haro freestyle frame in this catalog uses 14mm dropouts; not independently restated on this specific page, so treat as the one field not directly page-confirmed). Current Shopify price $629.00 (SKU 25260/25261). Complete-bike-only -> frameOnly:false.'
   },
   {
@@ -231,7 +231,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
     price: 599.00,
-    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/clairemont-2025',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://harobikes.com/products/clairemont-2025',
     note: 'bmx-depth-10: COMPLETE-BIKE depth. Haro\'s top-tier park/all-around complete ("competition-ready straight out of the box"). Specifications-tab text (browser-pane): "Full chromoly construction. 20.75\\" top tube. Removable brake mounts. Integrated head tube. Mid bottom bracket." - confirms every engine-read field exactly. Current Shopify price $599.00 (SKU 25262, single "Default Title" variant/colorway). Complete-bike-only -> frameOnly:false.'
   },
   {
@@ -239,7 +239,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
     price: 579.00,
-    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/burgess-2025',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://harobikes.com/products/burgess-2025',
     note: 'bmx-depth-10: COMPLETE-BIKE depth. Marketed as "built on the same frame as the Clairemont" in pro-inspired colorways at a lower price point. Specifications-tab text (browser-pane) confirms this is genuinely the same spec, not just marketing: "Full chromoly construction. 20.75\\" top tube. Removable brake mounts. Integrated head tube. Mid bottom bracket." - byte-identical to the Clairemont\'s own tab text, and its "20.75" variant size matches. Current Shopify price $579.00 (SKU 25258/25259). Complete-bike-only -> frameOnly:false.'
   },
   {
@@ -247,7 +247,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
     price: 529.00,
-    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/blvd-2025',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://harobikes.com/products/blvd-2025',
     note: 'bmx-depth-10: COMPLETE-BIKE depth. Entry all-around complete, taller-bar setup. Specifications-tab text (browser-pane): "Chromoly top and down tubes. 20.5\\" top tube length. Integrated head tube. Welded brake bosses. Mid bottom bracket." - "welded" (non-removable) brake bosses, still the u-brake token (mount TYPE, not removability, is what the field encodes - matches the Downtown-DLX archive\'s identical "welded"/fixed convention). rearAxle:14mm carried from the shared Haro-freestyle-platform convention, not independently restated on this page. Current Shopify price $529.00 (SKU 25256/25257). Complete-bike-only -> frameOnly:false.'
   },
   {
@@ -255,7 +255,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '18', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 18.9, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
     price: 439.00,
-    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/downtown-18-2025',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://harobikes.com/products/downtown-18-2025',
     note: 'bmx-depth-10: COMPLETE-BIKE depth. Junior-size Downtown, "sized for smaller riders...before they\'re ready for a full 20\\"". Specifications-tab text (browser-pane) states verbatim: "Steel Frame w/ 1-1/8\\" Integrated Headtube, MID BB Shell, 990 Brake Mounts & 14mm Axle Drop-outs, 13.1\\"CS 74.5° HT" - confirms bbShell:mid, headTube:integrated-1-1/8, rearBrakeMount:u-brake (Haro\'s "990" designation, same token this catalog uses for the Downtown 20/Downtown DLX), rearAxle:14mm exactly. No explicit top-tube-length figure is stated on this page (the model name/wheel-size is the differentiator, not a stated TT number) - topTube modeled at 18.9in as a plausible 18in-wheel junior-frame value (NOT page-confirmed; every other engine-read field is). Current Shopify price $439.00 (SKU 25268/25269). Complete-bike-only -> frameOnly:false.'
   },
   {
@@ -263,7 +263,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '16', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 17.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
     price: 429.00,
-    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/downtown-16-2025',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://harobikes.com/products/downtown-16-2025',
     note: 'bmx-depth-10: COMPLETE-BIKE depth. "The perfect first bike for young riders ready to dive into BMX." Specifications-tab text (browser-pane) states verbatim: "Hi-tension steel frame. Integrated head tube. Welded brake bosses. Mid bottom bracket." plus a matching fork ("Hi-tension steel fork...32mm offset"), bar ("Haro 7\\" rise hi-tension steel"), and cranks ("3-piece chromoly cranks. 140mm length. 19mm spindle.") spec block - confirms bbShell:mid, headTube:integrated-1-1/8, rearBrakeMount:u-brake (welded/fixed, same convention as the BLVD row above). No top-tube-length or dropout-mm figure is stated for this smallest-size SKU; topTube modeled at 17.5in as a plausible 16in-wheel entry-size value and rearAxle carried from the shared-platform 14mm convention - NEITHER page-confirmed, unlike the other engine-read fields. Current Shopify price $429.00 (SKU 25266/25267). Complete-bike-only -> frameOnly:false. NOTE: a companion "Downtown 24" SKU (harobikes.com/products/downtown-24-2025, $499.00) exists on the same collection page but is marked "Coming Soon" with empty Features/Specifications tabs (product not yet released, no manufacturer spec text published at all) - a genuine TRUE-GAP, not entered (fabricating its interfaces would violate THE BAR).'
   },
   {
@@ -271,7 +271,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.8, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
     weight: 2270, price: 439.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://us.bsdforever.com/products/bsd-focus-gaspar-guendulain-frame',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://us.bsdforever.com/products/bsd-focus-gaspar-guendulain-frame',
     note: 'Gaspar Guendulain signature Focus frame; us.bsdforever.com confirms mid BB, integrated head tube, removable brake mounts (sold separately - runs brakeless by default), and 14mm dropouts. Top tube corrected from 20.6in (not an offered size) to 20.8in, the shortest real option (20.8/21/21.2/21.5in). Weight ~2270g per the published "5lbs". US-store price ($439.99) matches this row exactly.'
   },
   {
@@ -284,7 +284,7 @@ var BMX_PARTS = [
     id: 'bmx-fr-sandm-pitchfork', cat: 'fork', brand: 'S&M', model: 'Pitchfork',
     discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
     brakeMount: 'none', weight: 980, price: 209.95,
-    verified: true, lastChecked: '2026-07-20', source: 'https://sandmbikes.com/product/hardgoods/forks/pitchfork/',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://sandmbikes.com/product/hardgoods/forks/pitchfork/',
     note: 'RECATEGORIZED frame->fork 2026-07-17 (audit): "Pitchfork" is S&M\'s long-running 4130 CrMo FORK, never a frame. BMX wave 6: PROMOTED to verified off sandmbikes.com\'s own product page (raw-fetched, not a WebSearch summary) - its variation JSON confirms the 20in/"None"-brake-mount/"38" (3/8in=10mm) dropout SKU (sku 02-PF-BLK-20) weighs "3 lbs" shipping-bucket but the spec table\'s stated per-size weight is authoritative: "2.17 lb (.98 kg) 20\\"" = 980g exact match. Steerer text ("1 Piece CNC-Machined 4130 CrMo... Requires standard bearing race included with headset") confirms the integrated-1-1/8 convention. PRICE CORRECTED 459.99 -> 209.95: the page\'s real price for this exact SKU (20in/none/3/8in) is $209.95, not the stale $459.99 sample (a 990-brake-mount variant on the same page runs $219.95, still nowhere near the old figure). Dropouts also confirmed to ship in a 14mm variant (different SKU, not this row).'
   },
 
@@ -330,7 +330,7 @@ var BMX_PARTS = [
     family: 'verde-cadet', modelYear: 2021, discipline: 'freestyle', wheelSize: '20',
     bbShell: 'mid', headTube: 'integrated-1-1/8', topTube: 20.25, rearBrakeMount: 'u-brake',
     rearAxle: '14mm', frameOnly: false, price: 399.99,
-    verified: true, lastChecked: '2026-07-20', source: 'https://verdebicycles.com/collections/bmx-bikes/products/2021-verde-cadet',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://verdebicycles.com/collections/bmx-bikes/products/2021-verde-cadet',
     note: 'Frame spec pulled from the Cadet complete-bike page (verdebicycles.com); entry-level hi-ten frame w/ Mid BB, alloy U-brake. WALL-RETEST 2026-07-20 (verify/wall-retest-1): re-fetched via the browser pane, no wall - verdebicycles.com renders cleanly. Full "Frame Spec" table CONFIRMS Top Tube Length 20.25in (exact), Mid BB, price $399.99 (exact), and Rear Hub "14mm axle" (rearAxle exact). HEADTUBE DISCREPANCY FLAGGED, NOT CHANGED: the page states "standard head tube" + "Headset: Standard 1-1/8\"" (an external-cup standard headset), not an integrated design - this row\'s headTube:integrated-1-1/8 does not match, but headTube is display-only (compat-bmx.js: "no headset rule fires") and BMX_VOCAB has no "standard-1-1/8" option (only integrated-1-1/8/mid/threaded), so left unchanged rather than picking a wrong enum value - flagged for a vocab-widening follow-up. Upgraded to verified:true on the strength of every rule-relevant field (bbShell, topTube, rearAxle, price) matching exactly.'
   },
   {
@@ -353,7 +353,7 @@ var BMX_PARTS = [
     family: 'mongoose-legion', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
     headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
     frameOnly: false, price: 281.99,
-    verified: true, lastChecked: '2026-07-20', source: 'https://int.mongoose.com/products/legion-l60',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://int.mongoose.com/products/legion-l60',
     note: 'BMX wave 4 (frame-exception harvest): sold as a complete bike only (Mongoose does not sell Legion frames standalone) - verified on interfaces alone per the 2026-07-20 policy extension. int.mongoose.com (Mongoose\'s own first-party international site) states verbatim: "Hi-Ten steel frame, removable brake mounts, and mid BB shell" (confirms bbShell:mid), spec table "Rear Hub: Steel, sealed-bearing cassette, 14 mm axle" (confirms rearAxle:14mm) and "Brakes: U-brake, aluminum" (confirms rearBrakeMount:u-brake exactly), "20.5-inch top tube length" (confirms topTube:20.5 exactly). Current mongoose.com (US) price $281.99 confirmed via raw fetch of the same SKU. No frame-only weight exists (complete-bike-only); weight intentionally left unset.'
   },
   {
@@ -377,7 +377,7 @@ var BMX_PARTS = [
     family: 'supercross-envyblk2', discipline: 'race', wheelSize: '20', bbShell: 'euro',
     headTube: 'integrated-1-1/8', topTube: 20, rearBrakeMount: 'v-brake', rearAxle: '10mm',
     frameOnly: true, price: 1195.95,
-    verified: true, lastChecked: '2026-07-20', source: 'https://www.supercrossbmx.com/products/supercross-bmx-envy-blk-2-carbon-fiber-bmx-race-frame',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://www.supercrossbmx.com/products/supercross-bmx-envy-blk-2-carbon-fiber-bmx-race-frame',
     note: 'Carbon fiber race frame, Expert XL size (10mm/3-8in rear axle - the larger Pro sizes ship a 15mm dropout w/ 10mm adapter, not modeled here). Threaded Euro BB shell, 22.2mm seatpost, removable V-brake mounts. Raw-fetch confirmed on supercrossbmx.com\'s own geometry table: Expert XL top tube = 20.0in (4-column Junior/Expert/Expert XL/Expert XXL table), 10mm rear axle explicitly stated for this size, threaded Euro BB shell, integrated 1-1/8"-1.5" head tube, removable V-brake system, and the exact $1195.95 price (Shopify JSON price field). No frame weight published anywhere on the page (sold standalone frame-only, no complete-bike bundling) - weight stays the unset/sample state per the frames no-published-weight exception (VERIFY-PROTOCOL.md).'
   },
 
@@ -386,7 +386,7 @@ var BMX_PARTS = [
     id: 'bmx-fk-odyssey-r32', cat: 'fork', brand: 'Odyssey', model: 'R32',
     discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
     brakeMount: 'none', weight: 885, price: 219.99,
-    verified: true, lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-r32-forks',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-r32-forks',
     note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): brakeMount corrected u-brake -> none - the product\'s own Shopify tag data states "Brake Mounts:None" verbatim (raw JSON, not a search summary). Axle (3/8in slot = 10mm token) and weight (885g/1lb 15.2oz) both raw-confirmed in the page\'s own spec list ("Weight: 1lb 15.2oz (885 grams)") - a real per-SKU figure, not the Shopify shipping-weight-bucket field (which separately reports 2268g on this same product, discarded). steerer is display-only in checkBmxBuild (no BMX headset/steerer rule reads it) so it does not gate verification.'
   },
   {
@@ -422,13 +422,13 @@ var BMX_PARTS = [
   {
     id: 'bmx-hs-cult-integrated', cat: 'headset', brand: 'Cult', model: 'Integrated Headset',
     fit: 'integrated-1-1/8', price: 27.99,
-    verified: true, lastChecked: '2026-07-20', source: 'https://cultcrew.com/products/og-headset',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://cultcrew.com/products/og-headset',
     note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): fit is display-only in checkBmxBuild (headTube/steerer is a documented "no headset rule fires" field per compat-bmx.js), so its unconfirmed value does not block verification - every current Cult frame in this catalog uses an integrated 1-1/8in head tube, consistent with the value here. Price ($27.99) matches Cult\'s current "Headset" product (cultcrew.com/products/og-headset: "OG HEADSET / 2 different sized stackable caps and three spacers"). No weight field on this row - the page\'s 907g JSON figure is a shipping-weight bucket shared verbatim with the unrelated Bottom Bracket listing, correctly never carried over.'
   },
   {
     id: 'bmx-hs-odyssey-integrated', cat: 'headset', brand: 'Odyssey', model: 'Pro Headset',
     fit: 'integrated-1-1/8', price: 34.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/pro-headset',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/pro-headset',
     note: 'Odyssey\'s "Pro Headset" - real product name corrected from generic "Integrated Headset"; 1-1/8in integrated fit + $34.99 price confirmed on the fetched maker page (was $22.99).'
   },
   {
@@ -447,19 +447,19 @@ var BMX_PARTS = [
   {
     id: 'bmx-gy-odyssey-g3kit', cat: 'gyro', brand: 'Odyssey', model: 'Gyro G3 Kit',
     steererFit: 'integrated-1-1/8', cableRouting: 'dual', price: 22.99,
-    verified: true, lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-gyro-g3-kit-white',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-gyro-g3-kit-white',
     note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): dual-cable design and price ($22.99) confirmed on the maker page ("Odyssey\'s original dual cable detangler system", "Upper and lower cables included"). steererFit is display-only in checkBmxBuild (no BMX rule reads a gyro\'s steerer fit - only frame.gyroTabs/brake.dualCable gate the gyro rules), so its unconfirmed 1-1/8in value does not block verification; it matches every current Cult/Odyssey freestyle frame in this catalog. No weight field on this row.'
   },
   {
     id: 'bmx-gy-odyssey-gtxs', cat: 'gyro', brand: 'Odyssey', model: 'GTX-S Gyro',
     steererFit: 'integrated-1-1/8', cableRouting: 'dual', weight: 145, price: 49.99,
-    verified: true, lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-gyro-gtx-s-black',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-gyro-gtx-s-black',
     note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): sold as the bearing unit for Odyssey\'s dual-cable Gyro system (17mm stack height, sealed mechanism bearing, 6061-T6 aluminum) - price ($49.99) matches exactly. cableRouting/steererFit are both display-only in checkBmxBuild (no rule reads them), so their unconfirmed values do not block verification. Weight: no maker figure published for the bearing unit alone; the JSON variant field shows 227g but with no description text to corroborate it as a net (vs shipping) figure, so it is NOT trusted per the wave-2 phantom-number doctrine - weight stays the 145g sample.'
   },
   {
     id: 'bmx-gy-shadow-sanov2', cat: 'gyro', brand: 'The Shadow Conspiracy', model: 'Sano Detangler V2',
     steererFit: 'integrated-1-1/8', cableRouting: 'dual', weight: 45, price: 57.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-sano-detangler-v2',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-sano-detangler-v2',
     note: 'CNC 6061-T6 aluminum, U.S.B. sealed mechanism bearing, wider caged-bearing design (2nd-period spec), includes detangler plate. Weight per maker page (1.6oz).'
   },
   {
@@ -472,24 +472,24 @@ var BMX_PARTS = [
   {
     id: 'bmx-cr-profile-elite-al-sl', cat: 'cranks', brand: 'Profile Racing', model: "Elite AL 'SL' Crank Kit",
     spindle: '30mm', pieces: '3-piece', ringMount: 'spline', price: 489.99,
-    verified: true, lastChecked: '2026-07-11', source: 'https://www.profileracing.com/product-category/profile-bmx/profile-cranks/',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-11', source: 'https://www.profileracing.com/product-category/profile-bmx/profile-cranks/',
     note: 'Aluminum arms, 30mm spindle (Profile\'s largest spindle option).'
   },
   {
     id: 'bmx-cr-profile-elite-al-hd', cat: 'cranks', brand: 'Profile Racing', model: "Elite AL 'HD' Crank Kit",
     spindle: '30mm', pieces: '3-piece', ringMount: 'spline', price: 489.99,
-    verified: true, lastChecked: '2026-07-11', source: 'https://www.profileracing.com/product-category/profile-bmx/profile-cranks/'
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-11', source: 'https://www.profileracing.com/product-category/profile-bmx/profile-cranks/'
   },
   {
     id: 'bmx-cr-profile-race', cat: 'cranks', brand: 'Profile Racing', model: 'Race Cranks',
     spindle: '19mm', pieces: '3-piece', ringMount: 'press-on', price: 286.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://www.profileracing.com/product/rhd-3-piece-chromoly-race-crankset-2/',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.profileracing.com/product/rhd-3-piece-chromoly-race-crankset-2/',
     note: 'Confirmed as the RHD (bolt-on boss) 3-Piece Chromoly Race Crankset: 19mm GDH CrMo axle, 3-piece, bolt-on sprocket boss, base price $286.99 (2026-07-17). No per-config weight published (arm length is a variant); left without a weight field like the existing verified Elite AL crank rows.'
   },
   {
     id: 'bmx-cr-odyssey-calibre', cat: 'cranks', brand: 'Odyssey', model: 'Calibur V2 Cranks',
     spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 900, price: 179.99,
-    verified: true, lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-calibur-v2-bmx-cranks-rustproof-black',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-calibur-v2-bmx-cranks-rustproof-black',
     note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): spindle (hollow 22mm, 48-spline), 3-piece construction and spline sprocket mount are all raw-confirmed in the maker page\'s own spec list; price ($179.99) matches. No maker weight is published for this SKU and no reputable third-party MEASURED figure exists, so weight stays the 900g sample (basis: unchanged from the prior pass, not a shipping-weight figure).'
   },
   {
@@ -517,19 +517,19 @@ var BMX_PARTS = [
   {
     id: 'bmx-bb-profile-euro-22', cat: 'bb', brand: 'Profile Racing', model: 'Euro Outboard BB',
     shell: 'euro', spindleFit: '22mm', weight: 148, price: 71.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://www.profileracing.com/product/euro-externaloutboard-bottom-bracket/',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.profileracing.com/product/euro-externaloutboard-bottom-bracket/',
     note: 'CORRECTED 2026-07-17: maker page confirms Euro External (Outboard) BB is ONE SKU sold in both 19mm and 22mm axle fit at a single price, $71.99 (was $39.99) and 148g/5.18oz (weight was missing).'
   },
   {
     id: 'bmx-bb-salt-mid-19', cat: 'bb', brand: 'Salt', model: 'Mid Sealed BB',
     shell: 'mid', spindleFit: '19mm', price: 24.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://saltbmx.com/products/salt-rookie-mid-bb',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://saltbmx.com/products/salt-rookie-mid-bb',
     note: 'Matches the press-fit spec published on the WeThePeople Justice frame page (bmx-fr-wethepeople-justice). Maker page (current lineup name: Rookie Mid BB Set) confirms a mid-shell 19mm-spindle sealed BB kit exists in Salt\'s current range.'
   },
   {
     id: 'bmx-bb-odyssey-american', cat: 'bb', brand: 'Odyssey', model: 'American BB',
     shell: 'american', spindleFit: '19mm', price: 24.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/odyssey-american-bb-silver',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/odyssey-american-bb-silver',
     note: 'American shell + 19mm spindle fit and price ($24.99, was $22.99) confirmed on the fetched maker page ("made to fit 19mm crank spindles and American BB frames"). No weight is published or needed (this row never carried one).'
   },
   {
@@ -541,7 +541,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-bb-profile-euro-19', cat: 'bb', brand: 'Profile Racing', model: 'Euro Outboard BB 19mm',
     shell: 'euro', spindleFit: '19mm', weight: 148, price: 71.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://www.profileracing.com/product/euro-externaloutboard-bottom-bracket/',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.profileracing.com/product/euro-externaloutboard-bottom-bracket/',
     note: 'CORRECTED 2026-07-17: maker page confirms Euro External (Outboard) BB is ONE SKU sold in both 19mm and 22mm axle fit at a single price, $71.99 (was $39.99) and 148g/5.18oz (weight was missing).'
   },
   {
@@ -557,13 +557,13 @@ var BMX_PARTS = [
   {
     id: 'bmx-bb-odyssey-mid-22', cat: 'bb', brand: 'Odyssey', model: 'Mid BB (22mm)',
     shell: 'mid', spindleFit: '22mm', price: 24.99,
-    verified: true, lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-bmx-mid-bb-black',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-bmx-mid-bb-black',
     note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): raw-confirmed via the maker page ("Made to fit all 19mm or 22mm crank spindles and press-fit Mid BB frames"), with 22mm and 19mm sold as the same product\'s two variant options - shell:\'mid\' and spindleFit:\'22mm\' both match exactly. Price ($24.99) matches. No weight field on this row to begin with.'
   },
   {
     id: 'bmx-bb-odyssey-mid-19', cat: 'bb', brand: 'Odyssey', model: 'Mid BB (19mm)',
     shell: 'mid', spindleFit: '19mm', price: 24.99,
-    verified: true, lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-bmx-mid-bb-black',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-bmx-mid-bb-black',
     note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): the 19mm-spindle variant of the same raw-confirmed Odyssey Mid BB product as bmx-bb-odyssey-mid-22 (see that row\'s note). shell:\'mid\' and spindleFit:\'19mm\' both match exactly; price ($24.99) matches. No weight field on this row to begin with.'
   },
 
@@ -575,19 +575,19 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-sp-profile-race-25', cat: 'sprocket', brand: 'Profile Racing', model: 'Imperial 23T-30T Sprocket (25T)',
-    teeth: 25, mount: 'press-on', pitch: '3/32', price: 57.99, verified: true, lastChecked: '2026-07-21',
+    teeth: 25, mount: 'press-on', pitch: '3/32', price: 57.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-21',
     source: 'https://www.profileracing.com/product/imperial-23-30/',
     note: 'bmx-depth-7 (2026-07-21): VERIFIED, correcting two wrong fields the 2026-07-18 pass left unresolved. Directly fetched profileracing.com/product/imperial-23-30/ (page title literally "IMPERIAL 23T-30T SPROCKET" — the prior "Spline Drive" in this row\'s model name was never the real product name, corrected here). The page states verbatim: "-The Imperial is \'bolt on\' style and requires a sprocket bolt to be attached to crank arm" (NOT spline-drive at all) -> mount CORRECTED spline -> press-on, matching this catalog\'s existing convention that the bolt-on-boss Profile Race Crank rows (bmx-cr-profile-race/-22) also use mount:press-on for the same bolt-on-boss mounting style; "-3/32″ tooth width" -> pitch CORRECTED 1/8 -> 3/32. 25t is explicitly listed among the "Silver & Black: 23t,24t,25t,26t,27t,28t,29t,30t" size run -> teeth:25 CONFIRMED real. Flat $57.99 SKU price (2026-07-18 pass) unchanged/re-confirmed by this fetch (single price across the whole Additional-information color/size variant list). Weight is a per-color-run reference (67g at 26t) not this exact SKU\'s figure, so left without a weight field.'
   },
   {
     id: 'bmx-sp-profile-race-28', cat: 'sprocket', brand: 'Profile Racing', model: 'Imperial 23T-30T Sprocket (28T)',
-    teeth: 28, mount: 'press-on', pitch: '3/32', price: 57.99, verified: true, lastChecked: '2026-07-21',
+    teeth: 28, mount: 'press-on', pitch: '3/32', price: 57.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-21',
     source: 'https://www.profileracing.com/product/imperial-23-30/',
     note: 'bmx-depth-7 (2026-07-21): VERIFIED, same correction as bmx-sp-profile-race-25 (fetched the same profileracing.com/product/imperial-23-30/ page): model name corrected to the real "Imperial 23T-30T Sprocket" (no "Spline Drive" in the real name), mount CORRECTED spline -> press-on ("bolt on style... requires a sprocket bolt to be attached to crank arm"), pitch CORRECTED 1/8 -> 3/32 ("3/32″ tooth width"). 28t confirmed among the page\'s listed sizes. $57.99 flat SKU price re-confirmed.'
   },
   {
     id: 'bmx-sp-profile-race-33', cat: 'sprocket', brand: 'Profile Racing', model: 'Sabre Universal Spline Drive (33T)',
-    teeth: 33, mount: 'spline', pitch: '1/8', price: 75.99, weight: 122, verified: true, lastChecked: '2026-07-21',
+    teeth: 33, mount: 'spline', pitch: '1/8', price: 75.99, weight: 122, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-21',
     source: 'https://www.profileracing.com/product/sabre-universal-spline-drive-sprocket-25t-33t/',
     note: 'bmx-depth-7 (2026-07-21): VERIFIED. Directly fetched profileracing.com/product/sabre-universal-spline-drive-sprocket-25t-33t/ (page title "SABRE UNIVERSAL SPLINE DRIVE SPROCKET (25T-33T)"). The Sabre is a genuinely universal sprocket sold with a choice of adapter insert ("uses an adapter insert to make the sprocket compatible with spline drive or bolt on style cranks... A. 19mm Spline Drive, B. 22mm Spline Drive, C. 19mm Bolt On, D. 22mm Bolt On, E. 24mm Bolt On") — mount:spline here represents the "A/B Spline Drive" adapter configuration, a real purchasable option per DATA-ENTRY-TEMPLATE\'s config-dependent-spec guidance (kept as one of the valid options rather than invented). 33t confirmed in the page\'s variant list; the page\'s own JSON variant pricing (data-product_variations) shows 33t + "A. 19mm Spline Drive" = exactly $75.99, matching this row\'s existing price EXACTLY (no correction needed). Weight ADDED: page states "Weight (without insert): ...33t: 122g/4.3oz" — a real per-SKU figure (basis "without insert" noted here per the weight-conventions soldWithout practice). pitch "1/8″ chain width" confirmed unchanged.'
   },
@@ -612,7 +612,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-ch-odyssey-seance', cat: 'chain', brand: 'Odyssey', model: 'Bluebird Half-Link Chain',
     pitch: '1/8', halfLink: true, weight: 280, price: 39.99,
-    verified: true, lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-bluebird-half-link-chain-silver',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-bluebird-half-link-chain-silver',
     note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): pitch (explicit "1/2” x 1/8” size" in the maker\'s own spec list - the chainPitch field checkBmxBuild reads) and half-link construction ("Half-links allow for a more precise fit...") both raw-confirmed; price ($39.99) matches. No weight is published on the maker page and no measured third-party figure was found, so weight stays the 280g sample (basis noted here).'
   },
   {
@@ -630,19 +630,19 @@ var BMX_PARTS = [
   {
     id: 'bmx-rh-fitbikeco-oem-9t', cat: 'rearWheel', brand: 'Fit Bike Co', model: 'OEM Sealed Cassette Hub',
     driverType: 'cassette', driverTeeth: 9, side: 'RHD', axle: '14mm', weight: 1406, price: 69.99,
-    verified: true, lastChecked: '2026-07-21', source: 'https://thebuildingdistro.com/product/fit-oem-20-lhd-rhd-wheelset/',
+    verified: true, priceBasis: 'oe-only-no-msrp', lastChecked: '2026-07-21', source: 'https://thebuildingdistro.com/product/fit-oem-20-lhd-rhd-wheelset/',
     note: 'Re-fetched 2026-07-21: Fit no longer sells this hub/wheel standalone, only inside the "FIT OEM 20in LHD/RHD Wheelset" - every engine-read field this row carries is confirmed on that current page ("9T Cassette Driver", "14mm Rear Axle Male", "fully sealed hubs"; side kept RHD, the wheelset\'s LHD/RHD is a build choice, not a spec fact, and side is display-only in checkBmxBuild anyway). Weight 1406g = the page\'s stated 3.10lb rear-wheel figure (weight IS split per side on this page, so this is a real per-part number, not a bundle-only shipping weight). Price stays the prior 69.99 sample - the page only lists the wheelset\'s combined $79.95 (a different, bundled product; THE PRICE RULE covers a missing per-part price, not a wrong one).'
   },
   {
     id: 'bmx-rh-odyssey-clutchv2', cat: 'rearWheel', brand: 'Odyssey', model: 'Clutch V2 Freecoaster Hub',
     driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', weight: 623, price: 169.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/odyssey-clutch-v2-freecoaster-hub',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/odyssey-clutch-v2-freecoaster-hub',
     note: 'Freecoaster, 9T driver, 14mm chromoly axle bolts, RHD/LHD both available, weight (623g/22oz) and price ($169.99, was $199.99) all confirmed on the fetched maker page.'
   },
   {
     id: 'bmx-rh-primo-remix', cat: 'rearWheel', brand: 'Primo', model: 'Remix V3 Cassette Hub',
     driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 151.00,
-    verified: true, lastChecked: '2026-07-21',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-21',
     source: 'https://primostranger.com/products/primo-remix-v3-hub',
     note: 'bmx-sweep-4: current Remix generation is "V3" (model corrected, id kept per append-only policy). Fetched primostranger.com (Primo BMX\'s own storefront - "By PRIMO BMX"): confirms driverTeeth:9 ("1 pc 9t driver") and side:both (RHD/LHD/color variants all listed) exactly; driverType:cassette matches (the Remix line is Primo\'s cassette-hub family, distinct from any freecoaster). axle:14mm retained - the maker page\'s "true 17mm Female axle system" describes the axle BARREL/shaft OD, not the bolt-diameter convention this catalog\'s axle field uses; multiple retailer spec sheets (winstanleysbmx.com, sourcebmx.com) independently confirm "Chromoly 14mm female bolts" for the same V3 generation, matching the existing 14mm value. Price CORRECTED 89.99 -> 151.00 (maker\'s own listed USD price).'
 
@@ -650,30 +650,30 @@ var BMX_PARTS = [
   {
     id: 'bmx-rh-profile-elite-freecoaster', cat: 'rearWheel', brand: 'Profile Racing', model: 'Z Coaster Hub',
     driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', weight: 583, price: 394.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://www.profileracing.com/product/zcoaster%c2%81-hub/',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.profileracing.com/product/zcoaster%c2%81-hub/',
     note: 'CORRECTED 2026-07-17: this is Profile\'s Z Coaster (R) freecoaster hub, not a separate "Elite Freecoaster" model. Standard driver is 9T (was 10T - no 10T option exists; 12T Ti RHD-only is the other choice), base price $394.99 (was $259.99), weight 583g for the base 14mm GDH CrMo axle / 9T CrMo driver config (was 259.99/no weight).'
   },
   {
     id: 'bmx-rh-profile-elite-cassette', cat: 'rearWheel', brand: 'Profile Racing', model: 'Elite Cassette Hub',
     driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 509, price: 394.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://www.profileracing.com/product/elite-cassette-hub/',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.profileracing.com/product/elite-cassette-hub/',
     note: 'CORRECTED 2026-07-17: Profile\'s flagship US-made cassette hub, the long-running Elite line. 9T CrMo driver / 14mm GDH CrMo axle confirmed; base price $394.99 (was $229.99), weight 509g for that config (was 610g - unsourced).'
   },
   {
     id: 'bmx-rh-bsd-mind', cat: 'rearWheel', brand: 'BSD', model: 'Mind Cassette Hub',
-    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 279.99, verified: true, lastChecked: '2026-07-21',
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 279.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-21',
     source: 'https://us.bsdforever.com/products/bsd-back-street-pro-cassette-rear-wheel',
     note: 'bmx-depth-7 (2026-07-21): VERIFIED, closing the exact axle-mm gap the prior pass correctly flagged. The "Mind" name is retired from BSD\'s current storefront — the same underlying product (Back Street Pro cassette hub + BSD Forever rim, RHD/LHD, Jersey Barrier hub guards) is now sold as "FOREVER x BACK STREET PRO - REAR WHEEL" (us.bsdforever.com, Shopify products.json confirms price $279.99 EXACT match on the Black/RHD variant; RHD AND LHD variants both exist -> side:both CONFIRMED). The wheel page\'s own Tech Specs table states "Hub: BSD Back Street Pro hub" (driverType:cassette CONFIRMED) but only "Axle: Male" without a digit; the standalone "Back Street Pro Hub" product page (us.bsdforever.com/products/back-street-pro-cassette-hub, the same named hub) states verbatim "Axle: 14mm 4140 heat treated chromo" and "...now also coming in male 14mm axle version" -> axle:14mm CONFIRMED via the hub\'s own maker page. driverTeeth (9) is NOT engine-read (display-only, bmxGearInfo) so its absence from either page does not block verification per the BMX small-parts exception. Shopify variant weight (2600g, IDENTICAL across all 4 color/side variants) is the shipping-weight-bucket trap (VERIFY-PROTOCOL phantom-number hazard), not a real product weight - no weight field set.'
   },
   {
     id: 'bmx-rh-eclat-shift-freecoaster', cat: 'rearWheel', brand: 'Eclat', model: 'Shift Freecoaster Hub',
-    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', weight: 510, price: 164.99, verified: true, lastChecked: '2026-07-21',
+    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', weight: 510, price: 164.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-21',
     source: 'https://eclatbmx.com/products/shift-freecoaster-hub',
     note: 'bmx-depth-7 (2026-07-21): VERIFIED. Directly fetched eclatbmx.com/products/shift-freecoaster-hub: "Axle: 14mm hollow bore, male axle, hardened heat-treated crmo" (axle CONFIRMED), "Driver: 9t..." (driverTeeth CONFIRMED), "available in RSD or LSD" (side:both CONFIRMED), "Weight: 510g (17.9oz)" (a real per-unit maker-stated figure, distinct from the Shopify variant JSON\'s 96g sub-part placeholder). weight CORRECTED 480 -> 510g and price CORRECTED 227.00 -> 164.99 to match this page exactly (both RSD/LSD variants list $164.99). WeThePeople "Hybrid System" internals confirmed verbatim - converts between freecoaster/cassette mode ("MagnaDrive" magnetic driver); driverType kept as freecoaster (its as-sold/named mode).'
   },
   {
     id: 'bmx-rh-eclat-cortexevo-freecoaster', cat: 'rearWheel', brand: 'Eclat', model: 'Cortex Evo FC Hub',
-    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', price: 169.99, verified: true, lastChecked: '2026-07-21',
+    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', price: 169.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-21',
     source: 'https://eclatbmx.com/products/eclat-cortex-evo-fc-hub',
     note: 'bmx-depth-7 (2026-07-21): VERIFIED. Directly fetched eclatbmx.com/products/eclat-cortex-evo-fc-hub: "Axle: 14mm male hollow bore, hardened heat-treated crmo axle" (axle CONFIRMED), "Driver: RSD or LSD, 9t, 3 pin clutch freecoaster system" (driverTeeth + side:both + driverType:freecoaster all CONFIRMED), price $169.99 EXACT match on both RSD/LSD variants (no correction needed). Shopify variant weight shows 0g (never a real figure) - no weight field set.'
   },
@@ -709,7 +709,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-fw-fitbikeco-oem', cat: 'frontWheel', brand: 'Fit Bike Co', model: 'OEM Front Wheel',
     wheelSize: '20', axle: '10mm', weight: 1066, price: 49.99,
-    verified: true, lastChecked: '2026-07-21', source: 'https://thebuildingdistro.com/product/fit-oem-20-lhd-rhd-wheelset/',
+    verified: true, priceBasis: 'oe-only-no-msrp', lastChecked: '2026-07-21', source: 'https://thebuildingdistro.com/product/fit-oem-20-lhd-rhd-wheelset/',
     note: 'Re-fetched 2026-07-21: same situation as bmx-rh-fitbikeco-oem-9t — Fit no longer sells this standalone, only bundled in the current OEM 20in wheelset. That page confirms "3/8in Front Axle Male" (=10mm, this catalog\'s single token per BMX_VOCAB) and 20in wheel size (unchanged from before, used in test/test-bmx-golden.js). Weight 1066g = the page\'s 2.35lb front-wheel figure (a real per-part split, not a bundle-only shipping weight). Price stays the prior 49.99 sample - the page only lists the wheelset\'s combined $79.95 (a different, bundled product).'
   },
   {
@@ -719,7 +719,7 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-fw-bsd-mind', cat: 'frontWheel', brand: 'BSD', model: 'Mind Front Wheel',
-    wheelSize: '20', axle: '10mm', price: 179.99, verified: true, lastChecked: '2026-07-21',
+    wheelSize: '20', axle: '10mm', price: 179.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-21',
     source: 'https://us.bsdforever.com/products/forever-front-street-pro-front-wheel',
     note: 'bmx-depth-7 (2026-07-21): VERIFIED, closing the axle-mm gap the prior pass flagged. Same retired-name situation as bmx-rh-bsd-mind: the "Mind" branding is gone from the current storefront, but the identical product (Front Street Pro hub + BSD Forever rim, Jersey Barrier hubguards included) is now sold as "FOREVER x FRONT STREET PRO - FRONT WHEEL" (us.bsdforever.com). Price CORRECTED 169.99 -> 179.99 (Black variant, current live price; Chrome is 199.99). The wheel page\'s Tech Specs table states "Hub: BSD Front Street Pro hub" (wheelSize:20 CONFIRMED - this is BSD\'s only 20in front-hub-based wheel line) but no axle digit; the standalone "Front Street Pro Hub" product page (us.bsdforever.com/products/front-street-pro-hub, the same named hub) states "Bolts: 10mm 4140 heat treated chromo" -> axle:10mm CONFIRMED (BMX front-hub specs are conventionally given by their axle-bolt diameter). Shopify variant weight (2600g, identical Black/Chrome) is the same shipping-weight-bucket trap as the rear wheel row - no weight field set.'
   },
@@ -728,19 +728,19 @@ var BMX_PARTS = [
   {
     id: 'bmx-ti-odyssey-pathpro-225', cat: 'tire', brand: 'Odyssey', model: 'Path Pro 2.25"',
     wheelSize: '20', width: 2.25, casing: 'park', maxPsi: 100, price: 32.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/odyssey-path-pro-tire',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/odyssey-path-pro-tire',
     note: '20x2.25in size, 100psi max and price ($32.99, was $24.99) confirmed on the fetched maker page (dual-ply sidewalls, sizes 20x2.25in and 20x2.40in).'
   },
   {
     id: 'bmx-ti-odyssey-pathpro-24', cat: 'tire', brand: 'Odyssey', model: 'Path Pro 2.4"',
     wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 100, price: 32.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/odyssey-path-pro-tire',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/odyssey-path-pro-tire',
     note: '20x2.40in size, 100psi max and price ($32.99, was $26.99) confirmed on the fetched maker page (same product page lists both the 2.25 and 2.40 width options at the same price).'
   },
   {
     id: 'bmx-ti-maxxis-hookworm-25', cat: 'tire', brand: 'Maxxis', model: 'Hookworm',
     wheelSize: '20', width: 1.95, casing: 'park', maxPsi: 110, weight: 720, price: 29.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://www.maxxis.com/us/tire/hookworm/',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.maxxis.com/us/tire/hookworm/',
     note: 'CORRECTED 2026-07-17: maxxis.com lists only one 20in Hookworm SKU, 20x1.95 (part TB294610, wire bead, single compound, 720g, max 110psi) - there is no 20x2.5 Hookworm (that width only exists at 24in+). Row model/width/maxPsi/weight corrected to match; id kept per append-only policy though it now reads oddly against the corrected 1.95in width.'
   },
   {
@@ -753,7 +753,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-ti-odyssey-aitken', cat: 'tire', brand: 'Odyssey', model: 'Aitken Tire 2.45"',
     wheelSize: '20', width: 2.45, casing: 'park', maxPsi: 100, price: 32.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/odyssey-aitken-tire-black',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/odyssey-aitken-tire-black',
     note: 'Width corrected 2.4in -> 2.45in (the real SKU is 20x2.25in or 20x2.45in - no 2.4in size exists), maxPsi corrected to 100 and price to $32.99 (was $27.99), all confirmed on the fetched maker page (Mike Aitken signature, dual-ply, low profile tread).'
   },
   {
@@ -777,7 +777,7 @@ var BMX_PARTS = [
     id: 'bmx-ti-flybikes-ruben-24', cat: 'tire', brand: 'Fly Bikes', model: 'Ruben Ligera 2.4" Tire',
     wheelSize: '20', width: 2.4, casing: 'kevlar-foldable', maxPsi: 120, price: 65.00, weight: 720,
     family: 'flybikes-ruben',
-    verified: true, lastChecked: '2026-07-17', source: 'https://www.flybikes.com/product/fly-ruben-ligera-tire-black',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.flybikes.com/product/fly-ruben-ligera-tire-black',
     note: 'Corrected model/price/weight/casing/maxPsi to match the current "Ruben Ligera 2.4" Tire" (Kevlar folding construction, 60 TPI, 720g, 120 PSI max, $65.00) -- the only current 2.4in-width Ruben SKU (the wire-bead versions are now 2.25in/2.35in only, no plain 2.4in). Renamed model from the previous "Ruben Tire 2.4"" placeholder to match the real product name; id left unchanged (append-only).'
   },
 
@@ -785,7 +785,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-pg-odyssey-grandstand-14', cat: 'pegs', brand: 'Odyssey', model: 'MPEGs 4" Steel Peg',
     axleFit: '14mm', material: 'steel', reducerIncluded: true, price: 24.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/odyssey-mpegs-4-steel-peg-chrome',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/odyssey-mpegs-4-steel-peg-chrome',
     note: 'Model name corrected 2026-07-17 - "Grandstand" is Odyssey\'s PEDAL line, not a peg; the real 4140 chromoly steel peg is "MPEGs" (14mm w/ 3/8in adapters included). Axle fit (14mm), material (steel) and price ($24.99) confirmed on the fetched maker page; reducerIncluded corrected false -> true (the 3/8in adapters ARE included, contradicting the prior sample value).'
   },
   {
@@ -819,7 +819,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-br-odyssey-evo25', cat: 'brake', brand: 'Odyssey', model: 'Evo 2.5 U-Brake',
     mount: 'u-brake', price: 59.99,
-    verified: true, lastChecked: '2026-07-21',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-21',
     source: 'https://shop.odysseybmx.com/collections/odyssey-braking/model-evo-2-5',
     note: 'bmx-sweep-2 (2026-07-21): VERIFIED under THE PRICE RULE - mount (u-brake, the sole checkBmxBuild-read brake field) + price ($59.99) were already directly confirmed 2026-07-17 via shop.odysseybmx.com/collections/odyssey-braking/model-evo-2-5; the prior pass withheld verified:true only for a missing weight source, but weight is optional (not validator-required for verified:true) and brake carries no other engine-read field, so nothing further blocks verification.'
   },
@@ -854,7 +854,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-hb-sandm-slam', cat: 'handlebar', brand: 'S&M', model: 'Slam Bars',
     clamp: '22.2mm', rise: 8, width: 28, weight: 907, price: 69.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://www.sandmbikes.com/product/hardgoods/slam-bar',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.sandmbikes.com/product/hardgoods/slam-bar',
     note: 'Corrected from a generic sample entry: sandmbikes.com\'s own product page confirms 22.2mm clamp (not 25.4mm), 8in rise (not 8.5), 28in width (not 29), and 2.0lb/907g weight; base price $69.95 (variants run to $109.95 by color).'
   },
   {
@@ -931,13 +931,13 @@ var BMX_PARTS = [
   {
     id: 'bmx-sp-cult-pivotal-post', cat: 'seatpost', brand: 'Cult', model: 'Pivotal Seatpost',
     diameter: 25.4, system: 'pivotal', price: 29.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://cultcrew.com/products/seatpost',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://cultcrew.com/products/seatpost',
     note: 'diameter:25.4mm and system:\'pivotal\' CONFIRMED via Cult\'s current "Counter post / black & polished" (6061 alloy, diameter 25.4mm, pivotal, 7.5in & 12.5in X-Long lengths). Price corrected 19.99 -> 29.99 to match. Page weight (907g) not recorded: identical placeholder figure shared with the unrelated Headset/Bottom Bracket product pages — a shipping-weight bucket, not real mass.'
   },
   {
     id: 'bmx-sp-odyssey-standard-post', cat: 'seatpost', brand: 'Odyssey', model: 'Tripod Seat Post',
     diameter: 25.4, system: 'standard', price: 31.99,
-    verified: true, lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-tripod-seat-post-black',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-tripod-seat-post-black',
     note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): diameter (explicit "25.4mm diameter" in the maker\'s spec list - the field the bmx-13c dropper/seatpost-diameter rule reads) and price ($31.99) raw-confirmed. system:\'standard\' is a railed post (the two-angle-position design described has no pivotal serrated head), consistent with the prior pass\'s reading and matching this catalog\'s standard/pivotal convention. No weight is published on the maker page, so weight stays absent as before.'
   },
   {
@@ -950,7 +950,7 @@ var BMX_PARTS = [
   // ===== GRIPS ==========================================================
   {
     id: 'bmx-gr-odyssey-aaronross', cat: 'grips', brand: 'Odyssey', model: 'Keyboard v1 Grip (Aaron Ross Signature)',
-    length: 158, flangeless: true, price: 10.99, verified: true, lastChecked: '2026-07-21',
+    length: 158, flangeless: true, price: 10.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-21',
     source: 'https://shop.odysseybmx.com/products/odyssey-keyboard-v1-grip-black',
     note: 'bmx-depth-7 (2026-07-21): VERIFIED. The interface fields (length 158mm, flangeless:true, price $10.99) were already directly fetched and corrected 2026-07-17; `grips` carries no checkBmxBuild-read field at all (length/flangeless are display-only, VERIFY-PROTOCOL\'s BMX small-parts exception), so once the fetch confirmed the real product+specs there was nothing further to block verified:true. No weight is published on the maker page (kept blank, not fabricated).'
   },
@@ -978,20 +978,20 @@ var BMX_PARTS = [
   {
     id: 'bmx-pd-odyssey-twistedpro', cat: 'pedals', brand: 'Odyssey', model: 'Twisted Pro PC Pedals',
     platform: 'plastic', spindle: '9/16', weight: 414, price: 19.99,
-    verified: true, lastChecked: '2026-07-17',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17',
     source: 'https://shop.odysseybmx.com/products/odyssey-twisted-pro-pc-pedals-black',
     note: 'Model renamed to match maker naming (was "Twisted PC Pro"); nylon-composite platform, 9/16in spindle, $19.99 price and 14.6oz/pair (~414g) weight all confirmed via the linked product page 2026-07-17.'
   },
   {
     id: 'bmx-pd-odyssey-trailmix', cat: 'pedals', brand: 'Odyssey', model: 'Trailmix Looseball Pedals',
     platform: 'alloy', spindle: '9/16', weight: 340, price: 42.99,
-    verified: true, lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-trailmix-looseball-pedals-black',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-trailmix-looseball-pedals-black',
     note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): raw-confirmed on the maker\'s own page - "Alloy" tag + "Aluminum body" in the description (platform:\'alloy\') and an explicit "Spindle: 9/16\\"" spec line (spindle:\'9/16\') - and pedals carry zero checkBmxBuild compat rules in this engine (platform/spindle are pure display fields), so this row qualifies for the same treatment as shocks/wheels/forks even before considering weight. Price ($42.99) matches. Odyssey publishes no per-SKU weight and the Shopify JSON variant field (1361g) is a known shipping-weight bucket for this exact SKU (documented in wave 2 - not the real ~350-550g pedal-pair weight), so weight stays the 340g sample, basis noted here.'
   },
   {
     id: 'bmx-pd-shadow-metalalloy', cat: 'pedals', brand: 'The Shadow Conspiracy', model: 'Metal Sealed Alloy Pedals',
     platform: 'alloy', spindle: '9/16', weight: 524, price: 96.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-metal-sealed-alloy-pedals',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-metal-sealed-alloy-pedals',
     note: 'Trey Jones signature; 6061 alloy body, 4140 heat-treated broached cro-mo spindle, sealed bearings. Weight per maker page (18.5oz, pair).'
   },
 
@@ -1018,7 +1018,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
     weight: 2222, price: 489.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://shop.sundaybikes.com/collections/sunday-frames/products/sunday-soundwave-v3-frame-matte-fire-engine-red',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://shop.sundaybikes.com/collections/sunday-frames/products/sunday-soundwave-v3-frame-matte-fire-engine-red',
     note: 'Manufacturer\'s own store (shop.sundaybikes.com) product page: "Post Weld Machining: The Mid BB and Headtube is machined..." confirms Mid BB shell + Integrated Head Tube; "Removable Brake Hardware" (angled removable brake mounts) is Sunday\'s u-brake convention, consistent with sibling frames on the same site explicitly naming "removable u-brake hardware" (Street Sweeper/Darkwave); rear axle 14mm is the BMX-universal modern standard (BMX-MODEL.md sec.5). Top tube 20.5/20.75/21/21.25in, weight 4.9lb (2222g) match the fetched page exactly.'
   },
   {
@@ -1026,7 +1026,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
     weight: 2268, price: 489.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://shop.sundaybikes.com/collections/sunday-frames/model-nightshift',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://shop.sundaybikes.com/collections/sunday-frames/model-nightshift',
     note: 'Manufacturer\'s own store (shop.sundaybikes.com): Nightshift carries the same "Integrated Head Tube" + "Post-Weld Machining" (Mid BB) feature tags and "Braking Options" (removable u-brake hardware, per the Sunday-wide convention explicit on Street Sweeper/Darkwave) as every other current Sunday freestyle frame; rear axle 14mm is the BMX-universal standard. Top tube 20.5/20.75/21/21.25in, weight 5lb (2268g) match the fetched page exactly.'
   },
   {
@@ -1034,7 +1034,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
     weight: 2268, price: 349.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://sundaybikes.com/2020/03/introducing-the-sunday-park-ranger-frame/',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://sundaybikes.com/2020/03/introducing-the-sunday-park-ranger-frame/',
     note: 'Sunday\'s entry-level freestyle frame; manufacturer\'s own launch post (sundaybikes.com) confirms "integrated HT and Mid BB shell" (cross-checked against empirebmx.com\'s retailer spec table, which quotes the same maker copy) plus "fully removable braking...hardware" (u-brake per the Sunday-wide convention) and 14mm BMX-universal rear axle. Top tube 20.5/20.75/21in, weight 5lb (2268g) match the fetched page exactly.'
   },
 
@@ -1042,27 +1042,27 @@ var BMX_PARTS = [
   {
     id: 'bmx-rh-odyssey-antigramv2-9', cat: 'rearWheel', brand: 'Odyssey', model: 'Antigram V2 Cassette Hub',
     driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 454, price: 199.99,
-    verified: true, lastChecked: '2026-07-17',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17',
     source: 'https://shop.odysseybmx.com/products/antigram-v2-cassette-hub',
     note: '36H 2014-T6 aluminum shell, 9T driver, 14mm chromoly axle bolts, RHD/LHD switchable, all confirmed via the linked product page 2026-07-17; weight corrected 560g -> 454g (stock with-guard config; maker also states 436g without guard) and price corrected 119.99 -> 199.99.'
   },
   {
     id: 'bmx-pg-odyssey-chromoly', cat: 'pegs', brand: 'Odyssey', model: 'MPEGs 4in Steel Peg',
     axleFit: '14mm', material: 'steel', reducerIncluded: true, weight: 248, price: 24.99,
-    verified: true, lastChecked: '2026-07-17',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17',
     source: 'https://shop.odysseybmx.com/products/odyssey-mpegs-4-steel-peg-chrome',
     note: 'Model renamed to match maker naming (was generic "Chromoly Pegs"); 4140 chromoly steel, 14mm bore with 3/8in adapter INCLUDED (was reducerIncluded:false, corrected to true), price corrected 19.99 -> 24.99, weight added (8.75oz per single peg ~= 248g; no other catalog peg row carries a weight field today, flagged for the coordinator as a possible follow-up backfill) all confirmed via the linked product page 2026-07-17.'
   },
   {
     id: 'bmx-br-odyssey-springfieldpro', cat: 'brake', brand: 'Odyssey', model: 'Springfield Brake',
     mount: 'u-brake', price: 20.99,
-    verified: true, lastChecked: '2026-07-21',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-21',
     source: 'https://shop.odysseybmx.com/products/springfield-brake',
     note: 'bmx-sweep-2 (2026-07-21): VERIFIED under THE PRICE RULE. Model corrected to Odyssey\'s real name "Springfield Brake" (no "Pro" variant exists) and price corrected 39.99 -> 20.99 via shop.odysseybmx.com/products/springfield-brake 2026-07-17 (mount confirmed u-brake, the sole checkBmxBuild-read brake field). The prior pass withheld verified:true only for a missing manufacturer weight (a 133g figure appears only on third-party retailer listings) - weight is optional and not validator-required, so nothing further blocks verification.'
   },
   {
     id: 'bmx-hb-odyssey-brocraiford', cat: 'handlebar', brand: 'Odyssey', model: 'BROC 9.8in Bar',
-    clamp: '22.2mm', rise: 9.8, width: 29, price: 129.99, verified: true, lastChecked: '2026-07-21',
+    clamp: '22.2mm', rise: 9.8, width: 29, price: 129.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-21',
     source: 'https://shop.odysseybmx.com/products/odyssey-broc-9-8-bar',
     note: 'bmx-depth-7 (2026-07-21): VERIFIED. clamp/rise/width/price were already directly fetched and corrected 2026-07-17; `handlebar`\'s clamp/rise/width are all checkBmxBuild DISPLAY-ONLY fields (VERIFY-PROTOCOL\'s BMX small-parts exception), so once the fetch confirmed the real product+specs there was no remaining engine-read fact to block verified:true. No weight is published on the maker page (kept blank, not fabricated).'
   },
@@ -1082,20 +1082,20 @@ var BMX_PARTS = [
     id: 'bmx-fr-cult-race', cat: 'frame', brand: 'Cult', model: 'Race Frame',
     discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
     topTube: 21.0, rearBrakeMount: 'disc', rearAxle: '14mm', frameOnly: true,
-    price: 399.00, verified: true, lastChecked: '2026-07-21',
+    price: 399.00, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-21',
     source: 'https://cultcrew.com/products/vick-behm-race-frame-black',
     note: 'bmx-depth-7 (2026-07-21): VERIFIED under the frames standalone-no-published-weight exception (VERIFY-PROTOCOL.md, case a). Re-confirmed all three checkBmxBuild-read frame fields on cultcrew.com/products/vick-behm-race-frame-black.js: bbShell:euro ("68mm Euro BB"), rearBrakeMount:disc (the product title itself is "Race Frame / disk brake / black" and the body copy has a "DISK BRAKES" heading), and wheelSize:20 (Cult sells no non-20in-wheel BMX products anywhere in its catalog - every Cult row in this file is 20in; this frame\'s size run is TT-length-only: "Race Expert 20.5\" / Standard 21\" / Pro XL 21.5\", 21.8\", 22\"" confirming a 20in-wheel BMX race platform, not a wheel-size choice). This is sold as a genuine frame-only SKU (not complete-bike-only, unlike Gateway) so weight staying blank is the standard "maker publishes no frame weight" convention - not adding the untrustworthy 4990g shipping-placeholder figure, per the prior pass\'s correct finding. rearAxle stays the pre-existing 14mm sample (unconfirmed, likely actually 3/8" per the page - still flagged for a future BMX_VOCAB.axle widening) since it is not engine-read.'
   },
   {
     id: 'bmx-cr-cult-3piece', cat: 'cranks', brand: 'Cult', model: '3-Piece Crank Set',
     spindle: '19mm', pieces: '3-piece', ringMount: 'spline', price: 139.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://cultcrew.com/products/crew-crank',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://cultcrew.com/products/crew-crank',
     note: 'Corrected spindle 22mm -> 19mm and price 249.99 -> 139.99 (base 160mm/Black) to match Cult\'s current "Crew Cranks": "3-pc tubular design... 19mm hollow chromoly spindle with 48 splines". pieces:\'3-piece\' confirmed. ringMount left as \'spline\' (plausible for the splined sprocket boss design, not independently confirmed and not checkBmxBuild-critical). NOT recording the page\'s weight (1814g): identical placeholder figure also shown for an unrelated tire SKU on this store (see the Cult frame notes above) — a shipping-weight bucket, not the crank\'s real mass.'
   },
   {
     id: 'bmx-bb-cult-mid-22', cat: 'bb', brand: 'Cult', model: 'Mid BB',
     shell: 'mid', spindleFit: '22mm', price: 27.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://cultcrew.com/products/bottom-bracket',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://cultcrew.com/products/bottom-bracket',
     note: 'shell:\'mid\' and spindleFit:\'22mm\' CONFIRMED via Cult\'s current "Bottom Bracket" (cultcrew.com/products/bottom-bracket: "precision sealed MID bearings... 19mm and 22mm" spindle options — 22mm is a real purchasable variant). Price corrected 24.99 -> 27.99. Page weight (907g) not recorded: identical placeholder figure shared with the unrelated Headset product page — a shipping-weight bucket.'
   },
   {
@@ -1111,7 +1111,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-ti-cult-vans-24', cat: 'tire', brand: 'Cult', model: 'Vans Tire 2.4"',
     wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 95, price: 30.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://cultcrew.com/products/vans-x-cult-tire-20-gum',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://cultcrew.com/products/vans-x-cult-tire-20-gum',
     note: 'Cult x Vans collaboration tire. wheelSize:\'20\' and width:2.4 CONFIRMED via cultcrew.com\'s current "Vans x Cult Tire 20\\" / gum (single)" ("NEW AND IMPROVED 2.40 DESIGN", 20in). Price corrected 29.99 -> 30.99. casing:\'park\' and maxPsi:95 are not stated on the page and are left as pre-existing, unconfirmed values (not disproven, not engine-critical). Page weight (1814g) not recorded: identical placeholder figure shared with the unrelated Crew Cranks product page — a shipping-weight bucket.'
   },
 
@@ -1126,7 +1126,7 @@ var BMX_PARTS = [
     id: 'bmx-sp-fitbikeco-key-25', cat: 'sprocket', brand: 'Fit Bike Co', model: 'Key Sprocket 25T',
     teeth: 25, mount: 'spline', pitch: '1/8', price: 64.95, weight: 249, family: 'fitbikeco-key',
     mfgPn: '33-SP-KEY-BLK-25T',
-    verified: true, lastChecked: '2026-07-17', source: 'https://thebuildingdistro.com/product/key-sprocket-2/',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://thebuildingdistro.com/product/key-sprocket-2/',
     note: 'FIT KEY sprocket, 25T (also sold in 28T/30T). Confirmed via the product page\'s WooCommerce variation data (matte black, 25T): 1/8in pitch, splined mount (fits 19/22/24mm spindles via included hat washers), regular price $64.95 (matte black; page was running a temporary 25%-off sale to $49.95 at check time, so the regular/MSRP price is recorded here), weight 0.55lb = 249g. mfgPn/SKU is the matte-black 25T variant.'
   },
   {
@@ -1146,13 +1146,13 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'american', headTube: 'mid',
     topTube: 20.0, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: false,
     price: 399.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://kinkbmx.com/products/curb-2027',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://kinkbmx.com/products/curb-2027',
     note: 'Sold complete-bike-only (corrected frameOnly false; was true). bbShell corrected mid -> american ("Unsealed American 19mm" BB). rearBrakeMount corrected u-brake -> v-brake ("Mission Cease V2" V-brakes). topTube corrected 20.5 -> 20.0in. Price corrected 419.99 -> 399.99. headTube mapped from the page\'s "Standard 1 1/8in Threadless" (external, non-integrated cups) to the closest BMX_VOCAB token (mid) - PROVISIONAL mapping, headTube fires no rule. Complete-bike weight (27lb 2oz = ~12,300g) is NOT a frame weight, so omitted per the wethepeople-justice convention.'
   },
   {
     id: 'bmx-sp-kink-pivotal-post', cat: 'seatpost', brand: 'Kink', model: 'Pivotal Seatpost',
     diameter: 25.4, system: 'pivotal', weight: 125, price: 39.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://kinkbmx.com/products/pivotal-seat-post',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://kinkbmx.com/products/pivotal-seat-post',
     note: 'Price corrected 17.99 -> 39.99. Diameter/system confirmed. Weight (125g / 4.4oz) is the Medium (180mm) length; Small (75mm) is 65g, Large (330mm) is 201g.'
   },
 
@@ -1162,7 +1162,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
     price: 549.99,
-    verified: true, lastChecked: '2026-07-21', source: 'https://wethepeoplebmx.de/bikes/trust',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-21', source: 'https://wethepeoplebmx.de/bikes/trust',
     note: 'bmx-sweep-4: frameOnly CORRECTED true -> false - the current wethepeoplebmx.de/frames aftermarket-frame collection (fetched in full) does NOT list a standalone "Trust" frame SKU; it is sold only inside the Trust CS / Trust FC complete bikes, closing this row under the complete-bike-only frame exception (VERIFY-PROTOCOL, Douglas 2026-07-20). Raw-fetched the Trust CS complete-bike spec page: "WETHEPEOPLE TRUST FRAME, 4130 FULL CRMO... 127MM HEAD TUBE" (headTube:integrated-1-1/8 confirmed), "BB: SALT MID BB, 19MM, PRESS FIT" (bbShell:mid CONFIRMED - was previously unconfirmed), "REAR HUB: ECLAT CORTEX CASSETTE HUB... 14MM HOLLOW AXLE" (rearAxle:14mm CONFIRMED - was previously unconfirmed), "BRAKES: ECLAT TALON ALLOY U-BRAKE REAR" (rearBrakeMount:u-brake confirmed), geometry table "A - TOP TUBE LENGTH: 21\"" (topTube CORRECTED 20.75 -> 21 to match this exact colorway/spec page). Page states "WEIGHT: TBC KG / TBC LBS" (to-be-confirmed, no frame-only weight will ever exist per the complete-bike-only case) and no price is shown (regional site, no checkout) - price kept as the prior 549.99 sample, its basis undisclosed until now: THIS PRICE IS UNCONFIRMED AGAINST THE FETCHED SOURCE, likely a stale complete-bike-adjacent estimate (THE PRICE RULE covers a missing/sample price, not a claim of accuracy).'
   },
   {
@@ -1170,7 +1170,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
     price: 599.99,
-    verified: true, lastChecked: '2026-07-22', source: 'https://wethepeoplebmx.de/bikes/arcade',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://wethepeoplebmx.de/bikes/arcade',
     note: 'bmx-depth-10: COMPLETE-BIKE depth (WeThePeople current lineup, wethepeoplebmx.de/bikes). Full spec sheet fetched: "BB: SALT MID BB, 19MM, PRESS FIT" confirms bbShell:mid; "HEADSET: SALT PRO INT. HEADSET" confirms headTube:integrated-1-1/8; "BRAKES: SALTPLUS GEO XL ALLOY U-BRAKE REAR" confirms rearBrakeMount:u-brake; "REAR HUB: SALT PRO CASSETTE HUB...14MM AXLE" confirms rearAxle:14mm; geometry table "A - TOP TUBE LENGTH: 20.5\\" | 21\\"" - topTube modeled at the shorter of the two offered sizes, matching this catalog\'s convention of picking one representative size per DATA-ENTRY-TEMPLATE (sizes go in a sub-object only for the MTB frame model, not yet extended to BMX). Complete-bike-only (WeThePeople sells no standalone Arcade frame SKU; wethepeoplebmx.de/frames aftermarket collection does not list it) -> frameOnly:false, same exception as the already-cataloged Justice/Trust rows. Page states "WEIGHT: 12.66KG / 27.91LBS" - this is COMPLETE-BIKE weight (mirrors the already-cataloged bmx-fr-wethepeople-justice note verbatim), so intentionally omitted here rather than mis-entered as frame-only mass. NO price is published on wethepeoplebmx.de (a EUR marketing/spec site with no checkout - the same gap the existing Trust row already discloses); wethepeoplebmx.com (the expected US storefront) is a parked/for-sale domain, not a live Shopify store, and no other retailer listing was located this session. Price ($599.99) is an UNCONFIRMED sample estimate, positioned between the cataloged Justice ($579.99, lower street tier) and the Reason/Crysis rows below (higher premium tier) per the maker\'s own "PERFECT MID-TIER BIKE" positioning language - NOT a sourced maker figure, disclosed here per THE PRICE RULE (same interface-verification-exception pattern as bmx-fr-chase-rsp30).'
   },
   {
@@ -1178,7 +1178,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
     price: 649.99,
-    verified: true, lastChecked: '2026-07-22', source: 'https://wethepeoplebmx.de/bikes/reason',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://wethepeoplebmx.de/bikes/reason',
     note: 'bmx-depth-10: COMPLETE-BIKE depth. Full spec sheet fetched: "BB: SALT MID BB, 19MM, PRESS FIT" confirms bbShell:mid; "HEADSET: SALT PRO INT. HEADSET" confirms headTube:integrated-1-1/8; "BRAKES: SALTPLUS GEO XL ALLOY U-BRAKE REAR" confirms rearBrakeMount:u-brake (ships with a rear brake despite the frame\'s "removable brake pivots" wording - removability, not presence, is what that phrase means, same reading as bmx-fr-wethepeople-crysis below); "REAR HUB: SALT PRO FREECOASTER HUB...14MM AXLE" confirms rearAxle:14mm; geometry table "A - TOP TUBE LENGTH: 20.75\\"" (single size, no split) confirms topTube exactly. Complete-bike-only (no standalone Reason frame SKU on wethepeoplebmx.de/frames) -> frameOnly:false. Page states "WEIGHT: 12.53KG / 27.63LBS" - COMPLETE-BIKE weight, omitted here (same reasoning as the Arcade row above). NO USD price published on the maker\'s EUR marketing site (same gap as Arcade/Trust); price ($649.99) is an UNCONFIRMED sample estimate reflecting the page\'s own "serious heavy-hitter, dripping with premium quality" top-of-freestyle-line positioning (WTP pro Felix Prangenberg signature-adjacent spec) - NOT a sourced maker figure, disclosed per THE PRICE RULE.'
   },
   {
@@ -1186,13 +1186,13 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
     price: 649.99,
-    verified: true, lastChecked: '2026-07-22', source: 'https://wethepeoplebmx.de/bikes/crysis',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://wethepeoplebmx.de/bikes/crysis',
     note: 'bmx-depth-10: COMPLETE-BIKE depth. Full spec sheet fetched: "BB: SALT MID BB, 19MM, PRESS FIT" confirms bbShell:mid; "HEADSET: SALT PRO INT. HEADSET" confirms headTube:integrated-1-1/8 (frame also states a taller "127MM HEAD TUBE" length, a dimension, not a different bore/steerer standard - same non-conflict already documented on bmx-fr-wethepeople-trust\'s identical 127mm figure); "BRAKES: ECLAT TALON ALLOY U-BRAKE REAR" confirms rearBrakeMount:u-brake; "REAR HUB: SALTPLUS PRO CASSETTE HUB...14MM AXLE" confirms rearAxle:14mm; geometry table "A - TOP TUBE LENGTH: 20.5\\" | 21\\"" - topTube modeled at the shorter offered size (same convention as Arcade). Complete-bike-only (no standalone Crysis frame SKU on wethepeoplebmx.de/frames) -> frameOnly:false. Page states "WEIGHT: 12.12KG / 26.72LBS" - COMPLETE-BIKE weight, omitted here. NO USD price published on the maker\'s EUR marketing site; price ($649.99) is an UNCONFIRMED sample estimate matching the Reason row\'s premium tier (both are the line\'s heavily-spec\'d, all-CrMo-cockpit top complete bikes) - NOT a sourced maker figure, disclosed per THE PRICE RULE.'
   },
   {
     id: 'bmx-se-wethepeople-team', cat: 'seat', brand: 'WeThePeople', model: 'Team Pivotal Seat',
     system: 'pivotal', weight: 259, price: 26.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://www.wethepeoplebmx.de/seats-seatposts-seatclamps/team-pivotal-slim-seat',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-17', source: 'https://www.wethepeoplebmx.de/seats-seatposts-seatclamps/team-pivotal-slim-seat',
     note: 'Team Pivotal Slim variant: pivotal system and 259g weight confirmed on the maker page. wethepeoplebmx.de does not list a USD price for this product (no e-commerce checkout on the regional site) - price is kept as the prior sample figure, unconfirmed against the source.'
   },
   {
@@ -1213,48 +1213,48 @@ var BMX_PARTS = [
   {
     id: 'bmx-cr-eclat-onyx', cat: 'cranks', brand: 'Eclat', model: 'Onyx Cranks',
     spindle: '24mm', pieces: '3-piece', ringMount: 'spline', weight: 833, price: 179.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/onyx-cranks',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/onyx-cranks',
     note: 'CORRECTED: spindle was wrongly entered as 22mm; Eclat\'s own page confirms the Onyx is a 24mm crmo ultra-hollow spindle (165mm/175mm arm lengths). Weight is the 175mm arm-length figure (833g); the 160mm/165mm options weigh slightly less. Compatible with both 24mm spline-drive and bolt-drive sprockets.'
   },
   {
     id: 'bmx-bb-eclat-mid-22', cat: 'bb', brand: 'Eclat', model: 'Mid BB',
     shell: 'mid', spindleFit: '22mm', weight: 174, price: 31.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/mid-bottom-bracket-set',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/mid-bottom-bracket-set',
     note: 'Weight is the 22mm-spindle figure from Eclat\'s own page (19mm=189g, 24mm=148g).'
   },
   {
     id: 'bmx-sp-eclat-spline-25', cat: 'sprocket', brand: 'Eclat', model: 'Onyx Sprocket 25T',
     teeth: 25, mount: 'spline', pitch: '1/8', weight: 144, price: 34.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/onyx-sprocket',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/onyx-sprocket',
     note: 'CORRECTED model name from the generic "Spline Sprocket 25T" placeholder to Eclat\'s actual product, the Onyx Sprocket (25T/26T, 6061-T6 cold-forged, 23.8mm bore, ships with 19mm/22mm spindle adapters for its native 24mm fit).'
   },
   {
     id: 'bmx-rh-eclat-cortex-9', cat: 'rearWheel', brand: 'Eclat', model: 'Cortex Cassette Hub',
     driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 239.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/e440-cortex-cassette-rear-wheel',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/e440-cortex-cassette-rear-wheel',
     note: 'Row is a complete wheel (cat rearWheel), matched to Eclat\'s E440/Cortex Cassette Rear Wheel product (E440 rim + Cortex Cassette hub, RSD/LSD, 14mm male axle, 9t driver). CORRECTED price from 94.99 (was far under the real ~240 EUR complete-wheel price - possibly confused with a hub-only price). Eclat\'s page publishes no per-wheel weight (interface-only verification per the wheels exception in VERIFY-PROTOCOL.md), so weight stays unset rather than fabricated.'
   },
   {
     id: 'bmx-fw-eclat-cortex', cat: 'frontWheel', brand: 'Eclat', model: 'Cortex Front Wheel',
     wheelSize: '20', axle: '10mm', price: 169.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/e440-cortex-front-wheel',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/e440-cortex-front-wheel',
     note: 'Matched to Eclat\'s E440/Cortex Front Wheel (E440 rim + Cortex Front hub, 10mm female axle). CORRECTED price from 69.99 (real complete-wheel price is far higher). No per-wheel weight is published (interface-only verification per the wheels exception in VERIFY-PROTOCOL.md).'
   },
   {
     id: 'bmx-gr-eclat-pulsar', cat: 'grips', brand: 'Eclat', model: 'Pulsar Grips',
     length: 165, flangeless: true, weight: 168, price: 13.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/eclat-pulsar-grips',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/eclat-pulsar-grips',
     note: 'CORRECTED length from 143mm to the maker-stated 165mm (165mm x 29.5mm, ODI-made flangeless mushroom grip). Weight is per pair.'
   },
   {
     id: 'bmx-se-eclat-bios', cat: 'seat', brand: 'Eclat', model: 'Bios Pivotal Seat',
     system: 'pivotal', weight: 313, price: 38.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/bios-pivotal-seat',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/bios-pivotal-seat',
     note: 'Weight is the Mid-padding figure (Eclat\'s own default/primary listing); Slim = 283g, Fat = 388g are also sold under the same Bios Pivotal Seat product. CORRECTED price from 24.99 to the maker\'s 38.99.'
   },
   {
     id: 'bmx-sp-eclat-bios-post', cat: 'seatpost', brand: 'Eclat', model: 'Torch Pivotal Seat Post',
-    diameter: 25.4, system: 'pivotal', price: 35.99, verified: true, lastChecked: '2026-07-21',
+    diameter: 25.4, system: 'pivotal', price: 35.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-21',
     source: 'https://eclatbmx.com/products/torch-pivotal-seatpost',
     note: 'bmx-depth-7 (2026-07-21): VERIFIED. Re-fetched eclatbmx.com/products/torch-pivotal-seatpost directly: "Size: 25.4mm" (diameter CONFIRMED), "all-pivotal compatible seatpost" (system:pivotal CONFIRMED) - `seatpost` carries no other checkBmxBuild-read field in the BMX engine (no seatpost-vs-seat-tube rule exists for BMX, unlike the MTB engine\'s rule 13c), so both load-bearing facts check out. Price CORRECTED 16.99 -> 35.99 (the maker\'s real current price across all lengths/colors; the prior figure had no source). Weight not recorded: the page states real per-length figures (91g mid, 131g long) but this row represents the SKU generically across all three lengths, so no single weight is unambiguous.'
   },
@@ -1266,13 +1266,13 @@ var BMX_PARTS = [
   {
     id: 'bmx-pd-eclat-slash', cat: 'pedals', brand: 'Eclat', model: 'Slash Pedals',
     platform: 'plastic', spindle: '9/16', weight: 389, price: 20.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/slash-pedal',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/slash-pedal',
     note: 'CORRECTED platform from alloy to plastic (Eclat states injection-moulded nylon/fibreglass body, crmo spindle) and weight from 345g to the maker-stated 389g/pair.'
   },
   {
     id: 'bmx-ti-eclat-fireball-23', cat: 'tire', brand: 'Eclat', model: 'Fireball Tire 2.3"',
     wheelSize: '20', width: 2.3, casing: 'park', maxPsi: 100, weight: 737, price: 39.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/fireball-tire-classic-blue-black',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/fireball-tire-classic-blue-black',
     note: 'CORRECTED price from 24.99 to the maker\'s 39.99. maxPsi (100) confirmed; weight (737g at 2.3in) is the maker-stated figure.'
   },
 
@@ -1280,25 +1280,25 @@ var BMX_PARTS = [
   {
     id: 'bmx-cr-shadow-finest', cat: 'cranks', brand: 'The Shadow Conspiracy', model: 'Finest Cranks',
     spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 907, price: 249.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-finest-cranks',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-finest-cranks',
     note: 'Hollow 22mm / 48-spline spindle, 4130 chromoly, LHD/RHD compatible. Weight per maker page (32oz).'
   },
   {
     id: 'bmx-sp-shadow-vultus-28', cat: 'sprocket', brand: 'The Shadow Conspiracy', model: 'Cranium Sprocket 28T',
     teeth: 28, mount: 'spline', pitch: '1/8', price: 48.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-cranium-sprocket',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-cranium-sprocket',
     note: 'CORRECTED 2026-07-17: catalog previously named this "Vultus Sprocket 28T" - Vultus is Shadow\'s bar/fork line, not a sprocket; no such sprocket exists. Renamed to the real 28T Shadow sprocket closest to the original price point (7075 alloy, 24mm bore, 1/8" pitch).'
   },
   {
     id: 'bmx-rh-shadow-optimized-9', cat: 'rearWheel', brand: 'The Shadow Conspiracy', model: 'Definitive Cassette Hub',
     driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 499, price: 289.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-definitive-cassette-hub-rhd',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-definitive-cassette-hub-rhd',
     note: 'CORRECTED 2026-07-17: catalog previously named this "Optimized Cassette Hub" - Optimized is Shadow\'s freecoaster line; the cassette hub line is Definitive (LHD/RHD). 1pc 9T chromoly driver, 14mm hollow chromoly axle. Weight per maker page (17.6oz).'
   },
   {
     id: 'bmx-ti-shadow-strada-23', cat: 'tire', brand: 'The Shadow Conspiracy', model: 'Strada Nuova Low Pressure Tire',
     wheelSize: '20', width: 2.3, casing: 'park', maxPsi: 60, weight: 731, price: 27.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-strada-nuova-low-pressure-tyre',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-strada-nuova-low-pressure-tyre',
     note: 'Simone Barraco signature; structural low-pressure casing, 20x2.30in, 60 PSI max. Weight per maker page (25.8oz). Corrected from a fictitious "100 PSI" max stated in the prior row.'
   },
   {
@@ -1314,13 +1314,13 @@ var BMX_PARTS = [
   {
     id: 'bmx-gr-shadow-gipsy', cat: 'grips', brand: 'The Shadow Conspiracy', model: 'Gipsy DCR Grips',
     length: 160, flangeless: true, price: 13.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-gipsy-dcr-grips',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-gipsy-dcr-grips',
     note: 'CORRECTED 2026-07-17: Simone Barraco signature grip (prior row wrongly credited Sean Ricany), proprietary DCR rubber, 160mm length (was 143mm), symmetrical/flangeless ends.'
   },
   {
     id: 'bmx-sp-shadow-finest-post', cat: 'seatpost', brand: 'The Shadow Conspiracy', model: 'Pivotal Post',
     diameter: 25.4, system: 'pivotal', weight: 99, price: 49.99,
-    verified: true, lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-pivotal-post',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-pivotal-post',
     note: 'CORRECTED 2026-07-17: catalog previously named this "Finest Pivotal Seatpost" - no such product exists; the generic Shadow pivotal post is simply "Pivotal Post" (135mm length, 6061-T6 forged alloy). Diameter/system already matched; price/weight corrected. Weight per maker page (3.5oz).'
   },
   {
@@ -1363,7 +1363,7 @@ var BMX_PARTS = [
     id: 'bmx-fr-redline-prolineexpert', cat: 'frame', brand: 'Redline', model: 'Proline Expert',
     discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: false,
-    price: 650.00, status: 'current', verified: true, lastChecked: '2026-07-21',
+    price: 650.00, status: 'current', verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-21',
     source: 'https://diamondback.com/products/proline-expert',
     note: 'bmx-depth-7 (2026-07-21): CORRECTED, not the retailer-corroborated disc-brake claim the prior note carried. Directly fetched diamondback.com/products/proline-expert (Shopify products.json + rendered page — Redline\'s current parent-brand storefront) and read its spec table verbatim: "BOTTOM BRACKET: Sealed Euro BB" -> bbShell:euro CONFIRMED; "HEADSET: Sealed Integrated Headset 1 1/8, Aluminum top cap" -> headTube:integrated-1-1/8 CONFIRMED; "RIMS: A-M6 Alloy Race, 20 x 1.5, 32h" + "TIRES: ...20 x 1.95in Front / 20 x 1.75in Rear" -> wheelSize:20 CONFIRMED. Critically, "BRAKE LEVERS: Tektro 316A Linear" is a linear-pull lever spec — the page never mentions a disc brake, disc rotor, or disc caliper anywhere (checked) — so rearBrakeMount is CORRECTED disc -> v-brake (the prior row\'s "Avid disc brakes" claim came from corroborating retailer copy for a DIFFERENT current model year, the exact search-summary trap VERIFY-PROTOCOL warns about — phantom-number/phantom-spec, not a fabrication, but wrong). frameOnly CORRECTED true -> false: this SKU (06-780-6000, $650) is a complete-bike-only product_type "BMX Bikes" with no separate frameset SKU on the page — the $650 is therefore a real maker-published complete-bike price, not a frameset placeholder (THE PRICE RULE / frames extension case (b) — sold as a complete bike only). topTube (20.75in) and rearAxle (14mm) are NOT restated on this page and are NOT checkBmxBuild-read fields (display-only per the BMX small-parts exception, VERIFY-PROTOCOL.md), so their absence does not block verification; retained unchanged as the pre-existing plausible sample. The products.json variant grams figure (13608g, identical across four unrelated Redline models incl. a 27.5+ cruiser) is a shared placeholder/shipping-weight bucket, not a real product weight — the phantom-number hazard\'s Shopify-weight trap — so no weight field is set. bmx-fr-redline-prolineflight (retired, above) and bmx-br-avid-bb5-bmx\'s note both still describe a "Redline Proline Flight class" disc-brake race tier; that description is now unconfirmed for the current Proline Expert lineage and should be re-examined by a future pass, not relied on.'
   },
@@ -1439,7 +1439,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-hb-cult-ak', cat: 'handlebar', brand: 'Cult', model: 'AK Bars',
     clamp: '25.4mm', rise: 10.0, width: 30.0, price: 79.99,
-    verified: true, lastChecked: '2026-07-20', source: 'https://cultcrew.com/products/ak-bars',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://cultcrew.com/products/ak-bars',
     note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): rise CORRECTED 8.0 -> 10.0 and width CORRECTED 28.75 -> 30.0 - the maker\'s own spec list states "30\\" width, 12° backsweep, 2° upsweep, 10\\" rise" verbatim, both figures previously wrong. clamp is display-only in checkBmxBuild (no BMX bar/stem clamp rule exists - handlebar/stem aren\'t even read by checkBmxBuild), so the unconfirmed 25.4mm value does not block verification. Price ($79.99) matches. No weight field on this row - the page\'s 6804g JSON figure is an obvious shipping-weight bucket (a BMX bar does not weigh 15lb), correctly not carried over.'
   },
   {
@@ -1542,7 +1542,7 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-ch-odyssey-bluebird', cat: 'chain', brand: 'Odyssey', model: 'Bluebird Chain',
-    pitch: '1/8', halfLink: true, price: 42.99, verified: true, lastChecked: '2026-07-21',
+    pitch: '1/8', halfLink: true, price: 42.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-21',
     source: 'https://shop.odysseybmx.com/products/odyssey-bluebird-half-link-chain-silver',
     note: 'bmx-depth-7 (2026-07-21): VERIFIED. Directly fetched shop.odysseybmx.com/products/odyssey-bluebird-half-link-chain-silver: "1/2\" x 1/8\" size" -> pitch:1/8 CONFIRMED (the only checkBmxBuild-read chain field); the product name itself and "Half-Link" throughout the page confirm halfLink:true (display-only, not engine-read, but real). Price CORRECTED 25.88 -> 42.99 (this row had no source at all before; $42.99 is the maker\'s displayed regular price for this exact SKU).'
   },
@@ -1563,7 +1563,7 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-st-sm-racexlt', cat: 'stem', brand: 'S&M', model: 'Race XLT Stem',
-    clamp: '25.4mm', price: 64.95, verified: true, lastChecked: '2026-07-21',
+    clamp: '25.4mm', price: 64.95, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-21',
     source: 'https://sandmbikes.com/product/hardgoods/stems/race-xlt-stem/',
     note: 'bmx-depth-7 (2026-07-21): VERIFIED, upgrading the prior danscomp.com retailer-listing basis to a direct manufacturer fetch. sandmbikes.com/product/hardgoods/stems/race-xlt-stem/ confirms: "Reach: 49mm, 53mm, 55mm, 57mm", "Rise: 23.5mm / 8.1mm Inverted", "Weight: 10.2oz, 10.5oz, 10.9oz" (per reach), and its own price range "$64.95 - $69.95" with the 53mm reach option EXACT-matching this row\'s existing $64.95. `clamp` is a checkBmxBuild DISPLAY-ONLY field for stems (VERIFY-PROTOCOL.md\'s BMX small-parts exception) and the maker page never states a bar-clamp bore diameter — since it is the only field the stem schema carries and it does not feed any engine rule, its absence from the source does not block verification (the interface bar has nothing load-bearing left to confirm on this row). No per-reach weight is recorded here since this row does not pin one specific reach.'
   },
@@ -1580,13 +1580,13 @@ var BMX_PARTS = [
   {
     id: 'bmx-se-cult-paddedpivotal', cat: 'seat', brand: 'Cult', model: 'Padded Pivotal Seat',
     system: 'pivotal', price: 44.99,
-    verified: true, lastChecked: '2026-07-20', source: 'https://cultcrew.com/products/kevlar-padded-seat-black',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://cultcrew.com/products/kevlar-padded-seat-black',
     note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): matches Cult\'s current "Kevlar Padded Seat" ($44.99 exact) - raw-confirmed "only available in pivotal" on the maker\'s own page (system:\'pivotal\' is the sole field the bmx-seat-system rule reads). No maker weight published; the JSON variant field (1361g) is the same shipping-weight-bucket value seen on the unrelated Dak Pedal listing, correctly not carried over - weight stays absent as before.'
   },
   {
     id: 'bmx-se-cult-vansoldschool', cat: 'seat', brand: 'Cult', model: 'x Vans Old School Pro Pivotal Seat',
     system: 'pivotal', price: 44.99,
-    verified: true, lastChecked: '2026-07-20', source: 'https://cultcrew.com/products/cult-x-vans-old-skool-seat-black',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://cultcrew.com/products/cult-x-vans-old-skool-seat-black',
     note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): matches Cult\'s current "Cult x Vans Old Skool Seat" ($44.99 exact) - raw-confirmed "pivotal seat" on the maker\'s own page (system:\'pivotal\' is the sole field the bmx-seat-system rule reads), "Designed to look like the CULT x VANS Old Skool pro shoe". No maker weight published; the JSON variant field (1361g) is the same shipping-weight-bucket value seen elsewhere on this store, correctly not carried over.'
   },
   {
@@ -1638,7 +1638,7 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-gr-odyssey-broc', cat: 'grips', brand: 'Odyssey', model: 'Broc Grips',
-    length: 160, flangeless: false, price: 10.99, verified: true, lastChecked: '2026-07-21',
+    length: 160, flangeless: false, price: 10.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-21',
     source: 'https://shop.odysseybmx.com/products/odyssey-broc-grip-bright-red',
     note: 'bmx-depth-7 (2026-07-21): VERIFIED, upgrading from the prior danscomp.com retailer basis. Directly fetched shop.odysseybmx.com/products/odyssey-broc-grip-bright-red (the maker\'s own current listing, titled "Odyssey BROC Grip"): "Broc Raiford signature", "Comfortable ribbed design", "Par Ends included", "160mm length". length CORRECTED 158 -> 160mm to match the maker\'s own figure exactly (the retailer listing\'s 158mm was close but not exact). `grips` carries no engine-read field (length/flangeless are display-only) so this real, current, maker-confirmed product clears the interface bar regardless; flangeless left unchanged (not stated either way on the page, not fabricated).'
   },
@@ -1707,7 +1707,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-sp-odyssey-pivotalpost', cat: 'seatpost', brand: 'Odyssey', model: 'Pivotal Seat Post (High Polished)',
     diameter: 25.4, system: 'pivotal', weight: 227, price: 44.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://shop.odysseybmx.com/products/odyssey-pivotal-seat-post-polished',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description text states, verbatim: "Diameter: 25.4mm Length: 200mm Weight: 5oz" (5oz = 227g, EXACT match to the JSON variant weight — a real per-SKU figure, not a shipping-bucket coincidence, since it is independently stated in ounces in the page\'s own spec list). "Compatible only with Pivotal style seats" confirms system:\'pivotal\'.'
   },
@@ -1821,28 +1821,28 @@ var BMX_PARTS = [
   {
     id: 'bmx-sp-shadow-railed-200', cat: 'seatpost', brand: 'The Shadow Conspiracy', model: 'Railed Seatpost 200mm',
     diameter: 25.4, system: 'standard', weight: 184, price: 62.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://www.sparkysbrands.com/products/shadow-railed-seatpost',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Classic alloy railed seat post...Length: 200mm Diameter: 25.4mm Weight: 6.5 oz" (6.5oz = 184g, independently oz-stated, not the JSON shipping-weight field of 250g which is discarded). "Railed" post confirms system:\'standard\' (the one engine-read seatpost field).'
   },
   {
     id: 'bmx-sp-shadow-pivotal-135', cat: 'seatpost', brand: 'The Shadow Conspiracy', model: 'Pivotal Seatpost 135mm',
     diameter: 25.4, system: 'pivotal', weight: 99, price: 49.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://www.sparkysbrands.com/products/shadow-pivotal-seatpost-135mm',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Shadow Pivotal posts...Size: 135mm length Diameter: 25.4mm Weight: 3.5 oz" (3.5oz = 99g, independently oz-stated, not the JSON shipping-weight field of 250g which is discarded). "Pivotal posts" confirms system:\'pivotal\'.'
   },
   {
     id: 'bmx-se-shadow-heritage-railed', cat: 'seat', brand: 'The Shadow Conspiracy', model: 'Heritage Railed Seat',
     system: 'standard', weight: 244, price: 30.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://www.sparkysbrands.com/products/shadow-heritage-railed-seat',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "A clean 2-panel railed seat with Cro-Mo Rails...Weight: 8.6 oz" (8.6oz = 244g, independently oz-stated, not the JSON shipping-weight field). "Railed seat" confirms system:\'standard\' (the one engine-read seat field).'
   },
   {
     id: 'bmx-se-shadow-crowd-slim-pivotal', cat: 'seat', brand: 'The Shadow Conspiracy', model: "Crow'd Slim Pivotal Seat",
     system: 'pivotal', weight: 275, price: 57.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://www.sparkysbrands.com/products/shadow-crowd-slim-pivotal-seat-black',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description\'s own structured spec block states, verbatim: "TYPE : Pivotal PADDING : Slim WEIGHT : 9.7 oz" (9.7oz = 275g, independently oz-stated, not the JSON shipping-weight field). "TYPE: Pivotal" directly confirms system:\'pivotal\'.'
   },
@@ -1861,7 +1861,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-ch-eclat-4stroke', cat: 'chain', brand: 'Eclat', model: '4 Stroke Halflink Chain',
     pitch: '1/8', halfLink: true, weight: 454, price: 27.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://eclatbmx.com/products/4-stroke-halflink-chain',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "half link chain...Size 1/2\\" x 1/8\\"...Weight 454g (16.2oz : 1lbs)" — an independently oz-cross-checked figure (454g = 16.02oz, matching the page\'s own dual-unit statement almost exactly), not the JSON shipping-weight field. "half link" confirms halfLink:true.'
   },
@@ -1936,7 +1936,7 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '24', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 22, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
     weight: 2676, price: 549.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://shop.sundaybikes.com/products/sunday-wave-c-24-frame-gloss-black',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Shopify tags state "Wheel Size:24\\"" verbatim. Description states, verbatim: "Removable Brake Hardware...Top Tube Length: 22\\"...Weight: 5.9 lbs" (5.9lbs = 2676g, a genuine frame-only weight — this product\'s type is "Frames", distinct from any complete "Bikes" SKU under the Wave C name). bbShell:\'mid\' and headTube:\'integrated-1-1/8\' follow this catalog\'s already-verified sibling rows for this exact brand (bmx-fr-sunday-soundwavev3/nightshift/parkranger, wave 1: "Mid BB and Headtube...Removable Brake Hardware" is Sunday\'s own stated convention, spelled out as "removable u-brake hardware" across its whole freestyle line on this same storefront) — the identical "Removable Brake Hardware" phrase appears verbatim on this page too, so the cross-reference is to the SAME stated convention, not a guess. rearAxle:\'14mm\' is the BMX-universal rear-axle standard (BMX-MODEL.md sec.5), not independently re-stated on this specific page.'
   },
@@ -2048,14 +2048,14 @@ var BMX_PARTS = [
   {
     id: 'bmx-hs-saltplus-echo', cat: 'headset', brand: 'Salt', model: 'SaltPlus ECHO Headset',
     fit: 'integrated-1-1/8', weight: 70, price: 26.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://saltbmx.com/products/saltplus-echo-headset',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Size: Campagnolo (45° x 45°), 41.8 mm diameter...Weight: 70 g (2.46 oz)". fit is display-only in checkBmxBuild (no BMX headset rule fires), so this real, current, precisely-specced product clears the bar on its one schema field alone.'
   },
   {
     id: 'bmx-rh-saltplus-vertex-freecoaster', cat: 'rearWheel', brand: 'Salt', model: 'SaltPlus VERTEX Freecoaster Hub',
     driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', weight: 671, price: 139.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://saltbmx.com/products/saltplus-vertex-freecoaster-hub',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Axle : 14 mm male, CrMo...Size: RSD, LSD...Weight:671 g (23.6 oz)" — directly confirms axle:\'14mm\', side:\'both\' (RSD/LSD), and driverType:\'freecoaster\' (product name). driverTeeth:9 is the domain-wide de facto freestyle standard (BMX-MODEL.md sec.5) and is display-only in checkBmxBuild (no rule reads it), so it doesn\'t gate — every field the engine actually checks is directly page-confirmed.'
   },
@@ -2077,7 +2077,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-bb-saltplus-echo-mid-19', cat: 'bb', brand: 'Salt', model: 'SaltPlus ECHO Mid BB (19mm)',
     shell: 'mid', spindleFit: '19mm', weight: 235, price: 22.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://saltbmx.com/products/saltplus-echo-mid-bb',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Size: mid bb, for 19mm or 20 mm spindle...Weight: 235 g (8.29 oz : 0.52 lbs)"; this row pins the 19mm spindle variant (the page\'s own variant list is 19mm/22mm, not the "20mm" the prose loosely mentions). Both of the bb category\'s schema fields (shell, spindleFit) are directly page-confirmed.'
   },
@@ -2089,63 +2089,63 @@ var BMX_PARTS = [
   {
     id: 'bmx-ch-saltplus-warlock', cat: 'chain', brand: 'Salt', model: 'SaltPlus WARLOCK Half Link Chain',
     pitch: '1/8', halfLink: true, weight: 447, price: 31.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://saltbmx.com/products/saltplus-warlock-chain',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "A tough and dependable BMX half link chain...Size: 1/2\\" x 1/8\\"...Weight: 447 g (15.77 oz : 0.98 lbs) – 100 links" — directly confirms both of the chain category\'s schema fields (pitch, halfLink).'
   },
   {
     id: 'bmx-pg-saltplus-hq', cat: 'pegs', brand: 'Salt', model: 'SaltPlus HQ Peg',
     axleFit: '14mm', material: 'steel', reducerIncluded: true, weight: 189, price: 16.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://saltbmx.com/products/saltplus-hq-peg',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Material: 4130 CrMo...Size: 14mm axle hole with 3/8\\" adapter...Weight: 189 g (6.67 oz : 0.42 lbs)" — directly confirms axleFit:\'14mm\' (native bore), material:\'steel\' (4130 CrMo), and reducerIncluded:true (the included 3/8" adapter), all three of the pegs category\'s schema fields.'
   },
   {
     id: 'bmx-hb-saltplus-hq4pc-9', cat: 'handlebar', brand: 'Salt', model: 'SaltPlus HQ 4pc Handlebar 9in',
     clamp: '22.2mm', rise: 9, width: 29.5, weight: 894, price: 62.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://saltbmx.com/products/saltplus-hq-4pc-handlebar',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Width: 29.5\\" Back Sweep: 11.5° Up Sweep: 3° Clamping: 22.2 mm...Weight: 9\\" : 894 g (31.5 oz : 1.97 lbs)" (this row pins the 9in rise variant the weight figure names). handlebar carries zero checkBmxBuild rules (every field is display-only), so this real, current, precisely-specced product clears the bar.'
   },
   {
     id: 'bmx-st-saltplus-manta', cat: 'stem', brand: 'Salt', model: 'SaltPlus MANTA Stem',
     clamp: '22.2mm', weight: 340, price: 52.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://saltbmx.com/products/saltplus-manta-stem',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Clamping: 22.2 mm...Weight: 340 g (11.99 oz : 0.75 lbs)". stem carries zero checkBmxBuild rules (clamp is display-only), so this real, current, precisely-specced product clears the bar.'
   },
   {
     id: 'bmx-se-saltplus-pivotal-mid', cat: 'seat', brand: 'Salt', model: 'SaltPlus PIVOTAL Seat (Mid)',
     system: 'pivotal', weight: 305, price: 29.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://saltbmx.com/products/saltplus-pivotal-seat',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Only compatible with Pivotal seat posts...Mid – 305 g (10.76 oz)" (this row pins the Mid size). system:\'pivotal\' is the one engine-read seat field and is directly confirmed.'
   },
   {
     id: 'bmx-sp-saltplus-hqcnc-rail', cat: 'seatpost', brand: 'Salt', model: 'SaltPlus HQ CNC Rail Seat Post',
     diameter: 25.4, system: 'standard', weight: 180, price: 52.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://saltbmx.com/products/saltplus-hq-cnc-rail-seat-post',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "25.4 mm micro-adjust seat post...only compatible with railed seats...Weight: 180 g (6.35 oz)" — directly confirms both of the seatpost category\'s schema fields (diameter, system:\'standard\').'
   },
   {
     id: 'bmx-gr-saltplus-xl-flanged', cat: 'grips', brand: 'Salt', model: 'SaltPlus XL Grips (with flange)',
     length: 155, flangeless: false, price: 10.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://saltbmx.com/products/saltplus-xl-grips',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Length: 155 with flange 162 without flange...Micro flange (flanged version)" — this row pins the with-flange variant (flangeless:false). grips carries zero checkBmxBuild rules.'
   },
   {
     id: 'bmx-gr-saltplus-xl-flangeless', cat: 'grips', brand: 'Salt', model: 'SaltPlus XL Grips (without flange)',
     length: 162, flangeless: true, price: 10.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://saltbmx.com/products/saltplus-xl-grips',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED — the flangeless variant of the same product above ("Length: 155 with flange 162 without flange"). grips carries zero checkBmxBuild rules.'
   },
   {
     id: 'bmx-pd-saltplus-hqcnc', cat: 'pedals', brand: 'Salt', model: 'SaltPlus HQ CNC Pedals',
     platform: 'alloy', spindle: '9/16', weight: 384, price: 94.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://saltbmx.com/products/saltplus-hq-cnc-pedals',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Size: 9/16\\", sealed...CNC machined 6061-T6 alloy body...Weight: 384 g (pair)" — directly confirms both platform:\'alloy\' and spindle:\'9/16\'. Pedals carry zero checkBmxBuild rules.'
   },
@@ -2158,7 +2158,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-cr-rant-bangin48', cat: 'cranks', brand: 'Rant', model: "Bangin' 48 Crank",
     spindle: '48-spline', pieces: '3-piece', ringMount: 'spline', weight: 978, price: 159.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://www.sparkysbrands.com/products/rant-bangin-48-crank',
     note: 'bmx-depth-9: VERIFIED via sparkysbrands.com (Rant\'s own retail channel — rantbmx.com\'s own "Shop" link points here). Page states verbatim: "19mm 8 spline or 48 spline heat treated chromoly spindle", "3pc design", "RHD and LHD compatible sprocket bosses", "34.5 oz for 175mm" (=978g). This SKU is the 48-spline variant (spindle:\'48-spline\' — the sister "Bangin\' 8" SKU at the same URL family is the 8-spline/19mm variant, not entered here to avoid an ambiguous near-duplicate row). Price $159.99 confirmed; currently sold out in all sizes/colors per the page (does not block a real-part entry per catalog policy).'
   },
@@ -2177,7 +2177,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-se-rant-believe', cat: 'seat', brand: 'Rant', model: 'Believe Pivotal Seat',
     system: 'pivotal', weight: 337, price: 53.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://www.sparkysbrands.com/products/rant-believe-pivotal-seat',
     note: 'bmx-depth-9: VERIFIED via sparkysbrands.com — page states "Pivotal" mount and "Weight 11.9 oz." (=337g); system:\'pivotal\' (the seat category\'s one engine-read field) directly confirmed.'
   },
@@ -2189,14 +2189,14 @@ var BMX_PARTS = [
   {
     id: 'bmx-bb-mission-american', cat: 'bb', brand: 'Mission', model: 'American BB Kit',
     shell: 'american', spindleFit: '19mm', weight: 298, price: 34.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://missionbmx.com/products/american-bb-kit',
     note: 'bmx-depth-9: VERIFIED via missionbmx.com (Mission\'s own domain). Page states verbatim: "TYPE: American...WEIGHT: 10.5oz" (=298g), price $34.99. This kit is sold in 19mm and 22mm spindle variants — this row pins the 19mm SKU (spindleFit:\'19mm\'); the 19mm size shows sold-out on the page (does not block a real-part entry).'
   },
   {
     id: 'bmx-ch-mission-halflink', cat: 'chain', brand: 'Mission', model: 'Half-Link Chain',
     pitch: '1/8', halfLink: true, weight: 425, price: 34.99,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://missionbmx.com/products/half-link-chain',
     note: 'bmx-depth-9: VERIFIED via missionbmx.com. Page states verbatim: pitch "1/8\\"", "Teflon coated half-link chain", "15.0oz" (=425g), "100 Links", price $34.99–$39.99 by color (Black at $34.99 used here) — directly confirms both of the chain category\'s schema fields (pitch, halfLink:true).'
   },
@@ -2208,45 +2208,45 @@ var BMX_PARTS = [
   {
     id: 'bmx-fk-federal-session', cat: 'fork', brand: 'Federal', model: 'Session Fork',
     wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm', brakeMount: 'none', weight: 982, price: 209.49,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22',
     source: 'https://federalbikes.com/products/federal-session-fork-chrome-28mm-offset',
     note: 'bmx-depth-9: steerer/weight raw-confirmed via federalbikes.com — "CNC 1 piece steerer tube" (threadless, integrated-1-1/8 token), "982 grams - please allow +/- 10g". No brake-mount bosses are described anywhere in the spec text (a 20in freestyle-street fork of this type; brakeMount:\'none\' by the same brakeless-stock convention as bmx-fk-haro-downtown). axle is not stated on the page — 10mm (3/8in) follows the catalog-wide convention for BMX front forks (every other fork row uses this token); left unverified overall (axle inferred). Price: GBP RRP £164.99 converted to a $209.49 USD sample at ~1.27 USD/GBP, no US price published — THE PRICE RULE (price never blocks verified:true; basis stated here).'
   },
   {
     id: 'bmx-cr-federal-vice2-24mm', cat: 'cranks', brand: 'Federal', model: 'Vice 2 24mm Cranks',
     spindle: '24mm', pieces: '3-piece', ringMount: 'spline', weight: 936, price: 215.89,
-    verified: true, lastChecked: '2026-07-22',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22',
     source: 'https://federalbikes.com/products/federal-vice-2-24mm-cranks-chrome',
     note: 'bmx-depth-9: VERIFIED via federalbikes.com. Page states verbatim: "24mm hollow 48 spline Chromoly spindle", "3-piece" (spindle and arms separate), "0.936kg/ 2lbs 1oz" (=936g) — confirms spindle:\'24mm\', pieces:\'3-piece\'; ringMount:\'spline\' follows directly from the stated "48 spline" spindle/sprocket interface. Price: GBP RRP £169.99 converted to a $215.89 USD sample at ~1.27 USD/GBP, no US price published — THE PRICE RULE.'
   },
   {
     id: 'bmx-cr-speedline-minicarbon', cat: 'cranks', brand: 'Speedline Parts', model: 'Mini Carbon Hollow Race Cranks',
     spindle: '24mm', pieces: '3-piece', ringMount: 'spline', length: 150, weight: 450, price: 699.95,
-    verified: true, lastChecked: '2026-07-22', source: 'https://supercrossbmx.com/collections/speedline-parts/products/speedline-parts-mini-carbon-hollow-carbon-fiber-bmx-race-cranks',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://supercrossbmx.com/collections/speedline-parts/products/speedline-parts-mini-carbon-hollow-carbon-fiber-bmx-race-cranks',
     note: 'bmx-depth-10: supercrossbmx.com BROWSER-PANE RETRY - the site renders cleanly with no CAPTCHA/challenge (WebFetch still 429s on this domain; the pane clears it, same as the earlier Pivot precedent - rendering, not circumvention). Shopify .js product JSON fetched via same-origin fetch() inside the pane (avoids the WebFetch 429 entirely). Description states verbatim: "24mm Aluminum Spindle" + "packed into a 450-gram crankset" - confirms spindle:24mm, weight:450 exactly; pieces:3-piece follows from the separate-spindle construction (same reasoning as bmx-cr-federal-vice2-24mm); ringMount:spline from the described carbon-fiber spider/spline sprocket interface (Speedline\'s race-crank spider is a spline mount across its whole line, corroborated by the Elite Carbon variant below). Sold in 145/150/155/160mm lengths - length:150 modeled as a representative mid-size (a size axis, not a fit-distinct split per the DATA-ENTRY-TEMPLATE "length is a field, not a row" convention already used elsewhere in this file). Shopify variant "weight" field (1814g on most size variants) is the shipping-weight-bucket trap (phantom-number doctrine) - NOT used; the 450g figure is the page\'s own stated product spec, used instead. Price $699.95 matches exactly (US-domiciled store, real USD MSRP, no conversion needed).'
   },
   {
     id: 'bmx-cr-speedline-elitecarbon', cat: 'cranks', brand: 'Speedline Parts', model: 'Elite Carbon Hollow Race Cranks',
     spindle: '30mm', pieces: '3-piece', ringMount: 'spline', length: 170, weight: 495, price: 699.95,
-    verified: true, lastChecked: '2026-07-22', source: 'https://supercrossbmx.com/collections/speedline-parts/products/speedline-elite-hollow-carbon-fiber-bmx-race-cranks',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://supercrossbmx.com/collections/speedline-parts/products/speedline-elite-hollow-carbon-fiber-bmx-race-cranks',
     note: 'bmx-depth-10: supercrossbmx.com BROWSER-PANE RETRY (same wall/clearance as the Mini Carbon row above). Page\'s Overview/Specs text (fetched via get_page_text on the rendered product page, not the .js endpoint - this page\'s .js description field is CSS-junk from an injected liquid section, not the real spec text) states verbatim: "oversized 30mm Spindle" + "packed into a 495-gram crankset" - confirms spindle:30mm (a real, already-cataloged BMX_VOCAB value, distinct from the Mini variant\'s 24mm), weight:495 exactly; pieces:3-piece and ringMount:spline by the same carbon-spider-spline construction as the Mini Carbon row. Sold in 165/170/175/180mm lengths (the "Pro-size" tier, vs the Mini\'s 145-160mm run) - length:170 modeled as a representative mid-size. Price $699.95 matches exactly (same US-domiciled real USD MSRP).'
   },
   {
     id: 'bmx-hs-speedline-sealed-118pro', cat: 'headset', brand: 'Speedline Parts', model: 'Sealed Bearing Integrated Headset 1 1/8in Pro',
     fit: 'integrated-1-1/8', price: 39.95,
-    verified: true, lastChecked: '2026-07-22', source: 'https://supercrossbmx.com/collections/speedline-parts/products/speedline-parts-sealed-bearing-integrated-bmx-racing-headsets',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://supercrossbmx.com/collections/speedline-parts/products/speedline-parts-sealed-bearing-integrated-bmx-racing-headsets',
     note: 'bmx-depth-10: supercrossbmx.com BROWSER-PANE RETRY. This SKU sells three fit tiers on one product page (1" Mini, 1 1/8" Pro, 1 1/8"-1.5" Pro Tapered) - only the "1 1/8" Pro" tier is entered as its own row: the page states it is "Designed for the \\"Campy®\\" style of Integrated head tubes...Typically used on Expert XL, Expert XXL, and older style Pro Frames", i.e. a genuine integrated 1-1/8in headset, matching BMX_VOCAB.headTube\'s existing integrated-1-1/8 token exactly. The other two tiers (a bare 1" bore, and a 1-1/8"-1.5" tapered bore) have NO matching BMX_VOCAB.headTube value - entering them would require widening compat-bmx.js\'s vocab, out of this batch\'s data/bmx.js-only scope (DATA-ENTRY-TEMPLATE: "stop the batch...widen the vocab...never ship a fictitious mapping"); flagging for the coordinator rather than mis-mapping. Price $39.95 confirmed identical across all three fit tiers on the page (single price, size/fit is a variant axis, not a price axis).'
   },
   {
     id: 'bmx-fw-speedline-killerbuzz-wheelset-406', cat: 'frontWheel', brand: 'Speedline Parts', model: 'BMX Race Wheelset w/ Killer Buzz Hubs (406/20in)',
     wheelSize: '20', axle: '10mm', weight: 752, price: 559.95,
-    verified: true, lastChecked: '2026-07-22', source: 'https://supercrossbmx.com/collections/speedline-parts/products/speedline-bmx-race-wheelset-w-speedline-killer-buzz-hubs',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://supercrossbmx.com/collections/speedline-parts/products/speedline-bmx-race-wheelset-w-speedline-killer-buzz-hubs',
     note: 'bmx-depth-10: supercrossbmx.com BROWSER-PANE RETRY. Complete alloy race wheelset built on the Killer Buzz worm-drive hubs + Speedline AR6 alloy rims. Page states per-wheel weights explicitly (on a "non-calibrated electronic postal scale", maker\'s own disclosed caveat, still a real stated product figure, not a shipping-weight bucket): "Pro Size 406 Rear Disk Wheel - 954 grams / 406 Front Wheel - 752 grams" - this row models the front wheel of the 406 (20x1.75in, the catalog\'s standard 20in wheelSize token), weight:752 exactly. axle:10mm is a modeling judgment: the hub product page (Killer Buzz Hubsets) states "20mm front axles sold separately" for the hub-only SKU, but THIS wheelset SKU\'s own variant list has no 20mm-front option (only 406/451 x Black x Disc/V-Brake), and its front-hub dimensions text gives no axle digit at all - 10mm entered as the standard bolt-on BMX front axle default (the same "3/8in and 10mm are ONE token" convention compat-bmx.js documents), NOT independently page-confirmed for this specific SKU. Price $559.95 is the complete-wheelset price (this is a paired-wheel product, not sold as a single wheel - both front/rear rows below share it per the existing catalog convention for paired items).'
   },
   {
     id: 'bmx-rw-speedline-killerbuzz-wheelset-406', cat: 'rearWheel', brand: 'Speedline Parts', model: 'BMX Race Wheelset w/ Killer Buzz Hubs (406/20in)',
     driverType: 'cassette', driverTeeth: 16, side: 'both', axle: '10mm', weight: 954, price: 559.95,
-    verified: true, lastChecked: '2026-07-22', source: 'https://supercrossbmx.com/collections/speedline-parts/products/speedline-bmx-race-wheelset-w-speedline-killer-buzz-hubs',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://supercrossbmx.com/collections/speedline-parts/products/speedline-bmx-race-wheelset-w-speedline-killer-buzz-hubs',
     note: 'bmx-depth-10: supercrossbmx.com BROWSER-PANE RETRY, companion rear-wheel row to bmx-fw-speedline-killerbuzz-wheelset-406 (see that row for the shared-price/BROWSER-PANE-RETRY context). Page states: "Pro Size 406 Rear Disk Wheel - 954 grams" - weight:954 exactly (406/20x1.75in variant, disc-brake tier). driverType:cassette from the Killer Buzz hub\'s "Worm Drive system" instant-engagement description (a cassette-style mechanism, distinct from freecoaster); driverTeeth:16 from the page\'s explicit "Comes with a Cro-mo rear 16t cog that is Shimano® Compatible" (a real, unusually-high-for-this-catalog tooth count - most cataloged BMX cassette hubs ship a 9T stock cog, but this page states 16t explicitly, so entered as read rather than defaulted to the catalog\'s common 9T). side:both (no RHD/LHD restriction stated). axle:10mm per the same front-wheel reasoning (not independently page-confirmed for the wheelset SKU specifically - the hub-only page\'s "10mm and 15mm frames" wording is ambiguous and not trusted verbatim). This SKU also ships in a 451/20x1-1/8in size (V-brake only, no disc option, 812/610g per the page) - a genuinely distinct wheel-size configuration per the DATA-ENTRY-TEMPLATE split policy, left as a TRUE-GAP not entered this batch (time-bounded pass; flagged for a follow-up depth wave rather than rushed).'
   },
   {
