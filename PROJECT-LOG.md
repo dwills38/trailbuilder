@@ -1,5 +1,17 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-21 — striders-4: close-out, 29→31 verified
+
+- **verify/striders-4 merged**: Bixe 12 promoted (the prior "no maker page exists" note
+  was WRONG — Exa surfaced bixebalancebike.com's own page; weight corrected 4.6→4.0 lb,
+  seat range 11.5-15.5→11-17 in) and Kinderfeets Classic promoted via the maker's own NZ
+  regional storefront spec block (weight 3700→3300 g). Chillafish BMXie2 seat range moved
+  to the maker's own 320-390 mm but stays unverified (no published weight — THE BAR held).
+  4 remaining walls re-confirmed genuine (Strider 12 Classic discontinued, Schwinn 404,
+  Giant publishes no weight by policy, Bixe 16's retailer listing self-contradicts); the
+  4 blank seat-height rows re-confirmed correctly blank (makers publish inseam/rider-height
+  only). Striders 31/36; the tail is now all genuine walls. Gates: 7 OK, 988, tsc clean.
+
 ## 2026-07-21 — kit-12: the promotion-hunt pattern mostly evaporates (a good sign)
 
 - **verify/kit-12 merged**: kit 543→544. The kit-11 "fetched-but-never-flagged" lead
