@@ -1779,6 +1779,13 @@ var KIT_PARTS = [
       + ' live 2026-07-19 as "Trail Pants" (currently on $119.99 sale, MSRP-basis kept). Weight'
       + ' not published, stays sample.',
     verified:true, lastChecked:'2026-07-19', source:'https://www.specialized.com/us/en/search?q=trail%20pant' },
+  { id:'pnt-specialized-traction-womens', cat:'pants', brand:'Specialized', model:"Women's Traction Pant", price:149.99,
+    liner:false, fitCut:'womens', disciplines:['trail','enduro'], sizes:['XXS','XS','S','M','L','XL','XXL'],
+    desc:'kit-breadth-3 (2026-07-22): its own women\'s-specific line, not a Trail Pant recolor -'
+      + ' Specialized\'s copy: "takes everything that made our iconic Demo Pants legendary - and'
+      + ' makes it better," developed with input from women riders, own fabric (88% recycled'
+      + ' polyester/12% spandex) and its own size run (XXS-XXL). No weight published on the page.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.specialized.com/us/en/womens-traction-pant/p/1000195134' },
   { id:'pnt-leatt-mtb-trail-3', cat:'pants', brand:'Leatt', model:'MTB Trail 3.0 Pant', price:131,
     liner:true, disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL','XXL'],
     desc:'CORRECTED 2026-07-16: fetched us.leatt.com matches this to the current (non-Obsolete) "Pants MTB Trail 3.0 Liner" - $131-134 by colorway, sizes XS-XXL, and it ships with a removable chamois liner short (liner false->true). No trustworthy weight published (only an XS-only 360g figure that repeats identically across unrelated pant models, smelling like a Shopify placeholder, not a measured spec), so weight omitted rather than guessed. Re-confirmed via .js product JSON (price 13100 cents).',
@@ -1797,6 +1804,13 @@ var KIT_PARTS = [
     liner:false, disciplines:['trail'], sizes:['28','30','32','34','36','38'],
     desc:'CORRECTED 2026-07-17: price is the fetched $119.95 list (was sample $100; page currently on sale at $83.99, list used per policy). No weight published on the fetched page, stays prior sample.',
     verified:true, lastChecked:'2026-07-17', source:'https://www.foxracing.com/product/ranger-pants/33698.html' },
+  { id:'pnt-fox-ranger-womens', cat:'pants', brand:'Fox', model:"Women's Ranger Pant", price:139.95,
+    liner:false, fitCut:'womens', disciplines:['trail'], sizes:['0/2','4/6','8/10','12/14','16','18'],
+    desc:'kit-breadth-3 (2026-07-22): pants had only 1 fitCut:\'womens\' row before this. Genuinely'
+      + ' distinct from the men\'s Ranger, not a recolor: Fox\'s own copy calls out "Women\'s specific'
+      + ' stretch panels at the hip for comfort", and it ships on its own women\'s numeric size chart'
+      + ' (0/2-18) rather than the men\'s waist-inch chart. No weight published on the page.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.foxracing.com/product/womens-ranger-pants/33459.html' },
   { id:'pnt-troyleedesigns-ruckus', cat:'pants', brand:'Troy Lee Designs', model:'Ruckus Cargo Pant', price:210, weight:380,
     liner:false, disciplines:['trail'], sizes:['30','32','34','36','38'], verified:true, lastChecked:'2026-07-17',
     source:'https://troyleedesigns.com/products/sp23-ruckus-cargo-pant-mono-sienna',
