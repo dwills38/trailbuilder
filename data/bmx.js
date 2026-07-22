@@ -739,7 +739,9 @@ var BMX_PARTS = [
   // ===== BRAKES =========================================================
   {
     id: 'bmx-br-diacompe-990', cat: 'brake', brand: 'Dia-Compe', model: '990 U-Brake',
-    mount: 'u-brake', price: 34.99, note: 'The original "990" that gave U-brakes their nickname on BMX.'
+    mount: 'u-brake', weight: 280, price: 34.99,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.diacompe.com.tw/product/ad990/',
+    note: 'bmx-sweep-4: fetched the maker\'s own Taiwan HQ site (diacompe.com.tw), the current "AD990" listing under BMX/Diacompe. Confirms mount:u-brake (cold forged aluminum arms, dual spring tension adjustment - the classic "990"-mount U-brake this catalog row and the id both reference) and states "280g/Wheel" - weight ADDED (no prior value). No price is published on the maker page (no e-commerce on diacompe.com.tw) - price kept as the prior 34.99 sample, unconfirmed against the source (THE PRICE RULE).'
   },
   {
     id: 'bmx-br-odyssey-evo25', cat: 'brake', brand: 'Odyssey', model: 'Evo 2.5 U-Brake',
@@ -750,7 +752,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-br-tektro-vbrake', cat: 'brake', brand: 'Tektro', model: 'Race V-Brake',
-    mount: 'v-brake', price: 19.99
+    mount: 'v-brake', price: 19.99,
+    note: 'UNCONFIRMED, checked 2026-07-21 (bmx-sweep-4): tektro.com\'s current BMX/MTB linear-pull (V-brake) lineup lists M530 (158g/wheel), J310 (155g/wheel), and 837AL - no model literally named "Race V-Brake" exists in the current catalog (tektro.com/en/category/3, tektro.com/bmx product pages). mount:v-brake is a plausible generic classification (all Tektro linear-pull brakes share the V-brake mount), but no maker page names this exact product, so left unverified/unchanged rather than guessing a specific SKU match. Flagged for the coordinator - possible discontinued/generic-name row, same failure class as the retired bmx-hb-sandm-speedball phantom name.'
   },
   {
     id: 'bmx-br-chase-rsp-vbrake', cat: 'brake', brand: 'Chase', model: 'RSP Race V-Brake',
@@ -758,9 +761,10 @@ var BMX_PARTS = [
     note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (see bmx-fk-chase-rsp note). Left unchanged, not verified.'
   },
   {
-    id: 'bmx-br-mankind-truth-ubrake', cat: 'brake', brand: 'Mankind', model: 'Truth U-Brake',
-    mount: 'u-brake', weight: 168, price: 74.99,
-    note: 'CNC machined 6061-T6 alloy, includes CNC alloy cable hanger + straddle cable.'
+    id: 'bmx-br-mankind-truth-ubrake', cat: 'brake', brand: 'Mankind', model: 'Truth V2 U-Brake',
+    mount: 'u-brake', weight: 144, price: 74.99,
+    verified: true, lastChecked: '2026-07-21', source: 'https://mankindbmx.com/produkte/truth-v2-u-bremse/',
+    note: 'bmx-sweep-4: current lineup name is "Truth V2" (model corrected from the prior "Truth U-Brake" placeholder, id kept per append-only policy). Maker page (mankindbmx.com, German storefront) confirms mount:u-brake (CNC 6061-T6 aluminum U-brake, wider design clears tires up to 2.4in) and states "Gewicht: 144 g" - weight CORRECTED 168 -> 144g to match exactly. No USD price is published on this EUR-region page (no e-commerce checkout shown) - price kept as the prior 74.99 sample, unconfirmed against the source (THE PRICE RULE).'
   },
 
   // ===== HANDLEBAR ======================================================
