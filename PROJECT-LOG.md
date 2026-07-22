@@ -1,5 +1,18 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — bmx-depth-10: the Supercross wall falls (BMX 338)
+
+- **catalog/bmx-depth-10 merged**: supercrossbmx.com renders clean in the browser pane
+  (WebFetch's 429 was rate-limiting, not a challenge; same-origin fetch() inside the pane
+  pulled the Shopify JSON) — 6 Speedline race rows entered with maker-stated weights (the
+  bucket trap checked). Haro completes +8 off the hidden Specifications-tab DOM (Downtown
+  24 honestly gapped — "Coming Soon", no specs published); WeThePeople completes +3 (EUR
+  spec site, no USD checkout anywhere — tier-estimate prices disclosed, interfaces
+  maker-confirmed per the Chase precedent); United "Recruit" confirmed to have NO current
+  complete SKU via sitemap. TWO NEW BMX VOCAB GAPS tallied: bare 1" headset bore + the
+  1-1/8"–1.5" tapered class (both block otherwise-clean Speedline SKUs — join the pending
+  ruling). Gates: 7 OK (BMX 338/171), 989/989, tsc clean.
+
 ## 2026-07-22 — i9-hubtier-split: the ruling lands (MTB 5,088)
 
 - **catalog/i9-hubtier-split merged (Douglas's "each their own part" ruling)**: Deal/
