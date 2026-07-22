@@ -1,5 +1,39 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — backfill wave 2 + the dialogs: burndown 3,363→2,107 MTB; THE 6TH-TOKEN QUESTION IS NOW LOAD-BEARING
+
+- **ui/pb-dialog-wording merged**: build sheet, upgrade optimizer, owned-vs-buy now say
+  whether each PRICE is confirmed vs sample (†-markers + disclosed splits), threaded
+  through the modules' own injection seams; invariance tests pin totals/ranking/ownership
+  byte-identical; +25 tests (suite 1,054). Live-verified all four themes, zero console
+  errors.
+- **backfill/pb-mtb-a merged (499→187 in its categories)**: 312 assigned after per-domain
+  live spot-checks (SRAM/RaceFace/Hope/Magura/TRP/…); the 187 leftovers include 150
+  Shimano rows whose source (productinfo handbook) contains NO PRICING AT ALL — honestly
+  refused, not force-fit.
+- **backfill/pb-road wave 1 merged (266→163)**: 103 assigned; TWO live price corrections
+  (S-Works Tarmac SL8 $4,700→$5,499.99, Tarmac SL8 $3,200→$3,500 off the framesets' own
+  pages); the worker INDEPENDENTLY refused the discontinued-no-msrp mislabel for 163
+  current products — fetched Campagnolo's own pages to prove "no price at all, not even
+  EUR" is real.
+- **backfill/pb-mtb-c merged (854→10 in its categories)**: 844 assigned with three-pass
+  regex discipline + ~110 full-note reads + per-domain spot-checks for the 94 no-desc
+  rows (documented judgment). Flagged stretches accepted at review: retailer-corroborated
+  real-USD prices read as msrp-confirmed (three workers converged on this practice);
+  brand-wide no-US-market facts applied consistently. 10 honest gaps (KS's "$$$$$" price
+  tier!, one tier-inferred GT sample).
+- **Coordinator test repairs (2, both strengthening)**: the ovb sample-tally test's
+  zero-priceBasis world-assumption went stale the moment backfills landed — rewritten to
+  compute expectations from the parts' live state, both delta directions.
+- **★ THE 6TH TOKEN IS NOW DECISION-BLOCKING**: ~550+ rows across five catalogs are the
+  same class — CURRENT product, maker publishes NO price, honest third-party/sample
+  figure (Shimano 150+69, Campagnolo 23, the colonybmx cluster 16, KS 9, striders 2, and
+  gravel's rejected 156 await the redo). Two workers independently refused to mislabel;
+  one was rejected for guessing. Douglas's call: add `no-msrp-published` (or similar) —
+  the backfill can't finish without it.
+- Gates: 7 OK (MTB burndown 2,107 · kit 0 · BMX 34 · road 163 · striders 2), 1054/1054,
+  tsc clean.
+
 ## 2026-07-22 — backfill wave 1: kit CLEARS + the seat's first two REJECTIONS
 
 - **backfill/pb-kit merged — the first catalog fully cleared (578→0)**: 495
