@@ -46,8 +46,30 @@ var GRAVEL_VOCAB = {
   rearAxle:     ['12x142', '12x148', '135x9-qr', '135x10-qr'],   // '12x148' (Boost, MTB-derived) added gravel-verify-1 (2026-07-21) — the Salsa Cutthroat's own frame-specs table states "Rear Spacing 148 x 12 mm Thru-axle" (a drop-bar-mountain-bike bikepacking platform, not a road-derived 142mm frame); a real, sourced value, not a guess. '135x9-qr'/'135x10-qr' added vocab-tier1 (2026-07-22) — QR (not thru-axle) rear spacing, real on several older/budget gravel platforms this file previously flagged rather than force-fit as 12x142: '135x9-qr' is the classic 9mm-skewer QR standard (a retailer spec table states the Marin Nicasio+'s rear axle verbatim as "135x9mm Quick-Release Axle"); '135x10-qr' is the wider 10mm-skewer class named on this file's Kona Rove AL ("10x135mm rear axle", Joytech-hub spec table) and Salsa Journeyman ("10 x 135mm, QR", Salsa's own archived spec page) rows — two independent makers naming the same 10mm/135mm QR combination, distinct from the narrower 9mm class.
   axle:         ['12x100', '12x142', 'lefty-proprietary', '15x100'],
   hub:          ['12x100', '12x142'],
-  brakeMount:   ['flat-mount'],
-  brakeSystem:  ['disc-flat', 'disc', 'disc-hydraulic'],
+  // FRAME/FORK-side brake mount. 'is-mount' added engine/gravel-is-mount
+  // (2026-07-22) — I.S. (International Standard), the pre-flat-mount two-bolt
+  // disc mount still shipped on budget/touring-derived drop-bar frames. Real,
+  // sourced, and previously vocab-blocked: the Marin Nicasio+ row's own note
+  // already logged "Disc brake, International Standard (IS)" on both frame and
+  // fork (retailer spec table), corroborated by marinbikes.com's own Series
+  // 1-vs-2 contrast ("our Series 2 frames up the game with... flat mount
+  // brakes" — i.e. the Series 1 Nicasio+ is not flat mount) and by a fetched
+  // velonut.com Nicasio review ("The brake mounts on the Nicasio use what's
+  // called an IS mount"). Until this token existed the row carried a KNOWN-WRONG
+  // 'flat-mount' sample. Engine side: rule R18 in src/compat-road.js is
+  // direction-aware over it (post-mount caliper = adapter warning; flat-mount
+  // caliper = error). 'post-mount' is deliberately NOT added on this side — no
+  // cataloged GRAVEL frame/fork is post-mount (road's schema-road.js
+  // brakeMountRG already carries it, and the shared engine handles it).
+  brakeMount:   ['flat-mount', 'is-mount'],
+  // 'disc-is' / 'disc-post' added engine/gravel-is-mount (2026-07-22), mirroring
+  // schema-road.js's existing disc-flat/disc-post granularity convention (a
+  // frame/fork/caliper's brakeSystem states its own mount class). 'disc-is' backs
+  // the Nicasio+ frame — leaving it 'disc-flat' next to brakeMount:'is-mount'
+  // would have kept a false flat-mount claim alive in a second field. 'disc-post'
+  // backs the Hope RX4+ Postmount caliper row. Rule R17 compares only the
+  // disc-vs-rim CLASS (roadBrakeClass), so neither token changes any verdict.
+  brakeSystem:  ['disc-flat', 'disc', 'disc-hydraulic', 'disc-is', 'disc-post'],
   bb:           ['bsa-road', 'bb86', 'bb30a', 'pf30', '24mm-road', 'dub', 'dub-wide', 'ultra-torque', 'bbright', 't47-road', 'bb386evo', 't47-86', 'pf92', 'square-taper', 'bsa-73', 't47a-bbright'],   // 'pf86' retired 2026-07-21 — merged into 'bb86' (same physical 86.5mm press-fit shell; see schema-road.js's header note). Fixes the 2 Giant Revolt frames that had NO matching BB row under the old split. 'pf92' added gravel-verify-1 (2026-07-21) — the Salsa Cutthroat's own frame-specs table states "Bottom Bracket Press Fit BB92, 41 x 92 mm", an MTB-style 92mm press-fit shell distinct from every existing gravel BB token (BB86 is 86.5mm). 'square-taper' added vocab-tier1 (2026-07-22) — an older/budget touring-adjacent shell real on the Marin Nicasio+ (a retailer spec table states verbatim "Sealed Cartridge Bearings, Square Taper"), the exact non-fit this file's own header comment previously logged rather than force-fit. 'bsa-73' added vocab-tier1 (2026-07-22) — a 73mm-wide English-threaded MTB-derived shell, real on the Kona Sutra LTD (its own dedicated build spec table states "B/B SRAM GXP 73mm", corroborated by a bikepacking.com review's "73mm bottom bracket shell... 68mm shells be damned"), distinct from the narrower 68mm bsa-road token already in this vocab. 't47a-bbright' added vocab-tier1 (2026-07-22) — an asymmetric T47-threaded shell (Cervelo's own evolution of its BBRight standard, distinct from both the plain 't47-road' and 'bbright' tokens already in this vocab). Directly FETCHED cervelo.com/en-US/bikes/aspero (the manufacturer's own current Aspero platform page): "Aspero uses the asymmetrical T47a threaded bottom bracket we pioneered on R5-CX... allows us to deliver the benefits of BBRight in a more user-friendly form" — corroborated identically by a directly-fetched bikeradar.com Aspero-5 review build table ("Bottom bracket SRAM DUB Wide Ceramic, T47 BBright") and bikerumor.com ("a threaded T47 bottom bracket – well an asymmetric BBRight T47a BB"). No Aspero-5 catalog row was added this pass: the same review's build table also names an "FSA IS2 1-1/4, 45°x45° / 1-1/2, 36°x45°" headset — a 1-1/4-to-1-1/2 tapered class, WIDER than this vocab's existing generic 'tapered' token (which every other tapered gravel frame/fork in this file implicitly means as 1-1/8-to-1-1/2) — outside this pass's ratified steerer scope (only 'tapered'/'straight-1-1-8'/'straight-1-1-4' were ratified), so forcing plain 'tapered' onto it would be a false interface claim; deferred to a future pass alongside a steerer-vocab widening.
   shell:        ['bsa-road', 't47-road', 'bb86', 't47-86'],
   spindle:      ['24mm-road', 'dub', 'square-taper'],   // 'square-taper' added vocab-tier1 (2026-07-22), paired with the bb shell token above — the matching crank-side interface for a square-taper BB shell (no cataloged gravel crank currently uses it; landed for schema completeness alongside the shell token, same discipline as every other shell/spindle pair in this vocab).
@@ -111,7 +133,16 @@ var GRAVEL_VOCAB = {
   // its live tiers), was previously unbuildable: no 10-speed system token
   // existed. Real product line, not a force-fit.
   cage:         ['gs', 'sgs', 'xplr'],
-  mount:        ['flat-mount', 'center-lock', '6-bolt'],
+  /* SPLIT engine/gravel-is-mount (2026-07-22) out of one shared `mount` vocab
+     that held ['flat-mount','center-lock','6-bolt'] for BOTH brake.mount (a
+     CALIPER-to-frame interface) and rotor.mount (a ROTOR-to-hub interface).
+     Those token sets never overlap in meaning, and adding 'post-mount' to the
+     shared list would newly have let a ROTOR validate as mount:'post-mount' — a
+     value that cannot exist. Same reasoning (and same wording) as this file's
+     existing frontDerailleurMount/mountRD split. No data change: every gravel
+     brake row is 'flat-mount', every rotor row is 'center-lock'/'6-bolt'. */
+  caliperMount: ['flat-mount', 'post-mount'],   // brake.mount — 'post-mount' backs the Hope RX4+ Postmount row (hopetech.com's own Gravel/CX page)
+  rotorInterface: ['center-lock', '6-bolt'],    // rotor.mount
   mountRD:      ['std-hanger', 'udh-fullmount'],
   minCog:       [9, 10, 11],
   speeds:       [10, 11, 12, 13],
@@ -218,11 +249,11 @@ var GRAVEL_SCHEMA = {
     upper:{type:'string'}, lower:{type:'string'}, steerer:{type:'string',vocab:'steerer'}
   },
   brake: {
-    mount:{type:'string',vocab:'mount'}, pistons:{type:'number'}, actuation:{type:'string',vocab:'actuation'},
+    mount:{type:'string',vocab:'caliperMount'}, pistons:{type:'number'}, actuation:{type:'string',vocab:'actuation'},
     brakeSystem:{type:'string',vocab:'brakeSystem'}, leverPair:{type:'string'}
   },
   rotor: {
-    size:{type:'number'}, mount:{type:'string',vocab:'mount'}
+    size:{type:'number'}, mount:{type:'string',vocab:'rotorInterface'}
   },
   handlebar: {
     clamp:{type:'string',vocab:'clamp'}, flare:{type:'number'}, dropBar:{type:'bool'}, width:{type:'number'}
