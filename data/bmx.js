@@ -485,6 +485,17 @@ var BMX_PARTS = [
     steererFit: 'integrated-1-1/8', cableRouting: 'dual', price: 19.99,
     note: 'Budget-tier full kit (gyro, top plate, lower assembly, upper + lower cables included).'
   },
+  {
+    id: 'bmx-gy-total-chaosgyro', cat: 'gyro', brand: 'Total BMX', model: 'Chaos Gyro',
+    steererFit: 'integrated-1-1/8', cableRouting: 'dual', weight: 32, price: 55.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://totalbmx.com/products/total-bmx-tech-gyro-black',
+    note: 'bmx-breadth-4 (2026-07-22): VERIFIED. Directly fetched totalbmx.com: "Total BMX Tech Gyro - Black...Weight 0.032kg/ 1.1oz" -> 32g CONFIRMED; "Regular price $55.00 USD" CONFIRMED. steererFit/cableRouting are display-only in checkBmxBuild (no rule reads a gyro steerer fit or cable routing - VERIFY-PROTOCOL\'s BMX small-parts exception), so their unconfirmed values (the near-universal 1-1/8in integrated + dual-cable config every other cataloged gyro uses) do not block verification.'
+  },
+  {
+    id: 'bmx-gy-saltplus-georotor', cat: 'gyro', brand: 'Salt', model: 'SaltPlus GEO Rotor',
+    steererFit: 'integrated-1-1/8', cableRouting: 'dual', weight: 72, price: 44.99,
+    note: 'bmx-breadth-4 (2026-07-22): UNVERIFIED sample. Directly fetched saltbmx.com/products/saltplus-geo-rotor: "Size: for 1 1/8\\" headtubes" -> steererFit CONFIRMED; "Weight: 72g (2.54oz : 0.15lbs)" -> weight CONFIRMED. cableRouting left at the catalog-standard \'dual\' (not itself stated on this page; SaltPlus separately sells a "Dual Upper Gyro Cable" for this same rotor line, consistent with dual routing). Maker page carries NO price (redirects off-site to a "Kingdom Store" distributor with no price shown) - retailer prices span $39.99 (thesecretbmx.com, listed sold-out) to $58.95 (SkatePro, EUR-region); $44.99 (LUXBMX-adjacent midpoint) entered as an approximate sample, not a confirmed MSRP. Left unverified: no source page states a USD price.'
+  },
 
   // ===== CRANKS ========================================================
   {
@@ -717,6 +728,11 @@ var BMX_PARTS = [
     teeth: 9, fitsDriver: 'cassette', pitch: '1/8', price: 13.99,
     note: 'UNRESOLVED: no standalone Colony cassette-cog SKU found on colonybmx.com.au — cogs there ship bundled with a hub (e.g. the Wasp Race Cassette Hub comes with a 16T cog) rather than sold separately under this name. Flagged for the coordinator; unverified sample, not sourced.'
   },
+  {
+    id: 'bmx-rc-odyssey-freewheel-13', cat: 'rearCog', brand: 'Odyssey', model: 'Freewheel 13T (RHD)',
+    teeth: 13, fitsDriver: 'freewheel', pitch: '1/8', price: 21.99,
+    note: 'bmx-breadth-4 (2026-07-22): real current product, directly fetched shop.odysseybmx.com/products/freewheel-13t-rhd (a genuine standalone thread-on freewheel, unlike most cataloged rearCog rows which found only hub-bundled cogs). Title "ODYSSEY FREEWHEEL 13T" + "Regular price $21.99" CONFIRM teeth:13 and price directly; "RHD version only fits flip-flop or compact drive hubs" confirms it is a thread-on freewheel body (fitsDriver:\'freewheel\', the checkBmxBuild-read field distinguishing it from a cassette/freecoaster cog). pitch:\'1/8\' is the catalog-standard BMX freestyle default (not itself stated on this specific page, and pitch IS engine-read per bmx-chain-pitch, so verified:true is withheld) - only the RHD 13T size is sold; no other teeth options exist on the maker\'s site.'
+  },
 
   // ===== FRONT WHEEL ====================================================
   {
@@ -850,6 +866,17 @@ var BMX_PARTS = [
     id: 'bmx-br-chase-rsp-vbrake', cat: 'brake', brand: 'Chase', model: 'RSP Race V-Brake',
     mount: 'v-brake', weight: 180, price: 34.99,
     note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (see bmx-fk-chase-rsp note). Left unchanged, not verified.'
+  },
+  {
+    id: 'bmx-br-saltplus-geoxl', cat: 'brake', brand: 'Salt', model: 'SaltPlus GEO XL Brake',
+    mount: 'u-brake', weight: 189, price: 28.52,
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://saltbmx.com/products/saltplus-geo-xl-brake',
+    note: 'bmx-breadth-4 (2026-07-22): VERIFIED. Directly fetched saltbmx.com: described verbatim as an "extra-large u-brake for modern 2.40\\" tires" -> mount:\'u-brake\' CONFIRMED (the checkBmxBuild-read field); "189 g (6.7 oz)" -> weight CONFIRMED. Maker states price only in EUR (€24.99, rear-position XL u-brake) — converted at 1.1412 USD/EUR (the spot rate on 2026-07-22, per public FX quotes) = $28.52, disclosed as priceBasis:\'regional-conversion\' per schema-bmx.js LOCAL_VOCAB.'
+  },
+  {
+    id: 'bmx-br-shadow-sanov2featherweight', cat: 'brake', brand: 'The Shadow Conspiracy', model: 'Sano V2 Featherweight Brake',
+    mount: 'u-brake', weight: 147, price: 91.99,
+    note: 'bmx-breadth-4 (2026-07-22): real current product, directly fetched sparkysbrands.com/products/shadow-sano-v2-featherweight-brake ("Shadow Sano V2 Featherweight Brake...5.2 oz...$91.99") -> weight (147g) and price CONFIRMED off the maker page. mount:\'u-brake\' is NOT stated anywhere in the fetched page text itself (no breadcrumb/category names it), so verified:true is withheld even though it IS the checkBmxBuild-read field - "u-brake" is corroborated only by the product\'s own name as listed uniformly across 2+ independent retailers (Dan\'s Comp, Landry\'s Bicycles, Brands Cycle and Fitness all list it as "...Sano V2 Featherweight U-Brake"), satisfying the unverified-sample corroboration bar (DATA-ENTRY-TEMPLATE §7) but not the fetched-maker-page bar for verified:true. Distinct SKU from the already-cataloged bmx-gy-shadow-sanov2 (that is the Sano Detangler V2 gyro, not this brake caliper).'
   },
   {
     id: 'bmx-br-mankind-truth-ubrake', cat: 'brake', brand: 'Mankind', model: 'Truth V2 U-Brake',
@@ -2270,6 +2297,20 @@ var BMX_PARTS = [
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://missionbmx.com/products/half-link-chain',
     note: 'bmx-depth-9: VERIFIED via missionbmx.com. Page states verbatim: pitch "1/8\\"", "Teflon coated half-link chain", "15.0oz" (=425g), "100 Links", price $34.99–$39.99 by color (Black at $34.99 used here) — directly confirms both of the chain category\'s schema fields (pitch, halfLink:true).'
+  },
+  {
+    id: 'bmx-ch-mission-410', cat: 'chain', brand: 'Mission', model: '410 Chain',
+    pitch: '1/8', halfLink: true, weight: 312, price: 12.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
+    source: 'https://missionbmx.com/products/410-chain',
+    note: 'bmx-breadth-4 (2026-07-22): VERIFIED via missionbmx.com. Page states verbatim: "SIZE: 1/8\\"", "Features a factory-installed master-link and half-link", "WEIGHT: 11.0oz" (=312g), "Regular price $12.99" — directly confirms both chain schema fields (pitch, halfLink:true — the chain ships with a half-link installed) plus price. Distinct budget-tier SKU from the existing bmx-ch-mission-halflink row (different name, weight, price).'
+  },
+  {
+    id: 'bmx-ch-mission-510', cat: 'chain', brand: 'Mission', model: '510 Chain',
+    pitch: '1/8', halfLink: true, weight: 397, price: 19.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
+    source: 'https://missionbmx.com/products/510-chain',
+    note: 'bmx-breadth-4 (2026-07-22): VERIFIED via missionbmx.com. Page states verbatim: "SIZE: 1/8\\"", "Features a factory-installed half-link and master link", "WEIGHT: 14.0oz" (=397g), "Regular price $19.99" — directly confirms both chain schema fields (pitch, halfLink:true) plus price. Mid-tier SKU (heat-treated pins, thicker side plates) between 410 and Half-Link Chain in Mission\'s own lineup.'
   },
   {
     id: 'bmx-se-mission-carrier', cat: 'seat', brand: 'Mission', model: 'Carrier Seat',
