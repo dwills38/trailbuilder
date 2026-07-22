@@ -45,6 +45,18 @@ on a sram.com row); a maker RANGE is never a literal figure; regional-conversion
 DISCLOSED conversion (the Continental sample-price catch); "price = sample" in a desc means
 BLANK; a bare /tmp is out-of-bounds two different ways — write scratch paths explicitly.
 
+### 0. [Opus, high] ENGINE: port the flat<->post adapter tier to road/gravel (Douglas ruled A)
+R18 in src/compat-road.js currently hard-errors flat-mount<->post-mount BOTH ways under a
+[MECHANIC REVIEW] deferral. Douglas ruled 2026-07-22: port the MTB rule-8 behavior. Make both
+directions adapter-tier WARNINGS with structured `fix`, reusing MTB rule 8's own maker
+citations and caveat wording (Shimano SM-MA flat-mount line; Wolf Tooth Post-to-Flat, whose
+message MUST keep the +20mm-rotor-step and boss-clearance caveats). FM-on-I.S. stays an ERROR.
+The I.S.-to-post tier that landed today is unchanged. Include rule tests for every direction
+(both warnings fire with the right fix, FM-on-I.S. still errors, matched mounts silent,
+dormant when a side omits its field) and re-check the live gravel catalog: the Hope RX4+
+post-mount caliper now pairs with flat-mount frames, so probe that it reads yellow-not-red.
+Never weaken a test. Branch engine/road-fm-pm-adapter, report road-fm-pm-adapter.md.
+
 ### 1. [Sonnet, medium] PB FINISHING — MTB slice B4 (resume at Cube; Fox/Maxxis/RockShox INCLUDED)
 Continue the alphabetical grind from Cube (then Deviate, Devinci, DT Swiss 70, DVO 55...).
 B3's resume list said "skip Fox/Maxxis/RockShox" with NO recorded reason — no ruling excludes
@@ -87,6 +99,14 @@ Try the known techniques (pointer-event sequences per the Radix-accordion lesson
 document and stop — never guess a build kit. Branch catalog/sc-bronson-trims, report
 sc-bronson-trims.md.
 
+### 5b. [Sonnet, low] Vee tire family price ruling (8 rows, one fetch)
+All 8 Vee rows (4 Flow Snap, 4 Crown Gem incl. the new Crown Gem DCC) are verified:true with
+NO priceBasis: each stores Vee's single EUR RRP in the USD price field with no disclosed
+conversion, so no token fits. ONE fetch of veetireco.de (+ any US storefront) decides the whole
+family together: a US figure -> msrp-confirmed; a disclosed EUR->USD conversion -> regional-
+conversion with the rate and date in each note; neither -> all 8 stay blank, documented once.
+Never per-row guesses. Branch fix/vee-price-family, report vee-price-family.md.
+
 ### 6. Held walls (dispatch only when something changes)
 135x10-qr wheels (no maker publishes one — gravel-qr-wheels.md) · QR-front gravel forks (no
 vocab token; needs sourcing + schema) · Giant Stance E+ (maker copy self-conflicts) · Commencal
@@ -127,9 +147,6 @@ unanswered question.)**
 9. **dp-specialized-command-post-349-160** — "suspected fictional combo" flag stands.
 10. **Audit M7** — wheel-size-aware rule-18 clearance (Surly 27.5x3.0 case; gravel's
     maxTireByWheel is the model). Engine change → adversarial review when picked up.
-10c. **Flat<->post adapter deferral (R18 vs MTB BRK-28/29)** — the two engines now disagree:
-    MTB warns both ways off Shimano SM-MA + Wolf Tooth; road/gravel R18 keeps the
-    [MECHANIC REVIEW] error. Close the divergence?
 10d. **Wheel-PAIR price-split token** — pb-gravel-2: Zipp/Fulcrum/Reserve/DT GRC pair MSRPs
     split across front/rear rows have no honest token (bundle-split-estimate is scoped to
     shift-brake systems). Ratify a pair-split-estimate token, or leave those rows blank?
@@ -139,6 +156,13 @@ unanswered question.)**
     Supabase MFA/CAPTCHA check · Cloudflare Vitals read · Finder two · recall-badge
     scoping · fitter paywalls · the empty D:\mtb-worktrees shell folder (one manual
     right-click).
+
+**FLAT<->POST ADAPTER: RULED 2026-07-22 (Douglas: "flat to post = A") — PORT THE MTB
+BEHAVIOR to road/gravel.** Both directions become adapter-tier WARNINGS with structured
+fixes and the MTB rule's own maker citations (Shimano SM-MA flat-mount line one way, Wolf
+Tooth Post-to-Flat the other, whose message must keep the +20mm-rotor-step and boss-
+clearance caveats). FM-on-I.S. stays an ERROR (only a boutique rotor-limited part exists).
+Implementation chip queued below; adversarial review at merge.**
 
 **GRAVEL MULLET: RULED 2026-07-22 (Douglas: "no gravel mullet option") — option D, deliberate
 exclusion. Gravel stays drivetrain-frozen at road parity; no Eagle tokens, no xd freehub, no
