@@ -42,18 +42,14 @@
 //
 // KNOWN SCHEMA-VOCAB NON-FITS (gravel-9, 2026-07-21) — real products found this pass whose
 // specs don't fit the current vocab; logged rather than force-fit (a missing row beats a
-// wrong one, same discipline as an unactivated compat rule):
-//   - square-taper BB (older/budget touring-adjacent gravel cranksets, e.g. some Surly builds)
-//     — GRAVEL_VOCAB.bb has no square-taper token (bsa-road/bb86/bb30a/pf30/24mm-road/dub/
-//     dub-wide/ultra-torque/bbright/t47-road/bb386evo/t47-86 only).
+// wrong one, same discipline as an unactivated compat rule). vocab-tier1 (2026-07-22)
+// RATIFIED and closed the steerer + square-taper items below (both now real GRAVEL_VOCAB
+// tokens, applied to their flagged rows) — remaining open items:
 //   - slider dropouts (adjustable-chainstay-length dropouts on some steel/adventure frames,
 //     e.g. certain Surly/Salsa builds) — no dropout-type field exists on the gravel frame
 //     schema at all yet (MTB's `dropoutType` enum was never ported).
 //   - 36.1mm seatpost diameter (a handful of older/boutique steel frames) — GRAVEL_VOCAB.
 //     seatpost is ['27.2','31.6','30.9','proprietary'] only.
-//   - Wilier's straight (non-tapered) steerer on some of its gravel-adjacent forks — GRAVEL_
-//     VOCAB.steerer is ['tapered'] only (road/gravel schema never modeled a straight option,
-//     unlike src/schema.js's MTB steerer vocab).
 //   - Tumbleweed / Curve's non-standard axle spacings on their bikepacking-oriented gravel
 //     frames (their own boutique thru-axle/QR variants, not the catalog's 12x100/12x142
 //     convention) — no matching rearAxle/frontAxle token.
@@ -323,10 +319,10 @@ var GRAVEL_PARTS = [
     verified: true, lastChecked: '2026-07-21', source: 'https://www.jamisbikes.com/new_pdf/19_renegadeelite.pdf' },
   { id: 'gfr-marin-nicasio-plus', cat: 'frame', brand: 'Marin', model: 'Nicasio+',
     family: 'marin-nicasio', modelYear: 2023, material: 'steel', wheelSizes: ['650b'],
-    rearAxle: '135x9-qr', brakeSystem: 'disc-flat', brakeMount: 'flat-mount', bb: 'bsa-road',
+    rearAxle: '135x9-qr', brakeSystem: 'disc-flat', brakeMount: 'flat-mount', bb: 'square-taper',
     seatpost: '27.2', steerer: 'straight-1-1-8', maxTireByWheel: { '650b': 47 },
     frontDerailleurMount: 'none', frameOnly: false, weight: 1700, price: 1200,
-    note: 'gravel-verify-2 (2026-07-21): PARTIAL — CORRECTED material alloy->steel ("Steezy Double Butted CrMo"). gravel-verify-5 (2026-07-21) follow-up RESOLVES the ambiguity verify-2 flagged, with corrections and a confirmed multi-field vocab block: wheelSizes CORRECTED 700c->650b (the Nicasio+ is a 650b-only build per marinbikes.com — "650B Wheels"; the 700c drop-bar version is the separate non-Plus "Nicasio 2"); maxTireByWheel CORRECTED {700c:45}->{650b:47} (stock "WTB Horizon, 650Bx47mm" matches Marin\'s own tire-clearance note for the platform exactly). A retailer spec table (1001-bike-parts.com, corroborating marinbikes.com\'s own "Series 1... our Series 2 frames up the game with... thru-axles, flat mount brakes, and tapered head tubes" distinction) states THREE gaps: (1) bb "Sealed Cartridge Bearings, Square Taper"; (2) rearAxle "135x9mm Quick-Release Axle"; (3) brakeMount "Disc brake, International Standard (IS)" on both frame and fork, not flat-mount. vocab-tier1 (2026-07-22) closes two of the three: rearAxle CORRECTED 12x142->135x9-qr (GRAVEL_VOCAB.rearAxle now carries the ratified 135x9-qr token, matching the retailer table\'s own wording verbatim) and steerer CORRECTED tapered->straight-1-1-8 (the headset "FSA ORBIT CE No.8B... IS41.8-IS41.8", matching upper/lower bore codes, is the standard straight-steerer signal; GRAVEL_VOCAB.steerer now carries straight-1-1-8). bb (square-taper) is addressed separately in this same vocab-tier1 pass. brakeMount (I.S.) is explicitly OUT OF SCOPE this pass — it needs an engine adapter-rule port (the rule-9-style I.S.-to-flat-mount warning this catalog\'s MTB side already has), not just a vocab token — so brakeMount stays the existing wrong-but-vocab-blocked \'flat-mount\' sample and the row as a whole stays unverified until that separate item lands.' },
+    note: 'gravel-verify-2 (2026-07-21): PARTIAL — CORRECTED material alloy->steel ("Steezy Double Butted CrMo"). gravel-verify-5 (2026-07-21) follow-up RESOLVES the ambiguity verify-2 flagged, with corrections and a confirmed multi-field vocab block: wheelSizes CORRECTED 700c->650b (the Nicasio+ is a 650b-only build per marinbikes.com — "650B Wheels"; the 700c drop-bar version is the separate non-Plus "Nicasio 2"); maxTireByWheel CORRECTED {700c:45}->{650b:47} (stock "WTB Horizon, 650Bx47mm" matches Marin\'s own tire-clearance note for the platform exactly). A retailer spec table (1001-bike-parts.com, corroborating marinbikes.com\'s own "Series 1... our Series 2 frames up the game with... thru-axles, flat mount brakes, and tapered head tubes" distinction) states THREE gaps: (1) bb "Sealed Cartridge Bearings, Square Taper"; (2) rearAxle "135x9mm Quick-Release Axle"; (3) brakeMount "Disc brake, International Standard (IS)" on both frame and fork, not flat-mount. vocab-tier1 (2026-07-22) closes two of the three: rearAxle CORRECTED 12x142->135x9-qr (GRAVEL_VOCAB.rearAxle now carries the ratified 135x9-qr token, matching the retailer table\'s own wording verbatim) and steerer CORRECTED tapered->straight-1-1-8 (the headset "FSA ORBIT CE No.8B... IS41.8-IS41.8", matching upper/lower bore codes, is the standard straight-steerer signal; GRAVEL_VOCAB.steerer now carries straight-1-1-8). bb CORRECTED bsa-road->square-taper in this same vocab-tier1 pass — GRAVEL_VOCAB.bb now carries the ratified square-taper token, matching the retailer table\'s own wording verbatim, the exact non-fit this file\'s header comment had logged. brakeMount (I.S.) is explicitly OUT OF SCOPE this pass — it needs an engine adapter-rule port (the rule-9-style I.S.-to-flat-mount warning this catalog\'s MTB side already has), not just a vocab token — so brakeMount stays the existing wrong-but-vocab-blocked \'flat-mount\' sample and the row as a whole stays unverified until that separate item lands.' },
   { id: 'gfr-kona-sutra-ltd', cat: 'frame', brand: 'Kona', model: 'Sutra LTD',
     family: 'kona-sutra', modelYear: 2023, material: 'steel', wheelSizes: ['700c'],
     rearAxle: '12x142', brakeSystem: 'disc-flat', brakeMount: 'flat-mount', bb: 'bsa-road',

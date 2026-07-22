@@ -86,6 +86,35 @@ test('an out-of-vocab rearAxle value is still caught', function(){
   ok(probs.some(function(m){ return /rearAxle.*not in rearAxle/.test(m); }), probs.join('\n'));
 });
 
+// vocab-tier1 (2026-07-22): ratified square-taper BB shell token (frame bb
+// field) + its matching crank spindle token — positive + negative.
+test('square-taper bb is a valid gravel frame value', function(){
+  var frame = aFrame();
+  var p = Object.assign({}, frame, { bb: 'square-taper' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('an out-of-vocab bb value distinct from square-taper is still caught', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { bb: 'octalink' });
+  var probs = S.validateGravelPart(bad, TODAY);
+  ok(probs.some(function(m){ return /bb.*not in bb/.test(m); }), probs.join('\n'));
+});
+
+test('square-taper is a valid crankset bb value too (same shared bb vocab as the frame field)', function(){
+  var crank = D.GRAVEL_PARTS.find(function(x){ return x.cat === 'crankset'; });
+  if(!crank) throw new Error('no gravel crankset row found in data/gravel.js');
+  var p = Object.assign({}, crank, { bb: 'square-taper' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('square-taper is a valid standalone bb-part spindle value', function(){
+  var bbPart = D.GRAVEL_PARTS.find(function(x){ return x.cat === 'bb'; });
+  if(!bbPart) throw new Error('no gravel bb-part row found in data/gravel.js');
+  var p = Object.assign({}, bbPart, { spindle: 'square-taper' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
 test('a missing required field is caught', function(){
   var frame = aFrame();
   var bad = Object.assign({}, frame); delete bad.rearAxle;
