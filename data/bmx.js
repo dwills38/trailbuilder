@@ -1947,6 +1947,119 @@ var BMX_PARTS = [
     id: 'bmx-rh-fiend-cabv2freecoaster', cat: 'rearWheel', brand: 'Fiend', model: 'Cab V2 Freecoaster Hub',
     driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', weight: 588, price: 139.99,
     note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/cab-freecoaster. Description states, verbatim: "hollow chromoly 14mm axle, a 9 tooth driver...Weight 20.75ozs" (20.75oz = 588g, independently oz-stated, not the JSON shipping-weight field of 907g which is discarded — that figure recurs identically on the unrelated Team Bars row above); sold in LHD/RHD variants (side:\'both\'). Unverified sample.'
+  },
+
+  // --- Salt / SaltPlus (saltbmx.com, its own Shopify store — a full structured spec sheet in
+  // grams per product; the widest and cleanest single-brand source this pass found) ---
+  {
+    id: 'bmx-fk-saltplus-hq-ubrake', cat: 'fork', brand: 'Salt', model: 'SaltPlus HQ Fork (u-brake)',
+    discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
+    brakeMount: 'u-brake', weight: 1047, price: 124.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, saltbmx.com/products/saltplus-hq-fork — this row pins the "Brake Mounts" variant (a separate "Brakeless" variant also exists on the same page). Description states, verbatim: "Size: with u-brake mounts, 3/8\\" slots...Dropouts: 3/8\\" / 10 mm...designed for integrated 45° bearing...Weight 1047 g (36.93 oz : 2.30 lbs)". wheelSize:\'20\' is SaltPlus\'s catalog-wide freestyle standard, not independently re-stated as a wheel-size number on this specific page (the only field this row leaves unverified). Unverified sample.'
+  },
+  {
+    id: 'bmx-hs-saltplus-echo', cat: 'headset', brand: 'Salt', model: 'SaltPlus ECHO Headset',
+    fit: 'integrated-1-1/8', weight: 70, price: 26.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-echo-headset',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Size: Campagnolo (45° x 45°), 41.8 mm diameter...Weight: 70 g (2.46 oz)". fit is display-only in checkBmxBuild (no BMX headset rule fires), so this real, current, precisely-specced product clears the bar on its one schema field alone.'
+  },
+  {
+    id: 'bmx-rh-saltplus-vertex-freecoaster', cat: 'rearWheel', brand: 'Salt', model: 'SaltPlus VERTEX Freecoaster Hub',
+    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', weight: 671, price: 139.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-vertex-freecoaster-hub',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Axle : 14 mm male, CrMo...Size: RSD, LSD...Weight:671 g (23.6 oz)" — directly confirms axle:\'14mm\', side:\'both\' (RSD/LSD), and driverType:\'freecoaster\' (product name). driverTeeth:9 is the domain-wide de facto freestyle standard (BMX-MODEL.md sec.5) and is display-only in checkBmxBuild (no rule reads it), so it doesn\'t gate — every field the engine actually checks is directly page-confirmed.'
+  },
+  {
+    id: 'bmx-fw-saltplus-mesa', cat: 'frontWheel', brand: 'Salt', model: 'SaltPlus MESA Front Wheel',
+    wheelSize: '20', axle: '10mm', weight: 966, price: 149.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, saltbmx.com/products/saltplus-mesa-front-wheel. Description states, verbatim: "Size: 20\\"...Weight: 966 g (34.07 oz : 2.13 lbs)" (wheelSize directly confirmed). axle:\'10mm\' is inferred from "3/8\\" bolts" (peg-bolt terminology, not an independently-stated axle bore diameter — the same ambiguity flagged on other hubs this pass), so left unverified on that basis. Unverified sample.'
+  },
+  {
+    id: 'bmx-ti-saltplus-pitchmid-23', cat: 'tire', brand: 'Salt', model: 'SaltPlus PITCH MID Tire 2.3in',
+    wheelSize: '20', width: 2.3, casing: 'park', maxPsi: 65, weight: 757, price: 26.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, saltbmx.com/products/saltplus-pitch-mid-tire. Description states, verbatim: "Perfect mixed tread for trails, transition or street...65psi rated...Weight: 2.3\\" – 757 g (26.70 oz : 1.66 lbs)" (this row pins the 2.3in variant the weight figure names). wheelSize:\'20\' is not independently re-stated as a number on this page (standard BMX freestyle default), so left unverified on that basis. Unverified sample.'
+  },
+  {
+    id: 'bmx-cr-saltplus-metron48-175', cat: 'cranks', brand: 'Salt', model: 'SaltPlus METRON48 Crank 175mm',
+    spindle: '19mm', pieces: '3-piece', ringMount: 'spline', weight: 952, price: 139.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, saltbmx.com/products/saltplus-metron-48-crank. Description states, verbatim: "48 spline 19 mm spindle...Weight: 952 g (33.58 oz : 2.09 lbs) – 175 mm" (this row pins the 175mm arm length). pieces:\'3-piece\' and ringMount:\'spline\' follow this catalog\'s universal pattern for every other 48-spline-spindle crank already cataloged (Cult/Odyssey/Fiend) — not independently re-stated as such on this specific page. Unverified sample.'
+  },
+  {
+    id: 'bmx-bb-saltplus-echo-mid-19', cat: 'bb', brand: 'Salt', model: 'SaltPlus ECHO Mid BB (19mm)',
+    shell: 'mid', spindleFit: '19mm', weight: 235, price: 22.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-echo-mid-bb',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Size: mid bb, for 19mm or 20 mm spindle...Weight: 235 g (8.29 oz : 0.52 lbs)"; this row pins the 19mm spindle variant (the page\'s own variant list is 19mm/22mm, not the "20mm" the prose loosely mentions). Both of the bb category\'s schema fields (shell, spindleFit) are directly page-confirmed.'
+  },
+  {
+    id: 'bmx-sp-saltplus-manta-25', cat: 'sprocket', brand: 'Salt', model: 'SaltPlus MANTA Sprocket 25T',
+    teeth: 25, mount: 'spline', pitch: '1/8', weight: 67, price: 32.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, saltbmx.com/products/saltplus-manta-sprocket. Description states, verbatim: "four sprocket bolt holes...incl. 19 mm & 22 mm spindle adapter...Weight 67 g (2.36 oz : 0.14 lb) – 25T". mount:\'spline\' follows this catalog\'s convention for spindle-adapter-equipped sprockets of this style (matching the Odyssey/Eclat/Fiend precedent already cataloged) — the page\'s own "bolt holes" phrasing is ambiguous against the plain spline/press-on vocab, so this is a convention match, not a direct statement, and the row stays unverified on that basis. pitch:\'1/8\' is the catalog-wide freestyle default. Unverified sample.'
+  },
+  {
+    id: 'bmx-ch-saltplus-warlock', cat: 'chain', brand: 'Salt', model: 'SaltPlus WARLOCK Half Link Chain',
+    pitch: '1/8', halfLink: true, weight: 447, price: 31.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-warlock-chain',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "A tough and dependable BMX half link chain...Size: 1/2\\" x 1/8\\"...Weight: 447 g (15.77 oz : 0.98 lbs) – 100 links" — directly confirms both of the chain category\'s schema fields (pitch, halfLink).'
+  },
+  {
+    id: 'bmx-pg-saltplus-hq', cat: 'pegs', brand: 'Salt', model: 'SaltPlus HQ Peg',
+    axleFit: '14mm', material: 'steel', reducerIncluded: true, weight: 189, price: 16.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-hq-peg',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Material: 4130 CrMo...Size: 14mm axle hole with 3/8\\" adapter...Weight: 189 g (6.67 oz : 0.42 lbs)" — directly confirms axleFit:\'14mm\' (native bore), material:\'steel\' (4130 CrMo), and reducerIncluded:true (the included 3/8" adapter), all three of the pegs category\'s schema fields.'
+  },
+  {
+    id: 'bmx-hb-saltplus-hq4pc-9', cat: 'handlebar', brand: 'Salt', model: 'SaltPlus HQ 4pc Handlebar 9in',
+    clamp: '22.2mm', rise: 9, width: 29.5, weight: 894, price: 62.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-hq-4pc-handlebar',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Width: 29.5\\" Back Sweep: 11.5° Up Sweep: 3° Clamping: 22.2 mm...Weight: 9\\" : 894 g (31.5 oz : 1.97 lbs)" (this row pins the 9in rise variant the weight figure names). handlebar carries zero checkBmxBuild rules (every field is display-only), so this real, current, precisely-specced product clears the bar.'
+  },
+  {
+    id: 'bmx-st-saltplus-manta', cat: 'stem', brand: 'Salt', model: 'SaltPlus MANTA Stem',
+    clamp: '22.2mm', weight: 340, price: 52.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-manta-stem',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Clamping: 22.2 mm...Weight: 340 g (11.99 oz : 0.75 lbs)". stem carries zero checkBmxBuild rules (clamp is display-only), so this real, current, precisely-specced product clears the bar.'
+  },
+  {
+    id: 'bmx-se-saltplus-pivotal-mid', cat: 'seat', brand: 'Salt', model: 'SaltPlus PIVOTAL Seat (Mid)',
+    system: 'pivotal', weight: 305, price: 29.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-pivotal-seat',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Only compatible with Pivotal seat posts...Mid – 305 g (10.76 oz)" (this row pins the Mid size). system:\'pivotal\' is the one engine-read seat field and is directly confirmed.'
+  },
+  {
+    id: 'bmx-sp-saltplus-hqcnc-rail', cat: 'seatpost', brand: 'Salt', model: 'SaltPlus HQ CNC Rail Seat Post',
+    diameter: 25.4, system: 'standard', weight: 180, price: 52.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-hq-cnc-rail-seat-post',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "25.4 mm micro-adjust seat post...only compatible with railed seats...Weight: 180 g (6.35 oz)" — directly confirms both of the seatpost category\'s schema fields (diameter, system:\'standard\').'
+  },
+  {
+    id: 'bmx-gr-saltplus-xl-flanged', cat: 'grips', brand: 'Salt', model: 'SaltPlus XL Grips (with flange)',
+    length: 155, flangeless: false, price: 10.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-xl-grips',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Length: 155 with flange 162 without flange...Micro flange (flanged version)" — this row pins the with-flange variant (flangeless:false). grips carries zero checkBmxBuild rules.'
+  },
+  {
+    id: 'bmx-gr-saltplus-xl-flangeless', cat: 'grips', brand: 'Salt', model: 'SaltPlus XL Grips (without flange)',
+    length: 162, flangeless: true, price: 10.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-xl-grips',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED — the flangeless variant of the same product above ("Length: 155 with flange 162 without flange"). grips carries zero checkBmxBuild rules.'
+  },
+  {
+    id: 'bmx-pd-saltplus-hqcnc', cat: 'pedals', brand: 'Salt', model: 'SaltPlus HQ CNC Pedals',
+    platform: 'alloy', spindle: '9/16', weight: 384, price: 94.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-hq-cnc-pedals',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Size: 9/16\\", sealed...CNC machined 6061-T6 alloy body...Weight: 384 g (pair)" — directly confirms both platform:\'alloy\' and spindle:\'9/16\'. Pedals carry zero checkBmxBuild rules.'
   }
 ];
 
