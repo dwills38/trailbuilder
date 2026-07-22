@@ -461,6 +461,18 @@ var EMTB_PARTS = [
     desc: 'Verified vs the maker page. Motor generation corrected verify/emtb-3 wave 3 phase 2 (SyncDrive Pro2 -> Pro 3). Further corrected verify/emtb-4 wave 4 cluster B: drivetrain SRAM X0 Eagle Transmission -> SRAM XX Eagle Transmission AXS, brakes SRAM Code Ultimate -> SRAM Maven Ultimate 4-piston 200mm CenterLine (the real (2026) US top-tier build), weight matches the maker-stated 22.3kg (size M) exactly, price corrected $9,999 -> the real US MSRP $13,500.',
     verified: true, lastChecked: '2026-07-20', source: 'https://www.giant-bicycles.com/us/reign-advanced-eplus-0'
   },
+  {
+    id: 'em-giant-reign-e-plus-2', cat: 'emtb', brand: 'Giant', model: 'Reign E+ 2',
+    family: 'giant-reign-e-plus', modelYear: 2024,
+    motorBrand: 'giant', motorModel: 'SyncDrive Pro2', motorTorque: 85,
+    batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Cues LinkGlide 11-speed', brakes: 'Shimano Deore 4-piston',
+    disciplines: ['e-enduro'], price: 6500,
+    note: "Entry-tier aluminum Reign E+, one rung below the carbon Reign Advanced E+ 0 (em-giant-reign-e-plus-0): mullet wheels (29in front / 27.5in rear), Fox 38 Rhythm E-Optimized fork, Fox Float X Performance shock, 800Wh non-slim EnergyPak (vs the Advanced's slimmer 560Wh pack).",
+    desc: "Reached via the giant-bicycles.com Electric Mountain category listing (breadth-3, driving the site's own filter/listing UI rather than guessing a slug — the current live lineup no longer surfaces Trance X E+ at all, only Talon E+/Stance E+/Reign E+). Fetched the maker's own Reign E+ 2 (2024) product page directly: frame/fork/shock/drivetrain/brakes/battery/travel all maker-stated. No bike weight is published on the page (boilerplate 'have your local dealer weigh it' text in place of a figure) — weight left unset rather than guessed, matching the phantom-number discipline used elsewhere in this catalog.",
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.giant-bicycles.com/us/bikes-reign-eplus'
+  },
 
   // ---------------------------------------------------------------------------
   // Cannondale depth (Moterra 1 + Moterra SL lightweight)
@@ -609,11 +621,23 @@ var EMTB_PARTS = [
     id: 'em-haibike-nduro-8', cat: 'emtb', brand: 'Haibike', model: 'Nduro 8 Freeride',
     motorBrand: 'yamaha', motorModel: 'Yamaha PW-X3', motorTorque: 85, motorPowerPeak: 250,
     batteryWh: 720, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 180,
+    wheelConfig: '29', suspension: 'full', travelFront: 180, travelRear: 180,
     frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Maven Bronze',
     disciplines: ['e-enduro'], weight: 25200, price: 8100,
     note: 'Gravity/freeride-leaning Haibike Enduro platform on the Yamaha PW-X3 (720Wh InTube battery, optional range extender); RockShox ZEB Ultimate fork, Mavic E-Deemax wheels.',
-    desc: 'Corrected, still unverified verify/emtb-4 wave 4 cluster B (no maker-stated bike weight found — interfaces fetched-page-confirmed but weight bar not met, so verified:true withheld). "Nduro 8" is real but the maker\'s full name is "NDURO 8 FREERIDE" — added to the model field. Corrected: travel 170/160 -> 180/180mm (RockShox ZEB Ultimate front, matching rear), drivetrain Shimano XT -> SRAM GX Eagle (real spec: Sram GX Eagle 12s shifter/derailleur/chain), brakes Shimano XT 4-piston -> SRAM DB Maven Bronze 4-piston (220mm front/203mm rear). Price: EUR 7,499 RRP converted to a $8,100 USD sample — no confirmed US MSRP found. Previously corrected verify/emtb-3 wave 3 phase 2 (motor brand Bosch -> Yamaha, 800 -> 720Wh) — that reading holds; frame/drivetrain/brake/travel fields did not and are corrected here.'
+    desc: 'Corrected, still unverified verify/emtb-4 wave 4 cluster B (no maker-stated bike weight found — interfaces fetched-page-confirmed but weight bar not met, so verified:true withheld). "Nduro 8" is real but the maker\'s full name is "NDURO 8 FREERIDE" — added to the model field. Corrected: travel 170/160 -> 180/180mm (RockShox ZEB Ultimate front, matching rear), drivetrain Shimano XT -> SRAM GX Eagle (real spec: Sram GX Eagle 12s shifter/derailleur/chain), brakes Shimano XT 4-piston -> SRAM DB Maven Bronze 4-piston (220mm front/203mm rear). Price: EUR 7,499 RRP converted to a $8,100 USD sample — no confirmed US MSRP found. Previously corrected verify/emtb-3 wave 3 phase 2 (motor brand Bosch -> Yamaha, 800 -> 720Wh) — that reading holds; frame/drivetrain/brake/travel fields did not and are corrected here. CORRECTED breadth-3: wheelConfig mullet -> 29 — re-fetched the maker\'s own product page (forcing the site\'s English/International locale via its own locale switcher, since no US market exists) and both front and rear tire codes read the same "62-622" (622mm = 29in bead-seat diameter) — this is a same-size 29in bike, not mixed-wheel.',
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.haibike.com/en-int/products/nduro-8-freeride-hnct1'
+  },
+  {
+    id: 'em-haibike-nduro-7', cat: 'emtb', brand: 'Haibike', model: 'Nduro 7',
+    motorBrand: 'yamaha', motorModel: 'Yamaha PW-X3', motorTorque: 85, motorPowerPeak: 250,
+    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 180, travelRear: 180,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX', brakes: 'Magura MT5 4-piston',
+    disciplines: ['e-enduro'], price: 7019,
+    note: "One rung below the Nduro 8 Freeride (em-haibike-nduro-8) on the same aluminum Nduro chassis: FOX 38 Performance fork / FOX Float X2 Performance shock (vs the 8's RockShox ZEB/Vivid Ultimate), Shimano SLX drivetrain (vs SRAM GX Eagle), Magura MT5 brakes on both, Mavic E-Deemax wheels.",
+    desc: "Reached by forcing the site's own English/International locale via its locale switcher (haibike.com defaults to de-de; no United States market exists in its country list — International EUR is the closest EN option, matching breadth-2's finding) and navigating the site's own Enduro eMTBs collection listing to the product page, then opening its spec accordion (a <details>-based collapsible-tabs component that starts collapsed; set .open=true on each <details> to read the rendered E-SYSTEM/FRAME/DRIVE/SUSPENSION/COMPONENTS/WHEELSET sections). Front and rear tire both read \"62-622\" (622mm bead-seat = 29in), same as the sibling Nduro 8 row — 29in wheels both ends, not mullet. travelFront is the maker-stated 180mm (FOX 38); travelRear is not separately published (only the 225x75mm shock size, same as the Nduro 8's), so it is carried at 180mm matching the sibling row's convention rather than guessed independently. No bike weight is published on this page. PRICE RULE: EUR 6,499 regular price (no separate US price exists) converted to a $7,019 USD sample at this catalog's established ~1.08 EUR->USD sample-conversion ratio (matching the sibling Nduro 8 and AllMtn 3 rows' basis), disclosed.",
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.haibike.com/en-int/products/nduro-7-hnbr1'
   },
 
   // ---------------------------------------------------------------------------
@@ -658,14 +682,38 @@ var EMTB_PARTS = [
   },
   {
     id: 'em-yt-decoy-uncaged-8', cat: 'emtb', brand: 'YT', model: 'Decoy MX CORE 3 CF',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 100, motorPowerPeak: 750,
+    motorBrand: 'bosch', motorModel: 'Performance Line CX Gen 5', motorTorque: 120, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
     frameMaterial: 'carbon', drivetrain: 'SRAM S1000 Eagle Transmission', brakes: 'TRP EVO PRO',
     disciplines: ['e-trail', 'e-enduro'], weight: 23200, price: 7999,
     note: 'Top-tier carbon Decoy build. The whole "Uncaged" sub-brand naming and Shimano EP8 motor were retired — the current top-tier carbon Decoy runs a Bosch Performance Line CX motor on an all-new "Ultra Modulus Carbon" frame with 180mm front / 170mm rear travel.',
-    desc: 'Verified vs the fetched maker product page (yt-industries.com, via Exa fetch — full Tech & Spec table); front/rear travel split and motor torque/peak-power cross-checked against an independent MBR first-ride review of the same 2026 Decoy Core relaunch (the raw page badge order was ambiguous). Model/trim corrected verify/emtb-4 wave 4 cluster F: "Decoy Uncaged 8" (Shimano EP8, no such trim/naming currently sold) -> real current top-carbon trim "Decoy MX CORE 3 CF". All e-system/drivetrain/weight/price fields rewritten to match: motor Shimano EP8 85Nm -> Bosch Performance Line CX 100Nm/750W peak, battery 630->800Wh (removable PowerTube), drivetrain SRAM X0 Eagle Transmission -> SRAM S1000 Eagle Transmission (SRAM\'s newer S-series naming), brakes SRAM Code -> TRP EVO PRO, weight 22600->23200g, travel 160/150 -> 180/170mm. PRICE RULE: GBP 7,999.00 RRP (yt-industries.com UK pricing page) used as a $7,999 USD sample — no separate US price found; basis disclosed.',
-    verified: true, lastChecked: '2026-07-20', source: 'https://www.yt-industries.com/en-us/E-MTB/Bosch-Decoy/CORE-3/'
+    desc: 'Verified vs the fetched maker product page (yt-industries.com, via Exa fetch — full Tech & Spec table); front/rear travel split and motor torque/peak-power cross-checked against an independent MBR first-ride review of the same 2026 Decoy Core relaunch (the raw page badge order was ambiguous). Model/trim corrected verify/emtb-4 wave 4 cluster F: "Decoy Uncaged 8" (Shimano EP8, no such trim/naming currently sold) -> real current top-carbon trim "Decoy MX CORE 3 CF". All e-system/drivetrain/weight/price fields rewritten to match: motor Shimano EP8 85Nm -> Bosch Performance Line CX 100Nm/750W peak, battery 630->800Wh (removable PowerTube), drivetrain SRAM X0 Eagle Transmission -> SRAM S1000 Eagle Transmission (SRAM\'s newer S-series naming), brakes SRAM Code -> TRP EVO PRO, weight 22600->23200g, travel 160/150 -> 180/170mm. PRICE RULE: GBP 7,999.00 RRP (yt-industries.com UK pricing page) used as a $7,999 USD sample — no separate US price found; basis disclosed. CORRECTED breadth-3: motorTorque 100 -> 120Nm and motorModel -> "Performance Line CX Gen 5" — re-fetching the live yt-industries.com CORE-3 tech-spec table (navigating the site\'s own Bosch-Decoy family page rather than a guessed URL) shows the banner "BOSCH PERFORMANCE CX GEN 5 / 120NM | 750W | 600% YOU" verbatim; the prior wave\'s 100Nm figure does not match the current page.',
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.yt-industries.com/E-MTB/Bosch-Decoy/CORE-3/'
+  },
+  {
+    id: 'em-yt-decoy-bosch-core-4', cat: 'emtb', brand: 'YT', model: 'Decoy MX CORE 4 CF',
+    family: 'yt-decoy-bosch', modelYear: 2026,
+    motorBrand: 'bosch', motorModel: 'Performance Line CX Gen 5', motorTorque: 120, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23200, price: 8999,
+    note: "Crowns the Bosch-powered Decoy family above the already-cataloged CORE 3 CF (em-yt-decoy-uncaged-8): FOX Factory suspension (38 Float Factory / X2 Factory) and carbon DT Swiss HXC 1500 wheels replace CORE 3's Öhlins suspension and Crankbrothers alloy wheels; SRAM X0 Eagle Transmission and SRAM Maven Silver brakes are one notch up from CORE 3's S1000/TRP EVO PRO.",
+    desc: "Reached via the site's own YT-Industries E-MTB navigation (Bikes > E-MTB > Bosch-Decoy family page, which lists CORE 4/CORE 3/CORE 2 as its own tier switcher — not a guessed URL) and the CORE-4 product page's own Tech & Spec accordion for every field. Weight (23.20kg) is the maker-stated page figure and happens to match the already-cataloged CORE 3 CF row's weight exactly — both pages state that number independently, not copy-paste; left as-is per THE BAR (no reason to distrust a maker-published figure just because it repeats). PRICE RULE: the page shows a €7,999 site-wide sale next to a €8,999 regular price — the regular/MSRP figure is used as an $8,999 USD sample (no separate US pricing page found; basis disclosed, EUR 1:1 sample convention matching this catalog's other YT Decoy rows).",
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.yt-industries.com/E-MTB/Bosch-Decoy/CORE-4/'
+  },
+  {
+    id: 'em-yt-decoy-sn-core-4', cat: 'emtb', brand: 'YT', model: 'Decoy SN MX CORE 4',
+    family: 'yt-decoy-sn', modelYear: 2026,
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60, motorPowerPeak: 450,
+    batteryWh: 430, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-enduro'], weight: 20600, price: 8499,
+    note: "Lightweight-class sibling to the full-power Decoy lines — a distinct \"Decoy SN\" sub-brand (not previously cataloged) on the Fazua Ride 60 motor (60Nm/450W peak, 430Wh), Ultra-Modulus carbon frame, mullet wheels, 170mm front/160mm rear. FAZUA's parent (Porsche eBike Performance) has announced it is closing, but YT's own product page states continued customer/dealer support for existing Decoy SN buyers — noted here as an honest caveat, not a reason to exclude a currently-sold model.",
+    desc: "Reached via the site's own YT-Industries E-MTB navigation (the Bosch-Decoy family page's \"YT Range\" switcher links to \"Fazua-Decoy SN\" as its own product line, not a guessed URL) and the CORE-4 tier's own Tech & Spec accordion for every field (motor/battery/travel/wheel/frame/drivetrain/brakes/weight all maker-stated). PRICE RULE: the page shows a steep €4,999 sale next to an €8,499 regular price (likely tied to the FAZUA-closure liquidation) — the regular/MSRP figure is used as an $8,499 USD sample per this catalog's MSRP-not-sale convention (no separate US pricing page found; basis disclosed).",
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.yt-industries.com/E-MTB/Fazua-Decoy-SN/CORE-4/'
   },
 
   // ---------------------------------------------------------------------------
@@ -711,14 +759,26 @@ var EMTB_PARTS = [
   {
     id: 'em-pivot-shuttle-lt', cat: 'emtb', brand: 'Pivot', model: 'Shuttle LT Pro X0 Eagle Transmission',
     family: 'pivot-shuttle-lt', modelYear: 2026,
-    motorBrand: 'bosch', motorModel: 'Bosch Performance CX-R (Race Edition), Gen 5', motorTorque: 100, motorPowerPeak: 750,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance CX-R (Race Edition), Gen 5', motorTorque: 120, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 162,
     frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Maven Silver',
     disciplines: ['e-enduro'], weight: 23600, price: 12599,
     note: "Longer-travel gravity sibling to the Shuttle AM; mixed wheel. This row was still carrying the previous-generation Shimano EP8 spec (630Wh, 165mm rear) — like the old em-pivot-shuttle-am row, Pivot dropped Shimano entirely across the Shuttle range for Gen 5 Bosch Performance CX/CX-R, with a bigger 800Wh removable battery and Bosch's PowerMore 250 range-extender option. Headline geometry is 162mm rear (short Swinger dropout setting) / 170mm front — Pivot's patented Swinger dropout also allows a 165mm-rear long setting, user-adjustable, not a separate SKU.",
-    desc: "Verified vs the maker's own bike-family page (pivotcycles.com/en-us/bikes/shuttle-lt: motor family, headline 162/170mm travel, mixed wheel, 800Wh removable battery all confirmed there) plus the specific Pro X0 Eagle Transmission product page (pivotcycles.com: model name + MSRP $12,599 confirmed directly). Motor generation corrected wave 4 cluster C (Shimano EP8 85Nm/630Wh -> Bosch Performance CX-R Gen 5 100Nm/750W/800Wh, a full motor-brand switch); travelRear corrected 165->162 (the maker's own headline figure for the default/short setting); brakes corrected SRAM Code -> SRAM Maven Silver; price $10,500 sample -> the confirmed $12,599 MSRP. Brakes/derailleur-tier naming cross-checked against three independent, mutually-agreeing dealer spec-feed listings (bikesale.com, danvillebikes.com, mikesbikes.com) that mirror Pivot's own distributed dealer spec sheet — Pivot's own itemized build-spec table is behind a JS-lazy-loaded accordion that did not render text even through the browser pane, so the itemized component list is corroborated rather than directly screen-scraped; the load-bearing facts (motor/battery/travel/price/model) came straight off fetched pivotcycles.com pages.",
-    verified: true, lastChecked: '2026-07-20', source: 'https://www.pivotcycles.com/en-us/bikes/shuttle-lt'
+    desc: "Verified vs the maker's own bike-family page (pivotcycles.com/en-us/bikes/shuttle-lt: motor family, headline 162/170mm travel, mixed wheel, 800Wh removable battery all confirmed there) plus the specific Pro X0 Eagle Transmission product page (pivotcycles.com: model name + MSRP $12,599 confirmed directly). Motor generation corrected wave 4 cluster C (Shimano EP8 85Nm/630Wh -> Bosch Performance CX-R Gen 5 100Nm/750W/800Wh, a full motor-brand switch); travelRear corrected 165->162 (the maker's own headline figure for the default/short setting); brakes corrected SRAM Code -> SRAM Maven Silver; price $10,500 sample -> the confirmed $12,599 MSRP. Brakes/derailleur-tier naming cross-checked against three independent, mutually-agreeing dealer spec-feed listings (bikesale.com, danvillebikes.com, mikesbikes.com) that mirror Pivot's own distributed dealer spec sheet — Pivot's own itemized build-spec table is behind a JS-lazy-loaded accordion that did not render text even through the browser pane, so the itemized component list is corroborated rather than directly screen-scraped; the load-bearing facts (motor/battery/travel/price/model) came straight off fetched pivotcycles.com pages. CORRECTED breadth-3: motorTorque 100 -> 120Nm — re-fetching the live family page's own \"Watt-Fed Fury\" copy states the CX-R drive unit \"pushes out 120Nm of torque and 750 watts of peak power\" verbatim (opened via the accordion technique in em-pivot-shuttle-lt-ride's desc).",
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.pivotcycles.com/en-us/bikes/shuttle-lt'
+  },
+  {
+    id: 'em-pivot-shuttle-lt-ride', cat: 'emtb', brand: 'Pivot', model: 'Shuttle LT Ride Eagle 70/90',
+    family: 'pivot-shuttle-lt', modelYear: 2026,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX, Gen 5', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 162,
+    frameMaterial: 'carbon', drivetrain: 'SRAM Eagle 90 Mechanical Transmission', brakes: 'SRAM Maven 4-piston',
+    disciplines: ['e-enduro'], price: 8999,
+    note: "Entry-tier build, one rung below the carbon Shuttle LT Pro X0 Eagle Transmission (em-pivot-shuttle-lt): same Hollow Core carbon frame as every Shuttle LT tier (unlike the Shuttle AM, the LT does not have a separate alloy chassis), but Fox Performance 38 fork / Fox Performance Float X shock (vs the Pro's Fox Podium/DHX Neo Live), mechanical (not AXS) SRAM Eagle 90/70 Transmission, base (non-Race-Edition) Bosch Performance Line CX motor, base-tier SRAM Maven brakes (not Silver), DT Swiss H1900 alloy wheels.",
+    desc: "Reached by opening the Shuttle LT family page's \"Build Specs\" accordion (id build_spec_table, the same Radix component the Shuttle AM row's desc documents) via a full pointerdown/mousedown/pointerup/mouseup/click event sequence dispatched at the trigger's real DOM coordinates — plain click/anchor-link navigation leaves it collapsed. The Product Details accordion (id product_details_section), opened the same way, states \"Ultra light Hollow Core carbon frame\" unqualified — i.e. every build tier including Ride is carbon, unlike the Shuttle AM where Ride is a distinct alloy chassis. The 5-column build-level table gave every field for the Ride column directly off the maker's own page — fork, shock, drivetrain, brakes, motor, wheels, MSRP $8,999. The family page's \"Watt-Fed Fury\" copy scopes its 120Nm/750W figure explicitly to \"the Shuttle LT Pro and Team builds['] ... race-tuned CX-R drive unit\" — the Ride tier's drive-unit spec reads plain \"Bosch Gen 5 Performance Line CX 800Wh\" (no Race Edition suffix), so it uses Bosch's standard Performance Line CX Gen 5 figures (85Nm/600W peak), not the CX-R numbers. No bike weight is listed in this table or anywhere else on the page, so weight is left unset rather than guessed.",
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.pivotcycles.com/en-us/bikes/shuttle-lt'
   },
   {
     id: 'em-pivot-shuttle-sl', cat: 'emtb', brand: 'Pivot', model: 'Shuttle SL Pro X0 Eagle Transmission',
@@ -1235,14 +1295,26 @@ var EMTB_PARTS = [
   {
     id: 'em-pivot-shuttle-am-bosch-cx', cat: 'emtb', brand: 'Pivot', model: 'Shuttle AM Pro X0 Eagle Transmission',
     family: 'pivot-shuttle-am', modelYear: 2026,
-    motorBrand: 'bosch', motorModel: 'Bosch Performance CX-R (Race Edition), Gen 5', motorTorque: 100, motorPowerPeak: 750,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance CX-R (Race Edition), Gen 5', motorTorque: 120, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
     frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Maven Silver',
     disciplines: ['e-trail'], weight: 23000, price: 11999,
     note: 'The next-gen Shuttle AM switched from Shimano EP8 to Gen 5 Bosch Performance CX/CX-R, with an 800Wh battery and optional 250Wh PowerMore range extender.',
-    desc: "Verified vs the maker's own product page (pivotcycles.com/en-us/products/shuttle-am-pro-x0-eagle-transmission: model name, Bosch Gen 5 CX/CX-R motor family, MSRP all fetched directly) plus the Shuttle AM bike-family page (motor torque/power, 800Wh battery, 160/150mm travel, carbon frame, 29in wheel, PowerMore range-extender compatibility). Pivot's own itemized build-spec accordion is JS-lazy-loaded and did not render as text even via the browser pane (same wrinkle noted on the Shuttle LT/SL rows this wave), so drivetrain/brakes are cross-checked against a dealer listing (basecampvt.com, 2026-01-22) that mirrors Pivot's own distributed spec feed field-for-field — corroboration, not the primary source. Brakes corrected wave 4 cluster C (SRAM Code -> SRAM Maven Silver, the real current-gen spec); price corrected to the maker's own $11,999 MSRP (the previously-cataloged $10,799 was pivotcycles.com's current promotional SALE price, not MSRP — THE PRICE RULE requires MSRP in this field). No bike weight is published for this SKU (weight stays the prior sample estimate, noted honestly).",
-    verified: true, lastChecked: '2026-07-20', source: 'https://www.pivotcycles.com/en-us/products/shuttle-am-pro-x0-eagle-transmission'
+    desc: "Verified vs the maker's own product page (pivotcycles.com/en-us/products/shuttle-am-pro-x0-eagle-transmission: model name, Bosch Gen 5 CX/CX-R motor family, MSRP all fetched directly) plus the Shuttle AM bike-family page (motor torque/power, 800Wh battery, 160/150mm travel, carbon frame, 29in wheel, PowerMore range-extender compatibility). Pivot's own itemized build-spec accordion is JS-lazy-loaded and did not render as text even via the browser pane (same wrinkle noted on the Shuttle LT/SL rows this wave), so drivetrain/brakes are cross-checked against a dealer listing (basecampvt.com, 2026-01-22) that mirrors Pivot's own distributed spec feed field-for-field — corroboration, not the primary source. Brakes corrected wave 4 cluster C (SRAM Code -> SRAM Maven Silver, the real current-gen spec); price corrected to the maker's own $11,999 MSRP (the previously-cataloged $10,799 was pivotcycles.com's current promotional SALE price, not MSRP — THE PRICE RULE requires MSRP in this field). No bike weight is published for this SKU (weight stays the prior sample estimate, noted honestly). CORRECTED breadth-3: motorTorque 100 -> 120Nm — the accordion table this wave finally rendered (Build Specs is a Radix accordion that stayed collapsed for prior fetch attempts; opened it directly this pass, see em-pivot-shuttle-am-ride's desc) confirms the family-wide banner figure of 120Nm/750W applies to the CX-R Race Edition tiers shown in that same table, not just the base CX.",
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.pivotcycles.com/en-us/products/shuttle-am-pro-x0-eagle-transmission'
+  },
+  {
+    id: 'em-pivot-shuttle-am-ride', cat: 'emtb', brand: 'Pivot', model: 'Shuttle AM Ride Eagle 70/90',
+    family: 'pivot-shuttle-am', modelYear: 2026,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX, Gen 5', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM Eagle 90 Mechanical Transmission', brakes: 'SRAM DB8 Stealth',
+    disciplines: ['e-trail'], price: 8499,
+    note: "Entry-tier \"Shuttle AM w/Alloy RT\" build, one rung below the carbon Shuttle AM Pro X0 Eagle Transmission (em-pivot-shuttle-am-bosch-cx): aluminum frame, RockShox Lyrik Select+ fork / Super Deluxe Select shock (vs the Pro's Fox Factory or RockShox Zeb Ultimate), mechanical (not AXS) SRAM Eagle 90/70 Transmission, base (non-Race-Edition) Bosch Performance Line CX motor, alloy DT Swiss E532 wheels.",
+    desc: "Reached by opening the Shuttle AM family page's \"Build Specs\" accordion (id build_spec_table) — a Radix UI component that stays collapsed on load; the anchor-link click and a synthetic .click() both left data-state=\"closed\", so the trigger was opened via a full pointerdown/mousedown/pointerup/mouseup/click event sequence dispatched at the button's real DOM coordinates (the same rendering wrinkle breadth-2 flagged as unsolved, and the reason prior waves for the Pro/Team tiers had to corroborate via a dealer listing instead of this table directly). Once open, the table's 5-column build-level comparison (Ride/Pro 2026/Pro 2027/Team/Team NEO) gave every field for the Ride column directly off the maker's own page — frame variant, fork, shock, drivetrain, brakes, motor, wheels, MSRP $8,499. The Ride tier's drive unit reads \"Bosch Gen 5 Performance Line CX 800Wh\" (no \"Race Edition\" suffix, unlike the Pro/Team columns' \"CX Race Edition\"); the family copy's 120Nm/750W figure is explicitly scoped to the CX-R unit on the Shuttle LT page (its \"Watt-Fed Fury\" section: \"the Shuttle LT Pro and Team builds is Bosch's race-tuned CX-R drive unit... 120Nm... 750 watts\"), so the base CX on this Ride tier uses Bosch's standard, separately-published Performance Line CX Gen 5 figures (85Nm/600W peak) rather than the Race Edition numbers — corrects this row's own initial breadth-3 entry, which had wrongly copied the CX-R figure onto the base-CX Ride tier. No bike weight is listed in this table or anywhere else on the page (only component specs + pricing), so weight is left unset rather than guessed.",
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.pivotcycles.com/en-us/bikes/shuttle-am'
   },
   {
     id: 'em-norco-sight-vlt-cx-c2', cat: 'emtb', brand: 'Norco', model: 'Sight VLT CX C2',
