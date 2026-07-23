@@ -311,6 +311,15 @@ var BMX_PARTS = [
     note: 'Daniel Juchatz signature frame (mankindbmx.com); also offered in 20.75/21/21.25in top tube. Price is EUR retail. Removable U-brake mounts, gyro-compatible, integrated seat clamp + chain tensioners.'
   },
   {
+    id: 'bmx-fr-mankind-international2', cat: 'frame', brand: 'Mankind', model: 'International 2.0 Park (Ed Black, 21in)',
+    family: 'mankind-international', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: true, weight: 2100, price: 421.74,
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23',
+    source: 'https://mankindbmx.com/mankind-international-2-0-park-rahmen-21-0-ed-black/',
+    note: 'bmx-brand-depth-2: directly fetched mankindbmx.com (Mankind\'s own storefront), the current Sanko-tubing park-frame platform (updated geometry, 2022+ per digbmx.com\'s corroborating coverage). States verbatim "BB: Mid BB" (bbShell:mid), "Head tube: Wärmebehandelt-Int. Steuersatz" (integrated headset -> headTube:integrated-1-1/8), "Dropouts:...14mm Achsaufnahme" (rearAxle:14mm exact), "U-Brake: Abn. M6 Bremssockel" (removable U-brake bosses -> rearBrakeMount:u-brake exact), "Weight: 2.1 kg bei 21.0\\"" (this row is the 21.0in TT variant, so weight:2100 is this exact SKU\'s own stated figure, not a cross-size guess), "Lengths: 20.3, 20.6, 21.0" (topTube:21 modeled). Sold as a standalone frame ("Kategorie: Rahmen", no complete-bike bundling on this SKU) -> frameOnly:true. Price is maker-stated EUR-only (369.95€, "inkl. 19% MwSt.") - no USD figure published on this German-region storefront; converted at 1.14 USD/EUR (this catalog\'s existing bmx-br-saltplus-geo-xl-rear precedent rate) = $421.74, disclosed as priceBasis:regional-conversion.'
+  },
+  {
     id: 'bmx-fr-radio-darko', cat: 'frame', brand: 'Radio Bikes', model: 'Darko',
     family: 'radio-darko', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
     headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
