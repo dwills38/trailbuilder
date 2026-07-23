@@ -680,6 +680,15 @@ var KIT_PARTS = [
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://casco-helmets.com/en/collections/mtbe',
     desc:'Fetched casco-helmets.com/en/collections/mtbe: "the mountainbike helmet" half-shell. RRP EUR160.00 x ~1.08 USD/EUR (disclosed conversion, not a US MSRP - the fetched page shows several colorways discounted to EUR80/EUR140, the page\'s own EUR160 list price is used instead). No weight published (same shipping-weight-bucket caveat as the Full Face row).' },
 
+  /* -- HJC (kit-breadth-12, 2026-07-23): brand entirely ABSENT. HJC Sports Europe (hjcsports.com)
+     is overwhelmingly road/TT/urban (Furion, Ibex, Adwatt, Calido, Coban) - Crosser is its one
+     XC/gravel-leaning model, entered here; everything else in the line falls outside this
+     catalog's MTB kit scope. Fetched hjcsports.com directly (USD pricing, real US-facing store). */
+  { id:'hm-hjc-crosser', cat:'helmet', brand:'HJC', model:'Crosser', price:94, disciplines:['xc'],
+    type:'half-shell',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://hjcsports.com/collections/all',
+    desc:'Fetched hjcsports.com: "URBAN / PERFORMANCE / LEISURE" helmet also sold by EU retailers (Bike24) as an "XC/Gravel Helmet" - the closest thing to an MTB-relevant model in HJC\'s current lineup, which otherwise skews road/TT/urban. $94.00 confirmed on the maker\'s own site; the listing showed the item as sold out at fetch time (not the same as discontinued, so status left unset). No weight published.' },
+
   /* -- Shoes (soleType required: flat / clipless) -- */
   { id:'sho-fiveten-freerider-pro', cat:'shoes', brand:'Five Ten', model:'Freerider Pro', price:160, weight:696,
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['40','41','42','43','44','45','46','47'],
