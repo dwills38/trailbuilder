@@ -2001,6 +2001,173 @@ var EMTB_PARTS = [
     note: 'French maker Lapierre\'s new-for-2026 all-mountain/enduro carbon flagship, alongside the already-cataloged Overvolt AM 10.8 and Overvolt TR 7.8 rows — full-carbon frame (Mitsubishi 24T/40T layup mix, 2.9kg size-M frame-only), two-position flip-chip mullet/dual-29in wheel setup, entry build of a 3-model range (6.8/7.8/10.8).',
     desc: 'Unverified sample via the credible-source breadth policy — off-road.cc\'s and BikeBiz\'s launch coverage of this exact platform, plus alltricks.com\'s live SKU listings for the 6.8/10.8 builds, confirm "Bosch Performance CX motor with 100Nm of torque... 800Wh removable battery... compatible with Bosch\'s PowerMore range extender... 170/165mm of travel... carbon frame weighing 2.9kg (size medium)... mullet configuration and features a two-position flip chip... Starting price: EUR 7,299" (the 6.8, entry build). alltricks.com\'s own 10.8 listing (a higher trim) independently confirms the shared "Bosch 100 Nm MX motor" designation and 800Wh battery. No complete-bike weight found for the 6.8 build specifically. PRICE: EUR 7,299 (starting price for the 6.8) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $8,326.68 — disclosed estimate, no regional-conversion token. catalog/emtb-breadth-3 wave (Lapierre deepened from 2 rows to 3).',
     lastChecked: '2026-07-23', source: 'https://road.cc/offroad/tech-news/all-mountain-or-enduro-in-disguise-the-2026-lapierre-overvolt-am-cf-breaks-cover-and-its-surprisingly-mellow'
+  },
+
+  // ---------------------------------------------------------------------------
+  // emtb-depth-5 wave: absent makers added (Yeti, Evil, Forbidden, Privateer,
+  // KTM, Saracen) — Specialized/Trek were checked first and found already deep
+  // (7 and 5 rows respectively, all verified) so no further Specialized/Trek
+  // rows were added this wave.
+  // ---------------------------------------------------------------------------
+
+  {
+    id: 'em-yeti-160e-t1', cat: 'emtb', brand: 'Yeti', model: '160E T1',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XT 1x12 (EM900 crank)', brakes: 'SRAM Code RSC',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23760, price: 12700,
+    note: 'Yeti\'s only e-MTB line (160E, dual-29in-only, no mullet option) — TURQ Series carbon frame, Sixfinity 6-bar linkage, 160mm rear travel, Shimano EP801 full-power motor family, 630Wh semi-integrated removable battery, Shimano EM800 bar-mounted controller (not a top-tube display). T1 is a mid/upper trim: Fox Factory 38 GRIP2 fork (170mm E-Tune), Fox Factory Float X2 shock, SRAM Reverb AXS dropper.',
+    desc: 'Unverified sample via the credible-source breadth policy (brand was fully absent) — Yeti\'s own product pages (yeticycles.com/en-us/bikes/160e) are JS-rendered and returned only nav chrome to WebFetch/Exa; specs below are cross-checked across independent dealer/review pages that mirror Yeti\'s official spec sheets, not a directly fetched maker page. Weight is The Loam Wolf\'s tested-unit figure, "52.4 lb" (23.76kg), no size stated. Peak motor wattage not confirmed for this specific trim (Yeti\'s own EP801 family is quoted 500-600W across sibling trims; left uncataloged here rather than guessed). Price $12,700 per The Loam Wolf\'s review of this exact build. catalog/emtb-depth-5 wave (Yeti absent -> 2 rows).',
+    lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/review-yeti-160e-t1/'
+  },
+  {
+    id: 'em-yeti-160e-t2', cat: 'emtb', brand: 'Yeti', model: '160E T2',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X01 Eagle 12-speed', brakes: 'SRAM Code RSC',
+    disciplines: ['e-trail', 'e-enduro'], weight: 22630, price: 10800,
+    note: 'Current top trim of the 160E: Fox Factory 38 GRIP2 (Kashima) fork, Fox Float X2 Factory shock (205x65mm trunnion, Kashima), DT Swiss HX1700 wheels, SRAM Reverb AXS dropper, SRAM HS2 220mm rotors both ends.',
+    desc: 'Unverified sample via the credible-source breadth policy — Vital MTB\'s and MTB Database\'s spec-sheet pages (mirroring Yeti\'s own T2 build sheet), cross-checked against Alex Bicycles\' dealer listing for the US MSRP. Weight is Vital MTB\'s tested-unit figure, "49 lb 14.2 oz" = 22.63kg. One aggregator (Opticycles) listed $12,883, likely a regional/currency variant — not used. catalog/emtb-depth-5 wave.',
+    lastChecked: '2026-07-23', source: 'https://www.vitalmtb.com/product/guide/e-bikes/yeti/160e-59316'
+  },
+
+  {
+    id: 'em-evil-epocalypse-eagle90', cat: 'emtb', brand: 'Evil', model: 'Epocalypse Eagle 90',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
+    batteryWh: 630, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 166,
+    frameMaterial: 'carbon', drivetrain: 'SRAM Eagle 90 Transmission (T-Type AXS)',
+    disciplines: ['e-enduro'], weight: null, price: 8699, modelYear: 2026,
+    note: 'The Epocalypse is Evil\'s only current e-MTB (brand was fully absent from the catalog); full carbon frame, RockShox ZEB Ultimate fork (170mm) + Super Deluxe Coil Ultimate shock (166mm rear), 29in wheels only (no mullet option), adjustable 442/444mm chainstay (LOW/XLOW). This is the entry "Eagle 90" build on Industry Nine 1/1 Enduro S V2 alloy wheels.',
+    desc: 'Sourced from evil-bikes.com/products/epocalypse (fetched, live product/variant page). Battery removability is described inconsistently across sources (Evil\'s current page doesn\'t explicitly call it removable, an older review does) so batteryRemovable left uncataloged rather than guessed; brakes not stated on the fetched page text so left uncataloged too. Complete-bike weight not published by Evil (an older ~50lb figure cited by a 2023 review was for a discontinued Shimano XT build, not this current Eagle 90/X0 Transmission lineup, so not carried forward). Price is the current site MSRP ($9,499 list, $8,699 as listed at fetch time). catalog/emtb-depth-5 wave (Evil absent -> 2 rows).',
+    lastChecked: '2026-07-23', source: 'https://evil-bikes.com/products/epocalypse'
+  },
+  {
+    id: 'em-evil-epocalypse-x0', cat: 'emtb', brand: 'Evil', model: 'Epocalypse X0',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
+    batteryWh: 630, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 166,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission (T-Type AXS)',
+    disciplines: ['e-enduro'], weight: null, price: 9949, modelYear: 2026,
+    note: 'Top current Epocalypse build: same frame/motor/battery as the Eagle 90, stepped up to SRAM X0 Eagle Transmission and Industry Nine Hydra2 System Triad carbon wheels. Listed sold out in all sizes at fetch time (still the real current top SKU, not discontinued).',
+    desc: 'Sourced from evil-bikes.com/products/epocalypse (fetched, live product/variant page). Same brake/weight/battery-removability gaps as the Eagle 90 sibling row (not stated on the fetched page). Price is the current site MSRP ($11,099 list, $9,949 as listed at fetch time, sold-out). catalog/emtb-depth-5 wave.',
+    lastChecked: '2026-07-23', source: 'https://evil-bikes.com/products/epocalypse'
+  },
+
+  {
+    id: 'em-forbidden-druid-e-t1', cat: 'emtb', brand: 'Forbidden', model: 'Druid E T1',
+    motorBrand: 'avinox', motorModel: 'DJI Avinox M2S', motorTorque: 130, motorPowerPeak: 1300,
+    batteryWh: 800, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 T-Type AXS', brakes: 'SRAM Maven Ultimate',
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 11498, modelYear: 2026,
+    note: 'Forbidden\'s trail/all-mountain e-MTB (brand was fully absent) — high-pivot Trifecta suspension, DJI Avinox motor system, top-tube-integrated 2" OLED touchscreen, mullet wheels (29in front/27.5in rear). T1 is the top of a 4-tier (T1-T4) range; the 800Wh battery option (600Wh is also offered) is cataloged here. Sold in Canadian dollars via Forbidden\'s own store; no US-market MSRP found.',
+    desc: 'Sourced from forbiddenbike.com/bikes/druid-e/ and shop.forbiddenbike.com/shop/2026-druid-e-tier-1-11330 (fetched maker pages). No complete-bike weight published by Forbidden or found in any reviewed source. Battery removability not confirmed (Forbidden\'s wording is ambiguous between "integrated" and swappable) so left uncataloged. PRICE: CAD 16,199 (Forbidden\'s own Canadian storefront, the only confirmed maker price) converted at the 2026-07-23 open.er-api.com CAD->USD rate (0.709729) -> $11,498 — disclosed conversion estimate, not a US MSRP. catalog/emtb-depth-5 wave (Forbidden absent -> 3 rows).',
+    lastChecked: '2026-07-23', source: 'https://shop.forbiddenbike.com/shop/2026-druid-e-tier-1-11330'
+  },
+  {
+    id: 'em-forbidden-dreadnought-e-t1', cat: 'emtb', brand: 'Forbidden', model: 'Dreadnought E T1',
+    motorBrand: 'avinox', motorModel: 'DJI Avinox M2S', motorTorque: 130, motorPowerPeak: 1300,
+    batteryWh: 800, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 T-Type AXS', brakes: 'SRAM Maven Ultimate',
+    disciplines: ['e-enduro'], weight: 23800, price: 12399, modelYear: 2026,
+    note: 'Forbidden\'s enduro e-MTB, alongside the shorter-travel Druid E — same Trifecta high-pivot 4-bar layout and Avinox motor system, longer 180/170mm travel. Top tier of a 4-tier (T1-T4) range.',
+    desc: 'Sourced from forbiddenbike.com/bikes/dreadnought-e/ (fetched maker page) plus The Loam Wolf\'s review of this exact build for the US MSRP and tested weight (Forbidden\'s own storefront prices in CAD; the Loam Wolf figure is the confirmed US-market price). Weight: 52.5 lb (23.8kg), size S3, w/ Schwalbe control tires, per the review — a third-party test weight, not maker-published. Battery removability contradictory across sources (Forbidden\'s own wording calls it fixed/integrated, one third-party summary called it removable) — cataloged per the maker\'s own primary wording (not removable) rather than guessed. catalog/emtb-depth-5 wave.',
+    lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/forbidden-dreadnought-e-review/'
+  },
+  {
+    id: 'em-forbidden-dreadnought-e-t2', cat: 'emtb', brand: 'Forbidden', model: 'Dreadnought E T2',
+    motorBrand: 'avinox', motorModel: 'DJI Avinox M2S', motorTorque: 130, motorPowerPeak: 1300,
+    batteryWh: 800, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission (T-Type AXS)', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-enduro'], weight: null, price: 10999, modelYear: 2026,
+    note: 'Second-tier Dreadnought E build: same carbon Trifecta frame/motor/battery as the T1, stepped down to SRAM GX Eagle Transmission and Maven Silver brakes.',
+    desc: 'Sourced from The Loam Wolf\'s review coverage of the Dreadnought E range (confirmed US-market MSRP; Forbidden\'s own CAD storefront was not cross-checked for this specific tier). No complete-bike weight found for this tier specifically (only the T1\'s tested weight was published). catalog/emtb-depth-5 wave.',
+    lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/forbidden-dreadnought-e-review/'
+  },
+
+  {
+    id: 'em-privateer-e161', cat: 'emtb', brand: 'Privateer', model: 'E161',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85, motorPowerPeak: 500,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 161,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX/Deore 12-speed mix', brakes: 'Hayes Dominion A4',
+    disciplines: ['e-enduro'], weight: 25500, price: 5350, modelYear: 2023,
+    note: 'UK maker Privateer Bikes\' only e-MTB (brand was fully absent), sold as a single spec/build only (no trim tiers) — 6061-T6 aluminum frame with a forged one-piece rocker link, mullet wheels, Fox 38 Performance Elite fork + Float X2 Performance/Performance Elite shock (205x65 trunnion). Battery: Shimano BT-EN806, 630Wh, integrated and removable; no range-extender option found.',
+    desc: 'Sourced from Privateer\'s own product page (privateerbikes.com/products/privateer-e161, cached snapshot — live fetch was rate-limited at research time) cross-checked against Vital MTB\'s detailed spec table (most complete third-party source). Rear travel is disclosed as 161mm on Privateer\'s own sheet and Vital MTB\'s table (one Cycling Electric mention says 160mm; 161mm treated as authoritative, matching the "161" model name). Weight 25.5kg (56lb 3.5oz), size not specified in any source. PRICE: Privateer\'s GBP price has moved substantially over time (£5,999 at 2023 launch -> £6,499 later -> a reported cut to £3,999.99 per Cycling Electric, June 2024) and the live product page could not be re-fetched to confirm a current 2026 figure (rate-limited on both WebFetch and Exa). Cataloged at the most recent confirmed GBP figure (£3,999.99) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $5,350 — flagged as a dated, unconfirmed-current price, not a live MSRP. catalog/emtb-depth-5 wave (Privateer absent -> 1 row, single-spec product).',
+    lastChecked: '2026-07-23', source: 'https://www.vitalmtb.com/product/guide/e-bikes/privateer/e161-62261'
+  },
+
+  {
+    id: 'em-ktm-macina-kapoho-comp-ltd', cat: 'emtb', brand: 'KTM', model: 'Macina Kapoho COMP LTD',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (BDU3840)', motorTorque: 120,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'Shimano Deore XT M8100-12 1x12',
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 5248, modelYear: 2026,
+    note: 'KTM (Austria)\'s "Macina Kapoho Dimmix CB 160 UDH" carbon frame, DiMMiX mixed wheels (29in front/27.5in rear), Bosch PowerTube 800Wh removable battery (Power Tube Top Loader), Bosch PURION 200 bar-mounted display/remote (not top-tube integrated). No range-extender option mentioned. RockShox 35 Silver TK fork / SR Suntour Tri-Air shock.',
+    desc: 'Sourced from ktm-bikes.at\'s own product page (fetched). Brakes not stated in the fetched spec table (cut off before the brake line) so left uncataloged; no complete-bike weight published on this page. PRICE: EUR 4,599 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,248. catalog/emtb-depth-5 wave (KTM absent -> 3 rows).',
+    lastChecked: '2026-07-23', source: 'https://www.ktm-bikes.at/e-bikes/detail/mx1260014108-macina-kapoho-comp-ltd-l-48-mx1260014108macina-kapoho-comp-ltdgrey-dew-silver-matt-black-1x12-shimano-deore-xt-2026/MX1260014108'
+  },
+  {
+    id: 'em-ktm-macina-kapoho-exonic-di2', cat: 'emtb', brand: 'KTM', model: 'Macina Kapoho EXONIC Di2',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX-R ABS (BDU3863)', motorTorque: 120,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XTR Di2 M9260-11 (electronic)', brakes: 'Shimano XTR M9120',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24900, price: 13373, modelYear: 2026,
+    note: 'Flagship Macina Kapoho: Bosch\'s ABS-integrated CX-R motor, Fox 36 Float Factory E fork + Fox DHX Factory shock (250x75), DT Swiss HXC carbon rims, electronic Shimano XTR Di2 11-speed drivetrain (Race Face ERA-E160 crank, 11-50T), Shimano XTR 4-piston brakes (203/180mm rotors).',
+    desc: 'Sourced from ktm-bikes.co.uk\'s own product page (fetched). Weight 24.9kg (size not specified on the fetched page). PRICE: GBP 9,999 (maker-published, UK store) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $13,373 — disclosed conversion, not a confirmed separate US MSRP. catalog/emtb-depth-5 wave.',
+    lastChecked: '2026-07-23', source: 'https://ktm-bikes.co.uk/products/macina-kapoho-exonic-di2'
+  },
+  {
+    id: 'em-ktm-macina-prowler-master', cat: 'emtb', brand: 'KTM', model: 'Macina Prowler Master',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Gen.4', motorTorque: 85,
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission (T-Type)', brakes: 'Shimano Saint M820',
+    disciplines: ['e-enduro'], weight: 25800, price: 7074, modelYear: 2026,
+    note: 'KTM\'s enduro e-MTB: "Macina Prowler Dimmix Carbon 170 UDH" carbon frame, Fox 38 Float Rhythm E fork + Fox Float X Performance shock (250x75), SRAM GX Eagle Transmission with SRAM POD AXS controller, Shimano Saint 4-piston brakes.',
+    desc: 'Sourced from ktm-bikes.at\'s own product page (fetched). KTM\'s own page shows a discrepancy between this spec table\'s "85 Nm" torque figure and separate marketing copy on the same page quoting "100 Nm/750 W/400%" for what it calls a "BDU384Y" motor — the hard spec-table figure (85 Nm, motor BDU3740, Bosch Performance Line CX Gen.4) is cataloged here as the more reliable of the two conflicting maker-stated numbers; motorPowerPeak left uncataloged given the conflict rather than guessed. Weight 25.8kg, size L. PRICE: EUR 6,199 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,074. catalog/emtb-depth-5 wave.',
+    lastChecked: '2026-07-23', source: 'https://www.ktm-bikes.at/e-bikes/detail/mx1260004108-macina-prowler-master-gx-t-type-l-48-mx1260004108macina-prowler-mastertransparent-space-galaxy-matt1x12-sram-gx-transmission-2026'
+  },
+
+  {
+    id: 'em-saracen-ariel-50e', cat: 'emtb', brand: 'Saracen', model: 'Ariel 50E',
+    motorBrand: 'shimano', motorModel: 'Shimano STEPS E-7000', motorTorque: 60, motorPowerPeak: 250,
+    batteryWh: 720, batteryRemovable: false, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore/SLX 1x12', brakes: 'Shimano Deore BR-M6100',
+    disciplines: ['e-trail'], weight: null, price: 6687, modelYear: 2022,
+    note: 'UK maker Saracen\'s only e-MTB family (brand was fully absent), sold in 3 builds off one "Ariel 50E" 6013-aluminium platform with a flip-chip wheel-config link (S/M ship mullet 29in front/27.5in rear, L/XL ship full 29in — cataloged at the mullet ship config). Entry-tier build: Fox not fitted (base suspension), Deore/SLX mixed drivetrain, Deore 2-piston brakes. Torque/power figures are Shimano\'s own generic E-7000 spec (60Nm/250W), NOT independently stated on Saracen\'s own page — flagged as the lower-confidence field on this row.',
+    desc: 'Sourced from saracen.co.uk\'s own product page (fetched, saracen.co.uk/products/my22-ariel-50e). Still listed "MY22" (2022 model year) as the current e-bike range at fetch time (2026-07-23) — worth flagging that this may be an older platform still being sold, not a refreshed model. No complete-bike weight published. Battery: Darfon 720Wh, page wording "fully integrated" (cataloged not-removable); no range extender mentioned. Display model not named on the page. PRICE: GBP 4,999.99 MSRP (page also shows a current sale price of £2,499.99, not used per the standing MSRP-not-sale convention) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $6,687. catalog/emtb-depth-5 wave (Saracen absent -> 3 rows).',
+    lastChecked: '2026-07-23', source: 'https://www.saracen.co.uk/products/my22-ariel-50e'
+  },
+  {
+    id: 'em-saracen-ariel-50e-pro', cat: 'emtb', brand: 'Saracen', model: 'Ariel 50E Pro',
+    motorBrand: 'shimano', motorModel: 'Shimano STEPS EP-800', motorTorque: 85,
+    batteryWh: 720, batteryRemovable: false, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX/XT 1x12', brakes: 'Magura MT5 eSTOP',
+    disciplines: ['e-trail'], weight: null, price: 8024, modelYear: 2022,
+    note: 'Mid-tier Ariel 50E: same 6013-aluminium flip-chip platform as the base, stepped up to Fox 38-E Performance Elite fork / Fox Float X2 Performance shock, mixed Shimano SLX/XT drivetrain, Magura MT5 eSTOP 4-piston brakes.',
+    desc: 'Sourced from saracen.co.uk\'s own product page (fetched, saracen.co.uk/products/my22-ariel-50e-pro). Same "MY22" platform-age flag, no published weight, and unstated display model as the base Ariel 50E row. PRICE: GBP 5,999.99 MSRP (sale price £3,499.99 not used, per MSRP-not-sale convention) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $8,024. catalog/emtb-depth-5 wave.',
+    lastChecked: '2026-07-23', source: 'https://www.saracen.co.uk/products/my22-ariel-50e-pro'
+  },
+  {
+    id: 'em-saracen-ariel-50e-elite', cat: 'emtb', brand: 'Saracen', model: 'Ariel 50E Elite',
+    motorBrand: 'shimano', motorModel: 'Shimano STEPS EP-800', motorTorque: 85,
+    batteryWh: 720, batteryRemovable: false, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT 1x12', brakes: 'Shimano XT BR-M8120',
+    disciplines: ['e-trail'], weight: null, price: 9362, modelYear: 2022,
+    note: 'Top-tier Ariel 50E: Fox 38-E Factory (Kashima, GRIP2) fork + Fox Float DHX2 Factory coil shock, full Shimano XT 1x12 groupset, Shimano XT 4-piston brakes.',
+    desc: 'Sourced from saracen.co.uk\'s own product page (fetched, saracen.co.uk/products/my22-ariel-50e-elite). This is the only Ariel 50E page to explicitly state motor torque (85Nm) on Saracen\'s own text; carried onto the Pro row above as the same EP-800 motor. No published weight; no current sale price shown for this trim (page shows only the £6,999.99 MSRP). PRICE: GBP 6,999.99 converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $9,362. catalog/emtb-depth-5 wave.',
+    lastChecked: '2026-07-23', source: 'https://www.saracen.co.uk/products/my22-ariel-50e-elite'
   }
 
 ];
