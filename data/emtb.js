@@ -1653,7 +1653,40 @@ var EMTB_PARTS = [
     note: 'Spanish maker\'s full-power e-enduro flagship — Alpha Box v2 carbon frame w/ the patented Twin Levity suspension system, AVINOX M2S full-power drive unit (co-developed w/ DJI), FOX Factory 170mm fork / Float Factory X2 shock, size F3 (Large) build.',
     desc: 'Verified vs the fetched maker product/compare pages (rendered in-browser — forestal.com is a JS-heavy SPA that WebFetch could not get past the cookie/homepage shell for; the browser pane loaded the real content after clicking through the Siryon nav dropdown). Overview page (forestal.com/en/products/siryon): "e-SIRYON v2... 29\\" enduro / 170mm travel / carbon frame / AVINOX M2S", "AVINOX M2S... 150Nm/1300W", "AVINOX 800Wh... Integrated non-removable battery", "AVINOX DP100... 2.0-inch integrated OLED touchscreen". Compare page (forestal.com/en/compare/siryon) gave the full build-kit table for both trims: Diode (this row) = "Forestal Alpha Box Carbon AVINOX M2S 29\\" 170 / Carbon fibre | 174mm travel", "FOX Factory: Podium Factory 170 29\\" / Float Factory X2", "SRAM Maven Ultimate | HS200 Rotors", "SRAM X0 AXS T-Type | SRAM X0 AXS T-Type 10-52T | 12 Speed | 34T", "€ 9,750"; the lower Halo trim (RockShox Select fork/shock, SRAM Maven, SRAM S1000 AXS T-Type, € 7,650) was left uncataloged in favor of this flagship SKU, mirroring this file\'s one-flagship-row convention for multi-trim models. No maker-published complete-bike weight found on either page (only motor 2.6kg / battery 3.74kg component weights) — cataloged weightless rather than guessed. PRICE: EUR 9,750 maker RRP converted at the 2026-07-22 open.er-api.com rate (1.140653), matching this catalog\'s established EUR-conversion convention (em-rotwild-rx375-pro) -> $11,121.37 — Forestal ships direct from Spain/EU only (site states "Direct shipping is available to countries in Europe... For rest of countries, please contact us"), no USD MSRP exists. catalog/emtb-retry-2 wave — resolves the emtb-tail-5 Forestal drop (JS-heavy page previously only returned fragments via WebFetch).',
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://forestal.com/en/compare/siryon'
-  }
+  },
+
+
+  // ---------------------------------------------------------------------------
+  // catalog/emtb-breadth-brands-1 wave — absent-brand + thin-brand pass
+  // (Bulls, Fantic, GasGas, Simplon, Thomus, Pole, Riese & Muller now present;
+  // Focus/Amflow/Forestal/Husqvarna deepened past 1 row. Gazelle and Bird were
+  // researched and SKIPPED — confirmed no currently-sold e-MTB exists for
+  // either brand, so no row was fabricated; see the worker report.)
+  // ---------------------------------------------------------------------------
+
+  {
+    id: 'em-bulls-copperhead-evo-am4-750', cat: 'emtb', brand: 'Bulls', model: 'Copperhead EVO AM 4 750',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Smart System)', motorTorque: 85,
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XTR 12-speed (eThirteen CR4USM 34T crank, Shimano CS-M6100 10-51T cassette)', brakes: 'Shimano BR6120 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 27100, price: 5999, modelYear: 2026,
+    note: 'US-market flagship of Bulls\' Copperhead EVO all-mountain e-MTB line (BULLS Bikes USA import) — 6061 aluminum frame, mullet (29in front/27.5in rear) wheels, SR Suntour Durolux 36 RC2 fork / SR Suntour RS19 TRIAir shock, 203mm rotors front/rear.',
+    desc: 'Fetched directly from the maker-authorized US retail page (bullsbikesusa.com/products/copperhead-evo-am-4-750): "Bosch Performance Line CX" 85Nm motor, "Bosch PowerTube 750Wh" Smart System battery, mullet 29in/27.5in wheels, "Aluminum 6061" frame w/ internal routing, "Shimano XTR 12-speed" w/ eThirteen CR4USM 34T crank and Shimano CS-M6100 10-51T cassette, "Shimano BR6120 4-piston" 203/203mm brakes, 59.8 lbs (27.1kg) weight, regular price $5,999.00 (site currently runs a $4,499.00 promotional sale off that base MSRP — cataloged at the $5,999.00 struck-through MSRP per this catalog\'s standing MSRP-not-sale convention, mirroring the Trek Rail+ correction). Motor peak wattage not stated on this page. catalog/emtb-breadth-brands-1 wave (first Bulls row — brand was fully absent from data/emtb.js).',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://bullsbikesusa.com/products/copperhead-evo-am-4-750'
+  },
+
+  {
+    id: 'em-bulls-copperhead-evo-am1-750', cat: 'emtb', brand: 'Bulls', model: 'Copperhead EVO AM 1 750',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Gen4 (Smart System)', motorTorque: 85,
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore 10-speed (FSA Eco Steel Boost 34T crank, Shimano CS-M4100 11-46T cassette)', brakes: 'Tektro HD-M390 hydraulic disc',
+    disciplines: ['e-trail'], weight: 26535, price: 4999, modelYear: 2026,
+    note: 'The entry point of Bulls\' Copperhead EVO AM range — SR Suntour Lytro 35 Supreme SL fork / SR Suntour Edge Plus TR 2CR shock (both 150mm), mullet (29in front/27.5in rear) wheels, Formula hubs on Ryde Disc 30 rims, 203/180mm rotors.',
+    desc: 'Fetched directly from the maker-authorized US retail page (bullsbikesusa.com/products/copperhead-evo-am-1-750): "Bosch Gen4 Performance Line CX motor with 85 Nm", "Bosch PowerTube 750 Wh, fully integrated", "SR Suntour Lytro 35 Supreme SL Boost" 150mm fork / "SR Suntour Edge Plus TR 2CR" 150mm shock, "Aluminum 6061" frame, "Shimano Deore RD-M5120-SGS" 10-speed w/ FSA Eco Steel Boost 34T crank and Shimano CS-M4100 11-46T cassette, "Tektro HD-M390" 203/180mm brakes, "58.5 lbs" (26.5kg) weight; page lists "$2,999.00 $4,999.00 Save $2,000" (a promotional sale off the struck-through $4,999.00 base) — cataloged at the $4,999.00 MSRP per the standing MSRP-not-sale convention. catalog/emtb-breadth-brands-1 wave (second Bulls row).',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://bullsbikesusa.com/products/copperhead-evo-am-1-750'
+  },
 
 ];
 
