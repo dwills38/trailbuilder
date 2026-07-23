@@ -1605,6 +1605,18 @@ var EMTB_PARTS = [
     note: 'Italian maker\'s all-mountain/enduro flagship — full UD-carbon frame with an integrated down-tube 800Wh Powertube, Flip Chip adjustable geometry (64.5° head angle), 27.5in rear compatible via the same flip chip (cataloged at the stock 29in/29in setup).',
     desc: 'Verified vs the fetched maker product page (thokbikes.com/en/negozio/ebike-en/tp4-black — "Bosch Performance Line CX" motor, "120 Nm max torque", "800 Wh" integrated Powertube, FOX 36 Float Rhythm 160mm fork / FOX Float Rhythm 150mm shock, full carbon frame, Shimano SLX 12-speed rear derailleur w/ FSA 34T crank and 10-51T cassette, Shimano Deore 4-piston 203mm brakes, 24.3kg size-M weight w/ 800Wh battery, EUR 5,990 price). PRICE: EUR 5,990 maker RRP converted at the 2026-07-22 open.er-api.com rate (1.140653), matching this catalog\'s established EUR-conversion convention (em-rotwild-rx375-pro) -> $6,832.71 — Thok has no US retail presence, no USD MSRP exists. catalog/emtb-tail-5 zero-coverage-maker wave (first Thok row).',
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://www.thokbikes.com/en/negozio/ebike-en/tp4-black/'
+  },
+
+  {
+    id: 'em-moustache-samedi29-trail1502', cat: 'emtb', brand: 'Moustache', model: 'Samedi 29 Trail 150.2',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (BDU37, Smart System)', motorTorque: 85,
+    batteryWh: 750, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano CUES 11-speed (11-50T, FSA 34T chainring)', brakes: 'Magura MT5 4-piston',
+    disciplines: ['e-trail'], weight: 27000, price: 5245.02,
+    note: 'French maker\'s trail e-MTB — 6061 T4-T6 aluminum frame, RockShox PSYLO Silver R fork, Moustache\'s own Magic Grip Control shock (205x60mm trunnion). The maker\'s own French listings also show a lighter 625Wh battery variant of this same 150.2 trim; cataloged at the US maker-page-listed 750Wh spec.',
+    desc: 'Verified vs the fetched maker product page (moustachebikes.com/us/en/electric-bikes/samedi-29-trail/trail-150-2-2 — "Bosch Performance Line CX BDU37" motor, "85Nm", "Bosch PowerTube 750Wh" battery, RockShox PSYLO Silver R 150mm fork, Moustache Magic Grip Control 150mm shock, "6061 T4-T6 aluminum" frame, Shimano CUES 11-speed 11-50T w/ FSA 34T chainring, Magura MT5 4-piston 203mm brakes, 29in Maxxis Rekon 2.40 tires, 27kg size-L weight); no price is shown on the maker page (moustachebikes.com carries no shop/checkout). PRICE: the maker\'s French retail network (my-velo.fr, this exact "150.2 2026" SKU) lists EUR 4,599.00 as the pre-discount original price, converted at the 2026-07-22 open.er-api.com rate (1.140653) -> $5,245.02 — disclosed as a retailer-listed price, not a maker-published RRP, since Moustache\'s own site states none. catalog/emtb-tail-5 zero-coverage-maker wave (first Moustache row).',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://moustachebikes.com/us/en/electric-bikes/samedi-29-trail/trail-150-2-2/'
   }
 
 ];
