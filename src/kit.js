@@ -1498,6 +1498,14 @@ var KIT_PARTS = [
     sleeve:'short',
     desc:'Price converted from GBP30 (Nukeproof\'s 2021 Ridewear Outland collection launch price, per Bikerumor\'s coverage of Nukeproof\'s own line) at ~1.27 USD/GBP; left unverified - no fetched nukeproof.com product page with a live USD price was reachable this session.' },
 
+  /* -- Castelli breadth (catalog/kit-breadth-8, 2026-07-23): road/gravel apparel was ENTIRELY
+     ABSENT catalog-wide - Castelli had zero prior rows. Fetched castelli-cycling.com's US
+     men's listing page (WebFetch); no per-SKU weight published on the listing. -- */
+  { id:'jsy-castelli-giro26-150years', cat:'jersey', brand:'Castelli', model:'Giro26 150 Years Jersey', family:'castelli-giro', price:130,
+    sleeve:'short',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.castelli-cycling.com/US/en/Men/c/Man',
+    desc:'Fetched castelli-cycling.com (WebFetch): confirmed $130. No weight published on the listing page.' },
+
   /* -- Shorts (shorts + pants are SEPARATE cats; grind batch 2026-07-14, sht-shorts-grind) -- */
   { id:'sht-fox-flexair', cat:'shorts', brand:'Fox', model:'Flexair Short', price:129.95, weight:250,
     liner:false, sizes:['28','30','32','34','36','38'],
@@ -1862,6 +1870,14 @@ var KIT_PARTS = [
   { id:'sht-dharco-trail-mens', cat:'shorts', brand:'DHaRCO', model:"Men's Trail Shorts", price:107,
     liner:false, disciplines:['trail'], sizes:['S','M','L','XL','2XL','3XL'],
     desc:'Lighter, more casual cut than the already-cataloged Gravity Shorts. Price from us.dharco.com\'s own Men\'s MTB collection listing (not an individually fetched product page this session) - left unverified.' },
+
+  /* -- Castelli breadth continued (catalog/kit-breadth-8, 2026-07-23): a real "bib short" SKU
+     entered under the shared `shorts` category (this catalog doesn't split out a separate
+     bib-short cat), liner:true since a bib short always carries its own integrated chamois. -- */
+  { id:'sht-castelli-espresso2-bib', cat:'shorts', brand:'Castelli', model:'Espresso 2 Bibshort', family:'castelli-espresso', price:200,
+    liner:true,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.castelli-cycling.com/US/en/Men/c/Man',
+    desc:'Fetched castelli-cycling.com (WebFetch): confirmed $200. No weight published on the listing page.' },
 
   /* -- Pants (MTB pants only; shorts are a separate cat above) -- */
   { id:'pnt-fox-defend', cat:'pants', brand:'Fox', model:'Defend Pant', price:169.95, weight:430,
@@ -2697,6 +2713,13 @@ var KIT_PARTS = [
     desc:'Ultralight minimalist slip-on glove. Price confirmed via the .js JSON endpoint: $30.00 is the'
       + ' compare_at_price (MSRP) most colorways sell at; one colorway (Camo Gray) is on sale at $15. No'
       + ' weight published on the page.' },
+
+  /* -- Castelli breadth continued (catalog/kit-breadth-8, 2026-07-23): the Diluvio One is a
+     winter/waterproof shell glove, not a summer riding glove, but it's Castelli's own fetched
+     glove SKU so it lands here as the brand's third row. -- */
+  { id:'glv-castelli-diluvio-one', cat:'gloves', brand:'Castelli', model:'Diluvio One Glove', family:'castelli-diluvio', price:75,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.castelli-cycling.com/US/en/Men/c/Man',
+    desc:'Fetched castelli-cycling.com (WebFetch): confirmed $75. Waterproof winter/wet-weather glove. No weight published on the listing page.' },
 
   /* -- Knee pads (per pair; certs left to the grind + a source) --
      Breadth pass (grind/kit-kneepad, 2026-07-14): 20 additional real products
