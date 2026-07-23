@@ -1791,6 +1791,19 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://www.focus-bikes.com/es_en/catalog/product/view/_ignore_category/1/id/92485/s/focus-sam2-6-8-2/'
   },
 
+
+  {
+    id: 'em-amflow-pl-carbon-800', cat: 'emtb', brand: 'Amflow', model: 'PL Carbon (800Wh)',
+    motorBrand: 'dji', motorModel: 'DJI Avinox M1 Drive Unit', motorTorque: 105, motorPowerPeak: 850,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission (T-Type AXS)', brakes: 'Magura MT5 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 19200, price: 7499, modelYear: 2026,
+    note: 'The base (non-Pro) trim of Amflow\'s DJI Avinox-powered flagship — same 2.27kg carbon frame, motor and 800Wh battery as the PL Carbon Pro, stepped down to a GX-level SRAM Transmission build and Magura MT5 (vs the Pro\'s MT7 Pro).',
+    desc: 'Fetched directly from the maker\'s own spec/shop pages (amflowbikes.com/pl-carbon/specs and amflowbikes.com/product/amflow-pl-carbon): specs page lists both "Amflow PL Carbon (800Wh)" USD $7,499 and "Amflow PL Carbon Pro (800Wh)" USD $10,199 side by side, sharing "Avinox Integrated Battery: 800Wh"; the product page states "USD $6,499 USD $7,499" (a promotional sale off the $7,499 base) and "The 2.52kg motor delivers 105 N·m continuous torque" for the shared Avinox drive system. Cataloged at the $7,499 struck-through MSRP per the standing MSRP-not-sale convention. Drivetrain/brakes for this specific non-Pro trim are not broken out on the specs page (only the Pro trim\'s kit is itemized elsewhere) — GX Eagle Transmission / Magura MT5 entered as the catalog-documented step-down from the Pro\'s X0 Transmission / MT7 Pro, consistent with Amflow\'s own Pro-vs-base naming convention, but NOT independently confirmed on a fetched spec table for this exact SKU — flagged as the lower-confidence field on this row. Weight (19.2kg) is the maker\'s own general PL-family figure (per-model footnote attributes it to the Pro 600Wh build specifically) — same disclosed caveat as the sibling PL Carbon Pro row. catalog/emtb-breadth-brands-1 wave (Amflow deepened from 1 row to 2).',
+    lastChecked: '2026-07-23', source: 'https://www.amflowbikes.com/pl-carbon/specs'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
