@@ -1917,6 +1917,18 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://www.simplon.com/en/Bikes/E-Mountain-Bikes/Rift-AL-e_b_1149834'
   },
 
+  {
+    id: 'em-bulls-copperhead-evo-am3-750', cat: 'emtb', brand: 'Bulls', model: 'Copperhead EVO AM 3 750',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Smart System)', motorTorque: 85,
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT 12-speed (Shimano CS-M6100 10-51T cassette)', brakes: 'Shimano BR6120 4-piston / 6100 2-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 5599, modelYear: 2026,
+    note: 'Mid-tier trim of Bulls\' Copperhead EVO AM range, slotting between the already-cataloged AM 1 750 (entry) and AM 4 750 (flagship, already cataloged) — SR Suntour Durolux 36 RC2 Boost fork / SR Suntour RS19 TRIAir 3CR shock, same 6061 aluminum frame and mullet wheels as its siblings.',
+    desc: 'Unverified sample via the credible-source breadth policy — bullsbikesusa.com\'s AM 3 750 product page was not re-fetched this session (the sibling AM 1/AM 4 rows already document that maker page as fetchable), so specs come from cross-referenced US-dealer listings (electricbikereview.com, flyridesusa.com, bisonbikes.com) that consistently state "6061 aluminum frame... Shimano XT 12-speed drivetrain... Shimano CS-M6100 with 10-51T sprockets... Bosch Performance Line CX Smart System motor... up to 85 Nm... integrated Bosch PowerTube 750 Wh battery... SR Suntour Durolux 36 RC2 Boost with 150mm... SR Suntour RS19 TRIAir 3CR with 150mm... Shimano BR6120 4-piston/6100 2-piston hydraulic disc brakes (203/203 mm)". PRICE: $5,599.00 US price, consistently listed across dealers (bullsbikesusa.com\'s own page shows a promotional sale off this base per the sibling rows\' documented convention) — cataloged at the disclosed base price, not maker-fetched this session so no msrp-confirmed token. No complete-bike weight found. catalog/emtb-breadth-3 wave (Bulls deepened from 2 rows to 3).',
+    lastChecked: '2026-07-23', source: 'https://bullsbikesusa.com/products/copperhead-evo-am-3-750'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
