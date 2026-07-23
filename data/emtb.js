@@ -1889,6 +1889,18 @@ var EMTB_PARTS = [
   },
 
   {
+    id: 'em-fantic-sierra-factory', cat: 'emtb', brand: 'Fantic', model: 'Sierra Factory',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Gen 5', motorTorque: 120,
+    batteryWh: 800, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 155,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX AXS T-Type 12-speed (34T crank, 10-52T cassette)', brakes: 'SRAM Maven Silver (180/200mm SRAM Cleansweep rotors)',
+    disciplines: ['e-enduro'], price: 10258.30,
+    note: 'Fantic\'s all-new MY26 carbon platform — a heavier-duty 160mm-front all-mountain/enduro tier with the full-power 800Wh Bosch CX Gen5 (120Nm), distinct from the already-cataloged lighter-tier XMF/XTF carbon trail models (Brose/lower-capacity batteries). RockShox Lyrik Ultimate fork / RockShox Deluxe Select+ 185x55mm shock.',
+    desc: 'Fetched vs the maker product page (fanticbikes.com/en/products/trail-sierra-factory-white — direct WebFetch of fanticbikes.com repeatedly returned HTTP 429, so this was read via a cached web-fetch proxy of the same maker URL): "Bosch Performance Line CX Gen 5... 120Nm" motor, "Bosch PowerTube 800Wh" battery, "RockShox Lyrik Ultimate 160mm" fork / "RockShox Deluxe Select+ 185x55mm" shock, "premium carbon" frame, "Sram GX AXS 12V T-Type" derailleur w/ 34T crank and 10-52T cassette, "Sram Maven Silver" brakes w/ "Sram CLEANSWEEP 180/200mm" rotors, "€8.990,00" price. Rear travel (155mm) and motor peak power are NOT stated on the fetched page itself (only shock stroke was given there) — 155mm is a secondary press figure (BIKE Magazine/ebike-mtb.com covering this exact SKU), not maker-page-confirmed, so this row stays UNVERIFIED despite the strong maker-page coverage on every other field — a missing single-source confirmation on a required field (rear travel) is treated as a gap per this catalog\'s no-fabrication bar, not silently filled from the maker page\'s other numbers. PRICE: EUR 8,990.00 maker-listed price converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $10,258.30 — disclosed sample, not a verified claim (no priceBasis token without verified:true). No complete-bike weight found on the fetched page. catalog/emtb-depth-8 wave (Fantic deepened from 2 rows to 3).',
+    lastChecked: '2026-07-23', source: 'https://fanticbikes.com/en/products/trail-sierra-factory-white'
+  },
+
+  {
     id: 'em-gasgas-ecc4', cat: 'emtb', brand: 'GasGas', model: 'ECC 4',
     motorBrand: 'sram', motorModel: 'SRAM Eagle Powertrain', motorTorque: 90,
     batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
