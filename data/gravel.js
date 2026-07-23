@@ -1805,6 +1805,16 @@ var GRAVEL_PARTS = [
     weight: 158, price: 120,
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-20', source: 'https://prologo.it/en/products/dimension-143',
     note: 'gravel-3b: prologo.it (manufacturer, fetched clean via Exa) lists 158g for the Nack-rail build (of a 158/205/226g rail-material spread) at EUR109; price converted/rounded to a USD estimate ($120) since the catalog is USD-basis — the EUR figure itself is manufacturer-real, only the conversion is a sample.' },
+  { id: 'gsa-terry-falconx', cat: 'saddle', brand: 'Terry', model: 'Falcon X', family: 'terry-falconx',
+    weight: 295, price: 109.95,
+    note: 'catalog/gravel-components-1: NEW row — new brand, a women\'s-specific saddle (real, currently sold, gravel-relevant). FETCHED terrycycling.com/pages/womens-saddle-chart directly this session — manufacturer\'s own spec chart states "295g", "$109.95", "152mm" width, FeC alloy rails.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://terrycycling.com/pages/womens-saddle-chart' },
+  { id: 'gsa-sellesmp-well-gravel', cat: 'saddle', brand: 'Selle SMP', model: 'Well Gravel (Carbon Rail)', family: 'sellesmp-well-gravel',
+    weight: 220, price: 258.99,
+    note: 'catalog/gravel-components-1: NEW row — new brand, a gravel-specific SMP model (SMP\'s "Well" line with a central pressure-relief channel, Carbon Rail tier). sellesmp.com\'s own gravel-edition page 403\'d on direct fetch this session; weight (220g) and price ($258.99) are corroborated across two independent retailer listings (tradeinn.com/bikeinn) quoting the same carbon-rail SKU — retailer-corroborated, not an independently re-fetched manufacturer page, so stays unverified sample.' },
+  { id: 'gsa-fabric-scoop-race-shallow', cat: 'saddle', brand: 'Fabric', model: 'Scoop Race Team Shallow', family: 'fabric-scoop-race-shallow',
+    weight: 260, price: 100,
+    note: 'catalog/gravel-components-1: NEW row — new brand, a shallow-profile race saddle with titanium rails, common on gravel builds. fabric.cc\'s own product page (fabric.cc/products/saddles/scoop-race-team-shallow-142mm-saddle/) returned HTTP 429 on two direct-fetch attempts this session (throttle, not a block, per fetch-ethics doctrine); weight (~253-269g band) and price (~$90-105 band) corroborated across two independent reviews (outdoorgearlab.com, road.cc) — 260g/$100 taken as same-band midpoint estimates, not maker-stated figures, so this row stays unverified sample. Worth a re-fetch of fabric.cc past the throttle in a future pass.' },
 
   // ===== PEDALS ==========================================================
   { id: 'gpd-shimano-pd-grx600', cat: 'pedal', brand: 'Shimano', model: 'PD-ES600', family: 'shimano-grx-pedal',
