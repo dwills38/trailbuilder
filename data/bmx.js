@@ -1380,6 +1380,28 @@ var BMX_PARTS = [
     source: 'https://saltbmx.com/products/salt-ex-cassette-hub',
     note: 'ADDED 2026-07-21 (bmx-fixpack-1) to replace the retired bmx-rh-wethepeople-oem-9 (id/brand mismatch - see its note): saltbmx.com\'s current EX Cassette Hub page confirms 14mm male CrMo axle, sealed bearings, 9t 1-piece driver, alloy shell, 548g (RHD), spoke-hole options 28H/36H (this row assumed as a generic 36H build, matching the retired row\'s convention). This is the OEM hub fitted to WTP\'s Justice complete bike (whose page names it "SALT PRO" - the current Salt catalog no longer sells a "Pro"-named hub, only this "EX" model at the identical 9t/14mm/cassette spec, so it is treated as the current-generation successor). Price kept as the prior row\'s $74.99 sample figure (unconfirmed - the maker page lists EUR119.99, not directly usable as a USD MSRP sample without a conversion basis); weight is sourced/verified.'
   },
+  {
+    id: 'bmx-fk-wethepeople-battleship-24', cat: 'fork', brand: 'WeThePeople', model: 'Battleship 24mm Fork',
+    family: 'wethepeople-battleship', discipline: 'freestyle', wheelSize: '20',
+    steerer: 'integrated-1-1/8', axle: '10mm', brakeMount: 'none', weight: 1022,
+    price: 165.00, verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-23',
+    source: 'https://wethepeoplebmx.de/forks/battleship-fork-24mm',
+    note: 'bmx-brand-depth-2: directly fetched wethepeoplebmx.de (WeThePeople\'s own storefront). States verbatim "integrated crown race designed to work with integrated headsets with a 45° bearing" (steerer:integrated-1-1/8) and "6.5mm investment cast dropout...for 3/8\'\' (10mm) axles" (axle:10mm exact); no brake boss of any kind is mentioned in the spec (matches this catalog\'s standing convention for spec-silent freestyle street forks) -> brakeMount:none. Weight "1022g (36.05oz : 2.25lbs)" confirmed exactly. No price is published on wethepeoplebmx.de (the same no-checkout EU marketing-site gap this catalog\'s existing WeThePeople rows already disclose); this is a real, widely-stocked current product though, so priced via a named retailer (Harvester Bikes, harvesterbikes.ca, $165.00 USD black colorway) per the third-party-listed tier - other retailers (Alan\'s BMX $188.16, Oriol Bike Shop $159.95, Empire BMX $189.95) corroborate the same rough band.'
+  },
+  {
+    id: 'bmx-cr-wethepeople-logic', cat: 'cranks', brand: 'WeThePeople', model: 'Logic Crank',
+    family: 'wethepeople-logic', spindle: '22mm', pieces: '3-piece', ringMount: 'spline', length: 165,
+    weight: 920, price: 159.99, verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-23',
+    source: 'https://www.wethepeoplebmx.de/cranks-bottom-brackets/logic-crank',
+    note: 'bmx-brand-depth-2: directly fetched wethepeoplebmx.de. States verbatim "SPINDLE: 22mm, butted 4130 crmo" (spindle:22mm), "CRANK ARM: 3pc design" (pieces:3-piece), and "165mm: 920g (32.4oz) (w/o BB set)" (weight:920, this row\'s 165mm length). ringMount:spline per LUXBMX\'s independent corroborating copy describing this exact model as "These 48 spline cranks" (a spline sprocket interface, not press-on). No price on the maker\'s own EU site; entered via a named retailer (Source BMX AM storefront, sourcebmx-am.myshopify.com, $159.99 standalone-crank price) per the third-party-listed tier - other retailers price the same crank anywhere from $149.95 (SkateHut, GBP-converted) to $229 (The Cut BMX) to $265 (LUXBMX, but that bundle explicitly INCLUDES the WTP bottom bracket, inflating the figure) - the sourcebmx-am figure was chosen as the plain crank-only price closest to the maker\'s own described product (crank comes WITH a BB per the spec text, so some retailer variance reflects bundling differences, not different SKUs).'
+  },
+  {
+    id: 'bmx-hb-wethepeople-patron', cat: 'handlebar', brand: 'WeThePeople', model: 'Patron Bar (9.5in, 22.2mm)',
+    family: 'wethepeople-patron', clamp: '22.2mm', rise: 9.5, width: 30,
+    weight: 860, price: 79.95, verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-23',
+    source: 'https://wethepeoplebmx.de/handlebars/patron-bar',
+    note: 'bmx-brand-depth-2: directly fetched wethepeoplebmx.de. Geometry table states verbatim "G - RISE: 9\\", 9.5\\" or 10\\"", "H - WIDTH: 29.5\\" (9\\"); 30\\" (9.5\\"); or 30.25\\" (10\\")", "CLAMPING: 22.2mm" (this row models the 9.5in/22.2mm variant: rise:9.5, width:30, clamp:22.2mm) and "9.5\\": 860g" (weight exact). No price on the maker\'s own EU site; entered via a named retailer (Oriol Bike Shop, oriolbikeshop.com, $79.95 USD for the 10in rise variant - the 9/9.5in variants were sold out at fetch time but list at the same $79.95 per-size price on that store) per the third-party-listed tier.'
+  },
 
   // ---- Eclat (new brand to the catalog) --------------------------------
   {
