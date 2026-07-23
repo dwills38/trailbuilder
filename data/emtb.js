@@ -1809,6 +1809,18 @@ var EMTB_PARTS = [
   },
 
   {
+    id: 'em-forestal-ecygnus-diode', cat: 'emtb', brand: 'Forestal', model: 'e-Cygnus Diode',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line SX', motorTorque: 55, motorPowerPeak: 250,
+    batteryWh: 400, assist: 'lightweight',
+    wheelConfig: '29', suspension: 'full', travelFront: 120, travelRear: 120,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 AXS T-Type 12-speed (34T crank, 10-52T cassette)', brakes: 'Formula Cura 2',
+    disciplines: ['e-xc'], price: 10669.09,
+    note: 'Forestal\'s lightweight down-country/XC-trail e-MTB — a much lighter-power Bosch SX (55Nm/250W, 400Wh) system in a distinctly shorter-travel (120mm) tier, vs. the already-cataloged full-power AVINOX enduro flagship (e-Siryon v2, 170/174mm) and Cyon Neon. RockShox SID Ultimate fork / RockShox SIDLuxe shock.',
+    desc: 'Verified vs the fetched maker product/compare pages (forestal.com/en/products/cygnus, forestal.com/en/compare/e-cygnus): "Bosch SX Performance Line | Wide | 250W | 55Nm | IP67 | 1.95Kg" motor, "Bosch Compact PowerTube 400wh" battery (with a "Bosch PowerMore 250wh" range-extender option), "Forestal Alpha Box Carbon Bosch SX 29\\" e-DC120 | Monocoque construction | 120mm Travel" frame, "RockShox Sid Ultimate 29\\" 120mm" fork, "SRAM X0 AXS T-Type 10-52T | 12 Speed | 34T" drivetrain, "Formula Cura 2 Glossy Black | 180mm" brakes, "€ 9,350" price (this Diode build; a lower Halo build at FOX 34/GX Eagle/Formula Cura 4 for EUR 7,950 was left uncataloged, mirroring this file\'s one-flagship-row-per-tier convention). No complete-bike weight published on either page (only motor 1.95kg / battery ~2.0kg component weights given) — cataloged weightless rather than guessed. Battery removability not explicitly stated — left unset. PRICE: EUR 9,350 maker RRP converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $10,669.09 — Forestal ships direct from Spain/EU only, no USD MSRP exists. catalog/emtb-depth-8 wave (Forestal deepened from 2 rows to 3).',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://forestal.com/en/compare/e-cygnus'
+  },
+
+  {
     id: 'em-husqvarna-hard-cross-hc5', cat: 'emtb', brand: 'Husqvarna', model: 'Hard Cross HC5',
     motorBrand: 'shimano', motorModel: 'Shimano EP8 (DU-EP801)', motorTorque: 85,
     batteryWh: 720, assist: 'full-power',
