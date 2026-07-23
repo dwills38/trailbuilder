@@ -26,6 +26,77 @@ seat does the housekeeping automatically — Douglas never renames/unpins/archiv
 
 ---
 
+## ★★★ SEAT 21 — START HERE (succession from seat 20, 2026-07-23 evening) ★★★
+
+Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today>-s21 -b
+coord/<today>-s21 origin/main` (Hard rule #5 — containment hook LIVE + HARDENED). Run the gates
+yourself, never trust doc counts. **State at handoff: main `b198b91c` green — MTB 5,216 parts
+(3,396 verified) · kit 814 (+20 ADVISORY id-brand-token warnings, cosmetic — see below) · BMX
+394 · gravel 364 · road 405 · EMTB 157 · striders 48 · 1,185 tests / 43 files · tsc clean ·
+verdict harness clean · 7 validators at 0 problems. ~136 commits this seat, zero broken deploys,
+ONE merge conflict (wheel-prices-3) cleanly hand-resolved.** A durable junction links the main
+checkout's `node_modules` into the coord worktree so npm test/tsc run there — recreate it if
+missing: `cmd //c "mklink /J node_modules \"D:\MTB Bike Builder\node_modules\""` from the worktree.
+
+**★ SEATING SEQUENCE (in order):**
+1. **Succession handshake** — find the seat 20 session via `list_sessions` **BY TITLE**
+   ("Main Coordinator (Seat 20)" — the rename DID land: seat 19 woke and confirmed it; my own
+   session id isn't self-visible, so go by title, the coordinator-cwd session that isn't
+   Partnerships or the bug-triage vessel). send_message it to set_session_title you to
+   "Main Coordinator (Seat 21)"; archive it on confirm. If it never wakes, one line to Douglas.
+2. **RE-ARM BOTH session-lifetime watchers IMMEDIATELY** (they die with the seat): (a) the hourly
+   fleet-sweep cron — v2 prompt WITH the leak sweep (D:\ root vs known-legit inventory + home dir
+   + Downloads) AND the Untitled-session check; (b) the persistent worker-reports Monitor — **USE
+   THE MTIME-AWARE VERSION** (per-file mtimes, emit on NEW AND CHANGED — it caught the kit worker
+   OVERWRITING a stale ghost report this seat; the name-only version would have gone blind).
+   `CronList` after, delete dupes. The FIVE durable scheduled tasks survive on their own (daily
+   bug-triage, monthly drift 6th, monthly bias 12th, quarterly recall, weekly-repo-audit Sun) —
+   do NOT recreate.
+3. Read **HANDOFF-CHIPS.md** (all seat-20 chips merged; ready lanes + Douglas's open-question
+   queue) + memory MEMORY.md + CLAUDE.md hard rules 1-5.
+
+**★ IN FLIGHT AT HANDOFF: NOTHING.** Every seat-20 chip (6 originals + 8 ruling-derived A–H + the
+breadth waves + 2 re-dispatches) harvested, adversarially reviewed, gated, pushed, worker
+archived. Only "Affiliate Setup" (Partnerships lane, never touch) + daily bug-triage vessels remain.
+
+**★ RULES EARNED THIS SEAT (inherit them — details in PROJECT-LOG 2026-07-23):**
+· **BRANCH-NAME UNIQUENESS IS PART OF THE CONTENT-CHECK.** I reused two prior-wave branch names
+  (`emtb-breadth-2`, `gravel-breadth-1`) in chips → both workers correctly STOOD DOWN on the
+  CHECK-FIRST guard, produced nothing, and their Jul-22 GHOST reports resurfaced looking "ready."
+  ALWAYS `git rev-parse --verify <branch>` + check the ahead-count is 0 BEFORE putting a slug in
+  a chip. Re-dispatched under fresh names (`emtb-breadth-3`/`gravel-breadth-2`) — both merged.
+· **GHOST/ZOMBIE REPORTS ARE REAL AND DATED.** Content-check EVERY report before believing it:
+  branch ahead/behind + commit DATE (`git log -1 --date=short`). A 0-ahead branch has nothing to
+  merge no matter how complete its report reads.
+· **CHIP DELIVERY IS READY-ONLY (Douglas, HARD RULE).** He pastes chips on sight — only ever hand
+  over one whose lane is FREE right now; no previews, no "round-after" teasers, nothing that waits.
+  Track lane availability, feed the next ready one as each file frees. (memory `chip-delivery-ready-only`)
+· **THE TOKEN LAW still catches things — audit every wave (all clean this seat).** When a price
+  SWEEP changes prices (wheel-prices-3 did — real msrp-confirmed corrections), verify EACH change
+  carries a real basis: diff price-by-id against pre-merge main via node, don't eyeball.
+· **CONFLICT RESOLUTION: never regex-splice.** Read both sides; keep-BOTH when the hunks are
+  disjoint (wheel-prices-3's new-EX1500-row-vs-appended-note collision). Merge the compat.js lane
+  SEQUENTIALLY so adjacency conflicts stay small.
+· **ARCHIVE PROMPTLY as each worker merges** — I lost track of the BMX archive during an
+  interrupting question and Douglas caught it. Don't let archives queue behind other work.
+· **PROBE ENGINE-ADJACENT MERGES YOURSELF** — reproduced M7's per-wheel verdicts, the Microshift
+  R15/R19 verdicts, RAAW's front-axle match, and confirmed every "vocab-only" schema diff was
+  comment/token-only, not logic.
+
+**★ PERMISSIONS (Douglas granted this seat):** `Bash(node *)`, `Bash(git add *)`, `Bash(git
+commit *)` are now in his allow-list (recurring worker prompts gone). He also added a PreToolUse
+auto-approve hook for `mcp__ccd_session_mgmt__archive_session` — **UNRESOLVED whether it
+suppresses the archive confirmation** (may be a hard-coded tool dialog, not a permission gate);
+open-question item. The classifier still blocks the coordinator editing its own allow-list.
+
+**Standing workflow (unchanged):** four gates (+harness on engine-read changes); adversarial
+review with your own probes; UI auto-ships on green gates; only taxonomy/money/visual-taste/
+account/business decisions to Douglas, kept SHORT; ANSWER-FIRST; paste-blocks with [Model, effort]
+headers; coordinate-only lean seat; at YOUR wrap-up consolidate all outstanding Douglas questions
+into HANDOFF-CHIPS.md and pass this instruction forward (succession rule 5).
+
+---
+
 ## ★★★ SEAT 20 — START HERE (succession from seat 19, 2026-07-23) ★★★
 
 Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today>-s20 -b

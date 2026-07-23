@@ -1,5 +1,5 @@
-# Paste-ready worker blocks — updated by seat 20 (2026-07-23: original 6 merged; 6 rulings +
-# 8 new chips A–L queued)
+# Paste-ready worker blocks — updated by seat 20 at WRAP (2026-07-23 evening): ALL chips merged,
+# nothing in flight; ready lanes + 11-item open-question queue consolidated for seat 21
 
 Douglas dispatches these himself so he controls model + effort (CLAUDE.md Hard rule #4).
 Fleet was EMPTY at seat-19 wrap — nothing in flight, no double-paste risk, but every chip
@@ -36,10 +36,24 @@ fetched text; watch third-party sites echoing a maker's single figure against th
 
 ---
 
-## Chip queue (dispatch when lanes free)
+## Chip queue — ALL SEAT-20 CHIPS MERGED (2026-07-23 wrap; NOTHING in flight)
 
-### ✅ MERGED THIS SEAT (20, 2026-07-23) — the original six, all harvested + adversarially
-reviewed + gated + pushed as separate commits:
+**Seat 21: every chip listed below — the 6 originals, the 8 ruling-derived A–H, the breadth
+waves, and the 2 re-dispatches — is MERGED to main `b198b91c` with its worker archived. The
+detailed listings are the HISTORICAL RECORD, not a pending queue.** Two evolved from their
+original wording: **B landed as REPLACE-WITH-A-REAL-Command-Post-IRcc** (`93f75a70`, Douglas's
+(1) ruling — 3 fabricated ids aliased to the new real row), NOT a retire; and **the R&M
+Superdelite EMTB row was EXCLUDED** (touring bike, ruled — note lives in data/emtb.js's header).
+
+**READY LANES FOR FRESH WORK (all FREE at wrap — but RE-VERIFY the branch slug is unused AND
+0-ahead before dispatch; ghost branches from prior waves reuse slugs, see the seat-21 rules):**
+`src/compat.js` (MTB completebike breadth OR the ~500-row verification tail) · `data/road.js`
+(components beyond wheels/frames) · `data/gravel.js` (frames/components; the no-gravel-mullet
+freeze still governs drivetrain) · `data/emtb.js` (round-4 deepening — many brands still 1-3
+rows) · `data/bmx.js` · `src/kit.js`. Paste-blocks in seat-20's transcript are the template.
+**Deliver READY-ONLY** (memory `chip-delivery-ready-only`).
+
+### [HISTORICAL — ALL MERGED] Original six, harvested + adversarially reviewed + gated + pushed:
 1. e13 LG1 DH integrated-driver semantics → outcome (c), desc-only, `fc4fcb28`. **FLAGGED a
    real out-of-scope false-fit → see follow-up G below.**
 2. wheel-prices-2 → 40 already-qualifying rows tagged `pair-split-estimate`; Zipp/Reserve
@@ -130,10 +144,26 @@ question.)
    keep old — covers a model-YEAR refresh; this is a same-row price DRIFT, still open.)
 6. **Fox 38 Performance Elite 29/180** — no such SKU exists on ridefox.com anymore (170mm
    only). Discontinued writeup or retire?
-7. **Permission one-liners for his settings.json allow list** (classifier blocks the
-   coordinator adding them): `"Bash(node *)"`, `"Bash(git add *)"`, `"Bash(git commit *)"` —
-   kills the recurring worker permission prompts.
-8. **Smalls tail:** Whisp tier naming (SOLiX Classic vs uniform Hydra2 — taste) · one manual
+7. **Archive auto-approve hook — UNRESOLVED.** The `Bash(node/git add/git commit *)` permission
+   one-liners are DONE (Douglas added them 2026-07-23; worker prompts gone). He also pasted a
+   PreToolUse hook returning `permissionDecision:"allow"` for `mcp__ccd_session_mgmt__archive_session`
+   (valid JSON, saved) — but archives STILL prompted him. Open: does it just need a `/hooks`
+   reload/restart to fire, or is the archive confirmation a hard-coded tool dialog no setting can
+   suppress (its own description says it "ALWAYS prompts")? Next archive after a `/hooks` open is
+   the test.
+8. **Gearbox-frame schema gap.** `checkBuild` doesn't model gearbox/Pinion drivetrains, so
+   Zerode (Pinion-only lineup) and Guerrilla Gravity frames can't be added honestly (the
+   boutique-frames worker flagged both, didn't force). Widen the schema for gearbox drivetrains,
+   or leave as a documented gap?
+9. **Gravel steerer-vocab widening.** A 1-¼-to-1-½ tapered class (FSA IS2 headset on the Cervélo
+   Aspéro-5) is WIDER than the generic `tapered` gravel token; forcing `tapered` would be a false
+   interface claim. Add a distinct steerer token (with tests), or keep it deferred? (gravel worker
+   flagged; the Aspéro-5 row was NOT added pending this.)
+10. **Kit's 20 advisory `id-brand-token` warnings.** The 2026-07-23 casing normalization
+    (Dharco→DHaRCO, Gore Wear→GOREWEAR, etc.) left ~20 ids whose brand-token no longer matches the
+    corrected full brand name — append-only ids can't be renamed. validate shows "0 problems, 20
+    warnings" (cosmetic). Accept permanently, or address (retire+re-add the ids / relax the lint)?
+11. **Smalls tail:** Whisp tier naming (SOLiX Classic vs uniform Hydra2 — taste) · one manual
     delete: 6 confirmed-duplicate files in `.claude/legacy-strays/` (guard blocks the
     coordinator) · Bright Data balance $1.39 (optional top-up) · archive_session auto-approve
     hook (deferred) · Audit L4 round-robin · "Sort: Random" wording · fr-trek-slash orphan
@@ -154,7 +184,10 @@ weekly repo auditor approved (highest effort, nothing irreversible).
 **RULED SEAT 20 (2026-07-23) — do NOT re-ask (each is now a chip A–F above):** vocab 4C =
 YES (Teravail "Light & Supple" / Continental "PureGrip" / WTB "Breakout" / Specialized gravel
 tokens) · verified badge on a COMPLETE BIKE = (a) the bike's own sheet+price verified, each
-fill shows its own status · dp-specialized-command-post-349-160 = RETIRE (via ALIASES) · M7
+fill shows its own status · dp-specialized-command-post-349-160 = **REPLACE with a real Command
+Post IRcc** (Douglas's follow-up (1) ruling — the whole 3-id lineage was fabricated with no real
+sibling to retire into, so a real 30.9×125 IRcc row was entered and all 3 fabricated ids aliased
+to it; landed `93f75a70`) · M7
 wheel-size-aware rule-18 = GO · MY27 Canyon Sender CLLCTV = (b) keep 2025 + ADD a 2027 row —
 **and the GENERAL PRECEDENT for all such cases: a model-YEAR refresh (same or changed spec) =
 new row, keep the old, NEVER overwrite (Straggler pattern)** · the ~50 spec-page-only road/
