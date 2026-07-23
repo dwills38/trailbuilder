@@ -1921,6 +1921,17 @@ var EMTB_PARTS = [
     desc: 'Verified vs the fetched maker product page (corratec.com/en/Bikes/E-Mountainbike-E-SUV/E-SUV/E-Power-MTC-100-Wave-CX8.html — "Bosch Performance Line CX Smart System BDU38" motor, "85 Nm", "Bosch PowerTube 800 Horizontal" battery, RockShox Recon Silver RL 100mm fork / RockShox Deluxe Select+ 170x35mm shock, "Shimano SL-U6000-11R CUES 11-speed" w/ RD-U6000 CUES GS derailleur and Miranda DM CF3D 38T crank, "Tektro HD M535 4/4 Piston" 203mm front/180mm rear brakes, 29kg complete-bike weight, EUR 5,599.00 price). PRICE: EUR 5,599.00 maker RRP converted at the 2026-07-23 open.er-api.com rate (1.141079) -> $6,388.90 — Corratec has no US retail presence, no USD MSRP exists. Frame material was not stated on the fetched page (only "Wave"/comfort-geometry description) — left uncataloged per this catalog\'s no-guessing convention. catalog/emtb-depth-8 wave (Corratec deepened from 1 row to 2).',
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.corratec.com/en/Bikes/E-Mountainbike-E-SUV/E-SUV/E-Power-MTC-100-Wave-CX8.html'
   },
+  {
+    id: 'em-corratec-epower-xvert-prosport', cat: 'emtb', brand: 'Corratec', model: 'E-Power X-Vert Pro Sport',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Smart System BDU38', motorTorque: 85,
+    batteryWh: 800, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'hardtail', travelFront: 120, travelRear: 0,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT RD-M8100 SGS 12-speed (Deore shifter/cassette)', brakes: 'Shimano MT420/MT410 4/2-piston (180mm)',
+    disciplines: ['e-trail'], price: 5248,
+    note: 'A genuinely different Corratec product line from the already-cataloged full-suspension RS 160 Factory (enduro) and MTC 100 Wave CX8 (100mm step-through) — E-Power X-Vert is a hardtail eMTB family (Pro/Elite/LTD/Race tiers), this the mid-tier Pro Sport build: SR Suntour XCR34X Air 2CR 120mm fork, KindShock RAGEi dropper, Bosch Performance CX 800Wh.',
+    desc: 'Fetched directly from the maker\'s own product page (corratec.com/en/Bikes/E-Mountainbike-E-SUV/E-Mountainbike/E-Power-X-Vert-Pro-Sport.html), cross-confirmed against bosch-ebike.com\'s own model directory entry (which independently confirms "Category: eMTB > Hardtail eMTB", "Frame material: Aluminium", "Front suspension travel: 120mm", 2026 model year for this SKU). Spec table: "engine Bosch Performance Line CX Smart System BDU38... capacity 800... torque 85", "SR Suntour XCR34X Air 2CR 29\\" 15x110mm 120mm" fork, "SHIMANO RD-M8100 XT SGS 12-SPEED" derailleur w/ "SHIMANO CS-M6100-12 DEORE 12-SPEED 10-51T" cassette and "SHIMANO SL-M6100-R DEORE 12-SPEED" shifter, "SHIMANO MT420 / MT410 4/2 Piston 180mm" front and rear brakes, "ALLOY" frame form "Trapez". No complete-bike weight published. PRICE: EUR 4,599.00 maker RRP converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,248.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.corratec.com/en/Bikes/E-Mountainbike-E-SUV/E-Mountainbike/E-Power-X-Vert-Pro-Sport.html'
+  },
 
   {
     id: 'em-conway-xyron-lt-90', cat: 'emtb', brand: 'Conway', model: 'Xyron LT 9.0',
