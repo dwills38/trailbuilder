@@ -1830,6 +1830,19 @@ var EMTB_PARTS = [
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.husqvarna-bicycles.com/en-us/models/offroad/hard-cross/hard-cross-hc5-2023.html'
   },
 
+
+  {
+    id: 'em-moustache-samedi27-wide5', cat: 'emtb', brand: 'Moustache', model: 'Samedi 27 Wide 5',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX BDU37 (Smart System)', motorTorque: 85, motorPowerPeak: 250,
+    batteryWh: 625, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '275', suspension: 'full', travelFront: 130, travelRear: 120,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT 12-speed (Deore shifter, 11-51T cassette)', brakes: 'Shimano MT420 4-piston',
+    disciplines: ['e-trail'], weight: 24400, price: 4714.31, modelYear: 2026,
+    note: 'French maker Moustache\'s accessible/comfort-oriented sibling to the already-cataloged Samedi 29 Trail 150.2 — "Wide" family shares the Trail/Game platform\'s frame tech but prioritizes ease of use, 6061 T4-T6 hydroformed aluminum frame, Marzocchi Bomber Z2 RAIL fork, Moustache\'s own Magic Grip Control shock (120mm), 27.5in wheels w/ Maxxis Rekon 2.8in tires.',
+    desc: 'Fetched directly from the maker\'s own product page (moustachebikes.com/se/en/electric-bikes/samedi-27-wide/samedi-27-wide-5/ and the identical /fr/en/ listing): "Wide, 6061 T4-T6 alloy, 120mm travel, Bosch PowerTube exclusive battery integration (horizontal)" frame, "Bosch, Performance Line CX BDU37, Smart System, 85Nm" motor, "Bosch, PowerTube 625Wh, horizontal, Smart System" battery, starting price "3 999 EUR" (FR listing) / a UK retailer (Velospeed) independently confirms the same SKU\'s full kit: "Marzocchi Bomber Z2 RAIL, 130mm" fork, "Shimano MT420" 4-piston 203mm brakes, "Shimano XT 12-speed with Deore shifters (11-51T)" drivetrain, "24.4kg" weight, GBP 3,699 (a UK retailer price, used here only to fill the fields the maker\'s own EU page omits — fork travel, drivetrain, brakes, weight). US moustachebikes.com carries no Samedi 27 Wide listing (US site sells only the Trail/Game/Off families) — no USD MSRP exists. PRICE: EUR 4,131.40 (a French reseller\'s full retail price for this exact SKU, simplebikestore.eu — not the maker\'s own currency page directly fetched by this session) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $4,714.31 — entered as a disclosed unverified sample price, no regional-conversion token (that token is reserved for a maker-fetched RRP, matching this catalog\'s existing Moustache row\'s precedent). catalog/emtb-breadth-brands-1 wave (Moustache deepened from 1 row to 2).',
+    lastChecked: '2026-07-23', source: 'https://moustachebikes.com/fr/en/electric-bikes/samedi-27-wide/samedi-27-wide-5/'
+  }
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
