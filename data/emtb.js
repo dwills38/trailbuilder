@@ -2097,6 +2097,17 @@ var EMTB_PARTS = [
     desc: 'Unverified sample via the credible-source breadth policy — Vital MTB\'s and MTB Database\'s spec-sheet pages (mirroring Yeti\'s own T2 build sheet), cross-checked against Alex Bicycles\' dealer listing for the US MSRP. Weight is Vital MTB\'s tested-unit figure, "49 lb 14.2 oz" = 22.63kg. One aggregator (Opticycles) listed $12,883, likely a regional/currency variant — not used. catalog/emtb-depth-5 wave.',
     lastChecked: '2026-07-23', source: 'https://www.vitalmtb.com/product/guide/e-bikes/yeti/160e-59316'
   },
+  {
+    id: 'em-yeti-160e-c2-gx', cat: 'emtb', brand: 'Yeti', model: '160E C2 GX',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle 12-speed (mechanical)', brakes: 'SRAM Code R',
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 8500,
+    note: 'Value trim of the 160E — same TURQ Series carbon frame/Sixfinity suspension and Shimano EP801/630Wh drive system as the T1/T2, stepped down to Fox PERFORMANCE-tier suspension (Float 38/Float X, vs the T1/T2\'s Factory-tier) and SRAM GX Eagle mechanical drivetrain, SRAM Code R (non-RSC) brakes.',
+    desc: 'Unverified sample via the credible-source breadth policy (same wall as the T1/T2 rows: yeticycles.com is JS-rendered and returned only nav chrome to WebFetch/Exa/the in-app browser pane) — price/spec cross-checked across two independent dealer listings mirroring Yeti\'s own build sheet: alexbicycles.com ($8,500 MSRP, full component spec table) and evo.com\'s 2024 model-year listing ($8,500 MSRP, matching frame/travel/drivetrain). Weight not published on either fetched dealer page (left blank rather than guessed). catalog/emtb-depth-9 wave (Yeti thin-lineup deepen, 2 -> 3 rows).',
+    lastChecked: '2026-07-23', source: 'https://www.alexbicycles.com/product/yeti-cycles-160e-c2-gx-927819-1.htm'
+  },
 
   {
     id: 'em-evil-epocalypse-eagle90', cat: 'emtb', brand: 'Evil', model: 'Epocalypse Eagle 90',
