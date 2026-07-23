@@ -271,6 +271,36 @@ test('and the reverse: a 68/73 BB on a BSA83 DH frame (V10) -> still an error', 
   some(chk({frame:'fr-santacruz-v10-8', bb:'bb-sram-dub-bsa73'}).errors, 'BB shell mismatch');
 });
 
+/* Rule 7 - the '30mm' spindle token is ONE cross-compatible FAMILY, on purpose
+   (convention audit 2026-07-23, schema/cross-bb-spindle-convention). Praxis's
+   own M30-THRU BB fits Praxis Lyft, Race Face/Easton CINCH and Rotor Rex 30mm
+   cranks interchangeably; Wheels Mfg / Chris King / Kogel sell 30mm BBs as
+   universal to the class. So mixing 30mm brands across the crank<->BB seam must
+   stay GREEN (never a false red), while genuinely-distinct bores stay a hard
+   error. These pin the honest convention against a future brand-tokenizing
+   regression. See the crankBb comment in schema.js. */
+test('30mm family cross-brand: Praxis M30 crank + Race Face 30mm BB + BSA73 frame -> clean', function(){
+  eq(chk({frame:'fr-raaw-madonna-v3', bb:'bb-raceface-bsa73-30mm', crankset:'cr-praxis-lyft'}).errors.length, 0);
+});
+test('30mm family cross-brand, reverse seam: Race Face 30mm crank + Praxis M30 BB -> no spindle error', function(){
+  eq(chk({bb:'bb-praxisworks-m30-bsa73-30mm', crankset:'cr-raceface-turbine'}).errors.filter(function(e){ return e.ruleId==='bb-spindle'; }).length, 0);
+});
+test('distinct bore p3 (e*thirteen) vs a 30mm crank -> spindle error (not the same family)', function(){
+  some(chk({bb:'bb-ethirteen-bsa73-p3', crankset:'cr-raceface-turbine'}).errors, 'BB spindle mismatch');
+});
+test('distinct bore powerspline vs a 30mm crank -> spindle error', function(){
+  some(chk({bb:'bb-sram-powerspline-bsa73', crankset:'cr-raceface-turbine'}).errors, 'BB spindle mismatch');
+});
+test('distinct bore 19mm vs a 30mm crank -> spindle error', function(){
+  some(chk({bb:'bb-jienyuan-pf92-19mm', crankset:'cr-raceface-turbine'}).errors, 'BB spindle mismatch');
+});
+test('distinct bore square-taper vs a 30mm crank -> spindle error', function(){
+  some(chk({bb:'bb-shimano-un101-bsa73', crankset:'cr-raceface-turbine'}).errors, 'BB spindle mismatch');
+});
+test('distinct bore 24mm vs a 30mm crank -> spindle error (the reverse of the DUB case above)', function(){
+  some(chk({bb:'bb-shimano-mt801-bsa73', crankset:'cr-raceface-turbine'}).errors, 'BB spindle mismatch');
+});
+
 /* Rule 20 - the headset category (2026-07-10; rule 7/BB is the template).
    20a (ACTIVE): steerer acceptance vs the fork, exact equality like rule 11.
    20b (dormant-until-sourced): cup vs head tube where a frame carries fetched
