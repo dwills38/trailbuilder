@@ -177,11 +177,31 @@ var VOCAB = {
      narrower shell used on some XC frames, genuinely distinct from the 92mm
      PF92 family per the comment above; verify-frames-2, 2026-07-09). */
   frameBb:      ['BSA73', 'PF92', 'T47', 'PF107', 'BSA83', 'BSA68', 'PF865', 'PF3083'],   // BSA68 = the classic 68mm threaded shell (Meta HT V3's own page, 2026-07-08 - hardtails still ship it); PF3083 added grind-7 w1 (2026-07-16) - Cannondale Scalpel/Scalpel HT's own "PF30 83A" press-fit shell, confirmed on both fetched cannondale.com Scalpel HT Carbon 2/3 spec pages
-  /* crankBb is the SPINDLE INTERFACE, not a brand (DATA-MODEL-REVIEW 5.1-5):
-     DUB (28.99mm), 24mm (Shimano Hollowtech II + Race Face Cinch steel + ...),
-     30mm (BB30-class: eeWings, Race Face Cinch alu, Hope), p3 (e*thirteen).
-     DUB-Wide is a CHAINLINE, not a new spindle value. The old too-narrow
-     vocab (DUB|SH24) forced two fictitious catalog products - never again. */
+  /* crankBb is the SPINDLE BORE-DIAMETER CLASS, not a brand (DATA-MODEL-REVIEW
+     5.1-5): DUB (28.99mm), 24mm (Shimano Hollowtech II + Race Face Cinch steel
+     + ...), 30mm (BB30-class: eeWings, Race Face Cinch alu, Hope, Praxis M30),
+     p3 (e*thirteen). DUB-Wide is a CHAINLINE, not a new spindle value. The old
+     too-narrow vocab (DUB|SH24) forced two fictitious catalog products - never
+     again.
+     '30mm' STAYS ONE TOKEN, ON PURPOSE (convention audit 2026-07-23,
+     schema/cross-bb-spindle-convention): the 30mm spindle is a genuinely
+     cross-compatible FAMILY, not one brand's part. Praxis's own M30-THRU BB is
+     sold to fit Praxis Lyft, Race Face/Easton CINCH and Rotor Rex 30mm cranks
+     interchangeably (praxiscycles.com M30 BB pages / BB Compatibility Guide;
+     Wheels Mfg, Chris King ThreadFit30, Kogel sell 30mm BBs as universal to the
+     class), so splitting it into m30/bb30/... would fabricate FALSE "won't fit"
+     verdicts between parts the makers document as compatible. The two things a
+     30mm spindle still depends on live OUTSIDE this token by design: (a) SHELL
+     WIDTH - carried by bb.shell matched to frame.bb in rule 7 (a 30mm crank runs
+     BSA/PF30/PF92/T47 via the matching-shell BB); (b) chainline - display-only,
+     never a compat rule. A crank's spindle LENGTH vs the frame shell width is a
+     separate, currently-unmodeled dimension that is UNIFORM across every token
+     (DUB and 24mm cranks also come in per-shell lengths and are not length-
+     checked either) - see the "spindle length vs shell width" candidate in
+     compat.js's coverage roadmap. It is NOT a 30mm dishonesty and a token split
+     would not address it. p3 / powerspline / square-taper / 19mm are genuinely
+     DISTINCT bore/spline geometries (sourced below) and correctly stay separate
+     tokens - rule 7 exact-matches them against 30mm as a true "won't fit". */
   /* 'powerspline' = SRAM/Truvativ's entry-tier splined spindle interface
      (12-spline chromoly spindle, distinct from DUB/24mm/30mm - genuinely
      different bore/spline geometry, not interchangeable). Confirmed real via
