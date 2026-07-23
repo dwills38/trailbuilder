@@ -2452,6 +2452,26 @@ var BMX_PARTS = [
     id: 'bmx-rh-gsport-elite-cassette', cat: 'rearWheel', brand: 'GSport', model: 'Elite Cassette Rear Wheel',
     driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 490, price: 399.99,
     note: 'bmx-breadth-3 (2026-07-22): NEW brand for this catalog. WebSearch-corroborated across Source BMX, SkatePro, Albe\'s BMX and Powers Bike Shop, all describing the same GSport Elite Cassette Wheel: a 7075-T6 aluminum "Roloway" cassette hub (9-tooth, 3-pawl independent-spring driver, "RHD/LHD compatible" -> side:both, "14mm 4130 chromoly axle bolts with 17mm 4130 chromoly female axle" -> axle:14mm) laced 36h to GSport\'s own 6061-T6 Ribcage rim. Total wheel weight stated as "17.28oz (approximately 490g)" in the corroborating copy -> weight:490. Price $399.99 attributed to GSport\'s own storefront (shop.gsportbmx.com) by independent retailer copy; shop.gsportbmx.com itself returned HTTP 429 on every fetch attempt this session (documented wall, not routed around). Left unverified (retailer/WebSearch-corroborated, no direct manufacturer fetch this session).\n\n    TRUE-GAP flagged, not entered: the companion "G-Sport Elite Front Wheel" uses a 20mm through-axle (a real, WebSearch-confirmed spec: "20mm 7075-T6 aluminum female axle"), but BMX_VOCAB.axle only contains [\'10mm\',\'14mm\'] — no matching token exists. Per DATA-ENTRY-TEMPLATE §4 ("stop the batch, add the vocab value... never ship a fictitious mapping"), this row is deliberately NOT entered rather than force-fit to 10mm or 14mm; widening BMX_VOCAB.axle to add a 20mm token is out of this data-only batch\'s scope and is flagged here for a future schema-touching pass.'
+  },
+
+  // ---- bmx-brand-depth-1 (2026-07-23): depth pass on brands confirmed thin
+  //      (Subrosa, Verde, Federal, BSD) plus a survey of Stolen/Premium/
+  //      Volume/United/Mankind/Radio for genuine gaps. Frames first per the
+  //      task brief, then own-brand forks/cranks/seats where the brand
+  //      actually publishes them. Every id below names a REAL current
+  //      product fetched from either the maker's own storefront (Shopify
+  //      products.json/product-page trick, same technique as the rest of
+  //      this file) or, where the maker's own page didn't state a
+  //      rule-relevant field, a named retailer as an honest unverified
+  //      sample (never fabricated). ------------------------------------
+  {
+    id: 'bmx-fr-stolen-spadepro-22', cat: 'frame', brand: 'Stolen', model: 'Spade Pro Frame (22")',
+    family: 'stolen-spade-pro', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 22.25, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: false, weight: 2426, price: 1399.00,
+    verified: true, priceBasis: 'bundle-split-estimate', lastChecked: '2026-07-23',
+    source: 'https://www.stolenbrand.com/products/22-spade-pro-frame-frame-fork-kit',
+    note: 'Fills the "Stolen has no frame row" gap flagged by the task brief (only a Team Cranks row existed). FETCHED stolenbrand.com own Shopify product feed directly (products.json on stolenbrand.com/collections/frame-parts, then the product page itself for the Matte Black in-stock variant) - a "22 inch" BMX designation is cockpit/top-tube length, not wheel diameter (wheels stay 20in; kept wheelSize:20 per this catalog convention, and the page geometry text itself says "rides and feels like a 20 inch Pro level frame"). Page states verbatim: "HEADSET TYPE: Integrated (Campy)" (headTube:integrated-1-1/8), "BRAKE MOUNTS: Removable (Included)" - mounts SHIP INSTALLED (unlike the Federal/BSD "sold separately, brakeless-by-default" pattern elsewhere in this file) -> rearBrakeMount:u-brake, "BB TYPE: Mid" (bbShell:mid exact), "DROPOUT SIZE: 14mm" (rearAxle:14mm exact), "WEIGHT: 5.35 lbs" = 2426g (the products own stated frame weight, NOT the variant JSONs grams:8165 field, which is the frame+fork COMBO shipping weight, not a per-part figure). SKU is sold only as a "FRAME AND FORK KIT" (one $1399.00 price, Matte Black, in stock; a Gold variant lists $1539.00 but is sold out) - no frame-only price is published, so the fork was deliberately NOT entered as its own row (its own page text names no brake-mount value at all, a required fork field) and this frame rows price carries priceBasis:bundle-split-estimate: the FULL kit price is attributed to the frame side as a disclosed (not proportional) estimate, since the frame is the dominant-cost component and no per-side split is published - an honest estimate, not a maker-stated frame-only MSRP.'
   }
 ];
 
