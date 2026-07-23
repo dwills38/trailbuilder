@@ -2183,6 +2183,27 @@ var BMX_PARTS = [
     system: 'pivotal', price: 46.99,
     note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-scribbles-v2-seat-aaron-ross-signature-multicolor — this handle\'s variant is titled "Pivotal" (the page also separately offers a "Fat/Pivotal or Cruiser/Railed" split, matching this catalog\'s existing Silva Brick pattern above). JSON weight (635g) discarded as the same shipping-bucket figure. Unverified sample.'
   },
+  {
+    id: 'bmx-cr-sunday-sakerv2', cat: 'cranks', brand: 'Sunday', model: 'Saker v2 Cranks',
+    family: 'sunday-saker', spindle: '19mm', pieces: '3-piece', ringMount: 'spline', length: 175,
+    price: 84.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://shop.sundaybikes.com/products/saker-v2-cranks',
+    note: 'bmx-brand-depth-2: directly fetched shop.sundaybikes.com (Sunday\'s own storefront). States verbatim "It uses a 19mm chromoly spindle with 8 splines" (spindle:19mm, ringMount:spline - the 8-spline sprocket interface) and "designed to be an affordable 3-pc crank" (pieces:3-piece); offered in 155/165/170/175mm (length:175 modeled, display-only field). Black colorway price $84.99 matches the storefront listing exactly.'
+  },
+  {
+    id: 'bmx-hb-sunday-nightshift', cat: 'handlebar', brand: 'Sunday', model: 'Nightshift Bar (9.625in)',
+    family: 'sunday-nightshift-bar', clamp: '22.2mm', rise: 9.625, width: 28,
+    price: 89.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://shop.sundaybikes.com/products/sunday-nightshift-9-625-bar-chrome',
+    note: 'bmx-brand-depth-2: directly fetched shop.sundaybikes.com. Rustproof Black variant price $89.99 confirmed on the storefront (this row); geometry (rise:9.625in, width:28in, clamp:22.2mm) corroborated identically by two independent retailers (kunstform.org\'s spec table: "Height: 9.625\\" Width: 28\\" ... Clamping: 22.2mm"; marketplace.fullfactorydistro.com: "9.625\\" rise. 28\\" width.") - a third retailer (365cycles) listed width as 30in for the same model, an outlier not corroborated elsewhere, so the two-source-agreeing 28in figure was used.'
+  },
+  {
+    id: 'bmx-ti-sunday-currentv2-24', cat: 'tire', brand: 'Sunday', model: 'Current v2 Tire 2.4"',
+    family: 'sunday-current', wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 100, price: 32.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://shop.sundaybikes.com/collections/sunday-tires/products/sunday-current-v2-20-tire-black',
+    note: 'bmx-brand-depth-2: directly fetched shop.sundaybikes.com (Sunday\'s current entry-level tire, distinct from the discontinued-implied v1 "also available in 16/18in" line). Page/retailer copy states verbatim "Size: 20x2.40\\" only" (width:2.4 exact) and "PSI: 100 max" (maxPsi:100 exact); Black colorway price $32.99 confirmed on the storefront exactly. casing:park per this catalog\'s standing convention for a plain wire-bead street/park tire (no race-slick or foldable-kevlar construction claimed anywhere in the spec).'
+  },
 
   // --- Fiend (fiendbmx.com, its own Shopify store — only 1 Fiend row existed before this pass) ---
   {
