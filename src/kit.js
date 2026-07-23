@@ -1457,6 +1457,20 @@ var KIT_PARTS = [
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.rapha.cc/us/en/product/womens-trail-technical-t-shirt/TWS01XXAMCXSM',
     desc:'Fetched rapha.cc product page: list USD price $95.00 confirmed (site currently runs a $57 sale), sizes XXS-XL.' },
 
+  /* -- Muc-Off breadth (catalog/kit-apparel-brands-1, 2026-07-23): Muc-Off's apparel line
+     was entirely ABSENT from the catalog. FETCHED the US-site apparel collection page
+     (us.muc-off.com/collections/technical-apparel), which lists each SKU's regular USD
+     price directly (not converted, not a sale figure). No garment weight is published
+     anywhere on the collection or product pages. -- */
+  { id:'jsy-mucoff-ridersjersey-ss', cat:'jersey', brand:'Muc-Off', model:'Short Sleeve Mountain Bike Jersey', price:30,
+    sleeve:'short', desc:'Weight not stated on the fetched maker page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://us.muc-off.com/collections/technical-apparel', sourceType:'manufacturer' },
+  { id:'jsy-mucoff-ridersjersey-ls', cat:'jersey', brand:'Muc-Off', model:'Long Sleeve Mountain Bike Jersey', price:35,
+    sleeve:'long', desc:'Weight not stated on the fetched maker page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://us.muc-off.com/collections/technical-apparel', sourceType:'manufacturer' },
+
   /* -- Shorts (shorts + pants are SEPARATE cats; grind batch 2026-07-14, sht-shorts-grind) -- */
   { id:'sht-fox-flexair', cat:'shorts', brand:'Fox', model:'Flexair Short', price:129.95, weight:250,
     liner:false, sizes:['28','30','32','34','36','38'],
@@ -2497,6 +2511,14 @@ var KIT_PARTS = [
   { id:'glv-dharco-trail', cat:'gloves', brand:'DHaRCO', model:'Trail Glove', price:32, weight:58,
     sizes:['S','M','L','XL','XXL'],
     desc:'UNVERIFIED (2026-07-17): no "Trail Glove" SKU found on us.dharco.com - the current men\'s glove lineup is Race Glove and Gravity Gloves only. Left as an unverified sample rather than guessing which current SKU this maps to.' },
+  { id:'glv-mucoff-rider', cat:'gloves', brand:'Muc-Off', model:'Rider Gloves', price:34.99,
+    desc:'Regular (non-sale) US price; no weight stated on the fetched maker page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://us.muc-off.com/collections/technical-apparel', sourceType:'manufacturer' },
+  { id:'glv-mucoff-d30rider', cat:'gloves', brand:'Muc-Off', model:'D30 Rider Gloves', price:49.99,
+    desc:'D30 impact-foam knuckle protection; regular (non-sale) US price; no weight stated on the fetched maker page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://us.muc-off.com/collections/technical-apparel', sourceType:'manufacturer' },
   { id:'glv-zoic-turnt', cat:'gloves', brand:'ZOIC', model:'Turnt Glove', price:35, weight:62,
     sizes:['S','M','L','XL','XXL'],
     desc:'Weight per pair (approx). Price re-confirmed via retailer listings (unchanged) - zoic.com\'s product/category pages 404 or return nav-shell-only content on fetch (JS-rendered catalog, likely bot-walled) despite the homepage itself loading fine, so this stays unverified.'
