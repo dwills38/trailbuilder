@@ -50,6 +50,13 @@ jobs:
           mkdir -p _site
           cp index.html _site/
           cp -r src _site/
+          # BuildMyMTB's own catalog data. The MTB catalog was split out of
+          # src/compat.js into data/mtb.js on 2026-07-23 (compat.js is the engine
+          # now). `cp -r src` does NOT cover it — without the two lines below the
+          # FLAGSHIP page 404s on its catalog in production while working fine
+          # locally. index.html tags data/mtb.js BEFORE src/compat.js.
+          mkdir -p _site/data
+          cp data/mtb.js _site/data/
           cp CNAME _site/   # custom domain (buildmymtb.com) — Pages drops it if absent from the artifact
           # Root legal pages — same trap as CNAME: not served unless staged explicitly.
           cp privacy.html _site/
