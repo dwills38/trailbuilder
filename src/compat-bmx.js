@@ -43,13 +43,37 @@ var bmxVerdictKey = _mtbShared.verdictKey;
         engine itself compares values, it never gates on this table) -------- */
 var BMX_VOCAB = {
   wheel:       ['20', '24', '18', '16', '26'],     // 20 standard; 24 cruiser; 18/16 junior; 26 trails-cruiser niche
-  bbShell:     ['mid', 'spanish', 'american', 'euro'],
+  /* 'bb86'/'bb30'/'pf30' added vocab-race (2026-07-23): real BMX RACE press-fit
+     BB shells used on Pro-size race frames, distinct from the four freestyle/
+     old-school shells. LUX BMX's own BB-type guide (help.luxbmx.com/en-US/bb-type)
+     states pro-sized race frames use BB86 "employed by a lot of the major brands,"
+     with others "utilising the BB30 type, or PF30," while Euro (threaded) is for
+     "Expert XL and smaller" youth frames. All three are exact-match shells for the
+     bmx-bb-shell rule (a BB86 bearing set does not press into a PF30/BB30 bore),
+     same as the existing four. NOTE: some current race rows (e.g. the GT Speed
+     Series Pro) were entered as 'spanish' as the nearest press-fit token before
+     these existed — re-tokenizing those rows is a DATA task for the follow-up
+     catalog chip, NOT this vocab pass (this chip adds no data rows). */
+  bbShell:     ['mid', 'spanish', 'american', 'euro', 'bb86', 'bb30', 'pf30'],
   /* crank spindles: 19mm (modern freestyle default), 22mm (Profile/Primo HD),
      24mm, 30mm (Profile Elite AL — VERIFIED on profileracing.com 2026-07-11,
      a real value the analysis doc's draft list missed), 48-spline legacy. */
   spindle:     ['19mm', '22mm', '24mm', '30mm', '48-spline'],
   crankPieces: ['1-piece', '2-piece', '3-piece'],
-  axle:        ['10mm', '14mm'],                   // 3/8in and 10mm are ONE token (analysis-doc Q8 lean, PROVISIONAL)
+  /* '15mm'/'20mm' added vocab-race (2026-07-23, coordinator-authorized BMX-race
+     go-live): real BMX RACE axle standards beyond the 3/8in(10mm)/14mm freestyle
+     pair. Modern disc race runs a 15mm thru-axle (Redline Project 79 put a 15mm
+     axle in the REAR "for 20% more stiffness"); 20mm race hubs are a long-standing
+     option (Profile Elite 20mm front hub). Both are DIRECTLY documented by the
+     conversion-kit products that step them down to 3/8in: Profile Racing's
+     "HUB AXLE CONVERSION KIT - 15mm/20mm dropout to 3/8in bolt"
+     (profileracing.com/product/hub-axle-conversion-kit-15mm20mm-38/) and Speedline/
+     Supercross's "20mm to 3/8in" and "15mm - 3/8in" Pro Frame Adapter axle kits
+     (supercrossbmx.com). 3/8in and 10mm stay ONE token (analysis-doc Q8 lean).
+     The bmx-axle rule below reads these numerically (hub vs dropout, direction-
+     aware) — the adapter direction is exactly these kits. Peg bores stay 10/14
+     only (schema-bmx.js LOCAL_VOCAB.pegAxle), never widened by this. */
+  axle:        ['10mm', '14mm', '15mm', '20mm'],
   driverType:  ['cassette', 'freecoaster', 'freewheel'],   // 'freewheel' = legacy thread-on, vocab-only until sourced rows exist (Q5 lean)
   chainPitch:  ['1/8', '3/32'],                    // data/bmx.js field name: `pitch`
   /* 'disc' added 2026-07-17 (depth-4, coordinator-authorized): a rotor + caliper mount on
@@ -59,7 +83,19 @@ var BMX_VOCAB = {
      / bmx-front-brake-mount exact-match rules already enforce this once the token exists; no
      rule changes needed, only the vocab widen + data. */
   brakeMount:  ['u-brake', 'v-brake', 'caliper', 'disc', 'none'],  // frame/fork bosses AND brake type share the token set
-  headTube:    ['integrated-1-1/8', 'mid', 'threaded', 'integrated-1', 'integrated-tapered-1-1/8-1.5'],    // display-only per the analysis doc's Q9 lean (PROVISIONAL) — no headset rule fires
+  headTube:    ['integrated-1-1/8', 'mid', 'threaded', 'integrated-1', 'integrated-tapered-1-1/8-1.5', 'threadless-1-1/8'],    // display-only per the analysis doc's Q9 lean (PROVISIONAL) — no headset rule fires
+  // 'threadless-1-1/8' added vocab-race (2026-07-23): the plain NON-integrated
+  // 1-1/8" threadless "external cup" (EC/Ahead) headset — a real, common standard
+  // on budget FREESTYLE completes that the integrated/mid/threaded set lacked (the
+  // gap bmx-breadth-7 hit on Diamondback + Elite). Distinct from 'integrated-1-1/8'
+  // (bearings drop straight into a machined head tube, no cups) and from 'mid'
+  // (semi-integrated): here two cups PRESS into a plain (non-machined) head tube
+  // and the bearings sit in the cups. Sourced: the Diamondback Grind ships an
+  // "FSA 1-1/8in threadless" headset and Diamondback's own DBX002 SKU is a
+  // "Threadless - External Cup (EC)" 1-1/8in unit; retail tech pages (Dan's Comp
+  // "BMX Headset Types," Planet BMX / Porkchop "1-1/8in Threadless" categories)
+  // treat it as its own standing class. Head-tube fact + fork-steerer + standalone
+  // headset fit all share this token, same as every other headTube value.
   // 'integrated-1' and 'integrated-tapered-1-1/8-1.5' added vocab-tier1 (2026-07-22) —
   // real, maker-sourced integrated head tube classes distinct from the existing plain
   // 'integrated-1-1/8' token, both directly FETCHED off Speedline Parts' own product
@@ -320,6 +356,40 @@ function checkBmxBuild(build){
   }
   pegCheck(pegsF, fWheel, 'pegsFront', 'frontWheel', 'Front');
   pegCheck(pegsR, rWheel, 'pegsRear', 'rearWheel', 'Rear');
+
+  /* BMX-9. Axle diameter — wheel HUB axle vs frame/fork DROPOUT slot. Race adds
+        15mm/20mm to the freestyle 10mm(3/8in)/14mm pair, so wheel<->frame/fork
+        axle matching becomes a real fork-in-the-road that the freestyle-only
+        catalog never exercised (a 10mm bolt-on hub does NOT drop into a 20mm race
+        fork without a conversion axle; a 20mm hub axle physically will NOT enter
+        a 10mm dropout). Direction-aware, the peg-rule / MTB-rotor pattern:
+          - hub axle FATTER than the dropout slot -> ERROR (no adapter widens a slot).
+          - hub axle THINNER than the dropout slot -> adapter-tier WARNING carrying a
+            structured fix: a step-down conversion axle fills the gap. These are the
+            exact real products - Profile Racing's "15mm/20mm dropout to 3/8in" hub
+            axle conversion kit and Speedline/Supercross's "20mm->3/8in" &
+            "15mm->3/8in" Pro Frame Adapter axle kits.
+          - equal -> silent.
+        Every freestyle build is 10/10 front + 14/14 rear (matched end to end), so
+        this stays SILENT across the entire freestyle catalog - purely additive, it
+        can never change a freestyle verdict. ERROR/WARNING only, never a false block:
+        the one hard-error direction (fat axle in a narrow slot) is physically
+        impossible to assemble. */
+  /** @param {any} host @param {any} wheel @param {string} hostSlot @param {string} wheelSlot @param {string} hostAxleField @param {string} endLabel */
+  function axleCheck(host, wheel, hostSlot, wheelSlot, hostAxleField, endLabel){
+    if(!host || !wheel) return;
+    var hostAxle = host[hostAxleField], hubAxle = wheel.axle;
+    if(!hostAxle || !hubAxle || hostAxle === hubAxle) return;
+    var hostMm = parseInt(hostAxle, 10), hubMm = parseInt(hubAxle, 10);
+    if(isNaN(hostMm) || isNaN(hubMm)) return;
+    if(hubMm > hostMm){
+      err('bmx-axle', [wheelSlot, hostSlot], endLabel + ' axle mismatch: ' + bmxNameOf(wheel) + ' has a ' + hubAxle + ' axle but ' + bmxNameOf(host) + ' has ' + hostAxle + ' dropouts - a fatter axle will not fit the dropout slot.');
+    } else {
+      warn('bmx-axle', [wheelSlot, hostSlot], endLabel + ' axle: ' + bmxNameOf(wheel) + ' has a ' + hubAxle + ' axle and ' + bmxNameOf(host) + ' has ' + hostAxle + ' dropouts - it runs with a ' + hostAxle + '-to-' + hubAxle + ' conversion axle (sold separately).', {kind: 'adapter', name: hostAxle + '-to-' + hubAxle + ' conversion axle'});
+    }
+  }
+  axleCheck(fork, fWheel, 'fork', 'frontWheel', 'axle', 'Front');
+  axleCheck(frame, rWheel, 'frame', 'rearWheel', 'rearAxle', 'Rear');
 
   /* BMX-5. Gyro/detangler preconditions. The tabs and dual-cable checks land
         DORMANT (rule-18 template): they fire only on an EXPLICIT sourced

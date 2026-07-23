@@ -47,6 +47,13 @@ var LOCAL_VOCAB = {
   casing:      ['race-slick', 'park', 'kevlar-foldable'],
   /* BMX-MODEL.md section 8: peg material, display-only. */
   material:    ['steel', 'alloy'],
+  /* Peg axle bore — kept as its OWN subset of the axle standards, NOT BMX_VOCAB's
+     full `axle` list. When race widened BMX_VOCAB.axle with 15mm/20mm (2026-07-23)
+     the shared vocab could no longer gate pegs, which only ever slide onto a 10mm
+     (3/8in) front or 14mm rear axle (BMX-MODEL.md section 8). Pointing pegs.axleFit
+     here keeps a fabricated 15mm/20mm peg out of the catalog while frames/forks/
+     wheels still accept the wider race axle set. */
+  pegAxle:     ['10mm', '14mm'],
   /* BMX-MODEL.md section 14 pedal platform (plastic/alloy) plus 'clip'
      (clipless pedal, a real shipped value — pedals are the one BMX category
      that legitimately comes in flat AND clipless, same as the MTB catalog's
@@ -135,7 +142,7 @@ var BMX_SCHEMA = {
     wheelSize:{type:'string',vocab:'wheel'}, width:{type:'number'},
     casing:{type:'string',vocab:'casing'}, maxPsi:{type:'number'}
   },
-  pegs: { axleFit:{type:'string',vocab:'axle'}, material:{type:'string',vocab:'material'}, reducerIncluded:{type:'bool'} },
+  pegs: { axleFit:{type:'string',vocab:'pegAxle'}, material:{type:'string',vocab:'material'}, reducerIncluded:{type:'bool'} },
   brake: { mount:{type:'string',vocab:'brakeMount'}, dualCable:{type:'bool',optional:true} },
   handlebar: { clamp:{type:'string',vocab:'clamp'}, rise:{type:'number'}, width:{type:'number'} },
   stem: { clamp:{type:'string',vocab:'clamp'} },

@@ -120,6 +120,39 @@ test('golden BRAKELESS freecoaster build (Colony Sweet Tooth) - clean AND comple
   assertComplete(build);   // completeness NEVER asks for a brake (decision 3, 2026-07-13)
 });
 
+/* ---- golden 3: RACE build (vocab-race, 2026-07-23) --------------------------- */
+test('golden RACE build (Cult Race, disc, Euro BB) - zero errors, zero warnings, complete', function(){
+  var build = {
+    frame: bp('bmx-fr-cult-race'),                // race: euro shell, DISC rear mount, 14mm rear, 20in - VERIFIED row
+    fork: bp('bmx-fk-cult-race-20'),              // race: disc front mount, 10mm dropouts, integrated-1-1/8
+    headset: bp('bmx-hs-speedline-sealed-118pro'),// integrated-1-1/8 - matches frame head tube + fork steerer
+    cranks: bp('bmx-cr-profile-race-22'),         // 3-piece, 22mm
+    bb: bp('bmx-bb-profile-euro-22'),             // euro shell + 22mm - matches the frame's euro shell AND the crank spindle
+    sprocket: bp('bmx-sp-odyssey-utilitypro-30'), // 30T, 1/8 (no 3/32 chain ships yet - a follow-up-data matter)
+    chain: bp('bmx-ch-kmc-z410'),                 // 1/8 - matches the sprocket
+    frontWheel: bp('bmx-fw-odyssey-vandero'),     // 20in, 10mm hub - matches the fork's 10mm dropouts (bmx-axle silent)
+    rearWheel: bp('bmx-rh-cult-matchv2'),         // 20in cassette, 14mm hub - matches the frame's 14mm dropouts (bmx-axle silent)
+    frontTire: bp('bmx-ti-veetireco-speedster'),  // 20in race slick
+    rearTire: bp('bmx-ti-veetireco-speedster'),
+    frontBrake: bp('bmx-br-avid-bb5-bmx'),        // disc caliper on the fork's disc mount
+    rearBrake: bp('bmx-br-avid-bb5-bmx'),         // disc caliper on the frame's disc mount
+    handlebar: bp('bmx-hb-sandm-racexlt-8'),      // 25.4mm race bar - VERIFIED
+    stem: bp('bmx-st-profile-race'),              // 25.4mm - matches the bar clamp
+    grips: bp('bmx-gr-odyssey-aaronross'),
+    seat: bp('bmx-se-cult-pivotal'),
+    seatpost: bp('bmx-sp-cult-pivotal-post'),     // pivotal + pivotal
+    pedals: bp('bmx-pd-odyssey-twistedpro')
+  };
+  var r = BMX.checkBmxBuild(build);
+  eq(r.errors.map(String).join('\n'), '', 'zero errors');
+  eq(r.warnings.map(String).join('\n'), '', 'zero warnings - matched axles + matched disc mounts + matched euro BB');
+  assertComplete(build);
+  var g = BMX.bmxGearInfo(build);
+  ok(g && Math.abs(g.ratio - (30/9)) < 0.01, 'display gear ratio 30/9 (30T sprocket, 9T cassette driver)');
+  var t = BMX.bmxBuildTotals(build);
+  ok(t.price > 0, 'summed price');
+});
+
 /* ---- known-bad build: every planted conflict must fire ----------------------- */
 test('a deliberately wrong BMX build fails on every planted conflict (no false fits)', function(){
   var r = BMX.checkBmxBuild({
