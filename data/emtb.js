@@ -1977,6 +1977,18 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://enduro-mtb.com/en/the-best-enduro-mtb-review/merida-one-sixty-review-2026/'
   },
 
+  {
+    id: 'em-radon-recap-100', cat: 'emtb', brand: 'Radon', model: 'Recap 10.0',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Gen5 (Smart System)', motorTorque: 100,
+    batteryWh: 600, batteryRemovable: true, rangeExtender: true, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'carbon',
+    disciplines: ['e-trail'], weight: 21300, price: 7986.61, modelYear: 2026,
+    note: 'German direct-to-consumer maker Radon\'s new-for-2026 lightweight-focused trail platform, alongside the already-cataloged bigger-travel Render 9.0/10.0 rows — smaller 600Wh integrated battery (vs Render\'s 800Wh) plus an optional Bosch PowerMore 250 range extender, top trim of a three-model Recap range (8.0/9.0/10.0).',
+    desc: 'Unverified sample via the credible-source breadth policy — radon-bikes.de\'s own Recap 10.0 2026 product page plus BIKE Magazin\'s and eMTB-News\' launch coverage confirm "Bosch Performance Line CX Gen5 Smart System... up to 100 Nm of torque... 600-Wh battery... optional Bosch Powermore 250 Range Extender... 150 mm travel... 29-inch wheels... just under 22 kilos... 21.3 kg... Recap 10.0 costs EUR 6,999". Frame material (carbon) is the line\'s described "new Carbon-Chassis" (per eMTB-News\' "Recap und Render 2026: Neues Carbon-Chassis"), not independently reconfirmed against radon-bikes.de\'s own page this session. No drivetrain/brakes breakdown found for the 10.0 trim specifically — left uncataloged. PRICE: EUR 6,999 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,986.61 — disclosed estimate, no regional-conversion token. catalog/emtb-breadth-3 wave (Radon deepened from 2 rows to 3).',
+    lastChecked: '2026-07-23', source: 'https://www.radon-bikes.de/en/e-bike/mountainbike/recap/recap-100-2026/'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
