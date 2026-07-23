@@ -24,6 +24,18 @@
      node tools/verify-job.js init            build/merge queue from the catalog
      node tools/verify-job.js status          batch summary + what's next
      node tools/verify-job.js next [n]        print next n work orders (default: batchSize)
+     node tools/verify-job.js next --by-source [n]
+                                               same queue, grouped into n source-page batches
+                                               (default 30) instead of n parts - visit one page,
+                                               clear every queued part that cites it. Parts with
+                                               no known source each stay their own singleton group.
+     node tools/verify-job.js price-basis [n] the priceBasis backfill backlog (verified rows
+                                               missing priceBasis - see VERIFY-PROTOCOL.md), grouped
+                                               by source and sorted largest-first (default 30
+                                               groups). Read-only report, no job-state involved:
+                                               the backlog isn't part of the Pending/Verified queue
+                                               (verified rows are already 'Verified' in state) so
+                                               this is computed live from the catalog every run.
      node tools/verify-job.js start <id>      mark a part InProgress
      node tools/verify-job.js complete <id> <Verified|Failed|Skipped> [--source url] [--error msg] [--note msg] [--force]
      node tools/verify-job.js reset --failed | --skipped | <id> [--force]
@@ -121,6 +133,22 @@ function resolveId(state, id) {
   return id;
 }
 
+/* Group a list of catalog parts by their `source` field (largest group first).
+   A part with no source field is its own singleton group (source: null) - there
+   is nothing to batch it with. Pure/stateless: callers decide which population
+   (the Pending queue, the priceBasis backlog, ...) to pass in. */
+function groupBySource(parts) {
+  var bySrc = {}, order = [];
+  parts.forEach(function (p) {
+    var key = p.source || ('__none__:' + p.id);
+    if (!bySrc[key]) { bySrc[key] = { source: p.source || null, parts: [] }; order.push(key); }
+    bySrc[key].parts.push(p);
+  });
+  var groups = order.map(function (k) { return bySrc[k]; });
+  groups.sort(function (a, b) { return b.parts.length - a.parts.length; });
+  return groups;
+}
+
 function rebuildQueue(state) { // queue = remaining work: InProgress first (crash recovery), then Pending
   var inProg = [], pending = [];
   workUnits().forEach(function (p) {
@@ -182,6 +210,23 @@ if (cmd === 'init') {
   save(state);
   summary(state);
 
+} else if (cmd === 'next' && has('--by-source')) {
+  var state = requireState();
+  var numArgs = process.argv.slice(3).filter(function (a) { return /^\d+$/.test(a); });
+  var n = numArgs.length ? parseInt(numArgs[0], 10) : 30;
+  if (!state.queue.length) { console.log('Queue is empty - job complete. Run: node tools/verify-job.js report'); process.exit(0); }
+  var groups = groupBySource(state.queue.map(function (id) { return C.byId(id); }));
+  var top = groups.slice(0, n);
+  var topRows = top.reduce(function (sum, g) { return sum + g.parts.length; }, 0);
+  console.log(state.queue.length + ' queued part(s) grouped into ' + groups.length + ' source batch(es). Showing top ' + top.length + ' (' + topRows + ' part(s), ' + (top.length) + ' page visit(s)):');
+  top.forEach(function (g, i) {
+    console.log('\n[' + (i + 1) + '] ' + (g.source || '(no known source - verify from scratch)') + '  (' + g.parts.length + ' part' + (g.parts.length === 1 ? '' : 's') + ')');
+    g.parts.forEach(function (p) {
+      console.log('  ' + p.id + '  ' + p.brand + ' ' + p.model + ' (' + p.cat + ')' + (state.parts[p.id].status === 'InProgress' ? '  ** was InProgress - resume this first **' : ''));
+    });
+  });
+  save(state);
+
 } else if (cmd === 'next') {
   var state = requireState();
   var n = parseInt(process.argv[3], 10) || state.batchSize;
@@ -194,6 +239,20 @@ if (cmd === 'init') {
     console.log('  current: ' + JSON.stringify(p));
   });
   save(state);
+
+} else if (cmd === 'price-basis') {
+  var n = parseInt(process.argv[3], 10) || 30;
+  var backlog = C.PARTS.filter(function (p) { return p.verified === true && p.priceBasis == null; });
+  if (!backlog.length) { console.log('priceBasis backlog is empty - every verified row states its price basis.'); process.exit(0); }
+  var groups = groupBySource(backlog);
+  var top = groups.slice(0, n);
+  var topRows = top.reduce(function (sum, g) { return sum + g.parts.length; }, 0);
+  console.log('priceBasis backlog: ' + backlog.length + ' verified row(s) lacking priceBasis, across ' + groups.length + ' distinct source(s).');
+  console.log('Top ' + top.length + ' source(s) cover ' + topRows + ' row(s) (' + Math.round(topRows / backlog.length * 100) + '% of the backlog) in ' + top.length + ' page visit(s) instead of ' + topRows + '.');
+  top.forEach(function (g, i) {
+    console.log('\n[' + (i + 1) + '] ' + (g.source || '(no source on file)') + '  (' + g.parts.length + ' row' + (g.parts.length === 1 ? '' : 's') + ')');
+    g.parts.forEach(function (p) { console.log('  ' + p.id + '  ' + p.brand + ' ' + p.model + ' (' + p.cat + ')'); });
+  });
 
 } else if (cmd === 'start') {
   var state = requireState();
@@ -268,7 +327,7 @@ if (cmd === 'init') {
   }
 
 } else {
-  console.log('Usage: node tools/verify-job.js <init|status|next|start|complete|reset|retry|report>');
+  console.log('Usage: node tools/verify-job.js <init|status|next|next --by-source|price-basis|start|complete|reset|retry|report>');
   console.log('See the header of this file and tools/VERIFY-PROTOCOL.md for details.');
   process.exit(cmd ? 1 : 0);
 }
