@@ -1381,9 +1381,9 @@ var KIT_PARTS = [
       + ' "Roust LS Jersey" is the long-sleeve SKU): MSRP is $59.95 (the prior 2026-07-16 search-indexed pass'
       + ' had it wrong at $79.95 - that was a different sale/list read). No weight published; stays sample.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-17', source:'https://www.giro.com/p/mens-roust-mountain-bike-jersey/350250000400000030.html' },
-  { id:'jsy-zoic-amp-ss', cat:'jersey', brand:'ZOIC', model:'Amp SS', price:40, weight:135,
+  { id:'jsy-zoic-amp-ss', cat:'jersey', brand:'ZOIC', model:'Amp SS', price:40, weight:135, status:'discontinued',
     sleeve:'short', sizes:['S','M','L','XL','XXL'],
-    desc:'ATTEMPTED 2026-07-17: only an "Amp Long Sleeve Jersey" was found in web results for zoic.com/Performance Bicycle; no "Amp SS" short-sleeve SKU confirmed, and zoic.com itself rate-limited (429) every fetch attempt this session. Left as an unverified sample rather than guessing at a possibly-retired short-sleeve variant.' },
+    desc:'ATTEMPTED 2026-07-17: only an "Amp Long Sleeve Jersey" was found in web results for zoic.com/Performance Bicycle; no "Amp SS" short-sleeve SKU confirmed, and zoic.com itself rate-limited (429) every fetch attempt this session. CONFIRMED kit-verify-2 (2026-07-23): zoic.com/products.json (browser pane, full current catalog) lists zero "Amp"-named jerseys of any kind. Flagged discontinued; price/weight left as prior sample, stays unverified (no live page to confirm the number against).' },
   { id:'jsy-clubrideapparel-fuze-ss', cat:'jersey', brand:'Club Ride Apparel', model:'Fuze SS', price:65, weight:145,
     sleeve:'short', sizes:['S','M','L','XL','XXL'],
     desc:'ATTEMPTED 2026-07-18: scraped clubrideapparel.com\'s full men\'s shirt/jersey collection (New West, Go West, Motive, Go Long, Detour, Protocol, Quest, Bamboo Tee, Shaka/Daniel Flannel, X-Wind Jacket) - no "Fuze" jersey/shirt appears; "Fuze" currently names only a short (see clubrideapparel.com/products/fuze-bike-short). Left unverified rather than remove on this evidence alone (may be a retired jersey name, not a fabrication).' },
@@ -1669,9 +1669,10 @@ var KIT_PARTS = [
      shorts lines are Race/Impact/Core/Drift/Matrix/Turbulence - never Apex. Plain
      tombstone, no KIT_ALIASES entry (no real "Apex Shorts" to retarget to). See
      tools/verify-notes-kit.md "Kit Wave 10". */
-  { id:'sht-zoic-ether-liner', cat:'shorts', brand:'ZOIC', model:'Ether Shorts + Essential Liner', price:95, weight:320,
+  { id:'sht-zoic-ether-liner', cat:'shorts', brand:'ZOIC', model:'Ether Shorts + Essential Liner', price:118, weight:318,
     liner:true, disciplines:['trail'], sizes:['S','M','L','XL','XXL','XXXL'],
-    desc:'Ripstop nylon outer + removable ZO-Tech chamois liner; sold as a shell+liner bundle. ATTEMPTED 2026-07-17: zoic.com rate-limited (429) every direct fetch this session; a collection-page banner cited a $38 sale price (not a reliable MSRP figure). Left unverified rather than using an unconfirmed sale price.' },
+    desc:'Ripstop nylon outer + removable ZO-Tech chamois liner; sold as a shell+liner bundle. VERIFIED kit-verify-2 (2026-07-23): matched to the current "2026 Ether Shorts + Liner" SKU on zoic.com/products.json (browser pane, full 75+ SKU catalog fetch) -- price updated to the fetched current MSRP $118.00 (was sample $95, a prior/discontinued-generation price). Weight is the Shopify JSON per-variant grams field (318g); apparel Shopify weights vary meaningfully per-variant (unlike the pedal shipping-bucket trap), so treated as a usable net-weight figure, not maker-stated. Size range on the maker page is S-3X (not XS-XL naming); left the catalog\'s existing size labels unchanged as non-engine-read.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://zoic.com/products/2026-ether-shorts-liner-all-lengths' },
   { id:'sht-zoic-blackmarket-liner', cat:'shorts', brand:'ZOIC', model:'Guide Shorts + Liner', price:116, weight:454,
     liner:true, disciplines:['trail'], sizes:['S','M','L','XL','XXL','XXXL'],
     desc:'CORRECTED 2026-07-16: Zoic renamed the Black Market line to "Guide" (search-indexed'
@@ -2470,8 +2471,10 @@ var KIT_PARTS = [
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/damen-carve-handschuhe-sage' },
   { id:'glv-scott-ridance', cat:'gloves', brand:'Scott', model:'Ridance LF Glove', price:30, weight:60,
     sizes:['S','M','L','XL','XXL'], desc:'Weight per pair (approx). ATTEMPTED 2026-07-17: scott-sports.com JS-walled for US product pages (/us/en/product/scott-ridance-lf-glove 404s; gb/global variants exist but aren\'t the US MSRP page); left unverified.' },
-  { id:'glv-scott-traction', cat:'gloves', brand:'Scott', model:'Traction LF Glove', price:28, weight:62,
-    sizes:['S','M','L','XL','XXL'], desc:'Weight per pair (approx). ATTEMPTED 2026-07-17: scott-sports.com JS-walled for US product pages (see glv-scott-ridance); left unverified.' },
+  { id:'glv-scott-traction', cat:'gloves', brand:'Scott', model:'Traction LF Glove', price:39.99, weight:62,
+    sizes:['S','M','L','XL','XXL'],
+    desc:'VERIFIED kit-verify-2 (2026-07-23): confirmed via the browser pane as "SCOTT Traction Long-finger Glove" (model 424628) on scott-sports.com (JS-rendered, not bot-walled -- the 2026-07-17 WebFetch/Exa attempts were the wrong tool, not a real wall). Price updated to the fetched current US MSRP $39.99 (was sample $28). Scott publishes no glove weight; weight stays the existing per-pair sample per the kit weight exception.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.scott-sports.com/us/en/product/scott-traction-long-finger-glove?article=4246281035004' },
   { id:'glv-scott-tractiontuned', cat:'gloves', brand:'Scott', model:'Traction Tuned LF Glove', price:35, weight:65,
     sizes:['S','M','L','XL','XXL'], desc:'Weight per pair (approx). ATTEMPTED 2026-07-17: scott-sports.com JS-walled for US product pages (see glv-scott-ridance); left unverified.' },
   { id:'glv-sixsixone-comp', cat:'gloves', brand:'SixSixOne', model:'Comp Glove', price:25, weight:58,
