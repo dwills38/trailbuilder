@@ -3940,7 +3940,29 @@ var KIT_PARTS = [
   { id:'ewr-melonoptics-kingpin', cat:'eyewear', brand:'Melon Optics', model:'Kingpin', price:145, weight:30,
     type:'glasses', sizes:['S','M','L'],
     desc:'Weight not published anywhere on the product page (unconfirmed sample). Re-fetched melonoptics.com/us/shop/kingpin/ fresh (2026-07-20): build-your-own base price is $145.00 (corrects the prior $160 sample, which was pinned to a limited-edition colorway rather than the base build), S/M/L head-size options (not one-size).',
-    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-20', source:'https://melonoptics.com/us/shop/kingpin/' }
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-20', source:'https://melonoptics.com/us/shop/kingpin/' },
+
+  /* -- KOO breadth (catalog/kit-breadth-8, 2026-07-23): brand was entirely ABSENT despite being
+     KASK's own eyewear line (same maker as the catalog's many KASK-adjacent helmet rows) -
+     the biggest eyewear gap named for this session. Fetched kask.com/en-us/koo (WebFetch;
+     kooworld.cc itself does not resolve/DNS-fail from this environment) - base "from" prices
+     for each model's entry colorway confirmed; the site publishes no weight for any model. -- */
+  { id:'ewr-koo-demos', cat:'eyewear', brand:'KOO', model:'Demos', family:'koo-demos', price:180,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.kask.com/en-us/koo',
+    desc:'Fetched kask.com/en-us/koo (WebFetch): Demos lineup starts at $180 (11 colorways). No weight published on the maker page.' },
+  { id:'ewr-koo-nova', cat:'eyewear', brand:'KOO', model:'Nova', family:'koo-nova', price:200,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.kask.com/en-us/koo',
+    desc:'Fetched kask.com/en-us/koo (WebFetch): Nova lineup runs $200-$220 across 6 colorways; $200 used as the base entry price. No weight published.' },
+  { id:'ewr-koo-alibi', cat:'eyewear', brand:'KOO', model:'Alibi', family:'koo-alibi', price:190,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.kask.com/en-us/koo',
+    desc:'Fetched kask.com/en-us/koo (WebFetch): Alibi is KOO\'s most prominent model, $190-$235 across standard/photochromic lens variants and 10 colorways; $190 used as the base standard-lens price. No weight published.' },
+  { id:'ewr-koo-supernova', cat:'eyewear', brand:'KOO', model:'Supernova', family:'koo-supernova', price:220,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.kask.com/en-us/koo',
+    desc:'Fetched kask.com/en-us/koo (WebFetch): Supernova confirmed at $220 flat. No weight published.' }
 ];
 
 /* ---- legacy id aliases -----------------------------------------------------
