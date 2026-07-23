@@ -1022,6 +1022,17 @@ var KIT_PARTS = [
       + ' vaude.com prices in EUR only (EUR137.00, no US store) -- converted to a $149 USD sample'
       + ' per THE PRICE RULE, basis disclosed. Sizes widened to the full EU 36-50 run shown.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-20', source:'https://www.vaude.com/int/en/20539-am-moab-gravity-cycling-shoes.html' },
+  { id:'sho-vaude-am-moab-mid-stx2', cat:'shoes', brand:'Vaude', model:'AM Moab Mid STX II', price:240, weight:920,
+    soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['36','37','38','39','40','41','42','43','44','45','46','47','48','49','50'],
+    desc:'kit-breadth-2 (2026-07-23): mid-height, waterproof (Sympatex membrane) sibling of the'
+      + ' AM Moab Gravity, distinct SKU. Fetched vaude.com/int/en/45361-am-moab-mid-stx-ii-'
+      + ' cycling-shoes.html directly: EUR221.00, weight 460g/shoe (920g/pair), oiled-nubuck-leather'
+      + '/waterproof-canvas flat-pedal shoe, unisex. Lace closure confirmed via a customer review'
+      + ' describing laces (no dial/Boa on the fetched page). vaude.com is EUR-only (no US store) -'
+      + ' converted to a $240 USD sample per THE PRICE RULE, basis disclosed. Sizes carried over from'
+      + ' VAUDE\'s standard EU 36-50 run used elsewhere in this line, not independently reconfirmed'
+      + ' for this exact SKU page.',
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://www.vaude.com/int/en/45361-am-moab-mid-stx-ii-cycling-shoes.html' },
   { id:'sho-scott-mtb-comp-boa', cat:'shoes', brand:'Scott', model:'MTB Comp BOA', price:109.99, weight:740,
     soleType:'clipless', closure:'boa', disciplines:['trail','enduro'], sizes:['40','41','42','43','44','45','46','47','48'],
     desc:'Trail/enduro clipless shoe, single BOA L6 dial, 2-bolt cleat compatible. Weight per pair (fetched scott-sports.com: 370g per shoe, US 8.5). Fetched page also corrected price $170 -> $109.99 and sizes to the maker\'s EU 40-48 range.',
@@ -1370,7 +1381,7 @@ var KIT_PARTS = [
       + ' "Roust LS Jersey" is the long-sleeve SKU): MSRP is $59.95 (the prior 2026-07-16 search-indexed pass'
       + ' had it wrong at $79.95 - that was a different sale/list read). No weight published; stays sample.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-17', source:'https://www.giro.com/p/mens-roust-mountain-bike-jersey/350250000400000030.html' },
-  { id:'jsy-zoic-amp-ss', cat:'jersey', brand:'Zoic', model:'Amp SS', price:40, weight:135,
+  { id:'jsy-zoic-amp-ss', cat:'jersey', brand:'ZOIC', model:'Amp SS', price:40, weight:135,
     sleeve:'short', sizes:['S','M','L','XL','XXL'],
     desc:'ATTEMPTED 2026-07-17: only an "Amp Long Sleeve Jersey" was found in web results for zoic.com/Performance Bicycle; no "Amp SS" short-sleeve SKU confirmed, and zoic.com itself rate-limited (429) every fetch attempt this session. Left as an unverified sample rather than guessing at a possibly-retired short-sleeve variant.' },
   { id:'jsy-clubrideapparel-fuze-ss', cat:'jersey', brand:'Club Ride Apparel', model:'Fuze SS', price:65, weight:145,
@@ -1387,6 +1398,13 @@ var KIT_PARTS = [
     sleeve:'long', sizes:['S','M','L','XL','XXL','3XL'], disciplines:['enduro','dh'],
     desc:'Re-fetched us.dharco.com (Race Jersey Prism, 2026-07-17): $82.00 USD confirmed, sizes S-3XL, 100% recycled polyester FTF fabric. Weight not published; kept as the existing sample per the kit weight policy.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-17', source:'https://us.dharco.com/products/mens-race-jersey-prism' },
+  { id:'jsy-pnw-range-tee', cat:'jersey', brand:'PNW', model:'Range Tee', price:32,
+    sleeve:'short', sizes:['S','M','L','XL','XXL'],
+    desc:'kit-breadth-2 (2026-07-23): PNW\'s casual heavyweight-cotton trail tee (same "wear it'
+      + ' to the trails" apparel slot as this catalog\'s other casual-tee jersey rows). Fetched'
+      + ' pnwcomponents.com/products/logo-tee directly: $32.00 USD confirmed, sizes SM-XXL'
+      + ' (no XS in stock). No weight published; left unweighted rather than guessed.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.pnwcomponents.com/products/logo-tee' },
   { id:'jsy-looseriders-cs', cat:'jersey', brand:'Loose Riders', model:'C/S Jersey', price:55, weight:145,
     sleeve:'short', sizes:['S','M','L','XL','XXL'],
     desc:'RE-ATTEMPTED kit-11 (2026-07-21): fetched loose-riders.com/en/technical/jersey-longsleeve/ and .../men/technical/jersey-shortsleeve/ in full (via Exa, WebFetch 403s on this domain) - both current jersey listings (~60+ colorway SKUs, e.g. Ess./Baseline/Shutter/Tribe/Volt/Phase lines at a flat 54,95 EUR tech-jersey tier) contain NO product named "C/S Jersey" or "C/S" anything; a site search for the term returns zero results. The EUR-only-pricing blocker from the 2026-07-18 pass is moot (THE PRICE RULE, formalized 2026-07-18, means price never blocks verification) - the real blocker is that this specific SKU does not appear to currently exist as a jersey (Loose Riders\' "C/S" sub-line is shorts/pants/pads only per sht-looseriders-cs). Left unverified sample, not removed (real product history referenced by third parties, just unconfirmed as a current jersey SKU).' },
@@ -1588,7 +1606,7 @@ var KIT_PARTS = [
       + ' is the Shuttle Short ($99, fetched pnwcomponents.com/pages/shuttle-short); model/price'
       + ' fixed here (id kept per append-only policy). Weight not published by PNW and sizes not'
       + ' confirmed against the maker page - both stay sample/approx, row left unverified.' },
-  { id:'sht-pearlizumi-summit', cat:'shorts', brand:'Pearl Izumi', model:'Summit Shell Shorts', price:115, weight:280,
+  { id:'sht-pearlizumi-summit', cat:'shorts', brand:'Pearl iZUMi', model:'Summit Shell Shorts', price:115, weight:280,
     liner:false, disciplines:['trail'], sizes:['28','30','32','34','36','38','40','42','44'],
     verified:true, priceBasis:'msrp-confirmed',
     desc:'Model name and price corrected 2026-07-16: fetched pearlizumi.com/products/mens-summit-shell-shorts-19112405 - the maker\'s current name for this no-chamois short is "Summit Shell Shorts" (this row previously said just "Summit Shorts"), and the page lists $115.00 (older third-party reviews cite $100, an out-of-date figure superseded by the fetched current listing). "Designed without a chamois pad" confirms liner:false; sizes corrected to the maker\'s full 28-44 range. RE-CONFIRMED 2026-07-17 via bdata re-fetch of the .js product JSON: price_max/compare_at_price both $115.00 (matches). Weight kept as the prior sample - the JSON exposes a flat 82g figure identical across every size/color, a shipping-weight placeholder implausible for a short (real MTB shorts run 250-350g), not a measured spec.', lastChecked:'2026-07-17', source:'https://www.pearlizumi.com/products/mens-summit-shell-shorts-19112405' },
@@ -1651,10 +1669,10 @@ var KIT_PARTS = [
      shorts lines are Race/Impact/Core/Drift/Matrix/Turbulence - never Apex. Plain
      tombstone, no KIT_ALIASES entry (no real "Apex Shorts" to retarget to). See
      tools/verify-notes-kit.md "Kit Wave 10". */
-  { id:'sht-zoic-ether-liner', cat:'shorts', brand:'Zoic', model:'Ether Shorts + Essential Liner', price:95, weight:320,
+  { id:'sht-zoic-ether-liner', cat:'shorts', brand:'ZOIC', model:'Ether Shorts + Essential Liner', price:95, weight:320,
     liner:true, disciplines:['trail'], sizes:['S','M','L','XL','XXL','XXXL'],
     desc:'Ripstop nylon outer + removable ZO-Tech chamois liner; sold as a shell+liner bundle. ATTEMPTED 2026-07-17: zoic.com rate-limited (429) every direct fetch this session; a collection-page banner cited a $38 sale price (not a reliable MSRP figure). Left unverified rather than using an unconfirmed sale price.' },
-  { id:'sht-zoic-blackmarket-liner', cat:'shorts', brand:'Zoic', model:'Guide Shorts + Liner', price:116, weight:454,
+  { id:'sht-zoic-blackmarket-liner', cat:'shorts', brand:'ZOIC', model:'Guide Shorts + Liner', price:116, weight:454,
     liner:true, disciplines:['trail'], sizes:['S','M','L','XL','XXL','XXXL'],
     desc:'CORRECTED 2026-07-16: Zoic renamed the Black Market line to "Guide" (search-indexed'
       + ' pages state the Guide Shorts were formerly the Black Market). RE-VERIFIED kit-13'
@@ -1900,7 +1918,7 @@ var KIT_PARTS = [
   { id:'pnt-ion-scrub-amp', cat:'pants', brand:'ION', model:'Scrub AMP Pant', price:150, weight:410,
     liner:false, disciplines:['trail','enduro'], sizes:['S','M','L','XL','XXL'],
     desc:'ATTEMPTED 2026-07-18: same ion-products.com multi-generation SKU-proliferation issue as the rest of the ION cluster (see jsy-ion-scrub-amp) - left unverified.' },
-  { id:'pnt-dharco-gravity', cat:'pants', brand:'Dharco', model:'Gravity Pant', price:156,
+  { id:'pnt-dharco-gravity', cat:'pants', brand:'DHaRCO', model:'Gravity Pant', price:156,
     liner:false, disciplines:['enduro','dh'], sizes:['S','M','L','XL','2XL','3XL'],
     desc:'RETRY 2026-07-16: found the US storefront (us.dharco.com, distinct from the AUD-only dharco.com) - fetched us.dharco.com/collections/gravity-pants, which lists the Men\'s Gravity Pant at $156.00 USD (S-3XL), correcting the earlier $150 non-USD-sourced sample. Fabric/weight not stated on the listing; weight omitted rather than guessed.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-16', source:'https://us.dharco.com/collections/gravity-pants' },
@@ -1922,7 +1940,7 @@ var KIT_PARTS = [
   { id:'pnt-raceface-indy', cat:'pants', brand:'Race Face', model:'Indy Pants', price:120, weight:400,
     liner:false, disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
     desc:'UNVERIFIED - a 2026-07-16 check of raceface.com/collections/bottoms (full current shorts+pants list fetched) found only "Indy Shorts", no "Indy Pants" currently sold; Conspiracy Pants is the only current pants SKU on the site. Left as a sample row, not fabricated, and not marked discontinued on this weak evidence alone.' },
-  { id:'pnt-gorewear-c5-gtx-trail', cat:'pants', brand:'Gore Wear', model:'C5 GORE-TEX Trail Pant', price:250, weight:450,
+  { id:'pnt-gorewear-c5-gtx-trail', cat:'pants', brand:'GOREWEAR', model:'C5 GORE-TEX Trail Pant', price:250, weight:450,
     liner:false, disciplines:['trail','enduro'], sizes:['S','M','L','XL','XXL'], status:'discontinued',
     desc:'GORE-TEX waterproof/breathable shell. GOREWEAR.com has closed as a direct retail channel (confirmed via gorewear.com -> gore-tex.com/products/gorewear, which states "GOREWEAR Has Closed" and directs buyers to retail partners while stock lasts); no live maker product page remains to verify against, so price/weight stay unverified sample figures.' },
   { id:'pnt-7mesh-glidepath', cat:'pants', brand:'7mesh', model:'Glidepath Pant', price:144,
@@ -2055,15 +2073,15 @@ var KIT_PARTS = [
   { id:'pnt-sombrio-vanquish', cat:'pants', brand:'Sombrio', model:'Vanquish Pant', price:140, weight:420,
     liner:false, disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL','XXL'],
     desc:'Quattro Flex Dura water-resistant stretch fabric, relaxed fit. Checked 2026-07-16: no live Sombrio maker storefront remains to re-verify against (see jsy-sombrio-badass-ls for detail).' },
-  { id:'pnt-pearlizumi-summit', cat:'pants', brand:'Pearl Izumi', model:'Summit Pant', price:160, weight:380,
+  { id:'pnt-pearlizumi-summit', cat:'pants', brand:'Pearl iZUMi', model:'Summit Pant', price:160, weight:380,
     liner:false, disciplines:['trail'], sizes:['28','30','32','34','36','38'],
     verified:true, priceBasis:'msrp-confirmed',
     desc:'Price corrected 2026-07-16: fetched pearlizumi.com/products/mens-summit-pants-19112201.js confirms the in-stock ROOT BEER/PHANTOM colorways price at $160.00 (a discontinued BLACK ORIGIN colorway shows a lower compare_at of $145, but that\'s not the current MSRP - two clusters independently fetched this page and landed on different colorways, resolved 2026-07-16 by a third direct fetch). No chamois/liner confirmed ("no chamois pad" per the page, pairs with liner shorts). Sizes corrected to the maker\'s actual numeric waist range (28-38). RE-CONFIRMED 2026-07-17 via bdata re-fetch of the .js product JSON: price_max $160.00 (matches). Weight kept as the prior sample - the JSON exposes a flat 163g figure identical across every size/color, a shipping-weight placeholder implausible for a pant (real MTB pants run 350-500g), not a measured spec.', lastChecked:'2026-07-17', source:'https://www.pearlizumi.com/products/mens-summit-pants-19112201' },
-  { id:'pnt-pearlizumi-summit-3l-wxb', cat:'pants', brand:'Pearl Izumi', model:'Summit 3L WxB Pant', price:185, weight:450,
+  { id:'pnt-pearlizumi-summit-3l-wxb', cat:'pants', brand:'Pearl iZUMi', model:'Summit 3L WxB Pant', price:185, weight:450,
     liner:false, disciplines:['trail','enduro'], sizes:['28','30','32','34','36','38'],
     verified:true, priceBasis:'msrp-confirmed',
     desc:'3-layer WxB waterproof/breathable membrane, fully taped seams. Price corrected 2026-07-16: fetched pearlizumi.com/products/mens-summit-3l-wxb-pants-19132207 lists a regular MSRP of $185.00 (page currently shows a $92.50 final-sale markdown, not used here) - catalog previously had $200. Sizes corrected to the maker\'s numeric waist range (28-38); no chamois. RE-CONFIRMED 2026-07-17 via bdata re-fetch of the .js product JSON: compare_at_price $185.00 (matches, still on the $92.50 final-sale markdown - not used). No trustworthy weight published; stays sample.', lastChecked:'2026-07-17', source:'https://www.pearlizumi.com/products/mens-summit-3l-wxb-pants-19132207' },
-  { id:'pnt-pearlizumi-summit-amfib-lite', cat:'pants', brand:'Pearl Izumi', model:'Summit AmFIB Lite Pant', price:175, weight:430,
+  { id:'pnt-pearlizumi-summit-amfib-lite', cat:'pants', brand:'Pearl iZUMi', model:'Summit AmFIB Lite Pant', price:175, weight:430,
     liner:false, disciplines:['trail'], sizes:['28','30','32','34','36','38'],
     verified:true, priceBasis:'msrp-confirmed',
     desc:'3-layer AmFIB softshell for cold-weather riding. Price corrected 2026-07-16 to the maker\'s compare_at_price/MSRP of $175.00 (a $122.50 sale price is live on the page - not used, per the price=MSRP policy; two clusters disagreed here, resolved 2026-07-16 by a direct re-fetch of pearlizumi.com/products/mens-summit-amfib-lite-pants-19112112.js). Sizes corrected to the maker\'s numeric waist range (28-38, 28/30 currently out of stock). RE-CONFIRMED 2026-07-17 via bdata re-fetch of the .js product JSON: compare_at_price $175.00 (matches). No trustworthy weight published; stays sample.', lastChecked:'2026-07-17', source:'https://www.pearlizumi.com/products/mens-summit-amfib-lite-pants-19112112' },
@@ -2234,6 +2252,22 @@ var KIT_PARTS = [
       + ' closure + single-layer Clarino palm confirmed. Formalizing verified:true per THE PRICE'
       + ' RULE (basis disclosed) - weight not required for kit apparel (stays sample).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-20', source:'https://www.fisthandwear.com.au/products/black-stocker' },
+  { id:'glv-fisthandwear-breezer', cat:'gloves', brand:'Fist Handwear', model:'Breezer Glove', price:33,
+    disciplines:['trail','dj'], sizes:['XXS','XS','S','M','L','XL','XXL'],
+    desc:'kit-breadth-2 (2026-07-23): Fist\'s permanent vented hot-weather tier, distinct from the'
+      + ' minimalist Stocker (mesh upper vs Stocker\'s twill spandex, perforated Clarino palm for'
+      + ' airflow) - not a Stocker colorway. Fetched fisthandwear.co (the brand\'s USD storefront)'
+      + ' directly, "Breezer-Ice Cube Hot Weather" colorway: $33.00 USD confirmed, custom FIST'
+      + ' closure, single-layer perforated Clarino palm. No weight published.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.fisthandwear.co/products/breezer-ice-cube-hot-weather' },
+  { id:'glv-fisthandwear-frostyfingers', cat:'gloves', brand:'Fist Handwear', model:'Frosty Fingers Glove', price:43,
+    disciplines:['trail','dj'], sizes:['XXS','XS','S','M','L','XL','XXL'],
+    desc:'kit-breadth-2 (2026-07-23): Fist\'s cold-weather tier - 3-layer laminated wind-blocker'
+      + ' thermo upper vs the Stocker/Breezer\'s single-layer shells. Fetched fisthandwear.co'
+      + ' directly, "Frosty Fingers - Snow Tone" colorway: $43.00 USD regular price ($33 shown as an'
+      + ' active 23%-off sale - MSRP used per the pricing policy). Custom FIST closure, single-layer'
+      + ' Clarino palm with a tacky silicone print. No weight published.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.fisthandwear.co/products/frosty-fingers-snow-tone-frosty-cold-weather-glove' },
   { id:'glv-poc-resistanceenduro', cat:'gloves', brand:'POC', model:'Resistance Enduro Glove', price:60, weight:43,
     disciplines:['enduro'], sizes:['XS','S','M','L','XL'],
     desc:'Weight per pair, size M (maker-stated; independently corroborated at 43-46g by third-party reviews). Fetched poc.com: price $60 confirmed (page showed a 40%-off $36 sale price), corrected weight 90g -> 43g, sizes to XS-XL (was missing XS, had a non-existent XXL).',
@@ -2575,7 +2609,7 @@ var KIT_PARTS = [
       + ' re-asserted as fetched. Price is a USD estimate converted from the confirmed GBP24.99 MSRP.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-21',
     source:'https://www.madison.cc/product/madison-flux-gloves-varmcl22s82/VARMCL22S82/MCL22S8212' },
-  { id:'glv-clubride-ladyfinger', cat:'gloves', brand:'Club Ride', model:'Lady Finger Glove', price:30, weight:55,
+  { id:'glv-clubride-ladyfinger', cat:'gloves', brand:'Club Ride Apparel', model:'Lady Finger Glove', price:30, weight:55,
     fitCut:'womens', sizes:['S','M','L'],
     desc:'Price ($30) and current S/M/L size range re-confirmed on clubrideapparel.com 2026-07-20 (page no longer lists XS/XL); weight per pair remains an unconfirmed approx sample (not stated on the product page - kit apparel does not require it).',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-20', source:'https://www.clubrideapparel.com/products/womens-gloves' },
@@ -2638,7 +2672,7 @@ var KIT_PARTS = [
     desc:'Weight per pair (approx). Corrected price ($28 sample -> $35), consistent across multiple retailers (Valley Bike & Ski Shop lists $35 regular/$20.97 sale). zoic.com\'s own product pages 404/nav-shell-only on fetch, so this stays unverified.'
       + ' CONFIRMED kit-13 (2026-07-21): see glv-zoic-turnt - zoic.com/products.json has zero'
       + ' glove products in its current 75-SKU catalog. Discontinued. Left unverified, no fields changed.' },
-  { id:'glv-pearlizumi-elitegel-ff', cat:'gloves', brand:'Pearl Izumi', model:'Elite Gel Full Finger Glove', price:50, weight:91,
+  { id:'glv-pearlizumi-elitegel-ff', cat:'gloves', brand:'Pearl iZUMi', model:'Elite Gel Full Finger Glove', price:50, weight:91,
     sizes:['S','M','L','XL','XXL'], verified:true, priceBasis:'msrp-confirmed',
     desc:'3D gel padding relieves palm pressure. Price corrected 2026-07-16: fetched pearlizumi.com/products/mens-elite-gel-full-finger-gloves-14142003 lists $50.00 (catalog previously had $45); sizes S-XXL confirmed. RE-CONFIRMED 2026-07-17 via bdata re-fetch of the .js product JSON: price $50.00 flat (no sale), matches; per-glove weight is a flat 91g across all sizes S-XXL (accepted as the real figure, not a placeholder, per the glv-dakine-crossx precedent of a legitimate flat per-glove Shopify weight) - corrected from the prior 65g sample.', lastChecked:'2026-07-17', source:'https://www.pearlizumi.com/products/mens-elite-gel-full-finger-gloves-14142003' },
   { id:'glv-sombrio-vanquish', cat:'gloves', brand:'Sombrio', model:'Vanquish Glove', price:35, weight:75,
@@ -2685,6 +2719,20 @@ var KIT_PARTS = [
     disciplines:['enduro','dh'], sizes:['XS','S','M','L','XL','2XL'],
     desc:'kit-breadth-7 (2026-07-22): G-Form had only the mid-tier Pro-X3 in kneepad despite already carrying the matching Pro-Rugged 2 tier in elbowpad (elp-gform-pro-rugged-2) - this is that same top tier\'s knee/shin counterpart. Fetched g-form.com directly: $139.99, three-layer DuraTx/SmartFlex/foam construction, additional SmartFlex shin pad. Page states "CE-1621-1 Certification" with no level number, so no `certs` token per THE BAR (an unspecified level would overstate a real but incomplete claim - same convention as the Demon United row). No weight published.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://g-form.com/products/pro-rugged-2-knee-shin-guard' },
+  { id:'knp-evoc-flex-enduro', cat:'kneepad', brand:'EVOC', model:'Knee Protector LS Flex Enduro', price:120,
+    certs:['en1621-1-l2'], disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
+    desc:'kit-breadth-2 (2026-07-23): EVOC had 2 bodyarmor rows but zero knee/elbow pads. Fetched'
+      + ' evocsports.us/products/knee-protector-ls-flex-enduro (EVOC\'s US storefront, USD-native)'
+      + ' directly: $120.00 confirmed, "Level 2 protection", S/M/L/XL. Page lists no per-size weight;'
+      + ' the EU spec page (evocsports.com) lists 494g but doesn\'t say per-shin or per-pair, so no'
+      + ' weight is claimed here rather than risk a mislabeled figure.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://evocsports.us/products/knee-protector-ls-flex-enduro' },
+  { id:'knp-evoc-flex-lite', cat:'kneepad', brand:'EVOC', model:'Knee Protector LS Flex Lite', price:100,
+    certs:['en1621-1-l2'], disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
+    desc:'kit-breadth-2 (2026-07-23): lighter-weight tier below the Flex Enduro. Fetched'
+      + ' evocsports.us/products/knee-protector-ls-flex-lite directly: $100.00 confirmed, "Level 2'
+      + ' protection", S/M/L/XL. No per-pad/per-pair weight distinction published; none claimed.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://evocsports.us/products/knee-protector-ls-flex-lite' },
   { id:'knp-fox-launch-pro', cat:'kneepad', brand:'Fox', model:'Launch Pro D3O Knee', price:169.95, weight:420,
     certs:['en1621-1-l1'], disciplines:['enduro','dh'], sizes:['S','M','L','XL'],
     desc:'Weight per pair (approx). CORRECTED 2026-07-17: price is the fetched $169.95 list for the current "Launch Pro Knee Pads" (was sample $90, a large understatement). Maker page states EN1621-1 Level 1 CE certification. No weight published, stays prior sample.',
@@ -2790,7 +2838,7 @@ var KIT_PARTS = [
     disciplines:['enduro','dh'], sizes:['XS','S','M','L','XL'],
     desc:'Fetched dainese.com: CORRECTED price $120 -> $135 (currently on sale at $67.50, sale price not used per MSRP-basis pricing policy), sizes extend to XS. Steel knee-cap plate + Pro-Shape 2.0 carbo-elastomer protector confirmed; the fetched page text truncated its cert line to "CE EN 1621." with no visible L1/L2 qualifier, so no cert token is added (fetched-source-only rule). Weight not published; kept as the existing sample per the kit weight policy.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-17', source:'https://www.dainese.com/us/en/rival-pro---bike-knee-guards-203879736001.html' },
-  { id:'knp-evs-hexpro', cat:'kneepad', brand:'EVS', model:'Hex Pro MTB Knee Guard', family:'evs-hexpro', price:140,
+  { id:'knp-evs-hexpro', cat:'kneepad', brand:'EVS Sports', model:'Hex Pro MTB Knee Guard', family:'evs-hexpro', price:140,
     certs:['en1621-1-l1'], disciplines:['trail','enduro'], sizes:['S/M','L/XL'],
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-14', source:'https://www.evs-sports.com/products/hex-pro-mtb-knee-guard',
     desc:'CE EN 1621-1 Level 1 and price per the fetched evs-sports.com product page; page states no weight (Skipped, like the catalog\'s frame-weight convention). Corrects an earlier "TP150" row from this grind that could not be confirmed as a real EVS model - retired before merge, never shipped.' },
@@ -2956,6 +3004,14 @@ var KIT_PARTS = [
     disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
     desc:'D3O padding, non-Pro tier. Weight per pair (approx). CORRECTED 2026-07-17: price is the fetched $89.95 list for the current "Launch Elbow Pads" (was sample $55, a large understatement).',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-17', source:'https://www.foxracing.com/product/launch-elbow-pads/33834.html' },
+  { id:'elp-evoc-flex-lite', cat:'elbowpad', brand:'EVOC', model:'Elbow Protector LS Flex Lite', price:90,
+    certs:['en1621-1-l1'], disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
+    desc:'kit-breadth-2 (2026-07-23): pairs with the new knp-evoc-flex-lite knee row. Fetched'
+      + ' evocsports.us/products/elbow-protector-ls-flex-lite (EVOC\'s US storefront) directly:'
+      + ' $90.00 confirmed, "Level 1 protection", S/M/L/XL. No weight published on the US page; the'
+      + ' EU spec page lists 230g but doesn\'t disambiguate per-pad vs per-pair, so no weight is'
+      + ' claimed.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://evocsports.us/products/elbow-protector-ls-flex-lite' },
   { id:'elp-gform-pro-x3', cat:'elbowpad', brand:'G-Form', model:'Pro-X3 Elbow', price:59.99, weight:120,
     disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL'],
     desc:'Weight per pair (approx, not published on the fetched page - kept as prior sample). Fetched g-form.com directly 2026-07-18 (a prior pass only had this via a WebSearch snippet): CORRECTED price $60 -> $59.99, sizes corrected to add XS. No cert claim stated on this page.',
@@ -3053,22 +3109,22 @@ var KIT_PARTS = [
     disciplines:['enduro','dh'], sizes:['S','M','L','XL'],
     desc:'The current higher-protection elbow SKU alongside Trail Skins Air - Armoform overlapping sliding-plate technology, upper elbow to mid-forearm coverage. kit-breadth-6: fetched dainese.com\'s live Bike Elbows collection page (currently exactly 2 SKUs listed) to confirm this and Trail Skins Air are the whole current elbow lineup - other Dainese elbow product pages seen in search results (Armoform Elbow Guard, Trail Skins 2, Trail Skins Pro) 404/redirect to the generic homepage, i.e. discontinued/delisted. MSRP $90 confirmed (site currently runs a -70% sale, sale price not used per pricing policy). Page states "Homologation: CE EN 1621.1" with no L1/L2 qualifier, so no `certs` token is entered (matches the same no-qualifier convention already used on the Trail Skins Air row above). No weight published.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.dainese.com/us/en/rival-r---bike-elbow-guards-203879738001.html' },
-  { id:'elp-evs-option', cat:'elbowpad', brand:'EVS', model:'Option Elbow Pad', price:30, weight:200,
+  { id:'elp-evs-option', cat:'elbowpad', brand:'EVS Sports', model:'Option Elbow Pad', price:30, weight:200,
     disciplines:['trail','enduro'], sizes:['Mini','Youth','Adult'],
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-20',
     desc:'Hard-molded polypropylene shell, perforated bio-foam liner. Re-fetched evs-sports.com/products/option-elbow-pad 2026-07-20: price $30.00 confirmed across all three sizes; sizes CORRECTED to add "Mini" (the page lists Mini/Youth/Adult, the prior row was missing the smallest tier). No cert stated on the page. Weight per pair (approx, not published on the page) kept as the existing sample per the kit weight policy.',
     source:'https://www.evs-sports.com/products/option-elbow-pad' },
-  { id:'elp-evs-flex-lite', cat:'elbowpad', brand:'EVS', model:'Flex Lite Elbow Guard', price:50,
+  { id:'elp-evs-flex-lite', cat:'elbowpad', brand:'EVS Sports', model:'Flex Lite Elbow Guard', price:50,
     disciplines:['trail','enduro'], sizes:['S/M','L/XL'],
     desc:'Lighter-weight compression-sleeve tier alongside the hard-shell Option pad - Reactive Memory Foam (RMF), sold in pairs. MSRP $50.00 confirmed on the fetched evs-sports.com product page. Page states "CE 14120 Level protection" - CE EN 14120 is not in this catalog\'s protectionCert vocab (a different standard family from the EN 1621 series already used), so no `certs` token is entered rather than mis-mapping it. No weight published. Added kit-breadth-6.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.evs-sports.com/products/flex-lite-elbow-guard' },
-  { id:'elp-bliss-arg-vertical', cat:'elbowpad', brand:'Bliss', model:'ARG Vertical Elbow Pad', price:80, weight:180, status:'discontinued',
+  { id:'elp-bliss-arg-vertical', cat:'elbowpad', brand:'Bliss Protection', model:'ARG Vertical Elbow Pad', price:80, weight:180, status:'discontinued',
     disciplines:['enduro','dh'], sizes:['S','M','L','XL'], desc:'Flexible ARG padding with EVA side padding and Kevlar reinforcement. Weight per pair (approx, unverified - specs kept as sample). Marked discontinued: BLISS Protection GmbH\'s current fetched elbow-pad lineup (blisscamp.com) lists only ARG Minimalist+ and Team Elbow Pad - no ARG Vertical Elbow Pad.' },
-  { id:'elp-bliss-arg-minimalist-plus', cat:'elbowpad', brand:'Bliss', model:'ARG Minimalist+ Elbow Pad', price:69.90,
+  { id:'elp-bliss-arg-minimalist-plus', cat:'elbowpad', brand:'Bliss Protection', model:'ARG Minimalist+ Elbow Pad', price:69.90,
     disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL','XXL'],
     desc:'The real successor named in the discontinued-note above (kit-breadth-6 follow-through) - minimalist perforated lycra sleeve with a 3D-molded ARG pad, three-piece asymmetric-shape elbow layout. No CE/EN1621 standard stated on the fetched page, so no `certs` token. No weight published. Price confirmed $69.90 on blisscamp.com (BLISS Protection GmbH\'s own direct-sale site).',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://blisscamp.com/us/arg-minimalist-elbow-pad/123168000' },
-  { id:'elp-bliss-team', cat:'elbowpad', brand:'Bliss', model:'Team Elbow Pad', price:49.90,
+  { id:'elp-bliss-team', cat:'elbowpad', brand:'Bliss Protection', model:'Team Elbow Pad', price:49.90,
     disciplines:['enduro','dh'], sizes:['XS','S','M','L','XL','XXL'],
     desc:'The other current elbow SKU named in the discontinued-note above - ergonomic World Cup-derived pad, intensified padding at the elbow, adjustable elastic straps. Page states "CE-EN-1621-1 certified" with no explicit level qualifier (the sibling Team Knee Pad page on the same site states an explicit "EN-1621-1:2012 Level 2" for that different product, showing BLISS DOES publish levels when they apply it - so the unqualified wording here is treated as genuinely unspecified, not entered as either L1 or L2). Price confirmed $49.90 on blisscamp.com.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://blisscamp.com/us/team-elbow-pad/123146000' },
@@ -3117,11 +3173,11 @@ var KIT_PARTS = [
     disciplines:['trail','enduro'], sizes:['S','M','L'],
     desc:'Hybrid hard/soft-shell elbow guard, positioned between the soft Veda and the certified Mission/Strike lines. Fetched kaliprotectives.com product page: shown as "$10.00 $60.00" (a clearance sale price against the $60.00 regular/MSRP - this field stores the MSRP, not the sale price, per pricing policy). No cert standard stated on the page. No weight published. Added kit-breadth-6.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.kaliprotectives.com/products/kula-hard-elbow-guard' },
-  { id:'elp-demon-tactic', cat:'elbowpad', brand:'Demon', model:'Tactic Elbow/Forearm Guard', price:59.99,
+  { id:'elp-demon-tactic', cat:'elbowpad', brand:'Demon United', model:'Tactic Elbow/Forearm Guard', price:59.99,
     disciplines:['trail','enduro'], sizes:['S/M','L/XL'],
     desc:'Hard-shell alternative below the D3O-based Hyper X - articulating polypropylene shell over vented EVA padding, adjustable elastic straps, sold in pairs. No CE/EN1621 standard stated on the fetched page, so no `certs` token. MSRP $59.99 (page itself rendered in PLN on this fetch - 216.00 zl at the matching size-tier price - confirmed against a USD-denominated WebSearch snippet of the same product). No weight published. Added kit-breadth-6.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://demon-united.com/products/demon-tactic-elbow-forearm-guard' },
-  { id:'elp-demon-hyperx-d3o', cat:'elbowpad', brand:'Demon', model:'Hyper X D3O Elbow', price:69.99, weight:190,
+  { id:'elp-demon-hyperx-d3o', cat:'elbowpad', brand:'Demon United', model:'Hyper X D3O Elbow', price:69.99, weight:190,
     disciplines:['trail','enduro'], sizes:['M','L','XL'],
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-20',
     desc:'Re-fetched demon-united.com/products/demon-hyper-x-d3o-elbow 2026-07-20: price CORRECTED $70 -> $69.99 exactly (Small is listed but shown unavailable, matching the existing M/L/XL sizing); page cert text reads "CE EN 1621-1 certified" without an explicit L1/L2 qualifier, so no cert token is stored (fetched-source-only rule). Weight per pair (approx, not published on the page) kept as the existing sample per the kit weight policy.',
@@ -3306,15 +3362,15 @@ var KIT_PARTS = [
   { id:'arm-sixsixone-recon-advance', cat:'bodyarmor', brand:'SixSixOne', model:'Recon Advance Upper Body Protection', price:250, weight:890,
     coverage:'chest-back', disciplines:['enduro','dh'], sizes:['S','M','L','XL'],
     desc:'Koroyd back plate + Astrotech elbow/shoulder; maker states EN1621-2 (back)/EN1621-1 (elbow-shoulder) without a published level, so no cert token is tagged. Weight approx, size M. Checked 2026-07-16: sixsixone.com now returns 403 Forbidden site-wide - the brand appears to have gone dark (see glv-sixsixone-comp for detail); no fetch possible.' },
-  { id:'arm-bliss-arg-vertical-ld-vest', cat:'bodyarmor', brand:'Bliss', model:'ARG Vertical LD Vest', price:169.90,
+  { id:'arm-bliss-arg-vertical-ld-vest', cat:'bodyarmor', brand:'Bliss Protection', model:'ARG Vertical LD Vest', price:169.90,
     coverage:'chest-back', disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL','XXL'],
     desc:'Armourgel (ARG) spine insert + EVA foam chest pads. Re-fetched blisscamp.com/us/arg-vertical-ld-vest/123120000 kit-12 (2026-07-21): $169.90 USD, coverage (chest AND back, not back-only) and sizes XS-XXL all reconfirmed exactly. Page states "CE EN1621-2" certified for the back protector without a published level, so no cert token is tagged. No weight published - stays a sample per the kit-apparel weight-exemption policy (armor/protection is explicitly exempt, VERIFY-PROTOCOL.md).',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-21', source:'https://blisscamp.com/us/arg-vertical-ld-vest/123120000' },
-  { id:'arm-bliss-arg-minimalist-vest', cat:'bodyarmor', brand:'Bliss', model:'ARG Minimalist Vest', price:149.90,
+  { id:'arm-bliss-arg-minimalist-vest', cat:'bodyarmor', brand:'Bliss Protection', model:'ARG Minimalist Vest', price:149.90,
     coverage:'chest-back', disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL','XXL'],
     desc:'Superlight mesh vest, ARG spine padding, front zipper, detachable adjustment belt. Page states "CE EN-1621-2:2014 CB certified (back)" with no L1/L2 qualifier, so no `certs` token is entered (same convention as the sibling ARG Vertical LD Vest row above). No weight published. Fetched blisscamp.com\'s current product listing (BLISS Protection GmbH\'s own direct-sale site) 2026-breadth-6, confirming $149.90 MSRP.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://blisscamp.com/us/arg-minimalist-vest/123134000' },
-  { id:'arm-bliss-arg-comp-ld-tank-top-2', cat:'bodyarmor', brand:'Bliss', model:'ARG Comp LD Tank Top 2.0', price:169.90,
+  { id:'arm-bliss-arg-comp-ld-tank-top-2', cat:'bodyarmor', brand:'Bliss Protection', model:'ARG Comp LD Tank Top 2.0', price:169.90,
     coverage:'chest-back', disciplines:['enduro','dh'], sizes:['XS','S','M','L','XL','XXL'],
     desc:'Sleeveless lycra base-layer armor top - ARG spine + tailbone pads, side zipper, elbow-pad compatible (worn with the ARG Vertical or Minimalist+ Elbow Pad). CE EN1621-2 certified back protector, no L1/L2 qualifier stated so no `certs` token entered. Listed alongside a legacy "ARG Comp LD Tank Top" (1.0, same $169.90 price) still shown on the current site - the 2.0 is entered here as the current generation per this catalog\'s append-only-generations convention; the 1.0 was left uncataloged rather than double-counted as a near-identical row. No weight published.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://blisscamp.com/us/arg-comp-ld-tank-top-2.0/123255000.4' },
@@ -3353,12 +3409,12 @@ var KIT_PARTS = [
     coverage:'chest-back', disciplines:['trail','enduro'], sizes:['S','M','L','XL','XXL'],
     desc:'Hard-shell roost/impact armor listed in oneal.com US\'s current Chest Protection collection alongside the MX-heritage STV row above (same crossover pattern already documented on that row) - injection-molded plastic + IPX soft-material shoulder/elbow/chest/back panels, removable flexible back protector, adjustable kidney belt. No EN1621 standard is stated on the fetched US product page (other O\'Neal Under Dog variants list "EN 14021", a moto roost-deflector standard outside this catalog\'s protectionCert vocab, so no `certs` token regardless). MSRP $159.99 confirmed. No weight published. Added kit-breadth-6.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://oneal.com/products/under-dog-3-body-armor-1' },
-  { id:'arm-demon-flexforce-x-v7', cat:'bodyarmor', brand:'Demon', model:'FlexForce X V7 D3O Impact Top', price:239.99,
+  { id:'arm-demon-flexforce-x-v7', cat:'bodyarmor', brand:'Demon United', model:'FlexForce X V7 D3O Impact Top', price:239.99,
     coverage:'chest-back', disciplines:['trail','enduro'], sizes:['S','M','L','XL','XXL'],
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-20',
     source:'https://demon-united.com/products/demon-united-x-v7-d3o-mens-impact-padded-top',
     desc:'Six D3O pads at chest/back/shoulder/elbow; maker page certifies them "CE EN 1621-1" (the limb standard), not EN1621-2/3, so no bodyarmor cert token applies. Re-fetched 2026-07-20: price $239.99 and sizes S-XXL confirmed again, matching the 2026-07-16 pass exactly; no weight published on the page, so it stays omitted per the kit weight policy (never blocks verification).' },
-  { id:'arm-demon-flexforce-x-v7-womens', cat:'bodyarmor', brand:'Demon', model:'FlexForce X V7 D3O Impact Top - Women', price:199.99, fitCut:'womens',
+  { id:'arm-demon-flexforce-x-v7-womens', cat:'bodyarmor', brand:'Demon United', model:'FlexForce X V7 D3O Impact Top - Women', price:199.99, fitCut:'womens',
     coverage:'chest-back', disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL'],
     desc:'The women\'s-cut counterpart to the men\'s V7 row above - same six-pad D3O chest/back/shoulder/elbow construction, own SKU and own MSRP (a real distinct row per the same reasoning already used elsewhere in this catalog for gendered variants, not a duplicate). Same "CE EN 1621-1" (limb standard) claim, no bodyarmor-tier cert token applies. MSRP $199.99 confirmed via a WebSearch snippet quoting the direct product page (the fetched page itself renders in EUR/discounted-variant pricing, so the confirmed USD figure is used per pricing policy). No weight published. Added kit-breadth-6.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://demon-united.com/products/demon-united-x-v7-d3o%C2%AE-womens-impact-padded-top' },
@@ -3506,10 +3562,10 @@ var KIT_PARTS = [
   { id:'nkb-atlas-tyke', cat:'neckbrace', brand:'Atlas', model:'Tyke', price:200, weight:460,
     disciplines:['dh'], sizes:['Youth'], desc:'Smallest Atlas brace, for young kids.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-14', source:'https://atlasbrace.com/products/tyke' },
-  { id:'nkb-evs-r2', cat:'neckbrace', brand:'EVS', model:'R2 Race Collar', price:60,
+  { id:'nkb-evs-r2', cat:'neckbrace', brand:'EVS Sports', model:'R2 Race Collar', price:60,
     disciplines:['dh'], sizes:['Youth','Adult'], desc:'Entry-tier race collar; adult-tier price shown.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-14', source:'https://www.evs-sports.com/products/r2-race-collar' },
-  { id:'nkb-evs-r3', cat:'neckbrace', brand:'EVS', model:'R3 Race Collar', price:65,
+  { id:'nkb-evs-r3', cat:'neckbrace', brand:'EVS Sports', model:'R3 Race Collar', price:65,
     disciplines:['dh'], sizes:['Youth','Adult'], verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-20',
     desc:'PU core + ballistic nylon outer shell. Re-fetched evs-sports.com/products/r3-race-collar 2026-07-20: Adult price $65 and Youth price $25 both confirmed again (Adult stored as the representative figure), matching the 2026-07-16 pass. Page states no weight; omitted rather than guessed (matches the no-weight-published nkb-leatt-gpx-15-mini/junior rows in this same category).',
     source:'https://www.evs-sports.com/products/r3-race-collar' },
@@ -3550,10 +3606,10 @@ var KIT_PARTS = [
     certs:['en1621-1-l2'], disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
     desc:'Rip-stop laminate + PE foam, aramidic-fiber patella cover; per pair. Weight not published. Alpinestars renamed this product from "Vector Pro Knee/Shin Protector" to "A-Impact Plasma Pro Knee Shin Protector" (the old URL slug alpinestars.com/products/vector-pro-knee-shin-protector now serves the new product page - confirmed via title tag + H1); id kept per the append-only convention. Price corrected $84.95 -> $134.95 and cert corrected en1621-1-l1 -> en1621-1-l2 (the fetched page states EN 1621-1:2012 Level 2, not Level 1) and sizes corrected from paired S/M+L/XL to individual S/M/L/XL, all against the fetched maker page. VERIFIED 2026-07-17: re-fetched alpinestars.com/products/a-impact-plasma-pro-knee-shin-protector, $134.95, sizes S-XL, EN 1621-1:2012 Level 2 all confirmed. Weight stays a nominal sample.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-17', source:'https://www.alpinestars.com/products/a-impact-plasma-pro-knee-shin-protector' },
-  { id:'shg-evs-tp199', cat:'shinguard', brand:'EVS', model:'TP199 Knee/Shin Guard', price:150,
+  { id:'shg-evs-tp199', cat:'shinguard', brand:'EVS Sports', model:'TP199 Knee/Shin Guard', price:150,
     disciplines:['dh'], sizes:['S/M','L/XL','XXL'], desc:'Reactive Memory Foam knee cup + polyflex shin guard; per pair. Weight not published. (Maker page cites a CE1621-2 cup rating, not EN1621-1 - not tagged here since it does not map to this catalog\'s shin cert vocab.)',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-14', source:'https://www.evs-sports.com/products/tp199-knee-guard-2', sourceType:'manufacturer' },
-  { id:'shg-evs-option', cat:'shinguard', brand:'EVS', model:'Option Knee/Shin Guard', price:30, mfgPn:'OPTK16-BK-A',
+  { id:'shg-evs-option', cat:'shinguard', brand:'EVS Sports', model:'Option Knee/Shin Guard', price:30, mfgPn:'OPTK16-BK-A',
     disciplines:['dh'], sizes:['Mini','Youth','Adult'], desc:'Hard molded polypropylene shell, perforated bio-foam liner, knee-to-shin coverage, reinforced TPR hinge, asymmetric left/right fit; sold in pairs. Weight not published on the maker page (kit apparel does not require it). Price corrected $26 -> $30 (fetched evs-sports.com); sizes widened to the maker\'s full Mini/Youth/Adult range.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-20', source:'https://www.evs-sports.com/products/copy-of-option-knee-pad' },
   { id:'shg-troyleedesigns-triad', cat:'shinguard', brand:'Troy Lee Designs', model:'Triad Knee/Shin Guard Hard Shell', price:145,
@@ -3592,7 +3648,7 @@ var KIT_PARTS = [
     disciplines:['trail','enduro'], sizes:['S/M','L/XL'],
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-16', source:'https://www.endurasport.com/en-us/products/mt500-d3o%C2%AE-shin-guards-black-re1286bk',
     desc:'Verified 2026-07-16 vs fetched endurasport.com product page: "MT500 D3O Shin Guards", "$130.00 USD" (was sampled at $119.99, corrected), D3O Zero foam over stretch ripstop/perforated neoprene, silicone top grippers tuck under knee pads, sizes S/M-L/XL confirmed; per pair. Weight not published on the page (the Shopify JSON weight is a flat shipping-placeholder figure), stays unset.' },
-  { id:'shg-evs-epic', cat:'shinguard', brand:'EVS', model:'Epic Knee/Shin Guard', price:130,
+  { id:'shg-evs-epic', cat:'shinguard', brand:'EVS Sports', model:'Epic Knee/Shin Guard', price:130,
     disciplines:['dh'], sizes:['S/M','L/XL'], desc:'Floating knee cup, asymmetrical Form-Fit chassis, dual-pivot hinge, full shin/patella coverage; per pair. Weight not published. (Maker page states "meets CE EN 1621-1" without specifying a Level, so no cert token is tagged.)',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-14', source:'https://www.evs-sports.com/products/epic-knee-guard', sourceType:'manufacturer' },
   { id:'shg-demonunited-tactic', cat:'shinguard', brand:'Demon United', model:'Tactic Knee-Shin Guard', price:69.99,
