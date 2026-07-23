@@ -2261,6 +2261,28 @@ var EMTB_PARTS = [
     note: 'BMC\'s shorter-travel, 29in-wheel full-power e-MTB sibling to the Trailfox AMP — same E-8000/500Wh drive system, same mixed carbon-front/aluminum-rear construction, a lighter trail-focused build.',
     desc: 'Sourced from theloamwolf.com\'s BMC AMP Speedfox/Trailfox launch coverage (bmc-switzerland.com\'s own product page returned a 404 at fetch time). Weight not published in this source. USD price is the US-market listing, no conversion needed.',
     lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/first-ride-bmc-amp-speedfox-trailfox/'
+  },
+  {
+    id: 'em-liv-intrigue-x-advanced-eplus-elite-1', cat: 'emtb', brand: 'Liv', model: 'Intrigue X Advanced E+ Elite 1',
+    motorBrand: 'giant', motorModel: 'Giant SyncDrive Pro2 Mg (Yamaha-powered)', motorTorque: 85,
+    batteryWh: 400, batteryRemovable: true, rangeExtender: true, assist: 'lightweight',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission AXS', brakes: 'SRAM Code R (220/200mm)',
+    disciplines: ['e-trail'], weight: 19860, price: 10500, modelYear: 2024,
+    note: 'Liv\'s (Giant\'s women-specific brand) lightweight-class e-MTB, first Liv model on a mullet wheel setup; 85Nm SyncDrive Pro2 motor but a compact 400Wh battery + sub-20kg build puts it in the SL/lightweight class alongside Levo SL/Orbea Rise, not the full-power bucket.',
+    desc: 'Fetched from liv-cycling.com\'s own product page (browser render). Maxxis Minion DHF 29x2.5in front / Dissector 27.5x2.4in rear tires, Praxis carbon e-crank + SRAM 36T ring.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://liv-cycling.com/us/intrigue-x-advanced-eplus-elite-1'
+  },
+  {
+    id: 'em-liv-intrigue-x-advanced-eplus-elite-2', cat: 'emtb', brand: 'Liv', model: 'Intrigue X Advanced E+ Elite 2',
+    motorBrand: 'giant', motorModel: 'Giant SyncDrive Pro2 Mg (Yamaha-powered)', motorTorque: 85,
+    batteryWh: 400, batteryRemovable: true, rangeExtender: true, assist: 'lightweight',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'carbon', drivetrain: 'Shimano SLX 12-speed', brakes: 'Shimano SLX BR-M7120 (203mm)',
+    disciplines: ['e-trail'], weight: 20490, price: 7500, modelYear: 2024,
+    note: 'Second-tier Intrigue X Advanced E+ build on the same carbon chassis/motor/battery as the Elite 1, cable-actuated Shimano SLX drivetrain instead of SRAM AXS Transmission.',
+    desc: 'Fetched from liv-cycling.com\'s own product page (browser render). Fox 36 Float fork / Fox Float Performance shock.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.liv-cycling.com/us/intrigue-x-advanced-eplus-elite-2-2024'
   }
 
 ];
