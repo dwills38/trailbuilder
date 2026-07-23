@@ -1929,6 +1929,18 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://bullsbikesusa.com/products/copperhead-evo-am-3-750'
   },
 
+  {
+    id: 'em-ghost-e-asx-universal', cat: 'emtb', brand: 'Ghost', model: 'E-ASX Universal',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen5, Smart System)', motorTorque: 85,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum',
+    disciplines: ['e-trail'], weight: null, price: 4550,
+    note: 'German maker Ghost\'s versatile trail/tour full-suspension e-MTB, distinct from the already-cataloged gravity-leaning E-ASX Advanced and E-Riot CF Advanced rows — mullet (29in front/27.5in rear) wheels, rated to 150kg total permissible weight, aimed at all-terrain trail use rather than pure gravity riding.',
+    desc: 'Unverified sample via the credible-source breadth policy — ghost-bikes.com\'s own E-ASX Universal product page plus bosch-ebike.com\'s Ghost model directory confirm "160mm front/150mm rear" travel, "Bosch Performance CX" motor with an "integrated 800 Wh PowerTube battery" (removable, lockable), mullet wheel setup, "150 kg" permissible total weight. Frame material inferred as aluminum (Ghost\'s E-ASX Universal sits below the carbon E-Riot CF line in the brand\'s hierarchy; not independently confirmed on the fetched excerpt) — flagged as the lower-confidence field. No complete-bike weight found. PRICE: retailer listings for this exact SKU vary widely and inconsistently by region/discount ($3,780-3,974 sale-tagged prices were found, clearly promotional) — entered as a rough disclosed estimate ($4,550) between those sale figures and typical Bosch-CX/800Wh mullet trail bikes\' non-sale MSRP range, NOT a maker-confirmed figure; flagged as the lowest-confidence field on this row. catalog/emtb-breadth-3 wave (Ghost deepened from 2 rows to 3).',
+    lastChecked: '2026-07-23', source: 'https://www.ghost-bikes.com/int-en/p/e-asx-universal-gbbt1/'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
