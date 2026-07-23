@@ -19,12 +19,16 @@ unverified specs as real. See "Provenance" below.
    catalog (`src/compat.js` `PARTS`) remains **100% e-bike-free permanently** — no e-bike / e-MTB /
    motor / battery / e-specific part may EVER enter it, and no other catalog gains e-parts either.
    The ONLY e-bike surface is **BuildMyEMTB** (`data/emtb.js` + its own schema/validator + a future
-   separate `emtb.html` page — the BuildMyBMX pattern), authorized reluctantly and explicitly by
-   Douglas 2026-07-18, off-live until his flip word. Douglas dislikes this domain: keep every
-   e-MTB decision routed to him as a compact packet, never spec-level detail. **That rule governs
-   COMMUNICATION ONLY (Douglas, 2026-07-22): the EMTB catalog gets EVEN WEIGHT with every other
-   category — same breadth, verification, and quality investment; never deprioritize its coverage
-   on his behalf. All categories are treated equally ("take out any bias i may have presented").**
+   separate `emtb.html` page — the BuildMyBMX pattern), authorized reluctantly by Douglas
+   2026-07-18, now **LIVE (2026-07-20 flip; see rule 3)**. **FIRST-CLASS as of 2026-07-23
+   (Douglas: "stop minimizing e-exposure, i want the EMTB site to be just as complete as the
+   other sites"):** the EMTB catalog is treated EXACTLY like every other category — same breadth,
+   depth, verification, and quality investment, AND normal communication (route e-MTB decisions/
+   detail to him the same as MTB/road/gravel — no compact-packet-only, no minimize-exposure, no
+   "low priority," no distaste-as-policy). The 2026-07-22 even-weight ruling already covered
+   catalog investment; this drops the last communication caveat ("take out any bias i may have
+   presented"). Structural containment (`data/emtb.js` only; MTB stays 100% e-free) is the ONLY
+   special rule that remains.
 2. **NO POP-UP ADS / UNSOLICITED POP-UPS, EVER.** The site loads straight to the data — never an ad,
    newsletter/promo/cookie interstitial, or any auto-appearing pop-up, for any reason. Click-triggered
    cards/tabs/modals the user opens themselves (a part's spec card, the login dialog) are fine;
