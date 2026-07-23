@@ -2006,6 +2006,10 @@ var KIT_PARTS = [
     fitCut:'womens', sizes:['XXS','XS','S','M','L','XL'], disciplines:['trail'],
     source:'https://www.rapha.cc/us/en/product/WPA01XX',
     desc:'Fetched rapha.cc: the site\'s own MTB-collection overview page lists this SKU\'s USD range as $123.00-$143.00 across colorways; the direct product page returned $102.00 with no sale/list distinction stated, so the CATALOG-OVERVIEW top-of-range figure ($143, matching the men\'s-pants sibling\'s relative pricing) is used as the representative MSRP rather than the ambiguous single-page figure - left UNVERIFIED pending a cleaner per-colorway confirmation. Same construction as the men\'s Trail Pants (stretch waist, zip vertical pockets, gusseted 4-way stretch). No weight published.' },
+  { id:'pnt-dainese-hgr', cat:'pants', brand:'Dainese', model:'HGR Pants', price:205, liner:false,
+    sizes:['XS','S','M','L','XL','XXL'], disciplines:['trail','enduro'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.dainese.com/us/en/hgr---mens-bike-pants-20376949631G.html',
+    desc:'kit-breadth-7 (2026-07-22): Dainese had zero pants rows despite already-cataloged armor coverage (protection gear + apparel, but no bottoms). Fetched dainese.com directly: the page shows "$205 $61.50 -70%" - the $205 figure is the list MSRP, used per THE PRICE RULE (never a sale price); the $61.50 clearance figure is NOT used. 90% Polyamide/10% Elastane, high-tenacity nylon build, Slide-Fit closure, Hook Button glove-attachment system, pre-curved/tapered leg. No weight published on the fetched page.' },
 
   /* -- Gloves (all UNVERIFIED samples; weight is PER PAIR, approx USD MSRP) -- */
   { id:'glv-fox-dirtpaw', cat:'gloves', brand:'Fox', model:'Dirtpaw', price:39.95, weight:70, sizes:['S','M','L','XL','XXL','3XL','4XL'],
