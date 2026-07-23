@@ -2020,6 +2020,16 @@ var BMX_PARTS = [
     clamp: '22.2mm', weight: 323, price: 64.99,
     note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/gavel-stem. Description states, verbatim: "wide 50mm clamping area...Weight 11.4oz" (11.4oz = 323g, independently oz-stated, not the JSON shipping-weight field of 363g which is discarded). Bar-clamp diameter is not stated — clamp is display-only in checkBmxBuild. Unverified sample.'
   },
+  {
+    id: 'bmx-sp-kink-imprint-25t', cat: 'sprocket', brand: 'Kink', model: 'Imprint Sprocket 25T',
+    teeth: 25, mount: 'spline', pitch: '1/8', weight: 142, price: 49.99,
+    note: 'bmx-stealth-1 (2026-07-22): closes the bmx-depth-8 flag on Kink\'s "Bolt Drive" Imprint sprocket — investigated per Douglas\'s instruction rather than force-fit blind. FETCHED kinkbmx.com/products/imprint-sprocket.js directly — its own Tech Specs table states verbatim "Type: Bolt Drive" and "Compatibility: 19mm, 22mm & 24mm Spindles". This is NOT a novel 3rd mount type: it is the same crank-spider bolt-on pattern already cataloged as `mount:\'spline\'` on the Cult NWO (bmx-sp-cult-nwo-25t/28t, also maker-described as "bolt-drive... bolts to the crank spider\'s spline/bolt pattern") and the Total BMX Rotary (bmx-pg-total-rotary) — no fresh vocab or engine change needed. Weight 142g is the JSON variant field for the 25T/Black option (no independently oz-stated weight in the page copy this time, unlike the Wake tire/Gavel stem rows — so this one IS the shipping-weight-bucket figure and stays a plain sample, not a basis for verified:true). Price $49.99 exact. Pitch not stated on the page — set to 1/8 following the same catalog-standard-freestyle-pitch convention already used on the pitch-unconfirmed Cult NWO rows (schema requires the field; every cataloged BMX sprocket is 1/8in), not an independent maker confirmation.'
+  },
+  {
+    id: 'bmx-sp-kink-imprint-28t', cat: 'sprocket', brand: 'Kink', model: 'Imprint Sprocket 28T',
+    teeth: 28, mount: 'spline', pitch: '1/8', weight: 156, price: 49.99,
+    note: 'bmx-stealth-1 (2026-07-22): same kinkbmx.com/products/imprint-sprocket.js fetch as bmx-sp-kink-imprint-25t — the 28T/Black variant. weight 156g (JSON shipping-weight-bucket figure), price $49.99 exact, pitch 1/8 per the same catalog-standard convention. Same mount-type finding applies (Bolt Drive = the existing `spline` convention, not a new mechanism).'
+  },
 
   // --- Sunday (shop.sundaybikes.com — same maker family/storefront pattern already verified
   // for this brand's Soundwave V3/Nightshift/Park Ranger frames in earlier waves) ---
