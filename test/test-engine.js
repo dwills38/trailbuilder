@@ -38,6 +38,35 @@ test('SuperBoost frame + Boost rear wheel -> rear axle error', function(){
 test('SuperBoost frame + SuperBoost wheel -> ok', function(){
   eq(chk({frame:'fr-pivot-firebird', rearWheel:'rw-industrynine-enduro-s-29-157'}).errors.length, 0);
 });
+
+/* Rule 2 — Cannondale Lefty (schema/lefty-vocab-1, 2026-07-22). The proprietary
+   'lefty-60' hub token rides the existing exact-match front-axle rule (ZERO
+   engine change): a Lefty fork only fits a Lefty-60 hub, both directions.
+   The Ocho steerer is a STANDARD tapered one, so the Lefty fork fits any
+   tapered-headset frame (rule 11 silent) - the proprietary-ness is hub-only. */
+test('Lefty Ocho fork + Lefty 60 wheel -> front axle silent (proprietary-matched)', function(){
+  eq(chk({fork:'fk-cannondale-lefty-ocho-carbon-29-100', frontWheel:'fw-cannondale-hollowgram-25-sl-lefty-60-29'}).errors.length, 0);
+});
+test('Lefty Ocho fork + STANDARD Boost110 wheel -> front axle error', function(){
+  some(chk({fork:'fk-cannondale-lefty-ocho-carbon-29-100', frontWheel:'fw-dtswiss-ex-1700-29'}).errors, 'Front axle mismatch');
+});
+test('STANDARD Boost110 fork + Lefty 60 wheel -> front axle error (reverse direction)', function(){
+  some(chk({fork:'fk-rockshox-recon-silver-rl-29-110', frontWheel:'fw-cannondale-hollowgram-25-sl-lefty-60-29'}).errors, 'Front axle mismatch');
+});
+test('Lefty token is dormant with no partner: Lefty fork alone -> no front-axle verdict', function(){
+  eq(chk({fork:'fk-cannondale-lefty-ocho-carbon-29-100'}).errors.length, 0);
+});
+test('F-Si frame + Lefty Ocho fork -> steerer silent (both standard tapered, not proprietary)', function(){
+  eq(chk({frame:'fr-cannondale-fsi-carbon', fork:'fk-cannondale-lefty-ocho-carbon-29-100'}).errors.length, 0);
+});
+test('F-Si + Lefty Ocho + Lefty 60 wheel -> golden Lefty front, error- and warning-clean', function(){
+  var r = chk({frame:'fr-cannondale-fsi-carbon', fork:'fk-cannondale-lefty-ocho-carbon-29-100', frontWheel:'fw-cannondale-hollowgram-25-sl-lefty-60-29'});
+  eq(r.errors.length, 0, 'golden Lefty build must have no errors');
+  eq(r.warnings.length, 0, 'golden Lefty build must have no warnings');
+});
+test('the F-Si frame still accepts a STANDARD tapered fork (it is fork-agnostic, not Lefty-only)', function(){
+  eq(chk({frame:'fr-cannondale-fsi-carbon', fork:'fk-rockshox-recon-silver-rl-29-110'}).errors.length, 0);
+});
 test('Shimano cassette on XD wheel -> freehub error', function(){
   some(chk({cassette:'ca-shimano-xt-m8100-1051', rearWheel:'rw-roval-traverse-hd-29'}).errors, 'Freehub');
 });
