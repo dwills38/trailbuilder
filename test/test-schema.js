@@ -481,7 +481,12 @@ test('every priceBasis vocab token is accepted on a verified row', function(){
   S.VOCAB.priceBasis.forEach(function(token){
     // pair-split-estimate is wheel-only (see the dedicated tests below) -
     // pbRow's base part is a frame, so it needs a wheel-category row instead.
-    var row = token === 'pair-split-estimate' ? pbWheelRow({ priceBasis:token }) : pbRow({ priceBasis:token });
+    // discontinued-no-msrp needs status:'discontinued' too (the token law,
+    // see the dedicated tests below).
+    /** @type {any} */
+    var changes = { priceBasis:token };
+    if(token === 'discontinued-no-msrp') changes.status = 'discontinued';
+    var row = token === 'pair-split-estimate' ? pbWheelRow(changes) : pbRow(changes);
     eq(probs(row).length, 0, 'expected "' + token + '" to validate on a verified row');
   });
 });
@@ -521,6 +526,21 @@ test('msrp-confirmed cannot ride on a verified row lacking a real source (verifi
 });
 test('a non-string priceBasis is caught', function(){
   some(probs(pbRow({ priceBasis:7 })), 'priceBasis');
+});
+/* ---- TOKEN LAW (2026-07-23): discontinued-no-msrp requires status:'discontinued' ---- */
+test('discontinued-no-msrp WITHOUT status:discontinued is rejected (the token law)', function(){
+  var p = pbRow({ priceBasis:'discontinued-no-msrp' });
+  some(probs(p), 'discontinued-no-msrp');
+  some(probs(p), 'status');
+});
+test('discontinued-no-msrp with status:current (not discontinued) is still rejected', function(){
+  some(probs(pbRow({ priceBasis:'discontinued-no-msrp', status:'current' })), 'discontinued-no-msrp');
+});
+test('discontinued-no-msrp WITH status:discontinued validates clean', function(){
+  eq(probs(pbRow({ priceBasis:'discontinued-no-msrp', status:'discontinued' })).length, 0);
+});
+test('status:discontinued alone (no discontinued-no-msrp) is unaffected by the token law', function(){
+  eq(probs(pbRow({ priceBasis:'msrp-confirmed', status:'discontinued' })).length, 0);
 });
 test('STAGED ROLLOUT: a verified row with NO priceBasis is still legal while PRICE_BASIS_STRICT is false', function(){
   // The whole point of the staging — ~3,300 verified rows predate the field and

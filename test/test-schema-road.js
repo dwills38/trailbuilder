@@ -193,9 +193,21 @@ function roadPbWheelRow(changes){
 test('every priceBasis vocab token is accepted on a verified road row', function(){
   S.LOCAL_VOCAB.priceBasis.forEach(function(token){
     // pair-split-estimate is wheel-only — roadPbRow's base part is a frame.
-    var row = token === 'pair-split-estimate' ? roadPbWheelRow({ priceBasis:token }) : roadPbRow({ priceBasis:token });
+    // discontinued-no-msrp needs status:'discontinued' too (the token law).
+    /** @type {any} */
+    var changes = { priceBasis:token };
+    if(token === 'discontinued-no-msrp') changes.status = 'discontinued';
+    var row = token === 'pair-split-estimate' ? roadPbWheelRow(changes) : roadPbRow(changes);
     eq(S.validateRoadPart(row, TODAY).length, 0, 'expected "' + token + '" to validate');
   });
+});
+/* ---- TOKEN LAW (2026-07-23): discontinued-no-msrp requires status:'discontinued' ---- */
+test('discontinued-no-msrp WITHOUT status:discontinued is rejected on a road row (the token law)', function(){
+  var probs = S.validateRoadPart(roadPbRow({ priceBasis:'discontinued-no-msrp' }), TODAY);
+  ok(probs.some(function(m){ return /discontinued-no-msrp/.test(m) && /status/.test(m); }), probs.join('\n'));
+});
+test('discontinued-no-msrp WITH status:discontinued validates clean on a road row', function(){
+  eq(S.validateRoadPart(roadPbRow({ priceBasis:'discontinued-no-msrp', status:'discontinued' }), TODAY).length, 0);
 });
 test('pair-split-estimate validates clean on a road frontwheel/rearwheel row, rejected on a frame', function(){
   eq(S.validateRoadPart(roadPbWheelRow({ priceBasis:'pair-split-estimate' }), TODAY).length, 0);

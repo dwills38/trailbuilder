@@ -245,9 +245,21 @@ function bmxPbWheelRow(changes){
 test('every priceBasis vocab token is accepted on a verified BMX row', function(){
   S.LOCAL_VOCAB.priceBasis.forEach(function(token){
     // pair-split-estimate is wheel-only (frontWheel/rearWheel) — bmxPbRow's base part is a frame.
-    var row = token === 'pair-split-estimate' ? bmxPbWheelRow({ priceBasis:token }) : bmxPbRow({ priceBasis:token });
+    // discontinued-no-msrp needs status:'discontinued' too (the token law).
+    /** @type {any} */
+    var changes = { priceBasis:token };
+    if(token === 'discontinued-no-msrp') changes.status = 'discontinued';
+    var row = token === 'pair-split-estimate' ? bmxPbWheelRow(changes) : bmxPbRow(changes);
     eq(S.validateBmxPart(row, TODAY).length, 0, 'expected "' + token + '" to validate');
   });
+});
+/* ---- TOKEN LAW (2026-07-23): discontinued-no-msrp requires status:'discontinued' ---- */
+test('discontinued-no-msrp WITHOUT status:discontinued is rejected on a BMX row (the token law)', function(){
+  var probs = S.validateBmxPart(bmxPbRow({ priceBasis:'discontinued-no-msrp' }), TODAY);
+  ok(probs.some(function(m){ return /discontinued-no-msrp/.test(m) && /status/.test(m); }), probs.join('\n'));
+});
+test('discontinued-no-msrp WITH status:discontinued validates clean on a BMX row', function(){
+  eq(S.validateBmxPart(bmxPbRow({ priceBasis:'discontinued-no-msrp', status:'discontinued' }), TODAY).length, 0);
 });
 test('pair-split-estimate validates clean on a BMX frontWheel/rearWheel row, rejected on a frame', function(){
   eq(S.validateBmxPart(bmxPbWheelRow({ priceBasis:'pair-split-estimate' }), TODAY).length, 0);
