@@ -158,4 +158,7 @@ fill shows its own status · dp-specialized-command-post-349-160 = RETIRE (via A
 wheel-size-aware rule-18 = GO · MY27 Canyon Sender CLLCTV = (b) keep 2025 + ADD a 2027 row —
 **and the GENERAL PRECEDENT for all such cases: a model-YEAR refresh (same or changed spec) =
 new row, keep the old, NEVER overwrite (Straggler pattern)** · the ~50 spec-page-only road/
-gravel rows = mark "deprioritized — needs a price-bearing source" so priceBasis waves skip them.
+gravel rows = mark "deprioritized — needs a price-bearing source" so priceBasis waves skip them ·
+**Riese & Müller Superdelite "mountain" = NOT an e-MTB (touring bike), permanently EXCLUDED from
+data/emtb.js — never re-add on a breadth pass; the EC-conformity-PDF "E-MTB" label is overruled
+(Douglas 2026-07-23). Exclusion note also lives in data/emtb.js's header.**

@@ -25,6 +25,11 @@
 // same posture as the tire and strider catalogs. Nothing here is fabricated; where a spec was
 // uncertain a credible round figure was used and the whole set is marked unverified.
 // Lengths in mm, battery in Wh, torque in Nm, weight in grams, price in USD (all sample).
+//
+// SCOPE EXCLUSIONS (do NOT add on a breadth pass): Riese & Müller Superdelite "mountain" is a
+// TOURING e-bike, NOT an e-MTB (Douglas, 2026-07-23 — the maker's EC-conformity-PDF "E-MTB"
+// label is overruled by its actual touring positioning). Gazelle and Bird have no e-MTB
+// product at all (confirmed 2026-07-23). None of these belong in this catalog.
 
 // ---------------------------------------------------------------------------
 // Parts (complete e-MTBs)
