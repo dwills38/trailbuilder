@@ -2239,6 +2239,28 @@ var EMTB_PARTS = [
     note: 'Nox\'s longer-travel lightweight-class enduro sibling to the Helium All-Mtn 5.9, same removable Fazua Ride 50 drive system, mullet wheels.',
     desc: 'Fetched from noxcycles.com\'s own product configurator page (Core spec). Weight is the maker\'s stated size-M approximate figure. PRICE: EUR 6,799.00 maker-listed MSRP converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,758.',
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.noxcycles.com/en/helium-enduro-7.1-p1/helium-enduro-7-1-p1'
+  },
+  {
+    id: 'em-bmc-trailfox-amp-two', cat: 'emtb', brand: 'BMC', model: 'Trailfox AMP Two',
+    motorBrand: 'shimano', motorModel: 'Shimano STEPS MTB E-8000', motorTorque: 70, motorPowerPeak: 250,
+    batteryWh: 500, assist: 'full-power',
+    wheelConfig: '275', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'mixed', drivetrain: 'Fox Float 36 Performance GRIP fork / Fox Float DPS Performance Evol shock',
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 7499, modelYear: 2026,
+    note: 'BMC\'s all-mountain full-power e-MTB — carbon front triangle bonded to an Al-13 triple-butted aluminum rear (BMC\'s "Twin Hollow-core" construction, motor tucked into a carbon drive-unit nest); 27.5in wheels.',
+    desc: 'Sourced from theloamwolf.com\'s BMC AMP Speedfox/Trailfox launch coverage (bmc-switzerland.com\'s own product page returned a 404 at fetch time). Weight not published in this source. USD price is the US-market listing, no conversion needed.',
+    lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/first-ride-bmc-amp-speedfox-trailfox/'
+  },
+  {
+    id: 'em-bmc-speedfox-amp-two', cat: 'emtb', brand: 'BMC', model: 'Speedfox AMP Two',
+    motorBrand: 'shimano', motorModel: 'Shimano STEPS MTB E-8000', motorTorque: 70, motorPowerPeak: 250,
+    batteryWh: 500, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 130, travelRear: 130,
+    frameMaterial: 'mixed', drivetrain: 'RockShox Revelation RC fork / Fox Float DPS Performance Evol shock',
+    disciplines: ['e-trail'], weight: null, price: 7499, modelYear: 2026,
+    note: 'BMC\'s shorter-travel, 29in-wheel full-power e-MTB sibling to the Trailfox AMP — same E-8000/500Wh drive system, same mixed carbon-front/aluminum-rear construction, a lighter trail-focused build.',
+    desc: 'Sourced from theloamwolf.com\'s BMC AMP Speedfox/Trailfox launch coverage (bmc-switzerland.com\'s own product page returned a 404 at fetch time). Weight not published in this source. USD price is the US-market listing, no conversion needed.',
+    lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/first-ride-bmc-amp-speedfox-trailfox/'
   }
 
 ];
