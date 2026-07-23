@@ -1,5 +1,5 @@
 """md -> styled HTML -> headless-Chrome PDF (BuildMyMTB deliverables pipeline)."""
-import sys, subprocess, tempfile, pathlib
+import sys, subprocess, tempfile, pathlib, time
 import markdown
 
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
@@ -19,15 +19,34 @@ tr,blockquote{page-break-inside:avoid}
 """
 
 def main(md_path, pdf_path):
+    run_start = time.time()
+
+    chrome_path = pathlib.Path(CHROME)
+    if not chrome_path.exists():
+        raise FileNotFoundError(f"Chrome executable not found at: {CHROME}")
+
+    out_path = pathlib.Path(pdf_path).resolve()
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+
     md_text = pathlib.Path(md_path).read_text(encoding="utf-8")
     body = markdown.markdown(md_text, extensions=["tables", "fenced_code"])
     html = f"<!doctype html><meta charset='utf-8'><style>{CSS}</style><body>{body}</body>"
     with tempfile.NamedTemporaryFile("w", suffix=".html", delete=False, encoding="utf-8") as f:
         f.write(html)
         tmp = f.name
-    subprocess.run([CHROME, "--headless", "--disable-gpu", "--no-pdf-header-footer",
-                    f"--print-to-pdf={pdf_path}", pathlib.Path(tmp).as_uri()], check=True)
-    print("wrote", pdf_path)
+
+    subprocess.run([str(chrome_path), "--headless", "--disable-gpu", "--no-pdf-header-footer",
+                    f"--print-to-pdf={out_path}", pathlib.Path(tmp).as_uri()], check=True)
+
+    if not out_path.exists():
+        raise RuntimeError(f"Chrome exited 0 but did not create the output file: {out_path}")
+    size = out_path.stat().st_size
+    if size == 0:
+        raise RuntimeError(f"Output file is empty (0 bytes): {out_path}")
+    if out_path.stat().st_mtime < run_start:
+        raise RuntimeError(f"Output file was not updated by this run (stale file): {out_path}")
+
+    print(f"wrote {out_path} ({size} bytes)")
 
 if __name__ == "__main__":
     main(sys.argv[1], sys.argv[2])
