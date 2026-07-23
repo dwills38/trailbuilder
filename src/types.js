@@ -19,7 +19,7 @@
  * string union — cheap for tsc — so `Slot.cat` covers kit slots too. The kit
  * OBJECT variants live in a SEPARATE `KitPart` union (see the bottom of this file),
  * NOT folded into `Part`, to keep compat.js's ~3000-row PARTS literal under tsc's
- * union-complexity ceiling. @typedef {'frame'|'fork'|'shock'|'frontwheel'|'rearwheel'|'fronthub'|'rearhub'|'rim'|'tire'|'shifter'|'derailleur'|'cassette'|'chain'|'crankset'|'cog'|'seatpost'|'bb'|'headset'|'brake'|'rotor'|'handlebar'|'stem'|'grips'|'dropper'|'saddle'|'pedal'|'groupset'|'wheelset'|'brakeset'|'cockpitset'|'completebike'|'helmet'|'shoes'|'jersey'|'shorts'|'pants'|'gloves'|'kneepad'|'elbowpad'|'bodyarmor'|'neckbrace'|'shinguard'|'eyewear'} Category */
+ * union-complexity ceiling. @typedef {'frame'|'fork'|'shock'|'frontwheel'|'rearwheel'|'fronthub'|'rearhub'|'rim'|'tire'|'shifter'|'derailleur'|'cassette'|'chain'|'crankset'|'cog'|'seatpost'|'bb'|'headset'|'brake'|'rotor'|'handlebar'|'stem'|'grips'|'dropper'|'saddle'|'pedal'|'groupset'|'wheelset'|'brakeset'|'cockpitset'|'completebike'|'helmet'|'shoes'|'jersey'|'jacket'|'shorts'|'pants'|'gloves'|'kneepad'|'elbowpad'|'bodyarmor'|'neckbrace'|'shinguard'|'eyewear'} Category */
 
 /* ---- vocabularies (mirror VOCAB in schema.js) ---------------------------- */
 /** @typedef {'29'|'275'|'26'|'24'} WheelSize */
@@ -210,6 +210,7 @@
 /** @typedef {KitCommon & {cat: 'helmet', type: HelmetType, certs?: ProtectionCert[], rotational?: Rotational}} HelmetPart */
 /** @typedef {KitCommon & {cat: 'shoes', soleType: SoleType, closure?: ShoeClosure}} ShoesPart  soleType is the primary differentiator; NO pedal bridge (decision #3) */
 /** @typedef {KitCommon & {cat: 'jersey', sleeve?: Sleeve}} JerseyPart */
+/** @typedef {KitCommon & {cat: 'jacket', waterproof?: boolean, insulated?: boolean}} JacketPart */
 /** @typedef {KitCommon & {cat: 'shorts', liner?: boolean}} ShortsPart  shorts + pants are SEPARATE categories (decision #1) */
 /** @typedef {KitCommon & {cat: 'pants', liner?: boolean}} PantsPart */
 /** @typedef {KitCommon & {cat: 'gloves'}} GlovesPart */
@@ -225,7 +226,7 @@
  * ~3000-row PARTS literal is checked against, which already sits at tsc's "union too
  * complex to represent" ceiling (the reason PARTS carries a @ts-ignore). Kit parts live
  * in src/kit.js's KIT_PARTS and never need to be a bike `Part`.
- * @typedef {HelmetPart|ShoesPart|JerseyPart|ShortsPart|PantsPart|GlovesPart|KneepadPart|ElbowpadPart|BodyarmorPart|NeckbracePart|ShinguardPart|EyewearPart} KitPart */
+ * @typedef {HelmetPart|ShoesPart|JerseyPart|JacketPart|ShortsPart|PantsPart|GlovesPart|KneepadPart|ElbowpadPart|BodyarmorPart|NeckbracePart|ShinguardPart|EyewearPart} KitPart */
 
 /** A preset (the kinds that carry `fills`). CompleteBikePart is the whole-build
  * kind - group-less, unlike the other four (see compat.js GROUPS comment).
