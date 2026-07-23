@@ -2212,6 +2212,28 @@ var EMTB_PARTS = [
     note: 'Flyer\'s E-Enduro flagship; Fox 38 Float fork / Fox Float X2 Performance shock, 220/203mm rotors.',
     desc: 'Motor/battery/wheel confirmed via flyer-bikes.com\'s own Uproc EVO:X page; travel figures from ebike-mtb.com\'s current-gen coverage (180/170mm, vs an earlier 170/165mm gen — flagged as a generational spec, not fabricated). Drivetrain/brakes/weight/price for the 8.70 build from an ebike24.com retailer listing (fork/shock/drivetrain/brakes/weight/price all matched one consistent trim). PRICE: EUR 8,999 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $10,269. Left unverified: component/weight/price provenance is press/retailer, not the maker\'s own spec sheet.',
     lastChecked: '2026-07-23', source: 'https://www.flyer-bikes.com/gb-en/uprocevox'
+  },
+  {
+    id: 'em-nox-helium-allmtn-5-9-p1', cat: 'emtb', brand: 'Nox Cycles', model: 'Helium All-Mtn 5.9 P1 Core',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 50 Trail Drivepack', motorTorque: 58,
+    batteryWh: 252, batteryRemovable: true, assist: 'lightweight',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'Shimano SL-M5130 12-speed', brakes: 'Shimano BR-MT420',
+    disciplines: ['e-trail'], weight: 21000, price: 7642, modelYear: 2026,
+    note: 'German boutique maker; lightweight-class full-carbon all-mountain e-MTB with a removable Fazua motor+battery ("2-in-1" — rideable as an acoustic bike).',
+    desc: 'Fetched from noxcycles.com\'s own product configurator page (Core spec, size-agnostic geometry figures). Weight is the maker\'s stated size-M approximate figure. PRICE: EUR 6,699.00 listed MSRP (page shows a running discount to EUR4,689.30; MSRP used per catalog pricing policy) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,642.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.noxcycles.com/en/helium-all-mtn-5.9-p1/helium-all-mtn-5-9-p1'
+  },
+  {
+    id: 'em-nox-helium-enduro-7-1-p1', cat: 'emtb', brand: 'Nox Cycles', model: 'Helium Enduro 7.1 P1 Core',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 50 Trail Drivepack', motorTorque: 58,
+    batteryWh: 252, batteryRemovable: true, assist: 'lightweight',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 180,
+    frameMaterial: 'carbon', drivetrain: 'Shimano 10-speed (Core spec)', brakes: 'Shimano MT401/MT420',
+    disciplines: ['e-enduro'], weight: 22000, price: 7758, modelYear: 2026,
+    note: 'Nox\'s longer-travel lightweight-class enduro sibling to the Helium All-Mtn 5.9, same removable Fazua Ride 50 drive system, mullet wheels.',
+    desc: 'Fetched from noxcycles.com\'s own product configurator page (Core spec). Weight is the maker\'s stated size-M approximate figure. PRICE: EUR 6,799.00 maker-listed MSRP converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,758.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.noxcycles.com/en/helium-enduro-7.1-p1/helium-enduro-7-1-p1'
   }
 
 ];
