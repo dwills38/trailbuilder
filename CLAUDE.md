@@ -33,10 +33,14 @@ unverified specs as real. See "Provenance" below.
    newsletter/promo/cookie interstitial, or any auto-appearing pop-up, for any reason. Click-triggered
    cards/tabs/modals the user opens themselves (a part's spec card, the login dialog) are fine;
    anything that appears WITHOUT the user asking is banned. No monetization pattern may ever use a pop-up.
-3. **Catalog scope:** MTB now (rounding out every MTB category; **hardtails are a near-term LIVE
-   priority**), expanding to ALL bike types over time. New non-MTB types are built OFF-LIVE —
-   a separate dataset NOT wired into the live app — until Douglas says go. **As of 2026-07-21
-   ALL SIX surfaces are LIVE on his flip words**: bmx.html (2026-07-17), road.html + emtb.html
+3. **Catalog scope:** **all six live surfaces — MTB, BMX, road, gravel, EMTB, kit — are EQUAL,
+   first-class catalogs**, each rounding out every category with the same breadth/depth/
+   verification investment (hardtails a near-term item *within* MTB). MTB is the quality
+   *reference example* the others are held to, NOT a priority ranked above them (Douglas
+   2026-07-22/23; see rule 1 + the `mtb-flagship-priority` memory — the old "MTB-first / non-MTB
+   design-only / needs-an-ask" framing is retired). A genuinely-NEW bike type still starts
+   OFF-LIVE (a separate dataset not wired into the app) until Douglas says go — that's the only
+   remaining gate. **As of 2026-07-21 ALL SIX surfaces are LIVE on his flip words**: bmx.html (2026-07-17), road.html + emtb.html
    (2026-07-20 "do them all at once"), gravel.html (2026-07-21), plus KitBuilder/ and the
    flagship. Striders remain the one off-live dataset (fit-guide design, no page). The
    off-live discipline still applies to any FUTURE type.

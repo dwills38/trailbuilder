@@ -56,7 +56,7 @@ Standing items worth knowing about:
 6. **Recurring audits**: bias + code-quality audits after every big wave (standing cadence).
 7. **The owner-picked feature slate** (2026-07-19): Upgrade Advisor, Upgrade Optimizer,
    service log, recall watcher, build sheet, build diff, owned-vs-buy planner, discontinued
-   archive — committed, sequenced behind flagship-first.
+   archive — committed.
 
 ## Docs map
 
