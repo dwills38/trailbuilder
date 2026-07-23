@@ -1593,6 +1593,54 @@ var EMTB_PARTS = [
     note: 'Husqvarna E-Bicycles\' carbon flagship all-mountain e-MTB (motorcycle brand\'s bicycle division, made by parent Pierer Mobility, same group as GasGas/KTM e-bicycles); FOX 36 Factory 150mm fork / FOX Float X Factory 230x62.5mm shock. The maker page lists both 27.5in and 29in wheel options with no per-size breakdown given — cataloged at 29in, the page\'s primary listed spec.',
     desc: 'Verified vs the fetched maker product page (husqvarna-bicycles.com/en-us/models/offroad/mountain-cross/mountain-cross-mc62023.html — "Shimano EP8 (DU-EP801)" motor, "Core S3+, 720 Wh" battery, "150mm" front/rear travel, New HQV Carbon frame, SRAM X01 Eagle 12-speed 34T/10-50T, Magura MT5 4-piston 203/203mm brakes, 24.1kg weight, "$7,999.00 USD" MSRP plus $60 freight (freight excluded from the cataloged price, same convention as other maker-quoted freight add-ons in this catalog)). Motor peak power (600W) is Shimano\'s own published DU-EP801 spec (bike.shimano.com/en-US/product/component/ep8-ep801/DU-EP801.html) — not restated on the Husqvarna page, which states only the 250W continuous/85Nm figures elsewhere on-brand. Page URL still carries a "2023" model-year token but is the live, currently-linked-from-homepage model page (not under the site\'s separate /archive/ path used for retired model years) — treated as the current-lineup listing. Battery-removable claim not stated; left unset rather than guessed.',
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.husqvarna-bicycles.com/en-us/models/offroad/mountain-cross/mountain-cross-mc62023.html'
+  },
+
+  {
+    id: 'em-thok-tp4', cat: 'emtb', brand: 'Thok', model: 'TP4',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Gen.5', motorTorque: 120,
+    batteryWh: 800, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'Shimano SLX 12-speed (FSA 34T crank, 10-51T cassette)', brakes: 'Shimano Deore 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24300, price: 6832.71,
+    note: 'Italian maker\'s all-mountain/enduro flagship — full UD-carbon frame with an integrated down-tube 800Wh Powertube, Flip Chip adjustable geometry (64.5° head angle), 27.5in rear compatible via the same flip chip (cataloged at the stock 29in/29in setup).',
+    desc: 'Verified vs the fetched maker product page (thokbikes.com/en/negozio/ebike-en/tp4-black — "Bosch Performance Line CX" motor, "120 Nm max torque", "800 Wh" integrated Powertube, FOX 36 Float Rhythm 160mm fork / FOX Float Rhythm 150mm shock, full carbon frame, Shimano SLX 12-speed rear derailleur w/ FSA 34T crank and 10-51T cassette, Shimano Deore 4-piston 203mm brakes, 24.3kg size-M weight w/ 800Wh battery, EUR 5,990 price). PRICE: EUR 5,990 maker RRP converted at the 2026-07-22 open.er-api.com rate (1.140653), matching this catalog\'s established EUR-conversion convention (em-rotwild-rx375-pro) -> $6,832.71 — Thok has no US retail presence, no USD MSRP exists. catalog/emtb-tail-5 zero-coverage-maker wave (first Thok row).',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://www.thokbikes.com/en/negozio/ebike-en/tp4-black/'
+  },
+
+  {
+    id: 'em-moustache-samedi29-trail1502', cat: 'emtb', brand: 'Moustache', model: 'Samedi 29 Trail 150.2',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (BDU37, Smart System)', motorTorque: 85,
+    batteryWh: 750, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano CUES 11-speed (11-50T, FSA 34T chainring)', brakes: 'Magura MT5 4-piston',
+    disciplines: ['e-trail'], weight: 27000, price: 5245.02,
+    note: 'French maker\'s trail e-MTB — 6061 T4-T6 aluminum frame, RockShox PSYLO Silver R fork, Moustache\'s own Magic Grip Control shock (205x60mm trunnion). The maker\'s own French listings also show a lighter 625Wh battery variant of this same 150.2 trim; cataloged at the US maker-page-listed 750Wh spec.',
+    desc: 'Verified vs the fetched maker product page (moustachebikes.com/us/en/electric-bikes/samedi-29-trail/trail-150-2-2 — "Bosch Performance Line CX BDU37" motor, "85Nm", "Bosch PowerTube 750Wh" battery, RockShox PSYLO Silver R 150mm fork, Moustache Magic Grip Control 150mm shock, "6061 T4-T6 aluminum" frame, Shimano CUES 11-speed 11-50T w/ FSA 34T chainring, Magura MT5 4-piston 203mm brakes, 29in Maxxis Rekon 2.40 tires, 27kg size-L weight); no price is shown on the maker page (moustachebikes.com carries no shop/checkout). PRICE: the maker\'s French retail network (my-velo.fr, this exact "150.2 2026" SKU) lists EUR 4,599.00 as the pre-discount original price, converted at the 2026-07-22 open.er-api.com rate (1.140653) -> $5,245.02 — disclosed as a retailer-listed price, not a maker-published RRP, since Moustache\'s own site states none. catalog/emtb-tail-5 zero-coverage-maker wave (first Moustache row).',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://moustachebikes.com/us/en/electric-bikes/samedi-29-trail/trail-150-2-2/'
+  },
+
+  {
+    id: 'em-conway-ewme-49', cat: 'emtb', brand: 'Conway', model: 'eWME 4.9',
+    motorBrand: 'shimano', motorModel: 'Shimano EP800', motorTorque: 85,
+    batteryWh: 720, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 155,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore XT 12-speed', brakes: 'Magura MT5 eStop 4-piston',
+    disciplines: ['e-enduro'], weight: 25300, price: 5132.83,
+    note: 'German direct-to-consumer maker\'s enduro-leaning e-MTB ("We Make Enduro" eWME line) — RockShox Lyrik Select fork, FOX Float DPS shock (205x60mm trunnion), Schwalbe Magic Mary front / Hans Dampf rear tires.',
+    desc: 'Verified vs the fetched maker product page (conway-bikes.com/en/e-bikes/e-mountainbike/ewme/02895894-conway-ewme-4.9-full-suspension-2024 — "SHIMANO EP800" motor, DARFON "Intube 720" 720Wh battery, ROCKSHOX Lyrik Select 160mm fork, FOX Float DPS 205x60mm shock, aluminum full-suspension frame, SHIMANO Deore XT 12-speed 1x12, MAGURA MT5 eStop 203mm front/rear brakes, 25.3kg weight, EUR 4,499.95 price). PRICE: EUR 4,499.95 maker RRP converted at the 2026-07-22 open.er-api.com rate (1.140653), matching this catalog\'s established EUR-conversion convention (em-rotwild-rx375-pro) -> $5,132.83 — Conway has no US retail presence, no USD MSRP exists. Rear travel (155mm) is the eWME platform\'s published frame-travel figure (conway-bikes.com/en/e-bikes/e-mountainbike/ewme/ family overview page) — not restated on this SKU\'s own page, which lists only the 160mm fork. catalog/emtb-tail-5 zero-coverage-maker wave (first Conway row).',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://www.conway-bikes.com/en/e-bikes/e-mountainbike/ewme/02895894-conway-ewme-4.9-full-suspension-2024/'
+  },
+
+  {
+    id: 'em-amflow-pl-carbon-pro-800', cat: 'emtb', brand: 'Amflow', model: 'PL Carbon Pro (800Wh)',
+    motorBrand: 'dji', motorModel: 'DJI Avinox M1 Drive Unit', motorTorque: 105, motorPowerPeak: 850,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission (T-Type AXS, 104BCD 34T, 10-52T)', brakes: 'Magura MT7 Pro 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 19710, price: 10199,
+    note: 'Chinese maker\'s flagship, built around DJI\'s Avinox drive system (co-developed for Amflow); ultra-light 2.27kg carbon frame + FOX 36 Factory/Float X Factory suspension; rear-wheel flip-chip supports a 27.5in mullet swap (cataloged at the stock dual-29in setup).',
+    desc: 'Verified vs the fetched maker spec page (amflowbikes.com/pl-carbon/specs — "Avinox M1 Drive Unit: 105 N·m", "Avinox Integrated Battery: 800Wh", "2026 FOX 36 Factory" 160mm fork / "2026 FOX FLOAT X Factory" trunnion 185x55mm shock, "SRAM X0 Eagle Transmission" derailleur w/ 104BCD 34T chainring and XS-1295 10-52T cassette, "Magura MT7 Pro" 4-piston 203mm brakes, 29in wheels, USD $10,199 price); the specs page states no bike weight or rear-wheel-travel figure. Weight (19.71kg, size L, tubeless/no pedals) is a third-party MEASURED figure (worldwidecyclery.com product listing for this exact 800Wh SRAM X0 T-Type AXS SKU) per the catalog\'s sourceType:\'measured\' weight-only policy; rear travel (150mm) and peak power (850W) are the model\'s consistently-reported figures across independent reviews (E-MOUNTAINBIKE Magazine, The Loam Wolf) confirming the FOX Float X Factory\'s travel, not maker-stated on the specs page itself. catalog/emtb-tail-5 zero-coverage-maker wave (first Amflow row).',
+    verified: true, priceBasis: 'msrp-confirmed', sourceType: 'measured', weightSource: 'https://worldwidecyclery.com/products/amflow-pl-carbon-pro-e-bike-w-sram-x0-t-type-axs-build-800wh', lastChecked: '2026-07-22', source: 'https://www.amflowbikes.com/pl-carbon/specs'
   }
 
 ];
