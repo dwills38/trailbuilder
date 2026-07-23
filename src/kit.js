@@ -1783,6 +1783,17 @@ var KIT_PARTS = [
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.rapha.cc/US/en_US/shop/womens-trail-shorts/product/OSW01XXPSUXSM',
     desc:'Fetched rapha.cc product page: USD price $160.00 (no sale active at check time), sizes XXS-XL. Low-profile stretch waist, two zippered side pockets with integrated phone sleeves. No weight published.' },
 
+  /* -- Flylow (catalog/kit-apparel-brands-1, 2026-07-23): brand entirely ABSENT from the
+     catalog. Flylow's mountain-bike-specific TOPS are thin (its "bike"-tagged shirts are
+     casual button-ups, not technical jerseys - a genuine gap, not an omission; see the
+     branch report). Its one clearly MTB-marketed short is entered here; two bike gloves
+     are entered in the gloves section. FETCHED each product page directly. -- */
+  { id:'sht-flylow-goodson', cat:'shorts', brand:'Flylow', model:'Goodson Short', price:120, weight:205,
+    liner:false, disciplines:['trail'],
+    desc:'88% recycled polyester / 12% spandex "Intuitive MTB Stretch IQ" fabric; page states "average weight: 205g".',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://flylowgear.com/products/goodson-short', sourceType:'manufacturer' },
+
   /* -- Pants (MTB pants only; shorts are a separate cat above) -- */
   { id:'pnt-fox-defend', cat:'pants', brand:'Fox', model:'Defend Pant', price:169.95, weight:430,
     liner:false, disciplines:['trail','enduro'], sizes:['28','30','32','34','36','38'],
@@ -2511,6 +2522,14 @@ var KIT_PARTS = [
   { id:'glv-dharco-trail', cat:'gloves', brand:'DHaRCO', model:'Trail Glove', price:32, weight:58,
     sizes:['S','M','L','XL','XXL'],
     desc:'UNVERIFIED (2026-07-17): no "Trail Glove" SKU found on us.dharco.com - the current men\'s glove lineup is Race Glove and Gravity Gloves only. Left as an unverified sample rather than guessing which current SKU this maps to.' },
+  { id:'glv-flylow-dirt', cat:'gloves', brand:'Flylow', model:'Dirt Glove', price:45,
+    desc:'All-purpose light, quick-drying MTB glove; no weight stated on the fetched maker page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://flylowgear.com/products/dirt-glove', sourceType:'manufacturer' },
+  { id:'glv-flylow-mission', cat:'gloves', brand:'Flylow', model:'Mission Glove', price:45,
+    desc:'Ultra-lightweight minimal-coverage glove, stretch mesh + suede palm; no weight stated on the fetched maker page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://flylowgear.com/products/mission-glove', sourceType:'manufacturer' },
   { id:'glv-mucoff-rider', cat:'gloves', brand:'Muc-Off', model:'Rider Gloves', price:34.99,
     desc:'Regular (non-sale) US price; no weight stated on the fetched maker page.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
