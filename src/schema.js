@@ -17,7 +17,7 @@
 /** @typedef {import('./types.js').Part} Part */
 /** @typedef {import('./types.js').Slot} Slot */
 /** @typedef {import('./types.js').Catalog} Catalog */
-/** @typedef {{type: 'number'|'string'|'bool'|'id'|'idArray'|'fills'|'enumArray'|'sizes'|'sizeList'|'sizeChart', vocab?: string, optional?: boolean, nullable?: boolean, measures?: string[]}} FieldRule */
+/** @typedef {{type: 'number'|'string'|'bool'|'id'|'idArray'|'fills'|'enumArray'|'sizes'|'sizeList'|'sizeChart'|'maxTireByWheel', vocab?: string, optional?: boolean, nullable?: boolean, measures?: string[]}} FieldRule */
 /** @typedef {{has: (id: string) => boolean, catOf: (id: string) => string, byId: (id: string) => any, slotCat: Object.<string, string>, today: Date}} Ctx */
 
 /* Canonical vocabularies - the only allowed values for each standard. */
@@ -610,6 +610,15 @@ var SCHEMA = {
        posts in the real world - that fact now lives where it belongs, in each
        bike's actual cataloged seatpost fill, not a dropper-negating flag. */
     udh:{type:'bool'}, udhRetrofitKit:{type:'string',optional:true}, frameOnly:{type:'bool'}, maxTire:{type:'number',optional:true},
+    /* maxTireByWheel (2026-07-23, rule-18 wheel-size fix): a frame officially
+       rated for two wheel sizes with DIFFERENT tire limits (Surly Karate Monkey:
+       27.5x3.0 OR 29x2.5) needs a per-wheel-size max, not one scalar - a single
+       `maxTire` fires a FALSE too-wide warning on the maker-approved fat setup.
+       Optional map wheelSize (wheel vocab) -> max width (in). Mirrors the GRAVEL
+       engine's maxTireByWheel. When present, rule 18 consults it by the build's
+       rear wheel size and falls back to the scalar `maxTire` only when a frame
+       carries no map (backward-compat - every existing frame keeps working). */
+    maxTireByWheel:{type:'maxTireByWheel',optional:true},
     headTubeUpper:{type:'string',vocab:'headTube',optional:true}, headTubeLower:{type:'string',vocab:'headTube',optional:true},
     /* material (Douglas 2026-07-14): the frame's construction material - a
        FILTER/ANNOTATION field ONLY, same contract as disciplines: it must
@@ -1105,6 +1114,18 @@ function validatePart(p, ctx){
         v.forEach(function(/** @type {*} */ ref){
           if(!isStr(ref)) { bad('field "' + field + '" entries must be part ids'); return; }
           if(!ctx.has(ref)) bad('field "' + field + '" references unknown part "' + ref + '"');
+        });
+        break;
+      /* maxTireByWheel: a frame's per-wheel-size tire-clearance map,
+         { <wheelSize>: <maxWidthIn> }. Keys must be wheel-vocab tokens
+         ('29'/'275'/...), values positive numbers (inches). Rule-18 fix. */
+      case 'maxTireByWheel':
+        if(!isObj(v)){ bad('field "' + field + '" (maxTireByWheel) must be an object of wheelSize -> max width (in)'); break; }
+        var mtKeys = Object.keys(v);
+        if(mtKeys.length === 0){ bad('field "' + field + '" (maxTireByWheel) must declare at least one wheel size'); break; }
+        mtKeys.forEach(function(wk){
+          if(VOCAB.wheel.indexOf(wk) < 0) bad('maxTireByWheel key "' + wk + '" not in wheel [' + VOCAB.wheel.join(', ') + ']');
+          if(!(isNum(v[wk]) && v[wk] > 0)) bad('maxTireByWheel["' + wk + '"] must be a positive number (in)');
         });
         break;
       case 'sizes':

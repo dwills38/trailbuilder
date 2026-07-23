@@ -33,6 +33,23 @@ test('wrong type is caught', function(){
 test('dangling id reference is caught', function(){
   some(probs(over('fr-specialized-enduro-sworks', { bundledShock:'sh-nope' })), 'bundledShock');
 });
+test('maxTireByWheel with a wheel key outside the vocab is caught', function(){
+  some(probs(over('fr-surly-karate-monkey', { maxTireByWheel:{'30':2.5} })), 'maxTireByWheel');
+});
+test('maxTireByWheel with a non-positive value is caught', function(){
+  some(probs(over('fr-surly-karate-monkey', { maxTireByWheel:{'29':0} })), 'maxTireByWheel');
+});
+test('maxTireByWheel that is not an object is caught', function(){
+  some(probs(over('fr-surly-karate-monkey', { maxTireByWheel:2.5 })), 'maxTireByWheel');
+});
+test('an empty maxTireByWheel map is caught', function(){
+  some(probs(over('fr-surly-karate-monkey', { maxTireByWheel:{} })), 'maxTireByWheel');
+});
+test('the real Surly Karate Monkey (maxTireByWheel {29:2.5,275:3.0}) validates clean', function(){
+  var p = over('fr-surly-karate-monkey');
+  delete p.verified; delete p.lastChecked; delete p.source; delete p.priceBasis;
+  eq(probs(p).length, 0, 'the dual-size Surly frame with a per-wheel map should validate');
+});
 test('shifter missing actuation is caught', function(){
   var p = over('sft-sram-gx-eagle'); delete p.actuation; some(probs(p), 'actuation');
 });
