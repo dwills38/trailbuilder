@@ -2202,6 +2202,39 @@ var ROAD_PARTS = [
     verified: true, lastChecked: '2026-07-23', source: 'https://www.princetoncarbon.com/product/grit-4540/', priceBasis: 'pair-split-estimate', sourceType: 'measured', weightSource: 'https://bikerumor.com/review-princeton-carbonworks-grit-4540-gravel-wheels-make-riding-offroad-a-lot-groovier/',
     note: 'road-wheels-1 wave: same source/session as the front row — see that row\'s note for the full pair-split-estimate methodology and the Bikerumor measured-weight sourcing. Freehub: SRAM XDR selected in the page\'s own variant selector (also offers Shimano/Campagnolo) — XDR modeled; HG/Campagnolo variants a disclosed GAP. maxTire/rotorMount/intWidth reasoning identical to the front row.' },
 
+  // ===== WHEELS — Vision Metron 60 SL Disc + Metron 40 SL Disc (road-wheels-1 wave) =====
+  // Depth pass: Vision (FSA's wheel brand) was THIN (only a cockpit row existed; zero wheels).
+  // shop.visiontechusa.com sells these PAIR-ONLY (no standalone single-wheel SKU found) and,
+  // unlike Princeton above, no documented model-specific front/rear split was found either —
+  // priceBasis is deliberately OMITTED on these rows (still counted as a "lacks priceBasis"
+  // gap by validate.js, matching this catalog's existing convention for rows with confirmed
+  // specs but no clean per-wheel price this pass) rather than force an under-sourced
+  // pair-split-estimate token. Weight is split using this catalog's own cross-brand
+  // measured-average front/rear ratio for deep carbon disc wheels (~46.7%/53.3%, per the
+  // Wake/Grit/Cadex real splits established above in this same file/pass) — disclosed as an
+  // ESTIMATE, not a Vision-specific maker figure (same category of estimate as the existing
+  // Zipp 404 Firecrest row's front/rear split, a prior-established catalog precedent).
+  { id: 'fw-vision-metron-60-sl-disc', cat: 'frontwheel', brand: 'Vision', model: 'Metron 60 SL Disc', family: 'vision-metron-60-sl',
+    wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 21, maxTire: 32,
+    weight: 696, price: 1185.4,
+    verified: true, lastChecked: '2026-07-23', source: 'https://shop.visiontechusa.com/en/wheelsets/road-triathlon/metron-60-sl-disc-clincher-tl',
+    note: 'road-wheels-1 wave: FETCHED shop.visiontechusa.com (Vision/FSA\'s own storefront, browser pane, not bot-walled) directly. Spec table: "60 mm depth rim", "21 mm inner width", "P.R.S. Hubs...CL" (Centerlock), reference codes "710-0152231030" (Shimano HG11) / "710-0152236030" (SRAM XDR) confirming both hub/axle spacing "12x100/12x142" (per trisports.com\'s + biketiresdirect.com\'s independent republication of the same Vision spec sheet, both showing identical figures) and rotorMount (Centerlock). Weight: the shop.visiontechusa.com page itself states 1642g for this SKU code, but bike24.com\'s independent listing of the SAME manufacturer part number (710-0152231030) states "weight: 1490g" with "Weight Source: Manufacturer" explicitly labeled — treated as the more reliable maker-sourced figure (matches Bike World News\'s 2025 review\'s "claimed weight of 1490g" too); this row\'s 696g front is an ESTIMATE (see file-header note on the estimation method), not a page-published split. maxTire: no single "max tire mm" published; Bike World News\'s review states the 21mm-internal rim is "perfect for 28mm (or even 30 or 32) wide road tires" — maxTire:32 uses that reviewer-cited practical ceiling (a genuine GAP, same disclosed-conservative pattern as the ENVE/Bontrager rows above). Price: NOT priceBasis-tagged — see file-header note; the confirmed real PAIR MSRP is $2,536.00 (trisports.com/biketiresdirect.com, both independently matching), and this row\'s $1,185.40 front figure is an ESTIMATE-split of that real pair total, not a maker-published per-wheel price.' },
+  { id: 'rw-vision-metron-60-sl-disc', cat: 'rearwheel', brand: 'Vision', model: 'Metron 60 SL Disc', family: 'vision-metron-60-sl',
+    wheel: '700c', hub: '12x142', freehub: 'xdr', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 21, maxTire: 32,
+    weight: 794, price: 1350.6,
+    verified: true, lastChecked: '2026-07-23', source: 'https://shop.visiontechusa.com/en/wheelsets/road-triathlon/metron-60-sl-disc-clincher-tl',
+    note: 'road-wheels-1 wave: same source/session as the front row — see that row\'s note for the estimate methodology + weight/price sourcing. Freehub: XDR selected (Vision\'s "710-0152236030" SKU code, alongside a Shimano HG11 "710-0152231030" alternative — HG(hg-road) variant a disclosed GAP). maxTire/rotorMount/intWidth reasoning identical to the front row.' },
+  { id: 'fw-vision-metron-40-sl-disc', cat: 'frontwheel', brand: 'Vision', model: 'Metron 40 SL Disc TL', family: 'vision-metron-40-sl',
+    wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 19, maxTire: 30,
+    weight: 729, price: 915.6,
+    verified: true, lastChecked: '2026-07-23', source: 'https://shop.visiontechusa.com/en/wheelsets/road-gravel-cyclocross/metron-40-sl-disc-clincher-tl',
+    note: 'road-wheels-1 wave: FETCHED shop.visiontechusa.com directly, this catalog\'s mid-tier Vision pairing (climbing/CX-focused, cheaper and shallower than the Metron 60 SL flagship). Spec table: "Full carbon rim", "40 mm depth rim", "19 mm inner width", "P.R.A. Hubs with DP spokes CL and 6B" (Centerlock), "Compatible with SHIMANO and SRAM freehub", "Weight (gr) 1560" (a real page-published PAIR total; matches velostrive.co.uk\'s + treefortbikes.com\'s independent republication of the same "1560g" figure). Hub/axle: this catalog\'s existing standard road 12x100/12x142 disc convention (matching the 60 SL sibling row above; the page\'s own spec table doesn\'t re-itemize axle spacing beyond "Centerlock", but every independent retailer listing of this exact SKU agrees). Weight split (729g front) is an ESTIMATE — see the flagship row\'s note above for the estimation method (same ~46.7%/53.3% ratio applied to the real 1560g pair total). maxTire: no single figure published; velostrive.co.uk\'s spec sheet lists "Tubeless ready - clincher (Max: 7 bar, 100 psi)" with no width ceiling — maxTire:30 is a conservative estimate for this narrower 19mm-internal climbing-focused rim (narrower than the 60 SL\'s 21mm/32mm figure), disclosed as a GAP. Price: NOT priceBasis-tagged (see 60 SL row\'s note) — the confirmed real PAIR MSRP is $1,959.00 (shop.visiontechusa.com\'s own listed price), and this row\'s $915.60 front figure is an ESTIMATE-split of that real total.' },
+  { id: 'rw-vision-metron-40-sl-disc', cat: 'rearwheel', brand: 'Vision', model: 'Metron 40 SL Disc TL', family: 'vision-metron-40-sl',
+    wheel: '700c', hub: '12x142', freehub: 'xdr', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 19, maxTire: 30,
+    weight: 831, price: 1043.4,
+    verified: true, lastChecked: '2026-07-23', source: 'https://shop.visiontechusa.com/en/wheelsets/road-gravel-cyclocross/metron-40-sl-disc-clincher-tl',
+    note: 'road-wheels-1 wave: same source/session as the front row — see that row\'s note for the estimate methodology + weight/price sourcing. Freehub: XDR modeled (Vision markets this wheel as "Compatible with SHIMANO and SRAM freehub" without separate per-driver SKU codes on this page, unlike the 60 SL\'s split codes — HG(hg-road) a disclosed GAP). maxTire/rotorMount/intWidth reasoning identical to the front row.' },
+
   // ===== SADDLE / SEATPOST / BARTAPE depth (road-4 wave) ===================
   // Unverified samples — real, currently-sold products, not fetched this pass
   // (time-boxed; flagged for a future verification wave).
