@@ -1905,6 +1905,18 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://velomotion.net/2025/06/thok-tp4-two-new-models-with-a-fresh-look/'
   },
 
+  {
+    id: 'em-simplon-rift-ale-core', cat: 'emtb', brand: 'Simplon', model: 'Rift AL:e Core',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX/PX Gen5', motorTorque: 85,
+    batteryWh: 600, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 140,
+    frameMaterial: 'aluminum',
+    disciplines: ['e-trail'], weight: null, price: 6273.03, modelYear: 2026,
+    note: 'Austrian maker Simplon\'s new-for-2026 aluminum trail e-MTB, alongside the already-cataloged carbon Rapcon :e — one of three new AL:e aluminum models (Rift/Stomp/Rapcon AL:e) launched April 2026 as lower-priced alternatives to Simplon\'s carbon range; over 1kg lighter and roughly EUR 500 cheaper than the equivalent carbon Rift :e per the maker\'s own framing.',
+    desc: 'Unverified sample via the credible-source breadth policy — simplon.com\'s own Rift AL:e product page (fetch attempted, redirected/incomplete this session) plus geometrics.mtb-news.de\'s detailed geometry breakdown and pedelec-elektro-fahrrad.de\'s 2026 aluminum-range announcement confirm "Bosch Performance Line CX/PX Gen5 with 600 or 800 Wh battery... 140 millimetres of travel... versatile aluminium e-mountain bike for trail and all-mountain... battery can be removed easily via the battery hatch". Cataloged at the smaller 600Wh option (the Core-tier battery per Simplon\'s usual Core/Core+ split, mirroring the already-cataloged Rapcon :e row\'s 600/800Wh split convention). No fixed single-SKU price found for the Core trim specifically — PRICE is a disclosed ESTIMATE (not a maker-quoted figure) derived from the sibling carbon Rift :e Core price (EUR 6,499) minus the maker\'s own stated "~500 euros cheaper" AL:e discount -> EUR 5,499, converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $6,273.03 — flagged as the lowest-confidence field on this row, no regional-conversion token. No weight/drivetrain/brakes found for this specific trim — left uncataloged. catalog/emtb-breadth-3 wave (Simplon deepened from 1 row to 2).',
+    lastChecked: '2026-07-23', source: 'https://www.simplon.com/en/Bikes/E-Mountain-Bikes/Rift-AL-e_b_1149834'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
