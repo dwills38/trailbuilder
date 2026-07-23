@@ -2488,6 +2488,13 @@ var BMX_PARTS = [
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23',
     source: 'https://federalbikes.com/products/federal-lacey-frame-matt-sunset-peach',
     note: 'Second Federal frame (the existing row is Boyd V2), closing part of the task briefs "Federal confirmed thin" gap. FETCHED federalbikes.com own Shopify product feed directly (products.json on federalbikes.com/collections/frames). Unlike the Boyd V2 row (which needed retailer corroboration for its engine-read fields), this page states BOTH rule-relevant frame fields itself, verbatim: "Mid BB" (bbShell:mid exact) and "Removable brake mounts sold separately" (ships brakeless stock, same reading as bmx-fr-federal-boyd-v2 and bmx-fk-federal-session -> rearBrakeMount:none) - promoted to verified:true on that strength (headTube/rearAxle are display-only per compat-bmx.js and not stated on this page; carried from the catalog-wide 20in-freestyle-frame convention, same as every sibling Federal row). "Top Tube: 20.75 or 21 inch" -> topTube:21.0 (representative size). Weight "5.55lbs" = 2517g is the pages own stated spec (NOT the variant JSONs grams:13608, an implausible 13.6kg figure that is Shopifys shipping-carton weight, not the frames - the same trap flagged on other rows this batch). Price: GBP RRP 457.00 (federalbikes.com is a UK-domiciled GBP storefront, no US price published) converted to a $580.39 USD sample at ~1.27 USD/GBP, matching this catalogs existing priceBasis:regional-conversion convention for every other Federal row.'
+  },
+  {
+    id: 'bmx-se-verde-pinpoint', cat: 'seat', brand: 'Verde', model: 'Pinpoint Stealth Pivotal Seat',
+    system: 'pivotal', weight: 318, price: 39.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://verdebicycles.com/products/verde-pinpoint-stealth-pivotal-seat',
+    note: 'New category for Verde (previously frame-only in this catalog). FETCHED verdebicycles.com own Shopify product feed directly. Despite the "Stealth" in the product name, the spec text describes a "Verde Pivotal patch w/ solid Pivotal bolt" - real pivotal mounting hardware, not the alternate one-bolt "Stealth" system this catalogs BMX_VOCAB.seatSystem also carries (see the Mission Carrier Seat row) - so system:pivotal is the hardware-accurate read, "Stealth" treated as this SKUs color/graphic name only. Weight "11.2 oz" = 318g matches the variant JSONs own grams:318 exactly (a genuine per-product figure this time, not a shared shipping-bucket trap). Price: the page shows a current sale of $19.99 against a $39.99 compare-at (list) price - per this catalogs standing PRICE RULE, the discounted figure is never used; $39.99 (list) entered with priceBasis:msrp-confirmed.'
   }
 ];
 
