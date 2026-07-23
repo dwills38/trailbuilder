@@ -2168,6 +2168,28 @@ var EMTB_PARTS = [
     note: 'Top-tier Ariel 50E: Fox 38-E Factory (Kashima, GRIP2) fork + Fox Float DHX2 Factory coil shock, full Shimano XT 1x12 groupset, Shimano XT 4-piston brakes.',
     desc: 'Sourced from saracen.co.uk\'s own product page (fetched, saracen.co.uk/products/my22-ariel-50e-elite). This is the only Ariel 50E page to explicitly state motor torque (85Nm) on Saracen\'s own text; carried onto the Pro row above as the same EP-800 motor. No published weight; no current sale price shown for this trim (page shows only the £6,999.99 MSRP). PRICE: GBP 6,999.99 converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $9,362. catalog/emtb-depth-5 wave.',
     lastChecked: '2026-07-23', source: 'https://www.saracen.co.uk/products/my22-ariel-50e-elite'
+  },
+  {
+    id: 'em-r-raymon-tarok-ultra', cat: 'emtb', brand: 'R Raymon', model: 'Tarok Ultra',
+    motorBrand: 'avinox', motorModel: 'DJI Avinox M2S', motorTorque: 150, motorPowerPeak: 1500,
+    batteryWh: 700, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', weight: 22000, price: 9128, modelYear: 2026,
+    disciplines: ['e-trail', 'e-enduro'],
+    note: 'Second-tier full-power carbon e-MTB on DJI\'s Avinox M2S (150Nm/1500W peak) with a 700Wh FP700 battery; maker page confirms a mullet (29in/27.5in) wheel setup for the Tarok line.',
+    desc: 'Fetched from raymon-bicycles.com\'s own Tarok model page (browser render). No drivetrain/brake spec text on the page for this trim (left blank rather than guessed). PRICE: EUR 7,999 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $9,128.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.raymon-bicycles.com/en/modelle/tarok'
+  },
+  {
+    id: 'em-r-raymon-tarok-pro', cat: 'emtb', brand: 'R Raymon', model: 'Tarok Pro',
+    motorBrand: 'avinox', motorModel: 'DJI Avinox M2S', motorTorque: 150, motorPowerPeak: 1500,
+    batteryWh: 700, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', weight: 22300, price: 6846, modelYear: 2026,
+    disciplines: ['e-trail', 'e-enduro'],
+    note: 'Entry-carbon Tarok trim, same Avinox M2S drive system and 700Wh battery as the Ultra/Ultimate, heavier build kit accounts for the weight step vs Ultra.',
+    desc: 'Fetched from raymon-bicycles.com\'s own Tarok model page (browser render). No drivetrain/brake spec text on the page for this trim (left blank rather than guessed). PRICE: EUR 5,999 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $6,846.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.raymon-bicycles.com/en/modelle/tarok'
   }
 
 ];
