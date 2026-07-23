@@ -2571,6 +2571,8 @@ var KIT_PARTS = [
     desc:'Price from us.chromagbikes.com\'s own collection listing (the product page itself did not load this session) - left unverified.' },
   { id:'glv-looseriders-freeride', cat:'gloves', brand:'Loose Riders', model:'Freeride Glove', price:27,
     desc:'Price converted from EUR24.95 list price at ~1.08 USD/EUR - left unverified.' },
+  { id:'glv-handup-proformance', cat:'gloves', brand:'Handup', model:'Pro-Formance Glove', price:54,
+    desc:'Regular (non-sale) price per handupco.com\'s own collection listing (the page itself did not load this session) - left unverified.' },
   { id:'glv-mucoff-rider', cat:'gloves', brand:'Muc-Off', model:'Rider Gloves', price:34.99,
     desc:'Regular (non-sale) US price; no weight stated on the fetched maker page.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
