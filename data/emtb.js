@@ -2327,6 +2327,17 @@ var EMTB_PARTS = [
     note: "Giant's FlexPoint-suspension full-power trail e-MTB, ALUXX SL aluminum, Fox 36 Rhythm Air fork; top trim of a two-model Stance E+ range (E+ 1 is the lower-price sibling on the same chassis/motor/battery).",
     desc: 'Fetched from giant-bicycles.com\'s own Stance E+ product page. Drivetrain/brakes/weight not published for either trim on the fetched page (left unset rather than guessed).',
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.giant-bicycles.com/us/bikes-stance-eplus'
+  },
+  {
+    id: 'em-cube-stereo-hybrid-one22-pro-800', cat: 'emtb', brand: 'Cube', model: 'Stereo Hybrid ONE22 Pro 800',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 85,
+    batteryWh: 800, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 120, travelRear: 120,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano CUES U6000 10-speed', brakes: 'Shimano MT420 (203mm)',
+    disciplines: ['e-trail'], weight: 26800, price: 4221, modelYear: 2026,
+    note: "Shorter-travel, XC/allrounder-leaning sibling to the ONE44/ONE77 (this catalog's existing Cube rows are 140mm+); FSP 4-Link rear suspension, SR Suntour XCR34 Air fork / EdgeX R shock, SRAM UDH.",
+    desc: 'Fork/rear travel, wheel size, weight, frame, drivetrain and brakes confirmed via vitalmtb.com\'s spec-guide entry (matches the maker\'s own Bosch CX Gen 5/800Wh/Purion 200 claims from cube.eu and press coverage). PRICE: EUR 3,699 (800Wh trim, per cube.eu-sourced press coverage) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $4,221.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.vitalmtb.com/product/guide/e-bikes/cube/stereo-hybrid-one22-70166'
   }
 
 ];
