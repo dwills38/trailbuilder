@@ -1965,6 +1965,18 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://konaworld.com/products/remote-160-cr-37'
   },
 
+  {
+    id: 'em-merida-eone-sixty-10k', cat: 'emtb', brand: 'Merida', model: 'eONE-SIXTY 10K',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    batteryWh: 630, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: null, brakes: null,
+    disciplines: ['e-enduro'], weight: 22960, price: 11407.98, modelYear: 2026,
+    note: 'Merida\'s eONE-SIXTY carbon flagship trim, alongside the already-cataloged eONE-SIXTY 8000/875 rows — FOX 38 fork, mixed 29in/27.5in wheels (XS gets a smaller 504Wh battery for frame-size clearance, cataloged at the standard 630Wh spec).',
+    desc: 'Unverified sample via the credible-source breadth policy — enduro-mtb.com\'s 2026 enduro-comparison test of this exact SKU plus ebike-mtb.com\'s and vitalmtb.com\'s spec listings confirm "Shimano EP8 motor and a 630 Wh battery... 85 NM torque... 160/150 mm travel suspension with a FOX 38 fork and mixed 29\\"/27.5\\" wheels... Size XS comes with a smaller 504 Wh battery". No merida-bikes.com product page fetched directly this session. Weight (22.96kg, size L) is from an earlier model-year test of the same SKU name — not independently reconfirmed for the current 2026 spec, flagged as the lower-confidence field. Drivetrain/brakes not confirmed in this pass, left uncataloged (Merida\'s 10K historically pairs SRAM/Shimano builds that vary by market). PRICE: EUR 9,999 (enduro-mtb.com\'s quoted 2026 price) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $11,407.98 — disclosed estimate, no regional-conversion token. catalog/emtb-breadth-3 wave (Merida deepened from 2 rows to 3).',
+    lastChecked: '2026-07-23', source: 'https://enduro-mtb.com/en/the-best-enduro-mtb-review/merida-one-sixty-review-2026/'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
