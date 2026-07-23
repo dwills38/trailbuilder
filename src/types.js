@@ -134,6 +134,7 @@
  * @property {string} [udhRetrofitKit]  maker-documented UDH retrofit kit name (rule 4 warns with a structured fix instead of erroring; dormant until sourced)
  * @property {boolean} frameOnly
  * @property {number} [maxTire]
+ * @property {Partial<Record<WheelSize, number>>} [maxTireByWheel]  per-wheel-size rear-tire max (in) for frames rated for two sizes with different limits (Surly Karate Monkey: 27.5x3.0 / 29x2.5). Rule 18 consults this by rear wheel size, falling back to scalar `maxTire` when absent. Mirrors the GRAVEL engine.
  * @property {Material} [material]  filter/annotation ONLY (disciplines contract) — never feeds checkBuild; absence = unknown
  * @property {FrameSizes} [sizes]
  * @property {HeadTube} [headTubeUpper]   SHIS capture field — rule 11 still consumes `headset`

@@ -912,6 +912,48 @@ test('frame clearance rule is ACTIVE on sourced frames (Madonna 2.6in + 2.6in ti
   eq(C.checkBuild(bld).warnings.filter(function(w){ return String(w).indexOf('frame max')>=0; }).length, 0);
 });
 
+/* Rule 18 wheel-size split (2026-07-23, engine/m7-wheelsize-rule18). A frame
+   rated for two wheel sizes with DIFFERENT tire limits (frame.maxTireByWheel)
+   is judged by the ACTUAL rear wheel size, not one collapsed scalar. Live on
+   the Surly Karate Monkey — surlybikes.com states 27.5x3.0 OR 29x2.5, so the
+   map is {29:2.5, 275:3.0}. The bug this fixes: the old scalar (the conservative
+   29in figure, 2.5) fired a FALSE too-wide warning on the maker-approved
+   27.5x3.0 fat-tire setup. Helper `frameMaxTire` chooses the per-wheel figure. */
+/** @param {import('../src/types.js').CompatResult} r @returns {number} */
+function noFrameMaxWarn(r){ return r.warnings.filter(function(w){ return String(w).indexOf('frame max')>=0; }).length; }
+test('rule 18 per-wheel: 29x2.6 rear tire exceeds the Surly 29 max (2.5) -> warns', function(){
+  var bld = B({frame:'fr-surly-karate-monkey'});
+  bld.rearTire = /** @type {TirePart} */ (Object.assign({}, part('ti-maxxis-assegai-29-25-exop-mg'), {wheel:'29', width:2.6}));
+  some(C.checkBuild(bld).warnings, 'for 29" wheels');
+});
+test('rule 18 per-wheel: 27.5x3.0 is maker-approved on the Surly (275 max 3.0) -> NO false warning', function(){
+  var bld = B({frame:'fr-surly-karate-monkey'});
+  bld.rearTire = /** @type {TirePart} */ (Object.assign({}, part('ti-maxxis-assegai-29-25-exop-mg'), {wheel:'275', width:3.0}));
+  eq(noFrameMaxWarn(C.checkBuild(bld)), 0);   // the old scalar 2.5 would have FALSELY warned here
+});
+test('rule 18 per-wheel: 27.5x3.3 exceeds even the Surly 275 max (3.0) -> warns naming the wheel size', function(){
+  var bld = B({frame:'fr-surly-karate-monkey'});
+  bld.rearTire = /** @type {TirePart} */ (Object.assign({}, part('ti-maxxis-assegai-29-25-exop-mg'), {wheel:'275', width:3.3}));
+  some(C.checkBuild(bld).warnings, 'for 27.5" wheels');
+});
+test('rule 18 per-wheel: 29x2.5 sits exactly at the Surly 29 max -> silent (boundary)', function(){
+  var bld = B({frame:'fr-surly-karate-monkey'});
+  bld.rearTire = /** @type {TirePart} */ (Object.assign({}, part('ti-maxxis-assegai-29-25-exop-mg'), {wheel:'29', width:2.5}));
+  eq(noFrameMaxWarn(C.checkBuild(bld)), 0);
+});
+test('rule 18 per-wheel: dormant for a wheel size absent from the map (no 26in Surly figure)', function(){
+  var bld = B({frame:'fr-surly-karate-monkey'});
+  bld.rearTire = /** @type {TirePart} */ (Object.assign({}, part('ti-maxxis-assegai-29-25-exop-mg'), {wheel:'26', width:4.0}));
+  eq(noFrameMaxWarn(C.checkBuild(bld)), 0);   // map has no '26' key -> null -> rule stays silent
+});
+test('rule 18 scalar path unchanged by the map addition (cloned frame with only maxTire)', function(){
+  var bld = B({frame:'fr-raaw-madonna-v22'});
+  bld.frame = /** @type {FramePart} */ (Object.assign({}, bld.frame, {maxTire:2.4}));   // scalar only, no map
+  bld.rearTire = /** @type {TirePart} */ (Object.assign({}, part('ti-maxxis-assegai-29-25-exop-mg'), {width:2.6}));
+  some(C.checkBuild(bld).warnings, 'frame max');
+  eq(String(C.checkBuild(bld).warnings.filter(function(w){ return String(w).indexOf('frame max')>=0; })[0]).indexOf('for '), -1);   // scalar path adds NO "for <size> wheels" clause
+});
+
 /* REVIEW.md #16: with the verified Big Betty 29x2.6 in the catalog, rules 14
    and 18 are finally triggerable by REAL part combinations - these pin that
    they can actually fire outside synthetic probes. */
