@@ -1823,6 +1823,182 @@ var EMTB_PARTS = [
     note: 'French maker Moustache\'s accessible/comfort-oriented sibling to the already-cataloged Samedi 29 Trail 150.2 — "Wide" family shares the Trail/Game platform\'s frame tech but prioritizes ease of use, 6061 T4-T6 hydroformed aluminum frame, Marzocchi Bomber Z2 RAIL fork, Moustache\'s own Magic Grip Control shock (120mm), 27.5in wheels w/ Maxxis Rekon 2.8in tires.',
     desc: 'Fetched directly from the maker\'s own product page (moustachebikes.com/se/en/electric-bikes/samedi-27-wide/samedi-27-wide-5/ and the identical /fr/en/ listing): "Wide, 6061 T4-T6 alloy, 120mm travel, Bosch PowerTube exclusive battery integration (horizontal)" frame, "Bosch, Performance Line CX BDU37, Smart System, 85Nm" motor, "Bosch, PowerTube 625Wh, horizontal, Smart System" battery, starting price "3 999 EUR" (FR listing) / a UK retailer (Velospeed) independently confirms the same SKU\'s full kit: "Marzocchi Bomber Z2 RAIL, 130mm" fork, "Shimano MT420" 4-piston 203mm brakes, "Shimano XT 12-speed with Deore shifters (11-51T)" drivetrain, "24.4kg" weight, GBP 3,699 (a UK retailer price, used here only to fill the fields the maker\'s own EU page omits — fork travel, drivetrain, brakes, weight). US moustachebikes.com carries no Samedi 27 Wide listing (US site sells only the Trail/Game/Off families) — no USD MSRP exists. PRICE: EUR 4,131.40 (a French reseller\'s full retail price for this exact SKU, simplebikestore.eu — not the maker\'s own currency page directly fetched by this session) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $4,714.31 — entered as a disclosed unverified sample price, no regional-conversion token (that token is reserved for a maker-fetched RRP, matching this catalog\'s existing Moustache row\'s precedent). catalog/emtb-breadth-brands-1 wave (Moustache deepened from 1 row to 2).',
     lastChecked: '2026-07-23', source: 'https://moustachebikes.com/fr/en/electric-bikes/samedi-27-wide/samedi-27-wide-5/'
+  },
+
+  // ---------------------------------------------------------------------------
+  // catalog/emtb-breadth-3 wave — thin-brand depth pass (1-row makers to 2,
+  // 2-row makers to 3) + one confirmed-absent brand (Corratec). All rows below
+  // are honest unverified samples via the credible-source breadth policy
+  // (DATA-ENTRY-TEMPLATE.md sec 7) — no maker page was directly fetched by
+  // this session, so no verified:true/priceBasis token on any of them.
+  // ---------------------------------------------------------------------------
+
+  {
+    id: 'em-corratec-epower-rs160-factory', cat: 'emtb', brand: 'Corratec', model: 'E-Power RS 160 Factory',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Smart System)', motorTorque: 85,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'aluminum',
+    disciplines: ['e-trail', 'e-enduro'], weight: 25300, price: 7999,
+    note: 'German maker Corratec\'s enduro/all-mountain flagship — mullet (29in front/27.5in rear) aluminum full-suspension frame, RockShox suspension, SRAM drivetrain (per-tier build details not independently confirmed for this specific SKU). First Corratec row — the brand was fully absent from the catalog; confirmed a currently-sold, real full-power Bosch CX lineup (E-Power RS 160 / X-Vert / MTC series) via bosch-ebike.com\'s own model directory.',
+    desc: 'Unverified sample entered via the credible-source breadth policy (DATA-ENTRY-TEMPLATE.md sec 7) — sourced from bosch-ebike.com\'s Corratec model page plus independent spec aggregators (99spokes, mtbdatabase, opticycles), none directly maker-fetched this session. Motor/battery/travel/wheel-mullet/frame-material cross-confirmed across sources ("Bosch Performance Line CX Smart System... 85 Nm", "Power Tube 800... battery", "160 mm of spring travel at the front and rear", "29-inch front wheel joined by a 650b rear wheel", aluminum frame). Weight (25.3kg) is a size-L complete-bike figure from an independent review (velomotion.net). No confirmed USD/EUR maker MSRP found in this pass — price entered as a disclosed rough estimate converted from a Polish-retailer listing (31,899 PLN, ~$7,999 at prevailing rates), NOT a maker-published figure and NOT a regional-conversion claim (that token requires the maker\'s own non-USD figure) — flagged as the lowest-confidence field on this row. Drivetrain/brakes left uncataloged (no single confirmed spec across sources for this exact trim). catalog/emtb-breadth-3 wave.',
+    lastChecked: '2026-07-23', source: 'https://www.bosch-ebike.com/us/ebikes/corratec/e-power-rs-160-factory_1582'
+  },
+
+  {
+    id: 'em-conway-xyron-lt-90', cat: 'emtb', brand: 'Conway', model: 'Xyron LT 9.0',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen5, Smart System)', motorTorque: 85,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'Shimano Deore XT 12-speed',
+    disciplines: ['e-enduro'], weight: 23700, price: 7416.95, modelYear: 2026,
+    note: 'German direct-to-consumer maker Conway\'s enduro-leaning "Xyron LT" line — distinct full-carbon platform from the already-cataloged aluminum eWME 4.9 — FOX 36 Rhythm Float fork / FOX Float X Performance shock, removable/lockable Bosch PowerTube 800.',
+    desc: 'Unverified sample via the credible-source breadth policy — bike-magazin.de\'s review of this exact SKU ("Xyron LT 9.0... Bosch Performance CX... 800 Wh... 29in wheels... 23.7 kilos... full carbon frame... Shimano Deore XT 12-speed... FOX Rhythm 38 Float / Float X Performance") supplies the drivetrain/weight/suspension detail; conway-bikes.com\'s own 2026 model listing confirms the SKU exists for the current model year but was not itself fetched this session (a 2025-dated listing for the same name showed EUR 6,499.95). PRICE: EUR 6,499.95 (the 2025 listing\'s maker price, carried forward as the best-available figure — the 2026 page\'s own price was not captured) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,416.95 — a retailer/maker LISTING price, not a session-fetched RRP, so no regional-conversion token. Rear travel (160mm) is the platform\'s named frame-travel figure (matching the "LT" line\'s general spec, mirroring how the eWME row already handles this same maker\'s frame-vs-fork travel distinction) — not independently reconfirmed for this specific SKU. catalog/emtb-breadth-3 wave (Conway deepened from 1 row to 2).',
+    lastChecked: '2026-07-23', source: 'https://www.bike-magazin.de/en/enduro-bikes/this-is-how-good-the-conway-xyron-lt-9-0-is-lightweight-bosch-enduro-bike-from-germany/'
+  },
+
+  {
+    id: 'em-fantic-xtf15-carbon', cat: 'emtb', brand: 'Fantic', model: 'XTF 1.5 Carbon',
+    motorBrand: 'brose', motorModel: 'Brose S Mag', motorTorque: 90,
+    batteryWh: 630, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'carbon',
+    disciplines: ['e-trail'], weight: null, price: 6265.63, modelYear: 2026,
+    note: 'Italian maker Fantic\'s carbon trail e-MTB — the "XTF Trail" family\'s carbon-frame model, distinct from the already-cataloged mullet-wheel "XMF" all-mountain platform. Full-carbon frame, RockShox 35 Gold RL 150mm fork, Brose S Mag motor (2.8kg, vibration-free per the maker).',
+    desc: 'Unverified sample via the credible-source breadth policy — The Loam Wolf\'s "Dissected" feature and multiple retailer spec sheets (jaxnebike.com, ebikespartsandaccessories.com, opticycles.com) consistently confirm "Brose S Mag" motor / "90 Nm" torque / "630Wh" battery (Fantic-engineered, frame-integrated) / "150mm" travel / "RockShox 35 Gold RL" fork / full carbon frame. No fanticbikes.com product page fetched directly this session (companion XMF row already documents that site\'s per-SKU pages as fetchable; not repeated here for a second Fantic model). No complete-bike weight found across sources — left uncataloged rather than guessed. PRICE: EUR 5,490 (a retailer-quoted "manufacturer price" figure, not a session-fetched maker RRP) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $6,265.63 — disclosed estimate, no regional-conversion token. catalog/emtb-breadth-3 wave (Fantic deepened from 1 row to 2).',
+    lastChecked: '2026-07-23', source: 'https://theloamwolf.com/features/dissected/dissected-fantic-xtf-1-5-carbon-emtb/'
+  },
+
+  {
+    id: 'em-gasgas-ecc4', cat: 'emtb', brand: 'GasGas', model: 'ECC 4',
+    motorBrand: 'sram', motorModel: 'SRAM Eagle Powertrain', motorTorque: 90,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle 12-speed', brakes: 'SRAM DB8 (220/200mm SRAM Centerline rotors)',
+    disciplines: ['e-enduro'], weight: null, price: 6999, modelYear: 2026,
+    note: 'Spanish motorcycle brand GasGas\' entry point into the e-enduro ECC range, alongside the already-cataloged flagship ECC 6 — same SRAM Eagle Powertrain drive unit and carbon frame w/ integrated battery, stepped down to a mechanical GX Eagle drivetrain and SRAM DB8 brakes (vs the ECC 6\'s AXS Transmission and Code Ultimate Stealth).',
+    desc: 'Unverified sample via the credible-source breadth policy — gasgas.com\'s own ECC 4 product page is a JS-rendered nav shell with no spec table this session (same wall documented on the sibling ECC 6 row), so specs come from cross-referenced retailer/spec-aggregator listings (99spokes, kaplancycles.com, wheelworld.com) that consistently state "29\\" carbon frame with integrated battery and 160 mm rear travel... SRAM Eagle Powertrain Drive Unit with 250 W and 90 Nm, paired with a 630 Wh battery... 12-speed GX Eagle drivetrain... SRAM DB8 brakes using 220/200mm SRAM Centerline rotors... 170 mm travel up front and 160 mm at the rear... $6,999.00" (a US-market price, kaplancycles.com/wheelworld.com being US dealers) — entered as the disclosed US price but not maker-fetched, so no msrp-confirmed token. No complete-bike weight found across sources. catalog/emtb-breadth-3 wave (GasGas deepened from 1 row to 2).',
+    lastChecked: '2026-07-23', source: 'https://www.gasgas.com/bicycles/en-us/bikes/enduro/e-bike/ecc/ecc-4.html'
+  },
+
+  {
+    id: 'em-rotwild-rex900-core', cat: 'emtb', brand: 'Rotwild', model: 'R.EX 900 CORE',
+    motorBrand: 'dji', motorModel: 'DJI Avinox M1 Drive Unit', motorTorque: 105, motorPowerPeak: 1000,
+    batteryWh: 864, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon',
+    disciplines: ['e-enduro'], weight: null, price: 10258.10, modelYear: 2026,
+    note: 'German maker Rotwild\'s DJI-powered full-power enduro flagship — distinct heavier-duty platform from the already-cataloged lightweight-class R.X375 (Shimano EP8/360Wh) — mullet (29in front/27.5in rear) wheels, an oversized 864Wh battery (bigger than DJI\'s own standard 800Wh Avinox pack), entry CORE trim of a 3-tier range (CORE/PRO/ULTRA).',
+    desc: 'Unverified sample via the credible-source breadth policy — cross-confirmed across Bikerumor ("DJI Avinox M1 motor... 105 Nm torque and 1000 W peak power... time limited boost mode bumping it up to 120 Nm... 864 Wh battery") and EMTB Forums\' bike-finder listing plus E-MOUNTAINBIKE Magazine\'s R.EX news coverage (mullet wheel concept, 170/160mm travel, three trims "CORE at EUR 8,990, PRO at EUR 9,990, ULTRA at EUR 12,490"). No rotwild.com product page fetched directly this session (the sibling R.X375 row already documents that maker\'s page as fetchable; not repeated here). No complete-bike weight found — a "22.4kg system weight" figure appears across sources but is disclosed there as the motor+battery system weight, not the complete bike, so left uncataloged rather than misapplied. PRICE: EUR 8,990 (CORE trim, maker-quoted per the cited coverage but not a session-fetched page) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $10,258.10 — disclosed estimate, no regional-conversion token. catalog/emtb-breadth-3 wave (Rotwild deepened from 1 row to 2).',
+    lastChecked: '2026-07-23', source: 'https://bikerumor.com/rotwild-r-ex-updates-enduro-emtb-with-dji-ebike-power-longer-range-864wh-battery/'
+  },
+
+  {
+    id: 'em-thok-tp4s', cat: 'emtb', brand: 'Thok', model: 'TP4-S',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Gen.5', motorTorque: 120,
+    batteryWh: 800, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'Shimano SLX/XT 12-speed', brakes: 'Magura MT5 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 7975.75, modelYear: 2026,
+    note: 'Mid-tier trim of Thok\'s TP4 all-mountain/enduro platform, alongside the already-cataloged base TP4 — same carbon frame/motor/battery, upgraded to FOX Performance suspension (36 fork) and DT Swiss H1900 wheels; the TP4-S/TP4-R share identical builds (only frame-manufacturing origin differs, Taiwan vs Italy).',
+    desc: 'Unverified sample via the credible-source breadth policy — velomotion.net\'s dedicated "Thok TP4-S & TP4" launch coverage and ridewill.com/mtbdatabase.com\'s TP4-R spec listing (identical build to the S) confirm "FOX Performance suspension with a 36-inch fork combined with DT Swiss H1900 wheels, a Shimano SLX-XT drivetrain, and Magura MT5 four-piston brakes... The TP4-S costs EUR 6,990, while the TP4 costs EUR 5,990". Frame/motor/battery/travel carried forward from the already-cataloged base TP4 row (same platform, thokbikes.com page not re-fetched for this trim). No complete-bike weight found for the S trim specifically. PRICE: EUR 6,990 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,975.75 — disclosed estimate (velomotion editorial price, not a session-fetched thokbikes.com page), no regional-conversion token. catalog/emtb-breadth-3 wave (Thok deepened from 1 row to 2).',
+    lastChecked: '2026-07-23', source: 'https://velomotion.net/2025/06/thok-tp4-two-new-models-with-a-fresh-look/'
+  },
+
+  {
+    id: 'em-simplon-rift-ale-core', cat: 'emtb', brand: 'Simplon', model: 'Rift AL:e Core',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX/PX Gen5', motorTorque: 85,
+    batteryWh: 600, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 140,
+    frameMaterial: 'aluminum',
+    disciplines: ['e-trail'], weight: null, price: 6273.03, modelYear: 2026,
+    note: 'Austrian maker Simplon\'s new-for-2026 aluminum trail e-MTB, alongside the already-cataloged carbon Rapcon :e — one of three new AL:e aluminum models (Rift/Stomp/Rapcon AL:e) launched April 2026 as lower-priced alternatives to Simplon\'s carbon range; over 1kg lighter and roughly EUR 500 cheaper than the equivalent carbon Rift :e per the maker\'s own framing.',
+    desc: 'Unverified sample via the credible-source breadth policy — simplon.com\'s own Rift AL:e product page (fetch attempted, redirected/incomplete this session) plus geometrics.mtb-news.de\'s detailed geometry breakdown and pedelec-elektro-fahrrad.de\'s 2026 aluminum-range announcement confirm "Bosch Performance Line CX/PX Gen5 with 600 or 800 Wh battery... 140 millimetres of travel... versatile aluminium e-mountain bike for trail and all-mountain... battery can be removed easily via the battery hatch". Cataloged at the smaller 600Wh option (the Core-tier battery per Simplon\'s usual Core/Core+ split, mirroring the already-cataloged Rapcon :e row\'s 600/800Wh split convention). No fixed single-SKU price found for the Core trim specifically — PRICE is a disclosed ESTIMATE (not a maker-quoted figure) derived from the sibling carbon Rift :e Core price (EUR 6,499) minus the maker\'s own stated "~500 euros cheaper" AL:e discount -> EUR 5,499, converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $6,273.03 — flagged as the lowest-confidence field on this row, no regional-conversion token. No weight/drivetrain/brakes found for this specific trim — left uncataloged. catalog/emtb-breadth-3 wave (Simplon deepened from 1 row to 2).',
+    lastChecked: '2026-07-23', source: 'https://www.simplon.com/en/Bikes/E-Mountain-Bikes/Rift-AL-e_b_1149834'
+  },
+
+  {
+    id: 'em-bulls-copperhead-evo-am3-750', cat: 'emtb', brand: 'Bulls', model: 'Copperhead EVO AM 3 750',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Smart System)', motorTorque: 85,
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT 12-speed (Shimano CS-M6100 10-51T cassette)', brakes: 'Shimano BR6120 4-piston / 6100 2-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 5599, modelYear: 2026,
+    note: 'Mid-tier trim of Bulls\' Copperhead EVO AM range, slotting between the already-cataloged AM 1 750 (entry) and AM 4 750 (flagship, already cataloged) — SR Suntour Durolux 36 RC2 Boost fork / SR Suntour RS19 TRIAir 3CR shock, same 6061 aluminum frame and mullet wheels as its siblings.',
+    desc: 'Unverified sample via the credible-source breadth policy — bullsbikesusa.com\'s AM 3 750 product page was not re-fetched this session (the sibling AM 1/AM 4 rows already document that maker page as fetchable), so specs come from cross-referenced US-dealer listings (electricbikereview.com, flyridesusa.com, bisonbikes.com) that consistently state "6061 aluminum frame... Shimano XT 12-speed drivetrain... Shimano CS-M6100 with 10-51T sprockets... Bosch Performance Line CX Smart System motor... up to 85 Nm... integrated Bosch PowerTube 750 Wh battery... SR Suntour Durolux 36 RC2 Boost with 150mm... SR Suntour RS19 TRIAir 3CR with 150mm... Shimano BR6120 4-piston/6100 2-piston hydraulic disc brakes (203/203 mm)". PRICE: $5,599.00 US price, consistently listed across dealers (bullsbikesusa.com\'s own page shows a promotional sale off this base per the sibling rows\' documented convention) — cataloged at the disclosed base price, not maker-fetched this session so no msrp-confirmed token. No complete-bike weight found. catalog/emtb-breadth-3 wave (Bulls deepened from 2 rows to 3).',
+    lastChecked: '2026-07-23', source: 'https://bullsbikesusa.com/products/copperhead-evo-am-3-750'
+  },
+
+  {
+    id: 'em-ghost-e-asx-universal', cat: 'emtb', brand: 'Ghost', model: 'E-ASX Universal',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen5, Smart System)', motorTorque: 85,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum',
+    disciplines: ['e-trail'], weight: null, price: 4550,
+    note: 'German maker Ghost\'s versatile trail/tour full-suspension e-MTB, distinct from the already-cataloged gravity-leaning E-ASX Advanced and E-Riot CF Advanced rows — mullet (29in front/27.5in rear) wheels, rated to 150kg total permissible weight, aimed at all-terrain trail use rather than pure gravity riding.',
+    desc: 'Unverified sample via the credible-source breadth policy — ghost-bikes.com\'s own E-ASX Universal product page plus bosch-ebike.com\'s Ghost model directory confirm "160mm front/150mm rear" travel, "Bosch Performance CX" motor with an "integrated 800 Wh PowerTube battery" (removable, lockable), mullet wheel setup, "150 kg" permissible total weight. Frame material inferred as aluminum (Ghost\'s E-ASX Universal sits below the carbon E-Riot CF line in the brand\'s hierarchy; not independently confirmed on the fetched excerpt) — flagged as the lower-confidence field. No complete-bike weight found. PRICE: retailer listings for this exact SKU vary widely and inconsistently by region/discount ($3,780-3,974 sale-tagged prices were found, clearly promotional) — entered as a rough disclosed estimate ($4,550) between those sale figures and typical Bosch-CX/800Wh mullet trail bikes\' non-sale MSRP range, NOT a maker-confirmed figure; flagged as the lowest-confidence field on this row. catalog/emtb-breadth-3 wave (Ghost deepened from 2 rows to 3).',
+    lastChecked: '2026-07-23', source: 'https://www.ghost-bikes.com/int-en/p/e-asx-universal-gbbt1/'
+  },
+
+  {
+    id: 'em-intense-tazer-pro-bosch', cat: 'emtb', brand: 'Intense', model: 'Tazer Pro',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Gen.5 (Race tune)', motorTorque: 120, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon',
+    disciplines: ['e-trail', 'e-enduro'], weight: 22850, price: 8999, modelYear: 2026,
+    note: 'The all-new third-generation Intense Tazer (2026) — a completely different platform from the already-cataloged second-gen "Tazer MX" rows (Shimano EP801-powered, still sold as a distinct legacy line): new Dual Co-Rotating Link (DCR) suspension, Bosch CX Gen5 motor (a 120Nm/750W tune, up from Bosch\'s stock 85Nm), carbon frame, buyer\'s choice of mixed or dual-29in wheels (cataloged at mullet). Pro is the higher of two standard builds (Foundation below it).',
+    desc: 'Unverified sample via the credible-source breadth policy — The Loam Wolf\'s 2026 eMTB Shootout review and intensecycles.com\'s own blog repost of that review, plus BikeMag\'s and Pinkbike\'s first-look coverage, consistently confirm "Bosch CX Gen 5 drive unit... 120Nm peak torque and 750W peak power... 600Wh or 800Wh battery options... carbon fiber frame... Dual Co-Rotating (DCR) link suspension... 150mm rear travel, with 160mm front travel... Foundation at $6,999 or the Pro at $8,999... medium Pro build weighs 50lbs 6oz (22.85kg)". Cataloged at the larger 800Wh option (matching the quoted weight figure\'s own build) and the Pro-trim price. No intensecycles.com Tazer-frameset/build-configurator page directly fetched this session. catalog/emtb-breadth-3 wave (Intense deepened from 2 rows to 3 — this row and the existing Tazer MX pair now span two full platform generations).',
+    lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/intense-tazer-review/'
+  },
+
+  {
+    id: 'em-kona-remote-160cr', cat: 'emtb', brand: 'Kona', model: 'Remote 160 CR',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line SX', motorTorque: 60, motorPowerPeak: 600,
+    batteryWh: 400, batteryRemovable: true, rangeExtender: true, assist: 'lightweight',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'Shimano Deore Di2', brakes: 'SRAM Maven Base',
+    disciplines: ['e-trail', 'e-enduro'], weight: 20800, price: 7799, modelYear: 2026,
+    note: 'Kona\'s new lightweight-class carbon flagship, distinct from the already-cataloged full-power aluminum Remote 160 DL/Remote X rows — pairs the Bosch Performance Line SX "light" motor (~2kg) with a compact 400Wh downtube battery and an optional 250Wh PowerMore range extender; Shimano\'s wired Deore Di2 rear derailleur draws power directly from the main battery (no separate shifter battery).',
+    desc: 'Unverified sample via the credible-source breadth policy — konaworld.com\'s own Remote 160 CR product page (fetch not repeated this session; confirmed via BIKE Magazin\'s and Pinkbike\'s first-look coverage, both citing Kona\'s spec sheet) states "Bosch Performance Line SX motor and a 400Wh battery... 160 mm of rear travel... 60 Nm of maximum torque and up to 600 W of peak power... optional PowerMore range extender with an additional 250 watt hours... 20.8kg (45.9lb)... Shimano Deore Di2 wired shifting... Sram Maven Base brakes with 200 millimetre discs". PRICE: konaworld.com\'s own US listing at $7,799.00 (Kona is a US-based brand selling direct in USD; not independently re-confirmed by a fresh fetch this session, so no msrp-confirmed token). catalog/emtb-breadth-3 wave (Kona deepened from 2 rows to 3 — introduces the Bosch "SX" light-motor tier, classed assist:"lightweight" consistent with this catalog\'s Pole/Forestal-Cyon lightweight-class rows).',
+    lastChecked: '2026-07-23', source: 'https://konaworld.com/products/remote-160-cr-37'
+  },
+
+  {
+    id: 'em-merida-eone-sixty-10k', cat: 'emtb', brand: 'Merida', model: 'eONE-SIXTY 10K',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    batteryWh: 630, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: null, brakes: null,
+    disciplines: ['e-enduro'], weight: 22960, price: 11407.98, modelYear: 2026,
+    note: 'Merida\'s eONE-SIXTY carbon flagship trim, alongside the already-cataloged eONE-SIXTY 8000/875 rows — FOX 38 fork, mixed 29in/27.5in wheels (XS gets a smaller 504Wh battery for frame-size clearance, cataloged at the standard 630Wh spec).',
+    desc: 'Unverified sample via the credible-source breadth policy — enduro-mtb.com\'s 2026 enduro-comparison test of this exact SKU plus ebike-mtb.com\'s and vitalmtb.com\'s spec listings confirm "Shimano EP8 motor and a 630 Wh battery... 85 NM torque... 160/150 mm travel suspension with a FOX 38 fork and mixed 29\\"/27.5\\" wheels... Size XS comes with a smaller 504 Wh battery". No merida-bikes.com product page fetched directly this session. Weight (22.96kg, size L) is from an earlier model-year test of the same SKU name — not independently reconfirmed for the current 2026 spec, flagged as the lower-confidence field. Drivetrain/brakes not confirmed in this pass, left uncataloged (Merida\'s 10K historically pairs SRAM/Shimano builds that vary by market). PRICE: EUR 9,999 (enduro-mtb.com\'s quoted 2026 price) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $11,407.98 — disclosed estimate, no regional-conversion token. catalog/emtb-breadth-3 wave (Merida deepened from 2 rows to 3).',
+    lastChecked: '2026-07-23', source: 'https://enduro-mtb.com/en/the-best-enduro-mtb-review/merida-one-sixty-review-2026/'
+  },
+
+  {
+    id: 'em-radon-recap-100', cat: 'emtb', brand: 'Radon', model: 'Recap 10.0',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Gen5 (Smart System)', motorTorque: 100,
+    batteryWh: 600, batteryRemovable: true, rangeExtender: true, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'carbon',
+    disciplines: ['e-trail'], weight: 21300, price: 7986.61, modelYear: 2026,
+    note: 'German direct-to-consumer maker Radon\'s new-for-2026 lightweight-focused trail platform, alongside the already-cataloged bigger-travel Render 9.0/10.0 rows — smaller 600Wh integrated battery (vs Render\'s 800Wh) plus an optional Bosch PowerMore 250 range extender, top trim of a three-model Recap range (8.0/9.0/10.0).',
+    desc: 'Unverified sample via the credible-source breadth policy — radon-bikes.de\'s own Recap 10.0 2026 product page plus BIKE Magazin\'s and eMTB-News\' launch coverage confirm "Bosch Performance Line CX Gen5 Smart System... up to 100 Nm of torque... 600-Wh battery... optional Bosch Powermore 250 Range Extender... 150 mm travel... 29-inch wheels... just under 22 kilos... 21.3 kg... Recap 10.0 costs EUR 6,999". Frame material (carbon) is the line\'s described "new Carbon-Chassis" (per eMTB-News\' "Recap und Render 2026: Neues Carbon-Chassis"), not independently reconfirmed against radon-bikes.de\'s own page this session. No drivetrain/brakes breakdown found for the 10.0 trim specifically — left uncataloged. PRICE: EUR 6,999 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,986.61 — disclosed estimate, no regional-conversion token. catalog/emtb-breadth-3 wave (Radon deepened from 2 rows to 3).',
+    lastChecked: '2026-07-23', source: 'https://www.radon-bikes.de/en/e-bike/mountainbike/recap/recap-100-2026/'
+  },
+
+  {
+    id: 'em-lapierre-overvolt-am-cf-68', cat: 'emtb', brand: 'Lapierre', model: 'Overvolt AM CF 6.8',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (MX tune)', motorTorque: 100,
+    batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 165,
+    frameMaterial: 'carbon',
+    disciplines: ['e-enduro'], weight: null, price: 8326.68, modelYear: 2026,
+    note: 'French maker Lapierre\'s new-for-2026 all-mountain/enduro carbon flagship, alongside the already-cataloged Overvolt AM 10.8 and Overvolt TR 7.8 rows — full-carbon frame (Mitsubishi 24T/40T layup mix, 2.9kg size-M frame-only), two-position flip-chip mullet/dual-29in wheel setup, entry build of a 3-model range (6.8/7.8/10.8).',
+    desc: 'Unverified sample via the credible-source breadth policy — off-road.cc\'s and BikeBiz\'s launch coverage of this exact platform, plus alltricks.com\'s live SKU listings for the 6.8/10.8 builds, confirm "Bosch Performance CX motor with 100Nm of torque... 800Wh removable battery... compatible with Bosch\'s PowerMore range extender... 170/165mm of travel... carbon frame weighing 2.9kg (size medium)... mullet configuration and features a two-position flip chip... Starting price: EUR 7,299" (the 6.8, entry build). alltricks.com\'s own 10.8 listing (a higher trim) independently confirms the shared "Bosch 100 Nm MX motor" designation and 800Wh battery. No complete-bike weight found for the 6.8 build specifically. PRICE: EUR 7,299 (starting price for the 6.8) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $8,326.68 — disclosed estimate, no regional-conversion token. catalog/emtb-breadth-3 wave (Lapierre deepened from 2 rows to 3).',
+    lastChecked: '2026-07-23', source: 'https://road.cc/offroad/tech-news/all-mountain-or-enduro-in-disguise-the-2026-lapierre-overvolt-am-cf-breaks-cover-and-its-surprisingly-mellow'
   }
 
 ];
