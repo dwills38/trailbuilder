@@ -29,7 +29,12 @@
 // SCOPE EXCLUSIONS (do NOT add on a breadth pass): Riese & Müller Superdelite "mountain" is a
 // TOURING e-bike, NOT an e-MTB (Douglas, 2026-07-23 — the maker's EC-conformity-PDF "E-MTB"
 // label is overruled by its actual touring positioning). Gazelle and Bird have no e-MTB
-// product at all (confirmed 2026-07-23). None of these belong in this catalog.
+// product at all (confirmed 2026-07-23). Wilier's current lineup (wilier.com, checked
+// 2026-07-23) carries NO e-MTB either — its E-Bikes category is all road/gravel/endurance
+// hybrids (Filante/Garda/Adlar/Urta Hybrid, Karga) and its MTB category is fully acoustic
+// (Urta/Usma); the E903TRN/E-Enduro line that once existed is discontinued and its rear-shock
+// travel spec couldn't be confirmed from any live source (PHANTOM-NUMBER guard — not entered
+// rather than guessed). None of these belong in this catalog.
 
 // ---------------------------------------------------------------------------
 // Parts (complete e-MTBs)
