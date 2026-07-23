@@ -1,4 +1,104 @@
-# Paste-ready worker blocks — updated by seat 20 at WRAP (2026-07-23 evening): ALL chips merged,
+# Paste-ready worker blocks — SEAT 21 WRAP (2026-07-23 night): ALL chips merged, fleet clear.
+# Seat 22's FIRST TASK + ready lanes + refreshed open-question queue below. (Seat-20 section kept
+# as history further down; the SEAT 21 WRAP block here is the current one.)
+
+# ============================================================================================
+# ★★ SEAT 21 WRAP — the current queue (seat 22: read THIS block first) ★★
+# ============================================================================================
+
+## ★ SEAT-22 FIRST TASK (Douglas's explicit order 2026-07-23): OFFER this chip to Douglas BEFORE
+## other work. Offer it — he dispatches (Hard rule #4). READ-ONLY review, changes nothing.
+
+### PROJECT-EFFICIENCY-REVIEW chip [Opus, high effort · READ-ONLY]
+```
+git fetch origin; git worktree add .claude/worktrees/efficiency-review -b review/project-efficiency origin/main
+CHECK FIRST: IF review/project-efficiency exists with commits, STAND DOWN and report; else proceed.
+
+GOAL (Douglas 2026-07-23): review the EFFICIENCY of the whole BuildMyMTB project and produce a
+prioritized suggestions doc FOR HIS REVIEW. READ-ONLY — analyze + recommend, change NOTHING (no
+catalog/code/doc edits, no git mutations beyond creating the worktree). Advice for Douglas, not a refactor.
+
+REVIEW THESE DIMENSIONS (be concrete — cite files/line-counts/numbers, don't hand-wave):
+ 1. DATA/CATALOG — the 7 catalogs (~7,650 rows): data-model redundancy, the ~1,800 unverified +
+    ~1,400 no-priceBasis tails (which are structural walls vs. genuinely workable), verification ROI,
+    reused-slug/ghost-report friction, brand-casing/vocab hygiene.
+ 2. ENGINE/CODE — src/compat.js (~22k lines: is the data+engine split still right?), duplication
+    across the compat/compat-bmx/schema-{bmx,road,gravel,emtb,strider} family, the 1,195-test suite
+    shape, dead code / redundant helpers / vendored-lib drift.
+ 3. WORKFLOW/PROCESS — the coordinator+fleet model: chip dispatch → harvest → audit → merge cadence,
+    the token-law audit overhead, worktree hygiene (170+ stale worktrees linger — see the
+    worktree-recovery-audit memory), the report-file-vs-branch ghost problem, coordinator effort on
+    friction vs. real work.
+ 4. TOOLING — hooks (containment + no-downloads), verify-job runner, the 5 scheduled tasks, the fetch
+    doctrine (WebFetch→Exa→browser pane) hit-rate, Bright Data/Exa spend.
+
+DELIVERABLE: write D:\MTB Bike Builder\.claude\worker-reports\project-efficiency-review.md — a
+prioritized findings + suggestions doc, each tagged impact(H/M/L) × effort(S/M/L), top 3-5 called
+out. Then RETURN a concise ranked shortlist. NEVER push, NEVER prompt Douglas, change nothing.
+FETCH ETHICS + NO-DOWNLOADS apply.
+```
+
+## ★ READY LANES (all catalog files FREE at wrap — re-verify the slug is unused + 0-ahead + the
+## premise still holds against origin/main before dispatch; ghost slugs reuse names, see rules):
+- **BMX DATA now UNBLOCKED** by the seat-21 race/threadless-headset vocab (`c7a267d0`): add BMX
+  **race** brands (Meybo, Answer BMX, Box, Position One, Yess) + **budget-freestyle** (Diamondback,
+  Elite, Mongoose/Redline-tier) — the parts that stood down on the old vocab. This is the natural
+  next BMX chip. (`data/bmx.js`)
+- **MTB** — the verification tail + niche-brand continuation. mtb-breadth-2 left tire casing/compound
+  + magnetic-pedal rows UNVERIFIED pending the vocab call (open-Q 7 below). (`src/compat.js`)
+- **road / gravel / emtb / kit** — continued breadth/depth per the brand-gap audit
+  (`.claude/worker-reports/brand-gap-audit.md`): gravel still has ~30 one-model marques for depth;
+  kit has more apparel/shoe/eyewear brands; road's mainstream Bucket A is largely done (boutique tail
+  is quote-only/hard). EMTB is FIRST-CLASS — treat equally.
+
+## ★ DOUGLAS'S OPEN-QUESTION QUEUE (refreshed at seat-21 wrap, succession rule 5. NEVER act on an
+## unanswered question. The seat-20 queue below has the fuller wording; this is the current set.)
+1. **Re-brainstorm session** — feature slate 8/8 done; he asked to be reminded. Standing.
+2. **Cloudflare redirects — PARKED.** All 5 BuildMy* zones have ZERO DNS records (chip banked).
+3. **WTB perpetual-"Sale price" storefronts** — accept the maker's stable storefront figure as
+   msrp-confirmed when no separate MSRP exists / keep strict / park. ~10 rows.
+4. **The no-USD-MSRP token family** — current products whose makers publish no USD price. Ratify a
+   token (e.g. `no-us-msrp`), or those rows stay permanently blank? Structural floor under road/gravel.
+5. **Canyon live-price drift** — verified rows whose canyon.com prices/spec-levels changed. Re-verify
+   as corrections, or adopt a "price-at-verification" convention? (model-YEAR refresh already = new row.)
+6. **Fox 38 Performance Elite 29/180** — no such SKU on ridefox.com anymore. Discontinued writeup or retire?
+7. **★ NEW — MTB vocab gaps (mtb-breadth-2):** no `magnetic` pedal style for Magped-class magnet+cleat
+   pedals (flat/clip/hybrid all fit poorly); and tire casing/compound names (Tioga Magnum120/FlexGuard,
+   WolfPack ToGuard, Mitas Supra/Textra/EDC, American Classic Stage-XC-Armor/Rubberforce-G) not in vocab.
+   Those rows sit unverified. Add the vocab (with tests), or leave them uncategorized on those axes?
+8. **Gearbox-frame schema gap** — checkBuild doesn't model gearbox/Pinion drivetrains (Zerode,
+   Guerrilla Gravity, boutique frames flagged). Widen the schema, or leave a documented gap?
+9. **Gravel steerer-vocab widening** — a 1-¼-to-1-½ tapered class (FSA IS2 on the Cervélo Aspéro-5)
+   is wider than the generic `tapered` gravel token. Add a distinct token (with tests), or defer?
+10. **Kit `id-brand-token` warnings — now 26** (grew this seat with fuse→fuseprotection, zeal→zealoptics).
+    Append-only ids can't be renamed; validate is "0 problems, 26 warnings" (cosmetic). Accept
+    permanently, or address (retire+re-add ids / relax the lint)?
+11. **Smalls tail (carry):** WTB sale rows · 6 confirmed-dup files in `.claude/legacy-strays/` (guard
+    blocks the coordinator — needs Douglas's manual delete) · a stray `kit-jacket` port-8417 entry
+    left in the main checkout's `.claude/launch.json` (dev-only, tidy) · Bright Data balance top-up ·
+    Alma H30 headset ambiguity · Whisp tier naming · "Sort: Random" wording · fr-trek-slash orphan
+    dedupe · recall-badge scoping · fitter paywalls.
+
+## ★ RULED / DONE at SEAT 21 (2026-07-23 — do NOT re-ask):
+- **Jacket kit category = DONE** (added, live `d025a26a`; resolves the kit-breadth-11 schema-gap flag).
+- **LTWOO/Sensah MTB budget drivetrain = SKIP** (not the target rider; would need a new `system` vocab).
+- **BMX race = IN** (vocab + threadless-headset + bmx-axle rule landed `c7a267d0`; race + budget-freestyle
+  DATA now addable — see ready lanes).
+- **Brand-casing normalization = DONE** (compat.js 7 groups: FOX→Fox, CUBE→Cube, HUNT→Hunt, TruVativ→
+  Truvativ, fizik→Fizik, ACROS→Acros, Alexrims→Alex Rims; + road/gravel Enve→ENVE, HUNT→Hunt — all 3
+  files now consistent on ENVE + Hunt).
+- **EMTB = FIRST-CLASS** ("stop minimizing e-exposure, i want the EMTB site just as complete as the
+  others"); the equality sweep corrected CLAUDE.md rule 1+3, NEXT-STEPS, and the mtb-flagship-priority /
+  emtb-buildout memories. Only structural containment remains special.
+- **Archive auto-approve hook = UNFIXABLE** — archives still prompt after an app restart; it's a
+  hard-coded tool dialog no permission hook can suppress. Permanent one-click residual; stop testing.
+- **NO-DOWNLOADS enforcement = LIVE** (guard-worktree-path.js Routes 4/5, 25-case self-test).
+
+# ============================================================================================
+# ↓↓ SEAT-20 section below — kept as history ↓↓
+# ============================================================================================
+
+# (original header) updated by seat 20 at WRAP (2026-07-23 evening): ALL chips merged,
 # nothing in flight; ready lanes + 11-item open-question queue consolidated for seat 21
 
 Douglas dispatches these himself so he controls model + effort (CLAUDE.md Hard rule #4).

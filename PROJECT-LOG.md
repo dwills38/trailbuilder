@@ -5324,3 +5324,40 @@ Polygon/Salsa/Kona/Surly/Niner/State/Fezzari/Winspace/YOELEO/Ghost/Simplon/BH/Ma
 Litespeed/...). Recalibrated road ~= 350-750 rows. Broader lesson: the whole "left to add"
 table is likely low — the mainstream brand SET itself isn't complete. Offered a per-category
 brand-gap audit to replace estimates with a real absent-brand map (awaiting his go).
+
+## 2026-07-23 (night) — SEAT 21 WRAP: brand-gap audit, two breadth rounds, NO-DOWNLOADS hook, casing, EMTB first-class, BMX race, jacket
+
+- **Brand-gap audit** (background Opus, read-only, `worker-reports/brand-gap-audit.md`): real
+  present/absent/thin map for all 7 catalogs. Headline: MTB is brand-SATURATED (depth+verification,
+  not new brands); Kit + Gravel are the clean breadth wins; grand total ~510-805 readily-addable +
+  ~210-370 hard/held new-brand rows; flagged ~14 MTB brand-casing dups.
+- **Two even-weight breadth rounds harvested** (all 7 catalogs, ~40 worker chips total across the
+  seat, every one content-checked + node-audited + gated + separately pushed + archived): MTB niche
+  (DTC wheels/headsets/tires/brakes/pedals), road framesets, gravel frame depth, kit apparel/shoes/
+  helmets/eyewear/pads, emtb depth (FIRST-CLASS), bmx freestyle, + the six seat-opening verify chips.
+  Every verified row's TOKEN audited (regional-conversion vs msrp-confirmed on converted prices).
+- **NO-DOWNLOADS hook** (Douglas: a chip tried to browser-download `intro_tecnica_jena_eng.pdf`):
+  extended `guard-worktree-path.js` — Route 4 denies browser navigation to a file URL, Route 5 denies
+  file-saving shell cmds (wget/curl -o/iwr -OutFile) at a COMMAND POSITION (my own commit msg with
+  "curl -o" false-blocked first → fixed to command-position match); curl-to-stdout stays allowed.
+  25-case self-test; widened the PreToolUse matcher to browser navigate.
+- **Brand-casing normalization** (Douglas GO): compat.js 7 groups (FOX→Fox, CUBE→Cube, HUNT→Hunt,
+  TruVativ→Truvativ, fizik→Fizik, ACROS→Acros, Alexrims→Alex Rims) + road/gravel Enve→ENVE, HUNT→Hunt
+  — all three files consistent; brand-field only, ids/desc untouched, verdict-harness byte-identical.
+- **EMTB made FIRST-CLASS** (Douglas: "stop minimizing e-exposure, EMTB just as complete as the
+  others") + an EQUALITY SWEEP: corrected CLAUDE.md rules 1+3, NEXT-STEPS, and the
+  mtb-flagship-priority / emtb-buildout memories — the "MTB-first / non-MTB design-only / needs-an-ask"
+  framing retired; dated historical records left honest. Only structural containment remains special.
+- **BMX race vocab** (Douglas ruled "BMX race is in"): ENGINE chip — additive vocab (axle 15/20mm,
+  bbShell bb86/bb30/pf30, headTube threadless-1-1/8 for budget freestyle too) + new `bmx-axle` rule
+  (hub vs dropout, fatter→error / thinner→adapter-warning) + pegAxle tightening + race golden.
+  Freestyle byte-identical. Coordinator ran an INDEPENDENT checkBmxBuild probe before merge.
+- **Kit `jacket` category** (Douglas ruled add it): schema.js SCHEMA.jacket + jkt prefix, types.js
+  JacketPart, data-driven KitBuilder rail auto-renders, +3 tests, +6 real jacket rows. Live, browser-verified.
+- **Ghost-report lessons (real this seat):** a stale `gravel-depth-1` report (old drivetrain wave)
+  shadowed the real frame work; an `emtb-breadth-2` 0-ahead ghost resurfaced — the BRANCH diff is
+  ground truth, not the report file. Worker worktrees carry random suffixes (`-q7k2`).
+- **CLOSING STATE:** main `d025a26a` — MTB 5,258 / kit 918 / BMX 420 / road 431 / gravel 397 /
+  EMTB 191 / striders 48 · 1,195 tests / 43 files · tsc clean · verdict harness clean · 7 validators
+  0 problems · ~140 commits, zero broken deploys. Fleet clear. SEAT 22 block + refreshed
+  open-question queue + the FIRST-TASK efficiency-review chip are on main for the next coordinator.

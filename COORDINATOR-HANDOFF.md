@@ -26,6 +26,75 @@ seat does the housekeeping automatically — Douglas never renames/unpins/archiv
 
 ---
 
+## ★★★ SEAT 22 — START HERE (succession from seat 21, 2026-07-23 night) ★★★
+
+Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today>-s22 -b
+coord/<today>-s22 origin/main` (Hard rule #5 — containment hook LIVE + HARDENED; it now ALSO blocks
+file downloads, see below). Run the gates yourself, never trust doc counts. **State at handoff:
+main `d025a26a` green — MTB 5,258 · kit 918 (+26 advisory id-brand-token warnings, cosmetic) · BMX
+420 · road 431 · gravel 397 · EMTB 191 · striders 48 · 1,195 tests / 43 files · tsc clean · verdict
+harness clean · 7 validators at 0 problems. ~140 commits this seat, zero broken deploys.** A durable
+junction links the main checkout's `node_modules` into the coord worktree so npm test/tsc run there
+— recreate if missing: `cmd //c "mklink /J node_modules \"D:\MTB Bike Builder\node_modules\""`.
+
+**★ FIRST TASK (Douglas's explicit order, 2026-07-23) — do this BEFORE any other work:** OFFER
+Douglas a ready chip that **reviews the efficiency of the whole project and offers improvement
+suggestions for his review** (offer it as a paste-block, don't auto-run — he dispatches). It is
+PRE-DRAFTED in `HANDOFF-CHIPS.md` ("PROJECT-EFFICIENCY-REVIEW chip"). Hand it over as your opening move.
+
+**★ SEATING SEQUENCE (in order):**
+1. **Succession handshake** — find the seat 21 session via `list_sessions` **BY TITLE**
+   ("Main Coordinator (Seat 21)" — never a hardcoded id). send_message it to set_session_title you
+   to "Main Coordinator (Seat 22)"; archive it on confirm. If it never wakes, one line to Douglas.
+2. **RE-ARM BOTH session-lifetime watchers IMMEDIATELY** (they die with the seat): (a) the hourly
+   fleet-sweep cron — v2 prompt WITH the leak sweep (D:\ root vs known-legit inventory + Downloads +
+   home dir) AND the Untitled-session check; (b) the persistent worker-reports Monitor — **USE THE
+   MTIME-AWARE VERSION** (per-file mtimes, emit on NEW AND CHANGED). `CronList` after, delete dupes.
+   The FIVE durable scheduled tasks survive on their own (daily bug-triage, monthly drift 6th,
+   monthly bias 12th, quarterly recall, weekly repo-audit Sun) — do NOT recreate.
+3. Read **HANDOFF-CHIPS.md** (open-question queue + ready lanes + the efficiency chip) + memory
+   MEMORY.md + CLAUDE.md hard rules 1-5.
+
+**★ IN FLIGHT AT HANDOFF: NOTHING.** Every seat-21 chip merged, workers archived. Only "Affiliate
+Setup" (Partnerships lane, never touch) + the daily bug-triage vessel remain.
+
+**★ RULES EARNED THIS SEAT (inherit them — details in PROJECT-LOG 2026-07-23):**
+· **GHOST REPORTS SHADOW REAL WORK — the report FILE is NOT ground truth; the BRANCH is.** A stale
+  `gravel-depth-1` ghost report (old drivetrain wave, 268-parts/988-tests numbers) shadowed the real
+  frame work under the same reused slug; an `emtb-breadth-2` 0-ahead ghost resurfaced. ALWAYS
+  content-check the branch diff (ahead-count + commit DATE + the ACTUAL rows via a node new-ids diff),
+  never merge on a report's say-so.
+· **WORKER WORKTREE NAMES CARRY RANDOM SUFFIXES** (`gravel-depth-1-q7k2`). `git worktree list | grep
+  <slug>` to find the real path before removing; don't assume path==slug. And a divergent local
+  branch ref can lie — verify content is in origin/main (grep a new id) before `git branch -D`.
+· **PROBE ENGINE-ADJACENT MERGES YOURSELF.** I ran an independent `checkBmxBuild` probe on the new
+  `bmx-axle` rule (fatter→error / thinner→adapter-warning / freestyle silent) and root-caused an
+  MTB verdict-harness shift (365→363 clean) to CORRECT verdicts (a new 160mm rotor on native-min
+  frames), not a regression. "All gates green" in a worker report is a starting point, not the finish.
+· **REPORT PROSE MISCOUNTS ARE ROUTINE** (kit "35"→48, emtb "13"→15, mtb "20"→28, bmx "17"→18). The
+  node verified-id diff (new-ids-not-on-main → count / verified / dup-ids) is ground truth.
+· **TOKEN LAW extends to CONVERSIONS:** a EUR/GBP-converted price on a verified row = `regional-
+  conversion` (rate+date disclosed), NEVER `msrp-confirmed`. Audited every verified row's token.
+· **NO-DOWNLOADS HOOK IS LIVE** (`tools/hooks/guard-worktree-path.js` Routes 4/5): browser navigation
+  to a file URL (.pdf/.zip/…) + file-saving shell cmds (wget / curl -o/-O / iwr -OutFile) are DENIED;
+  `curl`-to-stdout stays allowed. Match download tools at a COMMAND POSITION only (my own commit msg
+  containing "curl -o" got false-blocked first). Self-test: `node tools/hooks/test-guard.js` (25 cases).
+· **EMTB IS FIRST-CLASS** (Douglas 2026-07-23: "stop minimizing e-exposure") — no minimize-exposure,
+  no low-priority; treated exactly like every catalog incl. communication. The old "MTB-first /
+  non-MTB design-only" framing was swept out of CLAUDE.md rule 3 + the `mtb-flagship-priority` memory.
+  Only structural containment (data/emtb.js only, MTB stays e-free) remains special.
+· **PERMISSIONS/HOOK STATUS:** the archive-auto-approve PreToolUse hook does NOT suppress the archive
+  dialog even after an app restart — it's a hard-coded tool confirmation (its spec says "ALWAYS
+  prompts"). Permanent one-click-per-archive residual; stop re-testing (open-Q resolved).
+
+Standing workflow (unchanged): four gates (+ verdict harness on any `compat.js`/engine-read change)
++ YOUR OWN probes on engine merges; adversarial review; UI auto-ships on green gates; only taxonomy/
+money/visual-taste/account/business decisions to Douglas, kept SHORT; ANSWER-FIRST; paste-blocks with
+[Model, effort] headers; coordinate-only lean seat; at YOUR wrap-up consolidate all outstanding
+Douglas questions into HANDOFF-CHIPS.md and pass this instruction forward (succession rule 5).
+
+---
+
 ## ★★★ SEAT 21 — START HERE (succession from seat 20, 2026-07-23 evening) ★★★
 
 Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today>-s21 -b
