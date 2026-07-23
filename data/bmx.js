@@ -742,6 +742,23 @@ var BMX_PARTS = [
     note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (see bmx-fk-chase-rsp note). Left unchanged, not verified.'
   },
 
+  // ===== SPROCKETS — bmx-breadth-7 (new brands: Bone Deth, Tree Bicycle Co) ====
+  {
+    id: 'bmx-sp-bonedeth-webslinger-28', cat: 'sprocket', brand: 'Bone Deth', model: 'Webslinger Guard Sprocket (28T)',
+    teeth: 28, mount: 'spline', pitch: '1/8', weight: 232, price: 104.95,
+    note: 'bmx-breadth-7: second Bone Deth row (frame covered above). Cross-confirmed across empirebmx.com/products/bone-deth-webslinger-guard-sprocket ($104.95, "7075-T6 AL, compatible with wide chains, 24mm bore, includes 19mm and 22mm adapters"), circuitbmx.com ("14mm Thick 7075-6 Alloy... Includes 19mm & 22mm adaptors... 24mm Bore... Sizes: 25T, 28T, 30T"), and soulcyclebmx (per-variant weight table: 28T = 0.232kg = 232g) — three independent US/EU retailer listings, no bonedeth.com manufacturer catalog available to fetch, so left UNVERIFIED per the credible-retailer-source policy. mount:spline models the native 24mm spline bore (19mm/22mm adapters are bundled accessories, not this row\'s own spec). pitch:1/8 matches "compatible with wide chains" (1/8in is the wide-chain class in this catalog\'s vocab).'
+  },
+  {
+    id: 'bmx-sp-tree-originalsplinedrive-25', cat: 'sprocket', brand: 'Tree Bicycle Co', model: 'Original Spline Drive Sprocket 19mm (25T)',
+    teeth: 25, mount: 'spline', pitch: '1/8', weight: 88, price: 54.99,
+    note: 'bmx-breadth-7: new brand (Tree Bicycle Co absent entirely before this batch). Tree discontinued its FRAME line some years back (bmxunion.com interview, "Insight: Tree Bicycle Co. Discontinuing Frames") but the parts side (hubs, sprockets, seatposts, cockpit) remains in active current production on treebicycleco.com, so this batch catalogs Tree as a parts-only brand (no frame row). Price and spec confirmed via treebicycleco.com/products/original-splinedrive-sprocket itself (page states "Regular price $54.99" in USD): "1/4\\" thick 7075 T6 CNC machined aluminum - Heat Treated drive splined insert for 19mm 48 spline cranks - 1/8\\" wide teeth", offered in 25T/28T/30T (this row models 25T). Row stays UNVERIFIED (no lastChecked/source fields set) because the specific page fetch used for the weight figure was a different, independently-listed SKU (samsbmx.com\'s "Tree Bicycle Co OG Sprocket - 19mm - Spline - 25T - Black", which states "Weight: 3.1 oz (25T)" = 88g for what appears to be the same product under Tree\'s older "OG" naming) rather than one single confirmed manufacturer-page fetch covering both price AND weight together.'
+  },
+  {
+    id: 'bmx-sp-tree-seatpost-200', cat: 'seatpost', brand: 'Tree Bicycle Co', model: 'Tree Seat Post',
+    diameter: 25.4, system: 'pivotal', weight: 134, price: 49.99,
+    note: 'bmx-breadth-7: second Tree Bicycle Co row. treebicycleco.com/products/tree-seat-post states: "3D Forged From 6061 Aluminum - Utilizes Patented Pivotal Technology - Longer 200mm Post", "Standard BMX 25.4mm dia x 200mm long", "WEIGHT 4.8oz/134g" — diameter/system/weight all confirmed on Tree\'s own page. Price ($49.99) is NOT from that fetch (the page rendered a non-US-locale €25,95 figure for this crawl, not a reliable USD MSRP); $49.99 is instead the USD figure independently listed by US retailer samsbmx.com ("Tree Bicycle Co Seat Post – Pivotal – 200mm – Black... $49.99"), carrying the identical spec (25.4mm/200mm/134g/Pivotal/6061 Aluminum) confirming it\'s the same SKU. Row left UNVERIFIED given the split-source price.'
+  },
+
   // ===== CHAIN ==========================================================
   {
     id: 'bmx-ch-kmc-z410', cat: 'chain', brand: 'KMC', model: 'Z410 BMX Chain',
