@@ -2742,6 +2742,23 @@ var BMX_PARTS = [
     family: 'se-v-ridge', spindle: '19mm', pieces: '3-piece', ringMount: 'spline',
     length: 175, price: 99.99,
     note: 'Second SE Bikes row (deepens the new brand added this batch) - the sold-separately replacement crank for the OM Flyer/Big Flyer/So Cal Flyer family above. sebikes.bike itself does not list this part as a standalone accessory SKU, so sourced from a named retailer instead (Firehouse Bicycles product page, corroborated independently by Cambria Bike, Stacked BMX Shop and J&R Bicycles all describing the identical spec) -> unverified per THE BAR (retailer-sourced, sourceType:retailer is validator-rejected on verified rows regardless). Every corroborating listing states verbatim "3 piece" tubular 4130 Cr-Mo construction with a cold-forged "19mm 8-spline spindle" (spindle:19mm, pieces:3-piece, ringMount:spline all exact and cross-confirmed across 4 independent retailers), sold in 175mm/180mm arm lengths (length:175, the shorter option) at a consistently ~$89.99-99.99 price band; $99.99 used (the Cambria Bike / J&R Bicycles current-listing figure, the two most recent-dated pages). "Bottom bracket not included" on every listing, matching this catalogs convention of leaving bb as its own optional slot.'
+  },
+  {
+    id: 'bmx-fr-khe-silencerlt', cat: 'frame', brand: 'KHE', model: 'Silencer LT Frame',
+    family: 'khe-silencer', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.6, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: true, weight: 2170, price: 149.95,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://en.khebikes.com/BMX-frame-KHE-SILENCER-LT-CrMo/2000-019-02',
+    note: 'New brand for this catalog (KHE/KHEbikes absent entirely before this batch, bmx-breadth-5). FETCHED en.khebikes.com own frame-only product page directly - a genuine standalone SKU (Product number 2000-019-02), not a complete-bike-only spec. States verbatim "Bottom bracket shell: MID BB" (bbShell:mid exact), "Weight: only 2,170g" and top tube "524mm (20.6\\")" (topTube:20.6 exact), at the pages own $149.95 price. The frame-only page itself does not state headTube/rearBrakeMount/rearAxle, but its own description says verbatim "This is the same frame used on our complete KHE Silencer LT bike" - cross-checked against khebikes own complete-bike page for that exact model, whose frame spec line states "14 mm dropouts... integrated 1 1/8\\"" (headTube:integrated-1-1/8, rearAxle:14mm both exact) and which ships with a "KHE RADIUS Aluminum U-Brake" pre-installed rear brake with "brake mounts and cable guides" that "can be removed" for brakeless riding (rearBrakeMount:u-brake, mounts confirmed present not absent) - same maker-domain cross-reference, not a sibling guess, so promoted to verified:true.'
+  },
+  {
+    id: 'bmx-cr-khe-mvpv2', cat: 'cranks', brand: 'KHE', model: 'MVP V2 48T Crankset',
+    family: 'khe-mvp', spindle: '19mm', pieces: '3-piece', ringMount: 'spline',
+    length: 175, weight: 812, price: 69.95,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://en.khebikes.com/BMX-crank-set-KHE-MVP-V2-48T-175mm/M359195',
+    note: 'Second KHE row (deepens the new brand added this batch). FETCHED en.khebikes.com own product page directly. States verbatim "Material: 4130 CrMo", "Axle diameter: 0.75\\" / 19mm" (spindle:19mm exact), "Length: 6.89\\" / 175mm" (length:175 exact), "Weight: 1.79 lbs / 812g" and the pages own $69.95 price; "48 spline" and "RHD/LHD compatible" chainwheel holder confirm ringMount:spline. pieces:3-piece is NOT stated on this specific khebikes.com page (it is corroborated by an independent retailer, CrucialBMXShop, describing the identical "MVP V2 48 Spline" product as "3-piece") - carried as the definitional read for a splined 19mm spindle sold with separate arms (same reasoning already established this batch on bmx-cr-eastern-throttle/bmx-cr-bsd-substancexlv2), not a page-literal claim, but every OTHER modeled field is maker-page-exact so the row is promoted to verified:true on that strength (mirroring the identical judgment call already made on bmx-cr-bsd-substancexlv2).'
   }
 ];
 
