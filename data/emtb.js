@@ -1809,6 +1809,18 @@ var EMTB_PARTS = [
   },
 
   {
+    id: 'em-forestal-ecygnus-diode', cat: 'emtb', brand: 'Forestal', model: 'e-Cygnus Diode',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line SX', motorTorque: 55, motorPowerPeak: 250,
+    batteryWh: 400, assist: 'lightweight',
+    wheelConfig: '29', suspension: 'full', travelFront: 120, travelRear: 120,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 AXS T-Type 12-speed (34T crank, 10-52T cassette)', brakes: 'Formula Cura 2',
+    disciplines: ['e-xc'], price: 10669.09,
+    note: 'Forestal\'s lightweight down-country/XC-trail e-MTB — a much lighter-power Bosch SX (55Nm/250W, 400Wh) system in a distinctly shorter-travel (120mm) tier, vs. the already-cataloged full-power AVINOX enduro flagship (e-Siryon v2, 170/174mm) and Cyon Neon. RockShox SID Ultimate fork / RockShox SIDLuxe shock.',
+    desc: 'Verified vs the fetched maker product/compare pages (forestal.com/en/products/cygnus, forestal.com/en/compare/e-cygnus): "Bosch SX Performance Line | Wide | 250W | 55Nm | IP67 | 1.95Kg" motor, "Bosch Compact PowerTube 400wh" battery (with a "Bosch PowerMore 250wh" range-extender option), "Forestal Alpha Box Carbon Bosch SX 29\\" e-DC120 | Monocoque construction | 120mm Travel" frame, "RockShox Sid Ultimate 29\\" 120mm" fork, "SRAM X0 AXS T-Type 10-52T | 12 Speed | 34T" drivetrain, "Formula Cura 2 Glossy Black | 180mm" brakes, "€ 9,350" price (this Diode build; a lower Halo build at FOX 34/GX Eagle/Formula Cura 4 for EUR 7,950 was left uncataloged, mirroring this file\'s one-flagship-row-per-tier convention). No complete-bike weight published on either page (only motor 1.95kg / battery ~2.0kg component weights given) — cataloged weightless rather than guessed. Battery removability not explicitly stated — left unset. PRICE: EUR 9,350 maker RRP converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $10,669.09 — Forestal ships direct from Spain/EU only, no USD MSRP exists. catalog/emtb-depth-8 wave (Forestal deepened from 2 rows to 3).',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://forestal.com/en/compare/e-cygnus'
+  },
+
+  {
     id: 'em-husqvarna-hard-cross-hc5', cat: 'emtb', brand: 'Husqvarna', model: 'Hard Cross HC5',
     motorBrand: 'shimano', motorModel: 'Shimano EP8 (DU-EP801)', motorTorque: 85,
     batteryWh: 720, assist: 'full-power',
@@ -1853,6 +1865,18 @@ var EMTB_PARTS = [
   },
 
   {
+    id: 'em-corratec-epower-mtc100-wave-cx8', cat: 'emtb', brand: 'Corratec', model: 'E-Power MTC 100 Wave CX8',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Smart System, BDU38)', motorTorque: 85,
+    batteryWh: 800, assist: 'full-power',
+    wheelConfig: '275', suspension: 'full', travelFront: 100, travelRear: 100,
+    drivetrain: 'Shimano SL-U6000-11R CUES 11-speed (RD-U6000 CUES GS, Miranda DM CF3D 38T crank)', brakes: 'Tektro HD M535 4-piston (203mm front/180mm rear)',
+    disciplines: ['e-trail'], weight: 29000, price: 6388.90,
+    note: 'A dramatically shorter-travel (100mm), 27.5in-wheel, step-through "Wave" comfort/all-road e-MTB from Corratec\'s E-SUV line — a different tier entirely from the already-cataloged 160mm mullet-wheel RS 160 Factory enduro flagship. Frame material is not stated on the maker page (left uncataloged rather than guessed).',
+    desc: 'Verified vs the fetched maker product page (corratec.com/en/Bikes/E-Mountainbike-E-SUV/E-SUV/E-Power-MTC-100-Wave-CX8.html — "Bosch Performance Line CX Smart System BDU38" motor, "85 Nm", "Bosch PowerTube 800 Horizontal" battery, RockShox Recon Silver RL 100mm fork / RockShox Deluxe Select+ 170x35mm shock, "Shimano SL-U6000-11R CUES 11-speed" w/ RD-U6000 CUES GS derailleur and Miranda DM CF3D 38T crank, "Tektro HD M535 4/4 Piston" 203mm front/180mm rear brakes, 29kg complete-bike weight, EUR 5,599.00 price). PRICE: EUR 5,599.00 maker RRP converted at the 2026-07-23 open.er-api.com rate (1.141079) -> $6,388.90 — Corratec has no US retail presence, no USD MSRP exists. Frame material was not stated on the fetched page (only "Wave"/comfort-geometry description) — left uncataloged per this catalog\'s no-guessing convention. catalog/emtb-depth-8 wave (Corratec deepened from 1 row to 2).',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.corratec.com/en/Bikes/E-Mountainbike-E-SUV/E-SUV/E-Power-MTC-100-Wave-CX8.html'
+  },
+
+  {
     id: 'em-conway-xyron-lt-90', cat: 'emtb', brand: 'Conway', model: 'Xyron LT 9.0',
     motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen5, Smart System)', motorTorque: 85,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power',
@@ -1874,6 +1898,18 @@ var EMTB_PARTS = [
     note: 'Italian maker Fantic\'s carbon trail e-MTB — the "XTF Trail" family\'s carbon-frame model, distinct from the already-cataloged mullet-wheel "XMF" all-mountain platform. Full-carbon front triangle / carbon-reinforced aluminum rear, RockShox 35 Gold 150mm fork + RockShox Deluxe Select+ 205x60mm shock, Brose S Mag motor (2.8kg, vibration-free per the maker).',
     desc: 'Fetched directly from the maker\'s own product page verify/emtb-verify-1 (fanticbikes.com/en/products/xtf-1-5-carbon-lime, TECH SPECS table): "TELAIO Fantic Trail, 150mm travel, carbon front triangle, carbon-reinforced aluminum rear end", "AMMORTIZZATORE RockShox Deluxe Select+ 205x60mm", "FORCELLA RockShox 35 Gold 150mm", "BATTERIA Fantic 720Wh", "MOTORE Brose S Mag 90Nm", "CORONA Sram 34T Eagle X-Sync 2", "COMANDO Sram NX Eagle Single Click", "CAMBIO Sram GX Eagle", "CATENA Sram SX Eagle 12s", "CASSETTA Sram SX Eagle 12s 11-50", price EUR 5,490.00. CORRECTED vs the prior editorial-sourced entry: battery 630Wh -> the real maker-stated 720Wh (630Wh does not appear anywhere on the maker\'s own page), drivetrain added (was uncataloged) as the real mixed-tier SRAM Eagle build. Tech-specs table states no complete-bike weight (a common Fantic-page omission, matching the companion XMF row) — left uncataloged rather than guessed. PRICE: EUR 5,490.00 maker-published price converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $6,264.52; Fantic has no US retail presence for this SKU — disclosed sample, not a "verified" price (no US MSRP exists to confirm against).',
     lastChecked: '2026-07-23', source: 'https://fanticbikes.com/en/products/xtf-1-5-carbon-lime'
+  },
+
+  {
+    id: 'em-fantic-sierra-factory', cat: 'emtb', brand: 'Fantic', model: 'Sierra Factory',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Gen 5', motorTorque: 120,
+    batteryWh: 800, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 155,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX AXS T-Type 12-speed (34T crank, 10-52T cassette)', brakes: 'SRAM Maven Silver (180/200mm SRAM Cleansweep rotors)',
+    disciplines: ['e-enduro'], price: 10258.30,
+    note: 'Fantic\'s all-new MY26 carbon platform — a heavier-duty 160mm-front all-mountain/enduro tier with the full-power 800Wh Bosch CX Gen5 (120Nm), distinct from the already-cataloged lighter-tier XMF/XTF carbon trail models (Brose/lower-capacity batteries). RockShox Lyrik Ultimate fork / RockShox Deluxe Select+ 185x55mm shock.',
+    desc: 'Fetched vs the maker product page (fanticbikes.com/en/products/trail-sierra-factory-white — direct WebFetch of fanticbikes.com repeatedly returned HTTP 429, so this was read via a cached web-fetch proxy of the same maker URL): "Bosch Performance Line CX Gen 5... 120Nm" motor, "Bosch PowerTube 800Wh" battery, "RockShox Lyrik Ultimate 160mm" fork / "RockShox Deluxe Select+ 185x55mm" shock, "premium carbon" frame, "Sram GX AXS 12V T-Type" derailleur w/ 34T crank and 10-52T cassette, "Sram Maven Silver" brakes w/ "Sram CLEANSWEEP 180/200mm" rotors, "€8.990,00" price. Rear travel (155mm) and motor peak power are NOT stated on the fetched page itself (only shock stroke was given there) — 155mm is a secondary press figure (BIKE Magazine/ebike-mtb.com covering this exact SKU), not maker-page-confirmed, so this row stays UNVERIFIED despite the strong maker-page coverage on every other field — a missing single-source confirmation on a required field (rear travel) is treated as a gap per this catalog\'s no-fabrication bar, not silently filled from the maker page\'s other numbers. PRICE: EUR 8,990.00 maker-listed price converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $10,258.30 — disclosed sample, not a verified claim (no priceBasis token without verified:true). No complete-bike weight found on the fetched page. catalog/emtb-depth-8 wave (Fantic deepened from 2 rows to 3).',
+    lastChecked: '2026-07-23', source: 'https://fanticbikes.com/en/products/trail-sierra-factory-white'
   },
 
   {
@@ -1901,6 +1937,18 @@ var EMTB_PARTS = [
   },
 
   {
+    id: 'em-rotwild-rexc-pro', cat: 'emtb', brand: 'Rotwild', model: 'R.EXC Pro',
+    motorBrand: 'avinox', motorModel: 'AVINOX M2.S', motorTorque: 150, motorPowerPeak: 1300,
+    batteryWh: 864, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission AXS 12-speed (e*thirteen Plus 34T crank, GX Eagle XS-1270 10-52T cassette)', brakes: 'SRAM Maven Bronze (200mm rotors)',
+    disciplines: ['e-enduro'], weight: 23500, price: 12540.46,
+    note: 'Rotwild\'s mid-pivot enduro-race flagship — a distinctly heavier-hitting tier than the already-cataloged R.X375 PRO (lightweight-class, Shimano EP8/360Wh) and R.EX 900 CORE (DJI Avinox M1, 1000W), running Rotwild\'s own higher-output AVINOX M2.S drive unit (150Nm/1300W) with an oversized 864Wh battery. Rear travel adjustable 145/155/160mm via modular dropouts/rocker — cataloged at the base/default 160mm figure.',
+    desc: 'Verified vs the fetched maker product page (rotwild.com/en/r-exc — "AVINOX M2.S... max. 150 Nm / 1300 W" motor, "IPU900 Carbon - Push+... 864 Wh / 36 V... QR-Button" removable battery, "ROCK SHOX ZEB Select+... 170 mm" fork, "ROCK SHOX Vivid Select+... 205 x 60 mm" shock, "Polydynamic Carbon" frame, "SRAM GX Eagle Transmission AXS, 12-speed" w/ e*thirteen Plus 34T crank and GX Eagle XS-1270 10-52T cassette (Pro build), "SRAM Maven Bronze" 200mm-rotor brakes, "23.5 kg" weight (Pro, size M), "10.990 EUR" price. Wheel config is mixed/customer-choice across most sizes with 29in-only offered in size XL — cataloged at the more common mullet default, matching this catalog\'s sibling R.EX 900 CORE row\'s convention. PRICE: EUR 10,990 maker RRP converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $12,540.46 — Rotwild has no US retail presence, no USD MSRP exists. catalog/emtb-depth-8 wave (Rotwild deepened from 2 rows to 3).',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.rotwild.com/en/r-exc'
+  },
+
+  {
     id: 'em-thok-tp4s', cat: 'emtb', brand: 'Thok', model: 'TP4-S',
     motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Gen.5', motorTorque: 120,
     batteryWh: 800, assist: 'full-power',
@@ -1910,6 +1958,18 @@ var EMTB_PARTS = [
     note: 'Mid-tier trim of Thok\'s TP4 all-mountain/enduro platform, alongside the already-cataloged base TP4 — same carbon frame/motor/battery, upgraded to FOX Performance suspension (36 fork) and DT Swiss H1900 wheels; the TP4-S/TP4-R share identical builds (only frame-manufacturing origin differs, Taiwan vs Italy).',
     desc: 'Unverified sample via the credible-source breadth policy — velomotion.net\'s dedicated "Thok TP4-S & TP4" launch coverage and ridewill.com/mtbdatabase.com\'s TP4-R spec listing (identical build to the S) confirm "FOX Performance suspension with a 36-inch fork combined with DT Swiss H1900 wheels, a Shimano SLX-XT drivetrain, and Magura MT5 four-piston brakes... The TP4-S costs EUR 6,990, while the TP4 costs EUR 5,990". Frame/motor/battery/travel carried forward from the already-cataloged base TP4 row (same platform, thokbikes.com page not re-fetched for this trim). No complete-bike weight found for the S trim specifically. PRICE: EUR 6,990 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,975.75 — disclosed estimate (velomotion editorial price, not a session-fetched thokbikes.com page), no regional-conversion token. catalog/emtb-breadth-3 wave (Thok deepened from 1 row to 2).',
     lastChecked: '2026-07-23', source: 'https://velomotion.net/2025/06/thok-tp4-two-new-models-with-a-fresh-look/'
+  },
+
+  {
+    id: 'em-thok-allone-volt', cat: 'emtb', brand: 'Thok', model: 'All.ONE (Volt Yellow)',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (BDU384Y)', motorTorque: 120, motorPowerPeak: 750,
+    batteryWh: 800, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'aluminum', drivetrain: 'Tektro Orion M6000 11-speed (FSA 165mm crank, 34T ring, 11-50T cassette)', brakes: 'Tektro HD-M5141 4-piston (203/203mm rotors)',
+    disciplines: ['e-trail'], price: 5123.45,
+    note: 'THOK\'s budget/aluminum all-mountain trim — a cheaper, heavier-duty entry point distinct from the already-cataloged carbon TP4/TP4-S enduro platform, with a simpler Tektro 11-speed mechanical drivetrain instead of Shimano 12-speed. Size S offered in 27.5in wheels (cataloged at the 29in default per other sizes).',
+    desc: 'Verified vs the fetched maker product page (thokbikes.com/en/negozio/ebike-en/all-one-volt-yellow/ — "250W – 120Nm" / "max torque of 120 Nm, with 750 W peak power" motor spec, "Internal BOSCH Powertube battery 800 Wh. Also compatible with a 600 Wh battery" (cataloged at the primary 800Wh spec), "geometry 29″/29″" (size S at 27.5in), SR Suntour XCR36 150mm fork / SR Suntour Raidon-R 210x55mm shock ("Alloy frame 6061 T4 T6 with 140mm rear travel"), "Tektro Orion M6000 11-speed" derailleur w/ FSA 165mm crank/34T ring and 11-50T cassette, "TEKTRO – HD-M5141 4pistons, with 203/203 rotors" brakes, "€4,490.00" price. No complete-bike weight published on this page. PRICE: EUR 4,490.00 maker RRP converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,123.45 — Thok has no US retail presence, no USD MSRP exists. catalog/emtb-depth-8 wave (Thok deepened from 2 rows to 3).',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.thokbikes.com/en/negozio/ebike-en/all-one-volt-yellow/'
   },
 
   {
