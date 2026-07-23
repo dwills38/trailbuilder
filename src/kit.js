@@ -4345,6 +4345,22 @@ var KIT_PARTS = [
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://magicshine.com/products/rouleur-standard-photochromic-cycling-sports-glasses',
     desc:'Fetched magicshine.com: photochromic version of the ROULEUR Classic, CAT.1-3 adaptive tint, semi-frame, OAR back coating. $59.99 confirmed on the maker\'s own product page. No weight published.' },
 
+  /* -- District Vision (kit-breadth-12, 2026-07-23): brand entirely ABSENT. Running-heritage
+     eyewear brand whose Linto Rider line was designed in collaboration with LA's Golden Saddle
+     Cyclery specifically for gravel/off-road riding (per Gear Patrol's coverage of the brand's
+     move into cycling) - genuinely cycling-relevant, not a running-only product forced into this
+     catalog. Fetched districtvision.com directly, USD pricing + maker-published weight. The two
+     colorway SKUs carry different lens tech and different prices (a real price-differentiating
+     split, not a plain recolor), so both get rows per the entry template's split policy. */
+  { id:'ewr-districtvision-linto-rider-sand', cat:'eyewear', brand:'District Vision', model:'Linto Rider Sand, D+ Blue Ice', price:335, weight:24,
+    type:'glasses', disciplines:['xc','trail'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://districtvision.com/products/linto-gravel-rider-sand-d-blue-ice',
+    desc:'Fetched districtvision.com: injected-nylon frame with titanium armature/hardware, D+ Blue Ice lens (23.56% light transmission, blocks all UVA/UVB), designed with Golden Saddle Cyclery for off-road riding. $335 / 24g both confirmed on the maker\'s own product page.' },
+  { id:'ewr-districtvision-linto-rider-tortoise', cat:'eyewear', brand:'District Vision', model:'Linto Rider Tortoise, D+ Earth Vision', price:375, weight:24,
+    type:'glasses', disciplines:['xc','trail'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://districtvision.com/products/linto-gravel-ride-tortoise-d-copper',
+    desc:'Fetched districtvision.com: same injected-nylon/titanium construction as the Sand colorway, polarized D+ Earth Vision therapeutic-grade lens (10.03% light transmission, blocks 100% UVA/UVB), hand-applied tortoise pattern (each frame unique). $375 / 24g both confirmed on the maker\'s own product page.' },
+
   /* -- Apparel breadth (catalog/kit-breadth-11, 2026-07-23): Velocio, Wild Rye, Ornot, dhb,
      Pactimo, Machines for Freedom, Stolen Goat were entirely ABSENT from jersey/shorts/pants;
      GOREWEAR deepened where still fetchable. NOTE (superseded 2026-07-23, Douglas's word):
