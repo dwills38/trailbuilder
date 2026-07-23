@@ -213,6 +213,20 @@ test('light-supple casing is a valid gravel tire value', function(){
   eq(S.validateGravelPart(p, new Date()).length, 0);
 });
 
+// vocab-tier1-4c (2026-07-23): ratified display-only Specialized tokens —
+// gripton (compound) + 2bliss-ready (casing) — positive.
+test('gripton compound is a valid gravel tire value', function(){
+  var tire = aTire();
+  var p = Object.assign({}, tire, { compound: 'gripton' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('2bliss-ready casing is a valid gravel tire value', function(){
+  var tire = aTire();
+  var p = Object.assign({}, tire, { casing: '2bliss-ready' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
 test('an out-of-vocab compound/casing value is still caught', function(){
   var tire = aTire();
   var badCompound = Object.assign({}, tire, { compound: 'ultragrip' });
