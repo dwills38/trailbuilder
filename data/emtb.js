@@ -2305,6 +2305,28 @@ var EMTB_PARTS = [
     note: 'Upper-mid e-Omnia FX-Type trim: same aluminum chassis as the GX 12SP, Fox 36 Rhythm fork / Fox Float DPS Performance shock (160/150), Shimano Deore XT drivetrain, larger 625Wh Bosch PowerTube.',
     desc: 'Motor/battery/travel confirmed via electricbikereview.com\'s XT-trim coverage; no weight published for this trim (left null rather than guessed). PRICE: derived as the GX 12SP\'s $5,500 base plus the reviewer-quoted "+$400 for the XT upgrade" (electricbikereview.com), not an independently confirmed price listing.',
     lastChecked: '2026-07-23', source: 'https://electricbikereview.com/bianchi/2023-e-omnia-fx-type-gx-12sp/'
+  },
+  {
+    id: 'em-giant-talon-e-plus', cat: 'emtb', brand: 'Giant', model: 'Talon E+',
+    motorBrand: 'giant', motorModel: 'Giant SyncDrive Sport 2', motorTorque: 75,
+    batteryWh: 430, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'hardtail', travelFront: 100, travelRear: 0,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Cues 9-speed', brakes: 'Shimano MT200 (180mm F/R)',
+    disciplines: ['e-trail'], weight: 21700, price: 2950, modelYear: 2026,
+    note: "Giant's entry-price hardtail e-MTB, single spec/no trim tiers; SyncDrive Sport 2 is Giant's lower-torque motor tier (75Nm) vs the SyncDrive Pro2/Pro3 full-suspension line.",
+    desc: 'Fetched from giant-bicycles.com\'s own Talon E+ product page — a single-configuration model (no trim ladder). Weight is the maker\'s stated size-M figure.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.giant-bicycles.com/us/bikes-talon-eplus'
+  },
+  {
+    id: 'em-giant-stance-e-plus-0', cat: 'emtb', brand: 'Giant', model: 'Stance E+ 0',
+    motorBrand: 'giant', motorModel: 'Giant SyncDrive Pro3X', motorTorque: 100,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'aluminum', weight: null, price: 5500, modelYear: 2027,
+    disciplines: ['e-trail'],
+    note: "Giant's FlexPoint-suspension full-power trail e-MTB, ALUXX SL aluminum, Fox 36 Rhythm Air fork; top trim of a two-model Stance E+ range (E+ 1 is the lower-price sibling on the same chassis/motor/battery).",
+    desc: 'Fetched from giant-bicycles.com\'s own Stance E+ product page. Drivetrain/brakes/weight not published for either trim on the fetched page (left unset rather than guessed).',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.giant-bicycles.com/us/bikes-stance-eplus'
   }
 
 ];
