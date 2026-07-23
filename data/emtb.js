@@ -1845,6 +1845,18 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://www.bosch-ebike.com/us/ebikes/corratec/e-power-rs-160-factory_1582'
   },
 
+  {
+    id: 'em-conway-xyron-lt-90', cat: 'emtb', brand: 'Conway', model: 'Xyron LT 9.0',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen5, Smart System)', motorTorque: 85,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'Shimano Deore XT 12-speed',
+    disciplines: ['e-enduro'], weight: 23700, price: 7416.95, modelYear: 2026,
+    note: 'German direct-to-consumer maker Conway\'s enduro-leaning "Xyron LT" line — distinct full-carbon platform from the already-cataloged aluminum eWME 4.9 — FOX 36 Rhythm Float fork / FOX Float X Performance shock, removable/lockable Bosch PowerTube 800.',
+    desc: 'Unverified sample via the credible-source breadth policy — bike-magazin.de\'s review of this exact SKU ("Xyron LT 9.0... Bosch Performance CX... 800 Wh... 29in wheels... 23.7 kilos... full carbon frame... Shimano Deore XT 12-speed... FOX Rhythm 38 Float / Float X Performance") supplies the drivetrain/weight/suspension detail; conway-bikes.com\'s own 2026 model listing confirms the SKU exists for the current model year but was not itself fetched this session (a 2025-dated listing for the same name showed EUR 6,499.95). PRICE: EUR 6,499.95 (the 2025 listing\'s maker price, carried forward as the best-available figure — the 2026 page\'s own price was not captured) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,416.95 — a retailer/maker LISTING price, not a session-fetched RRP, so no regional-conversion token. Rear travel (160mm) is the platform\'s named frame-travel figure (matching the "LT" line\'s general spec, mirroring how the eWME row already handles this same maker\'s frame-vs-fork travel distinction) — not independently reconfirmed for this specific SKU. catalog/emtb-breadth-3 wave (Conway deepened from 1 row to 2).',
+    lastChecked: '2026-07-23', source: 'https://www.bike-magazin.de/en/enduro-bikes/this-is-how-good-the-conway-xyron-lt-9-0-is-lightweight-bosch-enduro-bike-from-germany/'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
