@@ -1498,6 +1498,35 @@ var KIT_PARTS = [
     sleeve:'short',
     desc:'Price converted from GBP30 (Nukeproof\'s 2021 Ridewear Outland collection launch price, per Bikerumor\'s coverage of Nukeproof\'s own line) at ~1.27 USD/GBP; left unverified - no fetched nukeproof.com product page with a live USD price was reachable this session.' },
 
+  /* -- Castelli breadth (catalog/kit-breadth-8, 2026-07-23): road/gravel apparel was ENTIRELY
+     ABSENT catalog-wide - Castelli had zero prior rows. Fetched castelli-cycling.com's US
+     men's listing page (WebFetch); no per-SKU weight published on the listing. -- */
+  { id:'jsy-castelli-giro26-150years', cat:'jersey', brand:'Castelli', model:'Giro26 150 Years Jersey', family:'castelli-giro', price:130,
+    sleeve:'short',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.castelli-cycling.com/US/en/Men/c/Man',
+    desc:'Fetched castelli-cycling.com (WebFetch): confirmed $130. No weight published on the listing page.' },
+
+  /* -- Assos breadth (catalog/kit-breadth-8, 2026-07-23): brand had zero prior rows. Fetched
+     assos.com's US men's clothing pages (WebFetch); no per-SKU weight published. -- */
+  { id:'jsy-assos-equipe-r-s11', cat:'jersey', brand:'Assos', model:'EQUIPE R Jersey S11', family:'assos-equipe-r', price:190,
+    sleeve:'short',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.assos.com/us/man/clothing.html',
+    desc:'Fetched assos.com (WebFetch): confirmed $190. Race-tier jersey from Assos\' EQUIPE line. No weight published on the listing page.' },
+
+  /* -- Sportful breadth (catalog/kit-breadth-8, 2026-07-23): brand had zero prior rows. Fetched
+     sportful.com's US men's cycling pages (WebFetch); no per-SKU weight published. -- */
+  { id:'jsy-sportful-srk2', cat:'jersey', brand:'Sportful', model:'SRK 2 Jersey', family:'sportful-srk', price:110,
+    sleeve:'short',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.sportful.com/US/en/Mens/Cycling/c/Man-Cyc',
+    desc:'Fetched sportful.com (WebFetch): confirmed $110 (standing price, not a sale figure). No weight published on the listing page.' },
+
+  /* -- MAAP breadth (catalog/kit-breadth-8, 2026-07-23): brand had zero prior rows. Fetched
+     maap.cc's US collection pages (WebFetch); no per-SKU weight published. -- */
+  { id:'jsy-maap-training2', cat:'jersey', brand:'MAAP', model:'Training Jersey 2.0', family:'maap-training', price:160,
+    sleeve:'short',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://maap.cc/us/collections/cycling-jerseys',
+    desc:'Fetched maap.cc (WebFetch): confirmed $160, MAAP\'s entry-tier training jersey (the Pro Air / Spectrum race jerseys run $205-$295). No weight published on the listing page.' },
+
   /* -- Shorts (shorts + pants are SEPARATE cats; grind batch 2026-07-14, sht-shorts-grind) -- */
   { id:'sht-fox-flexair', cat:'shorts', brand:'Fox', model:'Flexair Short', price:129.95, weight:250,
     liner:false, sizes:['28','30','32','34','36','38'],
@@ -1862,6 +1891,32 @@ var KIT_PARTS = [
   { id:'sht-dharco-trail-mens', cat:'shorts', brand:'DHaRCO', model:"Men's Trail Shorts", price:107,
     liner:false, disciplines:['trail'], sizes:['S','M','L','XL','2XL','3XL'],
     desc:'Lighter, more casual cut than the already-cataloged Gravity Shorts. Price from us.dharco.com\'s own Men\'s MTB collection listing (not an individually fetched product page this session) - left unverified.' },
+
+  /* -- Castelli breadth continued (catalog/kit-breadth-8, 2026-07-23): a real "bib short" SKU
+     entered under the shared `shorts` category (this catalog doesn't split out a separate
+     bib-short cat), liner:true since a bib short always carries its own integrated chamois. -- */
+  { id:'sht-castelli-espresso2-bib', cat:'shorts', brand:'Castelli', model:'Espresso 2 Bibshort', family:'castelli-espresso', price:200,
+    liner:true,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.castelli-cycling.com/US/en/Men/c/Man',
+    desc:'Fetched castelli-cycling.com (WebFetch): confirmed $200. No weight published on the listing page.' },
+
+  /* -- Assos breadth continued (catalog/kit-breadth-8, 2026-07-23) -- */
+  { id:'sht-assos-mille-gt-s11', cat:'shorts', brand:'Assos', model:'MILLE GT Bib Shorts S11', family:'assos-mille-gt', price:210,
+    liner:true,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.assos.com/us/man/clothing/bib-shorts.html',
+    desc:'Fetched assos.com (WebFetch): confirmed $210 (Assos\' MILLE endurance-tier bib, base colorway; the racier EQUIPE R tier runs $230-$410). No weight published on the listing page.' },
+
+  /* -- Sportful breadth continued (catalog/kit-breadth-8, 2026-07-23) -- */
+  { id:'sht-sportful-ltd2-bib', cat:'shorts', brand:'Sportful', model:'LTD 2 Bibshort', family:'sportful-ltd', price:190,
+    liner:true,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.sportful.com/US/en/Mens/Cycling/Bibshort-and-Overshorts/c/Man-Cyc-Bot-Bbs',
+    desc:'Fetched sportful.com (WebFetch): confirmed $190 (standing price, not the sale figure some lower-tier siblings show). No weight published on the listing page.' },
+
+  /* -- MAAP breadth continued (catalog/kit-breadth-8, 2026-07-23) -- */
+  { id:'sht-maap-training3-bib', cat:'shorts', brand:'MAAP', model:'Training Bib 3.0', family:'maap-training-bib', price:250,
+    liner:true,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://maap.cc/us/collections/cycling-bib-shorts',
+    desc:'Fetched maap.cc (WebFetch): confirmed $250, MAAP\'s entry-tier training bib (the Pro/Team Bib Evo tiers run $295-$355). No weight published on the listing page.' },
 
   /* -- Pants (MTB pants only; shorts are a separate cat above) -- */
   { id:'pnt-fox-defend', cat:'pants', brand:'Fox', model:'Defend Pant', price:169.95, weight:430,
@@ -2697,6 +2752,29 @@ var KIT_PARTS = [
     desc:'Ultralight minimalist slip-on glove. Price confirmed via the .js JSON endpoint: $30.00 is the'
       + ' compare_at_price (MSRP) most colorways sell at; one colorway (Camo Gray) is on sale at $15. No'
       + ' weight published on the page.' },
+
+  /* -- Castelli breadth continued (catalog/kit-breadth-8, 2026-07-23): the Diluvio One is a
+     winter/waterproof shell glove, not a summer riding glove, but it's Castelli's own fetched
+     glove SKU so it lands here as the brand's third row. -- */
+  { id:'glv-castelli-diluvio-one', cat:'gloves', brand:'Castelli', model:'Diluvio One Glove', family:'castelli-diluvio', price:75,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.castelli-cycling.com/US/en/Men/c/Man',
+    desc:'Fetched castelli-cycling.com (WebFetch): confirmed $75. Waterproof winter/wet-weather glove. No weight published on the listing page.' },
+
+  /* -- Assos breadth continued (catalog/kit-breadth-8, 2026-07-23): Assos' catalog is almost
+     entirely road, but the TRAIL FF is a genuine full-finger off-road/MTB glove SKU. -- */
+  { id:'glv-assos-trail-ff', cat:'gloves', brand:'Assos', model:'TRAIL FF Gloves', family:'assos-trail', price:80,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.assos.com/us/trail-ff-gloves-185346.html',
+    desc:'Fetched assos.com (WebFetch): $80 confirmed as the standing MSRP (listed on a $24 clearance sale at fetch time). 3D-mesh palm, perforated padding, silicone fingertips. No weight published.' },
+
+  /* -- Sportful breadth continued (catalog/kit-breadth-8, 2026-07-23) -- */
+  { id:'glv-sportful-fullgrip2', cat:'gloves', brand:'Sportful', model:'Full Grip 2 Gloves', family:'sportful-fullgrip', price:50,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.sportful.com/US/en/Mens/Cycling/Accessories/Gloves/c/Man-Cyc-Acc-Glo',
+    desc:'Fetched sportful.com (WebFetch): $50 confirmed as the standing MSRP (listed on a $35 sale at fetch time). No weight published.' },
+
+  /* -- MAAP breadth continued (catalog/kit-breadth-8, 2026-07-23) -- */
+  { id:'glv-maap-base', cat:'gloves', brand:'MAAP', model:'Base Glove', family:'maap-base', price:70,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://maap.cc/us/products/base-glove-navy',
+    desc:'Fetched maap.cc (WebFetch): $70 confirmed as the standing MSRP (listed on a $35 sale at fetch time). 85% Polyamide / 15% Elastane. No weight published.' },
 
   /* -- Knee pads (per pair; certs left to the grind + a source) --
      Breadth pass (grind/kit-kneepad, 2026-07-14): 20 additional real products
@@ -3940,7 +4018,49 @@ var KIT_PARTS = [
   { id:'ewr-melonoptics-kingpin', cat:'eyewear', brand:'Melon Optics', model:'Kingpin', price:145, weight:30,
     type:'glasses', sizes:['S','M','L'],
     desc:'Weight not published anywhere on the product page (unconfirmed sample). Re-fetched melonoptics.com/us/shop/kingpin/ fresh (2026-07-20): build-your-own base price is $145.00 (corrects the prior $160 sample, which was pinned to a limited-edition colorway rather than the base build), S/M/L head-size options (not one-size).',
-    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-20', source:'https://melonoptics.com/us/shop/kingpin/' }
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-20', source:'https://melonoptics.com/us/shop/kingpin/' },
+
+  /* -- KOO breadth (catalog/kit-breadth-8, 2026-07-23): brand was entirely ABSENT despite being
+     KASK's own eyewear line (same maker as the catalog's many KASK-adjacent helmet rows) -
+     the biggest eyewear gap named for this session. Fetched kask.com/en-us/koo (WebFetch;
+     kooworld.cc itself does not resolve/DNS-fail from this environment) - base "from" prices
+     for each model's entry colorway confirmed; the site publishes no weight for any model. -- */
+  { id:'ewr-koo-demos', cat:'eyewear', brand:'KOO', model:'Demos', family:'koo-demos', price:180,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.kask.com/en-us/koo',
+    desc:'Fetched kask.com/en-us/koo (WebFetch): Demos lineup starts at $180 (11 colorways). No weight published on the maker page.' },
+  { id:'ewr-koo-nova', cat:'eyewear', brand:'KOO', model:'Nova', family:'koo-nova', price:200,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.kask.com/en-us/koo',
+    desc:'Fetched kask.com/en-us/koo (WebFetch): Nova lineup runs $200-$220 across 6 colorways; $200 used as the base entry price. No weight published.' },
+  { id:'ewr-koo-alibi', cat:'eyewear', brand:'KOO', model:'Alibi', family:'koo-alibi', price:190,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.kask.com/en-us/koo',
+    desc:'Fetched kask.com/en-us/koo (WebFetch): Alibi is KOO\'s most prominent model, $190-$235 across standard/photochromic lens variants and 10 colorways; $190 used as the base standard-lens price. No weight published.' },
+  { id:'ewr-koo-supernova', cat:'eyewear', brand:'KOO', model:'Supernova', family:'koo-supernova', price:220,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.kask.com/en-us/koo',
+    desc:'Fetched kask.com/en-us/koo (WebFetch): Supernova confirmed at $220 flat. No weight published.' },
+
+  /* -- SunGod breadth (catalog/kit-breadth-8, 2026-07-23): brand entirely ABSENT. Fetched
+     sungod.co/en-us product pages (WebFetch) for base-colorway prices; SunGod does not publish
+     frame weights on its product pages. -- */
+  { id:'ewr-sungod-vulcans', cat:'eyewear', brand:'SunGod', model:'Vulcans', family:'sungod-vulcans', price:187,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.sungod.co/en-us/shop/sunglasses/vulcans',
+    desc:'Fetched sungod.co (WebFetch): Vulcans Top Frame base colorway (Aurora Blue) confirmed at $187 (other lens/colorway combos run to $240). 8KO lens technology, screwless Pop-Lock hinge, three interchangeable nosepad sizes. No weight published.' },
+  { id:'ewr-sungod-velans2', cat:'eyewear', brand:'SunGod', model:'Velans 2', family:'sungod-velans', price:167,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.sungod.co/en-us/road-cycling-sunglasses',
+    desc:'Fetched sungod.co (WebFetch): Velans 2 base colorways confirmed at $167 (photochromic/Iris Smoke variants run to $220). No weight published.' },
+  { id:'ewr-sungod-airas', cat:'eyewear', brand:'SunGod', model:'Airas', family:'sungod-airas', price:214,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.sungod.co/en-us/road-cycling-sunglasses',
+    desc:'Fetched sungod.co (WebFetch): Airas confirmed at $214 across its colorways (Green/Black/Gold). 360-degree-vision road frame available in Zero Frame or Bottom Frame construction. No weight published.' },
+  { id:'ewr-sungod-gts', cat:'eyewear', brand:'SunGod', model:'GTs', family:'sungod-gts', price:255,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.sungod.co/en-us/road-cycling-sunglasses',
+    desc:'Fetched sungod.co (WebFetch): GTs (designed with Geraint Thomas) base colorway confirmed at $255 (Grey/Iris HV Blue variant runs to $308). No weight published.' }
 ];
 
 /* ---- legacy id aliases -----------------------------------------------------
