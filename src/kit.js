@@ -666,6 +666,20 @@ var KIT_PARTS = [
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://cratoni.com/en/produkt/allset-mips/',
     desc:'Fetched cratoni.com: 15-vent AM/trail half-shell, adjustable visor with MX-goggle port, camera mount, CE EN 1078 certified, MIPS-equipped. RRP EUR139.95 x ~1.08 USD/EUR (disclosed conversion, not a US MSRP).' },
 
+  /* -- Casco (kit-breadth-12, 2026-07-23): brand entirely ABSENT. German helmet maker (est. 1989);
+     casco-helmets.com fetched directly. EUR-only maker pricing, same disclosed-conversion basis as
+     the Cratoni rows above. Casco's line is overwhelmingly road/urban/aero (SPEEDairo, Roadster,
+     Cuda, Activ) - the MTBE family is its only true MTB line, so only those two SKUs are entered
+     (a road-branded helmet in an MTB parts catalog would be padding, not breadth). */
+  { id:'hm-casco-mtbe-full-face', cat:'helmet', brand:'Casco', model:'MTBE Full Face', price:346,
+    type:'full-face', disciplines:['dh','enduro'],
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://casco-helmets.com/en/collections/mtbe',
+    desc:'Fetched casco-helmets.com/en/collections/mtbe: carbon full-face DH/enduro helmet (Carbon Neon colorway). RRP EUR320.00 x ~1.08 USD/EUR (disclosed conversion, not a US MSRP). No weight published on the fetched page; the collection page\'s "350-499g" figure is a generic Shopify shipping-weight bucket, not a per-model spec (same caveat as other rows in this catalog that flag that field) - left unset rather than guessed.' },
+  { id:'hm-casco-mtbe2', cat:'helmet', brand:'Casco', model:'MTBE2', price:173,
+    type:'half-shell', disciplines:['trail','enduro'],
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://casco-helmets.com/en/collections/mtbe',
+    desc:'Fetched casco-helmets.com/en/collections/mtbe: "the mountainbike helmet" half-shell. RRP EUR160.00 x ~1.08 USD/EUR (disclosed conversion, not a US MSRP - the fetched page shows several colorways discounted to EUR80/EUR140, the page\'s own EUR160 list price is used instead). No weight published (same shipping-weight-bucket caveat as the Full Face row).' },
+
   /* -- Shoes (soleType required: flat / clipless) -- */
   { id:'sho-fiveten-freerider-pro', cat:'shoes', brand:'Five Ten', model:'Freerider Pro', price:160, weight:696,
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['40','41','42','43','44','45','46','47'],
