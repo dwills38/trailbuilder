@@ -1778,6 +1778,19 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://preview.r-m.de/media/filer_public/47/1e/471e4322-9a3c-48ac-93de-69c9052576f2/233365_rm-ba-e-bike_en-int_web_my26_0825.pdf'
   },
 
+
+  {
+    id: 'em-focus-sam2-68', cat: 'emtb', brand: 'Focus', model: 'SAM² 6.8',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Smart System', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: null, brakes: null,
+    disciplines: ['e-enduro'], weight: null, price: 7986.61, modelYear: 2026,
+    note: 'German maker Focus\' most downhill-oriented e-MTB — 7005 hydroformed aluminum frame w/ F.O.L.D. (FOCUS Optimised Linkage Design) kinematics, mullet (29in front/27.5in rear) wheels, RockShox Super Deluxe Coil Select 230x65mm shock, 38mm-stanchion fork, C.I.S. fully-integrated cable routing, compatible with a 250Wh range extender (up to 1,050Wh total).',
+    desc: 'Fetched directly from the maker\'s own product pages (focus-bikes.com/int/bikes/e-mountainbike/focus-sam2 overview + focus-bikes.com/es_en SAM² 6.8 SKU page): "With 180/170 mm travel" (frame/fork) — note the fork-travel figure on the overview differs slightly by market page (170mm vs 180mm across regional listings); this SKU\'s own page states "180 mm" fork travel and "170 mm F.O.L.D. Gen2" frame travel (cataloged at 180/160 using the FOCUS FAQ\'s explicit "170 mm at the fork and 160 mm at the rear triangle" answer, which conflicts with the SKU page\'s own 180mm fork figure — both maker-stated, discrepancy disclosed rather than silently resolved), "Bosch Performance Line CX Smart System, 85 Nm" motor, "Bosch PowerTube Li-Ion (750Wh)" battery (SKU page) vs "up to 750 Wh" / 800Wh option on the overview page (cataloged at 800Wh, the larger option this trim supports per the overview FAQ), "Rock Shox Super Deluxe Coil Select, 230/65 mm" shock, "7005 hydroformed aluminium" frame, price EUR 6,999.00. Drivetrain/brakes not stated on the fetched sections, left uncataloged; no complete-bike weight found. PRICE: EUR 6,999.00 maker-published price converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,986.61; Focus has no consistent US retail MSRP for this SKU (the fetched pages are EU/AU market pages) — disclosed sample, not a confirmed single-market MSRP. catalog/emtb-breadth-brands-1 wave (Focus deepened from 2 rows to 3).',
+    lastChecked: '2026-07-23', source: 'https://www.focus-bikes.com/es_en/catalog/product/view/_ignore_category/1/id/92485/s/focus-sam2-6-8-2/'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
