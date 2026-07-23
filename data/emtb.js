@@ -1953,6 +1953,18 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/intense-tazer-review/'
   },
 
+  {
+    id: 'em-kona-remote-160cr', cat: 'emtb', brand: 'Kona', model: 'Remote 160 CR',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line SX', motorTorque: 60, motorPowerPeak: 600,
+    batteryWh: 400, batteryRemovable: true, rangeExtender: true, assist: 'lightweight',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'Shimano Deore Di2', brakes: 'SRAM Maven Base',
+    disciplines: ['e-trail', 'e-enduro'], weight: 20800, price: 7799, modelYear: 2026,
+    note: 'Kona\'s new lightweight-class carbon flagship, distinct from the already-cataloged full-power aluminum Remote 160 DL/Remote X rows — pairs the Bosch Performance Line SX "light" motor (~2kg) with a compact 400Wh downtube battery and an optional 250Wh PowerMore range extender; Shimano\'s wired Deore Di2 rear derailleur draws power directly from the main battery (no separate shifter battery).',
+    desc: 'Unverified sample via the credible-source breadth policy — konaworld.com\'s own Remote 160 CR product page (fetch not repeated this session; confirmed via BIKE Magazin\'s and Pinkbike\'s first-look coverage, both citing Kona\'s spec sheet) states "Bosch Performance Line SX motor and a 400Wh battery... 160 mm of rear travel... 60 Nm of maximum torque and up to 600 W of peak power... optional PowerMore range extender with an additional 250 watt hours... 20.8kg (45.9lb)... Shimano Deore Di2 wired shifting... Sram Maven Base brakes with 200 millimetre discs". PRICE: konaworld.com\'s own US listing at $7,799.00 (Kona is a US-based brand selling direct in USD; not independently re-confirmed by a fresh fetch this session, so no msrp-confirmed token). catalog/emtb-breadth-3 wave (Kona deepened from 2 rows to 3 — introduces the Bosch "SX" light-motor tier, classed assist:"lightweight" consistent with this catalog\'s Pole/Forestal-Cyon lightweight-class rows).',
+    lastChecked: '2026-07-23', source: 'https://konaworld.com/products/remote-160-cr-37'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
