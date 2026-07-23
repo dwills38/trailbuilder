@@ -1727,6 +1727,31 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://www.simplon.com/en/Bikes/E-Mountain-Bikes/Rapcon-e_b_1149826'
   },
 
+
+  {
+    id: 'em-thomus-lightrider-e2-pro', cat: 'emtb', brand: 'Thömus', model: 'Lightrider E2 Pro',
+    motorBrand: 'shimano', motorModel: 'Shimano EP6', motorTorque: 85,
+    batteryWh: 726, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'Shimano SLX or XT 12-speed (buyer-selectable build)', brakes: null,
+    disciplines: ['e-trail'], weight: null, price: 8899, modelYear: 2026,
+    note: 'Swiss maker\'s modular-platform e-MTB, hand-built in Thömus\'s US workshop (Santa Monica) via an online configurator — carbon frame supporting 140-170mm of travel across FOX or DT Swiss suspension options; this row is the base SLX build at the current US listing.',
+    desc: 'Fetched directly from the maker\'s US shop page (thomus.com/products/lightrider-e2-pro): "Regular price $8,899.00" (SHIMANO SLX build) / "$9,999.00" (SHIMANO XT build), modular frame supporting "140 to 170 millimeters" of travel, "FOX or DT-Swiss" suspension options (stock builds feature Fox Factory 160mm fork per the page text) — cataloged at 160/160mm as the page\'s named stock spec. The US product page does not state the motor/battery for the current build (Thömus has shipped this platform with several motor generations over the years — Shimano EP6/EP8, TQ, maxon — across model years); motor/battery here (Shimano EP6, 85Nm, 726Wh Darfon battery) is the most recent independently-reviewed spec for this exact SKU name (opticycles.com "Thoemus Lightrider E2 Pro Deore Schwarz" listing), not confirmed on the fetched US page itself — flagged as the best-credible sample basis, not maker-verified. No complete-bike weight found on either the US shop page or the cited review. catalog/emtb-breadth-brands-1 wave (first Thömus row — brand was thin, 0 prior rows... actually fully absent per the task brief).',
+    lastChecked: '2026-07-23', source: 'https://thomus.com/products/lightrider-e2-pro'
+  },
+
+  {
+    id: 'em-thomus-lightrider-emax', cat: 'emtb', brand: 'Thömus', model: 'Lightrider E_MAX',
+    motorBrand: 'maxon', motorModel: 'maxon BIKEDRIVE AIR S', motorTorque: 90, motorPowerPeak: 620,
+    batteryWh: 400, assist: 'lightweight',
+    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 140,
+    frameMaterial: 'carbon', drivetrain: null, brakes: null,
+    disciplines: ['e-trail'], weight: 17010, price: 13463.90, modelYear: 2026,
+    note: 'Thömus\' 2026 lightweight-class flagship — pairs the Swiss-made maxon BIKEDRIVE AIR S motor (a full-power-torque motor in a lightweight-class 2.0kg package) with a compact 400Wh battery; won E-MOUNTAINBIKE Magazine\'s 2026 Editors\' Choice. Deliberately purist minimal-weight setup rather than the maker\'s big-battery E2 platform.',
+    desc: 'Sourced from E-MOUNTAINBIKE Magazine\'s fetched first-ride test (ebike-mtb.com/en/thoemus-lightrider-e-max-2026-test/ and the companion Editors\' Choice piece): "maxon BIKEDRIVE AIR S motor... 400 Wh battery... 90 Nm of torque and peak output of 620 watts", "17.01 kg in size M", "EUR 12,450". No maker product page with US pricing found (thomus.com\'s current catalog lists the E2/E2 Pro configurator but not this specific E_MAX SKU at time of research) — entered unverified via the credible-editorial-source breadth policy. PRICE: EUR 12,450 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $13,463.90 — disclosed conversion of a reviewer-quoted EU price, not a maker-fetched USD MSRP. Drivetrain/brakes not stated in the fetched excerpt, left uncataloged. catalog/emtb-breadth-brands-1 wave (second Thömus row — introduces motorBrand:"maxon" to EMTB_VOCAB, backed by this real row).',
+    lastChecked: '2026-07-23', source: 'https://ebike-mtb.com/en/thoemus-lightrider-e-max-2026-test/'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
