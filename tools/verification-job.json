@@ -5340,10 +5340,19 @@
   "dp-specialized-command-post-349-160": {
    "cat": "dropper",
    "status": "Skipped",
-   "updated": "2026-07-07T20:51:27.320Z",
+   "updated": "2026-07-23T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "specialized.com is a known bot-blocked domain (403, logged earlier this session for the Bridge saddle). Third-party figures only cover a 125mm/other-diameter config, not this row's 30.9/160. Bar not met."
+   "note": "specialized.com is a known bot-blocked domain (403, logged earlier this session for the Bridge saddle). Third-party figures only cover a 125mm/other-diameter config, not this row's 30.9/160. Bar not met.",
+   "tombstoned": "2026-07-23T00:00:00.000Z"
+  },
+  "dp-specialized-command-post-309-125": {
+   "cat": "dropper",
+   "status": "Skipped",
+   "updated": "2026-07-23T00:00:00.000Z",
+   "error": null,
+   "source": null,
+   "note": "specialized.com is a known bot-blocked domain (403). Diameter/travel corroborated by multiple independent reviews (Pinkbike, BikeRadar, MBR, Singletrackworld); weight is MBR's third-party figure, not maker-sourced. Bar (manufacturer-only interface + maker/measured weight with sourceType) not met -- stays an honest unverified sample. Row replaced the fabricated dp-specialized-command-post-349-160 on 2026-07-23 (catalog/command-post-ircc-replace)."
   },
   "fr-forbidden-druid-v2": {
    "cat": "frame",
