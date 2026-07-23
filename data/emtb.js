@@ -2001,7 +2001,37 @@ var EMTB_PARTS = [
     note: 'French maker Lapierre\'s new-for-2026 all-mountain/enduro carbon flagship, alongside the already-cataloged Overvolt AM 10.8 and Overvolt TR 7.8 rows — full-carbon frame (Mitsubishi 24T/40T layup mix, 2.9kg size-M frame-only), two-position flip-chip mullet/dual-29in wheel setup, entry build of a 3-model range (6.8/7.8/10.8).',
     desc: 'Unverified sample via the credible-source breadth policy — off-road.cc\'s and BikeBiz\'s launch coverage of this exact platform, plus alltricks.com\'s live SKU listings for the 6.8/10.8 builds, confirm "Bosch Performance CX motor with 100Nm of torque... 800Wh removable battery... compatible with Bosch\'s PowerMore range extender... 170/165mm of travel... carbon frame weighing 2.9kg (size medium)... mullet configuration and features a two-position flip chip... Starting price: EUR 7,299" (the 6.8, entry build). alltricks.com\'s own 10.8 listing (a higher trim) independently confirms the shared "Bosch 100 Nm MX motor" designation and 800Wh battery. No complete-bike weight found for the 6.8 build specifically. PRICE: EUR 7,299 (starting price for the 6.8) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $8,326.68 — disclosed estimate, no regional-conversion token. catalog/emtb-breadth-3 wave (Lapierre deepened from 2 rows to 3).',
     lastChecked: '2026-07-23', source: 'https://road.cc/offroad/tech-news/all-mountain-or-enduro-in-disguise-the-2026-lapierre-overvolt-am-cf-breaks-cover-and-its-surprisingly-mellow'
-  }
+  },
+
+  // ---------------------------------------------------------------------------
+  // emtb-depth-5 wave: absent makers added (Yeti, Evil, Forbidden, Privateer,
+  // KTM, Saracen) — Specialized/Trek were checked first and found already deep
+  // (7 and 5 rows respectively, all verified) so no further Specialized/Trek
+  // rows were added this wave.
+  // ---------------------------------------------------------------------------
+
+  {
+    id: 'em-yeti-160e-t1', cat: 'emtb', brand: 'Yeti', model: '160E T1',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XT 1x12 (EM900 crank)', brakes: 'SRAM Code RSC',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23760, price: 12700,
+    note: 'Yeti\'s only e-MTB line (160E, dual-29in-only, no mullet option) — TURQ Series carbon frame, Sixfinity 6-bar linkage, 160mm rear travel, Shimano EP801 full-power motor family, 630Wh semi-integrated removable battery, Shimano EM800 bar-mounted controller (not a top-tube display). T1 is a mid/upper trim: Fox Factory 38 GRIP2 fork (170mm E-Tune), Fox Factory Float X2 shock, SRAM Reverb AXS dropper.',
+    desc: 'Unverified sample via the credible-source breadth policy (brand was fully absent) — Yeti\'s own product pages (yeticycles.com/en-us/bikes/160e) are JS-rendered and returned only nav chrome to WebFetch/Exa; specs below are cross-checked across independent dealer/review pages that mirror Yeti\'s official spec sheets, not a directly fetched maker page. Weight is The Loam Wolf\'s tested-unit figure, "52.4 lb" (23.76kg), no size stated. Peak motor wattage not confirmed for this specific trim (Yeti\'s own EP801 family is quoted 500-600W across sibling trims; left uncataloged here rather than guessed). Price $12,700 per The Loam Wolf\'s review of this exact build. catalog/emtb-depth-5 wave (Yeti absent -> 2 rows).',
+    lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/review-yeti-160e-t1/'
+  },
+  {
+    id: 'em-yeti-160e-t2', cat: 'emtb', brand: 'Yeti', model: '160E T2',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X01 Eagle 12-speed', brakes: 'SRAM Code RSC',
+    disciplines: ['e-trail', 'e-enduro'], weight: 22630, price: 10800,
+    note: 'Current top trim of the 160E: Fox Factory 38 GRIP2 (Kashima) fork, Fox Float X2 Factory shock (205x65mm trunnion, Kashima), DT Swiss HX1700 wheels, SRAM Reverb AXS dropper, SRAM HS2 220mm rotors both ends.',
+    desc: 'Unverified sample via the credible-source breadth policy — Vital MTB\'s and MTB Database\'s spec-sheet pages (mirroring Yeti\'s own T2 build sheet), cross-checked against Alex Bicycles\' dealer listing for the US MSRP. Weight is Vital MTB\'s tested-unit figure, "49 lb 14.2 oz" = 22.63kg. One aggregator (Opticycles) listed $12,883, likely a regional/currency variant — not used. catalog/emtb-depth-5 wave.',
+    lastChecked: '2026-07-23', source: 'https://www.vitalmtb.com/product/guide/e-bikes/yeti/160e-59316'
+  },
 
 ];
 
