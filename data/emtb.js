@@ -1823,7 +1823,27 @@ var EMTB_PARTS = [
     note: 'French maker Moustache\'s accessible/comfort-oriented sibling to the already-cataloged Samedi 29 Trail 150.2 — "Wide" family shares the Trail/Game platform\'s frame tech but prioritizes ease of use, 6061 T4-T6 hydroformed aluminum frame, Marzocchi Bomber Z2 RAIL fork, Moustache\'s own Magic Grip Control shock (120mm), 27.5in wheels w/ Maxxis Rekon 2.8in tires.',
     desc: 'Fetched directly from the maker\'s own product page (moustachebikes.com/se/en/electric-bikes/samedi-27-wide/samedi-27-wide-5/ and the identical /fr/en/ listing): "Wide, 6061 T4-T6 alloy, 120mm travel, Bosch PowerTube exclusive battery integration (horizontal)" frame, "Bosch, Performance Line CX BDU37, Smart System, 85Nm" motor, "Bosch, PowerTube 625Wh, horizontal, Smart System" battery, starting price "3 999 EUR" (FR listing) / a UK retailer (Velospeed) independently confirms the same SKU\'s full kit: "Marzocchi Bomber Z2 RAIL, 130mm" fork, "Shimano MT420" 4-piston 203mm brakes, "Shimano XT 12-speed with Deore shifters (11-51T)" drivetrain, "24.4kg" weight, GBP 3,699 (a UK retailer price, used here only to fill the fields the maker\'s own EU page omits — fork travel, drivetrain, brakes, weight). US moustachebikes.com carries no Samedi 27 Wide listing (US site sells only the Trail/Game/Off families) — no USD MSRP exists. PRICE: EUR 4,131.40 (a French reseller\'s full retail price for this exact SKU, simplebikestore.eu — not the maker\'s own currency page directly fetched by this session) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $4,714.31 — entered as a disclosed unverified sample price, no regional-conversion token (that token is reserved for a maker-fetched RRP, matching this catalog\'s existing Moustache row\'s precedent). catalog/emtb-breadth-brands-1 wave (Moustache deepened from 1 row to 2).',
     lastChecked: '2026-07-23', source: 'https://moustachebikes.com/fr/en/electric-bikes/samedi-27-wide/samedi-27-wide-5/'
-  }
+  },
+
+  // ---------------------------------------------------------------------------
+  // catalog/emtb-breadth-3 wave — thin-brand depth pass (1-row makers to 2,
+  // 2-row makers to 3) + one confirmed-absent brand (Corratec). All rows below
+  // are honest unverified samples via the credible-source breadth policy
+  // (DATA-ENTRY-TEMPLATE.md sec 7) — no maker page was directly fetched by
+  // this session, so no verified:true/priceBasis token on any of them.
+  // ---------------------------------------------------------------------------
+
+  {
+    id: 'em-corratec-epower-rs160-factory', cat: 'emtb', brand: 'Corratec', model: 'E-Power RS 160 Factory',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Smart System)', motorTorque: 85,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'aluminum',
+    disciplines: ['e-trail', 'e-enduro'], weight: 25300, price: 7999,
+    note: 'German maker Corratec\'s enduro/all-mountain flagship — mullet (29in front/27.5in rear) aluminum full-suspension frame, RockShox suspension, SRAM drivetrain (per-tier build details not independently confirmed for this specific SKU). First Corratec row — the brand was fully absent from the catalog; confirmed a currently-sold, real full-power Bosch CX lineup (E-Power RS 160 / X-Vert / MTC series) via bosch-ebike.com\'s own model directory.',
+    desc: 'Unverified sample entered via the credible-source breadth policy (DATA-ENTRY-TEMPLATE.md sec 7) — sourced from bosch-ebike.com\'s Corratec model page plus independent spec aggregators (99spokes, mtbdatabase, opticycles), none directly maker-fetched this session. Motor/battery/travel/wheel-mullet/frame-material cross-confirmed across sources ("Bosch Performance Line CX Smart System... 85 Nm", "Power Tube 800... battery", "160 mm of spring travel at the front and rear", "29-inch front wheel joined by a 650b rear wheel", aluminum frame). Weight (25.3kg) is a size-L complete-bike figure from an independent review (velomotion.net). No confirmed USD/EUR maker MSRP found in this pass — price entered as a disclosed rough estimate converted from a Polish-retailer listing (31,899 PLN, ~$7,999 at prevailing rates), NOT a maker-published figure and NOT a regional-conversion claim (that token requires the maker\'s own non-USD figure) — flagged as the lowest-confidence field on this row. Drivetrain/brakes left uncataloged (no single confirmed spec across sources for this exact trim). catalog/emtb-breadth-3 wave.',
+    lastChecked: '2026-07-23', source: 'https://www.bosch-ebike.com/us/ebikes/corratec/e-power-rs-160-factory_1582'
+  },
 
 ];
 
