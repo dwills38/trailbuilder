@@ -28,12 +28,18 @@
    is handed, so the two files can ship/split independently.
    ========================================================================== */
 
-/* Shared verdict primitives: in Node (tests/CLI) via require; in a future
-   browser page both files load as classic scripts and compat.js's top-level
-   declarations are globals. */
+/* Shared verdict primitives: in Node (tests/CLI) via require; in the browser
+   src/verdict-core.js loads as a classic <script> BEFORE this file and its
+   top-level declarations are globals. Load order is load-bearing - the two
+   reads below happen at PARSE TIME, so a verdict-core.js tag placed after this
+   one yields undefined and every BMX verdict silently vanishes.
+
+   Sourced from verdict-core.js, NOT compat.js (2026-07-23): these primitives
+   are all this engine ever wanted, and bmx.html no longer loads the ~7 MB MTB
+   catalog to reach them. compat.js still re-exports them for older callers. */
 /** @type {{Verdict: new (ruleId: string, slots: string[], msg: string, fix?: {kind: string, name: string}) => any, verdictKey: (v: any) => string}} */
 var _mtbShared = (typeof module !== 'undefined' && module.exports)
-  ? require('./compat.js')
+  ? require('./verdict-core.js')
   : /** @type {any} */ (globalThis);
 var BmxVerdict = _mtbShared.Verdict;
 var bmxVerdictKey = _mtbShared.verdictKey;

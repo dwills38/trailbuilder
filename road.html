@@ -20,9 +20,9 @@
   reach the deployed site until Douglas adds the cp lines on his go-live word
   (the exact mechanism that kept BMX off-live before its 2026-07-17 flip).
 
-  Loads src/compat.js first (for the shared Verdict/verdictKey primitives —
-  src/compat-road.js's browser path reads them off globalThis, the bmx.html
-  seam), then src/compat-road.js (checkRoadBuild/ROAD_GROUPS/ROAD_SLOTS/
+  Loads src/verdict-core.js first (for the shared Verdict/verdictKey/
+  fisherYatesShuffle primitives — src/compat-road.js's browser path reads them
+  off globalThis, the bmx.html seam), then src/compat-road.js (checkRoadBuild/ROAD_GROUPS/ROAD_SLOTS/
   roadSlotRequired/roadBuildTotals — the ONE shared engine that will also
   serve a future BuildMyGravelBike page), then data/road.js (ROAD_PARTS —
   owned by a concurrent road-5 wave; this page only READS it, never edits it).
@@ -518,7 +518,12 @@
   </div>
 </dialog>
 
-<script src="src/compat.js"></script>
+<!-- verdict-core.js MUST stay ABOVE compat-road.js: that engine reads Verdict +
+     verdictKey off the globals at PARSE TIME, and this page's own script reads
+     verdictKey/fisherYatesShuffle. src/compat.js is deliberately NOT loaded —
+     it is ~7 MB of MOUNTAIN BIKE catalog no road visitor can ever see, and the
+     three primitives it used to be loaded for now live in verdict-core.js. -->
+<script src="src/verdict-core.js"></script>
 <script src="src/pricing.js"></script>
 <script src="src/compat-road.js"></script>
 <script src="src/discontinued-archive.js"></script>
@@ -528,8 +533,8 @@
    BuildMyRoadbike page glue (browser-only; not type-checked, like index.html's
    inline script and bmx.html's). Reads ROAD_GROUPS/ROAD_SLOTS/ROAD_PARTS/
    checkRoadBuild/roadBuildTotals/roadSlotRequired (src/compat-road.js +
-   data/road.js) and the shared Verdict/verdictKey primitives (src/compat.js,
-   loaded first).
+   data/road.js) and the shared verdictKey/fisherYatesShuffle primitives
+   (src/verdict-core.js, loaded first). This page does NOT load src/compat.js.
    ========================================================================== */
 (function(){
   'use strict';

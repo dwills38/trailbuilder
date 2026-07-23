@@ -40,12 +40,18 @@
    between road/gravel and the inch-based MTB catalog — never cross-compare).
    ========================================================================== */
 
-/* Shared verdict primitives: in Node (tests/CLI) via require; in a future
-   browser page both files load as classic scripts and compat.js's top-level
-   declarations are globals (compat.js must load first, the bmx.html pattern). */
+/* Shared verdict primitives: in Node (tests/CLI) via require; in the browser
+   src/verdict-core.js loads as a classic <script> BEFORE this file and its
+   top-level declarations are globals. Load order is load-bearing - the two
+   reads below happen at PARSE TIME, so a verdict-core.js tag placed after this
+   one yields undefined and every road/gravel verdict silently vanishes.
+
+   Sourced from verdict-core.js, NOT compat.js (2026-07-23): these primitives
+   are all this engine ever wanted, and road.html/gravel.html no longer load
+   the ~7 MB MTB catalog to reach them. compat.js still re-exports them. */
 /** @type {{Verdict: new (ruleId: string, slots: string[], msg: string, fix?: {kind: string, name: string}) => any, verdictKey: (v: any) => string}} */
 var _mtbSharedRoad = (typeof module !== 'undefined' && module.exports)
-  ? require('./compat.js')
+  ? require('./verdict-core.js')
   : /** @type {any} */ (globalThis);
 var RoadVerdict = _mtbSharedRoad.Verdict;
 var roadVerdictKey = _mtbSharedRoad.verdictKey;

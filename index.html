@@ -2075,6 +2075,9 @@
 <script src="src/account.js"></script>
 <script src="src/forum.js"></script>
 <script src="src/guides.js"></script>
+<!-- verdict-core.js MUST stay ABOVE compat.js: compat.js binds Verdict /
+     verdictKey / esc / fisherYatesShuffle off the globals this file declares. -->
+<script src="src/verdict-core.js"></script>
 <script src="src/compat.js"></script>
 <script src="src/tire-classes.js"></script>
 <script src="src/pricing.js"></script>
