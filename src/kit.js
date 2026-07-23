@@ -4542,7 +4542,67 @@ var KIT_PARTS = [
   { id:'jsy-stolengoat-zion-mens', cat:'jersey', brand:'Stolen Goat', model:'Zion MTB Jersey', price:51,
     sleeve:'short', fitCut:'mens',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://stolengoat.com/product/mens-zion-mtb-jersey/',
-    desc:'Casual-fit off-road jersey with a blue gradient-fade design, same construction tier as the Sector (100% polyester, UV SPF 30). Price is a disclosed USD conversion of the fetched stolengoat.com original GBP list price (£40.00 GBP x ~1.27), not a stated US MSRP (current site price is a £20 sale, not used). Also sold in a long-sleeved version at the same price tier per the page\'s own cross-link - not entered as a separate row this batch (breadth cap).' }
+    desc:'Casual-fit off-road jersey with a blue gradient-fade design, same construction tier as the Sector (100% polyester, UV SPF 30). Price is a disclosed USD conversion of the fetched stolengoat.com original GBP list price (£40.00 GBP x ~1.27), not a stated US MSRP (current site price is a £20 sale, not used). Also sold in a long-sleeved version at the same price tier per the page\'s own cross-link - not entered as a separate row this batch (breadth cap).' },
+
+  /* kit-breadth-13 (2026-07-23): kit-breadth-12 already landed most of the brief's target
+     brands (Kask/6D/Casco/Cratoni/HJC/DZR/Magicshine/District Vision all present, 3+ rows
+     each) -- re-derived by grep before touching anything. Genuinely absent: Afton, Vittoria
+     (kit shoes; the MTB-catalog saddle brand is unrelated), Chrome Industries, Rockgardn,
+     and Oakley helmets (Oakley existed only as an eyewear brand). Depth added on the four
+     other brands the brief flagged thin (GOREWEAR, Answer, Adidas, Sidi). aftonshoes.com,
+     vittoria.com/us, chromeindustries.com, oakley.com (product pages), gorewear.com and
+     sidi.com all 403'd/429'd/certificate-failed or redirected off the target page on direct
+     fetch this batch (WebFetch doctrine exhausted -> Exa fallback); Answer's own product
+     pages DID fetch cleanly via Exa with embedded schema.org Offer JSON-LD (exact maker
+     price), so those two rows carry verified:true. Oakley's DRT5 Maven got a full direct
+     WebFetch of its own oakley.com product page (price confirmed), also verified:true. -- */
+  { id:'sho-afton-cooper', cat:'shoes', brand:'Afton', model:'Cooper', price:128, weight:1096,
+    soleType:'flat', closure:'lace', disciplines:['trail','enduro'],
+    desc:'Flat-pedal trail shoe, Intact rubber outsole, internal shank, reinforced toe. UNVERIFIED sample: aftonshoes.com not fetched this batch (Exa/WebFetch both blocked); price converges across two independent US retailers (Planet Cyclery, Melonbike) at $128-$128.99; weight (1096g/pair) from Melonbike\'s listed spec.' },
+  { id:'sho-afton-vectal', cat:'shoes', brand:'Afton', model:'Vectal', price:119.99,
+    soleType:'clipless', disciplines:['trail','enduro'],
+    desc:'Clipless MTB shoe, oversized clip box with 35mm of cleat travel for varied cleat positioning. UNVERIFIED sample: US retailer (World Class Bikes) listing; aftonshoes.com not fetched this batch. No reliable per-pair weight found, left unset rather than guessed.' },
+  { id:'sho-vittoria-nox', cat:'shoes', brand:'Vittoria', model:'Nox', price:306, weight:506,
+    soleType:'clipless', closure:'boa', disciplines:['xc','trail'],
+    desc:'Vittoria\'s premium XC/trail race shoe (born from the Velar road shoe), double BOA IP1 dial closure, XECARB 30 carbon sole. UNVERIFIED sample: vittoria.com/us returned 404 this batch; price is a disclosed EUR-priced European retailer figure (bikeshoe4u.com/veloplus.be, EUR306) used as-is (no US MSRP found, so no priceBasis claimed); weight (253g/shoe, EU41) corroborated by two independent EU retailer pages, doubled to a 506g/pair estimate.' },
+  { id:'sho-vittoria-alise', cat:'shoes', brand:'Vittoria', model:'Alise MTB', price:129.99, weight:630,
+    soleType:'clipless', closure:'boa', disciplines:['trail'],
+    desc:'Mid-tier MTB clipless shoe, synthetic PU upper with toe/heel protection, BOA L6 dial, carbon composite sole, 2-bolt SPD-compatible. UNVERIFIED sample: US retailer (Bob\'s Cycle Center) listing at $129.99; weight (315g/shoe, EU41) confirmed on the same US retailer product spec sheet, doubled to a 630g/pair estimate; vittoria.com/us returned 404 this batch.' },
+  { id:'sho-chromeindustries-southside3-pro', cat:'shoes', brand:'Chrome Industries', model:'Southside 3.0 Pro', price:122, weight:1056,
+    soleType:'clipless', closure:'lace', disciplines:['trail'],
+    desc:'Clipless sneaker-style commuter/trail shoe, Panaracer vulcanized outsole, rigid FlexPlate nylon shank, recessed 2-bolt cleat mount. UNVERIFIED sample: chromeindustries.com returned 404 this batch; price from a US retailer (Brotures Global, $122, no visible discount markup); weight (528g/shoe per Bike24\'s spec table) doubled to a 1056g/pair estimate.' },
+  { id:'sho-chromeindustries-kursk-aw-pro', cat:'shoes', brand:'Chrome Industries', model:'Kursk AW Pro', price:140,
+    soleType:'clipless', closure:'lace', disciplines:['trail'],
+    desc:'Clipless pedal sneaker, weatherproof lace-up upper, SPD-compatible (Shimano/Time/Look/Crankbrothers cleat systems). UNVERIFIED sample: chromeindustries.com returned 404 this batch; price is the EUR RRP shown on EU retailer pages (Rose Bikes, EUR140.00) used as-is (no US MSRP found this batch, so no priceBasis claimed). No reliable weight found, left unset rather than guessed.' },
+  { id:'knp-rockgardn-lz-shorty', cat:'kneepad', brand:'Rockgardn', model:'LZ Shorty', price:49.99,
+    desc:'Slip-on knee guard, grid-reinforced knee cap, gripper TPR liner, single velcro strap. UNVERIFIED sample: rockgardn.com\'s own product catalog page currently shows "COMING SOON" (fetched directly, no live SKU list) -- price/spec sourced from a currently-listed US retailer (bikepartsplace.com, $49.99) instead. FLAGGING for Douglas: the maker\'s own site suggests this brand may be between catalogs/inactive; included as a real, currently-sold product per the relaxed-inclusion policy, not fabricated.' },
+  { id:'knp-rockgardn-lzmx', cat:'kneepad', brand:'Rockgardn', model:'LZMX', price:53.99,
+    desc:'Slip-on knee guard, ABS plastic/EVA foam shell, two velcro straps, vented shin plate with a raised reinforced spine. UNVERIFIED sample: same rockgardn.com "COMING SOON" caveat as knp-rockgardn-lz-shorty -- price/spec from a currently-listed US retailer (bikepartsplace.com, $53.99).' },
+  { id:'hm-oakley-drt5-maven-mips', cat:'helmet', brand:'Oakley', model:'DRT5 Maven - MIPS', price:205,
+    type:'half-shell', rotational:'mips', disciplines:['trail','enduro'],
+    desc:'Trail/enduro half-shell, BOA 360 fit dial, 19 vents, Mips rotational-impact liner, eyewear/goggle landing zones front and back (designed around Oakley\'s own Airbrake MTB goggle). 60g lighter than the prior DRT5. No maker-published weight for the Maven found this batch, left unset rather than guessed.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.oakley.com/en-us/product/FOS900925', sourceType:'manufacturer' },
+  { id:'hm-oakley-drt3-trail-ice-mips', cat:'helmet', brand:'Oakley', model:'DRT3 Trail I.C.E - MIPS', price:165,
+    type:'half-shell', rotational:'mips', disciplines:['trail'],
+    desc:'Mid-tier trail half-shell below the DRT5 Maven in Oakley\'s lineup, Mips liner, I.C.E. (twICEme NFC medical-ID chip) variant. UNVERIFIED sample: direct WebFetch of oakley.com/en-us/product/FOS901249 returned an empty JS shell this batch; price ($165.00) read off the same URL via an Exa search snippet quoting the live page, not a clean fetch -- flagged accordingly rather than marked verified. No weight found, left unset.' },
+  { id:'jsy-gorewear-spirit-stripes', cat:'jersey', brand:'GOREWEAR', model:'Spirit Stripes Jersey', price:95, weight:125,
+    sleeve:'short', disciplines:['trail','xc'],
+    desc:'Close-to-body cycling jersey, colorblock pattern, 3 rear pockets + zip pocket, silicone hem gripper. UNVERIFIED sample: gorewear.com/us/en-us/spirit-stripes-jersey-mens-101060 redirected (301) to gore-tex.com/products/gorewear on direct fetch this batch rather than serving the product page -- price/weight ($95, 4.4oz/125g) taken from an Exa search snippet quoting the pre-redirect gorewear.com page content, not a clean fetch of the live URL; flagged accordingly rather than marked verified.' },
+  { id:'sht-gorewear-endure-gtx', cat:'shorts', brand:'GOREWEAR', model:'Endure GORE-TEX Shorts', price:180, weight:113,
+    fitCut:'unisex', disciplines:['trail'],
+    desc:'Wind/waterproof GORE-TEX PACLITE Plus shell short, packable, adjustable drawcord waist, waterproof side-zip pocket. UNVERIFIED sample: same gorewear.com redirect-on-fetch issue as jsy-gorewear-spirit-stripes -- $180 is the page\'s own shown list price (not the concurrent $108 sale price), weight (4oz/113g) also off that snippet.' },
+  { id:'glv-answer-ascent-prix', cat:'gloves', brand:'Answer', model:'Ascent Prix Gloves', price:23.99,
+    desc:'Ultra-lightweight glove, multiple stretch fabrics, synthetic-leather palm, silicone index/middle-finger grippers, perforated thumb guard.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://answerracing.com/ascent-prix-gloves/', sourceType:'manufacturer' },
+  { id:'glv-answer-peak', cat:'gloves', brand:'Answer', model:'Peak Gloves', price:35.99,
+    desc:'Race-ready glove, synthetic-leather Clarino palm, ultra-soft rubber wrist closure strap, silicone index/middle-finger grippers, perforated thumb guard.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://answerracing.com/peak-gloves/', sourceType:'manufacturer' },
+  { id:'ewr-adidas-sp0006', cat:'eyewear', brand:'Adidas', model:'SP0006 Sport Sunglasses', price:70,
+    type:'glasses',
+    desc:'Injected-frame sport sunglasses (generic sport eyewear, not MTB-specific -- same category convention as the catalog\'s other cross-sport eyewear rows). UNVERIFIED sample: direct WebFetch of adidas.com returned 403 this batch; price ($70, no visible discount markup) read off the product URL via an Exa search snippet.' },
+  { id:'sho-sidi-mtb-turbo', cat:'shoes', brand:'Sidi', model:'MTB Turbo', price:249.99,
+    soleType:'clipless', closure:'boa', disciplines:['trail'],
+    desc:'Trail clipless shoe, soft sole + air-mesh upper tuned for on/off-bike comfort, Tecno-3 dial closure system (mapped to boa, same vocab convention used on sho-sidi-dust\'s Sidi Wire system), 4-hole cleat plate. UNVERIFIED sample: direct WebFetch of sidi.com/en-us/products/mtb-turbo-2 hit a 429 this batch; price ($249.99, the page\'s clean non-discounted figure) read off the product URL via an Exa search snippet -- other sidi.com variant pages for the same model showed conflicting/discounted prices ($150-$264.99), so this is the most consistent regular-price figure found, not independently re-confirmed by a clean fetch.' }
 ];
 
 /* ---- legacy id aliases -----------------------------------------------------
