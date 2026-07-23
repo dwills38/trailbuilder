@@ -2422,6 +2422,17 @@ var EMTB_PARTS = [
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.liv-cycling.com/us/intrigue-x-advanced-eplus-elite-2-2024'
   },
   {
+    id: 'em-liv-intrigue-x-advanced-eplus-elite-3', cat: 'emtb', brand: 'Liv', model: 'Intrigue X Advanced E+ Elite 3',
+    motorBrand: 'giant', motorModel: 'Giant SyncDrive Pro2 (Yamaha-powered)', motorTorque: 85,
+    batteryWh: 400, batteryRemovable: true, rangeExtender: true, assist: 'lightweight',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'mixed', drivetrain: 'Shimano Deore 12-speed', brakes: 'Shimano BR-MT420 (203mm)',
+    disciplines: ['e-trail'], weight: 20900, price: 6000, modelYear: 2024,
+    note: 'Entry-tier Intrigue X Advanced E+, same SyncDrive Pro2/400Wh drive system and travel as the Elite 1/2 already cataloged, but on an Advanced-grade composite front triangle with an ALUXX SL aluminum rear triangle (vs the Elite 1/2\'s full carbon) and a cable-actuated Shimano Deore drivetrain.',
+    desc: 'Fetched from liv-cycling.com\'s own product page (browser render), matching the sibling Elite 1/Elite 2 rows\' sourcing. Weight is the maker\'s stated size-XS figure (46lb 2oz = 20.9kg).',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.liv-cycling.com/us/intrigue-x-advanced-eplus-elite-3-2024'
+  },
+  {
     id: 'em-bianchi-e-omnia-fx-type-gx-12sp', cat: 'emtb', brand: 'Bianchi', model: 'e-Omnia FX-Type GX 12SP',
     motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 85, motorPowerPeak: 250,
     batteryWh: 482, batteryRemovable: true, assist: 'full-power',
