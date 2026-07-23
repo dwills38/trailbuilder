@@ -311,6 +311,15 @@ var BMX_PARTS = [
     note: 'Daniel Juchatz signature frame (mankindbmx.com); also offered in 20.75/21/21.25in top tube. Price is EUR retail. Removable U-brake mounts, gyro-compatible, integrated seat clamp + chain tensioners.'
   },
   {
+    id: 'bmx-fr-mankind-international2', cat: 'frame', brand: 'Mankind', model: 'International 2.0 Park (Ed Black, 21in)',
+    family: 'mankind-international', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: true, weight: 2100, price: 421.74,
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23',
+    source: 'https://mankindbmx.com/mankind-international-2-0-park-rahmen-21-0-ed-black/',
+    note: 'bmx-brand-depth-2: directly fetched mankindbmx.com (Mankind\'s own storefront), the current Sanko-tubing park-frame platform (updated geometry, 2022+ per digbmx.com\'s corroborating coverage). States verbatim "BB: Mid BB" (bbShell:mid), "Head tube: Wärmebehandelt-Int. Steuersatz" (integrated headset -> headTube:integrated-1-1/8), "Dropouts:...14mm Achsaufnahme" (rearAxle:14mm exact), "U-Brake: Abn. M6 Bremssockel" (removable U-brake bosses -> rearBrakeMount:u-brake exact), "Weight: 2.1 kg bei 21.0\\"" (this row is the 21.0in TT variant, so weight:2100 is this exact SKU\'s own stated figure, not a cross-size guess), "Lengths: 20.3, 20.6, 21.0" (topTube:21 modeled). Sold as a standalone frame ("Kategorie: Rahmen", no complete-bike bundling on this SKU) -> frameOnly:true. Price is maker-stated EUR-only (369.95€, "inkl. 19% MwSt.") - no USD figure published on this German-region storefront; converted at 1.14 USD/EUR (this catalog\'s existing bmx-br-saltplus-geo-xl-rear precedent rate) = $421.74, disclosed as priceBasis:regional-conversion.'
+  },
+  {
     id: 'bmx-fr-radio-darko', cat: 'frame', brand: 'Radio Bikes', model: 'Darko',
     family: 'radio-darko', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
     headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
@@ -319,11 +328,49 @@ var BMX_PARTS = [
     note: 'Frame spec pulled from the Darko complete-bike page (radiobikes.com); also offered in 21in top tube. Mid press-fit BB, fully removable brake hardware. WALL-RETEST 2026-07-20 (verify/wall-retest-1): re-fetched via the browser pane, no wall - renders cleanly. Full spec table CONFIRMS "BB: RADIO MID bb set" (bbShell mid), "HEADSET: SALT PRO integrated headset" (headTube integrated), "REAR HUB: RADIO AM cassette hub...14mm axle" (rearAxle exact), "BRAKE: RADIO AM u-brake" (rearBrakeMount exact), and "Top Tube Length 20.5\" / 21\"" (topTube exact). Price NOT independently reconfirmed - no USD figure is currently shown on the fetched page (likely out of stock/hidden pricing); left at the existing $524.99 sample rather than guessed. Upgraded to verified:true on the strength of every rule-relevant field matching exactly.'
   },
   {
+    id: 'bmx-fr-radio-comrad', cat: 'frame', brand: 'Radio Bikes', model: 'Comrad',
+    family: 'radio-comrad', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: false, price: 980.39,
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23',
+    source: 'https://radiobikes.com/products/radio-comrad',
+    note: 'bmx-brand-depth-2: directly fetched radiobikes.com (Radio\'s own storefront), Radio\'s current PRO-level street complete. Spec list states verbatim "BB: RADIO \\"MID\\" bb set, press fit, sealed bearing" (bbShell:mid), "HEADSET: SALT \\"PRO\\" integrated headset, sealed bearing" (headTube:integrated-1-1/8), "BRAKE: RADIO \\"PRO\\" u-brake, alloy, rear" + "FRAME: RADIO \\"COMRAD\\" frame, full crmo, removable brake mounts & guides" (confirms rearBrakeMount:u-brake), "REAR HUB: SALTPLUS \\"VERTEX\\" freecoaster hub...14mm hollow axle" (rearAxle:14mm exact), and the Frame Geometry table\'s "Top Tube Length: 21\\"" (topTube exact). No standalone Comrad frame SKU is listed on radiobikes.com/collections/frames (complete-bike-only) -> frameOnly:false, same convention as the sibling Darko row. Stated weight (12.65kg) is COMPLETE-BIKE mass, intentionally omitted (mirrors this catalog\'s WeThePeople-row convention). Price is maker-stated EUR-only (€859.99, no USD toggle available on this page) - converted at 1.14 USD/EUR (this catalog\'s existing rate precedent) = $980.39, disclosed as priceBasis:regional-conversion.'
+  },
+  {
     id: 'bmx-fr-premium-solo', cat: 'frame', brand: 'Premium', model: 'Solo',
     family: 'premium-solo', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
     headTube: 'integrated-1-1/8', topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm',
     frameOnly: false, price: 360.00,
     note: 'Frame spec pulled from the Solo complete-bike page; also offered in 20/20.5in top tube. Price is an archived 2012 MSRP (Premium/Haro catalog archive) - current pricing not re-sourced.'
+  },
+  {
+    id: 'bmx-fk-premium-ckv3', cat: 'fork', brand: 'Premium', model: 'CK V3 Fork',
+    family: 'premium-ck', discipline: 'freestyle', wheelSize: '20',
+    steerer: 'integrated-1-1/8', axle: '10mm', brakeMount: 'none',
+    price: 199.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://harobikes.com/products/ck-v3-fork',
+    note: 'bmx-brand-depth-2: Chad Kerley signature fork, directly fetched from harobikes.com (Premium is now sold through Haro Bikes\' own storefront, premiumbmx.com, which 301-redirects to harobikes.com/pages/premiumproducts/... - same manufacturer). Page states verbatim "100% machined 4130 chromoly steerer tube with built-in compression cap" + "Built-in 45° integrated headset cup" (confirms steerer:integrated-1-1/8) and "5mm thick 3/8\\" invest cast dropouts" (confirms axle:10mm, the 3/8in=10mm token per this catalog\'s convention). No brake boss of any kind is mentioned anywhere in the spec (no canti/U-brake mount named) - entered as brakeMount:none per this catalog\'s standing convention for spec-silent freestyle street forks (matches the sibling bmx-fk-haro-downtown/bmx-fk-sunday-darkwave/bmx-fk-merritt-cnc rows\' identical reasoning); commonly run brakeless. Price $199.99 matches premiumbmx.com\'s own storefront listing exactly (fetched separately, same session) - both are Haro/Premium\'s own first-party pages. No current Premium-branded frame SKU was found on premiumbmx.com (its live product list has zero frame rows, components only) - a genuine gap, not entered; the existing bmx-fr-premium-solo row (archived 2012 MSRP) remains the catalog\'s only Premium frame.'
+  },
+  {
+    id: 'bmx-cr-premium-trestle-24mm', cat: 'cranks', brand: 'Premium', model: 'Trestle 24mm Cranks',
+    family: 'premium-trestle', spindle: '24mm', pieces: '3-piece', ringMount: 'spline', length: 170,
+    price: 209.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://harobikes.com/products/trestle-24mm-cranks',
+    note: 'bmx-brand-depth-2: directly fetched harobikes.com (Premium\'s parent-brand storefront). States verbatim "Oversized 24mm hollow heat-treated chromoly 48-spline spindle" (spindle:24mm - the 24mm diameter is the fit-relevant dimension; "48-spline" here names the SPROCKET interface, not a competing spindle-diameter class) and is offered in 165/170/175mm arm lengths (length modeled at the middle 170mm option - display-only field, not fit-relevant). harobikes.de\'s companion CK Pro complete-bike spec sheet independently states "Premium Trestle 3-piece chromoly cranks. 24mm spindle" confirming pieces:3-piece. Compatible with "24mm spline drive sprockets" per empirebmx.com\'s retailer copy (ringMount:spline). Price $209.99 matches exactly; americancycle.com/alansbmx.com corroborate the same spec independently.'
+  },
+  {
+    id: 'bmx-hb-premium-ckv3-222', cat: 'handlebar', brand: 'Premium', model: 'CK V3 Bars (22.2mm)',
+    family: 'premium-ck-bars', clamp: '22.2mm', rise: 9, width: 28.5,
+    price: 79.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://harobikes.com/products/ck-v3-bars',
+    note: 'bmx-brand-depth-2: directly fetched harobikes.com. Chad Kerley signature bars, sold in two bore sizes ("Size 9\\" / 22mm bore size, 9\\" / 25.4mm bore size") at the same $79.99 price - this row is the 22.2mm/"Regular" variant (clamp differs from the 25.4mm sibling row below, a new-row-worthy engine-read field per DATA-ENTRY-TEMPLATE). "9\\" Height" + "28.5\\" wide" confirm rise/width exactly. 100% heat-treated chromoly butted tubing.'
+  },
+  {
+    id: 'bmx-hb-premium-ckv3-254', cat: 'handlebar', brand: 'Premium', model: 'CK V3 Bars (25.4mm)',
+    family: 'premium-ck-bars', clamp: '25.4mm', rise: 9, width: 28.5,
+    price: 79.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://harobikes.com/products/ck-v3-bars',
+    note: 'bmx-brand-depth-2: companion oversize-clamp variant of the row above, same fetched page ("9\\" / 25.4mm bore size" option, same $79.99 price, same rise/width) - only clamp differs.'
   },
   {
     id: 'bmx-fr-verde-cadet', cat: 'frame', brand: 'Verde', model: 'Cadet',
@@ -347,6 +394,33 @@ var BMX_PARTS = [
     headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
     frameOnly: false, price: 465.00, status: 'discontinued',
     note: 'DISCONTINUED 2026-07-21 (bmx-fixpack-1), applying bmx-sweep-4\'s finding: re-confirmed via web search that unitedbikeco.com sells no complete "Supreme" bike today - the only current complete-bike line is "Recruit" (16/18/18.5/20.25in); "Supreme" now survives on the site only as standalone spare-parts naming (Supreme cranks, forks, wheels, BB kit, cassette hub driver - a component line, not a bike model). No supersededBy set: United names no successor for this frame (Recruit is a different, unrelated model line, not a continuation). Spec (bbShell:mid, headTube:integrated-1-1/8, rearBrakeMount:u-brake, rearAxle:14mm, topTube:20.5) stays unverified sample per bmx-sweep-4 - no maker page for the discontinued complete bike will ever exist, so THE BAR cannot be met; retailer corroboration (timelessbmxdistro.com, 5150bmx.com, skatehut.co.uk, americancycle.com) noted but not sourced as verified.'
+  },
+  {
+    id: 'bmx-fr-united-recruit-2025', cat: 'frame', brand: 'United', model: 'Recruit 20.25',
+    family: 'united-recruit', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.25, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: false, price: 447.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://unitedbikeco.com/products/cbun48bk',
+    note: 'bmx-brand-depth-2: directly fetched unitedbikeco.com (United\'s own storefront) via its products/<handle>.json feed. States verbatim "FRAME: 1020 HI TEN, WELDED BRAKE MOUNTS, 1 1/8\\" HEAD TUBE, MID BB" (confirms bbShell:mid, welded/fixed but still the u-brake mount TYPE - "REAR BRAKE: 990" confirms rearBrakeMount:u-brake exactly, same "990"=U-brake convention already used catalog-wide on Haro rows) and "HEADSET: UNITED INTEGRATED SEALED BEARING" (confirms headTube:integrated-1-1/8); "REAR HUB: 36H SEALED ALLOY CASSETTE HUB WITH 14MM AXLE" confirms rearAxle:14mm exactly; "TOP TUBE: LENGTH 20.25\\"" confirms topTube exactly. The page\'s own rendered price is "$447.00 USD" - a direct US-dollar MSRP (this is United\'s "Recruit" entry-level complete-bike line named as the Supreme\'s current successor line in the sibling row above; no standalone frame SKU exists, so complete-bike-only, frameOnly:false, same convention as the Mongoose Legion/WeThePeople rows).'
+  },
+  {
+    id: 'bmx-fr-united-recruit-185', cat: 'frame', brand: 'United', model: 'Recruit 18.5',
+    family: 'united-recruit', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 18.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: false, price: 327.00,
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23',
+    source: 'https://unitedbikeco.com/products/cbun47bk',
+    note: 'bmx-brand-depth-2: directly fetched unitedbikeco.com\'s products/cbun47bk.json feed - same "Recruit" platform as the 20.25in sibling row (identical FRAME/HEADSET/REAR HUB/REAR BRAKE spec text verbatim: bbShell:mid, headTube:integrated-1-1/8, rearBrakeMount:u-brake, rearAxle:14mm all confirmed the same way), this SKU\'s "TOP TUBE LENGTH: 18.5\\"" confirms topTube exactly. The JSON\'s own variant carries "price":"352.95" with "price_currency":"EUR" explicitly (United Bike Co / 4Down Distribution Ltd is a UK/EU-based operation; unlike the 20.25in SKU above, this specific listing\'s API response is priced in EUR, not USD) - disclosed conversion at 1 EUR = 1.08 USD (rate used 2026-07-23), giving $327.00; not this catalog\'s own US-dollar MSRP.'
+  },
+  {
+    id: 'bmx-fr-united-recruit-16', cat: 'frame', brand: 'United', model: 'Recruit 16',
+    family: 'united-recruit', discipline: 'freestyle', wheelSize: '16', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 16, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: false, price: 374.00,
+    verified: true, lastChecked: '2026-07-23',
+    source: 'https://unitedbikeco.com/products/cbun45bk',
+    note: 'bmx-brand-depth-2: directly fetched unitedbikeco.com\'s products/cbun45bk.json feed. Junior-size Recruit (20H rims vs the 36H adult sizes): states verbatim "FRAME: 1020 HI-TEN, WELDED BRAKE MOUNTS, 1 1/8\\" HEAD TUBE, MID BB" (confirms bbShell:mid), "HEADSET: UNITED INTEGRATED SEALED BEARING" (confirms headTube:integrated-1-1/8), "REAR BRAKE: 990" (confirms rearBrakeMount:u-brake), "REAR HUB: 20H SEALED CASSETTE HUB WITH 14MM CROMO AXLE" (confirms rearAxle:14mm exactly - NOT a smaller diameter despite the junior size), "TOP TUBE LENGTH: 16\\"" (confirms topTube exactly; wheelSize:16 inferred from the model name + junior 20H-rim spec, this catalog\'s established Downtown-16 convention, not an independently stated wheel-diameter figure). This specific listing\'s fetched price field was ambiguous/possibly a caching artifact (identical raw figure to an unrelated sibling SKU fetched the same session) so NOT trusted as this SKU\'s own price; $374.00 is instead the confirmed regular-price figure from a same-model "Recruit 16\\" Lemon Sherbert" colorway also fetched from unitedbikeco.com this session - same model, different (older) color, so entered without a priceBasis token per the price-token law (a same-model-different-colorway figure is not this exact SKU\'s own confirmed price).'
   },
   {
     id: 'bmx-fr-mongoose-legionl60', cat: 'frame', brand: 'Mongoose', model: 'Legion L60',
@@ -410,6 +484,20 @@ var BMX_PARTS = [
     id: 'bmx-fk-haro-downtown', cat: 'fork', brand: 'Haro', model: 'Downtown Fork',
     discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
     brakeMount: 'none', weight: 680, price: 99.99, note: 'Companion fork to the Downtown/Downtown DLX frames; commonly run brakeless. WALL, checked 2026-07-21 (bmx-sweep-3): no standalone fork found on harobikes.com\'s current 10-product Freestyle lineup (see bmx-fr-haro-lineage-master) - Haro does not sell aftermarket forks separately in the current storefront at all (complete-bikes-only brand). Left unverified/unchanged.'
+  },
+  {
+    id: 'bmx-cr-haro-fusion', cat: 'cranks', brand: 'Haro', model: 'Fusion Cranks',
+    family: 'haro-fusion', spindle: '22mm', pieces: '3-piece', ringMount: 'press-on', length: 175,
+    price: 189.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://harobikes.com/products/fusion-cranks',
+    note: 'bmx-brand-depth-2: correction to the bmx-fk-haro-downtown note above (a prior session claimed Haro sells "complete-bikes-only" - it does also run a live standalone-parts storefront at harobikes.com, this row + the Baseline bar below directly fetched from it). Fusion Cranks page states verbatim "22mm heat-treated chromoly spindle" (spindle:22mm) and "7050 aluminum arms with dual pinch bolts" sold as "arms and spindle" (pieces:3-piece - two bolted arms + a separate spindle). ringMount:press-on per the companion "Fusion Disc" sprocket\'s own listed spec ("Style: Sprocket Bolt Drive", kunstform.org/Alan\'s BMX, both independently corroborating a bolt-drive, non-spline interface for this exact 19/22mm crank family) - this field is display-only (no compat-bmx.js rule reads ringMount), so the coarse spline/press-on binary safely covers the "not spline" bolt-drive reality. Offered in 175/180mm (length:175 modeled). Price $189.99 confirmed exactly on the fetched page.'
+  },
+  {
+    id: 'bmx-hb-haro-baseline-2pc', cat: 'handlebar', brand: 'Haro', model: 'Baseline 2pc Bars',
+    family: 'haro-baseline-bars', clamp: '22.2mm', rise: 9.5, width: 29,
+    price: 34.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://harobikes.com/products/baseline-2pc-bars',
+    note: 'bmx-brand-depth-2: directly fetched harobikes.com. States verbatim "9\\", and 9.5\\" rise" + "29\\" wide" (rise:9.5 modeled, width:29 exact). Clamp diameter is not restated on this exact page, but the same Baseline line\'s companion Bar Ends product (harobikes.com/products/baseline-bar-ends, also Haro-owned) states "fit all chromoly 22mm bars" - the brand\'s own stated clamp class for this bar family -> clamp:22.2mm. Price $34.99 confirmed exactly.'
   },
   {
     id: 'bmx-fk-chase-rsp', cat: 'fork', brand: 'Chase', model: 'RSP Race Fork',
@@ -735,6 +823,13 @@ var BMX_PARTS = [
   },
 
   // ===== FRONT WHEEL ====================================================
+  {
+    id: 'bmx-fw-mongoose-motomagiii', cat: 'frontWheel', brand: 'Mongoose', model: 'Motomag III Front Wheel',
+    family: 'mongoose-motomag', wheelSize: '20', axle: '10mm', price: 180.00,
+    verified: true, priceBasis: 'pair-split-estimate', lastChecked: '2026-07-23',
+    source: 'https://www.mongoose.com/products/motomag-iii',
+    note: 'bmx-brand-depth-2: directly fetched mongoose.com (Mongoose\'s own storefront), the 50th-anniversary Motomag III retro wheelset re-release. States verbatim "Size: 20-in." (wheelSize:20 exact - a real page-stated size, distinguishing this from the withheld bmx-fw-odyssey-vandero hub row above whose maker page never states a wheel size) and "Front Hub: Aluminum shell with sealed bearing, 3/8 in axle" (axle:10mm exact). Sold ONLY as a front+rear PAIR at one confirmed price ($359.99 current mongoose.com listing, up from the 2022 launch $299.99) - split evenly per priceBasis:pair-split-estimate ($180.00 this row). GENUINE GAP: the matching rearWheel row was deliberately NOT entered - the page (corroborated independently by probmxbikes.com and Albe\'s BMX) states the rear hub "works with 16t and larger freewheels (NOT INCLUDED)" - a bare freewheel-compatible shell ships with no driver at all, so rearWheel\'s required driverTeeth field has no real value to enter without fabricating a tooth count this SKU does not ship with.'
+  },
   {
     id: 'bmx-fw-odyssey-vandero', cat: 'frontWheel', brand: 'Odyssey', model: 'Vandero Pro Front Hub',
     wheelSize: '20', axle: '10mm', weight: 317, price: 96.99,
@@ -1306,6 +1401,28 @@ var BMX_PARTS = [
     source: 'https://saltbmx.com/products/salt-ex-cassette-hub',
     note: 'ADDED 2026-07-21 (bmx-fixpack-1) to replace the retired bmx-rh-wethepeople-oem-9 (id/brand mismatch - see its note): saltbmx.com\'s current EX Cassette Hub page confirms 14mm male CrMo axle, sealed bearings, 9t 1-piece driver, alloy shell, 548g (RHD), spoke-hole options 28H/36H (this row assumed as a generic 36H build, matching the retired row\'s convention). This is the OEM hub fitted to WTP\'s Justice complete bike (whose page names it "SALT PRO" - the current Salt catalog no longer sells a "Pro"-named hub, only this "EX" model at the identical 9t/14mm/cassette spec, so it is treated as the current-generation successor). Price kept as the prior row\'s $74.99 sample figure (unconfirmed - the maker page lists EUR119.99, not directly usable as a USD MSRP sample without a conversion basis); weight is sourced/verified.'
   },
+  {
+    id: 'bmx-fk-wethepeople-battleship-24', cat: 'fork', brand: 'WeThePeople', model: 'Battleship 24mm Fork',
+    family: 'wethepeople-battleship', discipline: 'freestyle', wheelSize: '20',
+    steerer: 'integrated-1-1/8', axle: '10mm', brakeMount: 'none', weight: 1022,
+    price: 165.00, verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-23',
+    source: 'https://wethepeoplebmx.de/forks/battleship-fork-24mm',
+    note: 'bmx-brand-depth-2: directly fetched wethepeoplebmx.de (WeThePeople\'s own storefront). States verbatim "integrated crown race designed to work with integrated headsets with a 45° bearing" (steerer:integrated-1-1/8) and "6.5mm investment cast dropout...for 3/8\'\' (10mm) axles" (axle:10mm exact); no brake boss of any kind is mentioned in the spec (matches this catalog\'s standing convention for spec-silent freestyle street forks) -> brakeMount:none. Weight "1022g (36.05oz : 2.25lbs)" confirmed exactly. No price is published on wethepeoplebmx.de (the same no-checkout EU marketing-site gap this catalog\'s existing WeThePeople rows already disclose); this is a real, widely-stocked current product though, so priced via a named retailer (Harvester Bikes, harvesterbikes.ca, $165.00 USD black colorway) per the third-party-listed tier - other retailers (Alan\'s BMX $188.16, Oriol Bike Shop $159.95, Empire BMX $189.95) corroborate the same rough band.'
+  },
+  {
+    id: 'bmx-cr-wethepeople-logic', cat: 'cranks', brand: 'WeThePeople', model: 'Logic Crank',
+    family: 'wethepeople-logic', spindle: '22mm', pieces: '3-piece', ringMount: 'spline', length: 165,
+    weight: 920, price: 159.99, verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-23',
+    source: 'https://www.wethepeoplebmx.de/cranks-bottom-brackets/logic-crank',
+    note: 'bmx-brand-depth-2: directly fetched wethepeoplebmx.de. States verbatim "SPINDLE: 22mm, butted 4130 crmo" (spindle:22mm), "CRANK ARM: 3pc design" (pieces:3-piece), and "165mm: 920g (32.4oz) (w/o BB set)" (weight:920, this row\'s 165mm length). ringMount:spline per LUXBMX\'s independent corroborating copy describing this exact model as "These 48 spline cranks" (a spline sprocket interface, not press-on). No price on the maker\'s own EU site; entered via a named retailer (Source BMX AM storefront, sourcebmx-am.myshopify.com, $159.99 standalone-crank price) per the third-party-listed tier - other retailers price the same crank anywhere from $149.95 (SkateHut, GBP-converted) to $229 (The Cut BMX) to $265 (LUXBMX, but that bundle explicitly INCLUDES the WTP bottom bracket, inflating the figure) - the sourcebmx-am figure was chosen as the plain crank-only price closest to the maker\'s own described product (crank comes WITH a BB per the spec text, so some retailer variance reflects bundling differences, not different SKUs).'
+  },
+  {
+    id: 'bmx-hb-wethepeople-patron', cat: 'handlebar', brand: 'WeThePeople', model: 'Patron Bar (9.5in, 22.2mm)',
+    family: 'wethepeople-patron', clamp: '22.2mm', rise: 9.5, width: 30,
+    weight: 860, price: 79.95, verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-23',
+    source: 'https://wethepeoplebmx.de/handlebars/patron-bar',
+    note: 'bmx-brand-depth-2: directly fetched wethepeoplebmx.de. Geometry table states verbatim "G - RISE: 9\\", 9.5\\" or 10\\"", "H - WIDTH: 29.5\\" (9\\"); 30\\" (9.5\\"); or 30.25\\" (10\\")", "CLAMPING: 22.2mm" (this row models the 9.5in/22.2mm variant: rise:9.5, width:30, clamp:22.2mm) and "9.5\\": 860g" (weight exact). No price on the maker\'s own EU site; entered via a named retailer (Oriol Bike Shop, oriolbikeshop.com, $79.95 USD for the 10in rise variant - the 9/9.5in variants were sold out at fetch time but list at the same $79.95 per-size price on that store) per the third-party-listed tier.'
+  },
 
   // ---- Eclat (new brand to the catalog) --------------------------------
   {
@@ -1630,6 +1747,12 @@ var BMX_PARTS = [
     discipline: 'race', wheelSize: '20', bbShell: 'american', headTube: 'integrated-1-1/8',
     topTube: 19.1, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: false, price: 320,
     note: 'Redline\'s smaller-than-standard-20" entry/youth race-inspired complete bike (between an 18" and full 20") - valleybmx.com lists an American-shell threaded BB and alloy linear-pull ("V-brake" family) brakes. Price is the listed non-sale MSRP. WALL, checked 2026-07-21 (bmx-sweep-2): also absent from diamondback.com/collections/redline-bmx\'s current 6-product lineup (PL-26, RL275, SQB-26, MX20, Proline Expert XL, Proline Expert); direct product-slug fetch (diamondback.com/products/roam) timed out. Left unverified/unchanged - no manufacturer page reachable to confirm bbShell/rearBrakeMount.'
+  },
+  {
+    id: 'bmx-cr-redline-flight', cat: 'cranks', brand: 'Redline', model: 'Flight Cranks (Retro)',
+    family: 'redline-flight', spindle: '19mm', pieces: '3-piece', ringMount: 'spline', length: 175,
+    weight: 631, price: 169.95,
+    note: 'bmx-brand-depth-2: Redline\'s current (2026) legacy old-school race crank, still sold as used on the Diamondback-era Supercross SX250 complete bikes. diamondback.com/collections/redline-bmx sells only complete bikes (no standalone parts store for the brand), so this is retailer-sourced (supercrossbmx.com, directly fetched) rather than a Redline-owned page - stays unverified per THE BAR (retailer, not manufacturer). States verbatim "Redline cr-mo 19mm splined spindle" (spindle:19mm) and "Tubular chromoly...crank arms" sold as "Arms and Spindle only" (pieces:3-piece - two arms + a separate spindle, pinch-bolted, not a solid 1-piece or a modern 2-piece unibody); ringMount:spline per the splined-spindle interface driving Redline\'s classic spline-drive "Tiger Tooth" sprocket (the page\'s own suggested pairing). Weight: "Right Hand 325g, Left Hand 306g" summed = 631g (both arms, no BB, per the page). Available in 175mm only (length:175). Price $169.95, listed Sold Out at fetch time (a stock status, not a discontinuation - Redline Flight cranks remain a current catalog item across multiple other retailers at the same price band). GENUINE GAP flagged: no standalone Redline handlebar (Flight V-Bar) could be entered - five independent retailers (J&R, LUXBMX, Albe\'s, BMX International, Sams BMX) describe rise/width/sweep consistently but NONE states a clamp diameter, a required schema field, so it was not entered rather than guessed; no Redline wheel/wheelset row was entered either - planetbmx.com sells Redline-branded race wheelsets but only as tire+tube+freewheel bundles with no stated driverTeeth/axle spec, insufficient for this catalog\'s rearWheel schema.'
   },
   {
     id: 'bmx-fr-fitbikeco-mixtapev2', cat: 'frame', brand: 'Fit Bike Co', model: 'Mixtape V2',
@@ -2087,6 +2210,27 @@ var BMX_PARTS = [
     system: 'pivotal', price: 46.99,
     note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-scribbles-v2-seat-aaron-ross-signature-multicolor — this handle\'s variant is titled "Pivotal" (the page also separately offers a "Fat/Pivotal or Cruiser/Railed" split, matching this catalog\'s existing Silva Brick pattern above). JSON weight (635g) discarded as the same shipping-bucket figure. Unverified sample.'
   },
+  {
+    id: 'bmx-cr-sunday-sakerv2', cat: 'cranks', brand: 'Sunday', model: 'Saker v2 Cranks',
+    family: 'sunday-saker', spindle: '19mm', pieces: '3-piece', ringMount: 'spline', length: 175,
+    price: 84.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://shop.sundaybikes.com/products/saker-v2-cranks',
+    note: 'bmx-brand-depth-2: directly fetched shop.sundaybikes.com (Sunday\'s own storefront). States verbatim "It uses a 19mm chromoly spindle with 8 splines" (spindle:19mm, ringMount:spline - the 8-spline sprocket interface) and "designed to be an affordable 3-pc crank" (pieces:3-piece); offered in 155/165/170/175mm (length:175 modeled, display-only field). Black colorway price $84.99 matches the storefront listing exactly.'
+  },
+  {
+    id: 'bmx-hb-sunday-nightshift', cat: 'handlebar', brand: 'Sunday', model: 'Nightshift Bar (9.625in)',
+    family: 'sunday-nightshift-bar', clamp: '22.2mm', rise: 9.625, width: 28,
+    price: 89.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://shop.sundaybikes.com/products/sunday-nightshift-9-625-bar-chrome',
+    note: 'bmx-brand-depth-2: directly fetched shop.sundaybikes.com. Rustproof Black variant price $89.99 confirmed on the storefront (this row); geometry (rise:9.625in, width:28in, clamp:22.2mm) corroborated identically by two independent retailers (kunstform.org\'s spec table: "Height: 9.625\\" Width: 28\\" ... Clamping: 22.2mm"; marketplace.fullfactorydistro.com: "9.625\\" rise. 28\\" width.") - a third retailer (365cycles) listed width as 30in for the same model, an outlier not corroborated elsewhere, so the two-source-agreeing 28in figure was used.'
+  },
+  {
+    id: 'bmx-ti-sunday-currentv2-24', cat: 'tire', brand: 'Sunday', model: 'Current v2 Tire 2.4"',
+    family: 'sunday-current', wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 100, price: 32.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://shop.sundaybikes.com/collections/sunday-tires/products/sunday-current-v2-20-tire-black',
+    note: 'bmx-brand-depth-2: directly fetched shop.sundaybikes.com (Sunday\'s current entry-level tire, distinct from the discontinued-implied v1 "also available in 16/18in" line). Page/retailer copy states verbatim "Size: 20x2.40\\" only" (width:2.4 exact) and "PSI: 100 max" (maxPsi:100 exact); Black colorway price $32.99 confirmed on the storefront exactly. casing:park per this catalog\'s standing convention for a plain wire-bead street/park tire (no race-slick or foldable-kevlar construction claimed anywhere in the spec).'
+  },
 
   // --- Fiend (fiendbmx.com, its own Shopify store — only 1 Fiend row existed before this pass) ---
   {
@@ -2421,6 +2565,13 @@ var BMX_PARTS = [
     id: 'bmx-hs-merritt-hightop', cat: 'headset', brand: 'Merritt', model: 'High Top Integrated Headset',
     fit: 'integrated-1-1/8', weight: 82, price: 29.99,
     note: 'bmx-breadth-3 (2026-07-22): companion tier to the Low Top row above - "Campy spec integrated headset" for riders needing a taller stack (20mm CNC 6061 aluminum cap vs the Low Top\'s 10mm), two sealed bearings, aluminum compression ring. FETCHED bmxguru.com/products/merritt-high-top-1-1-8-integrated-bmx-headset-bronze directly, which states price $29.99 and "Stack Height: 20mm" verbatim; weight (82g / 2.9oz) corroborated by an independent WebSearch summary of the same product line, not itself restated on the fetched bmxguru.com page. bmxguru.com is a RETAILER, not Merritt\'s own site, so this cannot carry verified:true per the sourceType:retailer-is-rejected-on-verified-rows policy even though the page itself was fetched directly - left unverified.'
+  },
+  {
+    id: 'bmx-cr-merritt-battle', cat: 'cranks', brand: 'Merritt', model: 'Battle Cranks',
+    family: 'merritt-battle', spindle: '22mm', pieces: '3-piece', ringMount: 'spline', length: 175,
+    weight: 958, price: 185.00, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://merritt.bigcartel.com/product/battle-cranks',
+    note: 'bmx-brand-depth-2: directly fetched merritt.bigcartel.com (Merritt\'s own storefront - confirmed genuinely current: Merritt makes no frames at all, that job moved to its sister brand Rixin per alansbmx.com\'s blog post, so no Merritt frame row exists or was fabricated). States verbatim "3-piece cranks made with heat-treated 4130, a 22mm spindle" (spindle:22mm, pieces:3-piece) and "compatible with...22mm spline drive sprockets" (empirebmx.com\'s independent corroborating spec: "48 spline 22mm hollow heat-treated 4130 cromo spindle") -> ringMount:spline. Offered in 165/170/175mm (length:175 modeled). Weight "958g (without BB)" per thebmxdude.com\'s independent teardown, matching shop.tbb-bike.com\'s retailer spec exactly. Price $185.00 confirmed on the maker\'s own page (currently sold out - a stock status, not a discontinuation). GENUINE GAP: the companion "90 Degrees Bars" ($80.00, also on merritt.bigcartel.com) was NOT entered - six independent sources (Merritt\'s own page, Albe\'s, Fifteen Distribution, Level7, Harvester) all state rise/width/sweep consistently but none states a clamp diameter, a required schema field.'
   },
 
   // ---- Fiction BMX (new brand: a Stolen-family parts brand; thin headset +
