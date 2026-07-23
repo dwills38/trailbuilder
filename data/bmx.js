@@ -2699,6 +2699,36 @@ var BMX_PARTS = [
     id: 'bmx-cr-subrosa-rose', cat: 'cranks', brand: 'Subrosa', model: 'Rose Cranks',
     spindle: '19mm', pieces: '3-piece', ringMount: 'spline', weight: 890, price: 183.41,
     note: 'Deepens Subrosa (task brief: confirmed thin, only 3 frame rows). subrosabrand.com itself is the documented WALL already noted on the existing Subrosa frame rows (every URL serves a stale 2012 placeholder) - re-confirmed this session, still unfetchable, so this row is sourced from a named retailer instead (Albes BMX product page, retailer-sourced -> unverified per THE BAR, sourceType:retailer is validator-rejected on verified rows regardless). Page states verbatim "Hollow 19mm / 48 spline spindle" (spindle:19mm, ringMount:spline both exact) and "now the B.B. is included!" (a bundled 19mm Mid BB, same bundling pattern as the BSD crank above). pieces:3-piece follows definitionally (a 19mm hollow spline spindle is never a 1-piece Ashtabula construction), same reasoning as bmx-cr-bsd-substancexlv2. Weight "31.4 oz" = 890g is the pages own stated crank-only figure (the included BBs "7.1 oz" is a separate, uncataloged component, not added to this rows weight). PRICE CAVEAT, disclosed rather than hidden: the fetched retailer page priced this UK-import listing at 144.42 GBP; converted at the same ~1.27 USD/GBP rate this file uses elsewhere for GBP-only brands -> $183.41 sample (no priceBasis token per THE PRICE RULE - a retailer-sourced, currency-converted figure is a plain sample, not a claimed provenance tier).'
+  },
+
+  // ---- bmx-breadth-5 (2026-07-23): brands entirely ABSENT from the catalog
+  //      before this batch (verified vs the brand list this session started
+  //      with). Fetched directly off each maker's own storefront where
+  //      possible; a field the page doesn't literally state but that is a
+  //      near-universal, catalog-documented convention for its class of part
+  //      (BMX-MODEL.md section 7: modern freestyle head tubes are almost
+  //      always integrated 1-1/8"; section 10: removable-mount freestyle
+  //      frames are near-universally u-brake/990) is entered as a disclosed,
+  //      unverified inference, never as a literal maker claim. ------------
+  {
+    id: 'bmx-fr-eastern-repeater', cat: 'frame', brand: 'Eastern', model: 'Repeater',
+    family: 'eastern-repeater', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.69, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: true, weight: 2418, price: 219.99,
+    note: 'New brand for this catalog (Eastern Bikes absent entirely before this batch, bmx-breadth-5). FETCHED easternbikes.com own product page (products/repeater-frame) directly, corroborated by americancycle.com and flatsocietybmx.com retailer listings carrying the identical spec block. Page states verbatim "CNC’d Mid Bottom Bracket" (bbShell:mid exact) and "5.33 LBS" = 2418g; sold in 19.69"/20.69"/21.69" top-tube sizes (topTube:20.69 modeled as the representative mid-size per DATA-ENTRY-TEMPLATE\'s sizes-are-a-field convention) at one $219.99 price across sizes. headTube:integrated-1-1/8 and rearBrakeMount:u-brake are NOT literally stated on this page (it says only "Removable brake mounts and hardware" with no mount-type name, and never names a head-tube standard at all) - both entered as this catalog\'s documented near-universal convention for a current chromoly freestyle street/park frame (BMX-MODEL.md §7/§10; every other modern freestyle frame already in this file carries the same pair) rather than a page-confirmed fact, so the row stays UNVERIFIED despite the literal weight/price/BB match.'
+  },
+  {
+    id: 'bmx-fr-eastern-thickrhonda', cat: 'frame', brand: 'Eastern', model: 'Thick Rhonda',
+    family: 'eastern-thick-rhonda', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.69, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: true, weight: 2449, price: 265.99,
+    note: 'Second Eastern frame (deepens the new brand added this batch). FETCHED easternbikes.com own product page (collections/frames/products/thick-rhonda-frame) directly. States verbatim "CNC’d Mid Bottom Bracket" (bbShell:mid exact) and "5.4 LBS" = 2449g; sold in 20.69"/21.69" top-tube sizes (topTube:20.69, the smaller/representative option) at one $265.99 price. Same headTube/rearBrakeMount caveat as the Repeater row above: the page says "Removable brake mounts and hardware" (mounts ship, real fact) but never names the mount TYPE or a head-tube standard - both entered as the catalog\'s documented modern-freestyle-frame convention (integrated-1-1/8 / u-brake), not a literal page claim, so left UNVERIFIED.'
+  },
+  {
+    id: 'bmx-cr-eastern-throttle', cat: 'cranks', brand: 'Eastern', model: 'Throttle Cranks',
+    family: 'eastern-throttle', spindle: '19mm', pieces: '3-piece', ringMount: 'spline',
+    length: 170, weight: 888, price: 99.99,
+    note: 'Third Eastern row (frame + fork position covered above; this is the drivetrain side). FETCHED easternbikes.com own product page (products/throttle-cranks) directly. States verbatim "Hollow 19mm 48-spline spindle" (spindle:19mm, ringMount:spline both exact) and "31.3 oz" = 888g; offered in 170mm/175mm arm lengths (length:170, the shorter option, display-only) at one $99.99 price, "BBs sold separately" (no bundled BB entered). pieces:3-piece is NOT stated on the page - entered per this catalog\'s established reasoning (bmx-cr-bsd-substancexlv2/bmx-cr-subrosa-rose, same batch precedent): a hollow 19mm splined spindle sold separately from the arms is never a 1-piece Ashtabula construction, so the value is definitional, not a guess, but the row stays UNVERIFIED since piece-count itself is inferred rather than page-literal.'
   }
 ];
 
