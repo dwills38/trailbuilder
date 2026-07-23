@@ -1629,6 +1629,18 @@ var EMTB_PARTS = [
     note: 'German direct-to-consumer maker\'s enduro-leaning e-MTB ("We Make Enduro" eWME line) — RockShox Lyrik Select fork, FOX Float DPS shock (205x60mm trunnion), Schwalbe Magic Mary front / Hans Dampf rear tires.',
     desc: 'Verified vs the fetched maker product page (conway-bikes.com/en/e-bikes/e-mountainbike/ewme/02895894-conway-ewme-4.9-full-suspension-2024 — "SHIMANO EP800" motor, DARFON "Intube 720" 720Wh battery, ROCKSHOX Lyrik Select 160mm fork, FOX Float DPS 205x60mm shock, aluminum full-suspension frame, SHIMANO Deore XT 12-speed 1x12, MAGURA MT5 eStop 203mm front/rear brakes, 25.3kg weight, EUR 4,499.95 price). PRICE: EUR 4,499.95 maker RRP converted at the 2026-07-22 open.er-api.com rate (1.140653), matching this catalog\'s established EUR-conversion convention (em-rotwild-rx375-pro) -> $5,132.83 — Conway has no US retail presence, no USD MSRP exists. Rear travel (155mm) is the eWME platform\'s published frame-travel figure (conway-bikes.com/en/e-bikes/e-mountainbike/ewme/ family overview page) — not restated on this SKU\'s own page, which lists only the 160mm fork. catalog/emtb-tail-5 zero-coverage-maker wave (first Conway row).',
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://www.conway-bikes.com/en/e-bikes/e-mountainbike/ewme/02895894-conway-ewme-4.9-full-suspension-2024/'
+  },
+
+  {
+    id: 'em-amflow-pl-carbon-pro-800', cat: 'emtb', brand: 'Amflow', model: 'PL Carbon Pro (800Wh)',
+    motorBrand: 'dji', motorModel: 'DJI Avinox M1 Drive Unit', motorTorque: 105, motorPowerPeak: 850,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission (T-Type AXS, 104BCD 34T, 10-52T)', brakes: 'Magura MT7 Pro 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 19710, price: 10199,
+    note: 'Chinese maker\'s flagship, built around DJI\'s Avinox drive system (co-developed for Amflow); ultra-light 2.27kg carbon frame + FOX 36 Factory/Float X Factory suspension; rear-wheel flip-chip supports a 27.5in mullet swap (cataloged at the stock dual-29in setup).',
+    desc: 'Verified vs the fetched maker spec page (amflowbikes.com/pl-carbon/specs — "Avinox M1 Drive Unit: 105 N·m", "Avinox Integrated Battery: 800Wh", "2026 FOX 36 Factory" 160mm fork / "2026 FOX FLOAT X Factory" trunnion 185x55mm shock, "SRAM X0 Eagle Transmission" derailleur w/ 104BCD 34T chainring and XS-1295 10-52T cassette, "Magura MT7 Pro" 4-piston 203mm brakes, 29in wheels, USD $10,199 price); the specs page states no bike weight or rear-wheel-travel figure. Weight (19.71kg, size L, tubeless/no pedals) is a third-party MEASURED figure (worldwidecyclery.com product listing for this exact 800Wh SRAM X0 T-Type AXS SKU) per the catalog\'s sourceType:\'measured\' weight-only policy; rear travel (150mm) and peak power (850W) are the model\'s consistently-reported figures across independent reviews (E-MOUNTAINBIKE Magazine, The Loam Wolf) confirming the FOX Float X Factory\'s travel, not maker-stated on the specs page itself. catalog/emtb-tail-5 zero-coverage-maker wave (first Amflow row).',
+    verified: true, priceBasis: 'msrp-confirmed', sourceType: 'measured', weightSource: 'https://worldwidecyclery.com/products/amflow-pl-carbon-pro-e-bike-w-sram-x0-t-type-axs-build-800wh', lastChecked: '2026-07-22', source: 'https://www.amflowbikes.com/pl-carbon/specs'
   }
 
 ];
