@@ -1,6 +1,128 @@
-# Paste-ready worker blocks — SEAT 21 WRAP (2026-07-23 night): ALL chips merged, fleet clear.
-# Seat 22's FIRST TASK + ready lanes + refreshed open-question queue below. (Seat-20 section kept
-# as history further down; the SEAT 21 WRAP block here is the current one.)
+# Paste-ready worker blocks — SEAT 22 WRAP (2026-07-23 late): ALL chips merged, fleet clear.
+# Seat 23: read the SEAT 22 WRAP block below first. Earlier seat sections kept as history.
+
+# ============================================================================================
+# ★★ SEAT 22 WRAP — the current queue (seat 23: read THIS block first) ★★
+# ============================================================================================
+
+## ★ WHAT SEAT 22 SHIPPED (main 058a6a31 -> 127fd2cc, 50+ commits, zero broken deploys)
+- Catalog wave, 6 lanes in parallel: MTB 5,258->5,261 · kit 918->933 · BMX 420->435 ·
+  road 431->442 · gravel 397->399 · EMTB 191->199. All gates green throughout.
+- **COMPLIANCE FIX (was a real exposure):** all 7 live pages now link privacy/terms/
+  affiliate-disclosure AND carry the Cloudflare beacon. 5 of 7 previously had NONE, while the
+  affiliate programme is live. 4 pages had no analytics at all.
+- **TOKEN LAW IS NOW MACHINE-ENFORCED:** a `priceBasis:'discontinued-no-msrp' => status:'discontinued'`
+  cross-rule landed in ALL 5 validators + 12 negative tests. The 20 live violations were resolved
+  HONESTLY (17 genuinely archived -> status added, each citing a re-fetched maker page; 3 Lazer
+  helmets were still CURRENT -> the wrong token was corrected to third-party-listed, NOT stamped).
+  A chronic manual audit is now a CI failure.
+- **THE 7 MB PAYLOAD FIX:** `src/verdict-core.js` extracted (Verdict/verdictKey/esc/
+  fisherYatesShuffle); bmx/road/gravel dropped `src/compat.js`. **7,233,396 bytes -> 4,574 bytes**
+  on three live pages. index.html regression-checked; verdict harness byte-identical.
+- Versioned two disk-only things: **tools/hooks/** (the containment + no-downloads guard enforcing
+  Hard rule #5 — it existed on ONE machine while CLAUDE.md described it as live) and **scripts/**
+  (the PDF deliverables pipeline) + PROJECT-SNAPSHOT.
+- BMC Trailfox/Speedfox AMP rows corrected (modelYear 2026->2020 + status:discontinued).
+- First-ever I.S.-mount caliper cataloged (`bk-bengal-helix11-is`), ACTIVATING rule 9's dormant
+  I.S. branch — probed directly and correct. 12 I.S. frames are now natively buildable.
+
+## ★ RULES EARNED THIS SEAT (inherit them)
+- **A STALE BRANCH MAKES GIT LIE — TWICE.** The shared checkout sits on `catalog/bmx-depth-2`
+  (~2,150 commits behind main). Diffs against it read as "new work" when they are STALE. I nearly
+  committed `tools/verification-job.json` on that basis — the on-disk copy has **3,597** parts
+  entries vs **4,952** on main, so it would have DELETED 1,355 parts' verification state. The same
+  illusion made `.claude/worker-reports/` look un-ignored when `.gitignore:40` on main ignores it
+  deliberately. **ALWAYS diff against origin/main, never the shared checkout's branch.**
+- **VERIFY YOUR OWN GREPS BEFORE REPORTING THEM.** Three false positives this seat: "3 remaining
+  token violations" (matched PROSE in the new notes, not the field), "bmx/road/gravel still load
+  compat.js" (matched explanatory COMMENTS), and a miscount from quote style (`status:'x'` vs
+  `status: 'x'`). Check the FIELD, not the file text.
+- **MY CHIP SCOPES WERE STALE, NOT THE WORKERS' EXECUTION.** gravel-depth-6 and mtb-tail-18 both
+  added far fewer rows than scoped because prior SAME-DAY waves had already covered those brands.
+  Both workers correctly REFUSED to pad the count. Re-derive brand gaps from the LIVE file at
+  chip-writing time — `brand-gap-audit.md` goes stale within hours.
+- **MODEL + EFFORT IS A PER-CHIP DECISION (Douglas standing order).** See memory
+  `chip-effort-calibration`: grind = Sonnet/medium, live-page-or-engine = Opus/high, open-ended
+  discovery = Opus/high; state WHY whenever above medium. **"ultracode" is NOT an effort tier** —
+  it is the multi-agent-orchestration keyword (tiers are low/medium/high/xhigh/max).
+- **PROBE ENGINE-ADJACENT MERGES YOURSELF** (held and paid off): I injected a violation to prove the
+  new cross-rule actually FIRES (a rule that never fires also yields "0 problems"), and probed the
+  newly-activated rule-9 I.S. branch directly because the harness never exercises it.
+
+## ★ DOUGLAS'S OPEN-QUESTION QUEUE (consolidated at seat-22 wrap, succession rule 5.
+## NEVER act on an unanswered question.)
+1. **Re-brainstorm session** — feature slate 8/8 done; he asked to be reminded. Standing.
+2. **Cloudflare redirects — PARKED.** All 5 BuildMy* zones have ZERO DNS records (chip banked).
+3. **WTB perpetual-"Sale price" storefronts** — accept the maker's stable storefront figure as
+   msrp-confirmed when no separate MSRP exists / keep strict / park. ~10 rows.
+4. **The no-USD-MSRP token family** — current products whose makers publish no USD price. Ratify a
+   token (e.g. `no-us-msrp`), or do those rows stay permanently blank? Structural floor under
+   road/gravel.
+5. **Canyon live-price drift** — verified rows whose canyon.com prices/spec-levels changed. Re-verify
+   as corrections, or adopt a "price-at-verification" convention?
+6. **Fox 38 Performance Elite 29/180** — no such SKU on ridefox.com anymore. Discontinued writeup, or retire?
+7. **MTB vocab gaps** — no `magnetic` pedal style for Magped-class pedals; tire casing/compound names
+   (Tioga Magnum120/FlexGuard, WolfPack ToGuard, Mitas Supra/Textra/EDC, American Classic
+   Stage-XC-Armor/Rubberforce-G) not in vocab. Those rows sit unverified. Add the vocab (with tests),
+   or leave them uncategorized on those axes?
+8. **Gearbox-frame schema gap** — checkBuild doesn't model gearbox/Pinion drivetrains (Zerode,
+   Guerrilla Gravity). Widen the schema, or leave a documented gap?
+9. **Gravel steerer-vocab widening** — a 1-1/4-to-1-1/2 tapered class (FSA IS2 on the Cervelo
+   Aspero-5) is wider than the generic `tapered` gravel token. Add a distinct token, or defer?
+10. **Kit `id-brand-token` warnings — 26.** Append-only ids can't be renamed; validate reads
+    "0 problems, 26 warnings" (cosmetic). Accept permanently, or address?
+11. **★ NEW — `regional-conversion` has NO field to hold its own promise.** The token law requires a
+    disclosed rate + date, but there is no `fxRate`/`fxDate` field. **453 rows** carry the token and
+    the disclosure lives only in prose, so it is UNAUDITABLE. This is the SAME hole class we just
+    closed for discontinued-no-msrp. Add the fields (validator-enforced), or accept prose-only?
+12. **★ NEW — svl-evidence PNGs (~2.3 MB, 17 files)** in `.claude/worker-reports/svl-evidence/`.
+    Committing binaries to git history is permanent and undiffable; leaving them risks disk loss.
+    Commit / leave on disk / move outside the repo?
+13. **★ NEW — the shared checkout is parked on a stale branch.** `D:\MTB Bike Builder` sits on
+    `catalog/bmx-depth-2`, ~2,150 commits behind main. That is why its diff indicator shows ~24k
+    "uncommitted" lines — they are gitignored reports plus a stale tracked file, **NOT unpushed
+    work** (0 unpushed commits, verified twice). Move it onto main? Needs Douglas's explicit word
+    (never-git-mutate-the-shared-checkout rule).
+14. **★ NEW — crossed gravel BB id tokens:** `gbb-shimano-sm-bb72-bsa` has shell `bb86` and
+    `gbb-shimano-sm-bb52-bb86` has shell `bsa-road`. **The SHELL DATA IS CORRECT** (BB72 is
+    press-fit, BB52 is threaded) — only the id suffixes are swapped and misleading to future
+    workers. Ids are append-only, so a fix means retire-into-ALIASES + re-add. Worth it, or leave?
+15. **★ NEW — CLAUDE.md says rule 9 is "live on the 3 I.S. frames"; there are now 12.** One-line
+    doc fix, plus the coverage-roadmap line about the I.S. caliper branch being dormant is now stale
+    (the first I.S. caliper landed this seat).
+16. **Smalls tail (carry):** WTB sale rows · 6 confirmed-dup files in `.claude/legacy-strays/`
+    (the guard blocks the coordinator — needs Douglas's manual delete) · a stray `kit-jacket`
+    port-8417 entry in the main checkout's `.claude/launch.json` · Bright Data balance top-up ·
+    Alma H30 headset ambiguity · Whisp tier naming · "Sort: Random" wording · fr-trek-slash orphan
+    dedupe · recall-badge scoping · fitter paywalls.
+
+## ★ RULED / DONE at SEAT 22 (2026-07-23 — do NOT re-ask):
+- **CROSSOVER BIKES APPEAR IN BOTH CATALOGS** (Douglas: "appears in both"). An all-road/gravel bike
+  gets a row in `data/road.js` AND `data/gravel.js`, each with its own catalog-prefixed id. Tag
+  disciplines HONESTLY per catalog — `['road','allroad']` for endurance ROAD bikes,
+  `['allroad']` ALONE for bikes that are really gravel bikes; never overclaim `'road'`.
+  Memory: `crossover-bike-dual-catalog`.
+- **CHIPS CARRY A DELIBERATE BEST MODEL + EFFORT** (standing order). Memory: `chip-effort-calibration`.
+- **tools/hooks/ + scripts/ + PROJECT-SNAPSHOT are now VERSIONED.**
+- **.claude/worker-reports/ stays gitignored** (pre-existing deliberate choice, `.gitignore:40`).
+- **tools/verification-job.json on the shared checkout is STALE — never commit it from there.**
+
+## ★ READY LANES AT WRAP (all files FREE; re-verify the slug is unused + 0-ahead before dispatch)
+`src/compat.js` (MTB verification tail, ~1,854 unverified) · `data/road.js` · `data/gravel.js` ·
+`data/emtb.js` · `data/bmx.js` · `src/kit.js` · `tools/verify-job.js` (the --by-source idea below).
+
+## ★ HIGHEST-VALUE UNDISPATCHED IDEA (from the efficiency review; nothing blocks it)
+**verify-job `--by-source` mode.** The 1,383-row MTB priceBasis tail resolves to only **518 distinct
+source URLs**, and **445 rows come from sram.com alone**. The queue is keyed by PART ID, so workers
+re-fetch the same page dozens of times. Grouping the queue by `source` would cut fetches ~2.7x — the
+top 30 pages alone clear ~500 rows. Touches only `tools/verify-job.js`. `schema.js:486` already
+complains about this in a comment. Full analysis:
+`.claude/worker-reports/project-efficiency-review.md` (500 lines, read-only, 0 commits).
+
+# ============================================================================================
+# ↓↓ EARLIER SEAT SECTIONS BELOW — kept as history ↓↓
+# ============================================================================================
+
 
 # ============================================================================================
 # ★★ SEAT 21 WRAP — the current queue (seat 22: read THIS block first) ★★

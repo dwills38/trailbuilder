@@ -26,6 +26,79 @@ seat does the housekeeping automatically — Douglas never renames/unpins/archiv
 
 ---
 
+## ★★★ SEAT 23 — START HERE (succession from seat 22, 2026-07-23 late) ★★★
+
+Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today>-s23 -b
+coord/<today>-s23 origin/main` (Hard rule #5 — containment hook LIVE, and it is now VERSIONED at
+`tools/hooks/`). Run the gates yourself, never trust doc counts. **State at handoff: main
+`127fd2cc` green — MTB 5,261 · kit 933 (+26 advisory id-brand-token warnings, cosmetic) · BMX 435 ·
+road 442 · gravel 399 · EMTB 199 · striders 48 · 1,207 tests / 43 files · tsc clean · verdict
+harness clean (363 clean / 2 known catalog-gap errors) · 7 validators at 0 problems. 50+ commits
+this seat, zero broken deploys.** A durable junction links the main checkout's `node_modules` into
+the coord worktree so npm test/tsc run there — recreate if missing:
+`cmd //c "mklink /J node_modules \"D:\MTB Bike Builder\node_modules\""`.
+
+**★ SEATING SEQUENCE (in order):**
+1. **Succession handshake** — find the seat 22 session via `list_sessions` **BY TITLE**
+   ("Main Coordinator (Seat 22)" — never a hardcoded id). `send_message` it to `set_session_title`
+   you to "Main Coordinator (Seat 23)"; archive it on confirm. If it never wakes, one line to
+   Douglas and DON'T block. (Seat 21 woke and confirmed promptly this time.)
+2. **RE-ARM BOTH session-lifetime watchers IMMEDIATELY** (they die with the seat): (a) the hourly
+   fleet-sweep cron — v2 prompt WITH the leak sweep (D:\ root vs known-legit inventory + Downloads +
+   home dir) AND the Untitled-session check; (b) the persistent worker-reports Monitor — **USE THE
+   MTIME-AWARE VERSION** (per-file mtimes, emit on NEW **and** CHANGED). `CronList` after, delete
+   dupes. The FIVE durable scheduled tasks survive on their own (daily bug-triage, monthly drift
+   6th, monthly bias 12th, quarterly recall, weekly repo-audit Sun) — do NOT recreate. Verified
+   alive at this wrap.
+3. Read **HANDOFF-CHIPS.md** (the SEAT 22 WRAP block at the top — 16-item open-question queue,
+   ready lanes, and the highest-value undispatched idea) + memory `MEMORY.md` + CLAUDE.md hard
+   rules 1-5.
+
+**★ IN FLIGHT AT HANDOFF: NOTHING.** Every seat-22 chip merged, every worker archived. Only
+"Affiliate Setup" (Partnerships lane, never touch) + the daily bug-triage vessel remain.
+
+**★ RULES EARNED THIS SEAT (inherit them — full text in HANDOFF-CHIPS.md):**
+· **A STALE BRANCH MAKES GIT LIE — TWICE.** The shared checkout sits on `catalog/bmx-depth-2`,
+  ~2,150 commits behind main. Diffs against it read as "new work" when they are STALE. I nearly
+  committed `tools/verification-job.json` on that basis; the on-disk copy has 3,597 parts entries
+  vs 4,952 on main, so it would have **deleted 1,355 parts' verification state**. The same illusion
+  made `.claude/worker-reports/` look un-ignored when `.gitignore:40` ignores it deliberately.
+  **ALWAYS diff against origin/main.**
+· **VERIFY YOUR OWN GREPS BEFORE REPORTING THEM.** Three false positives this seat (prose matched
+  instead of fields; explanatory comments matched instead of script tags; a quote-style miscount).
+  Check the FIELD, not the file text — and re-check before telling Douglas.
+· **CHIP SCOPES GO STALE WITHIN HOURS.** Two workers added far fewer rows than scoped because
+  same-day waves had already covered those brands; both correctly refused to pad. Re-derive gaps
+  from the LIVE file when writing a chip, not from `brand-gap-audit.md`.
+· **MODEL + EFFORT IS A PER-CHIP DECISION** (Douglas standing order, 2026-07-23): grind =
+  Sonnet/medium, live-page-or-engine = Opus/high, open-ended discovery = Opus/high; say WHY above
+  medium. **"ultracode" is NOT an effort tier** — it is the multi-agent-orchestration keyword.
+  Memory: `chip-effort-calibration`.
+· **PROBE ENGINE-ADJACENT MERGES YOURSELF.** I injected a violation to prove the new token-law
+  cross-rule actually fires (a rule that never fires also reports "0 problems"), and probed the
+  newly-activated rule-9 I.S. branch because the harness never exercises it.
+· **GHOST REPORTS / worktree suffixes / report-prose miscounts** (inherited from seat 21) all still
+  apply — the BRANCH diff is ground truth, never the report file.
+
+**★ NEW SINCE THE LAST HANDOFF (things that changed shape):**
+· `src/verdict-core.js` now holds `Verdict`/`verdictKey`/`esc`/`fisherYatesShuffle`. **bmx.html,
+  road.html and gravel.html no longer load `src/compat.js`** (7,233,396 -> 4,574 bytes). Load order
+  is load-bearing: verdict-core MUST precede compat-bmx/compat-road (they read the globals at parse
+  time). index.html loads verdict-core THEN compat.js. `require('./src/compat.js')` still re-exports
+  all four for the node/test path.
+· The token law is machine-enforced for `discontinued-no-msrp` in ALL 5 validators. The mirror hole
+  (`regional-conversion` has no rate/date field, 453 rows) is open-question #11.
+· `tools/hooks/` and `scripts/` are versioned now; don't be surprised to see them tracked.
+
+Standing workflow (unchanged): four gates (+ verdict harness on any `compat.js`/engine-read change)
++ YOUR OWN probes on engine merges; adversarial review; UI auto-ships on green gates; only
+taxonomy/money/visual-taste/account/business decisions to Douglas, kept SHORT; ANSWER-FIRST;
+paste-blocks with `[Model, effort]` headers carrying a deliberate best pick; coordinate-only lean
+seat; archive each worker AS it merges; at YOUR wrap-up consolidate all outstanding Douglas
+questions into HANDOFF-CHIPS.md and pass this instruction forward (succession rule 5).
+
+---
+
 ## ★★★ SEAT 22 — START HERE (succession from seat 21, 2026-07-23 night) ★★★
 
 Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today>-s22 -b

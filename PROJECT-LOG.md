@@ -1,5 +1,65 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-23 — SEAT 22 WRAP: six-lane catalog wave, the compliance gap closed, the token law machined, and 7 MB dropped from three live pages
+
+**main `058a6a31` -> `127fd2cc`, 50+ commits, every gate green throughout, zero broken deploys.**
+
+- **Six-lane parallel catalog wave** (each in a physically separate file, zero mutual conflict):
+  MTB 5,258->5,261 · kit 918->933 · BMX 420->435 · road 431->442 · gravel 397->399 · EMTB 191->199.
+  Two lanes (gravel, MTB) came back far smaller than scoped — **the chip scopes were stale, not the
+  execution**: prior same-day waves had already covered most of the named brands, and both workers
+  correctly refused to pad the count rather than invent rows. Lesson recorded: re-derive brand gaps
+  from the live file at chip-writing time; `brand-gap-audit.md` goes stale within hours.
+- **COMPLIANCE GAP CLOSED (a real exposure, found by the efficiency review).** 5 of 7 live pages
+  linked no privacy policy, no terms and no affiliate disclosure while the affiliate programme is
+  live; 4 had no analytics beacon at all. All 7 pages now carry both. The KitBuilder `../` relative
+  path — flagged in the chip as the likely breakage — was handled correctly and browser-verified.
+- **THE TOKEN LAW IS NOW MACHINE-ENFORCED.** A `priceBasis:'discontinued-no-msrp' =>
+  status:'discontinued'` cross-rule landed in all 5 validators with 12 negative tests. The 20 live
+  violations were resolved **honestly**: 17 were genuinely archived (each citing a re-fetched maker
+  page — trekbikes.com's own "ARCHIVED 2021-2025" badge, chasebicycles.com's frame-archives path,
+  Salsa's "this is an archived bike"), and **3 Lazer KinetiCore helmets turned out to still be
+  current**, so the wrong token was corrected to `third-party-listed` rather than stamped. That is
+  precisely the trap an earlier branch was rejected wholesale for. The coordinator proved the rule
+  actually fires by injecting a violation and watching validate hard-fail — a rule that never fires
+  also reports "0 problems".
+- **THE 7 MB PAYLOAD FIX** (the efficiency review's "single best fix in the repo"). Extracted
+  `src/verdict-core.js` (Verdict / verdictKey / esc / fisherYatesShuffle — the worker's own symbol
+  inventory found the fourth) and dropped `src/compat.js` from bmx/road/gravel: **7,233,396 bytes ->
+  4,574 bytes** on three live pages. Symbols defined exactly once (moved, not copied — two Verdict
+  constructors would break the verdictKey identity the dots and diff dedup both key on);
+  `require('./src/compat.js')` still re-exports all four so the node/test path is intact; load order
+  preserved because compat-bmx/compat-road read the globals at PARSE time. Verdict harness
+  byte-identical; index.html regression-checked.
+- **First I.S.-mount caliper ever cataloged** (`bk-bengal-helix11-is`), which ACTIVATED rule 9's
+  documented-dormant I.S. branch. Probed directly rather than trusted: I.S. caliper on I.S. frame =
+  clean native match, on a PM frame = correct error, PM-on-I.S. adapter warning unchanged. **12 I.S.
+  frames are now natively buildable** (CLAUDE.md still says 3 — open question #15).
+- **Two disk-only things versioned.** `tools/hooks/` — the containment + no-downloads guard that
+  ENFORCES Hard rule #5 — was untracked and not gitignored, so the mechanism backing a documented
+  hard rule existed on exactly one machine while CLAUDE.md described it as live. Also `scripts/`
+  (the PDF deliverables pipeline, held back only by a machine-local `.git/info/exclude`) and
+  PROJECT-SNAPSHOT.
+- **A near-miss worth remembering: a stale branch makes git lie.** The shared checkout sits on
+  `catalog/bmx-depth-2`, ~2,150 commits behind main, so its working-tree diff reads as "new work"
+  when it is stale. On that basis I proposed committing `tools/verification-job.json` — the on-disk
+  copy has **3,597** parts entries against **4,952** on main, so it would have **deleted 1,355
+  parts' verification state**. Douglas's "make sure we don't lose anything" is what forced the check.
+  The same illusion made `.claude/worker-reports/` look un-ignored when `.gitignore:40` ignores it
+  by an earlier seat's deliberate choice. **Always diff against origin/main.**
+- **Douglas rulings this seat:** (1) **crossover bikes appear in BOTH catalogs** — an all-road/gravel
+  bike gets a row in road.js and gravel.js with its own id each, disciplines tagged honestly per
+  catalog (`['allroad']` alone for bikes that are really gravel bikes; never overclaim `'road'`).
+  Four held rows were restored verbatim on his word. (2) **Every chip must carry a deliberate best
+  model AND effort** — never a default in either direction; the standing order and its heuristic are
+  in memory `chip-effort-calibration`, along with the clarification that "ultracode" is the
+  multi-agent-orchestration keyword, not an effort tier.
+- **Read-only project efficiency review delivered** (Douglas's explicit first task): 500 lines,
+  0 commits, four dimensions. Its top findings drove three of the merges above. Its highest-value
+  undispatched idea remains the verify-job `--by-source` mode — the 1,383-row MTB priceBasis tail
+  resolves to just **518 source URLs**, 445 of them on sram.com, so a page-keyed queue would cut
+  fetches ~2.7x.
+
 ## 2026-07-22 — SEAT 17 WRAP: vocab-tier1 lands, the seat closes
 
 - **schema/vocab-tier1 merged (the seat's final harvest — Douglas's Tier-1 ratification
