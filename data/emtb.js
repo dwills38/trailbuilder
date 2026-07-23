@@ -2190,6 +2190,28 @@ var EMTB_PARTS = [
     note: 'Entry-carbon Tarok trim, same Avinox M2S drive system and 700Wh battery as the Ultra/Ultimate, heavier build kit accounts for the weight step vs Ultra.',
     desc: 'Fetched from raymon-bicycles.com\'s own Tarok model page (browser render). No drivetrain/brake spec text on the page for this trim (left blank rather than guessed). PRICE: EUR 5,999 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $6,846.',
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.raymon-bicycles.com/en/modelle/tarok'
+  },
+  {
+    id: 'em-flyer-uproc-x-4-10', cat: 'emtb', brand: 'Flyer', model: 'Uproc X 4.10',
+    motorBrand: 'bosch', motorModel: 'Bosch Smart System Performance Line CX', motorTorque: 85,
+    batteryWh: 750, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'carbon', weight: null, price: 5248, modelYear: 2026,
+    disciplines: ['e-trail'],
+    note: 'Entry Uproc X trim, Swiss maker Flyer\'s allmountain-tier full-power e-MTB.',
+    desc: 'Motor/battery/travel/wheel/frame confirmed on flyer-bikes.com\'s own Uproc X model page (browser render, gb-en). No weight or per-trim component spec published there; entry price sourced from an ebike24.com launch article ("Flyer Uproc X 4.10 priced at 4,599 euros"). PRICE: EUR 4,599 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,248. Left unverified: price provenance is a press article, not the maker\'s own price page.',
+    lastChecked: '2026-07-23', source: 'https://www.flyer-bikes.com/gb-en/uprocx'
+  },
+  {
+    id: 'em-flyer-uproc-evox-8-70', cat: 'emtb', brand: 'Flyer', model: 'Uproc EVO:X 8.70',
+    motorBrand: 'bosch', motorModel: 'Bosch Smart System Performance Line CX', motorTorque: 85,
+    batteryWh: 750, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XT 12-speed', brakes: 'Shimano XT BR-M8120',
+    disciplines: ['e-enduro'], weight: 26000, price: 10269, modelYear: 2026,
+    note: 'Flyer\'s E-Enduro flagship; Fox 38 Float fork / Fox Float X2 Performance shock, 220/203mm rotors.',
+    desc: 'Motor/battery/wheel confirmed via flyer-bikes.com\'s own Uproc EVO:X page; travel figures from ebike-mtb.com\'s current-gen coverage (180/170mm, vs an earlier 170/165mm gen — flagged as a generational spec, not fabricated). Drivetrain/brakes/weight/price for the 8.70 build from an ebike24.com retailer listing (fork/shock/drivetrain/brakes/weight/price all matched one consistent trim). PRICE: EUR 8,999 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $10,269. Left unverified: component/weight/price provenance is press/retailer, not the maker\'s own spec sheet.',
+    lastChecked: '2026-07-23', source: 'https://www.flyer-bikes.com/gb-en/uprocevox'
   }
 
 ];
