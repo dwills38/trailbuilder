@@ -1857,6 +1857,18 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://www.bike-magazin.de/en/enduro-bikes/this-is-how-good-the-conway-xyron-lt-9-0-is-lightweight-bosch-enduro-bike-from-germany/'
   },
 
+  {
+    id: 'em-fantic-xtf15-carbon', cat: 'emtb', brand: 'Fantic', model: 'XTF 1.5 Carbon',
+    motorBrand: 'brose', motorModel: 'Brose S Mag', motorTorque: 90,
+    batteryWh: 630, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'carbon',
+    disciplines: ['e-trail'], weight: null, price: 6265.63, modelYear: 2026,
+    note: 'Italian maker Fantic\'s carbon trail e-MTB — the "XTF Trail" family\'s carbon-frame model, distinct from the already-cataloged mullet-wheel "XMF" all-mountain platform. Full-carbon frame, RockShox 35 Gold RL 150mm fork, Brose S Mag motor (2.8kg, vibration-free per the maker).',
+    desc: 'Unverified sample via the credible-source breadth policy — The Loam Wolf\'s "Dissected" feature and multiple retailer spec sheets (jaxnebike.com, ebikespartsandaccessories.com, opticycles.com) consistently confirm "Brose S Mag" motor / "90 Nm" torque / "630Wh" battery (Fantic-engineered, frame-integrated) / "150mm" travel / "RockShox 35 Gold RL" fork / full carbon frame. No fanticbikes.com product page fetched directly this session (companion XMF row already documents that site\'s per-SKU pages as fetchable; not repeated here for a second Fantic model). No complete-bike weight found across sources — left uncataloged rather than guessed. PRICE: EUR 5,490 (a retailer-quoted "manufacturer price" figure, not a session-fetched maker RRP) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $6,265.63 — disclosed estimate, no regional-conversion token. catalog/emtb-breadth-3 wave (Fantic deepened from 1 row to 2).',
+    lastChecked: '2026-07-23', source: 'https://theloamwolf.com/features/dissected/dissected-fantic-xtf-1-5-carbon-emtb/'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
