@@ -693,6 +693,20 @@ var BMX_PARTS = [
     note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): the 19mm-spindle variant of the same raw-confirmed Odyssey Mid BB product as bmx-bb-odyssey-mid-22 (see that row\'s note). shell:\'mid\' and spindleFit:\'19mm\' both match exactly; price ($24.99) matches. No weight field on this row to begin with.'
   },
 
+  // ===== BOTTOM BRACKETS — bmx-breadth-7 (new brand: Empire BMX house parts) ====
+  {
+    id: 'bmx-bb-empirebmx-spanish', cat: 'bb', brand: 'Empire BMX', model: 'Spanish Bottom Bracket',
+    shell: 'spanish', spindleFit: '19mm', price: 19.95,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.empirebmx.com/products/empire-bmx-spanish-bottom-bracket-2',
+    note: 'bmx-breadth-7: new brand (Empire BMX absent entirely before this batch) — Empire BMX\'s own house-brand parts line, sold on its own storefront (SKU 1101332). FETCHED empirebmx.com/products/empire-bmx-spanish-bottom-bracket-2 directly: "complete Spanish bottom bracket (19mm or 22mm)... 2x precision sealed Spanish bearings... machined alloy bearing cones... 15/16\\" / 24mm to 19mm or 22mm sprocket adapter", flat $19.95 across the 19mm/22mm spindle options (this row models the 19mm SKU). No weight published on the page.'
+  },
+  {
+    id: 'bmx-bb-empirebmx-american', cat: 'bb', brand: 'Empire BMX', model: 'USA / American Bottom Bracket',
+    shell: 'american', spindleFit: '19mm', price: 39.95,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.empirebmx.com/products/empire-bmx-usa-american-bottom-bracket',
+    note: 'bmx-breadth-7: second Empire BMX house-brand row (frame + BB position covered above via the Bone Deth batch; this is Empire\'s own American-shell BB, SKU 1094784). FETCHED empirebmx.com/products/empire-bmx-usa-american-bottom-bracket directly: "complete USA / American bottom bracket... includes two bearings/cups and complete hardware (tube spacer, alignment spacers, and conical bearing spacers)... 19mm, 22mm, or 24mm (choose the one that fits the crank spindle you\'ll be using)", flat $39.95 across all three spindle options (this row models the 19mm SKU). No weight published on the page.'
+  },
+
   // ===== SPROCKETS =====================================================
   {
     id: 'bmx-sp-odyssey-utilitypro-30', cat: 'sprocket', brand: 'Odyssey', model: 'Utility Pro Sprocket 30T',
