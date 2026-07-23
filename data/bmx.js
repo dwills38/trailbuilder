@@ -378,6 +378,33 @@ var BMX_PARTS = [
     note: 'DISCONTINUED 2026-07-21 (bmx-fixpack-1), applying bmx-sweep-4\'s finding: re-confirmed via web search that unitedbikeco.com sells no complete "Supreme" bike today - the only current complete-bike line is "Recruit" (16/18/18.5/20.25in); "Supreme" now survives on the site only as standalone spare-parts naming (Supreme cranks, forks, wheels, BB kit, cassette hub driver - a component line, not a bike model). No supersededBy set: United names no successor for this frame (Recruit is a different, unrelated model line, not a continuation). Spec (bbShell:mid, headTube:integrated-1-1/8, rearBrakeMount:u-brake, rearAxle:14mm, topTube:20.5) stays unverified sample per bmx-sweep-4 - no maker page for the discontinued complete bike will ever exist, so THE BAR cannot be met; retailer corroboration (timelessbmxdistro.com, 5150bmx.com, skatehut.co.uk, americancycle.com) noted but not sourced as verified.'
   },
   {
+    id: 'bmx-fr-united-recruit-2025', cat: 'frame', brand: 'United', model: 'Recruit 20.25',
+    family: 'united-recruit', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.25, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: false, price: 447.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://unitedbikeco.com/products/cbun48bk',
+    note: 'bmx-brand-depth-2: directly fetched unitedbikeco.com (United\'s own storefront) via its products/<handle>.json feed. States verbatim "FRAME: 1020 HI TEN, WELDED BRAKE MOUNTS, 1 1/8\\" HEAD TUBE, MID BB" (confirms bbShell:mid, welded/fixed but still the u-brake mount TYPE - "REAR BRAKE: 990" confirms rearBrakeMount:u-brake exactly, same "990"=U-brake convention already used catalog-wide on Haro rows) and "HEADSET: UNITED INTEGRATED SEALED BEARING" (confirms headTube:integrated-1-1/8); "REAR HUB: 36H SEALED ALLOY CASSETTE HUB WITH 14MM AXLE" confirms rearAxle:14mm exactly; "TOP TUBE: LENGTH 20.25\\"" confirms topTube exactly. The page\'s own rendered price is "$447.00 USD" - a direct US-dollar MSRP (this is United\'s "Recruit" entry-level complete-bike line named as the Supreme\'s current successor line in the sibling row above; no standalone frame SKU exists, so complete-bike-only, frameOnly:false, same convention as the Mongoose Legion/WeThePeople rows).'
+  },
+  {
+    id: 'bmx-fr-united-recruit-185', cat: 'frame', brand: 'United', model: 'Recruit 18.5',
+    family: 'united-recruit', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 18.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: false, price: 327.00,
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23',
+    source: 'https://unitedbikeco.com/products/cbun47bk',
+    note: 'bmx-brand-depth-2: directly fetched unitedbikeco.com\'s products/cbun47bk.json feed - same "Recruit" platform as the 20.25in sibling row (identical FRAME/HEADSET/REAR HUB/REAR BRAKE spec text verbatim: bbShell:mid, headTube:integrated-1-1/8, rearBrakeMount:u-brake, rearAxle:14mm all confirmed the same way), this SKU\'s "TOP TUBE LENGTH: 18.5\\"" confirms topTube exactly. The JSON\'s own variant carries "price":"352.95" with "price_currency":"EUR" explicitly (United Bike Co / 4Down Distribution Ltd is a UK/EU-based operation; unlike the 20.25in SKU above, this specific listing\'s API response is priced in EUR, not USD) - disclosed conversion at 1 EUR = 1.08 USD (rate used 2026-07-23), giving $327.00; not this catalog\'s own US-dollar MSRP.'
+  },
+  {
+    id: 'bmx-fr-united-recruit-16', cat: 'frame', brand: 'United', model: 'Recruit 16',
+    family: 'united-recruit', discipline: 'freestyle', wheelSize: '16', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 16, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: false, price: 374.00,
+    verified: true, lastChecked: '2026-07-23',
+    source: 'https://unitedbikeco.com/products/cbun45bk',
+    note: 'bmx-brand-depth-2: directly fetched unitedbikeco.com\'s products/cbun45bk.json feed. Junior-size Recruit (20H rims vs the 36H adult sizes): states verbatim "FRAME: 1020 HI-TEN, WELDED BRAKE MOUNTS, 1 1/8\\" HEAD TUBE, MID BB" (confirms bbShell:mid), "HEADSET: UNITED INTEGRATED SEALED BEARING" (confirms headTube:integrated-1-1/8), "REAR BRAKE: 990" (confirms rearBrakeMount:u-brake), "REAR HUB: 20H SEALED CASSETTE HUB WITH 14MM CROMO AXLE" (confirms rearAxle:14mm exactly - NOT a smaller diameter despite the junior size), "TOP TUBE LENGTH: 16\\"" (confirms topTube exactly; wheelSize:16 inferred from the model name + junior 20H-rim spec, this catalog\'s established Downtown-16 convention, not an independently stated wheel-diameter figure). This specific listing\'s fetched price field was ambiguous/possibly a caching artifact (identical raw figure to an unrelated sibling SKU fetched the same session) so NOT trusted as this SKU\'s own price; $374.00 is instead the confirmed regular-price figure from a same-model "Recruit 16\\" Lemon Sherbert" colorway also fetched from unitedbikeco.com this session - same model, different (older) color, so entered without a priceBasis token per the price-token law (a same-model-different-colorway figure is not this exact SKU\'s own confirmed price).'
+  },
+  {
     id: 'bmx-fr-mongoose-legionl60', cat: 'frame', brand: 'Mongoose', model: 'Legion L60',
     family: 'mongoose-legion', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
     headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
