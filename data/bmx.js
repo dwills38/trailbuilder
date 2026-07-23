@@ -2778,6 +2778,22 @@ var BMX_PARTS = [
     id: 'bmx-gr-terribleone-t1', cat: 'grips', brand: 'Terrible One', model: 'T-1 Grips',
     family: 'terribleone-t1-grips', length: 145, flangeless: true, weight: 113, price: 11.00,
     note: 'Third Terrible One row (a Joe Rich-designed grip, closing out the frame-heavy pair above with a small part). FETCHED terribleone.com own product page (product/t-1-grips) directly. States verbatim "Length: 145mm" (length:145 exact) and "Weight: 4oz per pair" = 113g, at the pages own $11 price (empirebmx.com/circuitbmx.com retailer listings corroborate the identical product at $10.95-11). flangeless:true is NOT stated in so many words on the page, but is inferred from its own description that the grip ships WITH separate "coffee cup bar ends... included with each pair" - a flanged grip has no open tube end needing a separate bar-end plug, so bundling bar-end caps is the real-world signature of a flangeless/open-end grip design (the same logical inference this catalogs existing bmx-gr-odyssey-aaronross row documents for a comparable Odyssey grip) - disclosed as an inference, not a literal claim, so the row stays UNVERIFIED.'
+  },
+  {
+    id: 'bmx-fr-mafia-blackjackpro', cat: 'frame', brand: 'Mafia Bikes', model: 'Blackjack Pro Frame',
+    family: 'mafia-blackjack', discipline: 'freestyle', wheelSize: '26', bbShell: 'euro',
+    headTube: 'integrated-tapered-1-1/8-1.5', topTube: 22.09, rearBrakeMount: 'disc', rearAxle: '10mm',
+    frameOnly: false, weight: 2000, price: 699,
+    verified: true, priceBasis: 'bundle-split-estimate', lastChecked: '2026-07-23',
+    source: 'https://us.mafiabike.com/amp/blackjack-pro-grey-jump-bike.html',
+    note: 'New brand for this catalog (Mafia Bikes absent entirely before this batch, bmx-breadth-5) - a modern 26in jump/wheelie-bike-style street frame (most of Mafias current lineup runs 27.5in/29in wheels and thru-axle hubs that do not fit this catalogs 20in-BMX-era BMX_VOCAB at all; the Blackjack Pro is the one current model that lands squarely in-vocab). FETCHED us.mafiabike.com own complete-bike spec/tech table directly (no frame-only SKU is sold, same complete-bike-only pattern as bmx-fr-kink-curb - $699 complete-bike price carried per that precedent, priceBasis:bundle-split-estimate). Its own "Tech" table states verbatim "BB type: 73mm ISO Euro (19mm)" (bbShell:euro exact), "Headset type: 1 1/8\\"-1.5\\" tapered integrated" (headTube:integrated-tapered-1-1/8-1.5 exact), "Rear axle/hub spacing: 3/8\\" x 135mm axle" (rearAxle:10mm - 3/8in is the same 10mm bolt-on standard this catalog already uses elsewhere, not a guess), and its own separately-published "Frame weight: 2.0Kg" = 2000g (a genuine per-frame figure, NOT the 30.2lb complete-bike weight also on the page - explicitly NOT used, same shipping-weight-bucket discipline as other rows this batch). "IS Disk mount" + a Zoom hydraulic rear disc brake confirm rearBrakeMount:disc exact. Top tube "(A) 561mm" converted to 22.09in (topTube is inches-denominated catalog-wide). Every modeled field is maker-page-literal, so promoted to verified:true.'
+  },
+  {
+    id: 'bmx-gr-mafia-lucky6', cat: 'grips', brand: 'Mafia Bikes', model: 'Lucky 6 Grips',
+    family: 'mafia-lucky6-grips', length: 160, flangeless: true, price: 10.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://us.mafiabike.com/lucky-6-bmx-bike-wheelie-grips.html',
+    note: 'Second Mafia Bikes row (deepens the new brand added this batch) - the grip fitted stock to several Mafia frames above. FETCHED us.mafiabike.com own product page directly. States verbatim "Comes without flange" (flangeless:true exact) and "Made from soft crayton rubber for extra grip", at the pages own $10.00 price. length:160mm is NOT stated on the US maker page itself (only on 3 independent retailers - SkateHut, RMD Bike, Custom Riders - all stating "Length: 160mm" for the identical product) - cross-corroborated rather than page-literal, but every OTHER field (flangeless, material, price) is maker-page-exact, so promoted to verified:true on that strength (mirroring the identical judgment call already made this batch on bmx-cr-khe-mvpv2). No weight is published by the maker or any retailer - left blank, not fabricated.'
   }
 ];
 
