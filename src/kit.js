@@ -1805,6 +1805,16 @@ var KIT_PARTS = [
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
     source:'https://us.chromagbikes.com/products/seton-short-mens', sourceType:'manufacturer' },
 
+  /* -- Club Ride Apparel breadth (catalog/kit-apparel-brands-1, 2026-07-23): only jerseys +
+     one glove existed. clubrideapparel.com showed this SKU's regular USD price
+     inconsistently across pages fetched this session (its own men's-shorts collection
+     page, its summer-sale collection page, and the single-product page each returned a
+     different figure) - entered unverified at the more frequently listed figure and
+     flagged in the report for a single-SKU re-check rather than guessed at. -- */
+  { id:'sht-clubrideapparel-rider9', cat:'shorts', brand:'Club Ride Apparel', model:"Men's Rider Short 9\"", price:85,
+    liner:false, disciplines:['trail'], sizes:['S','M','L','XL','2XL'],
+    desc:'9" inseam, unpadded (chamois sold separately). Price inconsistent across clubrideapparel.com pages this session ($85/$119 both seen) - see the brand-note above.' },
+
   /* -- Pants (MTB pants only; shorts are a separate cat above) -- */
   { id:'pnt-fox-defend', cat:'pants', brand:'Fox', model:'Defend Pant', price:169.95, weight:430,
     liner:false, disciplines:['trail','enduro'], sizes:['28','30','32','34','36','38'],
@@ -2054,6 +2064,9 @@ var KIT_PARTS = [
   { id:'pnt-chromag-seton-mens', cat:'pants', brand:'Chromag', model:"Seton Pant Men's", price:150,
     liner:false, disciplines:['trail'], sizes:['28','30','32','34','36','38'],
     desc:'Lightweight "smart/casual" 4-way-stretch nylon/spandex trail pant, room for kneepads. Price is from us.chromagbikes.com\'s own men\'s collection listing; a direct product-page fetch this session rendered in a non-USD locale, so left unverified pending a re-check.' },
+  { id:'pnt-clubrideapparel-rider', cat:'pants', brand:'Club Ride Apparel', model:"Men's Rider Pant", price:88,
+    liner:false, disciplines:['trail'], sizes:['S','M','L','XL','2XL'],
+    desc:'Lightweight alpine/shoulder-season riding pant, unpadded (chamois sold separately). Price inconsistent across clubrideapparel.com pages this session - entered unverified at the more frequently listed figure.' },
 
   /* -- Gloves (all UNVERIFIED samples; weight is PER PAIR, approx USD MSRP) -- */
   { id:'glv-fox-dirtpaw', cat:'gloves', brand:'Fox', model:'Dirtpaw', price:39.95, weight:70, sizes:['S','M','L','XL','XXL','3XL','4XL'],
