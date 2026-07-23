@@ -1869,6 +1869,18 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://theloamwolf.com/features/dissected/dissected-fantic-xtf-1-5-carbon-emtb/'
   },
 
+  {
+    id: 'em-gasgas-ecc4', cat: 'emtb', brand: 'GasGas', model: 'ECC 4',
+    motorBrand: 'sram', motorModel: 'SRAM Eagle Powertrain', motorTorque: 90,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle 12-speed', brakes: 'SRAM DB8 (220/200mm SRAM Centerline rotors)',
+    disciplines: ['e-enduro'], weight: null, price: 6999, modelYear: 2026,
+    note: 'Spanish motorcycle brand GasGas\' entry point into the e-enduro ECC range, alongside the already-cataloged flagship ECC 6 — same SRAM Eagle Powertrain drive unit and carbon frame w/ integrated battery, stepped down to a mechanical GX Eagle drivetrain and SRAM DB8 brakes (vs the ECC 6\'s AXS Transmission and Code Ultimate Stealth).',
+    desc: 'Unverified sample via the credible-source breadth policy — gasgas.com\'s own ECC 4 product page is a JS-rendered nav shell with no spec table this session (same wall documented on the sibling ECC 6 row), so specs come from cross-referenced retailer/spec-aggregator listings (99spokes, kaplancycles.com, wheelworld.com) that consistently state "29\\" carbon frame with integrated battery and 160 mm rear travel... SRAM Eagle Powertrain Drive Unit with 250 W and 90 Nm, paired with a 630 Wh battery... 12-speed GX Eagle drivetrain... SRAM DB8 brakes using 220/200mm SRAM Centerline rotors... 170 mm travel up front and 160 mm at the rear... $6,999.00" (a US-market price, kaplancycles.com/wheelworld.com being US dealers) — entered as the disclosed US price but not maker-fetched, so no msrp-confirmed token. No complete-bike weight found across sources. catalog/emtb-breadth-3 wave (GasGas deepened from 1 row to 2).',
+    lastChecked: '2026-07-23', source: 'https://www.gasgas.com/bicycles/en-us/bikes/enduro/e-bike/ecc/ecc-4.html'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
