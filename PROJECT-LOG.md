@@ -5230,3 +5230,51 @@ retire, M7 go.
 PROCESS (Douglas's words this stretch): hand work to chips, coordinator stays lean (correction
 taken mid-seat); don't pause on archive prompts - fire and keep working, archives run parallel
 to the next work item.
+
+
+## 2026-07-23 (small hours) — SEAT 19 wave 5: the even-weight breadth blitz
+
+Douglas ordered max-parallel expansion with EVEN WEIGHT across all categories (his correction:
+"take out any bias i may have presented" — baked into CLAUDE.md hard rule 1 + two memories).
+~20 lanes dispatched and harvested across three chip rounds. Main d100d7d4 -> 8371944b.
+
+STATE AT WAVE END (all gates green, verified first-hand): MTB 5,182 parts (3,375 verified,
+burndown 1,525) - kit 782 - BMX 365 - gravel 355 - road 347 - EMTB 125 - striders 48 -
+suite 1,164 tests / 43 files - harness clean.
+
+ENGINE/SCHEMA: lefty-vocab-1 (the standout - worker research REFUTED the chip's guessed
+proprietary-steerer design off Cannondale's own manual: the Ocho is standard-tapered, the hub
+is the ONLY proprietary interface; one lefty-60 token, zero engine changes, 607-build harness
+fully attributed).
+
+BREADTH MERGED: road-frames-1 (+8 flagship framesets, 5 new makers) - road-breadth-6 (+12,
+all six thin cells doubled) - gravel-components-1 (+29 finishing-kit rows) - gravel-breadth-1
+(+4) - kit-breadth-6 (+34 verified; elbowpad 35->55, bodyarmor 39->53) - kit-breadth-5 (+2) -
+emtb-depth-4 (+5; GT/Rotwild/Husqvarna new) - emtb-breadth-3b (+5; Lapierre/BH new) -
+bmx-breadth-4 (+7 thin cells) - strider-breadth-1 (+3) - cb-breadth-9/10 (Knolly Fugitive 140,
+Production Privee Shan GT; BMC+Bird honest drops, then BMC LANDED by mtb-smalls-1 after all 3
+blockers were hunted down properly) - frame-gaps-1/2 (+9 frames; Alma M-tier duplicate-SKU trap
+avoided) - mtb-thin-1 (cog 4->7).
+
+REVIEW-GATE CATCHES THIS WAVE: pb-gravel-4 REJECTED OUTRIGHT (discontinued-no-msrp stamped on
+11 CURRENT products - would have poisoned the discontinued archive; branch never merged; the
+salvaged Enve per-wheel-MSRP finding landed separately via enve-g23-fix) - verify-wave-1's
+third-party-listed strip (sample-in-range figure, no listing cited; 7th token-overreach catch) -
+bmx-depth-8 ghost report identified (zombie flush of an already-merged wave; the dispatched
+worker content-checked and stood down perfectly).
+
+COORDINATOR SELF-INFLICTED INCIDENT + RULE: the token-strip script broke compat.js (unescaped
+apostrophe inside a single-quoted literal) AND the ';'-chained push shipped the red commit to
+main (~4 min red; deploy gate held, live site never affected; an unrelated worker independently
+caught it too). PERMANENT RULE: the push is ALWAYS a separate command issued only after
+READING green gate output - never chained after gates. Also reaffirmed: JS-literal edits via
+Write/Edit tools with escaping checked, never regex-splice scripts on compat.js.
+
+INFRA: weekly repo auditor scheduled (Sundays ~5:37a, audit-only, zero destructive authority) -
+worker-reports Monitor now mtime-aware (caught 2 overwrite-invisible reports) - "use the in-app
+Browser pane, never claude-in-chrome" broadcast to all lanes + added to chip boilerplate -
+Bash(node *) permission grant blocked by classifier (Douglas has the one-line edit).
+
+NEW DOUGLAS ITEMS from the wave: the no-USD-MSRP token family question (3rd face of rulings
+8/9); Enve prices wheels individually (solved case, landed); Alma H30 headset ambiguity
+(maker wording conflicts with a third-party review - row honestly unverified).
