@@ -328,6 +328,15 @@ var BMX_PARTS = [
     note: 'Frame spec pulled from the Darko complete-bike page (radiobikes.com); also offered in 21in top tube. Mid press-fit BB, fully removable brake hardware. WALL-RETEST 2026-07-20 (verify/wall-retest-1): re-fetched via the browser pane, no wall - renders cleanly. Full spec table CONFIRMS "BB: RADIO MID bb set" (bbShell mid), "HEADSET: SALT PRO integrated headset" (headTube integrated), "REAR HUB: RADIO AM cassette hub...14mm axle" (rearAxle exact), "BRAKE: RADIO AM u-brake" (rearBrakeMount exact), and "Top Tube Length 20.5\" / 21\"" (topTube exact). Price NOT independently reconfirmed - no USD figure is currently shown on the fetched page (likely out of stock/hidden pricing); left at the existing $524.99 sample rather than guessed. Upgraded to verified:true on the strength of every rule-relevant field matching exactly.'
   },
   {
+    id: 'bmx-fr-radio-comrad', cat: 'frame', brand: 'Radio Bikes', model: 'Comrad',
+    family: 'radio-comrad', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: false, price: 980.39,
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23',
+    source: 'https://radiobikes.com/products/radio-comrad',
+    note: 'bmx-brand-depth-2: directly fetched radiobikes.com (Radio\'s own storefront), Radio\'s current PRO-level street complete. Spec list states verbatim "BB: RADIO \\"MID\\" bb set, press fit, sealed bearing" (bbShell:mid), "HEADSET: SALT \\"PRO\\" integrated headset, sealed bearing" (headTube:integrated-1-1/8), "BRAKE: RADIO \\"PRO\\" u-brake, alloy, rear" + "FRAME: RADIO \\"COMRAD\\" frame, full crmo, removable brake mounts & guides" (confirms rearBrakeMount:u-brake), "REAR HUB: SALTPLUS \\"VERTEX\\" freecoaster hub...14mm hollow axle" (rearAxle:14mm exact), and the Frame Geometry table\'s "Top Tube Length: 21\\"" (topTube exact). No standalone Comrad frame SKU is listed on radiobikes.com/collections/frames (complete-bike-only) -> frameOnly:false, same convention as the sibling Darko row. Stated weight (12.65kg) is COMPLETE-BIKE mass, intentionally omitted (mirrors this catalog\'s WeThePeople-row convention). Price is maker-stated EUR-only (€859.99, no USD toggle available on this page) - converted at 1.14 USD/EUR (this catalog\'s existing rate precedent) = $980.39, disclosed as priceBasis:regional-conversion.'
+  },
+  {
     id: 'bmx-fr-premium-solo', cat: 'frame', brand: 'Premium', model: 'Solo',
     family: 'premium-solo', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
     headTube: 'integrated-1-1/8', topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm',
