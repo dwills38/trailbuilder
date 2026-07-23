@@ -4259,7 +4259,163 @@ var KIT_PARTS = [
     desc:'Z-Lite frame + Ellume Polarized lens, described by Zeal as weighing "less than one ounce" (no exact gram figure published, so weight left unset rather than guessed). UNVERIFIED sample: Mast General Store-listed retail price.' },
   { id:'ewr-zeal-range', cat:'eyewear', brand:'Zeal Optics', model:'Range', price:149,
     type:'glasses',
-    desc:'Zeal Optics active-line shield sunglasses. UNVERIFIED sample: zealoptics.com listed price (site search-summarized, not a rendered fetch). No weight found this batch.' }
+    desc:'Zeal Optics active-line shield sunglasses. UNVERIFIED sample: zealoptics.com listed price (site search-summarized, not a rendered fetch). No weight found this batch.' },
+
+  /* -- Apparel breadth (catalog/kit-breadth-11, 2026-07-23): Velocio, Wild Rye, Ornot, dhb,
+     Pactimo, Machines for Freedom, Stolen Goat were entirely ABSENT from jersey/shorts/pants;
+     GOREWEAR deepened where still fetchable. NOTE: this catalog has no `jacket` or `bib`
+     CATEGORY (only jersey/shorts/pants/etc - see KIT_GROUPS/SCHEMA) - true shell jackets have no
+     home and are NOT force-fit into jersey; bib-style shorts/liners are entered under the existing
+     `shorts` category with the bib construction noted in `desc` (liner:true where a chamois is
+     built in), never a fabricated new category. Flagged in the worker report for Douglas's call. -- */
+
+  /* Wild Rye (women's MTB apparel) - wild-rye.com fetched directly (WebFetch 404'd on this
+     Shopify storefront; Exa's fetch rendered the real product pages cleanly - manufacturer pages,
+     real prices/sizes/weights confirmed). Oz->g conversions rounded to whole grams. */
+  { id:'jsy-wildrye-salida', cat:'jersey', brand:'Wild Rye', model:'Salida', price:125, weight:136,
+    fitCut:'womens', sizes:['0','2','4','6','8','10','12','14','16','18'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://wild-rye.com/products/salida-womens-mtb-jersey',
+    desc:'Merino-blend (84% recycled poly/11% merino/5% spandex front) hip-length jersey, mesh side/back panels, silicone hem gripper. Weight converted from the page\'s stated 4.8 oz. Sleeve length not explicitly stated on the page (short vs long) - left unset rather than guessed; product styling (mesh panels, warm-weather framing) reads as short-sleeve.' },
+  { id:'jsy-wildrye-sloane-34', cat:'jersey', brand:'Wild Rye', model:'Sloane', price:79, weight:113,
+    fitCut:'womens', sizes:['0','2','4','6','8','10','12','14','16','18'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://wild-rye.com/products/sloane-3-4-jersey',
+    desc:'Relaxed-fit 3/4-length-sleeve jersey, 100% recycled polyester, UPF 50+. Weight converted from the page\'s stated 4 oz. `sleeve` left unset - the schema\'s sleeve vocab is short/long only, no 3/4 token, and forcing either would misstate the real garment (DATA-ENTRY-TEMPLATE §4: stop and widen the vocab rather than mismap; not done here as it is a single SKU, flagged in the worker report instead).' },
+  { id:'sht-wildrye-freda-7', cat:'shorts', brand:'Wild Rye', model:'Freda 7"', price:159, weight:210,
+    fitCut:'womens', sizes:['0','2','4','6','8','10','12','14','16','18'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://wild-rye.com/products/freda-7-womens-bike-short',
+    desc:'Abrasion-resistant nylon MTB short, 7" inseam, 4-way stretch, no built-in chamois (worn over a liner) - `liner` left unset rather than guessed false. Weight converted from the page\'s stated 7.4 oz.' },
+  { id:'sht-wildrye-freel-12', cat:'shorts', brand:'Wild Rye', model:'Freel 12"', price:159, weight:232,
+    fitCut:'womens', sizes:['0','2','4','6','8','10','12','14','16','18'], disciplines:['trail','enduro'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://wild-rye.com/products/freel-womens-bike-short',
+    desc:'Outside Magazine "Gear of the Year" enduro-oriented MTB short, 12" inseam, abrasion-resistant nylon, 4-way stretch, no built-in chamois. Weight converted from the page\'s stated 8.2 oz.' },
+  { id:'sht-wildrye-riley-10', cat:'shorts', brand:'Wild Rye', model:'Riley 10"', price:129, weight:179,
+    fitCut:'womens', sizes:['0','2','4','6','8','10','12','14','16','18','20','22','24'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://wild-rye.com/products/riley-10-bike-short',
+    desc:'Lightweight 10" inseam MTB short, elastic stretch waistband panel, no built-in chamois. Weight converted from the page\'s stated 6.3 oz. Widest size run of the Wild Rye rows fetched this batch (0-24).' },
+
+  /* Velocio - www.velocio.cc (US site) fetched directly: materials/fit copy confirmed live, but
+     the price is JS-injected and did not render in the fetched markup (a real wall, not a search
+     snippet lie) - USD MSRP is instead sourced from two editorial pieces that quote it explicitly
+     (Bikerumor\'s 2026 MTB collection writeup + nsmb.com\'s spring-2026 review, both citing
+     Velocio\'s own stated US pricing). Kept UNVERIFIED (no verified:true) since the price digit
+     itself was not read off the fetched maker page. Sizes: nsmb.com states an eight-size run
+     XXS-XXXXL across the line but does not give the intermediate labels; left unset rather than
+     guessing the exact array (DATA-ENTRY-TEMPLATE: no plausible-but-unconfirmed precision). */
+  { id:'jsy-velocio-delta-trail-ls', cat:'jersey', brand:'Velocio', model:'Delta TRAIL Long Sleeve', price:99,
+    sleeve:'long',
+    desc:'Polartec Delta open-grid-knit MTB long sleeve, recycled polyester/Tencel(lyocell) blend, trail-specific cut. Materials/fit fetched from velocio.cc (70% Polyester/30% Lyocell); $99 USD MSRP per Bikerumor\'s 2026-03-30 collection writeup ("Long Sleeve version retails for $99") and corroborated by nsmb.com\'s review. Price is an editorial citation, not read off the fetched page (JS-rendered) - UNVERIFIED.' },
+  { id:'jsy-velocio-ultralight-trail-ss', cat:'jersey', brand:'Velocio', model:'Ultralight TRAIL Jersey', price:79,
+    sleeve:'short',
+    desc:'Featherweight opaque-mesh summer MTB jersey, 88% recycled polyester construction (per velocio.cc). $79 USD MSRP per Bikerumor\'s 2026-03-30 collection writeup and its 2025-10-13 review ("Velocio Ultralight TRAIL Jersey: $79"). Price is an editorial citation, not read off the fetched page (JS-rendered) - UNVERIFIED.' },
+  { id:'sht-velocio-ultralight-trail', cat:'shorts', brand:'Velocio', model:'Ultralight TRAIL Short', price:169,
+    desc:'Minimal-seam lightweight stretch-woven MTB short, sized to layer over low-profile knee pads, 79% Polyamide/21% Elastane (fetched velocio.cc materials). No built-in chamois - `liner` left unset. $169 USD MSRP per Bikerumor\'s 2025-10-13 review ("Ultralight MTB Shorts: $169") and its 2026-03-30 collection writeup. Price is an editorial citation, not read off the fetched page (JS-rendered) - UNVERIFIED.' },
+  { id:'pnt-velocio-ultralight-trail', cat:'pants', brand:'Velocio', model:'Ultralight TRAIL Pant', price:209,
+    desc:'Three-season MTB trail pant, laser-cut behind-knee ventilation, same 79% Polyamide/21% Elastane fabric as the Ultralight TRAIL Short (fetched velocio.cc materials), snap waist closure. $209 USD MSRP per Bikerumor\'s 2026-03-30 collection writeup and nsmb.com\'s review price table. Price is an editorial citation, not read off the fetched page (JS-rendered) - UNVERIFIED.' },
+  { id:'sht-velocio-trail-mesh-bib-liner-womens', cat:'shorts', brand:'Velocio', model:'TRAIL Mesh Bib Liner', price:149,
+    fitCut:'womens', liner:true,
+    desc:'MTB-specific bib-style CHAMOIS LINER (bib straps + pad, meant to be worn under TRAIL shorts/pants, not a standalone garment) - entered under `shorts` since this catalog has no separate bib category (flagged in the worker report). Materials fetched from velocio.cc (71% Polyamide/29% Elastane, FlyFree bathroom-break design). $149 USD MSRP per nsmb.com\'s 2026-05-07 review price table ("Ultralight Mesh Bib Liner | Medium | 176 | 149" CAD/USD). Price is an editorial citation, not read off the fetched page (JS-rendered) - UNVERIFIED.' },
+
+  /* Ornot - www.ornotbike.com. Shopify storefront rate-limited plain WebFetch (429) on the .js
+     JSON endpoint for most SKUs; the rendered product pages themselves 429'd intermittently too,
+     so prices are Exa-fetched page reads (still the real ornotbike.com page content, not a search
+     snippet) except the Work Bib Short, whose .js JSON DID resolve (price + per-size weight). */
+  { id:'jsy-ornot-uv-trail-shirt', cat:'jersey', brand:'Ornot', model:'UV Trail Shirt', price:78,
+    sleeve:'long',
+    desc:'Lightweight long-sleeve sun shirt, UPF 30, 85% Polyester/15% Elastane (Lycra), bike-specific tailoring - marketed for cycling/gravel/MTB/hiking. $78 fetched from ornotbike.com product page (price rendered in the Exa-fetched page content). UNVERIFIED (no lastChecked/source trio; price confirmed on-page but no explicit weight published).' },
+  { id:'jsy-ornot-uv-hooded-trail-shirt', cat:'jersey', brand:'Ornot', model:'Hooded UV Trail Shirt', price:85,
+    sleeve:'long',
+    desc:'Hooded version of the UV Trail Shirt (Bicycling Magazine Gear of the Year 2024), same 85% Polyester/15% Elastane fabric, UPF 30, rear accessory pocket - reviews specifically cite "mountain biking" use. The hood itself has no schema field (jersey has no hood vocab) - captured in `desc` only. $85 fetched from ornotbike.com\'s collection listing. UNVERIFIED.' },
+  { id:'sht-ornot-mission-short', cat:'shorts', brand:'Ornot', model:'Mission Short', price:126,
+    desc:'US-made (Oakland, CA) casual/trail short, bluesign-approved recycled nylon/elastane, full panel gusset, 4-way stretch, 8.5" inseam. No built-in chamois (casual daily-driver cut, not a padded MTB short) - `liner` left unset. $126 fetched from ornotbike.com product page. Also sold in a "Lightweight" (148gsm) fabric variant at the same $126 price - not split into a separate row (no engine-read field differs; fabric weight is a annotation-only difference, DATA-ENTRY-TEMPLATE §1 "NOTHING" row). UNVERIFIED.' },
+  { id:'sht-ornot-work-bib-short', cat:'shorts', brand:'Ornot', model:'Work Bib Short', price:184, weight:198,
+    liner:true,
+    desc:'Bib-style road/trail short with a high-density endurance chamois pad and one-piece strap construction, bluesign-approved recycled fabric, UPF 50+ - entered under `shorts` since this catalog has no separate bib category (flagged in the worker report). Price + per-size weight (198g, constant across XS-XXL) read directly from the ornotbike.com Shopify product JSON (.js endpoint) - the one Ornot fetch that resolved cleanly this batch. UNVERIFIED (no manufacturer claim of "verified" weight semantics stated on the JSON; kept sample per the retailer/shipping-weight caution elsewhere in this catalog, though this is the maker\'s own storefront data, not a third-party retailer).' },
+
+  /* dhb - dhbsport.com (dhb's own storefront, GBP pricing) fetched directly for the Trail
+     collection; USD figures are disclosed GBP->USD conversions (~1.27 rate, 2026-07 ballpark),
+     priceBasis:'regional-conversion' per schema policy - NOT a US MSRP claim. Brand casing:
+     lowercase "dhb" per the dispatcher's canonical-casing instruction. */
+  { id:'jsy-dhb-trail-ls-drirelease', cat:'jersey', brand:'dhb', model:'Trail Long Sleeve Jersey - DriRelease', price:57,
+    sleeve:'long', sizes:['XS','S','M','L','XL','XXL'],
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://www.dhbsport.com/products/dhb-trail-long-sleeve-jersey-drirelease',
+    desc:'Half-raglan-sleeve drirelease(R) jersey, 84% polyester/11% lyocell/5% polyurethane, small YKK-zip side pocket. Price is a disclosed USD conversion of the fetched dhbsport.com GBP price (£45.00 GBP x ~1.27), not a stated US MSRP - dhb sells in GBP with no direct USD price published.' },
+  { id:'jsy-dhb-trail-merino-ss', cat:'jersey', brand:'dhb', model:'Trail Merino Short Sleeve Jersey M150', price:89,
+    sleeve:'short', sizes:['XS','S','M','L','XL','XXL'],
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://www.dhbsport.com/products/dhb-trail-merino-short-sleeve-jersey-m-130',
+    desc:'Merino/COOLMAX(R) blend off-road jersey (50% merino wool/33% COOLMAX/12% nylon/5% elastane main), merino mesh back yoke. Price is a disclosed USD conversion of the fetched dhbsport.com GBP price (£70.00 GBP x ~1.27), not a stated US MSRP. Product handle says "m-130" but the live page title reads "M150" - both kept verbatim from the source, not reconciled.' },
+  { id:'sht-dhb-trail-short', cat:'shorts', brand:'dhb', model:'Trail Short', price:83,
+    sizes:['XS','S','M','L','XL','XXL'],
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://www.dhbsport.com/products/dhb-trail-short',
+    desc:'Casual-cut off-road short, 100% polyester, DWR-treated, half-elasticated waist, hidden slide-lock closure, no built-in chamois - `liner` left unset. Price is a disclosed USD conversion of the fetched dhbsport.com GBP price (£65.00 GBP x ~1.27), not a stated US MSRP.' },
+  { id:'sht-dhb-trail-storage-bib', cat:'shorts', brand:'dhb', model:'Trail Storage Bib Short', price:65, liner:true,
+    sizes:['S','M','L','XL','XXL'],
+    desc:'Bib-style storage short (recycled 80% polyamide/20% elastane, Elastic Interface NICE ANATOMIC MAN chamois, mesh bib straps, side + rear storage pockets) - entered under `shorts` since this catalog has no separate bib category (flagged in the worker report). No live dhbsport.com product page found this batch (searched directly; only third-party retailers - Evans Cycles, SportsDirect, Get The Label - carry it, consistently at £52 GBP). UNVERIFIED sample: price is a disclosed rough USD figure from the consistent £52 retailer price, not a manufacturer-page conversion.' },
+
+  /* Pactimo - www.pactimo.com fetched directly (real MTB-specific "Range Trail" / "Terrain"
+     lines, US-native USD pricing). Some rows are in Pactimo\'s discontinued/outlet section; kept
+     as real historical products with `status:\'discontinued\'` rather than omitted (a real retired
+     product beats a gap, DATA-ENTRY-TEMPLATE / catalog inclusion policy), priced at the page\'s
+     shown ORIGINAL list price, never the outlet sale price. */
+  { id:'sht-pactimo-range-trail-mens', cat:'shorts', brand:'Pactimo', model:'Range Trail Short', price:122,
+    sizes:['S','M','L','XL','2XL'], fitCut:'mens',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.pactimo.com/products/mens-mountain-bike-shorts-range-trail',
+    desc:'5-pocket MTB/gravel adventure short (double-weave nylon/spandex 4-way stretch, DWR coating), companion to Pactimo\'s Range collection. $122 USD current list price fetched from pactimo.com (currently sold out in this colorway, but a live, non-outlet SKU).' },
+  { id:'sht-pactimo-range-trail-womens', cat:'shorts', brand:'Pactimo', model:'Range Trail Short', price:122,
+    sizes:['XS','S','M','L','XL'], fitCut:'womens',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.pactimo.com/products/womens-black-mtb-shorts-range-trail',
+    desc:'Women\'s version of the Range Trail Short, same 5-pocket construction. $122 USD current list price fetched from pactimo.com, in stock.' },
+  { id:'sht-pactimo-range-trail-lite', cat:'shorts', brand:'Pactimo', model:'Range Trail Lite Short', price:134, status:'discontinued',
+    sizes:['S','M','L','XL','2XL'],
+    verified:true, priceBasis:'discontinued-no-msrp', lastChecked:'2026-07-23', source:'https://www.pactimo.com/products/mens-lightweight-mountain-bike-shorts-range-trail-dusty-blue-outlet',
+    desc:'Featherlight shell MTB short, recycled stretch-woven fabric with C0 DWR, laser-perforated panels. Now in Pactimo\'s discontinued outlet (marked "FINAL SALE"); $134 is the page\'s own shown original list price (the current $67 is the outlet sale price, not used per pricing policy). Fetched directly from pactimo.com.' },
+  { id:'jsy-pactimo-range-trail-lite-tee', cat:'jersey', brand:'Pactimo', model:'Range Trail Lite Tee', price:87, status:'discontinued', weight:113,
+    sleeve:'short',
+    verified:true, priceBasis:'discontinued-no-msrp', lastChecked:'2026-07-23', source:'https://www.pactimo.com/products/mens-red-mtb-jersey',
+    desc:'Close-fitting Italian 4-way-stretch mesh MTB tee, hexagonal recycled-mesh underarm panels, substantial rear-hem drop. Now in Pactimo\'s discontinued outlet (marked "FINAL SALE"); $87 is the page\'s own shown original list price (current $35 is the outlet sale price, not used). Weight converted from the page\'s stated "4 ounces in a size medium". Fetched directly from pactimo.com.' },
+  { id:'jsy-pactimo-terrain-womens', cat:'jersey', brand:'Pactimo', model:'Terrain Jersey', price:85, status:'discontinued',
+    sleeve:'short', fitCut:'womens',
+    verified:true, priceBasis:'discontinued-no-msrp', lastChecked:'2026-07-23', source:'https://www.pactimo.com/products/womens-mountain-bike-jersey-terrain-outlet',
+    desc:'3/4-length-sleeve-cut MTB jersey (schema mapped to short per the sleeve vocab - see the Wild Rye Sloane row note on the same limitation), DynamiK(TM) primary-panel fabric + BreathLite side panels, drop-tail rear hem, microfiber glasses wipe. Now in Pactimo\'s discontinued outlet (marked "FINAL SALE"); $85 is the page\'s own shown original list price (current $21 is the outlet sale price, not used). Fetched directly from pactimo.com.' },
+
+  /* Machines for Freedom - the brand itself was SHUTTERED by Specialized in Jan/Feb 2023
+     (bicycleretailer.com/road.cc/cyclingnews/bikeperfect/bicycling.com all confirm; the brand\'s
+     own domain machinesforfreedom.com now 301-redirects to specialized.com, confirmed by direct
+     WebFetch). No current product page exists to fetch against. These are real, well-documented
+     HISTORICAL products from the brand\'s 2021 Versatile Off-Road launch (its only MTB-specific
+     line, confirmed via contemporaneous Bike Perfect / RoadBikeRider / Bikepacking.com / Velo
+     coverage, MSRP consistently reported as $108/$98) - entered as honest discontinued samples per
+     the catalog\'s relaxed-inclusion policy, not fabricated, and not verified (no live source to
+     fetch). status:\'discontinued\' + priceBasis intentionally omitted (only legal on verified:true rows). */
+  { id:'sht-machinesforfreedom-key-11', cat:'shorts', brand:'Machines for Freedom', model:'Key Short (11")', price:108, status:'discontinued',
+    fitCut:'womens', sizes:['24','25','26','27','28','29','30','32','34','36','38'],
+    desc:'Women\'s MTB/gravel/commuting overshort, high-rise fit, 100% polyester 4-way stretch, 5 pockets, cut wide enough to layer over knee pads (11" inseam, the "baggy" length of the two offered). MSRP $108 per multiple 2021 launch-era outlets (Bike Perfect, RoadBikeRider, Bikepacking.com, Velo/Outside, EnduranceSportsWire) - the brand was shuttered by Specialized in 2023 (bicycleretailer.com 2023-02-01) and no longer sells anything; this is a real, historically-documented product, not a live SKU. UNVERIFIED (no live source to fetch against).' },
+  { id:'sht-machinesforfreedom-key-55', cat:'shorts', brand:'Machines for Freedom', model:'Key Short (5.5")', price:108, status:'discontinued',
+    fitCut:'womens', sizes:['24','25','26','27','28','29','30','32','34','36','38'],
+    desc:'Same Key Short construction as the 11" version, shorter 5.5" inseam (also offered in a Citronelle colorway not sold in the 11" length per contemporaneous coverage). MSRP $108, same launch-era sourcing as the 11" row. Brand shuttered by Specialized in 2023 - no live SKU. UNVERIFIED.' },
+  { id:'jsy-machinesforfreedom-crew', cat:'jersey', brand:'Machines for Freedom', model:'Machines Crew', price:98, status:'discontinued',
+    sleeve:'short', fitCut:'womens',
+    desc:'MTB/off-road top from the same 2021 Versatile Off-Road launch as the Key Short, roomier fit sized for on-bike mobility (RoadBikeRider\'s review specifically recommends sizing up over the shorts for a looser MTB fit). MSRP $98 per RoadBikeRider\'s 2021-06-10 launch review. Brand shuttered by Specialized in 2023 - no live SKU. UNVERIFIED.' },
+
+  /* Stolen Goat - stolengoat.com (UK brand, GBP pricing) fetched directly for its dedicated MTB
+     range. USD figures are disclosed GBP->USD conversions (~1.27 rate), priceBasis:'regional-
+     conversion' - not a US MSRP claim. Prices are the page's own shown ORIGINAL list price, never
+     the current sale price (every SKU checked this batch was discounted at time of fetch). */
+  { id:'sht-stolengoat-mtb-shorts-mens', cat:'shorts', brand:'Stolen Goat', model:'MTB Shorts', price:89,
+    fitCut:'mens',
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://stolengoat.com/product/mens-mtb-shorts/',
+    desc:'Off-road casual-fit short, two front zip pockets, adjustable hook-and-loop waistband (higher at back), 4-way stretch, UPF 50+, cut slightly longer than Stolen Goat\'s gravel shorts to layer over knee/shin pads - no built-in chamois, `liner` left unset. Price is a disclosed USD conversion of the fetched stolengoat.com original GBP list price (£70.00 GBP x ~1.27), not a stated US MSRP (current site price is a £35 sale, not used).' },
+  { id:'jsy-stolengoat-sector-mens', cat:'jersey', brand:'Stolen Goat', model:'Sector MTB Jersey', price:51,
+    sleeve:'short', fitCut:'mens', sizes:['XS','S','M','L','XL','XXL','XXXL','XXXXL'],
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://stolengoat.com/product/mens-sector-mtb-jersey/',
+    desc:'Casual-fit off-road jersey, 100% polyester, UV SPF 30, made in Bulgaria; size chart on the fetched page runs XS-XXXXL (chest cm). Price is a disclosed USD conversion of the fetched stolengoat.com original GBP list price (£40.00 GBP x ~1.27), not a stated US MSRP (current site price is discounted, not used).' },
+  { id:'jsy-stolengoat-biko-mens', cat:'jersey', brand:'Stolen Goat', model:'Biko MTB Jersey', price:51,
+    sleeve:'short', fitCut:'mens',
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://stolengoat.com/product/mens-biko-mtb-jersey/',
+    desc:'Casual-fit off-road jersey, same construction tier as the Sector (100% polyester, UV SPF 30, made in Bulgaria). £40.00 GBP list price corroborated on the women\'s Biko variant\'s own page (fetched separately) rather than re-confirmed in digits on this exact men\'s page fetch - noted for transparency. Price is a disclosed USD conversion (£40.00 GBP x ~1.27), not a stated US MSRP.' },
+  { id:'jsy-stolengoat-zion-mens', cat:'jersey', brand:'Stolen Goat', model:'Zion MTB Jersey', price:51,
+    sleeve:'short', fitCut:'mens',
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://stolengoat.com/product/mens-zion-mtb-jersey/',
+    desc:'Casual-fit off-road jersey with a blue gradient-fade design, same construction tier as the Sector (100% polyester, UV SPF 30). Price is a disclosed USD conversion of the fetched stolengoat.com original GBP list price (£40.00 GBP x ~1.27), not a stated US MSRP (current site price is a £20 sale, not used). Also sold in a long-sleeved version at the same price tier per the page\'s own cross-link - not entered as a separate row this batch (breadth cap).' }
 ];
 
 /* ---- legacy id aliases -----------------------------------------------------
