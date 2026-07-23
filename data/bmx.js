@@ -824,6 +824,13 @@ var BMX_PARTS = [
 
   // ===== FRONT WHEEL ====================================================
   {
+    id: 'bmx-fw-mongoose-motomagiii', cat: 'frontWheel', brand: 'Mongoose', model: 'Motomag III Front Wheel',
+    family: 'mongoose-motomag', wheelSize: '20', axle: '10mm', price: 180.00,
+    verified: true, priceBasis: 'pair-split-estimate', lastChecked: '2026-07-23',
+    source: 'https://www.mongoose.com/products/motomag-iii',
+    note: 'bmx-brand-depth-2: directly fetched mongoose.com (Mongoose\'s own storefront), the 50th-anniversary Motomag III retro wheelset re-release. States verbatim "Size: 20-in." (wheelSize:20 exact - a real page-stated size, distinguishing this from the withheld bmx-fw-odyssey-vandero hub row above whose maker page never states a wheel size) and "Front Hub: Aluminum shell with sealed bearing, 3/8 in axle" (axle:10mm exact). Sold ONLY as a front+rear PAIR at one confirmed price ($359.99 current mongoose.com listing, up from the 2022 launch $299.99) - split evenly per priceBasis:pair-split-estimate ($180.00 this row). GENUINE GAP: the matching rearWheel row was deliberately NOT entered - the page (corroborated independently by probmxbikes.com and Albe\'s BMX) states the rear hub "works with 16t and larger freewheels (NOT INCLUDED)" - a bare freewheel-compatible shell ships with no driver at all, so rearWheel\'s required driverTeeth field has no real value to enter without fabricating a tooth count this SKU does not ship with.'
+  },
+  {
     id: 'bmx-fw-odyssey-vandero', cat: 'frontWheel', brand: 'Odyssey', model: 'Vandero Pro Front Hub',
     wheelSize: '20', axle: '10mm', weight: 317, price: 96.99,
     note: 'bmx-sweep-2 (2026-07-21): weight ADDED from the maker page ("Weight: 11.2oz" = 317g, a real per-SKU figure, not a shipping placeholder) and axle (3/8in inbound bolts = the 10mm token) + price ($96.99) re-confirmed via shop.odysseybmx.com/products/vandero-pro-hub. COORDINATOR RULING at merge (seat 17): the wave\'s verified:true was DEMOTED back to unverified — wheelSize (the one checkBmxBuild-read field here) is still not stated on the hub\'s own page, and the bmx-fr-cult-race brand-convention precedent does not transfer: that frame\'s own page corroborated the 20in platform (a TT-length-only size run), while a bare front hub has no page-side corroboration and is physically wheel-size-agnostic (the same hub laces into 22/24in wheels) — wheelSize on a hub-modeled-as-frontWheel row is a modeling choice, not a maker fact. The prior wave\'s explicit withholding on exactly this evidence stands. Promotable if Odyssey ever states the intended wheel size on the SKU page or a complete-wheel page pairing this hub is cited instead.'
