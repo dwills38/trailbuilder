@@ -5278,3 +5278,49 @@ Bash(node *) permission grant blocked by classifier (Douglas has the one-line ed
 NEW DOUGLAS ITEMS from the wave: the no-USD-MSRP token family question (3rd face of rulings
 8/9); Enve prices wheels individually (solved case, landed); Alma H30 headset ambiguity
 (maker wording conflicts with a third-party review - row honestly unverified).
+
+## 2026-07-23 — SEAT 21 wave 1: 6-chip verification blitz (all six catalogs)
+
+Seat 21 seated (succession from seat 20; both session-lifetime watchers re-armed — the
+mtime-aware worker-reports Monitor + the v2 leak-sweep cron; 5 durable scheduled tasks
+confirmed intact, not recreated). Six even-weight verification chips dispatched by Douglas,
+all harvested / adversarially audited / merged / pushed:
+
+- **mtb-pricebasis-1** (`1c2e89a7`): 69 RockShox fork/shock rows stamped `msrp-confirmed`
+  off sram.com's static MSRP block (worker used raw curl — WebFetch/Exa silently drop the
+  block), exact-match-or-blank. MTB priceBasis burndown 1464->1395. Worker correctly left 60
+  rows BLANK (49 no-MSRP-block shock pages, 4 genuine price ranges, 7 mixed-price groups)
+  rather than guess a midpoint, and FLAGGED a real price mismatch (`fs-yari-rc-b3` stored $699
+  vs sram.com $589) WITHOUT touching it (data-only scope). Coordinator audit: priceBasis-only
+  diff (69 tokens, nothing else); the engine never reads priceBasis (zero verdict drift, proven
+  structurally + clean harness); curl-confirmed the $1299 ZEB figure.
+- **bmx-verify-1** (batch `f98c82dc`): +18 Odyssey/Cult rows verified (`msrp-confirmed`, every
+  price a fetched Shopify products.js figure) + halflink chain price corrected $11.99->$34.99
+  (the stored figure belonged to the sibling 410 chain on a shared 3-way product page). Exact
+  verified-id diff confirmed +18, zero un-verifications (report prose said "17" — undercount).
+- **emtb-verify-1**: +4 verified (Simplon x2 `regional-conversion` w/ EUR figure+rate+date,
+  GasGas x2 `msrp-confirmed`) + phantom-number corrections (GasGas brakes Code Ultimate
+  Stealth->Code RSC, Fantic battery 630->720Wh, Marin/Kona real-SKU prices, nulled Marin's
+  guessed weights). Worker ran the verdict harness itself (0 flags).
+- **gravel-verify-1**: +4 (HUNT 4Season QR9x135 + DT Swiss G1800 650b wheel pairs) via the
+  ratified `pair-split-estimate` off fetched pair MSRPs ($699 / $592). Drivetrain freeze
+  respected (verify-existing only).
+- **kit-verify-2**: +2 (ZOIC Ether Shorts+Liner, Scott Traction glove — browser-pane) + ZOIC
+  Amp SS marked discontinued. No casing-split flags in scope.
+- **road-verify-1**: 1 correction (Colnago V4Rs `maxTire` 32->30, direct colnago.com tech-spec
+  fetch; `verified` withheld on steerer ambiguity, honest). Worker reported a
+  containment-hook sandbox redirect into a `worktree-agent-*` branch — but that ref does NOT
+  exist and the real change landed on `catalog/road-verify-1`; dup-branch hazard checked and
+  resolved before merge.
+
+Closing state: MTB 5,216/3,396 . kit 814/646 . BMX 394/228 . road 405/348 . gravel 364/246 .
+EMTB 157/112 . striders 48/37 . 1,185 tests / tsc clean / 7 validators 0 problems.
+
+DOUGLAS FLAG (road breadth): he supplied a ~150-brand road manufacturer list, correcting my
+"~100-200 left to add" road estimate as too low. Cross-check vs data/road.js (23 marques
+present): ~45-55 mainstream/DTC/value brands ABSENT and addable (Felt/Focus/Fuji/Lapierre/Rose/
+Polygon/Salsa/Kona/Surly/Niner/State/Fezzari/Winspace/YOELEO/Ghost/Simplon/BH/Marin...),
+~55-60 boutique/titanium/custom ABSENT but held-wall class (Baum/Firefly/Mosaic/Parlee/Moots/
+Litespeed/...). Recalibrated road ~= 350-750 rows. Broader lesson: the whole "left to add"
+table is likely low — the mainstream brand SET itself isn't complete. Offered a per-category
+brand-gap audit to replace estimates with a real absent-brand map (awaiting his go).
