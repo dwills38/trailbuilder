@@ -26,6 +26,7 @@ AFFILIATE-*.md
 # PII-free tracked audit deliverables in tools/ are exempt from the root-doc guard:
 !tools/AFFILIATE-PROCESS-REVIEW-*.md
 LLC-*.md
+DOUGLAS-TODO.md
 COMPETITIVE-*.md
 DOMAIN-BRAINSTORM.md
 CLOUDFLARE-SETUP.md
@@ -38,3 +39,6 @@ outreach-emails.md
 cb4-salvage.patch
 # Worker report drop (click-free harvest channel, seat 15 2026-07-21)
 .claude/worker-reports/
+
+# Monitor state file (per-machine mtime tracker, not project data)
+.claude/worker-reports/.seen
