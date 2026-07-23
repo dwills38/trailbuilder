@@ -2289,6 +2289,27 @@ var ROAD_PARTS = [
     verified: true, lastChecked: '2026-07-23', source: 'https://www.boydcycling.com/shop/36-road-disc-sl-1705', priceBasis: 'third-party-listed',
     note: 'road-wheels-1 wave: same source/session as the front row — see that row\'s note for the real per-SKU retailer pricing (middletowncycling.com, code "36 Road Disc SL RXDR", $1,100.00) and the maker-published weight split. Freehub: XDR (the retailer SKU\'s own name; boydcycling.com\'s own selector also offers Shimano Hyperglide/Shimano Microspline/Campy/Campy N3W — other drivers a disclosed GAP). maxTire/rotorMount/intWidth reasoning identical to the front row.' },
 
+  // ===== WHEELS — Cero AR30 Disc Alloy (road-wheels-1 wave) =====
+  // Depth pass: Cero (UK, Cycle Division's house brand) was confirmed-ABSENT. GENUINE GAP,
+  // disclosed rather than invented: Cero's carbon-disc flagship (the "RC35 Disc"/"RC35-D",
+  // reviewed by Cycling Weekly at 10/10) is NO LONGER SOLD — cerowheels.com's own current
+  // "Carbon Wheelsets" collection lists only the RIM-BRAKE RC35 (out of scope per this pass's
+  // rim-brake exclusion), and the third-party retailer product page previously selling the
+  // RC35 Disc (cycledivision.co.uk) now 404s/redirects. Only ONE tier added — Cero's sole
+  // CURRENTLY-SOLD disc-brake road wheelset (the AR30 Disc Alloy, an entry-tier alloy build,
+  // not a true "mid-tier" counterpart to a nonexistent flagship) — rather than force a
+  // discontinued or rim-brake product into the flagship+mid slot.
+  { id: 'fw-cero-ar30-disc', cat: 'frontwheel', brand: 'Cero', model: 'AR30 Disc Alloy', family: 'cero-ar30-disc',
+    wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 17.4, maxTire: 35,
+    weight: 664, price: 284.24,
+    verified: true, lastChecked: '2026-07-23', source: 'https://www.cerowheels.com/products/cero-ar30-disc-alloy-clincher-wheelset', priceBasis: 'regional-conversion',
+    note: 'road-wheels-1 wave: FETCHED cerowheels.com/products/cero-ar30-disc-alloy-clincher-wheelset directly via the browser pane (Shopify storefront, not bot-walled). Spec: "Depth: 30mm", "Width: 22mm", "Internal width: 17.4mm" (intWidth), "Tyre options from 25mm all the way up to 35mm" (maxTire:35, a real page-stated ceiling). Hub/axle: this exact model\'s Centerlock disc mount + 12x100 front/12x142 rear thru-axle compatibility confirmed via cycledivision.co.uk\'s (Cero\'s UK distributor/originator) own separately-sold "Cero Front Wheel 12X100mm Adapter"/"Rear Wheel 12X142mm Adapter" listings for this AR30 platform, and road.cc\'s review of the sibling ARD23 disc model describing the same "Centre-lock disc hub...adaptable to thru 12 and 15mm axles" design (Cero reuses this hub across its disc alloy line) — this exact page does not re-itemize axle spacing beyond the rim/spoke spec. Weight: cerowheels.com\'s own page states only per-rim weight (475g); Cycling Weekly\'s independent review states "At 1420g (pair) this is very much on the lighter side" — a real independently-measured PAIR total (not a maker figure), used here since no front/rear split is published anywhere found; split into 664g/756g is an ESTIMATE using this file\'s own established ~46.75%/53.25% cross-brand ratio (see the Princeton Wake row\'s note). Price: cerowheels.com\'s own current listing shows "Regular price £479.00 GBP / Sale price £259.99 GBP" (GBP, no USD storefront) — this row uses the REGULAR £479 RRP (not the sale price, matching this catalog\'s MSRP-not-sale-price convention) converted at ~1.27 USD/GBP to $608.33, priceBasis:\'regional-conversion\'; front/rear split ($284.24/$323.76) is the SAME estimate ratio applied to that converted pair total, not a Cero-specific split.' },
+  { id: 'rw-cero-ar30-disc', cat: 'rearwheel', brand: 'Cero', model: 'AR30 Disc Alloy', family: 'cero-ar30-disc',
+    wheel: '700c', hub: '12x142', freehub: 'xdr', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 17.4, maxTire: 35,
+    weight: 756, price: 323.76,
+    verified: true, lastChecked: '2026-07-23', source: 'https://www.cerowheels.com/products/cero-ar30-disc-alloy-clincher-wheelset', priceBasis: 'regional-conversion',
+    note: 'road-wheels-1 wave: same source/session as the front row — see that row\'s note for the full regional-conversion + estimate-split methodology. Freehub: the page\'s "Cassette Body" selector offers Shimano/SRAM XDR (Campagnolo mentioned in the description text but not a separate selector option this pass) — XDR modeled; HG(hg-road) a disclosed GAP. maxTire/rotorMount/intWidth reasoning identical to the front row.' },
+
   // ===== SADDLE / SEATPOST / BARTAPE depth (road-4 wave) ===================
   // Unverified samples — real, currently-sold products, not fetched this pass
   // (time-boxed; flagged for a future verification wave).
