@@ -1853,6 +1853,18 @@ var EMTB_PARTS = [
   },
 
   {
+    id: 'em-corratec-epower-mtc100-wave-cx8', cat: 'emtb', brand: 'Corratec', model: 'E-Power MTC 100 Wave CX8',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Smart System, BDU38)', motorTorque: 85,
+    batteryWh: 800, assist: 'full-power',
+    wheelConfig: '275', suspension: 'full', travelFront: 100, travelRear: 100,
+    drivetrain: 'Shimano SL-U6000-11R CUES 11-speed (RD-U6000 CUES GS, Miranda DM CF3D 38T crank)', brakes: 'Tektro HD M535 4-piston (203mm front/180mm rear)',
+    disciplines: ['e-trail'], weight: 29000, price: 6388.90,
+    note: 'A dramatically shorter-travel (100mm), 27.5in-wheel, step-through "Wave" comfort/all-road e-MTB from Corratec\'s E-SUV line — a different tier entirely from the already-cataloged 160mm mullet-wheel RS 160 Factory enduro flagship. Frame material is not stated on the maker page (left uncataloged rather than guessed).',
+    desc: 'Verified vs the fetched maker product page (corratec.com/en/Bikes/E-Mountainbike-E-SUV/E-SUV/E-Power-MTC-100-Wave-CX8.html — "Bosch Performance Line CX Smart System BDU38" motor, "85 Nm", "Bosch PowerTube 800 Horizontal" battery, RockShox Recon Silver RL 100mm fork / RockShox Deluxe Select+ 170x35mm shock, "Shimano SL-U6000-11R CUES 11-speed" w/ RD-U6000 CUES GS derailleur and Miranda DM CF3D 38T crank, "Tektro HD M535 4/4 Piston" 203mm front/180mm rear brakes, 29kg complete-bike weight, EUR 5,599.00 price). PRICE: EUR 5,599.00 maker RRP converted at the 2026-07-23 open.er-api.com rate (1.141079) -> $6,388.90 — Corratec has no US retail presence, no USD MSRP exists. Frame material was not stated on the fetched page (only "Wave"/comfort-geometry description) — left uncataloged per this catalog\'s no-guessing convention. catalog/emtb-depth-8 wave (Corratec deepened from 1 row to 2).',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.corratec.com/en/Bikes/E-Mountainbike-E-SUV/E-SUV/E-Power-MTC-100-Wave-CX8.html'
+  },
+
+  {
     id: 'em-conway-xyron-lt-90', cat: 'emtb', brand: 'Conway', model: 'Xyron LT 9.0',
     motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen5, Smart System)', motorTorque: 85,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power',
