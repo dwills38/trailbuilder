@@ -31,10 +31,22 @@ seat does the housekeeping automatically — Douglas never renames/unpins/archiv
 Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today>-s23 -b
 coord/<today>-s23 origin/main` (Hard rule #5 — containment hook LIVE, and it is now VERSIONED at
 `tools/hooks/`). Run the gates yourself, never trust doc counts. **State at handoff: main
-`127fd2cc` green — MTB 5,261 · kit 933 (+26 advisory id-brand-token warnings, cosmetic) · BMX 435 ·
-road 442 · gravel 399 · EMTB 199 · striders 48 · 1,207 tests / 43 files · tsc clean · verdict
-harness clean (363 clean / 2 known catalog-gap errors) · 7 validators at 0 problems. 50+ commits
-this seat, zero broken deploys.** A durable junction links the main checkout's `node_modules` into
+`dec623e5` green — MTB 5,261 · kit 933 (+26 advisory id-brand-token warnings, cosmetic) · BMX 435 ·
+road 442 · gravel 399 · EMTB 199 · striders 48 · 1,214 tests / 44 files · tsc clean · verdict
+harness clean (363 clean / 2 known catalog-gap errors) · 7 validators at 0 problems. 64 commits
+this seat, zero broken deploys.**
+
+**★ TWO STRUCTURAL CHANGES LANDED LATE — know these before touching MTB:**
+· **`src/compat.js` is now the ENGINE ONLY (~2,104 lines).** The catalog moved to **`data/mtb.js`**
+  (`MTB_PARTS_RAW`, 20,908 lines) on 2026-07-23. compat.js re-exports it as `PARTS`, so every
+  consumer (validate.js, tests, tools) is unchanged — **but any chip that ADDS OR EDITS MTB ROWS
+  must target `data/mtb.js`, not compat.js.** `index.html` loads `data/mtb.js` BEFORE `src/compat.js`
+  (load-bearing), and `deploy.yml` stages it explicitly or the flagship 404s.
+  `test/test-mtb-data-split.js` guards both.
+· **`src/verdict-core.js`** holds `Verdict`/`verdictKey`/`esc`/`fisherYatesShuffle`; bmx/road/gravel
+  no longer load compat.js at all.
+· **The e-bike special-case rule was RETIRED on Douglas's word 2026-07-23.** Hard rule 1 is now the
+  general "ONE CATALOG PER SURFACE". Never use contained/banned/minimize-exposure framing again. A durable junction links the main checkout's `node_modules` into
 the coord worktree so npm test/tsc run there — recreate if missing:
 `cmd //c "mklink /J node_modules \"D:\MTB Bike Builder\node_modules\""`.
 

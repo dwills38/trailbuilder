@@ -269,9 +269,12 @@ a structured `fix` naming the rotor-size-specific I.S.-to-post adapter (Shimano 
 setup); **PM↔FM both directions** likewise warn with a `fix` (Shimano SM-MA flat-mount line one way,
 Wolf Tooth Post-to-Flat the other, whose message flags the +20 mm-only step and boss clearance);
 **FM-on-I.S.** stays an ERROR (only a boutique rotor-limited part exists — a `fix` would be a false
-"fits"), and an **I.S. caliper** on any other mount stays an ERROR, dormant-but-correct since no
-I.S. caliper is cataloged. Live on the 3 I.S. frames (Cotic BFe/Jeht, Banshee Paradox V3), which
-went from 0/104 buildable to PM-caliper-buildable; the I.S. *fork* branch is dormant);
+"fits"), and an **I.S. caliper** on any other mount stays an ERROR — **ACTIVE since 2026-07-23**, when the
+first I.S.-mount caliper was cataloged (`bk-bengal-helix11-is`); coordinator-probed: I.S. caliper on
+an I.S. frame is a clean native match, on a PM frame a correct error, and PM-on-I.S. still warns with
+its adapter `fix`. Live on the **12** I.S. frames (Cotic BFe/Jeht, Banshee Paradox V3, Commencal
+Meta HT V2, both Surlys, both Chromags, Production Privee Shan GT, Dartmoor, Identiti, Canfield),
+which went from PM-caliper-only to natively buildable; the I.S. *fork* branch is still dormant);
 rotor interface vs hub (direction-aware: Center-Lock rotor on a 6-bolt hub = error;
 6-bolt rotor on a Center-Lock hub = adapter warning carrying a structured `fix`); rotor size vs
 frame/fork max AND vs the fork's native-mount minimum (error; sourced forks only) AND vs the
