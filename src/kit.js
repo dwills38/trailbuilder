@@ -1520,6 +1520,13 @@ var KIT_PARTS = [
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.sportful.com/US/en/Mens/Cycling/c/Man-Cyc',
     desc:'Fetched sportful.com (WebFetch): confirmed $110 (standing price, not a sale figure). No weight published on the listing page.' },
 
+  /* -- MAAP breadth (catalog/kit-breadth-8, 2026-07-23): brand had zero prior rows. Fetched
+     maap.cc's US collection pages (WebFetch); no per-SKU weight published. -- */
+  { id:'jsy-maap-training2', cat:'jersey', brand:'MAAP', model:'Training Jersey 2.0', family:'maap-training', price:160,
+    sleeve:'short',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://maap.cc/us/collections/cycling-jerseys',
+    desc:'Fetched maap.cc (WebFetch): confirmed $160, MAAP\'s entry-tier training jersey (the Pro Air / Spectrum race jerseys run $205-$295). No weight published on the listing page.' },
+
   /* -- Shorts (shorts + pants are SEPARATE cats; grind batch 2026-07-14, sht-shorts-grind) -- */
   { id:'sht-fox-flexair', cat:'shorts', brand:'Fox', model:'Flexair Short', price:129.95, weight:250,
     liner:false, sizes:['28','30','32','34','36','38'],
@@ -1904,6 +1911,12 @@ var KIT_PARTS = [
     liner:true,
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.sportful.com/US/en/Mens/Cycling/Bibshort-and-Overshorts/c/Man-Cyc-Bot-Bbs',
     desc:'Fetched sportful.com (WebFetch): confirmed $190 (standing price, not the sale figure some lower-tier siblings show). No weight published on the listing page.' },
+
+  /* -- MAAP breadth continued (catalog/kit-breadth-8, 2026-07-23) -- */
+  { id:'sht-maap-training3-bib', cat:'shorts', brand:'MAAP', model:'Training Bib 3.0', family:'maap-training-bib', price:250,
+    liner:true,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://maap.cc/us/collections/cycling-bib-shorts',
+    desc:'Fetched maap.cc (WebFetch): confirmed $250, MAAP\'s entry-tier training bib (the Pro/Team Bib Evo tiers run $295-$355). No weight published on the listing page.' },
 
   /* -- Pants (MTB pants only; shorts are a separate cat above) -- */
   { id:'pnt-fox-defend', cat:'pants', brand:'Fox', model:'Defend Pant', price:169.95, weight:430,
@@ -2757,6 +2770,11 @@ var KIT_PARTS = [
   { id:'glv-sportful-fullgrip2', cat:'gloves', brand:'Sportful', model:'Full Grip 2 Gloves', family:'sportful-fullgrip', price:50,
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.sportful.com/US/en/Mens/Cycling/Accessories/Gloves/c/Man-Cyc-Acc-Glo',
     desc:'Fetched sportful.com (WebFetch): $50 confirmed as the standing MSRP (listed on a $35 sale at fetch time). No weight published.' },
+
+  /* -- MAAP breadth continued (catalog/kit-breadth-8, 2026-07-23) -- */
+  { id:'glv-maap-base', cat:'gloves', brand:'MAAP', model:'Base Glove', family:'maap-base', price:70,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://maap.cc/us/products/base-glove-navy',
+    desc:'Fetched maap.cc (WebFetch): $70 confirmed as the standing MSRP (listed on a $35 sale at fetch time). 85% Polyamide / 15% Elastane. No weight published.' },
 
   /* -- Knee pads (per pair; certs left to the grind + a source) --
      Breadth pass (grind/kit-kneepad, 2026-07-14): 20 additional real products
