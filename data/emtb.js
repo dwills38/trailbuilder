@@ -1862,13 +1862,13 @@ var EMTB_PARTS = [
   {
     id: 'em-fantic-xtf15-carbon', cat: 'emtb', brand: 'Fantic', model: 'XTF 1.5 Carbon',
     motorBrand: 'brose', motorModel: 'Brose S Mag', motorTorque: 90,
-    batteryWh: 630, assist: 'full-power',
+    batteryWh: 720, assist: 'full-power',
     wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
-    frameMaterial: 'carbon',
-    disciplines: ['e-trail'], weight: null, price: 6265.63, modelYear: 2026,
-    note: 'Italian maker Fantic\'s carbon trail e-MTB — the "XTF Trail" family\'s carbon-frame model, distinct from the already-cataloged mullet-wheel "XMF" all-mountain platform. Full-carbon frame, RockShox 35 Gold RL 150mm fork, Brose S Mag motor (2.8kg, vibration-free per the maker).',
-    desc: 'Unverified sample via the credible-source breadth policy — The Loam Wolf\'s "Dissected" feature and multiple retailer spec sheets (jaxnebike.com, ebikespartsandaccessories.com, opticycles.com) consistently confirm "Brose S Mag" motor / "90 Nm" torque / "630Wh" battery (Fantic-engineered, frame-integrated) / "150mm" travel / "RockShox 35 Gold RL" fork / full carbon frame. No fanticbikes.com product page fetched directly this session (companion XMF row already documents that site\'s per-SKU pages as fetchable; not repeated here for a second Fantic model). No complete-bike weight found across sources — left uncataloged rather than guessed. PRICE: EUR 5,490 (a retailer-quoted "manufacturer price" figure, not a session-fetched maker RRP) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $6,265.63 — disclosed estimate, no regional-conversion token. catalog/emtb-breadth-3 wave (Fantic deepened from 1 row to 2).',
-    lastChecked: '2026-07-23', source: 'https://theloamwolf.com/features/dissected/dissected-fantic-xtf-1-5-carbon-emtb/'
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle derailleur, SRAM NX Eagle shifter, SRAM SX Eagle 12s chain/cassette',
+    disciplines: ['e-trail'], weight: null, price: 6264.52, modelYear: 2026,
+    note: 'Italian maker Fantic\'s carbon trail e-MTB — the "XTF Trail" family\'s carbon-frame model, distinct from the already-cataloged mullet-wheel "XMF" all-mountain platform. Full-carbon front triangle / carbon-reinforced aluminum rear, RockShox 35 Gold 150mm fork + RockShox Deluxe Select+ 205x60mm shock, Brose S Mag motor (2.8kg, vibration-free per the maker).',
+    desc: 'Fetched directly from the maker\'s own product page verify/emtb-verify-1 (fanticbikes.com/en/products/xtf-1-5-carbon-lime, TECH SPECS table): "TELAIO Fantic Trail, 150mm travel, carbon front triangle, carbon-reinforced aluminum rear end", "AMMORTIZZATORE RockShox Deluxe Select+ 205x60mm", "FORCELLA RockShox 35 Gold 150mm", "BATTERIA Fantic 720Wh", "MOTORE Brose S Mag 90Nm", "CORONA Sram 34T Eagle X-Sync 2", "COMANDO Sram NX Eagle Single Click", "CAMBIO Sram GX Eagle", "CATENA Sram SX Eagle 12s", "CASSETTA Sram SX Eagle 12s 11-50", price EUR 5,490.00. CORRECTED vs the prior editorial-sourced entry: battery 630Wh -> the real maker-stated 720Wh (630Wh does not appear anywhere on the maker\'s own page), drivetrain added (was uncataloged) as the real mixed-tier SRAM Eagle build. Tech-specs table states no complete-bike weight (a common Fantic-page omission, matching the companion XMF row) — left uncataloged rather than guessed. PRICE: EUR 5,490.00 maker-published price converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $6,264.52; Fantic has no US retail presence for this SKU — disclosed sample, not a "verified" price (no US MSRP exists to confirm against).',
+    lastChecked: '2026-07-23', source: 'https://fanticbikes.com/en/products/xtf-1-5-carbon-lime'
   },
 
   {
