@@ -137,8 +137,8 @@ var GRAVEL_VOCAB = {
   dropoutType:  ['sliding'],
   freehub:      ['xdr', 'n3w', 'micro-spline-road', 'hg-road'],
   rotorMount:   ['center-lock'],
-  casing:       ['tcs-light', 'tcs-tough', 'zsg', 'shieldwall', 'protection', 'hardwall', 'super-ground', 'exo', 'tubeless-complete', 'trail', 'standard', 'extralight', 'endurance', 'light-supple'],
-  compound:     ['fast-rolling', 'high-grip', 'std', 'blackchili', 'smartnet', 'addix-speedgrip', 'addix', 'dual', 'dynamic-rs', 'g2', 'puregrip'],
+  casing:       ['tcs-light', 'tcs-tough', 'zsg', 'shieldwall', 'protection', 'hardwall', 'super-ground', 'exo', 'tubeless-complete', 'trail', 'standard', 'extralight', 'endurance', 'light-supple', '2bliss-ready'],
+  compound:     ['fast-rolling', 'high-grip', 'std', 'blackchili', 'smartnet', 'addix-speedgrip', 'addix', 'dual', 'dynamic-rs', 'g2', 'puregrip', 'gripton'],
   // Display-only casing/compound SKU-axis tokens ratified vocab-tier1 (2026-07-22) —
   // brand-native names, never feed checkBuild: 'light-supple' is Teravail's own casing-
   // tier name ("Light & Supple, Black" on the Sparwood 700x56 row's own fetched page,
@@ -148,10 +148,22 @@ var GRAVEL_VOCAB = {
   // row previously fell back to 'std'). WTB's own casing-tier naming (TCS Light/TCS Tough,
   // seen on its Breakout MTB tire and used identically across its gravel line) was
   // investigated for a matching gap and found to be FULLY covered already by the existing
-  // tcs-light/tcs-tough tokens — no new token added, not a real gap. Specialized's
-  // "GRIPTON"/"2Bliss Ready" naming is real (directly fetched on this catalog's road.js
-  // Cotton TLR rows) but no gravel Specialized tire is cataloged yet to carry it — deferred
-  // to a future data-entry pass rather than adding an unused token with no backing row.
+  // tcs-light/tcs-tough tokens — no new token added, not a real gap.
+  // vocab-tier1-4c (2026-07-23): Specialized's own gravel-tire tier naming closed —
+  // 'gripton' (compound) and '2bliss-ready' (casing/bead-tubeless-system) confirmed
+  // directly off specialized.com's own current "Pathfinder Pro 2Bliss Ready" product
+  // page (fetched via Exa read-through after WebFetch hit the documented specialized.com
+  // 403 wall; the returned content is the maker's own page, not a retailer republication —
+  // specialized.com/us/en/pathfinder-pro-2bliss-ready/p/157870), which states verbatim:
+  // "Compound: GRIPTON®" and "Butyl wrapped bead = 2Bliss Ready" (the tubeless-bead casing
+  // system name, the same naming already fetched on this catalog's road.js Cotton TLR rows).
+  // The page also names "Flat Protection: Endurant Casing and BlackBelt" — BlackBelt is a
+  // real Specialized puncture-belt name, but the casing/compound fields are single-value
+  // SKU axes and 2bliss-ready is the tire's actual bead/tubeless-tier identity on this SKU,
+  // so BlackBelt was NOT added as a third token (would have no field to occupy without
+  // overloading casing away from its bead-system meaning) — flagged for a future pass if a
+  // Specialized row ever needs to distinguish a BlackBelt vs non-BlackBelt tier. Backing row:
+  // gti-specialized-pathfinderpro-700x42 in data/gravel.js.
   actuation:    ['di2-wired', 'mechanical', 'axs-wireless', 'hydraulic'],
   side:         ['pair'],
   system:       ['shimano-grx-12', 'shimano-grx-11', 'shimano-grx-10', 'sram-xplr-12', 'sram-xplr-13', 'sram-apex-mech-12',
