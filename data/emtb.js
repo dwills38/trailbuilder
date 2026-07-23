@@ -1617,6 +1617,18 @@ var EMTB_PARTS = [
     note: 'French maker\'s trail e-MTB — 6061 T4-T6 aluminum frame, RockShox PSYLO Silver R fork, Moustache\'s own Magic Grip Control shock (205x60mm trunnion). The maker\'s own French listings also show a lighter 625Wh battery variant of this same 150.2 trim; cataloged at the US maker-page-listed 750Wh spec.',
     desc: 'Verified vs the fetched maker product page (moustachebikes.com/us/en/electric-bikes/samedi-29-trail/trail-150-2-2 — "Bosch Performance Line CX BDU37" motor, "85Nm", "Bosch PowerTube 750Wh" battery, RockShox PSYLO Silver R 150mm fork, Moustache Magic Grip Control 150mm shock, "6061 T4-T6 aluminum" frame, Shimano CUES 11-speed 11-50T w/ FSA 34T chainring, Magura MT5 4-piston 203mm brakes, 29in Maxxis Rekon 2.40 tires, 27kg size-L weight); no price is shown on the maker page (moustachebikes.com carries no shop/checkout). PRICE: the maker\'s French retail network (my-velo.fr, this exact "150.2 2026" SKU) lists EUR 4,599.00 as the pre-discount original price, converted at the 2026-07-22 open.er-api.com rate (1.140653) -> $5,245.02 — disclosed as a retailer-listed price, not a maker-published RRP, since Moustache\'s own site states none. catalog/emtb-tail-5 zero-coverage-maker wave (first Moustache row).',
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://moustachebikes.com/us/en/electric-bikes/samedi-29-trail/trail-150-2-2/'
+  },
+
+  {
+    id: 'em-conway-ewme-49', cat: 'emtb', brand: 'Conway', model: 'eWME 4.9',
+    motorBrand: 'shimano', motorModel: 'Shimano EP800', motorTorque: 85,
+    batteryWh: 720, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 155,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore XT 12-speed', brakes: 'Magura MT5 eStop 4-piston',
+    disciplines: ['e-enduro'], weight: 25300, price: 5132.83,
+    note: 'German direct-to-consumer maker\'s enduro-leaning e-MTB ("We Make Enduro" eWME line) — RockShox Lyrik Select fork, FOX Float DPS shock (205x60mm trunnion), Schwalbe Magic Mary front / Hans Dampf rear tires.',
+    desc: 'Verified vs the fetched maker product page (conway-bikes.com/en/e-bikes/e-mountainbike/ewme/02895894-conway-ewme-4.9-full-suspension-2024 — "SHIMANO EP800" motor, DARFON "Intube 720" 720Wh battery, ROCKSHOX Lyrik Select 160mm fork, FOX Float DPS 205x60mm shock, aluminum full-suspension frame, SHIMANO Deore XT 12-speed 1x12, MAGURA MT5 eStop 203mm front/rear brakes, 25.3kg weight, EUR 4,499.95 price). PRICE: EUR 4,499.95 maker RRP converted at the 2026-07-22 open.er-api.com rate (1.140653), matching this catalog\'s established EUR-conversion convention (em-rotwild-rx375-pro) -> $5,132.83 — Conway has no US retail presence, no USD MSRP exists. Rear travel (155mm) is the eWME platform\'s published frame-travel figure (conway-bikes.com/en/e-bikes/e-mountainbike/ewme/ family overview page) — not restated on this SKU\'s own page, which lists only the 160mm fork. catalog/emtb-tail-5 zero-coverage-maker wave (first Conway row).',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://www.conway-bikes.com/en/e-bikes/e-mountainbike/ewme/02895894-conway-ewme-4.9-full-suspension-2024/'
   }
 
 ];
