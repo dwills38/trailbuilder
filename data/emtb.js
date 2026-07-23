@@ -1746,6 +1746,17 @@ var EMTB_PARTS = [
     desc: 'Fetched directly from the maker\'s own product page verify/emtb-verify-1 (gasgas.com/bicycles/en-us/bikes/enduro/e-bike/ecc/ecc-6.html) via the browser pane (the prior session\'s WebFetch/Exa attempts only returned the nav shell — a JS-rendered wall, not an anti-bot wall, so the browser pane cleanly rendered the full US spec table): "FRAME 29\\", Carbon, Integrated battery, Boost, 160 mm", "FORK DVO Onyx D1CV OTT, Air, 170 mm, tapered", "SHOCK DVO JadeX CV Coil, Coil, 205x65 mm", "MOTOR SRAM Eagle Powertrain Drive Unit, 250 W, 90 Nm", "BATTERY SRAM Eagle Powertrain, 630 Wh", "FRONT/REAR BRAKE SRAM Code RSC, 4-piston... 220 mm / 200 mm rotors", "REAR DERAILLEUR SRAM X0 Eagle Transmission, 12-S", "WEIGHT 24.1 kg", listed at "USD 10,999.00 MSRP plus USD 60 freight". Corrections vs the prior editorial-sourced row: brakes "SRAM Code Ultimate Stealth" -> the real spec "SRAM Code RSC" (Ultimate Stealth does not appear on this SKU\'s own page), weight 24.6kg -> the maker-stated 24.1kg, price from a EUR-converted estimate -> the real US MSRP $10,999.00 (freight excluded, matching this catalog\'s MSRP-only pricing convention).',
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.gasgas.com/bicycles/en-us/bikes/enduro/e-bike/ecc/ecc-6.html'
   },
+  {
+    id: 'em-gasgas-ecc5', cat: 'emtb', brand: 'GasGas', model: 'ECC 5',
+    motorBrand: 'sram', motorModel: 'SRAM Eagle Powertrain Drive Unit', motorTorque: 90,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission 12-speed', brakes: 'SRAM G2 RS 4-piston',
+    disciplines: ['e-enduro'], weight: 24400, price: 8999,
+    note: 'The mid-tier ECC model — same full-carbon frame platform and SRAM Eagle Powertrain motor/630Wh battery as the already-cataloged flagship ECC 6, stepping down to a WP/DVO 38CV SL air fork + WP CV Coil HLC shock (vs the ECC 6\'s higher-spec DVO Onyx D1CV OTT/JadeX CV Coil) and SRAM GX Eagle Transmission + G2 RS brakes (vs the ECC 6\'s X0 Eagle Transmission + Code RSC). A third tier, ECC 4, sits below at $6,999.',
+    desc: 'Fetched via the browser pane (gasgas.com/bicycles/en-us/bikes/enduro/e-bike/ecc/ecc-5.html — same JS-rendered-wall page type as the sibling ECC 6 row, WebFetch/Exa both returned only a nav shell): "FRAME 29\\", Carbon, Integrated battery, Boost, 160 mm", "FORK DVO Onyx D1CV SL, Air, 170 mm, tapered", "SHOCK DVO JadeX CV Coil, Coil, 205x65 mm", "MOTOR SRAM Eagle Powertrain Drive Unit, 250 W, 90 Nm" (motorPowerPeak left unset — the page\'s marketing text separately claims "680W peak power" but the spec table itself states 250W; the sibling ECC 6 row likewise carries no motorPowerPeak, so this stays consistent rather than picking one of two conflicting numbers), "BATTERY SRAM Eagle Powertrain, 630 Wh", "FRONT/REAR BRAKE SRAM G2 RS, 4-piston... 220 mm / 200 mm rotors", "REAR DERAILLEUR SRAM GX Eagle Transmission, 12-S", "WEIGHT 24.4 kg", "USD 8,999.00 MSRP plus USD 60 freight" (freight excluded per this catalog\'s standing convention).',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.gasgas.com/bicycles/en-us/bikes/enduro/e-bike/ecc/ecc-5.html'
+  },
 
   {
     id: 'em-simplon-rapcon-e', cat: 'emtb', brand: 'Simplon', model: 'Rapcon :e',
