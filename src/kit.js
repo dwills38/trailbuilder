@@ -2010,6 +2010,11 @@ var KIT_PARTS = [
     sizes:['XS','S','M','L','XL','XXL'], disciplines:['trail','enduro'],
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.dainese.com/us/en/hgr---mens-bike-pants-20376949631G.html',
     desc:'kit-breadth-7 (2026-07-22): Dainese had zero pants rows despite already-cataloged armor coverage (protection gear + apparel, but no bottoms). Fetched dainese.com directly: the page shows "$205 $61.50 -70%" - the $205 figure is the list MSRP, used per THE PRICE RULE (never a sale price); the $61.50 clearance figure is NOT used. 90% Polyamide/10% Elastane, high-tenacity nylon build, Slide-Fit closure, Hook Button glove-attachment system, pre-curved/tapered leg. No weight published on the fetched page.' },
+  { id:'pnt-scott-trailvertic', cat:'pants', brand:'Scott', model:'Trail Vertic Pants', mfgPn:'403107',
+    price:139.99, weight:330, liner:false,
+    sizes:['XS','S','M','L','XL','XXL'], disciplines:['trail','enduro'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.scott-sports.com/us/en/product/scott-trail-vertic-men-s-pants',
+    desc:'kit-breadth-7 (2026-07-22): Scott had zero pants rows despite already-cataloged kneepad/bodyarmor/elbowpad coverage. Fetched scott-sports.com directly: $139.99 USD, ~330 g maker-stated weight, 89% Polyamide/11% Elastane four-way stretch, laser-cut ventilation, PFC-free DWR water repellency. The sibling "Trail Progressive" pant (also real - confirmed via search across multiple regional Scott storefronts) is NOT added here: its scott-sports.com product page 404s on every regional path tried, and only third-party-retailer prices were found, which is not an acceptable MSRP source per the fetch-ethics/verification doctrine - left for a future pass once the manufacturer page resolves.' },
 
   /* -- Gloves (all UNVERIFIED samples; weight is PER PAIR, approx USD MSRP) -- */
   { id:'glv-fox-dirtpaw', cat:'gloves', brand:'Fox', model:'Dirtpaw', price:39.95, weight:70, sizes:['S','M','L','XL','XXL','3XL','4XL'],
