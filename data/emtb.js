@@ -1701,6 +1701,19 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://fanticbikes.com/en/products/xmf-1-7-carbon-race-black'
   },
 
+
+  {
+    id: 'em-gasgas-ecc6', cat: 'emtb', brand: 'GasGas', model: 'ECC 6',
+    motorBrand: 'sram', motorModel: 'SRAM Eagle Powertrain', motorTorque: 90,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle AXS Transmission 1x12', brakes: 'SRAM Code Ultimate Stealth 4-piston',
+    disciplines: ['e-enduro'], weight: 24600, price: 11409.48, modelYear: 2026,
+    note: 'Spanish motorcycle brand GasGas\' full-power e-enduro flagship (Pierer Mobility group, sister brand to Husqvarna/KTM e-bicycles) — full-carbon frame with a distinctive moto-plastics kit, DVO Onyx D1CV OTT fork / DVO Jade X CV coil shock (WP Cone Valve co-development), RockShox Reverb AXS dropper, Maxxis Assegai/Minion DHR II tires.',
+    desc: 'GasGas\'s own product page (gasgas.com/bicycles/en-us/bikes/enduro/e-bike/ecc/ecc-6.html) is a navigation shell with no spec table (WebFetch/Exa both returned only nav links, not the JS-rendered spec content). Full spec instead confirmed across two independent editorial group tests that both quote the maker\'s own spec sheet verbatim: E-MOUNTAINBIKE Magazine ("Motor SRAM Eagle Powertrain 90 Nm, Battery SRAM Battery 630 Wh... Fork DVO Onyx D1CV OTT 170mm, Rear Shock DVO Jade X CV Coil 160mm... Drivetrain SRAM X0 Eagle Transmission 1x12... Brakes SRAM CODE Ultimate Stealth 220/200mm", 24.6kg, EUR 9,999) and Pinkbike\'s review (confirms 29in wheels, carbon frame, 90Nm/630Wh, 24.8kg as-tested, USD $10,999 as reviewed). Entered unverified (no direct maker-page fetch this session) per the catalog\'s credible-source breadth policy. PRICE: EUR 9,999 (E-MOUNTAINBIKE Magazine\'s quoted EU price) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $11,409.48 (close to Pinkbike\'s independently-quoted $10,999 US price, both retained as disclosed samples, not a confirmed single MSRP). catalog/emtb-breadth-brands-1 wave (first GasGas row — brand was fully absent).',
+    lastChecked: '2026-07-23', source: 'https://ebike-mtb.com/en/gasgas-ecc-6-2024-group-review/'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
