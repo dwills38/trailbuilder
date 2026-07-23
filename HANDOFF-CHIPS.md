@@ -1,4 +1,5 @@
-# Paste-ready worker blocks — refreshed by seat 19 at wrap-up (2026-07-23)
+# Paste-ready worker blocks — updated by seat 20 (2026-07-23: original 6 merged; 6 rulings +
+# 8 new chips A–L queued)
 
 Douglas dispatches these himself so he controls model + effort (CLAUDE.md Hard rule #4).
 Fleet was EMPTY at seat-19 wrap — nothing in flight, no double-paste risk, but every chip
@@ -35,41 +36,66 @@ fetched text; watch third-party sites echoing a maker's single figure against th
 
 ---
 
-## Chip queue (dispatch when lanes free — refreshed at seat-19 wrap)
+## Chip queue (dispatch when lanes free)
 
-### 1. [Sonnet, medium] e13 LG1 DH cassette semantics (chip fully written in seat-19's
-transcript; premise: ca-ethirteen-lg1-dh-924 is a cassette row for what e13's own page calls
-an integrated cassette/driver unit — rule 6b's wheel-side product class. Investigate:
-duplicate-of-wheel (retire via ALIASES) vs real separate driver SKU (fix freehub semantics)
-vs schema question (write it up, change nothing). Harness if verdicts move.)
+### ✅ MERGED THIS SEAT (20, 2026-07-23) — the original six, all harvested + adversarially
+reviewed + gated + pushed as separate commits:
+1. e13 LG1 DH integrated-driver semantics → outcome (c), desc-only, `fc4fcb28`. **FLAGGED a
+   real out-of-scope false-fit → see follow-up G below.**
+2. wheel-prices-2 → 40 already-qualifying rows tagged `pair-split-estimate`; Zipp/Reserve
+   correctly got NO invented split; zero `msrp-confirmed` overreach, `5b57a179`.
+3. UNNO Horn Race cassette+wheel driver pair (XS-1275/XD → XS-1270/HG, the documented
+   HG-driver exception) `0258f022`.
+4. RAAW Madonna V3.2 Fox Podium build ($8,780, not the brief's stale $8,798) + XTR M9250 Di2
+   + Newmen 20x110/MS wheels (worker caught a rule-2 front-axle mismatch via checkBuild),
+   `3a405216`.
+5. Microshift Sword gravel `microshift-sword-10` token + 2x10 drivetrain (gate CLEARED:
+   self-contained single-brand mechanical gravel group, not a mullet), `c6e38a13`.
+6. Cross-BB `'30mm'` convention → don't split (honest bore class per Praxis docs); docs+tests
+   only, +7 tests, `0e89ed4e`. Corrected the chip's "rule 11" mislabel (rule 11 = steerer).
 
-### 2. [Sonnet, low] wheel-prices-2 (chip fully written in seat-19's transcript; the Enve
-precedent: sweep wheel rows for brands publishing INDIVIDUAL front/rear USD MSRPs; real
-per-wheel figure = msrp-confirmed, supersedes pair-split-estimate; pair-only = document.)
+### NEW follow-up + ruling-derived chips (full paste blocks in seat-20's transcript
+2026-07-23; premises below are enough to reconstruct — CONTENT-CHECK against origin/main first):
+- **A. [Opus, high] M7 — wheel-size-aware rule-18** (Douglas GO): store `maxTireByWheel` per
+  wheel size on frames (gravel engine is the model), kill the Surly 29x2.5-vs-27.5x3.0 false
+  warning. Engine change to src/compat.js + schema + types + tests; verdict harness; adversarial.
+- **B. [Sonnet, low] Retire dp-specialized-command-post-349-160** (Douglas RETIRE): suspected-
+  fictional 34.9/160 combo. Remove the row, retire the id into ALIASES (append-only), grep for
+  any build/preset reference first (none expected). Gates.
+- **C. [Sonnet, medium] Canyon Sender CLLCTV MY27** (Douglas ruled B): keep the 2025 row, ADD a
+  2027 row (5 spec changes, same $7,799). GENERAL PRECEDENT now — model-year refresh = new row,
+  keep old, never overwrite (Straggler pattern).
+- **D. [Sonnet, medium] Tire model-name vocab 4C** (Douglas APPROVED): add Teravail "Light &
+  Supple", Continental "PureGrip", WTB "Breakout", + the Specialized tokens gravel lacks to the
+  road/gravel tire casing/compound vocab, then let the honest rows through. Touches schema-road/
+  gravel + data rows (shares gravel files with none currently in flight).
+- **E. [Sonnet, low] Verified-badge-on-completebike = (a)** (Douglas ruled A): confirm the badge
+  logic treats a completebike's OWN verified:true as the badge (fills show own status); if code
+  already does this, document only; if it requires all-fills-verified, fix + test.
+- **F. [Sonnet, low] Deprioritize the ~50 spec-page-only rows** (Douglas OK'd): mark the
+  Shimano/SRAM/Zipp/Campagnolo spec-page-sourced road/gravel rows "deprioritized — needs a
+  price-bearing source" so priceBasis waves stop re-fetching them.
+- **G. [Sonnet, medium] Commencal Supreme DH V5 Öhlins false-fit** (found by the e13 worker):
+  cb pairs ca-ethirteen-lg1-dh-924 (integrated e13 driver) with rw-dtswiss-fr-1500-275-157
+  (generic DT Swiss), both freehub:'XD' → reads GREEN but e13's page says "not compatible with
+  other hub models." Fix: re-point the cassette at a generic 7-speed DH XD cassette matching
+  Commencal's "E13 DH cassette 9-24t" wording, OR re-home onto an e13 LG1r-integrated wheel pair.
+- **H. [Sonnet, low] wheel-prices-3** (continuation): same protocol on the boutique/direct-sale
+  brands most likely to publish per-wheel MSRP — DT Swiss, Race Face, Roval, Hope, Nukeproof,
+  Ibis, Spank. ~46 brands / ~625 rows still unreached (logged in wheel-prices-2.md, not skipped).
 
-### 3. [Sonnet, low] UNNO cassette re-verify — cb-unno-1 flagged the Horn Race build's
-cassette as XS-1270 (HG) on unno.com vs the cataloged XS-1275 (XD); needs the build's wheel
-DRIVER re-verified before either row moves (a cassette swap implies a freehub swap — rule 6
-territory). Fetch the Horn Race build page + the wheel's spec; correct the pair coherently
-or flag.
+### PRODUCT-BREADTH chips (proposed seat 20; each in a PHYSICALLY SEPARATE catalog file →
+zero mutual conflict + zero conflict with the compat.js chips above; even-weight directive):
+- **I. [Sonnet, med] Road frames marque breadth** (data/road.js) — ABSENT: Argon18, Basso, Cube,
+  Merida, Orbea, Ribble, Ridley, Van Rysel; THIN: Pinarello/Colnago/Bianchi/Factor/Look/Wilier.
+- **J. [Sonnet, med] EMTB brand breadth** (data/emtb.js) — ABSENT: Bulls, Fantic, GasGas, Gazelle,
+  Pole, Riese&Müller, Simplon, Thömus, Bird; THIN: Focus/Amflow/Forestal/Husqvarna/Moustache.
+- **K. [Sonnet, med] Kit apparel breadth** (src/kit.js) — ABSENT: Flylow, Muc-Off; THIN: Chromag/
+  Club Ride/Loose Riders/Handup/DHaRCO/Fasthouse. FLAG the "Pearl Izumi"/"Pearl iZUMi" casing split.
+- **L. [Sonnet, med] BMX brand depth** (data/bmx.js) — THIN: Subrosa/Verde/Federal/BSD; survey +
+  add if missing: Stolen/Premium/Volume/United/Mankind/Radio.
 
-### 4. [Sonnet, medium] RAAW Podium build — the $8,798 V3.2 build needs two uncataloged
-product lines researched first: the Fox 38 Podium (inverted) fork and Shimano XTR Di2
-wireless (drivetrain + brakes). Enter the part rows properly (new-line research, maker
-pages), THEN the completebike wrapper. Currently out-of-stock/notify-me on raawmtb.com —
-enter only if RAAW still publishes the full build sheet.
-
-### 5. [Opus, high] Microshift Sword gravel — whole-brand lift: new `system` token +
-shifter/RD/chain/cassette rows entered TOGETHER (a token never lands without backing rows;
-the gravel drivetrain freeze is road-parity per Douglas's no-gravel-mullet ruling — verify
-Sword 1x fits inside that ruling before landing; if ambiguous, packet to Douglas first).
-
-### 6. [Opus, high] Cross-BB crank spindle convention — Praxis M30 / White Industries 30mm
-class has no honest crankBb token. Design the convention (dedicated tokens per system vs a
-documented field), audit rule 7/11 interactions, land with tests + backing rows. Adversarial
-review at merge.
-
-### 7. Held walls (dispatch only when something changes): Stanton GenV builds (no press
+### Held walls (dispatch only when something changes): Stanton GenV builds (no press
 build-spec exists yet; try Stanton's configurator "recommended build" route) · Bird
 (configurator-only, no fixed spec) · Canyon Strive CFR (member-gate) · Commencal frame-only
 prices (Vue configurator) · Giant Stance E+ (self-conflicting copy) · Propain site (403) ·
@@ -91,37 +117,23 @@ question.)
    records. Revisit = (a) create scoped API token (Zone/DNS/Edit + Zone/Dynamic
    Redirect/Edit, 5 zones), (b) `setx CLOUDFLARE_API_TOKEN "..."`, (c) re-paste the API
    chip (findings banked in cloudflare-redirects*.md).
-3. **Vocab packet 4C — tire model-name words** (Teravail "Light & Supple", Continental
-   "PureGrip", WTB "Breakout", Specialized tokens gravel lacks). The last unruled letter;
-   same principle as A/B/D which he approved.
-4. **Verified-badge meaning on COMPLETE BIKES** — (a) bike's own sheet verified (fills show
-   their own status) vs (b) badge only when bike + every fill verified. Coordinator leans (a).
-5. **dp-specialized-command-post-349-160** — suspected-fictional combo; coordinator
-   recommends RETIRE. Awaiting his word.
-6. **M7 — wheel-size-aware rule-18 clearance** (the Surly 27.5x3.0 false warning;
-   gravel's maxTireByWheel is the model). "Go on M7" starts it; adversarial review.
-7. **MY27 Canyon Sender CLLCTV** — live page is a 2027 refresh (5 spec changes, same
-   $7,799). (a) update in place / (b) keep 2025 + add 2027 row / (c) supersede. Coordinator
-   leans (b), the Straggler precedent. Findings documented in-row.
-8. **WTB perpetual-"Sale price" storefronts** — accept a maker's own stable storefront
+3. **WTB perpetual-"Sale price" storefronts** — accept a maker's own stable storefront
    figure as msrp-confirmed when no separate MSRP exists / keep strict (rows stay blank) /
    park. ~10 rows now.
-9. **Spec-page-only component rows (~50 road/gravel)** — Shimano/SRAM/Zipp/Campagnolo spec
-   pages never carry prices; OK to mark "deprioritized — needs a price-bearing source" so pb
-   waves stop re-fetching them?
-10. **The no-USD-MSRP token family** (third face of 8/9, confirmed by the rejected
-    pb-gravel-4 branch): current products whose makers publish no USD price
-    (foreign-currency-only or spec-only). Ratify a token (e.g. `no-us-msrp`), or those rows
-    stay permanently blank? This is the structural floor under the road/gravel burndowns.
-11. **Canyon live-price drift** — verified rows whose canyon.com URLs now show different
-    prices/spec-levels (Spectral $1,999→$3,099 etc.). Re-verify as corrections, or is a
-    "price-at-verification" convention needed?
-12. **Fox 38 Performance Elite 29/180** — no such SKU exists on ridefox.com anymore (170mm
-    only). Discontinued writeup or retire?
-13. **Permission one-liners for his settings.json allow list** (classifier blocks the
-    coordinator adding them): `"Bash(node *)"`, `"Bash(git add *)"`, `"Bash(git commit *)"` —
-    kills the recurring worker permission prompts.
-14. **Smalls tail:** Whisp tier naming (SOLiX Classic vs uniform Hydra2 — taste) · one manual
+4. **The no-USD-MSRP token family** (third face, confirmed by the rejected
+   pb-gravel-4 branch): current products whose makers publish no USD price
+   (foreign-currency-only or spec-only). Ratify a token (e.g. `no-us-msrp`), or those rows
+   stay permanently blank? This is the structural floor under the road/gravel burndowns.
+5. **Canyon live-price drift** — verified rows whose canyon.com URLs now show different
+   prices/spec-levels (Spectral $1,999→$3,099 etc.). Re-verify as corrections, or is a
+   "price-at-verification" convention needed? (Note: the MY27-Sender precedent — new row,
+   keep old — covers a model-YEAR refresh; this is a same-row price DRIFT, still open.)
+6. **Fox 38 Performance Elite 29/180** — no such SKU exists on ridefox.com anymore (170mm
+   only). Discontinued writeup or retire?
+7. **Permission one-liners for his settings.json allow list** (classifier blocks the
+   coordinator adding them): `"Bash(node *)"`, `"Bash(git add *)"`, `"Bash(git commit *)"` —
+   kills the recurring worker permission prompts.
+8. **Smalls tail:** Whisp tier naming (SOLiX Classic vs uniform Hydra2 — taste) · one manual
     delete: 6 confirmed-duplicate files in `.claude/legacy-strays/` (guard blocks the
     coordinator) · Bright Data balance $1.39 (optional top-up) · archive_session auto-approve
     hook (deferred) · Audit L4 round-robin · "Sort: Random" wording · fr-trek-slash orphan
@@ -138,3 +150,12 @@ unverified sample rows only · GCN roster reserved · ProTeams stay unreserved (
 100% + 100Percent reserved, never bare "100" · Cairn junior OUT · O'Neal knee-only · EVEN
 WEIGHT across all categories ("take out any bias i may have presented") · Cloudflare parked ·
 weekly repo auditor approved (highest effort, nothing irreversible).
+
+**RULED SEAT 20 (2026-07-23) — do NOT re-ask (each is now a chip A–F above):** vocab 4C =
+YES (Teravail "Light & Supple" / Continental "PureGrip" / WTB "Breakout" / Specialized gravel
+tokens) · verified badge on a COMPLETE BIKE = (a) the bike's own sheet+price verified, each
+fill shows its own status · dp-specialized-command-post-349-160 = RETIRE (via ALIASES) · M7
+wheel-size-aware rule-18 = GO · MY27 Canyon Sender CLLCTV = (b) keep 2025 + ADD a 2027 row —
+**and the GENERAL PRECEDENT for all such cases: a model-YEAR refresh (same or changed spec) =
+new row, keep the old, NEVER overwrite (Straggler pattern)** · the ~50 spec-page-only road/
+gravel rows = mark "deprioritized — needs a price-bearing source" so priceBasis waves skip them.
