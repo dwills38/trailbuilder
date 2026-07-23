@@ -4328,6 +4328,23 @@ var KIT_PARTS = [
     type:'glasses',
     desc:'Zeal Optics active-line shield sunglasses. UNVERIFIED sample: zealoptics.com listed price (site search-summarized, not a rendered fetch). No weight found this batch.' },
 
+  /* -- Magicshine (kit-breadth-12, 2026-07-23): brand entirely ABSENT. Better known for bike
+     lights, but magicshine.com also sells a real cycling-sunglasses line (ROULEUR/WINDBREAKER) -
+     fetched the maker's own product pages directly, USD pricing. No weight published on any of
+     the three pages fetched. */
+  { id:'ewr-magicshine-rouleur-classic', cat:'eyewear', brand:'Magicshine', model:'ROULEUR Classic', price:44.99,
+    type:'glasses',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://magicshine.com/products/rouleur-classic-cycling-sports-glasses',
+    desc:'Fetched magicshine.com: semi-frame cycling sunglasses, PC lens with REVO front + OAR back coating, CAT.3 filter, TR90+TPR frame, 6-base curve lens. $44.99 confirmed on the maker\'s own product page. No weight published.' },
+  { id:'ewr-magicshine-windbreaker-classic', cat:'eyewear', brand:'Magicshine', model:'WINDBREAKER Classic', price:44.99,
+    type:'glasses',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://magicshine.com/products/windbreaker_classic_cycling_sunglassess',
+    desc:'Fetched magicshine.com: frameless cycling sunglasses, 6-base cylindrical shield lens, same REVO/OAR coating stack as the ROULEUR line. $44.99 confirmed on the maker\'s own product page. No weight published.' },
+  { id:'ewr-magicshine-rouleur-photochromic', cat:'eyewear', brand:'Magicshine', model:'ROULEUR Photochromic', price:59.99,
+    type:'glasses',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://magicshine.com/products/rouleur-standard-photochromic-cycling-sports-glasses',
+    desc:'Fetched magicshine.com: photochromic version of the ROULEUR Classic, CAT.1-3 adaptive tint, semi-frame, OAR back coating. $59.99 confirmed on the maker\'s own product page. No weight published.' },
+
   /* -- Apparel breadth (catalog/kit-breadth-11, 2026-07-23): Velocio, Wild Rye, Ornot, dhb,
      Pactimo, Machines for Freedom, Stolen Goat were entirely ABSENT from jersey/shorts/pants;
      GOREWEAR deepened where still fetchable. NOTE (superseded 2026-07-23, Douglas's word):
