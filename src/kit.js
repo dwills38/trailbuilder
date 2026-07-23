@@ -1506,6 +1506,13 @@ var KIT_PARTS = [
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.castelli-cycling.com/US/en/Men/c/Man',
     desc:'Fetched castelli-cycling.com (WebFetch): confirmed $130. No weight published on the listing page.' },
 
+  /* -- Assos breadth (catalog/kit-breadth-8, 2026-07-23): brand had zero prior rows. Fetched
+     assos.com's US men's clothing pages (WebFetch); no per-SKU weight published. -- */
+  { id:'jsy-assos-equipe-r-s11', cat:'jersey', brand:'Assos', model:'EQUIPE R Jersey S11', family:'assos-equipe-r', price:190,
+    sleeve:'short',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.assos.com/us/man/clothing.html',
+    desc:'Fetched assos.com (WebFetch): confirmed $190. Race-tier jersey from Assos\' EQUIPE line. No weight published on the listing page.' },
+
   /* -- Shorts (shorts + pants are SEPARATE cats; grind batch 2026-07-14, sht-shorts-grind) -- */
   { id:'sht-fox-flexair', cat:'shorts', brand:'Fox', model:'Flexair Short', price:129.95, weight:250,
     liner:false, sizes:['28','30','32','34','36','38'],
@@ -1878,6 +1885,12 @@ var KIT_PARTS = [
     liner:true,
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.castelli-cycling.com/US/en/Men/c/Man',
     desc:'Fetched castelli-cycling.com (WebFetch): confirmed $200. No weight published on the listing page.' },
+
+  /* -- Assos breadth continued (catalog/kit-breadth-8, 2026-07-23) -- */
+  { id:'sht-assos-mille-gt-s11', cat:'shorts', brand:'Assos', model:'MILLE GT Bib Shorts S11', family:'assos-mille-gt', price:210,
+    liner:true,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.assos.com/us/man/clothing/bib-shorts.html',
+    desc:'Fetched assos.com (WebFetch): confirmed $210 (Assos\' MILLE endurance-tier bib, base colorway; the racier EQUIPE R tier runs $230-$410). No weight published on the listing page.' },
 
   /* -- Pants (MTB pants only; shorts are a separate cat above) -- */
   { id:'pnt-fox-defend', cat:'pants', brand:'Fox', model:'Defend Pant', price:169.95, weight:430,
@@ -2720,6 +2733,12 @@ var KIT_PARTS = [
   { id:'glv-castelli-diluvio-one', cat:'gloves', brand:'Castelli', model:'Diluvio One Glove', family:'castelli-diluvio', price:75,
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.castelli-cycling.com/US/en/Men/c/Man',
     desc:'Fetched castelli-cycling.com (WebFetch): confirmed $75. Waterproof winter/wet-weather glove. No weight published on the listing page.' },
+
+  /* -- Assos breadth continued (catalog/kit-breadth-8, 2026-07-23): Assos' catalog is almost
+     entirely road, but the TRAIL FF is a genuine full-finger off-road/MTB glove SKU. -- */
+  { id:'glv-assos-trail-ff', cat:'gloves', brand:'Assos', model:'TRAIL FF Gloves', family:'assos-trail', price:80,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.assos.com/us/trail-ff-gloves-185346.html',
+    desc:'Fetched assos.com (WebFetch): $80 confirmed as the standing MSRP (listed on a $24 clearance sale at fetch time). 3D-mesh palm, perforated padding, silicone fingertips. No weight published.' },
 
   /* -- Knee pads (per pair; certs left to the grind + a source) --
      Breadth pass (grind/kit-kneepad, 2026-07-14): 20 additional real products
