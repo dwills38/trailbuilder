@@ -2566,6 +2566,13 @@ var BMX_PARTS = [
     fit: 'integrated-1-1/8', weight: 82, price: 29.99,
     note: 'bmx-breadth-3 (2026-07-22): companion tier to the Low Top row above - "Campy spec integrated headset" for riders needing a taller stack (20mm CNC 6061 aluminum cap vs the Low Top\'s 10mm), two sealed bearings, aluminum compression ring. FETCHED bmxguru.com/products/merritt-high-top-1-1-8-integrated-bmx-headset-bronze directly, which states price $29.99 and "Stack Height: 20mm" verbatim; weight (82g / 2.9oz) corroborated by an independent WebSearch summary of the same product line, not itself restated on the fetched bmxguru.com page. bmxguru.com is a RETAILER, not Merritt\'s own site, so this cannot carry verified:true per the sourceType:retailer-is-rejected-on-verified-rows policy even though the page itself was fetched directly - left unverified.'
   },
+  {
+    id: 'bmx-cr-merritt-battle', cat: 'cranks', brand: 'Merritt', model: 'Battle Cranks',
+    family: 'merritt-battle', spindle: '22mm', pieces: '3-piece', ringMount: 'spline', length: 175,
+    weight: 958, price: 185.00, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://merritt.bigcartel.com/product/battle-cranks',
+    note: 'bmx-brand-depth-2: directly fetched merritt.bigcartel.com (Merritt\'s own storefront - confirmed genuinely current: Merritt makes no frames at all, that job moved to its sister brand Rixin per alansbmx.com\'s blog post, so no Merritt frame row exists or was fabricated). States verbatim "3-piece cranks made with heat-treated 4130, a 22mm spindle" (spindle:22mm, pieces:3-piece) and "compatible with...22mm spline drive sprockets" (empirebmx.com\'s independent corroborating spec: "48 spline 22mm hollow heat-treated 4130 cromo spindle") -> ringMount:spline. Offered in 165/170/175mm (length:175 modeled). Weight "958g (without BB)" per thebmxdude.com\'s independent teardown, matching shop.tbb-bike.com\'s retailer spec exactly. Price $185.00 confirmed on the maker\'s own page (currently sold out - a stock status, not a discontinuation). GENUINE GAP: the companion "90 Degrees Bars" ($80.00, also on merritt.bigcartel.com) was NOT entered - six independent sources (Merritt\'s own page, Albe\'s, Fifteen Distribution, Level7, Harvester) all state rise/width/sweep consistently but none states a clamp diameter, a required schema field.'
+  },
 
   // ---- Fiction BMX (new brand: a Stolen-family parts brand; thin headset +
   //      pegs categories) -------------------------------------------------
