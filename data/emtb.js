@@ -1937,6 +1937,18 @@ var EMTB_PARTS = [
   },
 
   {
+    id: 'em-rotwild-rexc-pro', cat: 'emtb', brand: 'Rotwild', model: 'R.EXC Pro',
+    motorBrand: 'avinox', motorModel: 'AVINOX M2.S', motorTorque: 150, motorPowerPeak: 1300,
+    batteryWh: 864, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission AXS 12-speed (e*thirteen Plus 34T crank, GX Eagle XS-1270 10-52T cassette)', brakes: 'SRAM Maven Bronze (200mm rotors)',
+    disciplines: ['e-enduro'], weight: 23500, price: 12540.46,
+    note: 'Rotwild\'s mid-pivot enduro-race flagship — a distinctly heavier-hitting tier than the already-cataloged R.X375 PRO (lightweight-class, Shimano EP8/360Wh) and R.EX 900 CORE (DJI Avinox M1, 1000W), running Rotwild\'s own higher-output AVINOX M2.S drive unit (150Nm/1300W) with an oversized 864Wh battery. Rear travel adjustable 145/155/160mm via modular dropouts/rocker — cataloged at the base/default 160mm figure.',
+    desc: 'Verified vs the fetched maker product page (rotwild.com/en/r-exc — "AVINOX M2.S... max. 150 Nm / 1300 W" motor, "IPU900 Carbon - Push+... 864 Wh / 36 V... QR-Button" removable battery, "ROCK SHOX ZEB Select+... 170 mm" fork, "ROCK SHOX Vivid Select+... 205 x 60 mm" shock, "Polydynamic Carbon" frame, "SRAM GX Eagle Transmission AXS, 12-speed" w/ e*thirteen Plus 34T crank and GX Eagle XS-1270 10-52T cassette (Pro build), "SRAM Maven Bronze" 200mm-rotor brakes, "23.5 kg" weight (Pro, size M), "10.990 EUR" price. Wheel config is mixed/customer-choice across most sizes with 29in-only offered in size XL — cataloged at the more common mullet default, matching this catalog\'s sibling R.EX 900 CORE row\'s convention. PRICE: EUR 10,990 maker RRP converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $12,540.46 — Rotwild has no US retail presence, no USD MSRP exists. catalog/emtb-depth-8 wave (Rotwild deepened from 2 rows to 3).',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.rotwild.com/en/r-exc'
+  },
+
+  {
     id: 'em-thok-tp4s', cat: 'emtb', brand: 'Thok', model: 'TP4-S',
     motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Gen.5', motorTorque: 120,
     batteryWh: 800, assist: 'full-power',
