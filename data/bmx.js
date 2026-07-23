@@ -455,6 +455,15 @@ var BMX_PARTS = [
     note: 'Carbon fiber race frame, Expert XL size (10mm/3-8in rear axle - the larger Pro sizes ship a 15mm dropout w/ 10mm adapter, not modeled here). Threaded Euro BB shell, 22.2mm seatpost, removable V-brake mounts. Raw-fetch confirmed on supercrossbmx.com\'s own geometry table: Expert XL top tube = 20.0in (4-column Junior/Expert/Expert XL/Expert XXL table), 10mm rear axle explicitly stated for this size, threaded Euro BB shell, integrated 1-1/8"-1.5" head tube, removable V-brake system, and the exact $1195.95 price (Shopify JSON price field). No frame weight published anywhere on the page (sold standalone frame-only, no complete-bike bundling) - weight stays the unset/sample state per the frames no-published-weight exception (VERIFY-PROTOCOL.md).'
   },
 
+  // ===== FRAMES — bmx-breadth-7 (new brand: Bone Deth) ==================
+  {
+    id: 'bmx-fr-bonedeth-crime', cat: 'frame', brand: 'Bone Deth', model: 'Crime',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    weight: 2313, price: 399.95,
+    note: 'bmx-breadth-7: new brand (Bone Deth absent entirely before this batch). Sean Burns/Josh Delarosa signature street/park frame, current production. Cross-confirmed across three independent US retailer listings carrying the identical spec block (empirebmx.com/products/bone-deth-crime-frame, albes.com/products/bone-deth-crime-frame, us.sourcebmx.com/products/bone-deth-crime-frame) rather than a bonedeth.com manufacturer page (bonedeth.com itself has no working product catalog to fetch), so this row stays UNVERIFIED per the credible-retailer-source policy for sample breadth. Specs: "Mid BB (heat-treated and CNC machined)", "integrated 155mm head tube... drilled for gyro tabs" (headTube:integrated-1-1/8 is this catalog\'s standard modern-integrated convention, not a literal S.H.I.S. code on any listing), "6mm thick dropouts" implying the near-universal 14mm rear axle (also stated explicitly on sourcebmx.com\'s spec table: "DROPOUT SIZE: 14mm"), "accepts low profile removable brake mounts / hardware (S&M, BSD, Cult, Kink, T1)" -> rearBrakeMount:u-brake (every named brand uses u-brake bosses in this catalog). Sold in 20.6"/20.75"/21"/21.25" TT at one flat $399.95 price across sizes (albes.com) - this row models the 20.75" size. Weight: sourcebmx.com/us.sourcebmx.com both state "5.1lbs (2.3kg)" for the Black colorway (2313g); a differently-worded UK retailer (Source BMX UK) instead lists a Machine-model-adjacent "5.6lbs" figure for a DIFFERENT Bone Deth frame (Machine, not cataloged this batch) - not conflated here.'
+  },
+
   // ===== FORKS ========================================================
   {
     id: 'bmx-fk-odyssey-r32', cat: 'fork', brand: 'Odyssey', model: 'R32',
