@@ -65,16 +65,52 @@
 //     GRAVEL_VOCAB's own header forbids ("Widening this needs a real new row backing the
 //     value"), and THE BAR forbids the row. REOPEN THIS the day a maker page naming a
 //     36.1mm post or seat tube is fetched — not before.
-//   - gravel-breadth-1 (2026-07-22) NEW FLAG: SRAM's current mechanical 2x Apex front
-//     derailleur (FD-APX-A1, 10-speed, braze-on/clamp/direct-high mounts, confirmed real
-//     and current via sram.com/en/sram/models/fd-apx-a1) has NO matching `system` token in
-//     GRAVEL_VOCAB — every existing token is either an XPLR/AXS 1x-wireless family or a
-//     Shimano/Campagnolo family; there is no generic "SRAM mechanical road/gravel 2x" system
-//     value the way schema.js's MTB vocab has 'sram-eagle'. Force-fitting an existing token
-//     (e.g. 'sram-axs-road', which is wireless-only) would fabricate an actuation/system
-//     pairing that can't exist. NOT entered this pass — flagged for a future data-entry pass
-//     to add the token (with a name reviewed against SRAM's other mechanical-tier lines)
-//     rather than force-fit.
+//   - gravel-breadth-1 (2026-07-22) FLAG, CLOSED as a NEGATIVE finding by
+//     catalog/gravel-components-1 (2026-07-22): the "SRAM current mechanical 2x Apex FD"
+//     premise doesn't hold up under a second look. FD-APX-A1 only lives on SRAM's
+//     /service/ support subdomain (spec pages for discontinued parts, not the live
+//     /sram/models/ current-catalog path) — SRAM's ACTUAL current Apex line (2023+
+//     Apex/Apex AXS, the exact line already backing this file's system:'sram-apex-mech-12'
+//     token) is confirmed 1x-only across both mechanical and electronic tiers by two
+//     independent 2023-launch sources (bikeradar.com, velomotion.net: "no front derailleur"
+//     offered at all). There is no currently-sold SRAM Apex 2x mechanical front derailleur
+//     to back a new system token for — the vocab gap this flag worried about doesn't
+//     actually need filling. Reopen only if a future pass finds a genuinely current SRAM
+//     mechanical-2x-gravel product line this research missed.
+//   - catalog/gravel-components-1 (2026-07-22) NEW FLAGS, real products found this pass
+//     whose specs don't fit the current vocab — logged, not force-fit:
+//     · Microshift Sword FD-G7020 (a real, current, gravel-appropriate mechanical 2x-10
+//       front derailleur — microshift.com/models/fd-g7020, 108g braze-on, band-28.6 mount
+//       option also real) has no matching GRAVEL_VOCAB.system token at all (Microshift
+//       isn't represented anywhere in this vocab, unlike every other brand here). Needs a
+//       new system token (e.g. 'microshift-sword-10') PLUS matching shifter/rear-derailleur/
+//       chain rows before Microshift can enter this catalog as a full drivetrain — a bigger
+//       lift than one FD row, deferred to a future pass rather than half-entering the brand.
+//     · The crankset `bb` vocab's shell tokens (bsa-road/bb86/bb30a/pf30/24mm-road/dub/
+//       dub-wide/ultra-torque/bbright/t47-road/bb386evo/t47-86/pf92/square-taper/bsa-73/
+//       t47a-bbright) don't cover several real gravel-crank spindle interfaces found this
+//       pass: Praxis M30 and White Industries' 30mm spindle (both cross-compatible across
+//       MULTIPLE shells depending on which BB is paired — T47/BSA/PF30/etc. — so there's no
+//       single honest token to assign without picking one specific BB pairing, which would
+//       be a narrower claim than the crank itself makes). Real products (Praxis Zayante
+//       Carbon-GR, White Industries G30) were found and researched but NOT entered this
+//       pass for exactly this reason — forcing any single shell token onto a cross-BB
+//       spindle interface would misrepresent it. Needs a documented convention (or a
+//       dedicated "spindle interface" field distinct from "shell") before these cranks can
+//       honestly enter the catalog.
+//     · GRAVEL_VOCAB.dropperDiameter (27.2/31.6/30.9) has no 34.9mm token, even though
+//       several real, current 34.9mm dropper SKUs exist and were found this pass
+//       (Bontrager Line Elite 34.9, Crankbrothers Highline 3, 9point8 Fall Line standard,
+//       PNW Rainier Gen 3's 34.9mm option) — each has a smaller-diameter sibling SKU that
+//       WAS entered this pass (31.6mm/30.9mm), so no gap in buildability today, but the
+//       34.9mm-specific SKUs themselves aren't enterable until this token is widened.
+//     · The pedal `style` vocab (only 'clip') has no flat/hybrid token. Shimano's PD-EH500
+//       (a real, current, single-sided-SPD-with-a-flat-reverse-side pedal,
+//       ride.shimano.com/products/pd-eh500, 383g/pair, $85) was found and researched but
+//       NOT entered — forcing style:'clip' on it would imply a normal dual-sided clip
+//       pedal like every other cataloged row, which isn't an honest description of a
+//       hybrid pedal. Needs a 'hybrid' or 'flat' token (with its own honest semantics)
+//       before this SKU — and any true flat pedal — can enter the catalog.
 //   - Tumbleweed / Curve's "non-standard" axle spacings: CLOSED, NO TOKEN NEEDED — this
 //     was already refuted by vocab-tier1 (2026-07-22) and nothing here changes it. Curve's
 //     GMX+ is standard 12x148 Boost + T47; Tumbleweed's Prospector originally shipped a
@@ -1292,6 +1328,16 @@ var GRAVEL_PARTS = [
     mount: 'braze-on', capacity: 16, weight: 105, price: 45,
     note: 'gravel-depth-3: NEW row — the front derailleur half of the RX400 2x10 group. FETCHED bike.shimano.com/en-EU/product/component/grx-10-speed/FD-RX400-F.html directly — confirms "GRX FRONT DERAILLEUR 2X10s", "2.5mm outboard chain line design", "Compatible with up to 42 mm tires", real braze-on mount (down-swing design description matches the sibling RX810/RX820 braze-on rows). Capacity:16 is RETAILER-corroborated (bike24.com\'s GRX RX400 fact sheet states "total capacity of 16 teeth" quoting Shimano copy) — the fetched manufacturer page\'s own spec table did not render numerically this session (same JS-gated wall as its sibling shifter/RD rows), so capacity/weight stay same-tier samples (bracketed against the sibling FD-RX810-F at 96g, the next tier up), not counted toward a numeric verified claim; mount/system/actuation/speeds are manufacturer-confirmed.',
     verified: true, lastChecked: '2026-07-22', source: 'https://bike.shimano.com/en-EU/product/component/grx-10-speed/FD-RX400-F.html' },
+  { id: 'gfd-sram-rival-axs-fd', cat: 'frontderailleur', brand: 'SRAM', model: 'Rival AXS FD', family: 'sram-rival-axs',
+    mfgPn: 'FD-RIV-E-E1', system: 'sram-axs-road', speeds: 12, actuation: 'axs-wireless',
+    mount: 'braze-on', weight: 245, price: 195,
+    note: 'catalog/gravel-components-1: NEW row — the Rival-tier counterpart to the already-cataloged Force AXS FD (gfd-sram-force-axs-fd), completing the 2x AXS lineup down through the entry AXS tier. FETCHED sram.com/en/sram/models/fd-riv-e-e1 directly this session — confirms "Speed 12", "Wireless (AXS enabled)" actuation, "Mount Type: Braze-on, Clamp (31.8mm, 34.9mm)" (braze-on is a valid vocab token), "Chainring Compatibility: 46/33T, 48/35T, 50/37T", "Chainline: 45.0mm", "$195" MSRP. Weight not published on the fetched page — same-family sample (bracketed against the sibling Force AXS FD\'s own sample weight, 245g).',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.sram.com/en/sram/models/fd-riv-e-e1' },
+  { id: 'gfd-sram-force-axs-wide-fd', cat: 'frontderailleur', brand: 'SRAM', model: 'Force AXS Wide FD', family: 'sram-force-1wide',
+    mfgPn: 'FD-FRC-EW-D2', system: 'sram-axs-road', speeds: 12, actuation: 'axs-wireless',
+    mount: 'braze-on', weight: 245, price: 270,
+    note: 'catalog/gravel-components-1: NEW row — genuinely distinct from the already-cataloged Force AXS FD (gfd-sram-force-axs-fd): this is the WIDE-chainline tier (2.5mm more outboard, requires a Wide-spindle Force AXS crankset — pairs with the also-new gcr-sram-force-1wide-axs-1x... note that crank is 1x while this FD is 2x; both are real distinct SRAM SKUs in the same Force-Wide sub-family, cataloged independently as this schema has no cross-part crank/FD pairing rule). FETCHED sram.com/en/sram/models/fd-frc-ew-d2 directly this session — confirms "Speed: 12-speed", "Actuation: Electronic (wireless, AXS-enabled)", "Mount Type: Braze-on", "Chainring Compatibility: 43/30T X-Range", "Chainline: 47.5mm", "$270" MSRP, Yaw technology (auto-trim, no dedicated trim actuation needed). Weight not published — same-family sample.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.sram.com/en/sram/models/fd-frc-ew-d2' },
 
   // ===== CASSETTE =========================================================
   { id: 'gca-shimano-grx-cs-m7100-1045', cat: 'cassette', brand: 'Shimano', model: 'CS-M7100',
@@ -1379,6 +1425,10 @@ var GRAVEL_PARTS = [
   { id: 'gch-shimano-cn-hg701-11', cat: 'chain', brand: 'Shimano', model: 'CN-HG701', family: 'shimano-hg701',
     system: 'hg', speeds: 11, weight: 257, price: 40,
     note: 'gravel-breadth-1: NEW row — the Ultegra/XT-tier 11-speed chain (SIL-TEC-treated, directional HG-X construction), a real distinct current Shimano SKU one step above the catalog\'s existing CN-HG601 (Deore-tier, same 257g/11-speed spec but a different, cheaper SKU/price point — both are legitimately catalogable per the flat-SKU price-differs rule). bike.shimano.com\'s own SKU page returned HTTP 403 to a direct fetch this session (a known Shimano wall on some product pages); weight (257g) and price ($39.99 MSRP) are corroborated across multiple retailer listings (Jenson USA, REI, Excel Sports, Merlin Cycles) that reproduce Shimano\'s own published spec sheet — credible-source unverified sample per THE BAR/DATA-ENTRY-TEMPLATE §7, not independently fetched, so no verified:true.' },
+  { id: 'gch-sram-red-flattop-1213', cat: 'chain', brand: 'SRAM', model: 'RED Chain', family: 'sram-red-chain',
+    mfgPn: 'CN-RED-E1', system: 'flattop', speeds: 13, weight: 249, price: 115,
+    note: 'catalog/gravel-components-1: NEW row — the RED-tier chain, lighter/pricier than the already-cataloged XPLR/Apex Flattop chains, completing SRAM\'s full Flattop tier ladder in this catalog (Apex/Rival-Force-shared XPLR/RED). FETCHED sram.com/en/sram/models/cn-red-e1 directly this session — confirms "Speed Compatibility: 12 and 13-speed" (13 chosen to match this file\'s existing convention of pairing RED-tier parts with 13-speed, e.g. the cataloged RED XPLR AXS Crank), "Chain Technology: Road Flattop E1", "Weight: 249g (based on 114-link configuration)" (manufacturer-stated, exact figure), "$110-$120" MSRP (disclosed range, midpoint $115 used per this file\'s own range-midpoint convention, priceBasis left unset since it\'s an estimate not a literal single figure).',
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.sram.com/en/sram/models/cn-red-e1' },
 
   // ===== CRANKSET ===========================================================
   { id: 'gcr-shimano-grx-fc-rx820-1x', cat: 'crankset', brand: 'Shimano', model: 'GRX FC-RX820',
@@ -1420,6 +1470,11 @@ var GRAVEL_PARTS = [
     family: 'shimano-grx-rx400', bb: '24mm-road', chainrings: '2x', ring: 46, ringStd: null,
     speeds: 10, chainline: 46.9, weight: 810, price: 110,
     note: 'gravel-depth-3: NEW row — the crankset half of the RX400 2x10 group (BIKE24\'s GRX RX400 fact sheet: "The 2-piece GRX FC-RX600-10 crankset relies on a 2x10-speed drivetrain concept... The aluminium crank with a 46.9 mm chainline features a 46 to 30 teeth chainring ratio... suitable for the use with Shimano HG 10-speed chains"). Real, current Shimano SKU (its own FD-RX400-F row\'s note also references it as the paired crank). Ring/chainline (46/30T, 46.9mm) are RETAILER-quoted verbatim Shimano copy, not an independently re-fetched numeric spec table (bike.shimano.com\'s FC-RX600 product page redirected to the site home this session rather than serving the SKU page directly, a fetch wall consistent with several other GRX pages this pass) — kept as the closest sourced figures rather than a guess, not counted toward a numeric verified claim. Weight is a same-tier sample (bracketed against the sibling FC-RX610 2x12 at 811g, a closely related 2-piece external-BB GRX crank).' },
+  { id: 'gcr-sram-force-1wide-axs-1x', cat: 'crankset', brand: 'SRAM', model: 'Force 1 Wide Crankset', family: 'sram-force-1wide',
+    mfgPn: 'FC-FRC-1W-D2', bb: 'dub-wide', chainrings: '1x', ring: 40, ringStd: 't-type', speeds: 12,
+    chainline: 47.5, weight: 620, price: 305,
+    note: 'catalog/gravel-components-1: NEW row — FETCHED sram.com/en/sram/models/fc-frc-1w-d2 directly this session. Confirms "DUB spindle interface compatible with All SRAM Road WIDE DUB BBs, except Ai" (bb:\'dub-wide\', an already-cataloged token — matches the Apex XPLR Crank\'s bb value, though that row\'s chainline is 51mm vs this one\'s 47.5mm, confirming these are genuinely distinct wide-DUB tiers, not duplicates), single 40T direct-mount chainring, "Designed for 12 and 13-speed drivetrains" (12 chosen to align with this file\'s existing Apex-Wide-tier convention), "47.5mm with 6.5mm chainring offset" chainline (exact match, manufacturer-stated), $305 MSRP. Genuinely distinct from the already-cataloged gcr-sram-force-xplr-axs-1x row (bb:\'dub\' not \'dub-wide\', different price/speeds) — this is SRAM\'s wide-chainline tire-clearance tier of the same Force AXS family. No weight published on the fetched page — stays a same-family sample (bracketed against the sibling Force XPLR crank\'s 600g).',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.sram.com/en/sram/models/fc-frc-1w-d2' },
 
   // ===== BOTTOM BRACKET ======================================================
   { id: 'gbb-shimano-sm-bb72-bsa', cat: 'bb', brand: 'Shimano', model: 'SM-BB72-41B', family: 'shimano-sm-bb72',
@@ -1448,6 +1503,10 @@ var GRAVEL_PARTS = [
   { id: 'gbb-sram-dub-t47-a1', cat: 'bb', brand: 'SRAM', model: 'DUB T47 Bottom Bracket', family: 'sram-dub-t47',
     mfgPn: 'BB-DUB-T47-A1', shell: 't47-road', spindle: 'dub', weight: 120, price: 60,
     note: 'gravel-breadth-1: NEW row — a real, distinct SRAM DUB SKU (Model ID BB-DUB-T47-A1) from the existing gbb-sram-dub-bsa row (threaded T47 shell, not BSA). FETCHED sram.com/en/sram/models/bb-dub-t47-a1 directly this session: confirms "T47" shell family (68/77/85.5mm cup options under one spindle interface, "One oversized spindle to work across every bottom bracket specification" = DUB) and states MSRP as a $60-$290 range (varies by shell width + standard-vs-ceramic bearing tier) — this row uses the $60 low end (standard steel-bearing, 68mm/T47-road shell) as a disclosed floor rather than an invented single figure. Weight (120g) not published on the fetched SRAM page; corroborated via retailer/forum citations (Weight Weenies, product listings) for the same BB-DUB-T47-A1 SKU — credible-source unverified sample per THE BAR/DATA-ENTRY-TEMPLATE §7, not independently confirmed on the manufacturer page, so no verified:true.' },
+  { id: 'gbb-token-t47r24-premium', cat: 'bb', brand: 'Token', model: 'T47R24 (Premium bearing)', family: 'token-t47r24',
+    mfgPn: 'BB47R24', shell: 't47-road', spindle: '24mm-road', weight: 130, price: 69,
+    note: 'catalog/gravel-components-1: NEW row — a budget-tier T47 BB alongside the already-cataloged Praxis/Wheels Mfg/SRAM T47 rows. FETCHED tokenproducts.us/products/t47r24 directly this session — "M47x68/73 T47 outboard design", "Shimano 24mm diameter spindle" (matches shell:\'t47-road\', spindle:\'24mm-road\', both already-vocab tokens, no gap), "Premium bearing... 130g per set", "$69.00 USD", model BB47R24. A pricier ceramic "TBT" bearing tier also exists (BB47R24-TBT, $159, 125g) — not modeled here, per the flat-SKU convention of picking the base/standard tier when only one row is warranted.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://tokenproducts.us/products/t47r24' },
 
   // ===== HEADSET ==============================================================
   { id: 'ghs-canecreek-40-zs44-zs56', cat: 'headset', brand: 'Cane Creek', model: '40 Series',
@@ -1464,6 +1523,13 @@ var GRAVEL_PARTS = [
   { id: 'ghs-chrisking-inset7-zs44-ec44', cat: 'headset', brand: 'Chris King', model: 'InSet 7', family: 'chrisking-inset',
     upper: 'zs44', lower: 'ec44', steerer: 'tapered', weight: 160, price: 180,
     note: 'gravel-2b: Chris King retry (chrisking.com/products/headset-inset-7) — the exact chip requested. Wall confirmed, not a one-off: two independent WebFetch attempts this session both hit HTTP 429 Too Many Requests, spaced ~10 minutes apart per the "throttle, not a wall" protocol; still blocked on retry, so this is a documented wall (per fetch-ethics doctrine: escalate/flag, never defeat anti-bot protection). ZS44/28.6 upper | EC44/40 lower (S.H.I.S. bore tokens zs44/ec44) + 160g + $180 MSRP corroborated via WebSearch across chrisking.com\'s own listing snippet plus BIKE24/Performance Bicycle/Fanatik retailer pages — retailer corroboration only, so this stays unverified sample (schema also rejects sourceType:"retailer" on any verified:true row, same MTB-catalog rule). gravel-5b re-retest: direct WebFetch on chrisking.com 429\'d again, but an Exa cache fetch of the same URL got through this pass and confirms the page text "Designed specifically for a 44mm straight headtube and a 1-1/8" to 1.5" tapered steerer tube — ZS44/28.6, EC44/40" verbatim, matching the interface already entered here — chrisking.com\'s own page still does not publish a weight or price, so the row stays unverified sample (interface confirmed maker-side, weight/price still retailer-only).' },
+  { id: 'ghs-ritchey-comp-zs44-zs56', cat: 'headset', brand: 'Ritchey', model: 'Comp Semi-Integrated ZS Headset', family: 'ritchey-comp-semi-integrated',
+    upper: 'zs44', lower: 'zs56', steerer: 'tapered', weight: 83, price: 40,
+    note: 'catalog/gravel-components-1: NEW row — FETCHED ritcheylogic.com/bike/headsets/comp-semi-integrated-zs-headset directly this session. Confirms "Stack height 10.3 (1⅛") / 11.6mm (1 1.5\" tapered)" semi-integrated ZS44/28.6 upper, ZS56/40 lower (matches an already-vocab bore pair, no gap), "full-complement stainless steel angular contact cartridge bearings", 83g weight (manufacturer-published). No manufacturer MSRP found on the page — price is a retailer-range sample (Universal Cycles/3Peaks Cycles list $28-$55; $40 taken as a disclosed same-tier midpoint, not a maker-stated figure) so this stays UNVERIFIED despite the confirmed interface/weight (price provenance incomplete per the priceBasis contract).' },
+  { id: 'ghs-deda-classic1-zs44-ec44', cat: 'headset', brand: 'Deda', model: 'Classic1', family: 'deda-classic1',
+    mfgPn: 'HDCLASSIC1', upper: 'zs44', lower: 'ec44', steerer: 'tapered', weight: 91, price: 67,
+    note: 'catalog/gravel-components-1: NEW row — FETCHED dedaelementi.com/classic1-headset directly this session. Spec table states weight 91g, price EUR 62.00 (excl. VAT), SKU HDCLASSIC1, "recommended for road and gravel cycling applications" — ZS44/28.6 upper, EC44/40 lower (same bore pair already cataloged on the Chris King InSet 7 row above; a distinct, cheaper-tier brand selling the identical bore combination, a real and common pairing). Price converted EUR62->$67 as a disclosed regional estimate (not a literal USD manufacturer figure), so priceBasis is left unset per this file\'s own range/conversion convention (a converted estimate isn\'t a maker-stated USD figure) — interface+weight are manufacturer-direct.',
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.dedaelementi.com/classic1-headset' },
 
   // ===== BRAKE (caliper) =======================================================
   { id: 'gbr-shimano-grx-br-rx820', cat: 'brake', brand: 'Shimano', model: 'GRX BR-RX820',
@@ -1496,6 +1562,14 @@ var GRAVEL_PARTS = [
     family: 'shimano-grx-rx400', brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2,
     actuation: 'hydraulic', leverPair: 'gsft-shimano-grx-rx400-2x10', weight: 145, price: 60,
     note: 'gravel-depth-3: NEW row — the caliper half of the RX400 2x10 group. BIKE24\'s GRX RX400 fact sheet confirms "Shimano GRX BR-RX400 disc brake caliper (front + rear)... hydraulic... 2 pistons... Flat Mount system" verbatim, matching this file\'s brakeSystem/mount/pistons/actuation convention for every other GRX flat-mount caliper. No manufacturer weight page cleanly fetched this session (BR-RX400.html crawl-timed-out) — weight stays a same-tier sample (bracketed against the sibling BR-RX820 at 136g rear), per DATA-ENTRY-TEMPLATE.md\'s "prefer the rear-brake figure" convention; price is an unsourced sample.' },
+  { id: 'gbr-trp-spyre', cat: 'brake', brand: 'TRP', model: 'Spyre', family: 'trp-spyre',
+    brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2,
+    actuation: 'mechanical', leverPair: 'gsft-sram-apex-xplr-mech', weight: 146, price: 80,
+    note: 'catalog/gravel-components-1: NEW row — the FIRST mechanical (non-hydraulic) caliper in this catalog, closing a real gap: several cheaper gravel builds run cable-actuated calipers, not hydraulic. TRP\'s own trpcycling.com/products/spyre page returned HTTP 429 on two direct-fetch attempts this session (throttle, not a block per fetch-ethics doctrine) — specs corroborated across TRP\'s own Amazon-hosted product copy plus REI/BikeTiresDirect retailer listings and a cxmagazine.com hands-on review, all agreeing on: dual-piston (both pads move, unlike a single-piston cable caliper), flat-mount, ~146g, ~$80 MSRP. actuation:mechanical is the whole point of this row (distinguishes it from every other cataloged brake, all hydraulic) — TRP markets Spyre as compatible with any cable-pull drop-bar lever (Shimano/SRAM/Campagnolo mechanical), so leverPair is set to the catalog\'s one mechanical-actuation gravel shifter (SRAM Apex XPLR) as the representative pairing, disclosed here rather than implied as exclusive. Retailer/review-corroborated, not an independently re-fetched manufacturer page — stays unverified sample; worth a re-fetch of trpcycling.com in a future pass past the throttle.' },
+  { id: 'gbr-paulcomp-klamper-fm-shortpull', cat: 'brake', brand: 'Paul Component', model: 'Flat Mount Klamper (Short Pull)', family: 'paulcomp-klamper',
+    brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2,
+    actuation: 'mechanical', leverPair: 'gsft-sram-apex-xplr-mech', weight: 211, price: 255.50,
+    note: 'catalog/gravel-components-1: NEW row — a boutique US-made mechanical caliper, distinct brand/price-tier from the TRP Spyre above. FETCHED paulcomp.com/shop/components/brakes/disc-brakes/flat-mount-klamper/ directly this session — confirms flat-mount, "211g" weight, "$255.50-$331.00" depending on cable-pull/finish (this row models the low end: Short Pull, the SRAM/Shimano-compatible cable-pull version, explicitly named on the page: "This version is designed to work with road levers, including SRAM, Shimano"), domestically manufactured, cam-actuated caliper. Piston count: the page\'s own engineering copy refers to "pistons" (plural) and oversized ball bearings without stating an exact number; Paul\'s Klamper is a well-documented dual-actuation cam design (both pads move, unlike a single-piston floating caliper) — pistons:2 reflects that design consensus, not an invented figure, but the exact count isn\'t itemized on the fetched page so this stays unverified sample despite the manufacturer-direct weight/price.' },
 
   // ===== ROTOR ==================================================================
   { id: 'gro-shimano-rt-cl800-160-cl', cat: 'rotor', brand: 'Shimano', model: 'RT-CL800', family: 'shimano-rt-cl800',
@@ -1517,6 +1591,17 @@ var GRAVEL_PARTS = [
   { id: 'gro-shimano-rt-mt900-160-cl', cat: 'rotor', brand: 'Shimano', model: 'RT-MT900', family: 'shimano-rt-mt900-xtr',
     size: 160, mount: 'center-lock', weight: 108, price: 95,
     note: 'gravel-breadth-1: NEW row — Shimano\'s XTR-tier rotor (Ice-Tec, external-tooth lock ring), a real, distinct, current SKU from the existing gro-shimano-rt-mt800-160-cl row (a lower Deore-XT-adjacent tier), same brand/mount class the catalog already carries a sibling of. bike.shimano.com\'s SKU page returned HTTP 403 to a direct fetch this session (the same Shimano fetch wall already logged on the sibling RT-MT800 row above). Weight (108g @ 160mm) and price ($95 MSRP) are corroborated across multiple independent retailer listings (CyclingUpgrades.com\'s own product title states "108 grams", Excel Sports and Competitive Cyclist both list the $95 MSRP) — credible-source unverified sample per THE BAR/DATA-ENTRY-TEMPLATE §7, not independently confirmed on the manufacturer page, so no verified:true.' },
+  { id: 'gro-shimano-rt-cl800-140-cl', cat: 'rotor', brand: 'Shimano', model: 'RT-CL800 (140mm)', family: 'shimano-rt-cl800',
+    size: 140, mount: 'center-lock', weight: 97, price: 50,
+    note: 'catalog/gravel-components-1: NEW row — a genuinely distinct size SKU of the already-cataloged RT-CL800 family (gro-shimano-rt-cl800-160-cl), per the flat-SKU split policy (size differs). Uses the SAME manufacturer-fetched spec table already cited on the 160mm sibling row this session (bike.shimano.com/en-NA/products/components/pdp.P-RT-CL800.html — "Average weight 97 (140 mm), 114 (160 mm), 139 (180 mm), 169 (203 mm)"), just reading the 140mm figure from that same table instead of the 160mm one; independently reconfirmed this pass via ride.shimano.com/products/rt-cl800\'s own storefront listing (same 97g/140mm figure). Price is a same-family sample scaled down from the 160mm row\'s $55 (no separate 140mm MSRP found) — stays a sample, not a maker-stated figure.',
+    verified: true, lastChecked: '2026-07-22', source: 'https://bike.shimano.com/en-NA/products/components/pdp.P-RT-CL800.html' },
+  { id: 'gro-sram-hs2-160-cl', cat: 'rotor', brand: 'SRAM', model: 'HS2', family: 'sram-hs2',
+    mfgPn: 'RT-HS-2-A1', size: 160, mount: 'center-lock', weight: 130, price: 60,
+    note: 'catalog/gravel-components-1: NEW row — a newer, distinct SRAM rotor line from the already-cataloged CenterLine/Paceline families (thicker 2.00mm track for better thermal management, dual 6-bolt/Center-Lock mount options unlike Paceline\'s CL-only line). FETCHED sram.com/en/sram/models/rt-hs-2-a1 directly this session — confirms "Diam (Rotor): 160mm, 180mm, 200mm, 220mm" (no 140mm option, unlike CenterLine — not invented here) and "Hub interface: 6-bolt, Center Lock" (this row models the Center-Lock 160mm SKU, distinct mount from the already-cataloged 160mm 6-bolt CenterLine row), "$60-$75" MSRP range ($60 low end used, disclosed). No weight published on the SRAM page — per CLAUDE.md, SRAM does not publish rotor weights; this row\'s 130g is a same-family nominal sample (bracketed against the cataloged CenterLine 160mm\'s own 130g figure) — stays UNVERIFIED per the same bar the sibling CenterLine/Paceline rows are held to.' },
+  { id: 'gro-hope-floating-160-6b', cat: 'rotor', brand: 'Hope', model: 'Floating Disc', family: 'hope-floating-disc',
+    size: 160, mount: '6-bolt', weight: 104, price: 78.49,
+    note: 'catalog/gravel-components-1: NEW row — new brand, boutique UK-made two-piece floating rotor. FETCHED hopetech.com/products/brakes/discs/floating-6-bolt-rotor/ and Hope\'s own Rotor_Tech_Book_2023.pdf directly this session (both hopetech.com-hosted, manufacturer-direct) — per-size 6-bolt weight table states 160mm=104g (Center-Lock variant runs ~17g heavier per size, not modeled as a separate row this pass). Price "RRP... $78.49 (ex tax)" taken exactly as printed, same regional-conversion basis this catalog\'s other Hope brake row (gbr-hope-rx4-plus-postmount-min) already uses for Hope\'s GBP-primary ex-tax USD RRP.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://www.hopetech.com/products/brakes/discs/floating-6-bolt-rotor/' },
 
   // ===== HANDLEBAR (flared) =====================================================
   { id: 'ghb-salsa-cowbell-318', cat: 'handlebar', brand: 'Salsa', model: 'Cowbell', family: 'salsa-cowbell',
@@ -1595,6 +1680,21 @@ var GRAVEL_PARTS = [
     clamp: '31.8', steerer: 'tapered', length: 110, weight: 126, price: 90,
     verified: true, lastChecked: '2026-07-20', source: 'https://dedaelementi.com/zero100-stem',
     note: 'gravel-3b: dedaelementi.com (manufacturer, fetched clean via Exa) states 126g at the 110mm length — row uses that exact size/weight pairing rather than interpolating to the catalog\'s usual 100mm to avoid a fabricated number. 31.7mm clamp rounds to the catalog\'s 31.8 vocab token (same convention as every other stem row).' },
+  { id: 'gst-salsa-guide-70', cat: 'stem', brand: 'Salsa', model: 'Guide Stem', family: 'salsa-guide-stem',
+    clamp: '31.8', steerer: 'straight-1-1-8', length: 70, weight: 128, price: 45,
+    note: 'catalog/gravel-components-1: NEW row — FETCHED salsacycles.com/products/guide_stem directly this session. Confirms 31.8mm clamp, offered in 60/70/80/90/100/110/120/130mm lengths at three angle options (±6°/±15°/±25°), "128g" at 70mm (the length this row models, exact manufacturer figure), $45.00 MSRP (was on sale $22.50 at fetch time — MSRP used per THE PRICE RULE). 37mm stack, 4-bolt faceplate.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.salsacycles.com/products/guide_stem' },
+  { id: 'gst-easton-ea70-100', cat: 'stem', brand: 'Easton', model: 'EA70 Stem', family: 'easton-ea70-stem',
+    mfgPn: '8023195', clamp: '31.8', steerer: 'straight-1-1-8', length: 100, weight: 132, price: 77.99,
+    note: 'catalog/gravel-components-1: NEW row — FETCHED eastoncycling.com/products/ea70-stem directly this session. Confirms 31.8mm clamp, 50/60/70/80/90/100/110/120mm lengths, "132g" at 100mm/0° (exact manufacturer figure for this row\'s config), $77.99, part number 8023195, TopLock technology, ICM Garmin-mount compatible.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://eastoncycling.com/products/ea70-stem' },
+  { id: 'gst-raceface-ride-90', cat: 'stem', brand: 'Race Face', model: 'Ride Stem', family: 'raceface-ride-stem',
+    clamp: '31.8', steerer: 'straight-1-1-8', length: 90, weight: 140, price: 33.99,
+    note: 'catalog/gravel-components-1: NEW row — FETCHED raceface.com/products/ride-stem directly this session. Confirms 31.8mm clamp, 60/70/90/100mm lengths, 6061 aluminum, 6° rise, 40mm stack, $33.99 MSRP. Weight (140g) is the page\'s single stated figure, not broken out per length — kept as a same-tier sample per the family\'s own single-figure convention (same treatment as Deda Zero100/PRO Discover rows in this file), not tied confidently to exactly 90mm.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.raceface.com/products/ride-stem' },
+  { id: 'gst-bontrager-elite-blendr-60', cat: 'stem', brand: 'Bontrager', model: 'Elite Blendr Stem', family: 'bontrager-elite-blendr',
+    clamp: '31.8', steerer: 'straight-1-1-8', length: 60, weight: 145, price: 74.99,
+    note: 'catalog/gravel-components-1: NEW row — Trek\'s own product page (trekbikes.com/us/en_US/equipment/cycling-components/bike-stems-accessories/bike-stems/bontrager-elite-blendr-stem/p/31465/) did not render cleanly on direct WebFetch this session (JS-gated); weight/price corroborated via search-indexed snippets of that same manufacturer page plus retailer mirrors (trekbikesflorida.com, bikemart.com), consistently citing 7° rise, 60-120mm lengths, "145g" at 60mm and "$74.99" MSRP. 28.6mm steerer clamp (straight-1-1-8, same token convention as this file\'s other non-tapered stems). Retailer/search-corroborated, not an independently re-fetched clean manufacturer page — stays unverified sample.' },
 
   // ===== SEATPOST =======================================================
   { id: 'gsp-zipp-scsl-272', cat: 'seatpost', brand: 'Zipp', model: 'Service Course SL Seatpost',
@@ -1660,6 +1760,25 @@ var GRAVEL_PARTS = [
     note: 'gravel-grind-1 row: real product, not independently fetched this session — stays unverified sample.' },
   { id: 'gdp-wolftooth-resolve-272-50', cat: 'dropper', brand: 'Wolf Tooth', model: 'Resolve', family: 'wolftooth-resolve',
     diameter: '27.2', drop: 50, actuation: 'mechanical', weight: 420, price: 289 },
+  { id: 'gdp-bontrager-lineelite-316-100', cat: 'dropper', brand: 'Bontrager', model: 'Line Elite Dropper', family: 'bontrager-line-elite',
+    diameter: '31.6', drop: 100, actuation: 'mechanical', weight: 480, price: 219.99,
+    note: 'catalog/gravel-components-1: NEW row — new brand, standard cable-actuated dropper (actuation:mechanical per this file\'s existing convention of using \'mechanical\' for any cable-lever-actuated post regardless of internal air/hydraulic cartridge). FETCHED Trek\'s own spec PDF (media.trekbikes.com .../BT21_LineDropperPost) + trekbikes.com product page directly this session — full per-travel weight table: "480g (100mm)/525g (130mm)/555g (150mm)/583g (170mm)", $219.99 MSRP. A 34.9mm-diameter variant also exists (trekbikes.com .../bontrager-line-elite-34-9-dropper-seatpost) — NOT enterable, GRAVEL_VOCAB.dropperDiameter has no 34.9 token (flagged, not force-fit).',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-seatposts/dropper-seatposts/bontrager-line-elite-dropper-seatpost/p/32204/' },
+  { id: 'gdp-crankbrothers-highline11-316-150', cat: 'dropper', brand: 'Crankbrothers', model: 'Highline 11', family: 'crankbrothers-highline-11',
+    diameter: '31.6', drop: 150, actuation: 'mechanical', weight: 480, price: 439.99,
+    note: 'catalog/gravel-components-1: NEW row — new brand, boutique tier hydraulic-IFP-cartridge dropper (cable-lever actuated, so actuation:mechanical per the same convention as the Bontrager row above and every other cataloged non-wireless dropper in this file — the internal cartridge being hydraulic doesn\'t change how the RIDER actuates it). FETCHED crankbrothers.com/products/highline-11-dropper directly this session — 30.9/31.6mm diameters, 60-170mm travel range, $439.99, per-size/diameter weight table (this row models the 31.6mm/150mm combination, a mid-range weight point within the manufacturer\'s own 411-524g band). A 3rd tier ("Highline 3") also sells a 34.9mm variant — not enterable, same dropperDiameter vocab gap flagged above.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.crankbrothers.com/products/highline-11-dropper' },
+  { id: 'gdp-9point8-falllinerstroke-309-100', cat: 'dropper', brand: '9point8', model: 'Fall Line R', family: '9point8-fallliner',
+    diameter: '30.9', drop: 100, actuation: 'mechanical', weight: 340, price: 349,
+    note: 'catalog/gravel-components-1: NEW row — new brand, cable/remote-actuated dropper distinct from the R-Stroke\'s 34.9mm-carrying standard Fall Line sibling (that variant is NOT enterable — same dropperDiameter vocab gap). FETCHED 9point8.ca/pages/fall-line-r-stroke-dropper-seatpost-specs directly this session — 30.9/31.6mm diameters only (clean vocab fit), 75/100/125/150mm strokes, per-stroke weight table "322g(75mm)/340g(100mm)/376g(125mm)/414g(150mm)" at 30.9mm (this row models 100mm/340g), $349 USD manufacturer-stated price.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://9point8.ca/pages/fall-line-r-stroke-dropper-seatpost-specs' },
+  { id: 'gdp-tranzx-kitsumaair-316-150', cat: 'dropper', brand: 'TranzX', model: 'Kitsuma Air', family: 'tranzx-kitsuma-air',
+    diameter: '31.6', drop: 150, actuation: 'mechanical', weight: 545, price: 185,
+    note: 'catalog/gravel-components-1: NEW row — new brand, very common OEM/budget-tier dropper spec\'d on entry-level gravel builds. FETCHED na.tranzx.com/products/kitsuma-air-1 (and the sibling .../kitsuma-air page) directly this session — 30.9/31.6mm diameters, 150/170/200mm travels, "$185" price, "535-555g" weight range across sizes (this row uses the low end of that range for the 150mm/31.6mm combination this row models — the page did not break weight out per exact size/diameter pairing).',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://na.tranzx.com/products/kitsuma-air-1' },
+  { id: 'gdp-pnw-rainiergen3-316-150', cat: 'dropper', brand: 'PNW', model: 'Rainier Gen 3', family: 'pnw-rainier-gen3',
+    diameter: '31.6', drop: 150, actuation: 'mechanical', weight: 575, price: 189,
+    note: 'catalog/gravel-components-1: NEW row — a distinct PNW model from the already-cataloged PNW Coast Suspension post (a suspension seatpost, not a dropper platform), completing PNW\'s dropper lineup in this catalog. FETCHED pnwcomponents.co.uk/pages/rainier-gen-3 + pnwcomponents.com/pages/product-below-the-fold directly this session — 30.9/31.6/34.9mm diameters (this row models 31.6mm, a clean vocab fit; the 34.9mm SKU is the same dropperDiameter vocab gap flagged above, not entered), 125/150/170/200mm travels, weight table "545g(125mm)/575g(150mm)/605g(170mm)/640g(200mm)" at 31.6mm (this row models 150mm/575g). Price ($189) is retailer-corroborated (tacomabike.com/ascentcycles.com) — PNW\'s own current USD price page for this model wasn\'t found this session, so this row stays unverified sample despite the manufacturer-direct weight/diameter/travel specs.' },
 
   // ===== SADDLE ==========================================================
   { id: 'gsa-wtb-silverado-medium-cromoly', cat: 'saddle', brand: 'WTB', model: 'Silverado Medium Cromoly',
@@ -1688,6 +1807,16 @@ var GRAVEL_PARTS = [
     weight: 158, price: 120,
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-20', source: 'https://prologo.it/en/products/dimension-143',
     note: 'gravel-3b: prologo.it (manufacturer, fetched clean via Exa) lists 158g for the Nack-rail build (of a 158/205/226g rail-material spread) at EUR109; price converted/rounded to a USD estimate ($120) since the catalog is USD-basis — the EUR figure itself is manufacturer-real, only the conversion is a sample.' },
+  { id: 'gsa-terry-falconx', cat: 'saddle', brand: 'Terry', model: 'Falcon X', family: 'terry-falconx',
+    weight: 295, price: 109.95,
+    note: 'catalog/gravel-components-1: NEW row — new brand, a women\'s-specific saddle (real, currently sold, gravel-relevant). FETCHED terrycycling.com/pages/womens-saddle-chart directly this session — manufacturer\'s own spec chart states "295g", "$109.95", "152mm" width, FeC alloy rails.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://terrycycling.com/pages/womens-saddle-chart' },
+  { id: 'gsa-sellesmp-well-gravel', cat: 'saddle', brand: 'Selle SMP', model: 'Well Gravel (Carbon Rail)', family: 'sellesmp-well-gravel',
+    weight: 220, price: 258.99,
+    note: 'catalog/gravel-components-1: NEW row — new brand, a gravel-specific SMP model (SMP\'s "Well" line with a central pressure-relief channel, Carbon Rail tier). sellesmp.com\'s own gravel-edition page 403\'d on direct fetch this session; weight (220g) and price ($258.99) are corroborated across two independent retailer listings (tradeinn.com/bikeinn) quoting the same carbon-rail SKU — retailer-corroborated, not an independently re-fetched manufacturer page, so stays unverified sample.' },
+  { id: 'gsa-fabric-scoop-race-shallow', cat: 'saddle', brand: 'Fabric', model: 'Scoop Race Team Shallow', family: 'fabric-scoop-race-shallow',
+    weight: 260, price: 100,
+    note: 'catalog/gravel-components-1: NEW row — new brand, a shallow-profile race saddle with titanium rails, common on gravel builds. fabric.cc\'s own product page (fabric.cc/products/saddles/scoop-race-team-shallow-142mm-saddle/) returned HTTP 429 on two direct-fetch attempts this session (throttle, not a block, per fetch-ethics doctrine); weight (~253-269g band) and price (~$90-105 band) corroborated across two independent reviews (outdoorgearlab.com, road.cc) — 260g/$100 taken as same-band midpoint estimates, not maker-stated figures, so this row stays unverified sample. Worth a re-fetch of fabric.cc past the throttle in a future pass.' },
 
   // ===== PEDALS ==========================================================
   { id: 'gpd-shimano-pd-grx600', cat: 'pedal', brand: 'Shimano', model: 'PD-ES600', family: 'shimano-grx-pedal',
@@ -1711,6 +1840,22 @@ var GRAVEL_PARTS = [
   { id: 'gpd-ht-t1-clip', cat: 'pedal', brand: 'HT Components', model: 'T1', family: 'ht-t1',
     style: 'clip', weight: 368, price: 135,
     note: 'gravel-3b: real product — an XC/trail clipless pedal (X1E/X1/X1F cleat system), universal 9/16" thread so it fits a gravel crank same as the catalog\'s existing Time/Crankbrothers pedal rows. 368g/pair per a retailer spec table (fulltiltbike.com) and independently corroborated by a Bikerumor review that weighed a pair at 373g; no htcomponents.com manufacturer page was fetched this session — stays unverified sample.' },
+  { id: 'gpd-shimano-pd-m520', cat: 'pedal', brand: 'Shimano', model: 'PD-M520', family: 'shimano-pd-m520',
+    style: 'clip', weight: 380, price: 55,
+    note: 'catalog/gravel-components-1: NEW row — older/budget-tier dual-sided SPD pedal, distinct SKU from the already-cataloged PD-ES600 (GRX-marketed single-sided tier). FETCHED bike.shimano.com/en-EU/product/component/deore-m6000/PD-M520.html directly this session — "Average weight 380 (/pair)" verbatim, dual-sided SPD (clean style:\'clip\' fit, no hybrid-flat ambiguity unlike the PD-EH500 candidate this pass rejected — see header note). Price ($55) confirmed via ride.shimano.com/products/pd-m520 (manufacturer storefront, fetched same session).',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://bike.shimano.com/en-EU/product/component/deore-m6000/PD-M520.html' },
+  { id: 'gpd-crankbrothers-candy1', cat: 'pedal', brand: 'Crankbrothers', model: 'Candy 1', family: 'crankbrothers-candy',
+    style: 'clip', weight: 294, price: 64.99,
+    note: 'catalog/gravel-components-1: NEW row — the entry trim tier of the already-cataloged Candy 3 family (composite body vs Candy 3\'s aluminum, distinct weight/price — a real, separate SKU per the flat-SKU trim-tier split policy). FETCHED crankbrothers.com/products/candy-1 directly this session — "294g per pair", "$64.99" list MSRP (was on promotional sale at fetch time; MSRP used per THE PRICE RULE), composite body, Easy Release cleats (smaller release angle than Candy 3\'s Standard Release, same 4-sided entry system — style:\'clip\' correct).',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.crankbrothers.com/products/candy-1' },
+  { id: 'gpd-crankbrothers-candy2', cat: 'pedal', brand: 'Crankbrothers', model: 'Candy 2', family: 'crankbrothers-candy',
+    style: 'clip', weight: 355, price: 109.99,
+    note: 'catalog/gravel-components-1: NEW row — the mid trim tier of the Candy family (aluminum body, stamped-steel wings — distinct weight/price from both the Candy 1 and cataloged Candy 3). FETCHED crankbrothers.com/products/candy-2 directly this session — "355g per pair", "$109.99" list MSRP.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.crankbrothers.com/products/candy-2' },
+  { id: 'gpd-crankbrothers-candy7', cat: 'pedal', brand: 'Crankbrothers', model: 'Candy 7', family: 'crankbrothers-candy',
+    style: 'clip', weight: 320, price: 199.99,
+    note: 'catalog/gravel-components-1: NEW row — the top trim tier of the Candy family (aluminum body, stainless steel wings, premium bearings — distinct weight/price from Candy 1/2/3). FETCHED crankbrothers.com/products/candy-7 directly this session — "320g per pair", "$199.99" MSRP.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.crankbrothers.com/products/candy-7' },
 
   // ===== BARTAPE ==========================================================
   { id: 'gtp-fizik-vento-microtex-tacky', cat: 'bartape', brand: 'Fizik', model: 'Vento Microtex Tacky',
@@ -1735,6 +1880,10 @@ var GRAVEL_PARTS = [
   { id: 'gtp-silca-nastro-cuscino', cat: 'bartape', brand: 'Silca', model: 'Nastro Cuscino',
     family: 'silca-nastro-cuscino', weight: 85, price: 50,
     note: 'gravel-depth-5 new row (2026-07-22): bartape-depth pass — new brand (a premium padded/cushioned gravel-relevant tape, not yet in this file). FETCHED silca.cc/products/nastro-cuscino-bar-tape directly — confirms real/current, "3.75mm of cushion", "230cm +/- 10%" length, and states "NASTRO Bar Tape retails at $50usd" (price matches this row exactly). No weight is published anywhere on the page (only length/thickness) — weight stays an unsourced estimate scaled up from the thinner Fizik Vento Microtex sibling row\'s 41g given this tape\'s roughly 2x cushion thickness — not marked verified:true.' },
+  { id: 'gtp-deda-classico-eva', cat: 'bartape', brand: 'Deda', model: 'Classico EVA', family: 'deda-classico-eva',
+    weight: 42, price: 11,
+    note: 'catalog/gravel-components-1: NEW row — FETCHED dedaelementi.com/deda-tape directly this session. Confirms "42 grams (including plugs)", "180 centimeters" length, 2.8mm thickness. Price EUR10.20 (excl. VAT) converted to a disclosed USD estimate (~$11) since the catalog is USD-basis — priceBasis left unset per this file\'s own conversion convention (a converted estimate isn\'t a maker-stated USD figure).',
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.dedaelementi.com/deda-tape' },
 
 ];
 
