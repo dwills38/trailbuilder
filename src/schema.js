@@ -478,12 +478,25 @@ var VOCAB = {
                               SKU split across DIFFERENT slots, e.g. a shift-
                               brake lever) - this is the SAME-category front/
                               rear pair case.
+     'deprioritized-no-price-source' NOT a disclosed price like the six above -
+                              the stored price is still a SAMPLE figure. Marks a
+                              verified row whose only source is a maker SPEC page
+                              that structurally never carries a price (Shimano/
+                              SRAM/Zipp/Campagnolo component pages, etc.), so
+                              re-fetching that same page on every priceBasis
+                              burndown wave is pointless. `priceBasisAudit()`
+                              only counts null as "missing", so this value pulls
+                              the row out of the burndown counter without
+                              claiming a real price basis; a future wave that
+                              finds a price-bearing source (retailer/OE listing)
+                              should overwrite it with a real class above
+                              (Douglas's ruling 2026-07-23, "deprioritize them").
      NEVER feeds checkBuild - price provenance is display/annotation only, the
      same contract as `disciplines` (see PRICE_BASIS_STRICT below for the
      staged rollout). */
   priceBasis:   ['msrp-confirmed', 'discontinued-no-msrp', 'oe-only-no-msrp',
                  'regional-conversion', 'bundle-split-estimate', 'third-party-listed',
-                 'pair-split-estimate'],
+                 'pair-split-estimate', 'deprioritized-no-price-source'],
   status:       ['current', 'discontinued', 'recalled'],   // absent = current
   soldWithout:  ['battery', 'charger', 'spring', 'rotor', 'mounting-hardware'],
 
