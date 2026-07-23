@@ -2097,6 +2097,17 @@ var EMTB_PARTS = [
     desc: 'Unverified sample via the credible-source breadth policy — Vital MTB\'s and MTB Database\'s spec-sheet pages (mirroring Yeti\'s own T2 build sheet), cross-checked against Alex Bicycles\' dealer listing for the US MSRP. Weight is Vital MTB\'s tested-unit figure, "49 lb 14.2 oz" = 22.63kg. One aggregator (Opticycles) listed $12,883, likely a regional/currency variant — not used. catalog/emtb-depth-5 wave.',
     lastChecked: '2026-07-23', source: 'https://www.vitalmtb.com/product/guide/e-bikes/yeti/160e-59316'
   },
+  {
+    id: 'em-yeti-160e-c2-gx', cat: 'emtb', brand: 'Yeti', model: '160E C2 GX',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle 12-speed (mechanical)', brakes: 'SRAM Code R',
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 8500,
+    note: 'Value trim of the 160E — same TURQ Series carbon frame/Sixfinity suspension and Shimano EP801/630Wh drive system as the T1/T2, stepped down to Fox PERFORMANCE-tier suspension (Float 38/Float X, vs the T1/T2\'s Factory-tier) and SRAM GX Eagle mechanical drivetrain, SRAM Code R (non-RSC) brakes.',
+    desc: 'Unverified sample via the credible-source breadth policy (same wall as the T1/T2 rows: yeticycles.com is JS-rendered and returned only nav chrome to WebFetch/Exa/the in-app browser pane) — price/spec cross-checked across two independent dealer listings mirroring Yeti\'s own build sheet: alexbicycles.com ($8,500 MSRP, full component spec table) and evo.com\'s 2024 model-year listing ($8,500 MSRP, matching frame/travel/drivetrain). Weight not published on either fetched dealer page (left blank rather than guessed). catalog/emtb-depth-9 wave (Yeti thin-lineup deepen, 2 -> 3 rows).',
+    lastChecked: '2026-07-23', source: 'https://www.alexbicycles.com/product/yeti-cycles-160e-c2-gx-927819-1.htm'
+  },
 
   {
     id: 'em-evil-epocalypse-eagle90', cat: 'emtb', brand: 'Evil', model: 'Epocalypse Eagle 90',
@@ -2200,6 +2211,39 @@ var EMTB_PARTS = [
     desc: 'Sourced from ktm-bikes.at\'s own product page (fetched). KTM\'s own page shows a discrepancy between this spec table\'s "85 Nm" torque figure and separate marketing copy on the same page quoting "100 Nm/750 W/400%" for what it calls a "BDU384Y" motor — the hard spec-table figure (85 Nm, motor BDU3740, Bosch Performance Line CX Gen.4) is cataloged here as the more reliable of the two conflicting maker-stated numbers; motorPowerPeak left uncataloged given the conflict rather than guessed. Weight 25.8kg, size L. PRICE: EUR 6,199 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,074. catalog/emtb-depth-5 wave.',
     lastChecked: '2026-07-23', source: 'https://www.ktm-bikes.at/e-bikes/detail/mx1260004108-macina-prowler-master-gx-t-type-l-48-mx1260004108macina-prowler-mastertransparent-space-galaxy-matt1x12-sram-gx-transmission-2026'
   },
+  {
+    id: 'em-ktm-macina-kapoho-prestige-xtr', cat: 'emtb', brand: 'KTM', model: 'Macina Kapoho Prestige',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Gen.4 (BDU3840)', motorTorque: 85,
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XTR M9100-12 (mechanical)', brakes: 'Shimano XTR M9100/M9120 4-Piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 25200, price: 10040, modelYear: 2026,
+    note: 'Mid/upper Kapoho trim distinguished from the already-cataloged EXONIC Di2 flagship by a MECHANICAL (cable) Shimano XTR groupset instead of electronic Di2, and a smaller 750Wh (vs 800Wh) PowerTube. Carbon "Macina Kapoho Dimmix Perf. Carbon SLL-LTE" frame, Fox 36 Float Factory fork/Fox Float X Factory shock, Mavic E-Deemax S wheels.',
+    desc: 'Sourced from ktm-bikes.at\'s own product page (fetched, spec table). This exact SKU name/price pairing (SH XTR 12 + BOSCH PT-CX7K4, 750Wh) matches the ktm-bikes.at Kapoho listing page\'s "MACINA KAPOHO PRESTIGE...8.799 EUR" row exactly; a separate, differently-specced "Prestige" SKU also exists on GX Eagle T-Type/800Wh (a distinct current listing) - this row is the XTR-mechanical/750Wh one, disambiguated in the id. PRICE: EUR 8,799 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $10,040. catalog/emtb-depth-9 wave (KTM thin-lineup deepen, 3 -> 6 rows).',
+    lastChecked: '2026-07-23', source: 'https://www.ktm-bikes.at/e-bikes/detail/macina-kapoho-prestige-transparent-orange-orange-black-sh-xtr-12-bosch-pt-cx7k4-2023'
+  },
+  {
+    id: 'em-ktm-macina-prowler-exonic-cxr', cat: 'emtb', brand: 'KTM', model: 'Macina Prowler Exonic CX-R',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX-R ABS (BDU3863)', motorTorque: 120,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission (T-Type)',
+    disciplines: ['e-enduro'], weight: 25400, price: 13920, modelYear: 2026,
+    note: 'Flagship Macina Prowler: Bosch\'s ABS-integrated CX-R motor (up to 120Nm), Fox 38 Float Factory E fork/Fox Float X NEO Factory shock, DT Swiss HXC 1200 carbon wheels, SRAM XX Eagle Transmission (T-Type), RockShox Reverb AXS wireless dropper. Brakes not cataloged: the fetched spec table\'s brake row was cut off before the caliper model line (only the rotor/wheelset section followed), and the caliper differs by trim on this platform, so left blank per THE BAR rather than assuming the sibling Exonic\'s Magura MT7.',
+    desc: 'Sourced from ktm-bikes.at\'s own product page (fetched, spec table); weight 25.4kg independently corroborated by dueruote.it\'s listing (25.40 kg, EUR 12,199 matching). PRICE: EUR 12,199 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $13,920. catalog/emtb-depth-9 wave.',
+    lastChecked: '2026-07-23', source: 'https://www.ktm-bikes.at/e-bikes/detail/mx1260000108-mac-prowler-exonic-cx-r-xx-t-type-l-48-mx1260000108macina-prowler-exonic-cx-rfresh-burnt-orange-black-matt1x12-sram-xx-transmission-2026'
+  },
+  {
+    id: 'em-ktm-macina-prowler-elite', cat: 'emtb', brand: 'KTM', model: 'Macina Prowler Elite',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (BDU3740)', motorTorque: 85,
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'Shimano Deore XT M8100-12',
+    disciplines: ['e-enduro'], weight: 25900, price: 5704, modelYear: 2026,
+    note: 'Entry-tier Macina Prowler (cheapest trim on the platform): "Macina Prowler Dimmix Carbon 170 UDH" carbon frame, RockShox Domain RC fork, Fox Float X Performance shock (250x75), Shimano Deore XT mechanical drivetrain. Brakes not stated in the fetched spec table (cut off before the brake line, same gap as the Comp LTD Kapoho row) so left uncataloged.',
+    desc: 'Sourced from ktm-bikes.at\'s own product page (fetched, spec table); price/spec combo matches the Prowler listing page\'s "MACINA PROWLER ELITE...1X12 SHIMANO DEORE XT...4.999 EUR" row exactly. PRICE: EUR 4,999 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,704. catalog/emtb-depth-9 wave.',
+    lastChecked: '2026-07-23', source: 'https://www.ktm-bikes.at/e-bikes/detail/mx1260006108-macina-prowler-elite-l-48-mx1260006108macina-prowler-elitechrome-red-matt-black1x12-shimano-deore-xt-2026/MX1260006108'
+  },
 
   {
     id: 'em-saracen-ariel-50e', cat: 'emtb', brand: 'Saracen', model: 'Ariel 50E',
@@ -2257,6 +2301,28 @@ var EMTB_PARTS = [
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.raymon-bicycles.com/en/modelle/tarok'
   },
   {
+    id: 'em-r-raymon-tarok-ultimate', cat: 'emtb', brand: 'R Raymon', model: 'Tarok Ultimate',
+    motorBrand: 'avinox', motorModel: 'DJI Avinox M2S', motorTorque: 150, motorPowerPeak: 1500,
+    batteryWh: 700, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', weight: 20400, price: 11410, modelYear: 2026,
+    disciplines: ['e-trail', 'e-enduro'],
+    note: 'Flagship Tarok trim — top of the 4-model range (Comp/Pro/Ultra/Ultimate), same HSC carbon frame and Avinox M2S drive/700Wh FP700 battery as Ultra, lighter build kit (20.4kg vs 22kg Ultra), independently corroborated by bike-magazin.de\'s editorial coverage of the launch.',
+    desc: 'Fetched from raymon-bicycles.com\'s own Tarok model page (browser render); weight/price/motor cross-checked against bike-magazin.de\'s 2026-04-09 editorial launch piece (system weight 20.4kg, price bracket 4999-9999 EUR, four-variant Comp/Pro/Ultra/Ultimate range, matching Avinox M2S/M2 split). No drivetrain/brake spec text on the raymon page for this trim (left blank rather than guessed). PRICE: EUR 9,999 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $11,410. catalog/emtb-depth-9 wave (R Raymon thin-lineup deepen, 2 -> 4 rows).',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.raymon-bicycles.com/en/modelle/tarok'
+  },
+  {
+    id: 'em-r-raymon-tarok-comp', cat: 'emtb', brand: 'R Raymon', model: 'Tarok Comp',
+    motorBrand: 'avinox', motorModel: 'DJI Avinox M2', motorTorque: 125, motorPowerPeak: 1100,
+    batteryWh: 700, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', weight: 23400, price: 6047, modelYear: 2026,
+    disciplines: ['e-trail', 'e-enduro'],
+    note: 'Entry Tarok trim, the only variant on the smaller Avinox M2 (not M2S) motor — 125Nm/1100W peak vs the M2S\'s 150Nm/1500W on Comp/Pro/Ultra/Ultimate. Carbon main frame with an aluminium rear triangle per bike-magazin.de\'s teardown of the launch (cost-optimized construction), same 160/150mm travel and 700Wh FP700 battery as the rest of the range.',
+    desc: 'Fetched from raymon-bicycles.com\'s own Tarok model page (browser render, price/weight/frame material) plus bike-magazin.de\'s 2026-04-09 editorial launch piece (motor torque/power, carbon+alu frame construction, 700Wh FP700 battery, 160/150mm travel — the maker\'s own page did not itemize travel/battery for this specific trim, so those fields are sourced from the editorial corroboration instead). A third-party aggregator (avinoxlist.com) lists conflicting specs for a same-named model (800Wh non-removable battery, 150/150mm travel, Shimano CUES) — not used, as it disagrees with both the maker\'s own page and the editorial piece. No drivetrain/brake spec text confirmed for this trim (left blank rather than guessed). PRICE: EUR 5,299 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $6,047. catalog/emtb-depth-9 wave.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.raymon-bicycles.com/en/modelle/tarok'
+  },
+  {
     id: 'em-flyer-uproc-x-4-10', cat: 'emtb', brand: 'Flyer', model: 'Uproc X 4.10',
     motorBrand: 'bosch', motorModel: 'Bosch Smart System Performance Line CX', motorTorque: 85,
     batteryWh: 750, assist: 'full-power',
@@ -2301,6 +2367,17 @@ var EMTB_PARTS = [
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.noxcycles.com/en/helium-enduro-7.1-p1/helium-enduro-7-1-p1'
   },
   {
+    id: 'em-nox-helium-allmtn-5-9-p1-ultra', cat: 'emtb', brand: 'Nox Cycles', model: 'Helium All-Mtn 5.9 P1 Ultra',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 50 Trail Drivepack', motorTorque: 58,
+    batteryWh: 252, batteryRemovable: true, assist: 'lightweight',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XTR 12-speed',
+    disciplines: ['e-trail'], weight: null, price: 10269, modelYear: 2026,
+    note: 'Top build tier of the same platform as the already-cataloged Core row — identical NOX Helium All-Mountain NUC frame/Fazua Ride 50/252Wh battery, upgraded to a FOX 36 FLOAT F-S E-Optimized fork (vs the Core\'s Marzocchi Bomber Z1) and Shimano XTR 12-speed drivetrain (vs Core\'s Deore).',
+    desc: 'Fetched from noxcycles.com\'s own product configurator page (Core/Pro/Ultra spec-comparison table on the same page as the cataloged Core row) for the tier spec deltas (fork/drivetrain/stem/saddle). Brakes not itemized per-tier on the fetched table (left blank rather than guessed). No maker-published Ultra-tier price found on noxcycles.com itself; the Ultra price is a disclosed retailer price delta (swazicowboyz-shop.de: Core EUR 6,699.00 + Ultra upcharge EUR 2,300.00 = EUR 8,999.00) added to the maker\'s own confirmed Core MSRP already used on the sibling row. PRICE: EUR 8,999 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $10,269. Left unverified: the Ultra price itself is retailer-sourced, not maker-page-confirmed like the Core row. catalog/emtb-depth-9 wave (Nox thin-lineup deepen).',
+    lastChecked: '2026-07-23', source: 'https://www.noxcycles.com/en/helium-all-mtn-5.9-p1/helium-all-mtn-5-9-p1'
+  },
+  {
     id: 'em-bmc-trailfox-amp-two', cat: 'emtb', brand: 'BMC', model: 'Trailfox AMP Two',
     motorBrand: 'shimano', motorModel: 'Shimano STEPS MTB E-8000', motorTorque: 70, motorPowerPeak: 250,
     batteryWh: 500, assist: 'full-power',
@@ -2343,6 +2420,17 @@ var EMTB_PARTS = [
     note: 'Second-tier Intrigue X Advanced E+ build on the same carbon chassis/motor/battery as the Elite 1, cable-actuated Shimano SLX drivetrain instead of SRAM AXS Transmission.',
     desc: 'Fetched from liv-cycling.com\'s own product page (browser render). Fox 36 Float fork / Fox Float Performance shock.',
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.liv-cycling.com/us/intrigue-x-advanced-eplus-elite-2-2024'
+  },
+  {
+    id: 'em-liv-intrigue-x-advanced-eplus-elite-3', cat: 'emtb', brand: 'Liv', model: 'Intrigue X Advanced E+ Elite 3',
+    motorBrand: 'giant', motorModel: 'Giant SyncDrive Pro2 (Yamaha-powered)', motorTorque: 85,
+    batteryWh: 400, batteryRemovable: true, rangeExtender: true, assist: 'lightweight',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'mixed', drivetrain: 'Shimano Deore 12-speed', brakes: 'Shimano BR-MT420 (203mm)',
+    disciplines: ['e-trail'], weight: 20900, price: 6000, modelYear: 2024,
+    note: 'Entry-tier Intrigue X Advanced E+, same SyncDrive Pro2/400Wh drive system and travel as the Elite 1/2 already cataloged, but on an Advanced-grade composite front triangle with an ALUXX SL aluminum rear triangle (vs the Elite 1/2\'s full carbon) and a cable-actuated Shimano Deore drivetrain.',
+    desc: 'Fetched from liv-cycling.com\'s own product page (browser render), matching the sibling Elite 1/Elite 2 rows\' sourcing. Weight is the maker\'s stated size-XS figure (46lb 2oz = 20.9kg).',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.liv-cycling.com/us/intrigue-x-advanced-eplus-elite-3-2024'
   },
   {
     id: 'em-bianchi-e-omnia-fx-type-gx-12sp', cat: 'emtb', brand: 'Bianchi', model: 'e-Omnia FX-Type GX 12SP',
