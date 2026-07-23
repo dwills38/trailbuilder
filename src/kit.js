@@ -1471,6 +1471,15 @@ var KIT_PARTS = [
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
     source:'https://us.muc-off.com/collections/technical-apparel', sourceType:'manufacturer' },
 
+  /* -- Nukeproof apparel breadth (catalog/kit-apparel-brands-1, 2026-07-23): apparel was
+     thin (shorts only). Only retailer/press coverage of Nukeproof's own Outland launch
+     could be found this session (nukeproof.com's shop pages loaded as filter chrome only,
+     no per-SKU price block reachable via WebFetch/Exa) - both entries below are UNVERIFIED,
+     GBP converted. -- */
+  { id:'jsy-nukeproof-outland-ss', cat:'jersey', brand:'Nukeproof', model:'Outland DriRelease Short Sleeve Jersey', price:38,
+    sleeve:'short',
+    desc:'Price converted from GBP30 (Nukeproof\'s 2021 Ridewear Outland collection launch price, per Bikerumor\'s coverage of Nukeproof\'s own line) at ~1.27 USD/GBP; left unverified - no fetched nukeproof.com product page with a live USD price was reachable this session.' },
+
   /* -- Shorts (shorts + pants are SEPARATE cats; grind batch 2026-07-14, sht-shorts-grind) -- */
   { id:'sht-fox-flexair', cat:'shorts', brand:'Fox', model:'Flexair Short', price:129.95, weight:250,
     liner:false, sizes:['28','30','32','34','36','38'],
@@ -2581,6 +2590,8 @@ var KIT_PARTS = [
     desc:'D30 impact-foam knuckle protection; regular (non-sale) US price; no weight stated on the fetched maker page.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
     source:'https://us.muc-off.com/collections/technical-apparel', sourceType:'manufacturer' },
+  { id:'glv-nukeproof-blacklinevapour', cat:'gloves', brand:'Nukeproof', model:'Blackline Vapour Gloves', price:63,
+    desc:'Price converted from GBP49.99 (RRP consistently listed across UK retailers of this Nukeproof SKU) at ~1.27 USD/GBP; no nukeproof.com product page with a live USD price was reachable this session - left unverified.' },
   { id:'glv-zoic-turnt', cat:'gloves', brand:'ZOIC', model:'Turnt Glove', price:35, weight:62,
     sizes:['S','M','L','XL','XXL'],
     desc:'Weight per pair (approx). Price re-confirmed via retailer listings (unchanged) - zoic.com\'s product/category pages 404 or return nav-shell-only content on fetch (JS-rendered catalog, likely bot-walled) despite the homepage itself loading fine, so this stays unverified.'
