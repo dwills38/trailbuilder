@@ -646,6 +646,26 @@ var KIT_PARTS = [
     type:'half-shell', rotational:'mips',
     desc:'E-bike/commuter-rated half-shell (up to 27mph), 13 vents, integrated LED light mount, MIPS-equipped. No disciplines tag (commuter positioning). UNVERIFIED sample: retailer-listed price/weight; bernhelmets.com 429\'d this batch.' },
 
+  /* -- Cratoni (kit-breadth-12, 2026-07-23): brand entirely ABSENT. German helmet/eyewear maker
+     (est. 1985, Baden-Wurttemberg) - cratoni.de itself is an unfetchable stale test-subdomain
+     (self-signed cert / DNS traps), but cratoni.com is the live current maker domain and fetched
+     cleanly via WebFetch. Prices are the maker's own RRP in EUR (Cratoni sells in Europe, no USD
+     price published) - disclosed conversion, priceBasis:'regional-conversion', ~1.08 USD/EUR
+     (approximate, 2026-07-23; no live FX API used, same disclosed-approximate convention as the
+     catalog's existing GBP rows). */
+  { id:'hm-cratoni-cairlite', cat:'helmet', brand:'Cratoni', model:'C-Airlite', price:216, weight:180,
+    type:'half-shell', disciplines:['xc','trail'], sizes:['S-M','M-L','L-XL'],
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://cratoni.com/en/produkt/c-airlite/',
+    desc:'Fetched cratoni.com: "Ultra-Lightweight" XC/road half-shell, 32 vents, 270-degree adjustment system. RRP EUR199.95 x ~1.08 USD/EUR (disclosed conversion, not a US MSRP). Weight is the S-M shell (180g S-M, 195g M-L, 210g L-XL per the maker page); the S-M figure is stored, others noted here.' },
+  { id:'hm-cratoni-madroc-pro', cat:'helmet', brand:'Cratoni', model:'Madroc Pro', price:432, weight:760,
+    type:'convertible', disciplines:['enduro','dh'], sizes:['S-M','M-L','L-XL'],
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://cratoni.com/en/produkt/madroc-pro/',
+    desc:'Fetched cratoni.com: hybrid enduro/DH helmet with a removable chin-bar system ("the new tool for all the maniacs"), maker-stated 760g ("one of the lightest hybrid helmets in its field"). RRP EUR399.95 x ~1.08 USD/EUR (disclosed conversion, not a US MSRP).' },
+  { id:'hm-cratoni-allset-mips', cat:'helmet', brand:'Cratoni', model:'Allset MIPS', price:151, weight:290,
+    type:'half-shell', rotational:'mips', certs:['en1078'], disciplines:['trail','enduro'], sizes:['S-M','M-L'],
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://cratoni.com/en/produkt/allset-mips/',
+    desc:'Fetched cratoni.com: 15-vent AM/trail half-shell, adjustable visor with MX-goggle port, camera mount, CE EN 1078 certified, MIPS-equipped. RRP EUR139.95 x ~1.08 USD/EUR (disclosed conversion, not a US MSRP).' },
+
   /* -- Shoes (soleType required: flat / clipless) -- */
   { id:'sho-fiveten-freerider-pro', cat:'shoes', brand:'Five Ten', model:'Freerider Pro', price:160, weight:696,
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['40','41','42','43','44','45','46','47'],
