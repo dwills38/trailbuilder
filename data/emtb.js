@@ -1752,6 +1752,19 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://ebike-mtb.com/en/thoemus-lightrider-e-max-2026-test/'
   },
 
+
+  {
+    id: 'em-pole-hiisi', cat: 'emtb', brand: 'Pole', model: 'Hiisi',
+    motorBrand: 'maxon', motorModel: 'maxon Air S', motorTorque: 90, motorPowerPeak: 620,
+    batteryWh: 600, batteryRemovable: false, rangeExtender: true, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'aluminum', drivetrain: null, brakes: null,
+    disciplines: ['e-trail', 'e-enduro'], weight: 22800, price: 17388.51, modelYear: 2026,
+    note: 'Finnish maker Pole Bicycles\' 2026 comeback e-MTB (founder Leo Kokkonen\'s return after the original Pole Voima/bankruptcy) — CNC-machined 7075-T6 aluminum frame with adjustable-travel geometry (152-200mm rear / 160-200mm front via a shock-mount swap, one frame platform, 12 configurations), full 29er or mullet wheel configuration, built to order (~50 frames/year in Finland). Cataloged at the gravity-spec 170/170mm build.',
+    desc: 'Sourced from E-MOUNTAINBIKE Magazine\'s fetched hands-on preview (ebike-mtb.com/en/new-pole-hiisi/), which quotes Pole founder Leo Kokkonen directly: "maxon Air S mit 90 Nm | 600 Wh | 22.8 kg in gravity build specification (manufacturer claim) | from EUR 15,239". Additional detail: "CNC-machined aluminium frame... 160-200mm front travel / 152-200mm rear travel... Choice of 600 Wh or 400 Wh battery (both permanently integrated)... a 250 Wh range extender... maxon AIR S... 2.03 kg, 90 Nm of torque and a peak output of 620 watts". No polebicycles.com product page with a fixed build kit/drivetrain spec was found (the brand sells built-to-order); drivetrain/brakes left uncataloged rather than guessed. PRICE: EUR 15,239 ("from") converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $17,388.51 — a reviewer-disclosed starting price, not a maker-fetched fixed-SKU MSRP. catalog/emtb-breadth-brands-1 wave (first Pole row — brand was fully absent; introduces motorBrand:"maxon", shared with the Thömus E_MAX row above).',
+    lastChecked: '2026-07-23', source: 'https://ebike-mtb.com/en/new-pole-hiisi/'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
