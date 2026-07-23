@@ -1815,6 +1815,14 @@ var KIT_PARTS = [
     liner:false, disciplines:['trail'], sizes:['S','M','L','XL','2XL'],
     desc:'9" inseam, unpadded (chamois sold separately). Price inconsistent across clubrideapparel.com pages this session ($85/$119 both seen) - see the brand-note above.' },
 
+  /* -- Loose Riders breadth (catalog/kit-apparel-brands-1, 2026-07-23): only one jersey +
+     one shorts row existed (already 2, extending here). loose-riders.com auto-converts
+     from EUR by visitor locale - these figures are the site's own displayed USD/EUR
+     conversion, not a directly confirmed US-market MSRP, so both stay unverified. -- */
+  { id:'sht-looseriders-district', cat:'shorts', brand:'Loose Riders', model:'District Shorts', price:64,
+    liner:false, disciplines:['trail'],
+    desc:'"Unisex fit" hybrid technical/lifestyle short. Price is the site\'s own displayed USD figure - left unverified (currency-conversion basis, not a confirmed US MSRP).' },
+
   /* -- Pants (MTB pants only; shorts are a separate cat above) -- */
   { id:'pnt-fox-defend', cat:'pants', brand:'Fox', model:'Defend Pant', price:169.95, weight:430,
     liner:false, disciplines:['trail','enduro'], sizes:['28','30','32','34','36','38'],
@@ -2561,6 +2569,8 @@ var KIT_PARTS = [
     desc:'Price from us.chromagbikes.com\'s own collection listing (the product page itself did not load this session) - left unverified.' },
   { id:'glv-chromag-habit', cat:'gloves', brand:'Chromag', model:'Habit Glove', price:40,
     desc:'Price from us.chromagbikes.com\'s own collection listing (the product page itself did not load this session) - left unverified.' },
+  { id:'glv-looseriders-freeride', cat:'gloves', brand:'Loose Riders', model:'Freeride Glove', price:27,
+    desc:'Price converted from EUR24.95 list price at ~1.08 USD/EUR - left unverified.' },
   { id:'glv-mucoff-rider', cat:'gloves', brand:'Muc-Off', model:'Rider Gloves', price:34.99,
     desc:'Regular (non-sale) US price; no weight stated on the fetched maker page.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
