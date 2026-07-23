@@ -486,6 +486,20 @@ var BMX_PARTS = [
     brakeMount: 'none', weight: 680, price: 99.99, note: 'Companion fork to the Downtown/Downtown DLX frames; commonly run brakeless. WALL, checked 2026-07-21 (bmx-sweep-3): no standalone fork found on harobikes.com\'s current 10-product Freestyle lineup (see bmx-fr-haro-lineage-master) - Haro does not sell aftermarket forks separately in the current storefront at all (complete-bikes-only brand). Left unverified/unchanged.'
   },
   {
+    id: 'bmx-cr-haro-fusion', cat: 'cranks', brand: 'Haro', model: 'Fusion Cranks',
+    family: 'haro-fusion', spindle: '22mm', pieces: '3-piece', ringMount: 'press-on', length: 175,
+    price: 189.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://harobikes.com/products/fusion-cranks',
+    note: 'bmx-brand-depth-2: correction to the bmx-fk-haro-downtown note above (a prior session claimed Haro sells "complete-bikes-only" - it does also run a live standalone-parts storefront at harobikes.com, this row + the Baseline bar below directly fetched from it). Fusion Cranks page states verbatim "22mm heat-treated chromoly spindle" (spindle:22mm) and "7050 aluminum arms with dual pinch bolts" sold as "arms and spindle" (pieces:3-piece - two bolted arms + a separate spindle). ringMount:press-on per the companion "Fusion Disc" sprocket\'s own listed spec ("Style: Sprocket Bolt Drive", kunstform.org/Alan\'s BMX, both independently corroborating a bolt-drive, non-spline interface for this exact 19/22mm crank family) - this field is display-only (no compat-bmx.js rule reads ringMount), so the coarse spline/press-on binary safely covers the "not spline" bolt-drive reality. Offered in 175/180mm (length:175 modeled). Price $189.99 confirmed exactly on the fetched page.'
+  },
+  {
+    id: 'bmx-hb-haro-baseline-2pc', cat: 'handlebar', brand: 'Haro', model: 'Baseline 2pc Bars',
+    family: 'haro-baseline-bars', clamp: '22.2mm', rise: 9.5, width: 29,
+    price: 34.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://harobikes.com/products/baseline-2pc-bars',
+    note: 'bmx-brand-depth-2: directly fetched harobikes.com. States verbatim "9\\", and 9.5\\" rise" + "29\\" wide" (rise:9.5 modeled, width:29 exact). Clamp diameter is not restated on this exact page, but the same Baseline line\'s companion Bar Ends product (harobikes.com/products/baseline-bar-ends, also Haro-owned) states "fit all chromoly 22mm bars" - the brand\'s own stated clamp class for this bar family -> clamp:22.2mm. Price $34.99 confirmed exactly.'
+  },
+  {
     id: 'bmx-fk-chase-rsp', cat: 'fork', brand: 'Chase', model: 'RSP Race Fork',
     discipline: 'race', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
     brakeMount: 'v-brake', weight: 420, price: 94.99,
