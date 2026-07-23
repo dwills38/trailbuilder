@@ -1843,6 +1843,17 @@ var EMTB_PARTS = [
     desc: 'Verified vs the fetched maker product page (husqvarna-bicycles.com/en-us/models/offroad/hard-cross/hard-cross-hc5-2023.html — "Shimano EP8 (DU-EP801)... 250 W, 85 Nm" motor, "Core S2+, 720 Wh, 36 V" battery, "FOX Float 38 Factory... 180 mm" fork / "FOX Float X2 Factory... 170mm" shock (rear travel per the maker\'s own product description text: "180/170mm of suspension travel"), "Alloy 6061... New HQV Alloy" frame, "SRAM X01 Eagle, 12-S" w/ 34T chainring, "Magura MT7, 4-piston" brakes, "24.6 kg" weight, "$6,599.00 USD" MSRP (plus separately-listed freight, excluded from the cataloged price per this catalog\'s standing freight-exclusion convention, same as the sibling MC6 row). Cassette range (10-50T) and rotor sizes (220/203mm) are the platform\'s commonly-cited figures, not independently re-confirmed in this fetch pass. Page URL still carries a "2023" model-year token but is the live, currently-linked-from-homepage model page (same "current lineup" treatment as the sibling MC6 row). catalog/emtb-breadth-brands-1 wave (Husqvarna deepened from 1 row to 2).',
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.husqvarna-bicycles.com/en-us/models/offroad/hard-cross/hard-cross-hc5-2023.html'
   },
+  {
+    id: 'em-husqvarna-light-cross-lc6', cat: 'emtb', brand: 'Husqvarna', model: 'Light Cross LC6',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8 (DU-EP801)', motorTorque: 85,
+    batteryWh: 720, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 130, travelRear: 120,
+    frameMaterial: 'mixed', drivetrain: 'SRAM X01 Eagle 12-speed', brakes: 'SRAM G2 R 4-piston',
+    disciplines: ['e-trail'], price: 5749,
+    note: "A third, shorter-travel Husqvarna line alongside the already-cataloged Mountain Cross MC6/Hard Cross HC5 — a mullet-wheel (29in front/27.5in rear) short-travel Trail e-MTB on a carbon-front/aluminum-rear-triangle frame; RockShox Pike Select 130mm fork / RockShox SIDLuxe Select+ 190x45mm shock. Not sold in the US market (the husqvarna-bicycles.com/en-us offroad listing carries only Hard Cross/Mountain Cross) — cataloged from the UK site.",
+    desc: 'Fetched via Exa from husqvarna-bicycles.com\'s en-gb model page (en-int and en-us both show "Price is not available in your region" / omit Light Cross entirely — this SKU is EU/UK-market only). Spec table confirmed: "Shimano EP8, DU-EP801, 250 W, 85 Nm" motor, "Core S3+, 720 Wh, 36 V" battery, "Frame 29/27.5\", Carbon/Aluminium 6061, ... New HQV Carbon, 120 mm" (mixed material, 120mm rear travel), "RockShox Pike Select, DebonAir, Air, 130 mm, tapered" fork, "RockShox SIDLuxe Select+, Air, 190x45 mm" shock, "SRAM X01 Eagle, 12-S" derailleur, "SRAM G2 R, 4-piston, Hydraulic disc brake". No complete-bike weight published on the page — left unset rather than guessed. PRICE: GBP 4,299.00 maker RRP (UK site, VAT-inclusive) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $5,749.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.husqvarna-bicycles.com/en-gb/models/offroad/light-cross/light-cross-lc6-2023.html'
+  },
 
   {
     id: 'em-moustache-samedi27-wide5', cat: 'emtb', brand: 'Moustache', model: 'Samedi 27 Wide 5',
