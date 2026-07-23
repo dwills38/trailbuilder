@@ -1893,6 +1893,18 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://bikerumor.com/rotwild-r-ex-updates-enduro-emtb-with-dji-ebike-power-longer-range-864wh-battery/'
   },
 
+  {
+    id: 'em-thok-tp4s', cat: 'emtb', brand: 'Thok', model: 'TP4-S',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Gen.5', motorTorque: 120,
+    batteryWh: 800, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'Shimano SLX/XT 12-speed', brakes: 'Magura MT5 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 7975.75, modelYear: 2026,
+    note: 'Mid-tier trim of Thok\'s TP4 all-mountain/enduro platform, alongside the already-cataloged base TP4 — same carbon frame/motor/battery, upgraded to FOX Performance suspension (36 fork) and DT Swiss H1900 wheels; the TP4-S/TP4-R share identical builds (only frame-manufacturing origin differs, Taiwan vs Italy).',
+    desc: 'Unverified sample via the credible-source breadth policy — velomotion.net\'s dedicated "Thok TP4-S & TP4" launch coverage and ridewill.com/mtbdatabase.com\'s TP4-R spec listing (identical build to the S) confirm "FOX Performance suspension with a 36-inch fork combined with DT Swiss H1900 wheels, a Shimano SLX-XT drivetrain, and Magura MT5 four-piston brakes... The TP4-S costs EUR 6,990, while the TP4 costs EUR 5,990". Frame/motor/battery/travel carried forward from the already-cataloged base TP4 row (same platform, thokbikes.com page not re-fetched for this trim). No complete-bike weight found for the S trim specifically. PRICE: EUR 6,990 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,975.75 — disclosed estimate (velomotion editorial price, not a session-fetched thokbikes.com page), no regional-conversion token. catalog/emtb-breadth-3 wave (Thok deepened from 1 row to 2).',
+    lastChecked: '2026-07-23', source: 'https://velomotion.net/2025/06/thok-tp4-two-new-models-with-a-fresh-look/'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
