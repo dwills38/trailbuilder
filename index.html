@@ -2078,6 +2078,13 @@
 <!-- verdict-core.js MUST stay ABOVE compat.js: compat.js binds Verdict /
      verdictKey / esc / fisherYatesShuffle off the globals this file declares. -->
 <script src="src/verdict-core.js"></script>
+<!-- data/mtb.js MUST stay ABOVE compat.js too, and for a harder reason: the
+     engine binds `var PARTS = MTB_PARTS_RAW` at LOAD TIME, so tagged after,
+     PARTS is undefined and every render throws. (bmx.html can afford to tag
+     data/bmx.js after its engine — that engine holds no catalog.) The catalog
+     was split out of compat.js on 2026-07-23; see data/mtb.js's header. It
+     also needs its own `cp data/mtb.js _site/data/` line in deploy.yml. -->
+<script src="data/mtb.js"></script>
 <script src="src/compat.js"></script>
 <script src="src/tire-classes.js"></script>
 <script src="src/pricing.js"></script>
