@@ -1457,6 +1457,29 @@ var KIT_PARTS = [
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.rapha.cc/us/en/product/womens-trail-technical-t-shirt/TWS01XXAMCXSM',
     desc:'Fetched rapha.cc product page: list USD price $95.00 confirmed (site currently runs a $57 sale), sizes XXS-XL.' },
 
+  /* -- Muc-Off breadth (catalog/kit-apparel-brands-1, 2026-07-23): Muc-Off's apparel line
+     was entirely ABSENT from the catalog. FETCHED the US-site apparel collection page
+     (us.muc-off.com/collections/technical-apparel), which lists each SKU's regular USD
+     price directly (not converted, not a sale figure). No garment weight is published
+     anywhere on the collection or product pages. -- */
+  { id:'jsy-mucoff-ridersjersey-ss', cat:'jersey', brand:'Muc-Off', model:'Short Sleeve Mountain Bike Jersey', price:30,
+    sleeve:'short', desc:'Weight not stated on the fetched maker page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://us.muc-off.com/collections/technical-apparel', sourceType:'manufacturer' },
+  { id:'jsy-mucoff-ridersjersey-ls', cat:'jersey', brand:'Muc-Off', model:'Long Sleeve Mountain Bike Jersey', price:35,
+    sleeve:'long', desc:'Weight not stated on the fetched maker page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://us.muc-off.com/collections/technical-apparel', sourceType:'manufacturer' },
+
+  /* -- Nukeproof apparel breadth (catalog/kit-apparel-brands-1, 2026-07-23): apparel was
+     thin (shorts only). Only retailer/press coverage of Nukeproof's own Outland launch
+     could be found this session (nukeproof.com's shop pages loaded as filter chrome only,
+     no per-SKU price block reachable via WebFetch/Exa) - both entries below are UNVERIFIED,
+     GBP converted. -- */
+  { id:'jsy-nukeproof-outland-ss', cat:'jersey', brand:'Nukeproof', model:'Outland DriRelease Short Sleeve Jersey', price:38,
+    sleeve:'short',
+    desc:'Price converted from GBP30 (Nukeproof\'s 2021 Ridewear Outland collection launch price, per Bikerumor\'s coverage of Nukeproof\'s own line) at ~1.27 USD/GBP; left unverified - no fetched nukeproof.com product page with a live USD price was reachable this session.' },
+
   /* -- Shorts (shorts + pants are SEPARATE cats; grind batch 2026-07-14, sht-shorts-grind) -- */
   { id:'sht-fox-flexair', cat:'shorts', brand:'Fox', model:'Flexair Short', price:129.95, weight:250,
     liner:false, sizes:['28','30','32','34','36','38'],
@@ -1769,6 +1792,58 @@ var KIT_PARTS = [
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.rapha.cc/US/en_US/shop/womens-trail-shorts/product/OSW01XXPSUXSM',
     desc:'Fetched rapha.cc product page: USD price $160.00 (no sale active at check time), sizes XXS-XL. Low-profile stretch waist, two zippered side pockets with integrated phone sleeves. No weight published.' },
 
+  /* -- Flylow (catalog/kit-apparel-brands-1, 2026-07-23): brand entirely ABSENT from the
+     catalog. Flylow's mountain-bike-specific TOPS are thin (its "bike"-tagged shirts are
+     casual button-ups, not technical jerseys - a genuine gap, not an omission; see the
+     branch report). Its one clearly MTB-marketed short is entered here; two bike gloves
+     are entered in the gloves section. FETCHED each product page directly. -- */
+  { id:'sht-flylow-goodson', cat:'shorts', brand:'Flylow', model:'Goodson Short', price:120, weight:205,
+    liner:false, disciplines:['trail'],
+    desc:'88% recycled polyester / 12% spandex "Intuitive MTB Stretch IQ" fabric; page states "average weight: 205g".',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://flylowgear.com/products/goodson-short', sourceType:'manufacturer' },
+
+  /* -- Chromag breadth (catalog/kit-apparel-brands-1, 2026-07-23): brand had only one
+     jersey row. FETCHED us.chromagbikes.com/products/seton-short-mens directly (clean
+     $120.00 USD confirmed). The Seton Pant and both gloves below could only be sourced
+     from us.chromagbikes.com's own collection LISTING pages this session (the individual
+     product pages either 404'd or rendered in a non-USD locale) - entered unverified. -- */
+  { id:'sht-chromag-seton-mens', cat:'shorts', brand:'Chromag', model:"Seton Short Men's", price:120,
+    liner:false, disciplines:['trail'], sizes:['28','30','32','34','36','38'],
+    desc:'Classic trail short, 90% nylon/10% spandex; no weight stated on the fetched maker page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://us.chromagbikes.com/products/seton-short-mens', sourceType:'manufacturer' },
+
+  /* -- Club Ride Apparel breadth (catalog/kit-apparel-brands-1, 2026-07-23): only jerseys +
+     one glove existed. clubrideapparel.com showed this SKU's regular USD price
+     inconsistently across pages fetched this session (its own men's-shorts collection
+     page, its summer-sale collection page, and the single-product page each returned a
+     different figure) - entered unverified at the more frequently listed figure and
+     flagged in the report for a single-SKU re-check rather than guessed at. -- */
+  { id:'sht-clubrideapparel-rider9', cat:'shorts', brand:'Club Ride Apparel', model:"Men's Rider Short 9\"", price:85,
+    liner:false, disciplines:['trail'], sizes:['S','M','L','XL','2XL'],
+    desc:'9" inseam, unpadded (chamois sold separately). Price inconsistent across clubrideapparel.com pages this session ($85/$119 both seen) - see the brand-note above.' },
+
+  /* -- Loose Riders breadth (catalog/kit-apparel-brands-1, 2026-07-23): only one jersey +
+     one shorts row existed (already 2, extending here). loose-riders.com auto-converts
+     from EUR by visitor locale - these figures are the site's own displayed USD/EUR
+     conversion, not a directly confirmed US-market MSRP, so both stay unverified. -- */
+  { id:'sht-looseriders-district', cat:'shorts', brand:'Loose Riders', model:'District Shorts', price:64,
+    liner:false, disciplines:['trail'],
+    desc:'"Unisex fit" hybrid technical/lifestyle short. Price is the site\'s own displayed USD figure - left unverified (currency-conversion basis, not a confirmed US MSRP).' },
+
+  /* -- DHaRCO breadth (catalog/kit-apparel-brands-1, 2026-07-23): a distinct product line
+     from the already-cataloged Gravity Shorts (Trail = lighter/casual cut vs Gravity =
+     enduro-weight cut). Price from us.dharco.com's Men's MTB collection listing page (not
+     an individually fetched product page this session) - left unverified. A same-session
+     fetch of "Men's Race Jersey - Infrared" was considered but dropped: its description
+     doesn't disambiguate it from the already-cataloged Race Jersey LS row and it risked
+     being the same product in a different colorway, which the split policy explicitly
+     rejects as a new row - see the branch report. -- */
+  { id:'sht-dharco-trail-mens', cat:'shorts', brand:'DHaRCO', model:"Men's Trail Shorts", price:107,
+    liner:false, disciplines:['trail'], sizes:['S','M','L','XL','2XL','3XL'],
+    desc:'Lighter, more casual cut than the already-cataloged Gravity Shorts. Price from us.dharco.com\'s own Men\'s MTB collection listing (not an individually fetched product page this session) - left unverified.' },
+
   /* -- Pants (MTB pants only; shorts are a separate cat above) -- */
   { id:'pnt-fox-defend', cat:'pants', brand:'Fox', model:'Defend Pant', price:169.95, weight:430,
     liner:false, disciplines:['trail','enduro'], sizes:['28','30','32','34','36','38'],
@@ -2015,6 +2090,20 @@ var KIT_PARTS = [
     sizes:['XS','S','M','L','XL','XXL'], disciplines:['trail','enduro'],
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.scott-sports.com/us/en/product/scott-trail-vertic-men-s-pants',
     desc:'kit-breadth-7 (2026-07-22): Scott had zero pants rows despite already-cataloged kneepad/bodyarmor/elbowpad coverage. Fetched scott-sports.com directly: $139.99 USD, ~330 g maker-stated weight, 89% Polyamide/11% Elastane four-way stretch, laser-cut ventilation, PFC-free DWR water repellency. The sibling "Trail Progressive" pant (also real - confirmed via search across multiple regional Scott storefronts) is NOT added here: its scott-sports.com product page 404s on every regional path tried, and only third-party-retailer prices were found, which is not an acceptable MSRP source per the fetch-ethics/verification doctrine - left for a future pass once the manufacturer page resolves.' },
+  { id:'pnt-chromag-seton-mens', cat:'pants', brand:'Chromag', model:"Seton Pant Men's", price:150,
+    liner:false, disciplines:['trail'], sizes:['28','30','32','34','36','38'],
+    desc:'Lightweight "smart/casual" 4-way-stretch nylon/spandex trail pant, room for kneepads. Price is from us.chromagbikes.com\'s own men\'s collection listing; a direct product-page fetch this session rendered in a non-USD locale, so left unverified pending a re-check.' },
+  { id:'pnt-clubrideapparel-rider', cat:'pants', brand:'Club Ride Apparel', model:"Men's Rider Pant", price:88,
+    liner:false, disciplines:['trail'], sizes:['S','M','L','XL','2XL'],
+    desc:'Lightweight alpine/shoulder-season riding pant, unpadded (chamois sold separately). Price inconsistent across clubrideapparel.com pages this session - entered unverified at the more frequently listed figure.' },
+
+  /* -- Fasthouse breadth (catalog/kit-apparel-brands-1, 2026-07-23): brand had jerseys +
+     one pant but zero gloves. FETCHED both product pages directly. -- */
+  { id:'pnt-fasthouse-shredder', cat:'pants', brand:'Fasthouse', model:'Shredder Pant', price:110,
+    liner:false, disciplines:['trail'], sizes:['28','30','32','34','36','38'],
+    desc:'Everyday riding pant, DWR-treated 4-way stretch (75% polyamide/17% polyester/8% spandex), distinct from the already-cataloged top-of-line Fastline 2.0 pant. No weight stated on the fetched maker page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://www.fasthouse.com/products/shredder-pant-black', sourceType:'manufacturer' },
 
   /* -- Gloves (all UNVERIFIED samples; weight is PER PAIR, approx USD MSRP) -- */
   { id:'glv-fox-dirtpaw', cat:'gloves', brand:'Fox', model:'Dirtpaw', price:39.95, weight:70, sizes:['S','M','L','XL','XXL','3XL','4XL'],
@@ -2497,6 +2586,36 @@ var KIT_PARTS = [
   { id:'glv-dharco-trail', cat:'gloves', brand:'DHaRCO', model:'Trail Glove', price:32, weight:58,
     sizes:['S','M','L','XL','XXL'],
     desc:'UNVERIFIED (2026-07-17): no "Trail Glove" SKU found on us.dharco.com - the current men\'s glove lineup is Race Glove and Gravity Gloves only. Left as an unverified sample rather than guessing which current SKU this maps to.' },
+  { id:'glv-flylow-dirt', cat:'gloves', brand:'Flylow', model:'Dirt Glove', price:45,
+    desc:'All-purpose light, quick-drying MTB glove; no weight stated on the fetched maker page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://flylowgear.com/products/dirt-glove', sourceType:'manufacturer' },
+  { id:'glv-flylow-mission', cat:'gloves', brand:'Flylow', model:'Mission Glove', price:45,
+    desc:'Ultra-lightweight minimal-coverage glove, stretch mesh + suede palm; no weight stated on the fetched maker page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://flylowgear.com/products/mission-glove', sourceType:'manufacturer' },
+  { id:'glv-chromag-tact', cat:'gloves', brand:'Chromag', model:'Tact Glove', price:40,
+    desc:'Price from us.chromagbikes.com\'s own collection listing (the product page itself did not load this session) - left unverified.' },
+  { id:'glv-chromag-habit', cat:'gloves', brand:'Chromag', model:'Habit Glove', price:40,
+    desc:'Price from us.chromagbikes.com\'s own collection listing (the product page itself did not load this session) - left unverified.' },
+  { id:'glv-looseriders-freeride', cat:'gloves', brand:'Loose Riders', model:'Freeride Glove', price:27,
+    desc:'Price converted from EUR24.95 list price at ~1.08 USD/EUR - left unverified.' },
+  { id:'glv-handup-proformance', cat:'gloves', brand:'Handup', model:'Pro-Formance Glove', price:54,
+    desc:'Regular (non-sale) price per handupco.com\'s own collection listing (the page itself did not load this session) - left unverified.' },
+  { id:'glv-mucoff-rider', cat:'gloves', brand:'Muc-Off', model:'Rider Gloves', price:34.99,
+    desc:'Regular (non-sale) US price; no weight stated on the fetched maker page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://us.muc-off.com/collections/technical-apparel', sourceType:'manufacturer' },
+  { id:'glv-mucoff-d30rider', cat:'gloves', brand:'Muc-Off', model:'D30 Rider Gloves', price:49.99,
+    desc:'D30 impact-foam knuckle protection; regular (non-sale) US price; no weight stated on the fetched maker page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://us.muc-off.com/collections/technical-apparel', sourceType:'manufacturer' },
+  { id:'glv-nukeproof-blacklinevapour', cat:'gloves', brand:'Nukeproof', model:'Blackline Vapour Gloves', price:63,
+    desc:'Price converted from GBP49.99 (RRP consistently listed across UK retailers of this Nukeproof SKU) at ~1.27 USD/GBP; no nukeproof.com product page with a live USD price was reachable this session - left unverified.' },
+  { id:'glv-fasthouse-impaktutopia', cat:'gloves', brand:'Fasthouse', model:'Impakt Utopia Glove', price:34,
+    desc:'Mesh finger gussets, silicone grippers, perforated Clarino palm; no weight stated on the fetched maker page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://www.fasthouse.com/products/impakt-utopia-glove-black-gray', sourceType:'manufacturer' },
   { id:'glv-zoic-turnt', cat:'gloves', brand:'ZOIC', model:'Turnt Glove', price:35, weight:62,
     sizes:['S','M','L','XL','XXL'],
     desc:'Weight per pair (approx). Price re-confirmed via retailer listings (unchanged) - zoic.com\'s product/category pages 404 or return nav-shell-only content on fetch (JS-rendered catalog, likely bot-walled) despite the homepage itself loading fine, so this stays unverified.'
