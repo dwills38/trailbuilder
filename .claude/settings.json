@@ -40,7 +40,7 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Bash|PowerShell|Write|Edit|NotebookEdit",
+        "matcher": "Bash|PowerShell|Write|Edit|NotebookEdit|mcp__Claude_Browser__navigate|mcp__Claude_Browser__preview_start|mcp__claude-in-chrome__navigate",
         "hooks": [
           {
             "type": "command",
