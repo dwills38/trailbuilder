@@ -22,6 +22,7 @@ var U = require('./test-util.js');
 var eq = U.eq, ok = U.ok;
 
 var root = path.join(__dirname, '..');
+/** @param {string} rel @returns {string} */
 function read(rel){ return fs.readFileSync(path.join(root, rel), 'utf8'); }
 
 test('data/mtb.js exports MTB_PARTS_RAW and compat.js re-exports it as PARTS', function(){
