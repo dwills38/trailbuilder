@@ -1817,6 +1817,19 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://www.bikeradar.com/reviews/bikes/electric-bikes/forestal-cyon-neon-review'
   },
 
+
+  {
+    id: 'em-husqvarna-hard-cross-hc5', cat: 'emtb', brand: 'Husqvarna', model: 'Hard Cross HC5',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8 (DU-EP801)', motorTorque: 85,
+    batteryWh: 720, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM X01 Eagle 12-speed (34T chainring, 10-50T cassette)', brakes: 'Magura MT7 4-piston',
+    disciplines: ['e-enduro'], weight: 24600, price: 6599, modelYear: 2026,
+    note: 'Husqvarna E-Bicycles\' enduro-focused sibling to the already-cataloged Mountain Cross MC6 (same Pierer Mobility parent group as GasGas e-bicycles) — New HQV Alloy frame, FOX Float 38 Factory Grip2 fork / FOX Float X2 Factory shock, 220mm front/203mm rear rotors, slacker/shorter/more stable geometry than its predecessor. The maker page lists both 27.5in and 29in wheel options with no per-size breakdown given — cataloged at 29in, matching the MC6 row\'s convention.',
+    desc: 'Verified vs the fetched maker product page (husqvarna-bicycles.com/en-us/models/offroad/hard-cross/hard-cross-hc5-2023.html — "Shimano EP8 (DU-EP801)... 250 W, 85 Nm" motor, "Core S2+, 720 Wh, 36 V" battery, "FOX Float 38 Factory... 180 mm" fork / "FOX Float X2 Factory... 170mm" shock (rear travel per the maker\'s own product description text: "180/170mm of suspension travel"), "Alloy 6061... New HQV Alloy" frame, "SRAM X01 Eagle, 12-S" w/ 34T chainring, "Magura MT7, 4-piston" brakes, "24.6 kg" weight, "$6,599.00 USD" MSRP (plus separately-listed freight, excluded from the cataloged price per this catalog\'s standing freight-exclusion convention, same as the sibling MC6 row). Cassette range (10-50T) and rotor sizes (220/203mm) are the platform\'s commonly-cited figures, not independently re-confirmed in this fetch pass. Page URL still carries a "2023" model-year token but is the live, currently-linked-from-homepage model page (same "current lineup" treatment as the sibling MC6 row). catalog/emtb-breadth-brands-1 wave (Husqvarna deepened from 1 row to 2).',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.husqvarna-bicycles.com/en-us/models/offroad/hard-cross/hard-cross-hc5-2023.html'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
