@@ -1022,6 +1022,17 @@ var KIT_PARTS = [
       + ' vaude.com prices in EUR only (EUR137.00, no US store) -- converted to a $149 USD sample'
       + ' per THE PRICE RULE, basis disclosed. Sizes widened to the full EU 36-50 run shown.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-20', source:'https://www.vaude.com/int/en/20539-am-moab-gravity-cycling-shoes.html' },
+  { id:'sho-vaude-am-moab-mid-stx2', cat:'shoes', brand:'Vaude', model:'AM Moab Mid STX II', price:240, weight:920,
+    soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['36','37','38','39','40','41','42','43','44','45','46','47','48','49','50'],
+    desc:'kit-breadth-2 (2026-07-23): mid-height, waterproof (Sympatex membrane) sibling of the'
+      + ' AM Moab Gravity, distinct SKU. Fetched vaude.com/int/en/45361-am-moab-mid-stx-ii-'
+      + ' cycling-shoes.html directly: EUR221.00, weight 460g/shoe (920g/pair), oiled-nubuck-leather'
+      + '/waterproof-canvas flat-pedal shoe, unisex. Lace closure confirmed via a customer review'
+      + ' describing laces (no dial/Boa on the fetched page). vaude.com is EUR-only (no US store) -'
+      + ' converted to a $240 USD sample per THE PRICE RULE, basis disclosed. Sizes carried over from'
+      + ' VAUDE\'s standard EU 36-50 run used elsewhere in this line, not independently reconfirmed'
+      + ' for this exact SKU page.',
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://www.vaude.com/int/en/45361-am-moab-mid-stx-ii-cycling-shoes.html' },
   { id:'sho-scott-mtb-comp-boa', cat:'shoes', brand:'Scott', model:'MTB Comp BOA', price:109.99, weight:740,
     soleType:'clipless', closure:'boa', disciplines:['trail','enduro'], sizes:['40','41','42','43','44','45','46','47','48'],
     desc:'Trail/enduro clipless shoe, single BOA L6 dial, 2-bolt cleat compatible. Weight per pair (fetched scott-sports.com: 370g per shoe, US 8.5). Fetched page also corrected price $170 -> $109.99 and sizes to the maker\'s EU 40-48 range.',
@@ -1387,6 +1398,13 @@ var KIT_PARTS = [
     sleeve:'long', sizes:['S','M','L','XL','XXL','3XL'], disciplines:['enduro','dh'],
     desc:'Re-fetched us.dharco.com (Race Jersey Prism, 2026-07-17): $82.00 USD confirmed, sizes S-3XL, 100% recycled polyester FTF fabric. Weight not published; kept as the existing sample per the kit weight policy.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-17', source:'https://us.dharco.com/products/mens-race-jersey-prism' },
+  { id:'jsy-pnw-range-tee', cat:'jersey', brand:'PNW', model:'Range Tee', price:32,
+    sleeve:'short', sizes:['S','M','L','XL','XXL'],
+    desc:'kit-breadth-2 (2026-07-23): PNW\'s casual heavyweight-cotton trail tee (same "wear it'
+      + ' to the trails" apparel slot as this catalog\'s other casual-tee jersey rows). Fetched'
+      + ' pnwcomponents.com/products/logo-tee directly: $32.00 USD confirmed, sizes SM-XXL'
+      + ' (no XS in stock). No weight published; left unweighted rather than guessed.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.pnwcomponents.com/products/logo-tee' },
   { id:'jsy-looseriders-cs', cat:'jersey', brand:'Loose Riders', model:'C/S Jersey', price:55, weight:145,
     sleeve:'short', sizes:['S','M','L','XL','XXL'],
     desc:'RE-ATTEMPTED kit-11 (2026-07-21): fetched loose-riders.com/en/technical/jersey-longsleeve/ and .../men/technical/jersey-shortsleeve/ in full (via Exa, WebFetch 403s on this domain) - both current jersey listings (~60+ colorway SKUs, e.g. Ess./Baseline/Shutter/Tribe/Volt/Phase lines at a flat 54,95 EUR tech-jersey tier) contain NO product named "C/S Jersey" or "C/S" anything; a site search for the term returns zero results. The EUR-only-pricing blocker from the 2026-07-18 pass is moot (THE PRICE RULE, formalized 2026-07-18, means price never blocks verification) - the real blocker is that this specific SKU does not appear to currently exist as a jersey (Loose Riders\' "C/S" sub-line is shorts/pants/pads only per sht-looseriders-cs). Left unverified sample, not removed (real product history referenced by third parties, just unconfirmed as a current jersey SKU).' },
@@ -2234,6 +2252,22 @@ var KIT_PARTS = [
       + ' closure + single-layer Clarino palm confirmed. Formalizing verified:true per THE PRICE'
       + ' RULE (basis disclosed) - weight not required for kit apparel (stays sample).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-20', source:'https://www.fisthandwear.com.au/products/black-stocker' },
+  { id:'glv-fisthandwear-breezer', cat:'gloves', brand:'Fist Handwear', model:'Breezer Glove', price:33,
+    disciplines:['trail','dj'], sizes:['XXS','XS','S','M','L','XL','XXL'],
+    desc:'kit-breadth-2 (2026-07-23): Fist\'s permanent vented hot-weather tier, distinct from the'
+      + ' minimalist Stocker (mesh upper vs Stocker\'s twill spandex, perforated Clarino palm for'
+      + ' airflow) - not a Stocker colorway. Fetched fisthandwear.co (the brand\'s USD storefront)'
+      + ' directly, "Breezer-Ice Cube Hot Weather" colorway: $33.00 USD confirmed, custom FIST'
+      + ' closure, single-layer perforated Clarino palm. No weight published.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.fisthandwear.co/products/breezer-ice-cube-hot-weather' },
+  { id:'glv-fisthandwear-frostyfingers', cat:'gloves', brand:'Fist Handwear', model:'Frosty Fingers Glove', price:43,
+    disciplines:['trail','dj'], sizes:['XXS','XS','S','M','L','XL','XXL'],
+    desc:'kit-breadth-2 (2026-07-23): Fist\'s cold-weather tier - 3-layer laminated wind-blocker'
+      + ' thermo upper vs the Stocker/Breezer\'s single-layer shells. Fetched fisthandwear.co'
+      + ' directly, "Frosty Fingers - Snow Tone" colorway: $43.00 USD regular price ($33 shown as an'
+      + ' active 23%-off sale - MSRP used per the pricing policy). Custom FIST closure, single-layer'
+      + ' Clarino palm with a tacky silicone print. No weight published.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.fisthandwear.co/products/frosty-fingers-snow-tone-frosty-cold-weather-glove' },
   { id:'glv-poc-resistanceenduro', cat:'gloves', brand:'POC', model:'Resistance Enduro Glove', price:60, weight:43,
     disciplines:['enduro'], sizes:['XS','S','M','L','XL'],
     desc:'Weight per pair, size M (maker-stated; independently corroborated at 43-46g by third-party reviews). Fetched poc.com: price $60 confirmed (page showed a 40%-off $36 sale price), corrected weight 90g -> 43g, sizes to XS-XL (was missing XS, had a non-existent XXL).',
@@ -2685,6 +2719,20 @@ var KIT_PARTS = [
     disciplines:['enduro','dh'], sizes:['XS','S','M','L','XL','2XL'],
     desc:'kit-breadth-7 (2026-07-22): G-Form had only the mid-tier Pro-X3 in kneepad despite already carrying the matching Pro-Rugged 2 tier in elbowpad (elp-gform-pro-rugged-2) - this is that same top tier\'s knee/shin counterpart. Fetched g-form.com directly: $139.99, three-layer DuraTx/SmartFlex/foam construction, additional SmartFlex shin pad. Page states "CE-1621-1 Certification" with no level number, so no `certs` token per THE BAR (an unspecified level would overstate a real but incomplete claim - same convention as the Demon United row). No weight published.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://g-form.com/products/pro-rugged-2-knee-shin-guard' },
+  { id:'knp-evoc-flex-enduro', cat:'kneepad', brand:'EVOC', model:'Knee Protector LS Flex Enduro', price:120,
+    certs:['en1621-1-l2'], disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
+    desc:'kit-breadth-2 (2026-07-23): EVOC had 2 bodyarmor rows but zero knee/elbow pads. Fetched'
+      + ' evocsports.us/products/knee-protector-ls-flex-enduro (EVOC\'s US storefront, USD-native)'
+      + ' directly: $120.00 confirmed, "Level 2 protection", S/M/L/XL. Page lists no per-size weight;'
+      + ' the EU spec page (evocsports.com) lists 494g but doesn\'t say per-shin or per-pair, so no'
+      + ' weight is claimed here rather than risk a mislabeled figure.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://evocsports.us/products/knee-protector-ls-flex-enduro' },
+  { id:'knp-evoc-flex-lite', cat:'kneepad', brand:'EVOC', model:'Knee Protector LS Flex Lite', price:100,
+    certs:['en1621-1-l2'], disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
+    desc:'kit-breadth-2 (2026-07-23): lighter-weight tier below the Flex Enduro. Fetched'
+      + ' evocsports.us/products/knee-protector-ls-flex-lite directly: $100.00 confirmed, "Level 2'
+      + ' protection", S/M/L/XL. No per-pad/per-pair weight distinction published; none claimed.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://evocsports.us/products/knee-protector-ls-flex-lite' },
   { id:'knp-fox-launch-pro', cat:'kneepad', brand:'Fox', model:'Launch Pro D3O Knee', price:169.95, weight:420,
     certs:['en1621-1-l1'], disciplines:['enduro','dh'], sizes:['S','M','L','XL'],
     desc:'Weight per pair (approx). CORRECTED 2026-07-17: price is the fetched $169.95 list for the current "Launch Pro Knee Pads" (was sample $90, a large understatement). Maker page states EN1621-1 Level 1 CE certification. No weight published, stays prior sample.',
@@ -2956,6 +3004,14 @@ var KIT_PARTS = [
     disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
     desc:'D3O padding, non-Pro tier. Weight per pair (approx). CORRECTED 2026-07-17: price is the fetched $89.95 list for the current "Launch Elbow Pads" (was sample $55, a large understatement).',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-17', source:'https://www.foxracing.com/product/launch-elbow-pads/33834.html' },
+  { id:'elp-evoc-flex-lite', cat:'elbowpad', brand:'EVOC', model:'Elbow Protector LS Flex Lite', price:90,
+    certs:['en1621-1-l1'], disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
+    desc:'kit-breadth-2 (2026-07-23): pairs with the new knp-evoc-flex-lite knee row. Fetched'
+      + ' evocsports.us/products/elbow-protector-ls-flex-lite (EVOC\'s US storefront) directly:'
+      + ' $90.00 confirmed, "Level 1 protection", S/M/L/XL. No weight published on the US page; the'
+      + ' EU spec page lists 230g but doesn\'t disambiguate per-pad vs per-pair, so no weight is'
+      + ' claimed.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://evocsports.us/products/elbow-protector-ls-flex-lite' },
   { id:'elp-gform-pro-x3', cat:'elbowpad', brand:'G-Form', model:'Pro-X3 Elbow', price:59.99, weight:120,
     disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL'],
     desc:'Weight per pair (approx, not published on the fetched page - kept as prior sample). Fetched g-form.com directly 2026-07-18 (a prior pass only had this via a WebSearch snippet): CORRECTED price $60 -> $59.99, sizes corrected to add XS. No cert claim stated on this page.',
