@@ -2090,6 +2090,18 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/forbidden-dreadnought-e-review/'
   },
 
+  {
+    id: 'em-privateer-e161', cat: 'emtb', brand: 'Privateer', model: 'E161',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85, motorPowerPeak: 500,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 161,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX/Deore 12-speed mix', brakes: 'Hayes Dominion A4',
+    disciplines: ['e-enduro'], weight: 25500, price: 5350, modelYear: 2023,
+    note: 'UK maker Privateer Bikes\' only e-MTB (brand was fully absent), sold as a single spec/build only (no trim tiers) — 6061-T6 aluminum frame with a forged one-piece rocker link, mullet wheels, Fox 38 Performance Elite fork + Float X2 Performance/Performance Elite shock (205x65 trunnion). Battery: Shimano BT-EN806, 630Wh, integrated and removable; no range-extender option found.',
+    desc: 'Sourced from Privateer\'s own product page (privateerbikes.com/products/privateer-e161, cached snapshot — live fetch was rate-limited at research time) cross-checked against Vital MTB\'s detailed spec table (most complete third-party source). Rear travel is disclosed as 161mm on Privateer\'s own sheet and Vital MTB\'s table (one Cycling Electric mention says 160mm; 161mm treated as authoritative, matching the "161" model name). Weight 25.5kg (56lb 3.5oz), size not specified in any source. PRICE: Privateer\'s GBP price has moved substantially over time (£5,999 at 2023 launch -> £6,499 later -> a reported cut to £3,999.99 per Cycling Electric, June 2024) and the live product page could not be re-fetched to confirm a current 2026 figure (rate-limited on both WebFetch and Exa). Cataloged at the most recent confirmed GBP figure (£3,999.99) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $5,350 — flagged as a dated, unconfirmed-current price, not a live MSRP. catalog/emtb-depth-5 wave (Privateer absent -> 1 row, single-spec product).',
+    lastChecked: '2026-07-23', source: 'https://www.vitalmtb.com/product/guide/e-bikes/privateer/e161-62261'
+  },
+
 
 ];
 
