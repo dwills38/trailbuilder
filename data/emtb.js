@@ -2305,10 +2305,10 @@ var EMTB_PARTS = [
     motorBrand: 'shimano', motorModel: 'Shimano STEPS MTB E-8000', motorTorque: 70, motorPowerPeak: 250,
     batteryWh: 500, assist: 'full-power',
     wheelConfig: '275', suspension: 'full', travelFront: 150, travelRear: 150,
-    frameMaterial: 'mixed', drivetrain: 'Fox Float 36 Performance GRIP fork / Fox Float DPS Performance Evol shock',
-    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 7499, modelYear: 2026,
-    note: 'BMC\'s all-mountain full-power e-MTB — carbon front triangle bonded to an Al-13 triple-butted aluminum rear (BMC\'s "Twin Hollow-core" construction, motor tucked into a carbon drive-unit nest); 27.5in wheels.',
-    desc: 'Sourced from theloamwolf.com\'s BMC AMP Speedfox/Trailfox launch coverage (bmc-switzerland.com\'s own product page returned a 404 at fetch time). Weight not published in this source. USD price is the US-market listing, no conversion needed.',
+    frameMaterial: 'aluminum', drivetrain: 'Fox Float 36 Performance GRIP fork / Fox Float DPS Performance Evol shock',
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 7499, modelYear: 2020, status: 'discontinued',
+    note: 'BMC\'s all-mountain full-power e-MTB — Al-13 triple-butted aluminum front and rear (BMC Archive lists it all-aluminum, not the carbon-front build the 2018 preview described), motor tucked into a carbon drive-unit nest; 27.5in wheels. Discontinued — bmc-switzerland.com now lists it only under its Bike Archive (e-bike), Model Year 2020, no current successor named.',
+    desc: 'Motor/drivetrain/price sourced from theloamwolf.com\'s 2018-04-30 BMC AMP Speedfox/Trailfox pre-Sea-Otter "first ride" preview (bmc-switzerland.com\'s own product page returned a 404 at fetch time then). Weight not published in this source. USD price is the US-market listing, no conversion needed. **2026-07-23 fresh fetch of bmc-switzerland.com/collections/bike-archive-e-bike confirms Trailfox AMP TWO exists only as an archived Model Year 2020 listing (CHF 4,499, Shimano FC-E7000 crank, all-aluminum frame per BMC\'s own spec sheet) — the preview article\'s modelYear:2026 and carbon-front frame claim were wrong/superseded; corrected here to the real archived year and frame material. Motor/price fields are left as the 2018 preview stated (unconfirmed against the final 2020 production spec, which used a different crank/motor unit per BMC\'s archive) rather than guessed.**',
     lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/first-ride-bmc-amp-speedfox-trailfox/'
   },
   {
@@ -2316,10 +2316,10 @@ var EMTB_PARTS = [
     motorBrand: 'shimano', motorModel: 'Shimano STEPS MTB E-8000', motorTorque: 70, motorPowerPeak: 250,
     batteryWh: 500, assist: 'full-power',
     wheelConfig: '29', suspension: 'full', travelFront: 130, travelRear: 130,
-    frameMaterial: 'mixed', drivetrain: 'RockShox Revelation RC fork / Fox Float DPS Performance Evol shock',
-    disciplines: ['e-trail'], weight: null, price: 7499, modelYear: 2026,
-    note: 'BMC\'s shorter-travel, 29in-wheel full-power e-MTB sibling to the Trailfox AMP — same E-8000/500Wh drive system, same mixed carbon-front/aluminum-rear construction, a lighter trail-focused build.',
-    desc: 'Sourced from theloamwolf.com\'s BMC AMP Speedfox/Trailfox launch coverage (bmc-switzerland.com\'s own product page returned a 404 at fetch time). Weight not published in this source. USD price is the US-market listing, no conversion needed.',
+    frameMaterial: 'carbon', drivetrain: 'RockShox Revelation RC fork / Fox Float DPS Performance Evol shock',
+    disciplines: ['e-trail'], weight: null, price: 7499, modelYear: 2020, status: 'discontinued',
+    note: 'BMC\'s shorter-travel, 29in-wheel full-power e-MTB sibling to the Trailfox AMP — full-carbon frame per BMC Archive (not the mixed carbon/aluminum build the 2018 preview described), same 500Wh-class drive system, a lighter trail-focused build. Discontinued — bmc-switzerland.com now lists it only under its Bike Archive (e-bike), Model Year 2020, no current successor named.',
+    desc: 'Motor/drivetrain/price sourced from theloamwolf.com\'s 2018-04-30 BMC AMP Speedfox/Trailfox pre-Sea-Otter "first ride" preview (bmc-switzerland.com\'s own product page returned a 404 at fetch time then). Weight not published in this source. USD price is the US-market listing, no conversion needed. **2026-07-23 fresh fetch of bmc-switzerland.com/collections/bike-archive-e-bike confirms Speedfox AMP TWO exists only as an archived Model Year 2020 listing (CHF 7,499, Shimano FC-E8050 crank, full-carbon frame per BMC\'s own spec sheet) — the preview article\'s modelYear:2026 and mixed-frame claim were wrong/superseded; corrected here to the real archived year and frame material. Motor/price fields are left as the 2018 preview stated (unconfirmed against the final 2020 production spec, which used a different crank/motor unit per BMC\'s archive) rather than guessed.**',
     lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/first-ride-bmc-amp-speedfox-trailfox/'
   },
   {
