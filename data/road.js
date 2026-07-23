@@ -2235,6 +2235,33 @@ var ROAD_PARTS = [
     verified: true, lastChecked: '2026-07-23', source: 'https://shop.visiontechusa.com/en/wheelsets/road-gravel-cyclocross/metron-40-sl-disc-clincher-tl',
     note: 'road-wheels-1 wave: same source/session as the front row — see that row\'s note for the estimate methodology + weight/price sourcing. Freehub: XDR modeled (Vision markets this wheel as "Compatible with SHIMANO and SRAM freehub" without separate per-driver SKU codes on this page, unlike the 60 SL\'s split codes — HG(hg-road) a disclosed GAP). maxTire/rotorMount/intWidth reasoning identical to the front row.' },
 
+  // ===== WHEELS — Scope Artech 4 + R4 (road-wheels-1 wave) =====
+  // Depth pass: Scope Cycling (Netherlands-developed, 3D-printed hubs) was confirmed-ABSENT.
+  // scopecycling.com sells pair-only (no standalone single-wheel SKU found) with no
+  // model-specific front/rear split published — same disclosed estimate-split convention as
+  // the Vision rows above (priceBasis deliberately omitted; weight/price split via this
+  // catalog's own established ~46.7%/53.3% cross-brand ratio for deep carbon disc wheels).
+  { id: 'fw-scope-artech-4', cat: 'frontwheel', brand: 'Scope', model: 'Artech 4', family: 'scope-artech-4',
+    wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 23, maxTire: 65,
+    weight: 524, price: 2056.07,
+    verified: true, lastChecked: '2026-07-23', source: 'https://www.scopecycling.com/product/artech-4/',
+    note: 'road-wheels-1 wave: FETCHED scopecycling.com/product/artech-4 directly via the browser pane (live USD storefront, not bot-walled; a WordPress/WooCommerce site — its spec-table accordion isn\'t in the rendered innerText, read via javascript_tool against the raw DOM). Spec table: "Rim height (mm)" 45, "Internal rim width (mm)" 23 (intWidth), "Axle System" 12x100 front / 12x142 rear, "Brake Interface" Centerlock front and rear, "Tire width compatibility (mm)" 28-65 for BOTH front and rear — a real page-published maxTire ceiling (maxTire:65), not an invented number (unlike the ENVE/Bontrager/HED rows above, Scope\'s own site states this explicitly). "Total set weight 1120 gram". Price: page\'s own live USD price selector (Shimano body / No CeramicSpeed / White, the base configuration) shows "$4,398.00" — a real current PAIR MSRP; no standalone single-wheel SKU found on Scope\'s own store, so priceBasis is deliberately OMITTED (counted gap, not a forced pair-split-estimate token) per this pass\'s convention (see the Vision rows above for the same reasoning). Weight/price split (524g / $2,056.07 front) is an ESTIMATE using this file\'s own established ~46.75%/53.25% front/rear ratio (see the Princeton Wake row\'s note for the ratio\'s cross-source derivation), applied to the real 1120g/$4,398.00 pair totals — not a Scope-specific published split.' },
+  { id: 'rw-scope-artech-4', cat: 'rearwheel', brand: 'Scope', model: 'Artech 4', family: 'scope-artech-4',
+    wheel: '700c', hub: '12x142', freehub: 'xdr', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 23, maxTire: 65,
+    weight: 596, price: 2341.93,
+    verified: true, lastChecked: '2026-07-23', source: 'https://www.scopecycling.com/product/artech-4/',
+    note: 'road-wheels-1 wave: same source/session as the front row — see that row\'s note for the estimate methodology + real pair weight/price sourcing. Freehub: the page\'s "Body Type" selector offers Shimano/Campagnolo/Shimano Microspline/SRAM XD(R)/Campagnolo N3W — XDR modeled (this catalog\'s established multi-driver default); other drivers a disclosed GAP. maxTire/rotorMount/intWidth reasoning identical to the front row.' },
+  { id: 'fw-scope-r4', cat: 'frontwheel', brand: 'Scope', model: 'R4', family: 'scope-r4',
+    wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 23, maxTire: 65,
+    weight: 631, price: 840.66,
+    verified: true, lastChecked: '2026-07-23', source: 'https://www.scopecycling.com/product/r4-2/',
+    note: 'road-wheels-1 wave: FETCHED scopecycling.com/product/r4-2 directly via the browser pane, this catalog\'s mid-tier Scope pairing — the current "R-Series" (Scope\'s cheaper line "derived from the award-winning Artech series", replacing the older R3 which this brand\'s own site no longer sells standalone; using the CURRENT live model per this catalog\'s "only a fetched manufacturer page counts" doctrine). Spec table: "Internal rim width (mm)" 23, "Axle System" 12x100 front / 12x142 rear, "Brake Interface" Centerlock, "Tire width compatibility (mm)" 28-65 (maxTire:65, same real page-published figure as the Artech 4 flagship — both models share the same rim-family clearance). "Total set weight 1349 gram", "Sapim CX-Ray" steel spokes front and rear. Price: page\'s own live USD price — "$1,798.00", a real current PAIR MSRP; same no-standalone-SKU / priceBasis-omitted convention as the Artech 4 row above. Weight/price split (631g / $840.66 front) is the same estimate methodology as the Artech 4 row, applied to this model\'s own real 1349g/$1,798.00 pair totals.' },
+  { id: 'rw-scope-r4', cat: 'rearwheel', brand: 'Scope', model: 'R4', family: 'scope-r4',
+    wheel: '700c', hub: '12x142', freehub: 'xdr', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 23, maxTire: 65,
+    weight: 718, price: 957.34,
+    verified: true, lastChecked: '2026-07-23', source: 'https://www.scopecycling.com/product/r4-2/',
+    note: 'road-wheels-1 wave: same source/session as the front row — see that row\'s note for the estimate methodology + real pair weight/price sourcing. Freehub: XDR modeled (same Body Type selector pattern as Artech 4 — Shimano/Campagnolo/Microspline/XD(R)/N3W offered; other drivers a disclosed GAP). maxTire/rotorMount/intWidth reasoning identical to the front row.' },
+
   // ===== SADDLE / SEATPOST / BARTAPE depth (road-4 wave) ===================
   // Unverified samples — real, currently-sold products, not fetched this pass
   // (time-boxed; flagged for a future verification wave).
