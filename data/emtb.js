@@ -2102,6 +2102,40 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://www.vitalmtb.com/product/guide/e-bikes/privateer/e161-62261'
   },
 
+  {
+    id: 'em-ktm-macina-kapoho-comp-ltd', cat: 'emtb', brand: 'KTM', model: 'Macina Kapoho COMP LTD',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (BDU3840)', motorTorque: 120,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'Shimano Deore XT M8100-12 1x12',
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 5248, modelYear: 2026,
+    note: 'KTM (Austria)\'s "Macina Kapoho Dimmix CB 160 UDH" carbon frame, DiMMiX mixed wheels (29in front/27.5in rear), Bosch PowerTube 800Wh removable battery (Power Tube Top Loader), Bosch PURION 200 bar-mounted display/remote (not top-tube integrated). No range-extender option mentioned. RockShox 35 Silver TK fork / SR Suntour Tri-Air shock.',
+    desc: 'Sourced from ktm-bikes.at\'s own product page (fetched). Brakes not stated in the fetched spec table (cut off before the brake line) so left uncataloged; no complete-bike weight published on this page. PRICE: EUR 4,599 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,248. catalog/emtb-depth-5 wave (KTM absent -> 3 rows).',
+    lastChecked: '2026-07-23', source: 'https://www.ktm-bikes.at/e-bikes/detail/mx1260014108-macina-kapoho-comp-ltd-l-48-mx1260014108macina-kapoho-comp-ltdgrey-dew-silver-matt-black-1x12-shimano-deore-xt-2026/MX1260014108'
+  },
+  {
+    id: 'em-ktm-macina-kapoho-exonic-di2', cat: 'emtb', brand: 'KTM', model: 'Macina Kapoho EXONIC Di2',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX-R ABS (BDU3863)', motorTorque: 120,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XTR Di2 M9260-11 (electronic)', brakes: 'Shimano XTR M9120',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24900, price: 13373, modelYear: 2026,
+    note: 'Flagship Macina Kapoho: Bosch\'s ABS-integrated CX-R motor, Fox 36 Float Factory E fork + Fox DHX Factory shock (250x75), DT Swiss HXC carbon rims, electronic Shimano XTR Di2 11-speed drivetrain (Race Face ERA-E160 crank, 11-50T), Shimano XTR 4-piston brakes (203/180mm rotors).',
+    desc: 'Sourced from ktm-bikes.co.uk\'s own product page (fetched). Weight 24.9kg (size not specified on the fetched page). PRICE: GBP 9,999 (maker-published, UK store) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $13,373 — disclosed conversion, not a confirmed separate US MSRP. catalog/emtb-depth-5 wave.',
+    lastChecked: '2026-07-23', source: 'https://ktm-bikes.co.uk/products/macina-kapoho-exonic-di2'
+  },
+  {
+    id: 'em-ktm-macina-prowler-master', cat: 'emtb', brand: 'KTM', model: 'Macina Prowler Master',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Gen.4', motorTorque: 85,
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission (T-Type)', brakes: 'Shimano Saint M820',
+    disciplines: ['e-enduro'], weight: 25800, price: 7074, modelYear: 2026,
+    note: 'KTM\'s enduro e-MTB: "Macina Prowler Dimmix Carbon 170 UDH" carbon frame, Fox 38 Float Rhythm E fork + Fox Float X Performance shock (250x75), SRAM GX Eagle Transmission with SRAM POD AXS controller, Shimano Saint 4-piston brakes.',
+    desc: 'Sourced from ktm-bikes.at\'s own product page (fetched). KTM\'s own page shows a discrepancy between this spec table\'s "85 Nm" torque figure and separate marketing copy on the same page quoting "100 Nm/750 W/400%" for what it calls a "BDU384Y" motor — the hard spec-table figure (85 Nm, motor BDU3740, Bosch Performance Line CX Gen.4) is cataloged here as the more reliable of the two conflicting maker-stated numbers; motorPowerPeak left uncataloged given the conflict rather than guessed. Weight 25.8kg, size L. PRICE: EUR 6,199 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,074. catalog/emtb-depth-5 wave.',
+    lastChecked: '2026-07-23', source: 'https://www.ktm-bikes.at/e-bikes/detail/mx1260004108-macina-prowler-master-gx-t-type-l-48-mx1260004108macina-prowler-mastertransparent-space-galaxy-matt1x12-sram-gx-transmission-2026'
+  },
+
 
 ];
 
