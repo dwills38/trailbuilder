@@ -2097,6 +2097,14 @@ var KIT_PARTS = [
     liner:false, disciplines:['trail'], sizes:['S','M','L','XL','2XL'],
     desc:'Lightweight alpine/shoulder-season riding pant, unpadded (chamois sold separately). Price inconsistent across clubrideapparel.com pages this session - entered unverified at the more frequently listed figure.' },
 
+  /* -- Fasthouse breadth (catalog/kit-apparel-brands-1, 2026-07-23): brand had jerseys +
+     one pant but zero gloves. FETCHED both product pages directly. -- */
+  { id:'pnt-fasthouse-shredder', cat:'pants', brand:'Fasthouse', model:'Shredder Pant', price:110,
+    liner:false, disciplines:['trail'], sizes:['28','30','32','34','36','38'],
+    desc:'Everyday riding pant, DWR-treated 4-way stretch (75% polyamide/17% polyester/8% spandex), distinct from the already-cataloged top-of-line Fastline 2.0 pant. No weight stated on the fetched maker page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://www.fasthouse.com/products/shredder-pant-black', sourceType:'manufacturer' },
+
   /* -- Gloves (all UNVERIFIED samples; weight is PER PAIR, approx USD MSRP) -- */
   { id:'glv-fox-dirtpaw', cat:'gloves', brand:'Fox', model:'Dirtpaw', price:39.95, weight:70, sizes:['S','M','L','XL','XXL','3XL','4XL'],
     desc:'CORRECTED 2026-07-17: price is the fetched $39.95 (was sample $30); sizes widened to the fetched S-4XL range. foxracing.com now catalogs this as a Moto (dirt-bike) product, not MTB, but it remains a real, currently-sold crossover glove commonly used for MTB - kept, not removed. No weight published on the fetched page, stays prior sample.',
@@ -2604,6 +2612,10 @@ var KIT_PARTS = [
     source:'https://us.muc-off.com/collections/technical-apparel', sourceType:'manufacturer' },
   { id:'glv-nukeproof-blacklinevapour', cat:'gloves', brand:'Nukeproof', model:'Blackline Vapour Gloves', price:63,
     desc:'Price converted from GBP49.99 (RRP consistently listed across UK retailers of this Nukeproof SKU) at ~1.27 USD/GBP; no nukeproof.com product page with a live USD price was reachable this session - left unverified.' },
+  { id:'glv-fasthouse-impaktutopia', cat:'gloves', brand:'Fasthouse', model:'Impakt Utopia Glove', price:34,
+    desc:'Mesh finger gussets, silicone grippers, perforated Clarino palm; no weight stated on the fetched maker page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://www.fasthouse.com/products/impakt-utopia-glove-black-gray', sourceType:'manufacturer' },
   { id:'glv-zoic-turnt', cat:'gloves', brand:'ZOIC', model:'Turnt Glove', price:35, weight:62,
     sizes:['S','M','L','XL','XXL'],
     desc:'Weight per pair (approx). Price re-confirmed via retailer listings (unchanged) - zoic.com\'s product/category pages 404 or return nav-shell-only content on fetch (JS-rendered catalog, likely bot-walled) despite the homepage itself loading fine, so this stays unverified.'
