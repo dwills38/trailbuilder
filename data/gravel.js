@@ -1878,6 +1878,10 @@ var GRAVEL_PARTS = [
   { id: 'gtp-silca-nastro-cuscino', cat: 'bartape', brand: 'Silca', model: 'Nastro Cuscino',
     family: 'silca-nastro-cuscino', weight: 85, price: 50,
     note: 'gravel-depth-5 new row (2026-07-22): bartape-depth pass — new brand (a premium padded/cushioned gravel-relevant tape, not yet in this file). FETCHED silca.cc/products/nastro-cuscino-bar-tape directly — confirms real/current, "3.75mm of cushion", "230cm +/- 10%" length, and states "NASTRO Bar Tape retails at $50usd" (price matches this row exactly). No weight is published anywhere on the page (only length/thickness) — weight stays an unsourced estimate scaled up from the thinner Fizik Vento Microtex sibling row\'s 41g given this tape\'s roughly 2x cushion thickness — not marked verified:true.' },
+  { id: 'gtp-deda-classico-eva', cat: 'bartape', brand: 'Deda', model: 'Classico EVA', family: 'deda-classico-eva',
+    weight: 42, price: 11,
+    note: 'catalog/gravel-components-1: NEW row — FETCHED dedaelementi.com/deda-tape directly this session. Confirms "42 grams (including plugs)", "180 centimeters" length, 2.8mm thickness. Price EUR10.20 (excl. VAT) converted to a disclosed USD estimate (~$11) since the catalog is USD-basis — priceBasis left unset per this file\'s own conversion convention (a converted estimate isn\'t a maker-stated USD figure).',
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.dedaelementi.com/deda-tape' },
 
 ];
 
