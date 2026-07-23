@@ -251,12 +251,12 @@ test('render: verified rows carry the ✓ badge, unverified rows do not', functi
 });
 
 test('render: the verified badge title names the price basis too — spec-verified is not price-confirmed', function(){
-  var confirmed = clone('ti-maxxis-assegai-29-25-exop-mg', { id:'ti-test-render-confirmed', priceBasis:'msrp-confirmed' });
+  var confirmed = clone('ti-maxxis-aspen-29-24-exo-dual', { id:'ti-test-render-confirmed', priceBasis:'msrp-confirmed' });
   var m1 = BS.buildSheetModel(bl({ frontTire: confirmed }), {}, DEPS);
   var html1 = BS.renderBuildSheetHtml(m1, META, HELPERS);
   ok(html1.indexOf(C.esc(P.priceBasisLabel({ priceBasis:'msrp-confirmed' }))) >= 0, 'confirmed-MSRP wording present in the badge title');
 
-  var m2 = model({ frontTire:'ti-maxxis-assegai-29-25-exop-mg' });   // real catalog row, no priceBasis => sample price
+  var m2 = model({ frontTire:'ti-maxxis-aspen-29-24-exo-dual' });   // real catalog row, no priceBasis => sample price
   var html2 = BS.renderBuildSheetHtml(m2, META, HELPERS);
   ok(html2.indexOf(C.esc(P.priceBasisLabel({}))) >= 0, 'sample-price wording present in the badge title even though the spec is verified');
 });
