@@ -1804,6 +1804,19 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://www.amflowbikes.com/pl-carbon/specs'
   },
 
+
+  {
+    id: 'em-forestal-cyon-neon', cat: 'emtb', brand: 'Forestal', model: 'Cyon Neon',
+    motorBrand: 'forestal', motorModel: 'Forestal EonDrive (Bafang-built)', motorTorque: 60, motorPowerPeak: 400,
+    batteryWh: 360, batteryRemovable: true, rangeExtender: true, assist: 'lightweight',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X01 Eagle 1x12', brakes: 'Magura MT7 4-piston',
+    disciplines: ['e-trail'], weight: 18490, price: 13463.90, modelYear: 2026,
+    note: 'Spanish maker Forestal\'s lightweight-class trail e-MTB (distinct from the full-power e-Siryon already in this catalog) — Alpha Box carbon frame w/ the "Twin Levity" single-pivot suspension linkage, RockShox Pike Ultimate Charger 2.1 fork / RockShox Super Deluxe Ultimate RCT shock, Crankbrothers Synthesis Carbon E7 wheels, Forestal Smart Dashboard top-tube display; Neon is the mid tier of the three-bike Cyon range (Halo below, Diode above).',
+    desc: 'Sourced from BikeRadar\'s and MBR\'s independent reviews, both quoting Forestal\'s own spec sheet: BikeRadar ("Motor Forestal EonDrive motor, 360Wh Aurora Performance battery... up to 60Nm of torque and 250W of nominal power... built by Bafang... 150mm-travel", 18.49kg, price EUR 11,799/GBP 10,999) and MBR ("60Nm torque from the Bafang-built EonDrive motor, paired with a 360Wh battery... Frame: Alpha Box Carbon, 150mm travel... Fork: RockShox Pike Ultimate... Motor: Forestal EonDrive, 400W/60Nm"). No direct forestal.com product-page fetch this session for the Cyon line specifically (the existing catalog\'s Siryon row already documents forestal.com as a JS-heavy SPA requiring the browser pane; that step was not repeated here for a second Forestal model given the two independent editorial confirmations) — entered unverified via the credible-source breadth policy. PRICE: EUR 11,799.00 (BikeRadar\'s quoted EU price) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $13,463.90 (close to BikeRadar\'s own independently-quoted GBP 10,999 -> USD conversion, both disclosed as reviewer-sourced, not a maker-fetched MSRP). Introduces motorBrand:"forestal" to EMTB_VOCAB (distinct from the existing Siryon row\'s "avinox" motorBrand — the Cyon\'s EonDrive is a different, Bafang-built, lightweight-class motor, not the AVINOX full-power unit). catalog/emtb-breadth-brands-1 wave (Forestal deepened from 1 row to 2).',
+    lastChecked: '2026-07-23', source: 'https://www.bikeradar.com/reviews/bikes/electric-bikes/forestal-cyon-neon-review'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
