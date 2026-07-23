@@ -89,6 +89,55 @@ test('an out-of-vocab headTube value is still caught', function(){
   ok(probs.some(function(m){ return /headTube.*not in headTube/.test(m); }), probs.join('\n'));
 });
 
+// vocab-race (2026-07-23): race BB shells (bb86/bb30/pf30), race thru-axles
+// (15mm/20mm), and the non-integrated threadless external-cup headset
+// (threadless-1-1/8). Additive to the shared BMX_VOCAB, so the schema accepts
+// them everywhere the field reads that vocab.
+test('race press-fit BB shells (bb86/bb30/pf30) are valid bbShell values', function(){
+  var frame = aFrame();
+  ['bb86', 'bb30', 'pf30'].forEach(function(shell){
+    eq(S.validateBmxPart(Object.assign({}, frame, { bbShell: shell }), TODAY).length, 0, shell + ' should validate');
+  });
+  var bad = Object.assign({}, frame, { bbShell: 'bb47' });
+  ok(S.validateBmxPart(bad, TODAY).some(function(m){ return /bbShell.*not in bbShell/.test(m); }), 'a fabricated shell is still caught');
+});
+
+test('race thru-axles (15mm/20mm) are valid axle values on frame/fork/wheel', function(){
+  var frame = aFrame();
+  ['15mm', '20mm'].forEach(function(a){
+    eq(S.validateBmxPart(Object.assign({}, frame, { rearAxle: a }), TODAY).length, 0, 'frame.rearAxle ' + a);
+  });
+  var fork = D.BMX_PARTS.find(function(x){ return x.cat === 'fork'; });
+  if(!fork) throw new Error('no BMX fork row');
+  eq(S.validateBmxPart(Object.assign({}, fork, { axle: '15mm' }), TODAY).length, 0, 'fork.axle 15mm');
+  var fwheel = D.BMX_PARTS.find(function(x){ return x.cat === 'frontWheel'; });
+  if(!fwheel) throw new Error('no BMX frontWheel row');
+  eq(S.validateBmxPart(Object.assign({}, fwheel, { axle: '20mm' }), TODAY).length, 0, 'frontWheel.axle 20mm');
+});
+
+test('pegs stay 10mm/14mm ONLY - the widened axle vocab must not leak into peg bores', function(){
+  var peg = D.BMX_PARTS.find(function(x){ return x.cat === 'pegs'; });
+  if(!peg) throw new Error('no BMX pegs row');
+  ['10mm', '14mm'].forEach(function(a){
+    eq(S.validateBmxPart(Object.assign({}, peg, { axleFit: a }), TODAY).length, 0, 'peg axleFit ' + a + ' still valid');
+  });
+  ['15mm', '20mm'].forEach(function(a){
+    var bad = Object.assign({}, peg, { axleFit: a });
+    ok(S.validateBmxPart(bad, TODAY).some(function(m){ return /axleFit.*not in pegAxle/.test(m); }), 'a fabricated ' + a + ' peg bore is rejected');
+  });
+});
+
+test('threadless-1-1/8 (non-integrated external-cup) is a valid headTube/steerer/fit value', function(){
+  var frame = aFrame();
+  eq(S.validateBmxPart(Object.assign({}, frame, { headTube: 'threadless-1-1/8' }), TODAY).length, 0, 'frame.headTube');
+  var fork = D.BMX_PARTS.find(function(x){ return x.cat === 'fork'; });
+  if(!fork) throw new Error('no BMX fork row');
+  eq(S.validateBmxPart(Object.assign({}, fork, { steerer: 'threadless-1-1/8' }), TODAY).length, 0, 'fork.steerer');
+  var hs = D.BMX_PARTS.find(function(x){ return x.cat === 'headset'; });
+  if(!hs) throw new Error('no BMX headset row');
+  eq(S.validateBmxPart(Object.assign({}, hs, { fit: 'threadless-1-1/8' }), TODAY).length, 0, 'headset.fit');
+});
+
 test('an unknown category is rejected', function(){
   var frame = aFrame();
   var bad = Object.assign({}, frame, { cat: 'e-motor' });

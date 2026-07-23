@@ -134,6 +134,33 @@ test('matching peg and axle diameters are silent', function(){
   eq(of(r, 'bmx-peg-axle').length, 0);
 });
 
+/* ---- BMX-9 axle match: wheel hub axle vs frame/fork dropout (race, 2026-07-23) */
+test('a fatter hub axle than the dropout errors; a thinner one warns with a conversion-axle fix; matched is silent', function(){
+  // FRONT: fork dropout vs front-wheel hub axle. Synthetic 15/20mm clones (no
+  // race thru-axle wheels ship in the dataset yet - this is the vocab-only pass).
+  var fw20 = /** @type {any} */ (Object.assign({}, bp('bmx-fw-odyssey-vandero'), { id:'bmx-fw-synthetic-20', axle:'20mm' }));
+  var rErr = BMX.checkBmxBuild({ fork: bp('bmx-fk-odyssey-r32'), frontWheel: fw20 });   // 20mm hub in 10mm dropout
+  eq(rErr.errors.filter(function(v){ return v.ruleId === 'bmx-axle'; }).length, 1, 'a 20mm hub axle will not fit a 10mm dropout - ERROR');
+
+  var fork20 = /** @type {any} */ (Object.assign({}, bp('bmx-fk-odyssey-r32'), { id:'bmx-fk-synthetic-20', axle:'20mm' }));
+  var rWarn = BMX.checkBmxBuild({ fork: fork20, frontWheel: bp('bmx-fw-odyssey-vandero') });   // 10mm hub in 20mm dropout
+  var w = rWarn.warnings.filter(function(v){ return v.ruleId === 'bmx-axle'; });
+  eq(rWarn.errors.length, 0, 'the adapter direction is never an error');
+  eq(w.length, 1, 'a 10mm hub in a 20mm dropout runs on a conversion axle - WARNING');
+  ok(w[0].fix && w[0].fix.kind === 'adapter', 'carries the structured conversion-axle fix');
+
+  var rOk = BMX.checkBmxBuild({ fork: bp('bmx-fk-odyssey-r32'), frontWheel: bp('bmx-fw-odyssey-vandero') });   // 10mm / 10mm
+  eq(of(rOk, 'bmx-axle').length, 0, 'matched front axles are silent');
+});
+test('the rear axle check reads frame.rearAxle vs the rear hub, same direction-aware logic', function(){
+  // matched 14/14 (every freestyle build) is silent - the freestyle-byte-identity guard.
+  var rOk = BMX.checkBmxBuild({ frame: bp('bmx-fr-kink-williams'), rearWheel: bp('bmx-rh-cult-matchv2') });   // 14mm / 14mm
+  eq(of(rOk, 'bmx-axle').length, 0, 'a matched 14mm freestyle rear end never trips the new rule');
+  var frame10 = /** @type {any} */ (Object.assign({}, bp('bmx-fr-kink-williams'), { id:'bmx-fr-synthetic-rear10', rearAxle:'10mm' }));
+  var rErr = BMX.checkBmxBuild({ frame: frame10, rearWheel: bp('bmx-rh-cult-matchv2') });   // 14mm hub in 10mm dropout
+  eq(rErr.errors.filter(function(v){ return v.ruleId === 'bmx-axle'; }).length, 1, '14mm hub in a 10mm race dropout - ERROR');
+});
+
 /* ---- BMX-5 gyro: dormant tabs/dual-cable checks + live brakeless info ------- */
 test('gyro tab + dual-cable checks fire ONLY on explicit sourced negatives', function(){
   var noTabs = /** @type {any} */ (Object.assign({}, bp('bmx-fr-kink-williams'), { id:'bmx-fr-synthetic-notabs', gyroTabs:false }));
