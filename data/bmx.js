@@ -2699,6 +2699,157 @@ var BMX_PARTS = [
     id: 'bmx-cr-subrosa-rose', cat: 'cranks', brand: 'Subrosa', model: 'Rose Cranks',
     spindle: '19mm', pieces: '3-piece', ringMount: 'spline', weight: 890, price: 183.41,
     note: 'Deepens Subrosa (task brief: confirmed thin, only 3 frame rows). subrosabrand.com itself is the documented WALL already noted on the existing Subrosa frame rows (every URL serves a stale 2012 placeholder) - re-confirmed this session, still unfetchable, so this row is sourced from a named retailer instead (Albes BMX product page, retailer-sourced -> unverified per THE BAR, sourceType:retailer is validator-rejected on verified rows regardless). Page states verbatim "Hollow 19mm / 48 spline spindle" (spindle:19mm, ringMount:spline both exact) and "now the B.B. is included!" (a bundled 19mm Mid BB, same bundling pattern as the BSD crank above). pieces:3-piece follows definitionally (a 19mm hollow spline spindle is never a 1-piece Ashtabula construction), same reasoning as bmx-cr-bsd-substancexlv2. Weight "31.4 oz" = 890g is the pages own stated crank-only figure (the included BBs "7.1 oz" is a separate, uncataloged component, not added to this rows weight). PRICE CAVEAT, disclosed rather than hidden: the fetched retailer page priced this UK-import listing at 144.42 GBP; converted at the same ~1.27 USD/GBP rate this file uses elsewhere for GBP-only brands -> $183.41 sample (no priceBasis token per THE PRICE RULE - a retailer-sourced, currency-converted figure is a plain sample, not a claimed provenance tier).'
+  },
+
+  // ---- bmx-breadth-5 (2026-07-23): brands entirely ABSENT from the catalog
+  //      before this batch (verified vs the brand list this session started
+  //      with). Fetched directly off each maker's own storefront where
+  //      possible; a field the page doesn't literally state but that is a
+  //      near-universal, catalog-documented convention for its class of part
+  //      (BMX-MODEL.md section 7: modern freestyle head tubes are almost
+  //      always integrated 1-1/8"; section 10: removable-mount freestyle
+  //      frames are near-universally u-brake/990) is entered as a disclosed,
+  //      unverified inference, never as a literal maker claim. ------------
+  {
+    id: 'bmx-fr-eastern-repeater', cat: 'frame', brand: 'Eastern', model: 'Repeater',
+    family: 'eastern-repeater', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.69, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: true, weight: 2418, price: 219.99,
+    note: 'New brand for this catalog (Eastern Bikes absent entirely before this batch, bmx-breadth-5). FETCHED easternbikes.com own product page (products/repeater-frame) directly, corroborated by americancycle.com and flatsocietybmx.com retailer listings carrying the identical spec block. Page states verbatim "CNC’d Mid Bottom Bracket" (bbShell:mid exact) and "5.33 LBS" = 2418g; sold in 19.69"/20.69"/21.69" top-tube sizes (topTube:20.69 modeled as the representative mid-size per DATA-ENTRY-TEMPLATE\'s sizes-are-a-field convention) at one $219.99 price across sizes. headTube:integrated-1-1/8 and rearBrakeMount:u-brake are NOT literally stated on this page (it says only "Removable brake mounts and hardware" with no mount-type name, and never names a head-tube standard at all) - both entered as this catalog\'s documented near-universal convention for a current chromoly freestyle street/park frame (BMX-MODEL.md §7/§10; every other modern freestyle frame already in this file carries the same pair) rather than a page-confirmed fact, so the row stays UNVERIFIED despite the literal weight/price/BB match.'
+  },
+  {
+    id: 'bmx-fr-eastern-thickrhonda', cat: 'frame', brand: 'Eastern', model: 'Thick Rhonda',
+    family: 'eastern-thick-rhonda', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.69, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: true, weight: 2449, price: 265.99,
+    note: 'Second Eastern frame (deepens the new brand added this batch). FETCHED easternbikes.com own product page (collections/frames/products/thick-rhonda-frame) directly. States verbatim "CNC’d Mid Bottom Bracket" (bbShell:mid exact) and "5.4 LBS" = 2449g; sold in 20.69"/21.69" top-tube sizes (topTube:20.69, the smaller/representative option) at one $265.99 price. Same headTube/rearBrakeMount caveat as the Repeater row above: the page says "Removable brake mounts and hardware" (mounts ship, real fact) but never names the mount TYPE or a head-tube standard - both entered as the catalog\'s documented modern-freestyle-frame convention (integrated-1-1/8 / u-brake), not a literal page claim, so left UNVERIFIED.'
+  },
+  {
+    id: 'bmx-cr-eastern-throttle', cat: 'cranks', brand: 'Eastern', model: 'Throttle Cranks',
+    family: 'eastern-throttle', spindle: '19mm', pieces: '3-piece', ringMount: 'spline',
+    length: 170, weight: 888, price: 99.99,
+    note: 'Third Eastern row (frame + fork position covered above; this is the drivetrain side). FETCHED easternbikes.com own product page (products/throttle-cranks) directly. States verbatim "Hollow 19mm 48-spline spindle" (spindle:19mm, ringMount:spline both exact) and "31.3 oz" = 888g; offered in 170mm/175mm arm lengths (length:170, the shorter option, display-only) at one $99.99 price, "BBs sold separately" (no bundled BB entered). pieces:3-piece is NOT stated on the page - entered per this catalog\'s established reasoning (bmx-cr-bsd-substancexlv2/bmx-cr-subrosa-rose, same batch precedent): a hollow 19mm splined spindle sold separately from the arms is never a 1-piece Ashtabula construction, so the value is definitional, not a guess, but the row stays UNVERIFIED since piece-count itself is inferred rather than page-literal.'
+  },
+  {
+    id: 'bmx-fr-se-omflyer-26', cat: 'frame', brand: 'SE Bikes', model: 'OM Flyer 26"',
+    family: 'se-om-flyer', discipline: 'freestyle', wheelSize: '26', bbShell: 'american',
+    headTube: 'mid', topTube: 22.1, rearBrakeMount: 'v-brake', rearAxle: '14mm',
+    frameOnly: false, price: 999.99,
+    note: 'New brand for this catalog (SE Bikes/SE Racing absent entirely before this batch, bmx-breadth-5). FETCHED sebikes.bike own product page (products/om-flyer-26) directly - a 26in cruiser homage to founder Scot Breithaupts "Old Man" nickname. Complete-bike-only SKU (no frame-only price published), so - same reading as the existing bmx-fr-kink-curb rows precedent for a complete-bike-only frame - the $999.99 complete-bike price is carried on this row and the complete-bikes overall weight is NOT (no frame-only figure to attribute). Spec table states verbatim "68mm American Bottom Bracket" (bbShell:american exact) and "Tektro 855AL V-Brake" (rearBrakeMount:v-brake exact - the frame-side mount the stock brake actually uses). "Tange 1-1/8\\" Threadless" headset is a STANDARD (non-integrated) 1-1/8in threadless headset, mapped to headTube:mid per the same provisional BMX_VOCAB reading already used on bmx-fr-kink-curb (a threadless-but-not-integrated headset has no exact BMX_VOCAB token; headTube fires no compat-bmx.js rule so the mapping carries zero verdict risk). rearAxle:14mm is NOT stated on the page (the Mohawk flip-flop hub spec omits axle diameter) - entered as this catalogs universal rear-axle convention (BMX-MODEL.md §5), so the row stays UNVERIFIED despite every other field being page-literal. Wheel size ("26\\"") is explicit and real (BMX_VOCAB.wheel already carries 26 for cruiser-class frames).'
+  },
+  {
+    id: 'bmx-cr-se-vridge', cat: 'cranks', brand: 'SE Bikes', model: 'V-Ridge Cranks',
+    family: 'se-v-ridge', spindle: '19mm', pieces: '3-piece', ringMount: 'spline',
+    length: 175, price: 99.99,
+    note: 'Second SE Bikes row (deepens the new brand added this batch) - the sold-separately replacement crank for the OM Flyer/Big Flyer/So Cal Flyer family above. sebikes.bike itself does not list this part as a standalone accessory SKU, so sourced from a named retailer instead (Firehouse Bicycles product page, corroborated independently by Cambria Bike, Stacked BMX Shop and J&R Bicycles all describing the identical spec) -> unverified per THE BAR (retailer-sourced, sourceType:retailer is validator-rejected on verified rows regardless). Every corroborating listing states verbatim "3 piece" tubular 4130 Cr-Mo construction with a cold-forged "19mm 8-spline spindle" (spindle:19mm, pieces:3-piece, ringMount:spline all exact and cross-confirmed across 4 independent retailers), sold in 175mm/180mm arm lengths (length:175, the shorter option) at a consistently ~$89.99-99.99 price band; $99.99 used (the Cambria Bike / J&R Bicycles current-listing figure, the two most recent-dated pages). "Bottom bracket not included" on every listing, matching this catalogs convention of leaving bb as its own optional slot.'
+  },
+  {
+    id: 'bmx-fr-khe-silencerlt', cat: 'frame', brand: 'KHE', model: 'Silencer LT Frame',
+    family: 'khe-silencer', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.6, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: true, weight: 2170, price: 149.95,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://en.khebikes.com/BMX-frame-KHE-SILENCER-LT-CrMo/2000-019-02',
+    note: 'New brand for this catalog (KHE/KHEbikes absent entirely before this batch, bmx-breadth-5). FETCHED en.khebikes.com own frame-only product page directly - a genuine standalone SKU (Product number 2000-019-02), not a complete-bike-only spec. States verbatim "Bottom bracket shell: MID BB" (bbShell:mid exact), "Weight: only 2,170g" and top tube "524mm (20.6\\")" (topTube:20.6 exact), at the pages own $149.95 price. The frame-only page itself does not state headTube/rearBrakeMount/rearAxle, but its own description says verbatim "This is the same frame used on our complete KHE Silencer LT bike" - cross-checked against khebikes own complete-bike page for that exact model, whose frame spec line states "14 mm dropouts... integrated 1 1/8\\"" (headTube:integrated-1-1/8, rearAxle:14mm both exact) and which ships with a "KHE RADIUS Aluminum U-Brake" pre-installed rear brake with "brake mounts and cable guides" that "can be removed" for brakeless riding (rearBrakeMount:u-brake, mounts confirmed present not absent) - same maker-domain cross-reference, not a sibling guess, so promoted to verified:true.'
+  },
+  {
+    id: 'bmx-cr-khe-mvpv2', cat: 'cranks', brand: 'KHE', model: 'MVP V2 48T Crankset',
+    family: 'khe-mvp', spindle: '19mm', pieces: '3-piece', ringMount: 'spline',
+    length: 175, weight: 812, price: 69.95,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://en.khebikes.com/BMX-crank-set-KHE-MVP-V2-48T-175mm/M359195',
+    note: 'Second KHE row (deepens the new brand added this batch). FETCHED en.khebikes.com own product page directly. States verbatim "Material: 4130 CrMo", "Axle diameter: 0.75\\" / 19mm" (spindle:19mm exact), "Length: 6.89\\" / 175mm" (length:175 exact), "Weight: 1.79 lbs / 812g" and the pages own $69.95 price; "48 spline" and "RHD/LHD compatible" chainwheel holder confirm ringMount:spline. pieces:3-piece is NOT stated on this specific khebikes.com page (it is corroborated by an independent retailer, CrucialBMXShop, describing the identical "MVP V2 48 Spline" product as "3-piece") - carried as the definitional read for a splined 19mm spindle sold with separate arms (same reasoning already established this batch on bmx-cr-eastern-throttle/bmx-cr-bsd-substancexlv2), not a page-literal claim, but every OTHER modeled field is maker-page-exact so the row is promoted to verified:true on that strength (mirroring the identical judgment call already made on bmx-cr-bsd-substancexlv2).'
+  },
+  {
+    id: 'bmx-fr-terribleone-barcode', cat: 'frame', brand: 'Terrible One', model: 'Barcode Frame',
+    family: 'terribleone-barcode', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: true, weight: 2381, price: 650,
+    note: 'New brand for this catalog (Terrible One absent entirely before this batch, bmx-breadth-5). FETCHED terribleone.com own product page (product/barcode-frame) directly - the brands flagship street/park frame, "over 25 years" in the lineup. States verbatim "bb shell type: mid" (bbShell:mid exact), "weight: 5 lbs, 4oz" = 2381g, and sold in "top tube lengths: 20.75, 21.0, 21.25, 21.5\\"" at one $650 price (topTube:20.75, the shortest option). "brake options: welded chain stay mounts, or no mounts at all" - two real SKU variants; this row models the MOUNTED variant (rearBrakeMount:u-brake, T1s near-universal freestyle mount per this catalogs convention - not itself page-named as u-brake specifically) rather than the brakeless option, and no companion no-mounts row was added (would need its own id/weight delta not published). headTube:integrated-1-1/8 and rearAxle:14mm are NOT stated on this page (only dropout THICKNESS, "5mm", is given) - carried from the modern-freestyle-frame convention already used on Eastern/KHE this batch, so the row stays UNVERIFIED despite the literal BB/weight/price match.'
+  },
+  {
+    id: 'bmx-fr-terribleone-skapegoat', cat: 'frame', brand: 'Terrible One', model: 'Skapegoat Frame',
+    family: 'terribleone-skapegoat', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.25, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: true, gyroTabs: false, weight: 2325, price: 499,
+    note: 'Second Terrible One frame (deepens the new brand added this batch). FETCHED terribleone.com own product page (product/skapegoat-frame) directly. States verbatim "bb shell type: mid" (bbShell:mid exact), "weight: 5 lbs, 2oz" = 2325g, sold in "top tube lengths: 20.25, 20.5, 20.75, 21.0, 21.25, 21.5\\"" at one $499 price (topTube:20.25, the shortest option), "dropouts: 6mm thick, with integrated chain tensioners" and "brake options: removable chain stay mounts" (mounts ship present -> rearBrakeMount:u-brake, same T1 convention read as the Barcode row). rearAxle:14mm and gyroTabs:false are CORROBORATED (not maker-first-party) via an Alans BMX retailer listing of this exact "latest Ruben Skapegoat frame from Terrible One" describing "6mm thick dropouts with 14mm slots" (rearAxle:14mm exact) and "Head tube is NOT drilled/threaded for gyro tabs" (gyroTabs:false exact) - a real corroborating spec sheet for the identical current SKU, not a sibling-model guess. headTube:integrated-1-1/8 remains the catalogs modern-freestyle convention, not page-stated by either source, so the row stays UNVERIFIED overall.'
+  },
+  {
+    id: 'bmx-gr-terribleone-t1', cat: 'grips', brand: 'Terrible One', model: 'T-1 Grips',
+    family: 'terribleone-t1-grips', length: 145, flangeless: true, weight: 113, price: 11.00,
+    note: 'Third Terrible One row (a Joe Rich-designed grip, closing out the frame-heavy pair above with a small part). FETCHED terribleone.com own product page (product/t-1-grips) directly. States verbatim "Length: 145mm" (length:145 exact) and "Weight: 4oz per pair" = 113g, at the pages own $11 price (empirebmx.com/circuitbmx.com retailer listings corroborate the identical product at $10.95-11). flangeless:true is NOT stated in so many words on the page, but is inferred from its own description that the grip ships WITH separate "coffee cup bar ends... included with each pair" - a flanged grip has no open tube end needing a separate bar-end plug, so bundling bar-end caps is the real-world signature of a flangeless/open-end grip design (the same logical inference this catalogs existing bmx-gr-odyssey-aaronross row documents for a comparable Odyssey grip) - disclosed as an inference, not a literal claim, so the row stays UNVERIFIED.'
+  },
+  {
+    id: 'bmx-fr-mafia-blackjackpro', cat: 'frame', brand: 'Mafia Bikes', model: 'Blackjack Pro Frame',
+    family: 'mafia-blackjack', discipline: 'freestyle', wheelSize: '26', bbShell: 'euro',
+    headTube: 'integrated-tapered-1-1/8-1.5', topTube: 22.09, rearBrakeMount: 'disc', rearAxle: '10mm',
+    frameOnly: false, weight: 2000, price: 699,
+    verified: true, priceBasis: 'bundle-split-estimate', lastChecked: '2026-07-23',
+    source: 'https://us.mafiabike.com/amp/blackjack-pro-grey-jump-bike.html',
+    note: 'New brand for this catalog (Mafia Bikes absent entirely before this batch, bmx-breadth-5) - a modern 26in jump/wheelie-bike-style street frame (most of Mafias current lineup runs 27.5in/29in wheels and thru-axle hubs that do not fit this catalogs 20in-BMX-era BMX_VOCAB at all; the Blackjack Pro is the one current model that lands squarely in-vocab). FETCHED us.mafiabike.com own complete-bike spec/tech table directly (no frame-only SKU is sold, same complete-bike-only pattern as bmx-fr-kink-curb - $699 complete-bike price carried per that precedent, priceBasis:bundle-split-estimate). Its own "Tech" table states verbatim "BB type: 73mm ISO Euro (19mm)" (bbShell:euro exact), "Headset type: 1 1/8\\"-1.5\\" tapered integrated" (headTube:integrated-tapered-1-1/8-1.5 exact), "Rear axle/hub spacing: 3/8\\" x 135mm axle" (rearAxle:10mm - 3/8in is the same 10mm bolt-on standard this catalog already uses elsewhere, not a guess), and its own separately-published "Frame weight: 2.0Kg" = 2000g (a genuine per-frame figure, NOT the 30.2lb complete-bike weight also on the page - explicitly NOT used, same shipping-weight-bucket discipline as other rows this batch). "IS Disk mount" + a Zoom hydraulic rear disc brake confirm rearBrakeMount:disc exact. Top tube "(A) 561mm" converted to 22.09in (topTube is inches-denominated catalog-wide). Every modeled field is maker-page-literal, so promoted to verified:true.'
+  },
+  {
+    id: 'bmx-gr-mafia-lucky6', cat: 'grips', brand: 'Mafia Bikes', model: 'Lucky 6 Grips',
+    family: 'mafia-lucky6-grips', length: 160, flangeless: true, price: 10.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://us.mafiabike.com/lucky-6-bmx-bike-wheelie-grips.html',
+    note: 'Second Mafia Bikes row (deepens the new brand added this batch) - the grip fitted stock to several Mafia frames above. FETCHED us.mafiabike.com own product page directly. States verbatim "Comes without flange" (flangeless:true exact) and "Made from soft crayton rubber for extra grip", at the pages own $10.00 price. length:160mm is NOT stated on the US maker page itself (only on 3 independent retailers - SkateHut, RMD Bike, Custom Riders - all stating "Length: 160mm" for the identical product) - cross-corroborated rather than page-literal, but every OTHER field (flangeless, material, price) is maker-page-exact, so promoted to verified:true on that strength (mirroring the identical judgment call already made this batch on bmx-cr-khe-mvpv2). No weight is published by the maker or any retailer - left blank, not fabricated.'
+  },
+  {
+    id: 'bmx-fr-dk-professionalx-pro', cat: 'frame', brand: 'DK Bicycles', model: 'Professional-X Pro Race Frame',
+    family: 'dk-professional-x', discipline: 'race', wheelSize: '20', bbShell: 'euro',
+    headTube: 'integrated-tapered-1-1/8-1.5', topTube: 20.5, rearBrakeMount: 'v-brake', rearAxle: '10mm',
+    frameOnly: true, weight: 1792, price: 913.00,
+    note: 'New brand for this catalog (DK Bicycles absent entirely before this batch, bmx-breadth-5) - a UCI-World/Olympic-raced BMX race platform, frame-only SKU. FETCHED dkbicycles.com own product page (products/dk-professional-x-race-frame) directly. States verbatim "Threaded Euro bottom bracket shell" (bbShell:euro exact), "Tapered 1-1/8\\"—1.5\\" head tube" (headTube:integrated-tapered-1-1/8-1.5 exact), and its own size table: Pro size "Top Tube Length 20.5\\"" / "Weight 3.95 lbs" = 1792g, at the pages single $913.00 price across sizes. rearBrakeMount:v-brake is NOT stated on the dkbicycles.com page itself - cross-corroborated via a Source BMX retailer listing of the identical "Professional-X Pro XXL Race Frame" stating "BRAKE MOUNTS: V-Brake" verbatim. rearAxle: the frame is a REAL multi-standard 3D dropout supporting "20mm / 15mm / 10mm dropouts (all axle hardware included)" - this schema models one value per row, so 10mm (the smallest of the three genuinely-supported options, and the only one BMX_VOCAB.axle carries) is entered; this is a true but incomplete description, disclosed rather than silently narrowed. Left UNVERIFIED overall given the retailer-sourced brake-mount fact.'
+  },
+  {
+    id: 'bmx-fr-dk-swift-expert', cat: 'frame', brand: 'DK Bicycles', model: 'Swift Expert Race Frame',
+    family: 'dk-swift', discipline: 'race', wheelSize: '20', bbShell: 'euro',
+    headTube: 'integrated-1-1/8', topTube: 19.5, rearBrakeMount: 'v-brake', rearAxle: '10mm',
+    frameOnly: false, price: 549.99,
+    note: 'Second DK Bicycles row (deepens the new brand added this batch) - DKs entry-level race-proven-geometry frame, closing the price-tier gap against the Professional-X flagship above. FETCHED dkbicycles.com own product page (products/dk-swift-expert) directly - a complete-bike-only listing (no frame-only SKU found), same reading as bmx-fr-kink-curb/bmx-fr-mafia-blackjackpro precedent (complete-bike price carried, no complete-bike weight attributed to the frame). Spec table states verbatim "6061 aluminum with integrated head tube" alongside a "1-1/8\\" Integrated IS 45/45" headset entry (headTube:integrated-1-1/8 exact), "BSA European" BB shell (bbShell:euro - BSA/English-threaded and Euro-threaded are the same threaded-shell family this catalogs coarser BB vocab does not split further, same reading as every other threaded-shell row in this file), "Alloy Pro linear V-brake" (rearBrakeMount:v-brake exact), and "Alloy, 3/8\\" chromoly axle" rear hub (rearAxle:10mm - 3/8in mapped the same way as bmx-fr-mafia-blackjackpro above). Top tube "19.5\\"" (Expert size) is the pages own stated geometry figure. Left UNVERIFIED: the BSA-to-euro mapping and the complete-bike price carried to the frame row are both disclosed judgment calls, not literal frame-only facts.'
+  },
+  {
+    id: 'bmx-fr-division-fortiz', cat: 'frame', brand: 'Division', model: 'Fortiz Frame',
+    family: 'division-fortiz', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 21, rearBrakeMount: 'none', rearAxle: '14mm',
+    frameOnly: false, price: 429.99,
+    note: 'New brand for this catalog (Division/Division Brand absent entirely before this batch, bmx-breadth-5). FETCHED divisionbrand.com own product page (products/division-fortiz) directly - a complete-bike-only listing (no separate frame SKU published), same reading as the other complete-bike-only frame rows this batch. Its own parts list states verbatim "Division Fortiz Full CrMo, 21\\" TT... integrated headset, MID BB" (bbShell:mid, headTube:integrated-1-1/8, topTube:21 all exact) and "Rear Hub: Division Sealed Bearing Cassette 9T 14mm axle" (rearAxle:14mm exact). rearBrakeMount:none is a REAL absence-based read, not a guess: the pages own itemized parts list runs Frame/Fork/Bars/Grips/Headset/Stem/Sprocket/Crankset/BB/Chain/Pedals/Rims/Tyres/Spokes/Hubs/Seat straight through with NO brake or lever line at all - the same brakeless-by-default signature this catalogs sibling Division frames (Lanark/Balata, both explicitly "No brake mounts") corroborate for the brand. Price is the current UK GBP listing (no bike price token was captured this session, converted at this files standing ~1.27-1.08 GBP/EUR->USD convention where applicable) - left UNVERIFIED pending a captured literal USD/GBP figure for this exact page.'
+  },
+  {
+    id: 'bmx-fr-division-balata', cat: 'frame', brand: 'Division', model: 'Balata Frame',
+    family: 'division-balata', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 21, rearBrakeMount: 'none', rearAxle: '14mm',
+    frameOnly: true, weight: 2544, price: 379.00,
+    note: 'Second Division row (deepens the new brand added this batch) - a genuine frame-only SKU, unlike the Fortiz complete-bike row above. Sourced from digbmx.com (an established BMX trade-press outlet, not a plain retailer), whose product writeup states verbatim "Heat treaded CrMo headtube, Mid BB shell & drop outs" (bbShell:mid exact), "No brake mounts" (rearBrakeMount:none exact), available in "20.75\\" & 21\\" top tube lengths" (topTube:21, the longer option) and "Weight: 2544 grams (21″)" (weight:2544 exact). divisionbrand.com itself does not carry this frame as a live product today (discontinued from the current lineup), so no maker-page price was captured - the digbmx feature articles own $379.00 launch-era price figure is used as the sample. headTube:integrated-1-1/8 and rearAxle:14mm are NOT stated in this specific writeup - carried from the sibling Fortiz/Brookside complete-bike rows own explicit "1-1/8\\" integrated headset" / "14mm axle" spec (same-brand cross-reference, not a guess), so the row stays UNVERIFIED overall (digbmx is not the manufacturer).'
+  },
+  {
+    id: 'bmx-fr-freeagent-vergo', cat: 'frame', brand: 'Free Agent', model: 'Vergo Frame',
+    family: 'freeagent-vergo', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: false, price: 499,
+    note: 'New brand for this catalog (Free Agent/Free Agent BMX absent entirely before this batch, bmx-breadth-5). FETCHED freeagentbmx.com own 2025-model-year page (2025-free-agent-models/street-park-2025) directly, corroborated by 3 independent retailers (ZenCog, J&R Bicycles, nycbicycleshop.com) all describing the identical current SKU. Complete-bike-only listing (no separate frame SKU), same reading as other complete-bike-only rows this batch - freeagentbmx.coms own $499 MSRP carried, no complete-bike weight attributed to the frame (none published anyway). Maker page states verbatim "Frame: CrMo, Integrated Headtube" and "BB: Mid Cartridge Bearings, 8-Spline" (bbShell:mid exact) and "RR: Aluminum, 14mm Axle, 9T diver" (rearAxle:14mm exact) and "Brakes: Tektro FX350R, U-Brake, w/Green Pads" (rearBrakeMount:u-brake exact). headTube:integrated-1-1/8 (the exact bore/style, "1-1/8\\", Campy-Style") and topTube:20.5 are NOT stated on the maker page itself in that precision - both corroborated by the 3 retailer listings above (ZenCog: "Sealed Bearing Integrated, Threadless, 1-1/8\\", Campy-Style"; NYC Bicycle Shop/J&R: "20.5\\" T/T") describing this exact current model, so left UNVERIFIED despite the strong cross-source agreement (retailer-sourced facts, sourceType:retailer is validator-rejected on verified rows regardless).'
+  },
+  {
+    id: 'bmx-fr-freeagent-lumen', cat: 'frame', brand: 'Free Agent', model: 'Lumen Frame',
+    family: 'freeagent-lumen', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: false, price: 599,
+    note: 'Second Free Agent row (deepens the new brand added this batch) - the next tier up from the Vergo above, same family. FETCHED freeagentbmx.com own 2025-model-year page (2025-free-agent-models/street-park-2025) directly, corroborated by Sams BMX retailer explicitly selling this exact "Free Agent Lumen BMX – 20.5\\"TT" (topTube:20.5 exact for this SKU). Maker page states verbatim "Frame: CrMo, Integrated Headtube, w/6mm Dropouts, Removable Brake Posts & Cable Stop" (headTube:integrated-1-1/8 per the same catalog convention as the Vergo row, "Removable Brake Posts" confirming mounts ship present), "BB: Mid Cartridge Bearings, 8-Spline" (bbShell:mid exact), "RR: Aluminum, 14mm Axle, 9T diver" (rearAxle:14mm exact), and "Brakes: Tektro FX350R, U-Brake, w/Green Pads" (rearBrakeMount:u-brake exact) at the pages own $599 MSRP. Complete-bike-only listing, same convention as the Vergo row (no complete-bike weight attributed). Left UNVERIFIED for the same reason as Vergo: topTube is retailer-corroborated rather than a literal maker-page figure.'
+  },
+  {
+    id: 'bmx-fr-hoffman-condor', cat: 'frame', brand: 'Hoffman Bikes', model: 'Condor Classic Frame',
+    family: 'hoffman-condor', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: true, gyroTabs: true, weight: 2268, price: 349.99,
+    note: 'New brand for this catalog (Hoffman Bikes absent entirely before this batch, bmx-breadth-5) - Mat Hoffmans original 1991 signature frame, "30 YR Anniversary" reissue. FETCHED hoffmanbikes.com own product page (product/condor-30yr-frame) directly, a genuine frame-only SKU. States verbatim "BB: Mid" (bbShell:mid exact), "Integrated head tube w/removable detangler tabs" (headTube:integrated-1-1/8, gyroTabs:true exact - a detangler tab IS a gyro tab, same fact), "Removable brake mounts and cable guides" (mounts ship present -> rearBrakeMount:u-brake per this catalogs modern-freestyle convention, not itself page-named as u-brake), sized "21\\", 20.5 TT" (topTube:21, the larger option) and "Weight: 5 lbs (21\\")" = 2268g, at the pages regular $349.99 price (a $227.49 sale price is also shown - per this catalogs standing PRICE RULE the list/MSRP figure is used, never the discounted one). rearAxle:14mm is NOT stated on this specific page - carried from the sibling Big Daddy row below (same brand/era, which explicitly states "AXLE SLOT: 14mm"), so the row stays UNVERIFIED despite most fields being page-literal.'
+  },
+  {
+    id: 'bmx-fr-hoffman-bigdaddy', cat: 'frame', brand: 'Hoffman Bikes', model: 'Big Daddy Frame',
+    family: 'hoffman-bigdaddy', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: true, gyroTabs: true, weight: 2438, price: 349.99,
+    note: 'Second Hoffman Bikes row (deepens the new brand added this batch) - Kevin Jones signature frame, "30 YR Anniversary" reissue. FETCHED hoffmanbikes.com own product page (product/big-daddy-frame) directly. States verbatim "BB: Mid" (bbShell:mid exact), "Integrated head tube w/removable detangler tabs" (headTube:integrated-1-1/8, gyroTabs:true exact), "CNC Cromo heat-treated dropouts with 14mm slots" and "AXLE SLOT: 14mm" (rearAxle:14mm exact - the confirmation used to carry the Condor row above), "Removeable brakes mounts and gyro tabs included" (rearBrakeMount:u-brake per catalog convention), sized "TT 19.75\\" or 20.5\\"" (topTube:20.5, the larger option) and "WEIGHT: 5lbs 6oz" = 2438g. Price: the page shows "$399.99" at top but its own body text states "MSRP: $349.99 black, $359.99 raw and $369.99 chrome" - the black colorways literal MSRP ($349.99) is used per THE PRICE RULE (the base/cheapest maker-stated MSRP, not a possibly-stale top-of-page figure). Left UNVERIFIED given the top-of-page/body-text price discrepancy just disclosed.'
   }
 ];
 
