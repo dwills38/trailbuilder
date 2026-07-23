@@ -322,6 +322,17 @@ var EMTB_PARTS = [
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.ibiscycles.com/bikes/oso-tr'
   },
   {
+    id: 'em-ibis-oso-hd-90', cat: 'emtb', brand: 'Ibis', model: 'Oso HD 90',
+    family: 'ibis-oso', motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 120, motorPowerPeak: 750,
+    batteryWh: 600, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 165,
+    frameMaterial: 'carbon', drivetrain: 'SRAM Eagle 90 T-Type', brakes: 'SRAM Maven',
+    disciplines: ['e-enduro'], weight: 23450, price: 8999,
+    note: "The longest-travel member of the Oso family (HD/TR/S travel classes on a shared modular chassis) — same Bosch Gen 5 CX motor and 600Wh battery + optional 250Wh PowerMore extender as em-ibis-oso (Oso TR), stretched to 180mm front/165mm rear for full enduro/gravity use. Single build kit ('90', SRAM Eagle 90 Transmission).",
+    desc: "Fetched from the maker's own oso-hd product page. Motor/battery/extender fields match the sibling Oso TR row exactly (same drivetrain platform, independently confirmed on this bike's own page, not carried over blind). Frame/travel/wheel-size and the single '90 Build' $8,999 price are maker-stated; drivetrain confirmed as SRAM Eagle 90 (brake model tier not broken out on the fetched page, so kept at the SRAM Maven family name only). Weight is the maker-stated complete-build claimed figure (\"51.7 lbs / 23.45kg with all protection/sealant\", size/shock variant not specified).",
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.ibiscycles.com/bikes/oso-hd'
+  },
+  {
     id: 'em-santa-cruz-vala-al-deore', cat: 'emtb', brand: 'Santa Cruz', model: 'Vala AL Deore 2026',
     family: 'santa-cruz-vala', gen: '2026', modelYear: 2026,
     motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (BDU38, Gen 5 Smart System)', motorTorque: 85,
