@@ -2283,6 +2283,28 @@ var EMTB_PARTS = [
     note: 'Second-tier Intrigue X Advanced E+ build on the same carbon chassis/motor/battery as the Elite 1, cable-actuated Shimano SLX drivetrain instead of SRAM AXS Transmission.',
     desc: 'Fetched from liv-cycling.com\'s own product page (browser render). Fox 36 Float fork / Fox Float Performance shock.',
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.liv-cycling.com/us/intrigue-x-advanced-eplus-elite-2-2024'
+  },
+  {
+    id: 'em-bianchi-e-omnia-fx-type-gx-12sp', cat: 'emtb', brand: 'Bianchi', model: 'e-Omnia FX-Type GX 12SP',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 85, motorPowerPeak: 250,
+    batteryWh: 482, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle 12-speed', brakes: 'Shimano BL-MT501 (203mm)',
+    disciplines: ['e-enduro'], weight: 26080, price: 5500, modelYear: 2023,
+    note: 'Base-tier e-Omnia FX-Type: 6061 aluminum frame, RockShox Yari RC fork / Deluxe Select+ RL shock (both 150mm), Bosch PowerTube 500 (482.4Wh, "PowerTube 500" naming). An upgrade to a Deore XT drivetrain + the larger 625Wh PowerTube ("FX-Type XT") is offered for a stated +$400.',
+    desc: 'Fetched via electricbikereview.com\'s full spec-table review (Bosch/SRAM/Shimano/RockShox part numbers all matched, consistent with Bosch\'s own published CX 85Nm/250W figures).',
+    lastChecked: '2026-07-23', source: 'https://electricbikereview.com/bianchi/2023-e-omnia-fx-type-gx-12sp/'
+  },
+  {
+    id: 'em-bianchi-e-omnia-fx-type-xt', cat: 'emtb', brand: 'Bianchi', model: 'e-Omnia FX-Type XT',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 85, motorPowerPeak: 250,
+    batteryWh: 625, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore XT 1x12', brakes: 'Shimano BL-MT501 (203mm)',
+    disciplines: ['e-enduro'], weight: null, price: 5900, modelYear: 2023,
+    note: 'Upper-mid e-Omnia FX-Type trim: same aluminum chassis as the GX 12SP, Fox 36 Rhythm fork / Fox Float DPS Performance shock (160/150), Shimano Deore XT drivetrain, larger 625Wh Bosch PowerTube.',
+    desc: 'Motor/battery/travel confirmed via electricbikereview.com\'s XT-trim coverage; no weight published for this trim (left null rather than guessed). PRICE: derived as the GX 12SP\'s $5,500 base plus the reviewer-quoted "+$400 for the XT upgrade" (electricbikereview.com), not an independently confirmed price listing.',
+    lastChecked: '2026-07-23', source: 'https://electricbikereview.com/bianchi/2023-e-omnia-fx-type-gx-12sp/'
   }
 
 ];
