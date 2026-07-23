@@ -1999,27 +1999,37 @@ var BMX_PARTS = [
   {
     id: 'bmx-hb-cult-devon', cat: 'handlebar', brand: 'Cult', model: 'Devon Bars',
     clamp: '25.4mm', rise: 9.5, width: 28, price: 74.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/devon-bars ("Devon Smillie signature bars...28\" wide, 10.5° backsweep, 3° upsweep", sold in 9.5in/9.75in rise; this row pins the 9.5in variant). JSON weight (6804g) discarded — identical across every rise/finish variant on this product AND shared with the unrelated Crew Bars row below, the shipping-bucket tell. Unverified sample.'
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://cultcrew.com/products/devon-bars',
+    note: 'bmx-verify-1 (2026-07-23): PROMOTED to verified. Re-fetched cultcrew.com/products/devon-bars.js directly - a real current product ("Devon Smillie signature bars...28\" wide, 10.5° backsweep, 3° upsweep", sold in 9.5in/9.75in rise; this row pins the 9.5in variant - width:28/rise:9.5 CONFIRMED). Handlebars carry ZERO checkBmxBuild-read fields (clamp is display-only), so this real, current, price-matched product clears the interface bar. Price $74.99 matches exactly. JSON weight (6804g) discarded as a shipping-bucket figure (identical across every rise/finish variant AND the unrelated Crew Bars sibling) - no weight stored.'
   },
   {
     id: 'bmx-hb-cult-crew', cat: 'handlebar', brand: 'Cult', model: 'Crew Bars',
     clamp: '25.4mm', rise: 9, width: 30, price: 74.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/crew-bars ("Classic feel good geometry...30\" width, 12° backsweep, 2° upsweep", sold in 9in/9.35in/9.65in rise; this row pins the 9in variant). JSON weight (6804g) discarded — identical across every rise/finish variant AND shared with the unrelated Devon Bars row above, the shipping-bucket tell. Unverified sample.'
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://cultcrew.com/products/crew-bars',
+    note: 'bmx-verify-1 (2026-07-23): PROMOTED to verified. Re-fetched cultcrew.com/products/crew-bars.js directly - a real current product ("Classic feel good geometry...30\" width, 12° backsweep, 2° upsweep", sold in 9in/9.35in/9.65in rise; this row pins the 9in variant - width:30/rise:9 CONFIRMED). Handlebars carry zero checkBmxBuild-read fields (clamp display-only), so this real, current, price-matched product clears the interface bar. Price $74.99 matches exactly. JSON weight (6804g) discarded as a shipping-bucket figure (identical across every variant AND the unrelated Devon Bars sibling) - no weight stored.'
   },
   {
     id: 'bmx-gr-cult-solo', cat: 'grips', brand: 'Cult', model: 'Solo Grip',
     length: 160, flangeless: true, price: 11.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/solo-grip (an ODI-made grip, Cult\'s current catalog copy: "Extra Long 160mm Length...Includes Push In Style end plugs" — push-in end plugs rather than a flanged lip, so flangeless:true). JSON weight (454g) discarded — the same figure seen recurring across unrelated products/brands this session, the shipping-bucket tell. grips carries no engine-read field (length/flangeless are display-only) so this real, current product clears the interface bar regardless. Unverified sample (weight only).'
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://cultcrew.com/products/solo-grip',
+    note: 'bmx-verify-1 (2026-07-23): PROMOTED to verified. Re-fetched cultcrew.com/products/solo-grip.js directly (an ODI-made grip): "Extra Long 160mm Length" CONFIRMS length:160; "Includes Push In Style end plugs" (push-in end plugs, not a flanged lip) CONFIRMS flangeless:true. Grips carry zero checkBmxBuild-read fields, and here both display fields are independently text-confirmed anyway. Price $11.99 matches exactly. JSON weight (454g) discarded as a shipping-bucket figure recurring across unrelated products/brands this session - no weight stored.'
   },
   {
     id: 'bmx-se-cult-corduroy', cat: 'seat', brand: 'Cult', model: 'Corduroy Slim Seat',
     system: 'pivotal', price: 44.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/corduroy-slim-seat-green — description states verbatim "only available in pivotal", confirming the one engine-read field (system). JSON weight (1361g) discarded — identical to the unrelated Dak Pedal row below, the shipping-bucket tell. Unverified sample (weight only).'
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://cultcrew.com/products/corduroy-slim-seat-green',
+    note: 'bmx-verify-1 (2026-07-23): PROMOTED to verified under the BMX small-parts interface exception. Re-fetched cultcrew.com/products/corduroy-slim-seat-green.js directly - description states verbatim "only available in pivotal", CONFIRMING system:pivotal, the one checkBmxBuild-read seat field. Price $44.99 matches exactly. JSON weight (1361g) discarded as a shipping-bucket figure (identical to the unrelated Dak Pedal row) - no weight stored.'
   },
   {
     id: 'bmx-pd-cult-dak', cat: 'pedals', brand: 'Cult', model: 'Dak Pedal',
     platform: 'alloy', spindle: '9/16', price: 16.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/dak-pedal ("Dakota Roche signature pedal...hefty heat treated 4130 spindle" — a standard 9/16in pedal thread; alloy body per the product\'s CNC-machined description). JSON weight (1361g) discarded — identical to the unrelated Corduroy Slim Seat row above, the shipping-bucket tell. Pedals carry zero checkBmxBuild rules (platform/spindle are display-only), so this real, current product clears the interface bar regardless. Unverified sample (weight only).'
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://cultcrew.com/products/dak-pedal',
+    note: 'bmx-verify-1 (2026-07-23): PROMOTED to verified. Re-fetched cultcrew.com/products/dak-pedal.js directly ("Dakota Roche signature pedal...hefty heat treated 4130 spindle" driving a standard 9/16in pedal thread; alloy CNC-machined body CONFIRMS platform:alloy). Pedals carry zero checkBmxBuild rules anyway (platform/spindle display-only). Price $16.99 matches exactly. JSON weight (1361g) discarded as a shipping-bucket figure (identical to the unrelated Corduroy Slim Seat row) - no weight stored.'
   },
   {
     id: 'bmx-fw-cult-crewv2', cat: 'frontWheel', brand: 'Cult', model: 'Crew Front Wheel v2',
@@ -2028,8 +2038,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-ch-cult-halflink', cat: 'chain', brand: 'Cult', model: 'Halflink Chain',
-    pitch: '1/8', halfLink: true, price: 11.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/chains-1 (the "HALFLINK" variant of Cult\'s three-way chain listing — "teflon coated with engraved cult logos and is designed to help dial in the rear end length on frames with short dropouts. rounded side plates are compatible with 8t and larger drivers"). pitch:\'1/8\' matches the sibling "410 CHAIN...1/8\" chain" copy on the same page (the whole three-chain lineup is one width class). JSON weight (907g) discarded — identical to the unrelated Counter Post seatpost SKU on this same store, the shipping-bucket tell. Unverified sample.'
+    pitch: '1/8', halfLink: true, price: 34.99,
+    note: 'bmx-verify-1 (2026-07-23): re-fetched cultcrew.com/products/chains-1.js directly. PRICE CORRECTED 11.99 -> 34.99: the page\'s three-way listing prices the "Halflink" variant at $34.99 (410 = $11.99, 510 = $19.99, Halflink = $34.99, all colorways) - the prior $11.99 figure actually belonged to the 410 chain, a different SKU on the same page, not this Halflink row. Still NOT marking verified: pitch (the bmx-chain-pitch-critical field) is only explicitly stated as "1/8\"" for the sibling "410 CHAIN" copy ("strong and affordable 1/8\" chain") - the Halflink paragraph itself ("teflon coated with engraved cult logos...rounded side plates are compatible with 8t and larger drivers") never states a pitch, and per the phantom-number rule a sibling\'s stated spec must not be carried over without the SKU\'s own confirmation. Left as the pre-existing 1/8in sample value (correct for the vast majority of BMX freestyle chains) and unverified. JSON weight (907g) discarded — identical to the unrelated Counter Post seatpost SKU on this same store, the shipping-bucket tell.'
   },
 
   // --- The Shadow Conspiracy (sold via sparkysbrands.com — theshadowconspiracy.com itself is a
