@@ -1714,6 +1714,19 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://ebike-mtb.com/en/gasgas-ecc-6-2024-group-review/'
   },
 
+
+  {
+    id: 'em-simplon-rapcon-e', cat: 'emtb', brand: 'Simplon', model: 'Rapcon :e',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Gen5', motorTorque: 85,
+    batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XT Di2 12-speed (Ultimate package)', brakes: null,
+    disciplines: ['e-trail', 'e-enduro'], weight: 22800, price: 7986.61, modelYear: 2026,
+    note: 'Austrian maker\'s carbon enduro/all-mountain e-MTB — 4-bar rear end, 38mm-stanchion fork across all packages, RockShox Deluxe rear shock (205x62.5mm trunnion), mullet-convertible via flip chip (cataloged at the stock full-29in setup), Bosch Kiox 400c top-tube display, up to 150kg system weight rating.',
+    desc: 'Fetched directly from the maker\'s own product page (simplon.com/en/Bikes/E-Mountain-Bikes/Rapcon-e_b_1149826): "Frame material Carbon", "Travel (rear/front) 160 mm / 160 mm", "Motor BOSCH PL CX Gen5", "Battery 600 / 800 Wh", "Total bike weight from 22,8 kg", "fork travel/length/OFFSET 160/576/44 mm", "shock size (eye to eye length X HUB) 205 x 62,5 mm", "lower shock hardware Trunnion", starting price "from EUR 6,999.00". Cataloged at the larger 800Wh battery option (the page offers both 600/800Wh — no single fixed-spec SKU is pinned, so this row represents the top-line CORE/Ultimate-package spec); brakes not stated on the fetched page section, left uncataloged. PRICE: EUR 6,999.00 ("from") maker-published starting price converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,986.61; Simplon has no US retail presence, no USD MSRP exists — disclosed "from" sample, not a pinned single-SKU verified price. catalog/emtb-breadth-brands-1 wave (first Simplon row — brand was fully absent).',
+    lastChecked: '2026-07-23', source: 'https://www.simplon.com/en/Bikes/E-Mountain-Bikes/Rapcon-e_b_1149826'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
