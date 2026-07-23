@@ -71,6 +71,16 @@ test('completeBikeSheetVerified and partVerified are genuinely different claims 
   ok(C.completeBikeSheetVerified(cb), 'the bike row itself is verified');
   ok(!C.partVerified(cb), 'but not every one of its ~20 fills is independently verified yet — partVerified stays false');
 });
+/* Douglas's ruling, 2026-07-23: the ✓ badge on a COMPLETE BIKE means the bike's
+   OWN spec sheet + price are verified — NOT that every fill is verified (each
+   fill still shows its own status). This pins that exact reading against the
+   opposite (all-fills-verified) interpretation, which would flip both cases below. */
+test('completebike badge follows the bike-row ruling, not an all-fills-verified reading', function(){
+  var verifiedRow = C.byId('cb-revel-ritual-sram-eagle90');
+  ok(C.completeBikeSheetVerified(verifiedRow), 'bike row verified + not every fill verified -> badge is still true (rules out an all-fills-required reading)');
+  var unverifiedRow = C.byId('cb-rose-scrub-dc3');
+  ok(!C.completeBikeSheetVerified(unverifiedRow), 'bike row unverified -> badge is false even though some of its fills ARE independently verified (rules out an any-fill-verified reading)');
+});
 
 /* ---- fisherYatesShuffle(): the "Random" catalog sort's shuffle ----------- */
 test('fisherYatesShuffle returns a permutation - same elements, none dropped or duplicated', function(){
