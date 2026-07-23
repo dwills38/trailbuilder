@@ -69,7 +69,19 @@ var GRAVEL_VOCAB = {
   // would have kept a false flat-mount claim alive in a second field. 'disc-post'
   // backs the Hope RX4+ Postmount caliper row. Rule R17 compares only the
   // disc-vs-rim CLASS (roadBrakeClass), so neither token changes any verdict.
-  brakeSystem:  ['disc-flat', 'disc', 'disc-hydraulic', 'disc-is', 'disc-post'],
+  brakeSystem:  ['disc-flat', 'disc', 'disc-hydraulic', 'disc-is', 'disc-post', 'disc-mechanical'],
+  // 'disc-mechanical' added catalog/gravel-microshift-sword (2026-07-23) — the
+  // CABLE/mechanical-disc BRIFTER token, real on the microSHIFT Sword shifter
+  // (gsft-microshift-sword-2x10): every prior gravel brifter in this file was
+  // hydraulic (disc-hydraulic), but Sword drop-bar levers pull cable ("Compatible
+  // with road pull brakes", microshift.com/models/sb-g7020-b/). The token already
+  // lived in the shared engine's ROAD_VOCAB.brakeSystem (src/compat-road.js line
+  // ~71, documented there as a brifter-side granularity); it just never reached
+  // this per-file vocab because no cable-lever gravel row existed yet. Engine
+  // rule R19 (brifterBrakeCheck) reads it: roadBrakeClass('disc-mechanical')='disc'
+  // and it is not 'disc-hydraulic', so a Sword cable lever behind a HYDRAULIC
+  // caliper correctly ERRORS (a true won't-fit — no fluid column to drive) and
+  // stays silent against a mechanical-disc caliper.
   bb:           ['bsa-road', 'bb86', 'bb30a', 'pf30', '24mm-road', 'dub', 'dub-wide', 'ultra-torque', 'bbright', 't47-road', 'bb386evo', 't47-86', 'pf92', 'square-taper', 'bsa-73', 't47a-bbright'],   // 'pf86' retired 2026-07-21 — merged into 'bb86' (same physical 86.5mm press-fit shell; see schema-road.js's header note). Fixes the 2 Giant Revolt frames that had NO matching BB row under the old split. 'pf92' added gravel-verify-1 (2026-07-21) — the Salsa Cutthroat's own frame-specs table states "Bottom Bracket Press Fit BB92, 41 x 92 mm", an MTB-style 92mm press-fit shell distinct from every existing gravel BB token (BB86 is 86.5mm). 'square-taper' added vocab-tier1 (2026-07-22) — an older/budget touring-adjacent shell real on the Marin Nicasio+ (a retailer spec table states verbatim "Sealed Cartridge Bearings, Square Taper"), the exact non-fit this file's own header comment previously logged rather than force-fit. 'bsa-73' added vocab-tier1 (2026-07-22) — a 73mm-wide English-threaded MTB-derived shell, real on the Kona Sutra LTD (its own dedicated build spec table states "B/B SRAM GXP 73mm", corroborated by a bikepacking.com review's "73mm bottom bracket shell... 68mm shells be damned"), distinct from the narrower 68mm bsa-road token already in this vocab. 't47a-bbright' added vocab-tier1 (2026-07-22) — an asymmetric T47-threaded shell (Cervelo's own evolution of its BBRight standard, distinct from both the plain 't47-road' and 'bbright' tokens already in this vocab). Directly FETCHED cervelo.com/en-US/bikes/aspero (the manufacturer's own current Aspero platform page): "Aspero uses the asymmetrical T47a threaded bottom bracket we pioneered on R5-CX... allows us to deliver the benefits of BBRight in a more user-friendly form" — corroborated identically by a directly-fetched bikeradar.com Aspero-5 review build table ("Bottom bracket SRAM DUB Wide Ceramic, T47 BBright") and bikerumor.com ("a threaded T47 bottom bracket – well an asymmetric BBRight T47a BB"). No Aspero-5 catalog row was added this pass: the same review's build table also names an "FSA IS2 1-1/4, 45°x45° / 1-1/2, 36°x45°" headset — a 1-1/4-to-1-1/2 tapered class, WIDER than this vocab's existing generic 'tapered' token (which every other tapered gravel frame/fork in this file implicitly means as 1-1/8-to-1-1/2) — outside this pass's ratified steerer scope (only 'tapered'/'straight-1-1-8'/'straight-1-1-4' were ratified), so forcing plain 'tapered' onto it would be a false interface claim; deferred to a future pass alongside a steerer-vocab widening.
   shell:        ['bsa-road', 't47-road', 'bb86', 't47-86'],
   spindle:      ['24mm-road', 'dub', 'square-taper'],   // 'square-taper' added vocab-tier1 (2026-07-22), paired with the bb shell token above — the matching crank-side interface for a square-taper BB shell (no cataloged gravel crank currently uses it; landed for schema completeness alongside the shell token, same discipline as every other shell/spindle pair in this vocab).
@@ -143,12 +155,28 @@ var GRAVEL_VOCAB = {
   actuation:    ['di2-wired', 'mechanical', 'axs-wireless', 'hydraulic'],
   side:         ['pair'],
   system:       ['shimano-grx-12', 'shimano-grx-11', 'shimano-grx-10', 'sram-xplr-12', 'sram-xplr-13', 'sram-apex-mech-12',
-                  'campag-ekar-13', 'sram-axs-road', 'hg', 'flattop', 'campag'],
+                  'campag-ekar-13', 'sram-axs-road', 'hg', 'flattop', 'campag', 'microshift-sword-10'],
   // 'shimano-grx-10' added gravel-depth-3 (2026-07-22) — the RX400 2x10 tier,
   // confirmed still a current Shimano product line (bike.shimano.com's own GRX
   // series page lists "GRX RX400 10-Speed Mechanical Shifting Options" among
   // its live tiers), was previously unbuildable: no 10-speed system token
   // existed. Real product line, not a force-fit.
+  // 'microshift-sword-10' added catalog/gravel-microshift-sword (2026-07-23) —
+  // the FIRST microSHIFT drivetrain in this catalog, closing the FD-G7020
+  // vocab-gap this file's own header comment (gravel-components-1) logged: a
+  // real, current, fully-mechanical 2x-10 drop-bar gravel group (microSHIFT
+  // Sword) that had NO matching system token because microSHIFT was
+  // unrepresented here. Backed by 4 real rows landed in the SAME wave
+  // (gsft-microshift-sword-2x10, gfd-microshift-sword-g7020-brazeon,
+  // grd-microshift-sword-g7025l-2x, gca-microshift-sword-g105-11-38), each
+  // FETCHED from microshift.com's own model pages. Its chain standard is HG
+  // (ROAD_SYSTEM_CHAIN['microshift-sword-10']='hg' in src/compat-road.js, added
+  // in the same commit — every Sword page states "compatible with standard 10
+  // speed chain"); the drivetrain runs the existing gch-shimano-cn-hg54-10
+  // 10-speed HG chain (microSHIFT publishes no Sword-branded chain). This is a
+  // road-parity drop-bar group (integrated brifters, HG freehub, HG chain) —
+  // the same class as the Shimano GRX mechanical tiers already here, NOT a
+  // road-shifter+MTB-mech mullet.
   cage:         ['gs', 'sgs', 'xplr'],
   /* SPLIT engine/gravel-is-mount (2026-07-22) out of one shared `mount` vocab
      that held ['flat-mount','center-lock','6-bolt'] for BOTH brake.mount (a

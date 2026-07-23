@@ -182,6 +182,19 @@ var ROAD_VOCAB = {
                     standard HG-compatible 11-speed chain interface, a genuinely distinct
                     system from sram-apex-mech-12 (T-Type/Flattop, 12-speed) — never conflate. */
                  'sram-rival22-11',
+                 /* 'microshift-sword-10' ADDED catalog/gravel-microshift-sword
+                    (2026-07-23): microSHIFT Sword, a real current fully-mechanical
+                    2x-10 (and 1x-10) drop-bar gravel groupset — the first microSHIFT
+                    drivetrain in either dataset, landed in GRAVEL_VOCAB.system with 4
+                    backing rows (shifter/FD/RD/cassette), each fetched from
+                    microshift.com. Road-parity class (integrated brifters, HG freehub,
+                    HG chain), the same shape as the Shimano GRX mechanical tiers. Its
+                    ROAD_SYSTEM_CHAIN entry below maps it to 'hg' — every Sword model page
+                    states "compatible with standard 10 speed chain"; the group runs the
+                    existing 10-speed HG chain (gch-shimano-cn-hg54-10). MUST be added
+                    here AND in ROAD_SYSTEM_CHAIN in the same commit or R15 goes silently
+                    dormant for the whole tier (the shimano-grx-10 lesson). */
+                 'microshift-sword-10',
                  'campag-ekar-13', 'campag-12', 'campag-11'],
   /* the road SPLIT of MTB's cable/electronic — the R14 CONTROL axis
      (shifter/FD/RD only). DELIBERATELY NOT WIDENED with 'hydraulic'
@@ -518,6 +531,17 @@ var ROAD_SYSTEM_CHAIN = {
   'sram-axs-road': 'flattop', 'sram-xplr-12': 'flattop', 'sram-xplr-13': 'flattop',
   'sram-apex-mech-12': 'flattop',
   'sram-rival22-11': 'hg',
+  /* 'microshift-sword-10' -> 'hg', ADDED catalog/gravel-microshift-sword
+     (2026-07-23). microSHIFT Sword runs a standard HG-family 10-speed chain:
+     every Sword component page states it verbatim — the shifter
+     (microshift.com/models/sb-g7020-b/), FD (fd-g7020), RD (rd-g7025l:
+     "Compatible with standard 9, 10 speed chains") and cassette (cs-g105-11-38t:
+     "Compatible with standard 10 speed chain") — and microSHIFT publishes no
+     Sword-branded chain, so the drivetrain uses the existing 10-speed HG chain
+     already in data/gravel.js (gch-shimano-cn-hg54-10, system:'hg'). The chainStd
+     axis is width-class only, so the coarse token is 'hg', same as every Shimano
+     road/GRX tier. */
+  'microshift-sword-10': 'hg',
   'campag-ekar-13': 'campag', 'campag-12': 'campag', 'campag-11': 'campag'
 };
 
