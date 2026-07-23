@@ -14,9 +14,10 @@
 <meta name="theme-color" id="metaThemeColor" content="#16523a" />
 <!--
   BuildMyBMX — a SEPARATE page (root-level, like index.html), wired live on
-  Douglas's 2026-07-17 go-live word (memory: bmx-golive). Loads src/compat.js
-  (for the shared Verdict/verdictKey primitives — src/compat-bmx.js's browser
-  path reads them off globalThis, so compat.js MUST load first), then
+  Douglas's 2026-07-17 go-live word (memory: bmx-golive). Loads
+  src/verdict-core.js (for the shared Verdict/verdictKey/fisherYatesShuffle
+  primitives — src/compat-bmx.js's browser path reads them off globalThis, so
+  verdict-core.js MUST load first), then
   src/compat-bmx.js (checkBmxBuild/BMX_GROUPS/BMX_SLOTS/bmxGearInfo/
   bmxBuildTotals — previously OFF-LIVE, now the live engine for this page),
   then data/bmx.js (BMX_PARTS — previously OFF-LIVE, now the live catalog for
@@ -522,7 +523,12 @@
   </div>
 </dialog>
 
-<script src="src/compat.js"></script>
+<!-- verdict-core.js MUST stay ABOVE compat-bmx.js: that engine reads Verdict +
+     verdictKey off the globals at PARSE TIME, and this page's own script reads
+     verdictKey/fisherYatesShuffle. src/compat.js is deliberately NOT loaded —
+     it is ~7 MB of MOUNTAIN BIKE catalog no BMX visitor can ever see, and the
+     three primitives it used to be loaded for now live in verdict-core.js. -->
+<script src="src/verdict-core.js"></script>
 <script src="src/pricing.js"></script>
 <script src="src/compat-bmx.js"></script>
 <script src="src/discontinued-archive.js"></script>
@@ -532,7 +538,8 @@
    BuildMyBMX page glue (browser-only; not type-checked, like index.html's
    inline script). Reads BMX_GROUPS/BMX_SLOTS/BMX_PARTS/checkBmxBuild/
    bmxGearInfo/bmxBuildTotals/bmxSlotRequired (src/compat-bmx.js + data/bmx.js)
-   and the shared Verdict/verdictKey primitives (src/compat.js, loaded first).
+   and the shared verdictKey/fisherYatesShuffle primitives (src/verdict-core.js,
+   loaded first). This page does NOT load src/compat.js — see the tag comment.
    ========================================================================== */
 (function(){
   'use strict';
