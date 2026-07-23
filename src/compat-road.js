@@ -240,7 +240,11 @@ var ROAD_VOCAB = {
      asymmetric threaded SHELL standard, never a crank spindle, which is also why
      it stays OUT of crankBb below. */
   bbShell:      ['bsa-road', 'bb86', 'bb386evo', 'bbright', 'pf30', 't47-road', 'italian',
-                 'bb90-road', 'bb30a', 't47-86', 'pf92', 'bsa-73', 'square-taper', 't47a-bbright', 't47-73'],
+                 'bb90-road', 'bb30a', 't47-86', 'pf92', 'bsa-73', 'square-taper', 't47a-bbright', 't47-73', 'threadfit82-5'],
+  /* 'threadfit82-5' added catalog/gravel-breadth-5 (2026-07-23) — Colnago's own
+     proprietary press-fit-adapter shell (G3-X, also V3-RS/C64), a real ~82.5mm
+     shell distinct from the 86.5mm-class bb86/t47-86 tokens already here; see
+     GRAVEL_VOCAB.bb's note in schema-gravel.js for the sourcing. */
   /* 'square-taper' RECONCILED engine/road-vocab-map (2026-07-22) from
      GRAVEL_VOCAB.spindle, which vocabs bb.spindle ONLY — an unambiguous one-field
      key, so the crank-side attribution needs no guess. No cataloged gravel crank or
