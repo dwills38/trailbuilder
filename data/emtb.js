@@ -1688,6 +1688,19 @@ var EMTB_PARTS = [
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://bullsbikesusa.com/products/copperhead-evo-am-1-750'
   },
 
+
+  {
+    id: 'em-fantic-xmf17-carbon-race', cat: 'emtb', brand: 'Fantic', model: 'XMF 1.7 Carbon Race',
+    motorBrand: 'brose', motorModel: 'Brose S Mag', motorTorque: 90,
+    batteryWh: 720, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle AXS (SX Eagle 12s 11-50T cassette, SX Eagle chain, SRAM 34T Eagle X-Sync 2 ring)', brakes: null,
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 9459.15, modelYear: 2026,
+    note: 'Italian maker\'s flagship All Mountain e-MTB — carbon front triangle / aluminum rear end / carbon seatstay, mullet (29in/27.5in) wheels, RockShox Zeb Select fork + RockShox Deluxe Select+ 205x57.5mm shock, Fantic\'s own 720Wh battery, size S/M/L.',
+    desc: 'Fetched directly from the maker\'s own product page (fanticbikes.com/en/products/xmf-1-7-carbon-race-black, redirected from fantic.com): tech-specs table states "Fantic All mountain, 170mm travel... 29\\"-27,5\\" wheels" frame, "RockShox Deluxe Select+ 205x57,5mm" shock, "RockShox Zeb Select 170mm" fork, "Fantic 720Wh" battery, "Brose S Mag 90Nm" motor, "Sram GX Eagle AXS" derailleur/shifter, "Sram SX Eagle 12s" chain, "Sram SX Eagle 12s 11-50" cassette, "Sram 34T Eagle technology X-Sync 2" chainring, price EUR 8,290.00. The page states no complete-bike weight or brake spec (a common Fantic-page omission) — both left uncataloged rather than guessed. PRICE: EUR 8,290.00 maker-published price converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $9,459.15; Fantic has no US retail presence for this SKU (fanticbikes.com is the EU/UK shop), so no USD MSRP exists — disclosed sample, not a "verified" price. catalog/emtb-breadth-brands-1 wave (first Fantic row — brand was fully absent).',
+    lastChecked: '2026-07-23', source: 'https://fanticbikes.com/en/products/xmf-1-7-carbon-race-black'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
