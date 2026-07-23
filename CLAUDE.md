@@ -15,20 +15,19 @@ unverified specs as real. See "Provenance" below.
 
 ## Hard rules (Douglas — non-negotiable)
 
-1. **E-BIKES ARE CONTAINED (rule amended on Douglas's explicit word, 2026-07-18).** The MTB
-   catalog (`src/compat.js` `PARTS`) remains **100% e-bike-free permanently** — no e-bike / e-MTB /
-   motor / battery / e-specific part may EVER enter it, and no other catalog gains e-parts either.
-   The ONLY e-bike surface is **BuildMyEMTB** (`data/emtb.js` + its own schema/validator + a future
-   separate `emtb.html` page — the BuildMyBMX pattern), authorized reluctantly by Douglas
-   2026-07-18, now **LIVE (2026-07-20 flip; see rule 3)**. **FIRST-CLASS as of 2026-07-23
-   (Douglas: "stop minimizing e-exposure, i want the EMTB site to be just as complete as the
-   other sites"):** the EMTB catalog is treated EXACTLY like every other category — same breadth,
-   depth, verification, and quality investment, AND normal communication (route e-MTB decisions/
-   detail to him the same as MTB/road/gravel — no compact-packet-only, no minimize-exposure, no
-   "low priority," no distaste-as-policy). The 2026-07-22 even-weight ruling already covered
-   catalog investment; this drops the last communication caveat ("take out any bias i may have
-   presented"). Structural containment (`data/emtb.js` only; MTB stays 100% e-free) is the ONLY
-   special rule that remains.
+1. **ONE CATALOG PER SURFACE — datasets never bleed into each other.** Every bike type is its own
+   first-class catalog with its own dataset, schema/validator and page: MTB (`src/compat.js`),
+   BMX (`data/bmx.js`), road (`data/road.js`), gravel (`data/gravel.js`), EMTB (`data/emtb.js`),
+   rider kit (`src/kit.js`). A part or bike lives in the catalog for its own type — an e-MTB
+   belongs in `data/emtb.js` for the same reason a BMX frame belongs in `data/bmx.js`: it is the
+   wrong catalog otherwise, not because any one type is a special case. **No catalog is treated
+   as a special case, in investment or in communication** (Douglas 2026-07-22/23: even weight
+   across all catalogs; "stop minimizing e-exposure, i want the EMTB site to be just as complete
+   as the other sites" — the old e-bike-specific framing was retired on his word 2026-07-23).
+   The one sanctioned exception to single-catalog residency is a genuine **crossover bike**, which
+   may carry its own row in each relevant catalog with its own id (Douglas 2026-07-23; see the
+   `crossover-bike-dual-catalog` memory). Enforced by `test/test-emtb-containment.js` and the
+   per-catalog validators.
 2. **NO POP-UP ADS / UNSOLICITED POP-UPS, EVER.** The site loads straight to the data — never an ad,
    newsletter/promo/cookie interstitial, or any auto-appearing pop-up, for any reason. Click-triggered
    cards/tabs/modals the user opens themselves (a part's spec card, the login dialog) are fine;
@@ -44,7 +43,7 @@ unverified specs as real. See "Provenance" below.
    (2026-07-20 "do them all at once"), gravel.html (2026-07-21), plus KitBuilder/ and the
    flagship. Striders remain the one off-live dataset (fit-guide design, no page). The
    off-live discipline still applies to any FUTURE type.
-   **Never e-bikes in the MTB catalog** (rule 1).
+   Each type stays in its own catalog file (rule 1).
    **Dirt jump went LIVE on Douglas's word 2026-07-14** (25 rows in `PARTS`, `dj` discipline chip,
    `cog`+`seatpost` slots, `driveMode:'single-speed'` completeness drops incl. the confirmed
    brakeless-is-complete decision).

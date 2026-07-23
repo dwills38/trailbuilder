@@ -27,8 +27,8 @@ type-checking. CI + GitHub Pages deploy green on `main`.
   log (Supabase), a forum, guides, recall notes, legal + affiliate-disclosure pages.
 
 **Still off-live:** only the balance-bike fit guide (kids' striders) — validated dataset, no
-page yet. The MTB catalog itself stays **permanently e-bike-free**; e-MTB lives only on its
-own contained page (Hard rule #1).
+page yet. Each bike type lives in its own catalog file and page — e-MTB in `data/emtb.js`, BMX in
+`data/bmx.js`, and so on (Hard rule #1); no catalog is a special case.
 
 ## The bar that governs everything
 

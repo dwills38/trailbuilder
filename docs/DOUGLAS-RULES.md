@@ -12,28 +12,7 @@ supersedes another, that is flagged explicitly rather than silently resolved.*
 
 These are ranked as absolute — CLAUDE.md calls them "Hard rules (Douglas — non-negotiable)."
 
-### 1.1 E-bikes are contained, not banned
-**Original rule (2026-07-12, verbatim):** *"E-Bikes are not bikes yet... do not put ANY FUCKING
-E-BIKES on here until i tell you."* No e-bike / e-MTB / motor / battery / e-specific part in the
-catalog until Douglas explicitly says so.
-— Source: `CLAUDE.md` Hard rule 1; memory `hard-rules-ebikes-popups`.
-
-**Amended 2026-07-18 (verbatim):** *"fuck... i hate this, but start the BuildMyEMTB site,
-construct as the others with a button to a separate page and start an all nighter grind for
-models. i hate this section."* E-bikes are now authorized, but **contained**: the MTB catalog
-(`src/compat.js` `PARTS`) stays 100% e-bike-free **permanently** — no motor, battery, or
-e-specific part ever enters it. The only e-bike surface is BuildMyEMTB (`data/emtb.js` + its own
-schema/validator/page), validator-enforced on both sides.
-— Source: `CLAUDE.md` Hard rule 1; memory `hard-rules-ebikes-popups`, `emtb-buildout`.
-
-**Finalized 2026-07-23:** the last shield — routing e-MTB decisions through compact,
-exposure-minimizing packets — was retired. *"Stop minimizing e-exposure, i want the EMTB site to
-be just as complete as the other sites."* EMTB now gets full breadth/depth/verification
-investment **and** normal communication, exactly like every other catalog. Structural containment
-(`data/emtb.js` only; MTB stays e-free forever) is the only special rule that remains.
-— Source: `CLAUDE.md` Hard rule 1; memory `emtb-buildout`, `mtb-flagship-priority`.
-
-### 1.2 No pop-up ads or unsolicited pop-ups, ever
+### 1.1 No pop-up ads or unsolicited pop-ups, ever
 **2026-07-12, verbatim:** *"no unexpected pop up ads and shit"* / *"never a pop up, not for
 anything... i hate that so bad, its ruined the internet."* The site loads straight to the data —
 never an ad, newsletter/promo/cookie interstitial, or any auto-appearing pop-up, for any reason,
@@ -44,15 +23,30 @@ under any monetization pattern.
 for them. What's banned is anything that appears *without* the user asking.
 — Source: `CLAUDE.md` Hard rule 2; memory `hard-rules-ebikes-popups`.
 
-### 1.3 Catalog scope — all surfaces are equal, first-class catalogs
+### 1.2 Catalog scope — all surfaces are equal, first-class catalogs
 All six live surfaces (MTB, BMX, road, gravel, EMTB, kit) get the same breadth/depth/verification
 investment. MTB is the quality *reference example* other catalogs are held to, **not** a priority
 ranked above them — see §4.1 for the full history of this ruling (it changed twice). A genuinely
 new bike type still starts off-live (a separate, unwired dataset) until Douglas says go — the one
 remaining gate.
-— Source: `CLAUDE.md` Hard rule 3; memory `mtb-flagship-priority`.
 
-### 1.4 Work is handed off as paste-ready prompt blocks, never click-chips
+**One catalog per surface (Hard rule 1).** Each bike type lives in its own dataset with its own
+schema/validator and page — MTB `src/compat.js`, BMX `data/bmx.js`, road `data/road.js`, gravel
+`data/gravel.js`, EMTB `data/emtb.js`, kit `src/kit.js` — and catalogs do not bleed into each
+other. A bike belongs to the catalog for its own type; that is plain architecture applied
+identically to every surface, **not** a restriction on any particular type. The one sanctioned
+exception is a genuine crossover bike, which may carry its own row in each relevant catalog with
+its own id (§4.x, 2026-07-23). Enforced by `test/test-emtb-containment.js` and the per-catalog
+validators.
+
+> **Retired 2026-07-23 (Douglas's word):** there was previously a separate hard rule singling out
+> e-bikes as "contained." He directed that it be removed — e-bikes are no longer framed as a
+> special case anywhere. E-MTBs live in `data/emtb.js` for exactly the same reason BMX frames live
+> in `data/bmx.js`. The full history of that rule's evolution is kept in §4.1 and §7 as a record
+> only, not as current policy.
+— Source: `CLAUDE.md` Hard rules 1 + 3; memory `mtb-flagship-priority`, `crossover-bike-dual-catalog`.
+
+### 1.3 Work is handed off as paste-ready prompt blocks, never click-chips
 **2026-07-18, verbatim:** *"I like chips that I have to copy and paste myself instead of click so
 I can make sure it's on the right model and effort. Bake that into the project's rules."* Every
 worker task goes to Douglas as a fenced copy-paste prompt block whose first line is a
@@ -61,7 +55,7 @@ worker task goes to Douglas as a fenced copy-paste prompt block whose first line
 click time, which has silently run grind work on premium models and premium work on Sonnet.
 — Source: `CLAUDE.md` Hard rule 4; memory `parallel-work-delivery`.
 
-### 1.5 File containment
+### 1.4 File containment
 **2026-07-18, emphatic:** sessions "can only save and read files inside `D:\MTB Bike Builder`" —
 no random folders anywhere else on his drive, ever. Worktrees go at `.claude/worktrees/<unique
 name>` inside the project. The harness-managed temp scratchpad is the only exception. Enforced by
@@ -69,7 +63,7 @@ a PreToolUse hook (`tools/hooks/guard-worktree-path.js`), hardened twice (2026-0
 after strays leaked to `D:\` root.
 — Source: `CLAUDE.md` Hard rule 5; memory `file-containment-rule`.
 
-### 1.6 Never defeat anti-bot protection or CAPTCHAs
+### 1.5 Never defeat anti-bot protection or CAPTCHAs
 **2026-07-18, verbatim:** *"lets keep it ethical so not to upset any partners. if something
 becomes a huge roadblock down the line, let me know and we can revisit."* Never defeat anti-bot
 protection or CAPTCHAs, on any brand, for any spec or price — the rule is about the mechanism
@@ -444,9 +438,9 @@ evening under that phrase.
 (Cross-referenced here since they govern both delivery and day-to-day process; see §3.2, §3.3,
 §3.5.)
 
-### 5.2 File containment and worktree hygiene — see §1.5
+### 5.2 File containment and worktree hygiene — see §1.4
 
-### 5.3 Fetch ethics — see §1.6
+### 5.3 Fetch ethics — see §1.5
 
 ### 5.4 Reviewer-grade audit trail
 **2026-07-11:** Douglas wants "notes for everything we are doing along the way" so the entire
@@ -567,7 +561,8 @@ reconciled. Here is everything found:
 No other direct contradictions were found across CLAUDE.md, COORDINATOR-HANDOFF.md,
 HANDOFF-CHIPS.md, and the memory corpus at the time of writing (2026-07-23) — most apparent
 "changes" in the source material are refinements or scope-narrowings of an earlier rule (e.g. the
-e-bike rule moving from "banned" to "contained" to "contained but fully first-class"), which this
+e-bike rule moving from "banned" to "contained" to "contained but fully first-class" to, on
+2026-07-23, retired as a special rule altogether — see §1.2), which this
 document treats as a single evolving rule with a dated history rather than a conflict.
 
 ---
