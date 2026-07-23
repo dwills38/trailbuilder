@@ -646,6 +646,49 @@ var KIT_PARTS = [
     type:'half-shell', rotational:'mips',
     desc:'E-bike/commuter-rated half-shell (up to 27mph), 13 vents, integrated LED light mount, MIPS-equipped. No disciplines tag (commuter positioning). UNVERIFIED sample: retailer-listed price/weight; bernhelmets.com 429\'d this batch.' },
 
+  /* -- Cratoni (kit-breadth-12, 2026-07-23): brand entirely ABSENT. German helmet/eyewear maker
+     (est. 1985, Baden-Wurttemberg) - cratoni.de itself is an unfetchable stale test-subdomain
+     (self-signed cert / DNS traps), but cratoni.com is the live current maker domain and fetched
+     cleanly via WebFetch. Prices are the maker's own RRP in EUR (Cratoni sells in Europe, no USD
+     price published) - disclosed conversion, priceBasis:'regional-conversion', ~1.08 USD/EUR
+     (approximate, 2026-07-23; no live FX API used, same disclosed-approximate convention as the
+     catalog's existing GBP rows). */
+  { id:'hm-cratoni-cairlite', cat:'helmet', brand:'Cratoni', model:'C-Airlite', price:216, weight:180,
+    type:'half-shell', disciplines:['xc','trail'], sizes:['S-M','M-L','L-XL'],
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://cratoni.com/en/produkt/c-airlite/',
+    desc:'Fetched cratoni.com: "Ultra-Lightweight" XC/road half-shell, 32 vents, 270-degree adjustment system. RRP EUR199.95 x ~1.08 USD/EUR (disclosed conversion, not a US MSRP). Weight is the S-M shell (180g S-M, 195g M-L, 210g L-XL per the maker page); the S-M figure is stored, others noted here.' },
+  { id:'hm-cratoni-madroc-pro', cat:'helmet', brand:'Cratoni', model:'Madroc Pro', price:432, weight:760,
+    type:'convertible', disciplines:['enduro','dh'], sizes:['S-M','M-L','L-XL'],
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://cratoni.com/en/produkt/madroc-pro/',
+    desc:'Fetched cratoni.com: hybrid enduro/DH helmet with a removable chin-bar system ("the new tool for all the maniacs"), maker-stated 760g ("one of the lightest hybrid helmets in its field"). RRP EUR399.95 x ~1.08 USD/EUR (disclosed conversion, not a US MSRP).' },
+  { id:'hm-cratoni-allset-mips', cat:'helmet', brand:'Cratoni', model:'Allset MIPS', price:151, weight:290,
+    type:'half-shell', rotational:'mips', certs:['en1078'], disciplines:['trail','enduro'], sizes:['S-M','M-L'],
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://cratoni.com/en/produkt/allset-mips/',
+    desc:'Fetched cratoni.com: 15-vent AM/trail half-shell, adjustable visor with MX-goggle port, camera mount, CE EN 1078 certified, MIPS-equipped. RRP EUR139.95 x ~1.08 USD/EUR (disclosed conversion, not a US MSRP).' },
+
+  /* -- Casco (kit-breadth-12, 2026-07-23): brand entirely ABSENT. German helmet maker (est. 1989);
+     casco-helmets.com fetched directly. EUR-only maker pricing, same disclosed-conversion basis as
+     the Cratoni rows above. Casco's line is overwhelmingly road/urban/aero (SPEEDairo, Roadster,
+     Cuda, Activ) - the MTBE family is its only true MTB line, so only those two SKUs are entered
+     (a road-branded helmet in an MTB parts catalog would be padding, not breadth). */
+  { id:'hm-casco-mtbe-full-face', cat:'helmet', brand:'Casco', model:'MTBE Full Face', price:346,
+    type:'full-face', disciplines:['dh','enduro'],
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://casco-helmets.com/en/collections/mtbe',
+    desc:'Fetched casco-helmets.com/en/collections/mtbe: carbon full-face DH/enduro helmet (Carbon Neon colorway). RRP EUR320.00 x ~1.08 USD/EUR (disclosed conversion, not a US MSRP). No weight published on the fetched page; the collection page\'s "350-499g" figure is a generic Shopify shipping-weight bucket, not a per-model spec (same caveat as other rows in this catalog that flag that field) - left unset rather than guessed.' },
+  { id:'hm-casco-mtbe2', cat:'helmet', brand:'Casco', model:'MTBE2', price:173,
+    type:'half-shell', disciplines:['trail','enduro'],
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://casco-helmets.com/en/collections/mtbe',
+    desc:'Fetched casco-helmets.com/en/collections/mtbe: "the mountainbike helmet" half-shell. RRP EUR160.00 x ~1.08 USD/EUR (disclosed conversion, not a US MSRP - the fetched page shows several colorways discounted to EUR80/EUR140, the page\'s own EUR160 list price is used instead). No weight published (same shipping-weight-bucket caveat as the Full Face row).' },
+
+  /* -- HJC (kit-breadth-12, 2026-07-23): brand entirely ABSENT. HJC Sports Europe (hjcsports.com)
+     is overwhelmingly road/TT/urban (Furion, Ibex, Adwatt, Calido, Coban) - Crosser is its one
+     XC/gravel-leaning model, entered here; everything else in the line falls outside this
+     catalog's MTB kit scope. Fetched hjcsports.com directly (USD pricing, real US-facing store). */
+  { id:'hm-hjc-crosser', cat:'helmet', brand:'HJC', model:'Crosser', price:94, disciplines:['xc'],
+    type:'half-shell',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://hjcsports.com/collections/all',
+    desc:'Fetched hjcsports.com: "URBAN / PERFORMANCE / LEISURE" helmet also sold by EU retailers (Bike24) as an "XC/Gravel Helmet" - the closest thing to an MTB-relevant model in HJC\'s current lineup, which otherwise skews road/TT/urban. $94.00 confirmed on the maker\'s own site; the listing showed the item as sold out at fetch time (not the same as discontinued, so status left unset). No weight published.' },
+
   /* -- Shoes (soleType required: flat / clipless) -- */
   { id:'sho-fiveten-freerider-pro', cat:'shoes', brand:'Five Ten', model:'Freerider Pro', price:160, weight:696,
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['40','41','42','43','44','45','46','47'],
@@ -1170,6 +1213,29 @@ var KIT_PARTS = [
   { id:'sho-bont-vaypor-g', cat:'shoes', brand:'Bont', model:'Vaypor G', price:459,
     soleType:'clipless', closure:'boa', disciplines:['xc'],
     desc:'Gravel-tread version of the Vaypor platform (Bont\'s "G" suffix denotes the gravel-tread variant; no gravel discipline token exists in this catalog\'s vocab, so left as xc), same carbon sole/BOA closure. No per-shoe weight found this batch. Same dated-figure caveat as the Vaypor S (sho-bont-vaypor-s) - price could not be reconfirmed against a live 2026 page this batch.' },
+
+  /* -- DZR (kit-breadth-12, 2026-07-23): brand entirely ABSENT. San Francisco-founded urban
+     clipless-sneaker brand; fetched dzrshoes.com directly (dzrshoes.com/collections/all, its own
+     store). USD prices confirmed there; individual product pages fetched separately for spec
+     details occasionally rendered the SAME product's price in GBP instead (geo-detected currency
+     on repeat fetches) - the collections/all USD listing is used as the price source of record
+     for consistency, individual product pages only for construction/material details. */
+  { id:'sho-dzr-minna', cat:'shoes', brand:'DZR', model:'Minna', price:129,
+    soleType:'clipless', closure:'lace',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://dzrshoes.com/collections/all',
+    desc:'Fetched dzrshoes.com: full-grain-leather clipless commuter shoe, natural gum rubber sole, variable-flex nylon shank, elastic lace catch, reflective heel badge. $129.00 per the maker\'s own listing. No weight published.' },
+  { id:'sho-dzr-h2o', cat:'shoes', brand:'DZR', model:'H2O', price:189,
+    soleType:'clipless', closure:'lace',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://dzrshoes.com/collections/all',
+    desc:'Fetched dzrshoes.com: "fully seam sealed waterproof SPD compatible sneaker", full-grain leather upper with a sandwiched waterproof membrane, metal-reinforced nylon-shank co-molded sole. $189.00 per the maker\'s own listing. No weight published.' },
+  { id:'sho-dzr-shift', cat:'shoes', brand:'DZR', model:'Shift', price:69,
+    soleType:'flat',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://dzrshoes.com/collections/all',
+    desc:'Fetched dzrshoes.com: DZR\'s entry-level flat-pedal shoe (co-designed with street artist D Young V), sold in Black/Grey/Red colorways at the same $69.00 price (all confirmed on the maker\'s own listing). No weight published.' },
+  { id:'sho-dzr-s24o', cat:'shoes', brand:'DZR', model:'S24O', price:149,
+    soleType:'clipless', closure:'lace',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://dzrshoes.com/collections/all',
+    desc:'Fetched dzrshoes.com: "midtop clipless bike shoe with the bikepacker in mind", link-traction outsole, variable-flex nylon shank. $149.00 per the maker\'s own listing (Mustard colorway). No weight published.' },
 
   /* -- Jerseys (all fields optional) -- */
   { id:'jsy-fox-flexair', cat:'jersey', brand:'Fox', model:'Flexair', price:104.95, weight:135,
@@ -4261,6 +4327,39 @@ var KIT_PARTS = [
   { id:'ewr-zeal-range', cat:'eyewear', brand:'Zeal Optics', model:'Range', price:149,
     type:'glasses',
     desc:'Zeal Optics active-line shield sunglasses. UNVERIFIED sample: zealoptics.com listed price (site search-summarized, not a rendered fetch). No weight found this batch.' },
+
+  /* -- Magicshine (kit-breadth-12, 2026-07-23): brand entirely ABSENT. Better known for bike
+     lights, but magicshine.com also sells a real cycling-sunglasses line (ROULEUR/WINDBREAKER) -
+     fetched the maker's own product pages directly, USD pricing. No weight published on any of
+     the three pages fetched. */
+  { id:'ewr-magicshine-rouleur-classic', cat:'eyewear', brand:'Magicshine', model:'ROULEUR Classic', price:44.99,
+    type:'glasses',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://magicshine.com/products/rouleur-classic-cycling-sports-glasses',
+    desc:'Fetched magicshine.com: semi-frame cycling sunglasses, PC lens with REVO front + OAR back coating, CAT.3 filter, TR90+TPR frame, 6-base curve lens. $44.99 confirmed on the maker\'s own product page. No weight published.' },
+  { id:'ewr-magicshine-windbreaker-classic', cat:'eyewear', brand:'Magicshine', model:'WINDBREAKER Classic', price:44.99,
+    type:'glasses',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://magicshine.com/products/windbreaker_classic_cycling_sunglassess',
+    desc:'Fetched magicshine.com: frameless cycling sunglasses, 6-base cylindrical shield lens, same REVO/OAR coating stack as the ROULEUR line. $44.99 confirmed on the maker\'s own product page. No weight published.' },
+  { id:'ewr-magicshine-rouleur-photochromic', cat:'eyewear', brand:'Magicshine', model:'ROULEUR Photochromic', price:59.99,
+    type:'glasses',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://magicshine.com/products/rouleur-standard-photochromic-cycling-sports-glasses',
+    desc:'Fetched magicshine.com: photochromic version of the ROULEUR Classic, CAT.1-3 adaptive tint, semi-frame, OAR back coating. $59.99 confirmed on the maker\'s own product page. No weight published.' },
+
+  /* -- District Vision (kit-breadth-12, 2026-07-23): brand entirely ABSENT. Running-heritage
+     eyewear brand whose Linto Rider line was designed in collaboration with LA's Golden Saddle
+     Cyclery specifically for gravel/off-road riding (per Gear Patrol's coverage of the brand's
+     move into cycling) - genuinely cycling-relevant, not a running-only product forced into this
+     catalog. Fetched districtvision.com directly, USD pricing + maker-published weight. The two
+     colorway SKUs carry different lens tech and different prices (a real price-differentiating
+     split, not a plain recolor), so both get rows per the entry template's split policy. */
+  { id:'ewr-districtvision-linto-rider-sand', cat:'eyewear', brand:'District Vision', model:'Linto Rider Sand, D+ Blue Ice', price:335, weight:24,
+    type:'glasses', disciplines:['xc','trail'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://districtvision.com/products/linto-gravel-rider-sand-d-blue-ice',
+    desc:'Fetched districtvision.com: injected-nylon frame with titanium armature/hardware, D+ Blue Ice lens (23.56% light transmission, blocks all UVA/UVB), designed with Golden Saddle Cyclery for off-road riding. $335 / 24g both confirmed on the maker\'s own product page.' },
+  { id:'ewr-districtvision-linto-rider-tortoise', cat:'eyewear', brand:'District Vision', model:'Linto Rider Tortoise, D+ Earth Vision', price:375, weight:24,
+    type:'glasses', disciplines:['xc','trail'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://districtvision.com/products/linto-gravel-ride-tortoise-d-copper',
+    desc:'Fetched districtvision.com: same injected-nylon/titanium construction as the Sand colorway, polarized D+ Earth Vision therapeutic-grade lens (10.03% light transmission, blocks 100% UVA/UVB), hand-applied tortoise pattern (each frame unique). $375 / 24g both confirmed on the maker\'s own product page.' },
 
   /* -- Apparel breadth (catalog/kit-breadth-11, 2026-07-23): Velocio, Wild Rye, Ornot, dhb,
      Pactimo, Machines for Freedom, Stolen Goat were entirely ABSENT from jersey/shorts/pants;
