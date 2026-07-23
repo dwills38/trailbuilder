@@ -1961,6 +1961,18 @@ var EMTB_PARTS = [
   },
 
   {
+    id: 'em-thok-allone-volt', cat: 'emtb', brand: 'Thok', model: 'All.ONE (Volt Yellow)',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (BDU384Y)', motorTorque: 120, motorPowerPeak: 750,
+    batteryWh: 800, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'aluminum', drivetrain: 'Tektro Orion M6000 11-speed (FSA 165mm crank, 34T ring, 11-50T cassette)', brakes: 'Tektro HD-M5141 4-piston (203/203mm rotors)',
+    disciplines: ['e-trail'], price: 5123.45,
+    note: 'THOK\'s budget/aluminum all-mountain trim — a cheaper, heavier-duty entry point distinct from the already-cataloged carbon TP4/TP4-S enduro platform, with a simpler Tektro 11-speed mechanical drivetrain instead of Shimano 12-speed. Size S offered in 27.5in wheels (cataloged at the 29in default per other sizes).',
+    desc: 'Verified vs the fetched maker product page (thokbikes.com/en/negozio/ebike-en/all-one-volt-yellow/ — "250W – 120Nm" / "max torque of 120 Nm, with 750 W peak power" motor spec, "Internal BOSCH Powertube battery 800 Wh. Also compatible with a 600 Wh battery" (cataloged at the primary 800Wh spec), "geometry 29″/29″" (size S at 27.5in), SR Suntour XCR36 150mm fork / SR Suntour Raidon-R 210x55mm shock ("Alloy frame 6061 T4 T6 with 140mm rear travel"), "Tektro Orion M6000 11-speed" derailleur w/ FSA 165mm crank/34T ring and 11-50T cassette, "TEKTRO – HD-M5141 4pistons, with 203/203 rotors" brakes, "€4,490.00" price. No complete-bike weight published on this page. PRICE: EUR 4,490.00 maker RRP converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,123.45 — Thok has no US retail presence, no USD MSRP exists. catalog/emtb-depth-8 wave (Thok deepened from 2 rows to 3).',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.thokbikes.com/en/negozio/ebike-en/all-one-volt-yellow/'
+  },
+
+  {
     id: 'em-simplon-rift-ale-core', cat: 'emtb', brand: 'Simplon', model: 'Rift AL:e Core',
     motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX/PX Gen5', motorTorque: 85,
     batteryWh: 600, batteryRemovable: true, assist: 'full-power',
