@@ -26,6 +26,84 @@ seat does the housekeeping automatically — Douglas never renames/unpins/archiv
 
 ---
 
+## ★★★ SEAT 20 — START HERE (succession from seat 19, 2026-07-23) ★★★
+
+Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today>-s20 -b
+coord/<today>-s20 origin/main` (Hard rule #5 — containment hook LIVE + HARDENED). Run the
+gates yourself, never trust doc counts. **State at handoff: main `f5de19e5` green — MTB 5,199
+parts (3,381 verified, burndown 1,527) · kit 786 · BMX 367 · gravel 355 · road 350 · EMTB 130
+· striders 48 · 1,164 tests / 43 files · tsc clean · verdict harness clean · 7 validators at
+0 problems. ~52 merges landed this seat, zero broken deploys (one 4-min red-main window, the
+deploy gate held).**
+
+**★ SEATING SEQUENCE (in order):**
+1. **Succession handshake** — find the seat 19 session via `list_sessions` **BY TITLE**
+   ("Main Coordinator (Seat 19)") — NEVER trust a hardcoded id, seat 18's was wrong —
+   send_message it to set_session_title you to "Main Coordinator (Seat 20)"; archive it on
+   confirm. If it never wakes, one line to Douglas, don't block.
+2. **RE-ARM BOTH session-lifetime watchers IMMEDIATELY**: (a) the hourly fleet-sweep cron
+   (v2 prompt WITH the leak sweep: D:\ root vs known-legit inventory + home dir + Downloads;
+   also the Untitled-session check — auto-titling failed AGAIN this seat, fix via
+   search_session_transcripts + set_session_title); (b) the persistent worker-reports Monitor
+   — **USE THE MTIME-AWARE VERSION** (track per-file mtimes, emit on new AND changed): the
+   name-only version went blind twice when reports overwrote same-named files from prior
+   waves. `CronList` after arming, delete dupes. The FIVE durable scheduled tasks survive on
+   their own (daily bug-triage, monthly drift 6th, monthly bias 12th, quarterly recall, and
+   NEW: **weekly-repo-audit, Sundays ~5:37a** — audit-only, zero destructive authority,
+   reports + optional safe-fix branch for YOUR review) — do NOT recreate any.
+3. Read **HANDOFF-CHIPS.md** (chip queue + Douglas's re-consolidated open questions) +
+   memory MEMORY.md + CLAUDE.md hard rules 1-5.
+
+**★ IN FLIGHT AT HANDOFF: NOTHING.** ~30 worker chips across five rounds all harvested,
+merged/rejected, and archived. Only "Affiliate Setup" (Partnerships lane, never touch) and
+daily bug-triage vessels remain.
+
+**★ RULES EARNED THIS SEAT (inherit them — details in PROJECT-LOG 2026-07-22/23):**
+· **THE TOKEN LAW (12 overreach catches in ONE seat — the disease is chronic, audit EVERY
+  report for it):** msrp-confirmed = the literal figure for THIS SKU in the worker's OWN
+  fetch (never a range, midpoint, sibling-inference, or converted figure) · third-party-listed
+  = a real NAMED listing (never a retained sample) · regional-conversion = the MAKER's own
+  non-USD figure converted with disclosed rate+date (never a retailer's) · discontinued-no-msrp
+  = genuinely discontinued + `status:'discontinued'` in the same edit (a violation would
+  poison the discontinued archive — one branch was REJECTED WHOLESALE for stamping it on 11
+  current products) · sourceType:'measured' = a scale reading, never a retailer spec line ·
+  a retained sample gets NO token. The law is now embedded in verification chip boilerplate.
+· **PUSH IS A SEPARATE COMMAND issued only after READING green gate output.** A ';'-chained
+  push shipped a broken compat.js to main (coordinator's own regex-splice bug: unescaped
+  apostrophe in a single-quoted literal). Corollary: NEVER regex-splice catalog files —
+  Write/Edit tools with escaping checked.
+· **CONTENT-CHECK CHIP PREMISES against origin/main before dispatch** — stale briefs burned
+  ~6 dispatches (already-merged work, already-closed flags, wrong resume points). The
+  STAND-DOWN clause absorbed every one, but the phrasing matters: write it as **"CHECK FIRST:
+  IF branch X already exists with commits, stand down; otherwise proceed"** — three workers
+  misread the terse form as an assertion.
+· **isRunning lies in BOTH directions; the report FILE is ground truth.** Ghost/zombie reports
+  exist too (an old wave's report resurfaced with July-17 numbers) — content-check surprising
+  reports against main before believing them.
+· **Drift passes and checkBuild probes catch inferred fields fast** — an inferred shock size
+  merged at midnight was maker-corrected by 2am. Keep probing builds yourself; keep the review
+  gate adversarial; the reports don't always mention what checkBuild finds.
+· **EVEN WEIGHT ACROSS ALL CATEGORIES (Douglas, twice, emphatically):** "take out any bias i
+  may have presented." EMTB's compact-packet rule is COMMUNICATION ONLY. The
+  mtb-flagship-priority memory's pause-other-disciplines clause is formally superseded.
+· **Classifier boundaries (verified first-hand):** DB writes via Supabase execute_sql WORK
+  now (Douglas granted connector write permission — the reserved-usernames seed is DONE,
+  1,734 rows live); the classifier still hard-blocks the coordinator editing its own
+  permission allowlist (correctly — hand Douglas the one-liner instead). His pending
+  quality-of-life grants: `"Bash(node *)"`, `"Bash(git add *)"`, `"Bash(git commit *)"`.
+· **Workers use the IN-APP Browser pane ONLY** — claude-in-chrome is Douglas's personal
+  Chrome (his word; now in chip boilerplate). Archives fire IN PARALLEL with the next work
+  item, never as a blocking step (his word).
+
+**Standing workflow (unchanged):** four gates (+harness on engine-read changes) on every
+merge; adversarial review with your own probes; UI auto-ships on green gates; only
+taxonomy/money/visual-taste/account/business decisions to Douglas, kept SHORT; ANSWER-FIRST;
+paste-blocks with [Model, effort] headers; coordinate-only lean seat (Douglas's mid-seat
+correction: hand authoring to chips); at YOUR wrap-up consolidate all outstanding Douglas
+questions into HANDOFF-CHIPS.md and pass this instruction forward (succession rule 5).
+
+---
+
 ## ★★★ SEAT 19 — START HERE (succession from seat 18, 2026-07-22 evening) ★★★
 
 Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today>-s19 -b
