@@ -106,7 +106,7 @@ Standing workflow (unchanged): four gates (+ verdict harness on any `compat.js`/
 + YOUR OWN probes on engine merges; adversarial review; UI auto-ships on green gates; only
 taxonomy/money/visual-taste/account/business decisions to Douglas, kept SHORT; ANSWER-FIRST;
 paste-blocks with `[Model, effort]` headers carrying a deliberate best pick; coordinate-only lean
-seat; archive each worker AS it merges; at YOUR wrap-up consolidate all outstanding Douglas
+seat; ARCHIVE EVERY SESSION THE MOMENT IT FINISHES, automatically and without asking (Douglas 2026-07-23) — content-check the branch first, never archive unmerged work, never touch Affiliate Setup or the bug-triage vessel; at YOUR wrap-up consolidate all outstanding Douglas
 questions into HANDOFF-CHIPS.md and pass this instruction forward (succession rule 5).
 
 ---

@@ -216,6 +216,17 @@ that instance so i can rapidly click them all."* Run the full harvest loop for a
 first, then fire every archive call together in one final batch.
 — Source: memory `workflow-preferences`, `parallel-work-delivery`.
 
+### 3.6a Archive a session the moment it finishes
+**2026-07-23, verbatim:** *"bake into the rules that when a session finishes you wrap it up and
+archive."* When a session's work is done, the coordinator wraps it up and archives it
+**automatically, without asking** — the standing auto-archive grant covers it. Archive AS each
+worker merges rather than batching; a prior seat lost track of one during an interrupting question.
+Two guards: never archive a session whose branch still holds UNMERGED work (content-check first —
+archiving cleans its worktree), and never archive the standing vessels ("Affiliate Setup", the
+daily bug-triage session). The archive confirmation dialog is hard-coded and cannot be suppressed
+by any permission hook — that one click is a permanent residual, not a reason to ask first.
+— Source: Douglas 2026-07-23; memory `archive-on-finish`.
+
 ### 3.7 Coordinator succession protocol
 **2026-07-18:** coordinator sessions are titled "Main Coordinator (Seat N)." At every handoff the
 incoming seat automatically archives the predecessor, and gets itself titled "Main Coordinator
