@@ -1214,6 +1214,29 @@ var KIT_PARTS = [
     soleType:'clipless', closure:'boa', disciplines:['xc'],
     desc:'Gravel-tread version of the Vaypor platform (Bont\'s "G" suffix denotes the gravel-tread variant; no gravel discipline token exists in this catalog\'s vocab, so left as xc), same carbon sole/BOA closure. No per-shoe weight found this batch. Same dated-figure caveat as the Vaypor S (sho-bont-vaypor-s) - price could not be reconfirmed against a live 2026 page this batch.' },
 
+  /* -- DZR (kit-breadth-12, 2026-07-23): brand entirely ABSENT. San Francisco-founded urban
+     clipless-sneaker brand; fetched dzrshoes.com directly (dzrshoes.com/collections/all, its own
+     store). USD prices confirmed there; individual product pages fetched separately for spec
+     details occasionally rendered the SAME product's price in GBP instead (geo-detected currency
+     on repeat fetches) - the collections/all USD listing is used as the price source of record
+     for consistency, individual product pages only for construction/material details. */
+  { id:'sho-dzr-minna', cat:'shoes', brand:'DZR', model:'Minna', price:129,
+    soleType:'clipless', closure:'lace',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://dzrshoes.com/collections/all',
+    desc:'Fetched dzrshoes.com: full-grain-leather clipless commuter shoe, natural gum rubber sole, variable-flex nylon shank, elastic lace catch, reflective heel badge. $129.00 per the maker\'s own listing. No weight published.' },
+  { id:'sho-dzr-h2o', cat:'shoes', brand:'DZR', model:'H2O', price:189,
+    soleType:'clipless', closure:'lace',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://dzrshoes.com/collections/all',
+    desc:'Fetched dzrshoes.com: "fully seam sealed waterproof SPD compatible sneaker", full-grain leather upper with a sandwiched waterproof membrane, metal-reinforced nylon-shank co-molded sole. $189.00 per the maker\'s own listing. No weight published.' },
+  { id:'sho-dzr-shift', cat:'shoes', brand:'DZR', model:'Shift', price:69,
+    soleType:'flat',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://dzrshoes.com/collections/all',
+    desc:'Fetched dzrshoes.com: DZR\'s entry-level flat-pedal shoe (co-designed with street artist D Young V), sold in Black/Grey/Red colorways at the same $69.00 price (all confirmed on the maker\'s own listing). No weight published.' },
+  { id:'sho-dzr-s24o', cat:'shoes', brand:'DZR', model:'S24O', price:149,
+    soleType:'clipless', closure:'lace',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://dzrshoes.com/collections/all',
+    desc:'Fetched dzrshoes.com: "midtop clipless bike shoe with the bikepacker in mind", link-traction outsole, variable-flex nylon shank. $149.00 per the maker\'s own listing (Mustard colorway). No weight published.' },
+
   /* -- Jerseys (all fields optional) -- */
   { id:'jsy-fox-flexair', cat:'jersey', brand:'Fox', model:'Flexair', price:104.95, weight:135,
     sleeve:'long', sizes:['S','M','L','XL','XXL'],
