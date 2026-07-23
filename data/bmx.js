@@ -455,6 +455,15 @@ var BMX_PARTS = [
     note: 'Carbon fiber race frame, Expert XL size (10mm/3-8in rear axle - the larger Pro sizes ship a 15mm dropout w/ 10mm adapter, not modeled here). Threaded Euro BB shell, 22.2mm seatpost, removable V-brake mounts. Raw-fetch confirmed on supercrossbmx.com\'s own geometry table: Expert XL top tube = 20.0in (4-column Junior/Expert/Expert XL/Expert XXL table), 10mm rear axle explicitly stated for this size, threaded Euro BB shell, integrated 1-1/8"-1.5" head tube, removable V-brake system, and the exact $1195.95 price (Shopify JSON price field). No frame weight published anywhere on the page (sold standalone frame-only, no complete-bike bundling) - weight stays the unset/sample state per the frames no-published-weight exception (VERIFY-PROTOCOL.md).'
   },
 
+  // ===== FRAMES — bmx-breadth-7 (new brand: Bone Deth) ==================
+  {
+    id: 'bmx-fr-bonedeth-crime', cat: 'frame', brand: 'Bone Deth', model: 'Crime',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    weight: 2313, price: 399.95,
+    note: 'bmx-breadth-7: new brand (Bone Deth absent entirely before this batch). Sean Burns/Josh Delarosa signature street/park frame, current production. Cross-confirmed across three independent US retailer listings carrying the identical spec block (empirebmx.com/products/bone-deth-crime-frame, albes.com/products/bone-deth-crime-frame, us.sourcebmx.com/products/bone-deth-crime-frame) rather than a bonedeth.com manufacturer page (bonedeth.com itself has no working product catalog to fetch), so this row stays UNVERIFIED per the credible-retailer-source policy for sample breadth. Specs: "Mid BB (heat-treated and CNC machined)", "integrated 155mm head tube... drilled for gyro tabs" (headTube:integrated-1-1/8 is this catalog\'s standard modern-integrated convention, not a literal S.H.I.S. code on any listing), "6mm thick dropouts" implying the near-universal 14mm rear axle (also stated explicitly on sourcebmx.com\'s spec table: "DROPOUT SIZE: 14mm"), "accepts low profile removable brake mounts / hardware (S&M, BSD, Cult, Kink, T1)" -> rearBrakeMount:u-brake (every named brand uses u-brake bosses in this catalog). Sold in 20.6"/20.75"/21"/21.25" TT at one flat $399.95 price across sizes (albes.com) - this row models the 20.75" size. Weight: sourcebmx.com/us.sourcebmx.com both state "5.1lbs (2.3kg)" for the Black colorway (2313g); a differently-worded UK retailer (Source BMX UK) instead lists a Machine-model-adjacent "5.6lbs" figure for a DIFFERENT Bone Deth frame (Machine, not cataloged this batch) - not conflated here.'
+  },
+
   // ===== FORKS ========================================================
   {
     id: 'bmx-fk-odyssey-r32', cat: 'fork', brand: 'Odyssey', model: 'R32',
@@ -684,6 +693,20 @@ var BMX_PARTS = [
     note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): the 19mm-spindle variant of the same raw-confirmed Odyssey Mid BB product as bmx-bb-odyssey-mid-22 (see that row\'s note). shell:\'mid\' and spindleFit:\'19mm\' both match exactly; price ($24.99) matches. No weight field on this row to begin with.'
   },
 
+  // ===== BOTTOM BRACKETS — bmx-breadth-7 (new brand: Empire BMX house parts) ====
+  {
+    id: 'bmx-bb-empirebmx-spanish', cat: 'bb', brand: 'Empire BMX', model: 'Spanish Bottom Bracket',
+    shell: 'spanish', spindleFit: '19mm', price: 19.95,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.empirebmx.com/products/empire-bmx-spanish-bottom-bracket-2',
+    note: 'bmx-breadth-7: new brand (Empire BMX absent entirely before this batch) — Empire BMX\'s own house-brand parts line, sold on its own storefront (SKU 1101332). FETCHED empirebmx.com/products/empire-bmx-spanish-bottom-bracket-2 directly: "complete Spanish bottom bracket (19mm or 22mm)... 2x precision sealed Spanish bearings... machined alloy bearing cones... 15/16\\" / 24mm to 19mm or 22mm sprocket adapter", flat $19.95 across the 19mm/22mm spindle options (this row models the 19mm SKU). No weight published on the page.'
+  },
+  {
+    id: 'bmx-bb-empirebmx-american', cat: 'bb', brand: 'Empire BMX', model: 'USA / American Bottom Bracket',
+    shell: 'american', spindleFit: '19mm', price: 39.95,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.empirebmx.com/products/empire-bmx-usa-american-bottom-bracket',
+    note: 'bmx-breadth-7: second Empire BMX house-brand row (frame + BB position covered above via the Bone Deth batch; this is Empire\'s own American-shell BB, SKU 1094784). FETCHED empirebmx.com/products/empire-bmx-usa-american-bottom-bracket directly: "complete USA / American bottom bracket... includes two bearings/cups and complete hardware (tube spacer, alignment spacers, and conical bearing spacers)... 19mm, 22mm, or 24mm (choose the one that fits the crank spindle you\'ll be using)", flat $39.95 across all three spindle options (this row models the 19mm SKU). No weight published on the page.'
+  },
+
   // ===== SPROCKETS =====================================================
   {
     id: 'bmx-sp-odyssey-utilitypro-30', cat: 'sprocket', brand: 'Odyssey', model: 'Utility Pro Sprocket 30T',
@@ -717,6 +740,23 @@ var BMX_PARTS = [
     id: 'bmx-sp-chase-rsp-30', cat: 'sprocket', brand: 'Chase', model: 'RSP Race Sprocket 30T',
     teeth: 30, mount: 'spline', pitch: '1/8', price: 54.99,
     note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (see bmx-fk-chase-rsp note). Left unchanged, not verified.'
+  },
+
+  // ===== SPROCKETS — bmx-breadth-7 (new brands: Bone Deth, Tree Bicycle Co) ====
+  {
+    id: 'bmx-sp-bonedeth-webslinger-28', cat: 'sprocket', brand: 'Bone Deth', model: 'Webslinger Guard Sprocket (28T)',
+    teeth: 28, mount: 'spline', pitch: '1/8', weight: 232, price: 104.95,
+    note: 'bmx-breadth-7: second Bone Deth row (frame covered above). Cross-confirmed across empirebmx.com/products/bone-deth-webslinger-guard-sprocket ($104.95, "7075-T6 AL, compatible with wide chains, 24mm bore, includes 19mm and 22mm adapters"), circuitbmx.com ("14mm Thick 7075-6 Alloy... Includes 19mm & 22mm adaptors... 24mm Bore... Sizes: 25T, 28T, 30T"), and soulcyclebmx (per-variant weight table: 28T = 0.232kg = 232g) — three independent US/EU retailer listings, no bonedeth.com manufacturer catalog available to fetch, so left UNVERIFIED per the credible-retailer-source policy. mount:spline models the native 24mm spline bore (19mm/22mm adapters are bundled accessories, not this row\'s own spec). pitch:1/8 matches "compatible with wide chains" (1/8in is the wide-chain class in this catalog\'s vocab).'
+  },
+  {
+    id: 'bmx-sp-tree-originalsplinedrive-25', cat: 'sprocket', brand: 'Tree Bicycle Co', model: 'Original Spline Drive Sprocket 19mm (25T)',
+    teeth: 25, mount: 'spline', pitch: '1/8', weight: 88, price: 54.99,
+    note: 'bmx-breadth-7: new brand (Tree Bicycle Co absent entirely before this batch). Tree discontinued its FRAME line some years back (bmxunion.com interview, "Insight: Tree Bicycle Co. Discontinuing Frames") but the parts side (hubs, sprockets, seatposts, cockpit) remains in active current production on treebicycleco.com, so this batch catalogs Tree as a parts-only brand (no frame row). Price and spec confirmed via treebicycleco.com/products/original-splinedrive-sprocket itself (page states "Regular price $54.99" in USD): "1/4\\" thick 7075 T6 CNC machined aluminum - Heat Treated drive splined insert for 19mm 48 spline cranks - 1/8\\" wide teeth", offered in 25T/28T/30T (this row models 25T). Row stays UNVERIFIED (no lastChecked/source fields set) because the specific page fetch used for the weight figure was a different, independently-listed SKU (samsbmx.com\'s "Tree Bicycle Co OG Sprocket - 19mm - Spline - 25T - Black", which states "Weight: 3.1 oz (25T)" = 88g for what appears to be the same product under Tree\'s older "OG" naming) rather than one single confirmed manufacturer-page fetch covering both price AND weight together.'
+  },
+  {
+    id: 'bmx-sp-tree-seatpost-200', cat: 'seatpost', brand: 'Tree Bicycle Co', model: 'Tree Seat Post',
+    diameter: 25.4, system: 'pivotal', weight: 134, price: 49.99,
+    note: 'bmx-breadth-7: second Tree Bicycle Co row. treebicycleco.com/products/tree-seat-post states: "3D Forged From 6061 Aluminum - Utilizes Patented Pivotal Technology - Longer 200mm Post", "Standard BMX 25.4mm dia x 200mm long", "WEIGHT 4.8oz/134g" — diameter/system/weight all confirmed on Tree\'s own page. Price ($49.99) is NOT from that fetch (the page rendered a non-US-locale €25,95 figure for this crawl, not a reliable USD MSRP); $49.99 is instead the USD figure independently listed by US retailer samsbmx.com ("Tree Bicycle Co Seat Post – Pivotal – 200mm – Black... $49.99"), carrying the identical spec (25.4mm/200mm/134g/Pivotal/6061 Aluminum) confirming it\'s the same SKU. Row left UNVERIFIED given the split-source price.'
   },
 
   // ===== CHAIN ==========================================================
