@@ -326,6 +326,35 @@ var BMX_PARTS = [
     note: 'Frame spec pulled from the Solo complete-bike page; also offered in 20/20.5in top tube. Price is an archived 2012 MSRP (Premium/Haro catalog archive) - current pricing not re-sourced.'
   },
   {
+    id: 'bmx-fk-premium-ckv3', cat: 'fork', brand: 'Premium', model: 'CK V3 Fork',
+    family: 'premium-ck', discipline: 'freestyle', wheelSize: '20',
+    steerer: 'integrated-1-1/8', axle: '10mm', brakeMount: 'none',
+    price: 199.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://harobikes.com/products/ck-v3-fork',
+    note: 'bmx-brand-depth-2: Chad Kerley signature fork, directly fetched from harobikes.com (Premium is now sold through Haro Bikes\' own storefront, premiumbmx.com, which 301-redirects to harobikes.com/pages/premiumproducts/... - same manufacturer). Page states verbatim "100% machined 4130 chromoly steerer tube with built-in compression cap" + "Built-in 45° integrated headset cup" (confirms steerer:integrated-1-1/8) and "5mm thick 3/8\\" invest cast dropouts" (confirms axle:10mm, the 3/8in=10mm token per this catalog\'s convention). No brake boss of any kind is mentioned anywhere in the spec (no canti/U-brake mount named) - entered as brakeMount:none per this catalog\'s standing convention for spec-silent freestyle street forks (matches the sibling bmx-fk-haro-downtown/bmx-fk-sunday-darkwave/bmx-fk-merritt-cnc rows\' identical reasoning); commonly run brakeless. Price $199.99 matches premiumbmx.com\'s own storefront listing exactly (fetched separately, same session) - both are Haro/Premium\'s own first-party pages. No current Premium-branded frame SKU was found on premiumbmx.com (its live product list has zero frame rows, components only) - a genuine gap, not entered; the existing bmx-fr-premium-solo row (archived 2012 MSRP) remains the catalog\'s only Premium frame.'
+  },
+  {
+    id: 'bmx-cr-premium-trestle-24mm', cat: 'cranks', brand: 'Premium', model: 'Trestle 24mm Cranks',
+    family: 'premium-trestle', spindle: '24mm', pieces: '3-piece', ringMount: 'spline', length: 170,
+    price: 209.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://harobikes.com/products/trestle-24mm-cranks',
+    note: 'bmx-brand-depth-2: directly fetched harobikes.com (Premium\'s parent-brand storefront). States verbatim "Oversized 24mm hollow heat-treated chromoly 48-spline spindle" (spindle:24mm - the 24mm diameter is the fit-relevant dimension; "48-spline" here names the SPROCKET interface, not a competing spindle-diameter class) and is offered in 165/170/175mm arm lengths (length modeled at the middle 170mm option - display-only field, not fit-relevant). harobikes.de\'s companion CK Pro complete-bike spec sheet independently states "Premium Trestle 3-piece chromoly cranks. 24mm spindle" confirming pieces:3-piece. Compatible with "24mm spline drive sprockets" per empirebmx.com\'s retailer copy (ringMount:spline). Price $209.99 matches exactly; americancycle.com/alansbmx.com corroborate the same spec independently.'
+  },
+  {
+    id: 'bmx-hb-premium-ckv3-222', cat: 'handlebar', brand: 'Premium', model: 'CK V3 Bars (22.2mm)',
+    family: 'premium-ck-bars', clamp: '22.2mm', rise: 9, width: 28.5,
+    price: 79.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://harobikes.com/products/ck-v3-bars',
+    note: 'bmx-brand-depth-2: directly fetched harobikes.com. Chad Kerley signature bars, sold in two bore sizes ("Size 9\\" / 22mm bore size, 9\\" / 25.4mm bore size") at the same $79.99 price - this row is the 22.2mm/"Regular" variant (clamp differs from the 25.4mm sibling row below, a new-row-worthy engine-read field per DATA-ENTRY-TEMPLATE). "9\\" Height" + "28.5\\" wide" confirm rise/width exactly. 100% heat-treated chromoly butted tubing.'
+  },
+  {
+    id: 'bmx-hb-premium-ckv3-254', cat: 'handlebar', brand: 'Premium', model: 'CK V3 Bars (25.4mm)',
+    family: 'premium-ck-bars', clamp: '25.4mm', rise: 9, width: 28.5,
+    price: 79.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
+    source: 'https://harobikes.com/products/ck-v3-bars',
+    note: 'bmx-brand-depth-2: companion oversize-clamp variant of the row above, same fetched page ("9\\" / 25.4mm bore size" option, same $79.99 price, same rise/width) - only clamp differs.'
+  },
+  {
     id: 'bmx-fr-verde-cadet', cat: 'frame', brand: 'Verde', model: 'Cadet',
     family: 'verde-cadet', modelYear: 2021, discipline: 'freestyle', wheelSize: '20',
     bbShell: 'mid', headTube: 'integrated-1-1/8', topTube: 20.25, rearBrakeMount: 'u-brake',
