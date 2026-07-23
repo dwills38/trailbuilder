@@ -49,6 +49,12 @@
   new cross-rule actually FIRES (a rule that never fires also yields "0 problems"), and probed the
   newly-activated rule-9 I.S. branch directly because the harness never exercises it.
 
+## ★ DOUGLAS'S TODO LIST (NEW, seat 22): `DOUGLAS-TODO.md` at the project root — GITIGNORED
+(business/personal: LLC/bank steps, Cloudflare tokens, affiliate applications). It holds the things
+only DOUGLAS can DO, kept deliberately separate from the open-QUESTION queue below (things he must
+RULE on). **Keep it current at every wrap.** Blocking items there right now: the Supabase
+reserved-username SQL, and the manual delete of 6 dupes in `.claude/legacy-strays/`.
+
 ## ★ DOUGLAS'S OPEN-QUESTION QUEUE (consolidated at seat-22 wrap, succession rule 5.
 ## NEVER act on an unanswered question.)
 1. **Re-brainstorm session** — feature slate 8/8 done; he asked to be reminded. Standing.
