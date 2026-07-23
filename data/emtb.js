@@ -1989,6 +1989,18 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://www.radon-bikes.de/en/e-bike/mountainbike/recap/recap-100-2026/'
   },
 
+  {
+    id: 'em-lapierre-overvolt-am-cf-68', cat: 'emtb', brand: 'Lapierre', model: 'Overvolt AM CF 6.8',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (MX tune)', motorTorque: 100,
+    batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 165,
+    frameMaterial: 'carbon',
+    disciplines: ['e-enduro'], weight: null, price: 8326.68, modelYear: 2026,
+    note: 'French maker Lapierre\'s new-for-2026 all-mountain/enduro carbon flagship, alongside the already-cataloged Overvolt AM 10.8 and Overvolt TR 7.8 rows — full-carbon frame (Mitsubishi 24T/40T layup mix, 2.9kg size-M frame-only), two-position flip-chip mullet/dual-29in wheel setup, entry build of a 3-model range (6.8/7.8/10.8).',
+    desc: 'Unverified sample via the credible-source breadth policy — off-road.cc\'s and BikeBiz\'s launch coverage of this exact platform, plus alltricks.com\'s live SKU listings for the 6.8/10.8 builds, confirm "Bosch Performance CX motor with 100Nm of torque... 800Wh removable battery... compatible with Bosch\'s PowerMore range extender... 170/165mm of travel... carbon frame weighing 2.9kg (size medium)... mullet configuration and features a two-position flip chip... Starting price: EUR 7,299" (the 6.8, entry build). alltricks.com\'s own 10.8 listing (a higher trim) independently confirms the shared "Bosch 100 Nm MX motor" designation and 800Wh battery. No complete-bike weight found for the 6.8 build specifically. PRICE: EUR 7,299 (starting price for the 6.8) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $8,326.68 — disclosed estimate, no regional-conversion token. catalog/emtb-breadth-3 wave (Lapierre deepened from 2 rows to 3).',
+    lastChecked: '2026-07-23', source: 'https://road.cc/offroad/tech-news/all-mountain-or-enduro-in-disguise-the-2026-lapierre-overvolt-am-cf-breaks-cover-and-its-surprisingly-mellow'
+  }
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
