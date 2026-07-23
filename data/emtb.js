@@ -1655,7 +1655,6 @@ var EMTB_PARTS = [
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://forestal.com/en/compare/siryon'
   },
 
-
   // ---------------------------------------------------------------------------
   // catalog/emtb-breadth-brands-1 wave — absent-brand + thin-brand pass
   // (Bulls, Fantic, GasGas, Simplon, Thomus, Pole, Riese & Muller now present;
@@ -1688,7 +1687,6 @@ var EMTB_PARTS = [
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://bullsbikesusa.com/products/copperhead-evo-am-1-750'
   },
 
-
   {
     id: 'em-fantic-xmf17-carbon-race', cat: 'emtb', brand: 'Fantic', model: 'XMF 1.7 Carbon Race',
     motorBrand: 'brose', motorModel: 'Brose S Mag', motorTorque: 90,
@@ -1700,7 +1698,6 @@ var EMTB_PARTS = [
     desc: 'Fetched directly from the maker\'s own product page (fanticbikes.com/en/products/xmf-1-7-carbon-race-black, redirected from fantic.com): tech-specs table states "Fantic All mountain, 170mm travel... 29\\"-27,5\\" wheels" frame, "RockShox Deluxe Select+ 205x57,5mm" shock, "RockShox Zeb Select 170mm" fork, "Fantic 720Wh" battery, "Brose S Mag 90Nm" motor, "Sram GX Eagle AXS" derailleur/shifter, "Sram SX Eagle 12s" chain, "Sram SX Eagle 12s 11-50" cassette, "Sram 34T Eagle technology X-Sync 2" chainring, price EUR 8,290.00. The page states no complete-bike weight or brake spec (a common Fantic-page omission) — both left uncataloged rather than guessed. PRICE: EUR 8,290.00 maker-published price converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $9,459.15; Fantic has no US retail presence for this SKU (fanticbikes.com is the EU/UK shop), so no USD MSRP exists — disclosed sample, not a "verified" price. catalog/emtb-breadth-brands-1 wave (first Fantic row — brand was fully absent).',
     lastChecked: '2026-07-23', source: 'https://fanticbikes.com/en/products/xmf-1-7-carbon-race-black'
   },
-
 
   {
     id: 'em-gasgas-ecc6', cat: 'emtb', brand: 'GasGas', model: 'ECC 6',
@@ -1714,7 +1711,6 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://ebike-mtb.com/en/gasgas-ecc-6-2024-group-review/'
   },
 
-
   {
     id: 'em-simplon-rapcon-e', cat: 'emtb', brand: 'Simplon', model: 'Rapcon :e',
     motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Gen5', motorTorque: 85,
@@ -1726,7 +1722,6 @@ var EMTB_PARTS = [
     desc: 'Fetched directly from the maker\'s own product page (simplon.com/en/Bikes/E-Mountain-Bikes/Rapcon-e_b_1149826): "Frame material Carbon", "Travel (rear/front) 160 mm / 160 mm", "Motor BOSCH PL CX Gen5", "Battery 600 / 800 Wh", "Total bike weight from 22,8 kg", "fork travel/length/OFFSET 160/576/44 mm", "shock size (eye to eye length X HUB) 205 x 62,5 mm", "lower shock hardware Trunnion", starting price "from EUR 6,999.00". Cataloged at the larger 800Wh battery option (the page offers both 600/800Wh — no single fixed-spec SKU is pinned, so this row represents the top-line CORE/Ultimate-package spec); brakes not stated on the fetched page section, left uncataloged. PRICE: EUR 6,999.00 ("from") maker-published starting price converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,986.61; Simplon has no US retail presence, no USD MSRP exists — disclosed "from" sample, not a pinned single-SKU verified price. catalog/emtb-breadth-brands-1 wave (first Simplon row — brand was fully absent).',
     lastChecked: '2026-07-23', source: 'https://www.simplon.com/en/Bikes/E-Mountain-Bikes/Rapcon-e_b_1149826'
   },
-
 
   {
     id: 'em-thomus-lightrider-e2-pro', cat: 'emtb', brand: 'Thömus', model: 'Lightrider E2 Pro',
@@ -1752,7 +1747,6 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://ebike-mtb.com/en/thoemus-lightrider-e-max-2026-test/'
   },
 
-
   {
     id: 'em-pole-hiisi', cat: 'emtb', brand: 'Pole', model: 'Hiisi',
     motorBrand: 'maxon', motorModel: 'maxon Air S', motorTorque: 90, motorPowerPeak: 620,
@@ -1764,7 +1758,6 @@ var EMTB_PARTS = [
     desc: 'Sourced from E-MOUNTAINBIKE Magazine\'s fetched hands-on preview (ebike-mtb.com/en/new-pole-hiisi/), which quotes Pole founder Leo Kokkonen directly: "maxon Air S mit 90 Nm | 600 Wh | 22.8 kg in gravity build specification (manufacturer claim) | from EUR 15,239". Additional detail: "CNC-machined aluminium frame... 160-200mm front travel / 152-200mm rear travel... Choice of 600 Wh or 400 Wh battery (both permanently integrated)... a 250 Wh range extender... maxon AIR S... 2.03 kg, 90 Nm of torque and a peak output of 620 watts". No polebicycles.com product page with a fixed build kit/drivetrain spec was found (the brand sells built-to-order); drivetrain/brakes left uncataloged rather than guessed. PRICE: EUR 15,239 ("from") converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $17,388.51 — a reviewer-disclosed starting price, not a maker-fetched fixed-SKU MSRP. catalog/emtb-breadth-brands-1 wave (first Pole row — brand was fully absent; introduces motorBrand:"maxon", shared with the Thömus E_MAX row above).',
     lastChecked: '2026-07-23', source: 'https://ebike-mtb.com/en/new-pole-hiisi/'
   },
-
 
   {
     id: 'em-riese-muller-superdelite-mountain', cat: 'emtb', brand: 'Riese & Müller', model: 'Superdelite mountain',
@@ -1778,7 +1771,6 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://preview.r-m.de/media/filer_public/47/1e/471e4322-9a3c-48ac-93de-69c9052576f2/233365_rm-ba-e-bike_en-int_web_my26_0825.pdf'
   },
 
-
   {
     id: 'em-focus-sam2-68', cat: 'emtb', brand: 'Focus', model: 'SAM² 6.8',
     motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Smart System', motorTorque: 85, motorPowerPeak: 600,
@@ -1790,7 +1782,6 @@ var EMTB_PARTS = [
     desc: 'Fetched directly from the maker\'s own product pages (focus-bikes.com/int/bikes/e-mountainbike/focus-sam2 overview + focus-bikes.com/es_en SAM² 6.8 SKU page): "With 180/170 mm travel" (frame/fork) — note the fork-travel figure on the overview differs slightly by market page (170mm vs 180mm across regional listings); this SKU\'s own page states "180 mm" fork travel and "170 mm F.O.L.D. Gen2" frame travel (cataloged at 180/160 using the FOCUS FAQ\'s explicit "170 mm at the fork and 160 mm at the rear triangle" answer, which conflicts with the SKU page\'s own 180mm fork figure — both maker-stated, discrepancy disclosed rather than silently resolved), "Bosch Performance Line CX Smart System, 85 Nm" motor, "Bosch PowerTube Li-Ion (750Wh)" battery (SKU page) vs "up to 750 Wh" / 800Wh option on the overview page (cataloged at 800Wh, the larger option this trim supports per the overview FAQ), "Rock Shox Super Deluxe Coil Select, 230/65 mm" shock, "7005 hydroformed aluminium" frame, price EUR 6,999.00. Drivetrain/brakes not stated on the fetched sections, left uncataloged; no complete-bike weight found. PRICE: EUR 6,999.00 maker-published price converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,986.61; Focus has no consistent US retail MSRP for this SKU (the fetched pages are EU/AU market pages) — disclosed sample, not a confirmed single-market MSRP. catalog/emtb-breadth-brands-1 wave (Focus deepened from 2 rows to 3).',
     lastChecked: '2026-07-23', source: 'https://www.focus-bikes.com/es_en/catalog/product/view/_ignore_category/1/id/92485/s/focus-sam2-6-8-2/'
   },
-
 
   {
     id: 'em-amflow-pl-carbon-800', cat: 'emtb', brand: 'Amflow', model: 'PL Carbon (800Wh)',
@@ -1804,7 +1795,6 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://www.amflowbikes.com/pl-carbon/specs'
   },
 
-
   {
     id: 'em-forestal-cyon-neon', cat: 'emtb', brand: 'Forestal', model: 'Cyon Neon',
     motorBrand: 'forestal', motorModel: 'Forestal EonDrive (Bafang-built)', motorTorque: 60, motorPowerPeak: 400,
@@ -1817,7 +1807,6 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://www.bikeradar.com/reviews/bikes/electric-bikes/forestal-cyon-neon-review'
   },
 
-
   {
     id: 'em-husqvarna-hard-cross-hc5', cat: 'emtb', brand: 'Husqvarna', model: 'Hard Cross HC5',
     motorBrand: 'shimano', motorModel: 'Shimano EP8 (DU-EP801)', motorTorque: 85,
@@ -1829,7 +1818,6 @@ var EMTB_PARTS = [
     desc: 'Verified vs the fetched maker product page (husqvarna-bicycles.com/en-us/models/offroad/hard-cross/hard-cross-hc5-2023.html — "Shimano EP8 (DU-EP801)... 250 W, 85 Nm" motor, "Core S2+, 720 Wh, 36 V" battery, "FOX Float 38 Factory... 180 mm" fork / "FOX Float X2 Factory... 170mm" shock (rear travel per the maker\'s own product description text: "180/170mm of suspension travel"), "Alloy 6061... New HQV Alloy" frame, "SRAM X01 Eagle, 12-S" w/ 34T chainring, "Magura MT7, 4-piston" brakes, "24.6 kg" weight, "$6,599.00 USD" MSRP (plus separately-listed freight, excluded from the cataloged price per this catalog\'s standing freight-exclusion convention, same as the sibling MC6 row). Cassette range (10-50T) and rotor sizes (220/203mm) are the platform\'s commonly-cited figures, not independently re-confirmed in this fetch pass. Page URL still carries a "2023" model-year token but is the live, currently-linked-from-homepage model page (same "current lineup" treatment as the sibling MC6 row). catalog/emtb-breadth-brands-1 wave (Husqvarna deepened from 1 row to 2).',
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.husqvarna-bicycles.com/en-us/models/offroad/hard-cross/hard-cross-hc5-2023.html'
   },
-
 
   {
     id: 'em-moustache-samedi27-wide5', cat: 'emtb', brand: 'Moustache', model: 'Samedi 27 Wide 5',
