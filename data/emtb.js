@@ -2033,6 +2033,30 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://www.vitalmtb.com/product/guide/e-bikes/yeti/160e-59316'
   },
 
+  {
+    id: 'em-evil-epocalypse-eagle90', cat: 'emtb', brand: 'Evil', model: 'Epocalypse Eagle 90',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
+    batteryWh: 630, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 166,
+    frameMaterial: 'carbon', drivetrain: 'SRAM Eagle 90 Transmission (T-Type AXS)',
+    disciplines: ['e-enduro'], weight: null, price: 8699, modelYear: 2026,
+    note: 'The Epocalypse is Evil\'s only current e-MTB (brand was fully absent from the catalog); full carbon frame, RockShox ZEB Ultimate fork (170mm) + Super Deluxe Coil Ultimate shock (166mm rear), 29in wheels only (no mullet option), adjustable 442/444mm chainstay (LOW/XLOW). This is the entry "Eagle 90" build on Industry Nine 1/1 Enduro S V2 alloy wheels.',
+    desc: 'Sourced from evil-bikes.com/products/epocalypse (fetched, live product/variant page). Battery removability is described inconsistently across sources (Evil\'s current page doesn\'t explicitly call it removable, an older review does) so batteryRemovable left uncataloged rather than guessed; brakes not stated on the fetched page text so left uncataloged too. Complete-bike weight not published by Evil (an older ~50lb figure cited by a 2023 review was for a discontinued Shimano XT build, not this current Eagle 90/X0 Transmission lineup, so not carried forward). Price is the current site MSRP ($9,499 list, $8,699 as listed at fetch time). catalog/emtb-depth-5 wave (Evil absent -> 2 rows).',
+    lastChecked: '2026-07-23', source: 'https://evil-bikes.com/products/epocalypse'
+  },
+  {
+    id: 'em-evil-epocalypse-x0', cat: 'emtb', brand: 'Evil', model: 'Epocalypse X0',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
+    batteryWh: 630, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 166,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission (T-Type AXS)',
+    disciplines: ['e-enduro'], weight: null, price: 9949, modelYear: 2026,
+    note: 'Top current Epocalypse build: same frame/motor/battery as the Eagle 90, stepped up to SRAM X0 Eagle Transmission and Industry Nine Hydra2 System Triad carbon wheels. Listed sold out in all sizes at fetch time (still the real current top SKU, not discontinued).',
+    desc: 'Sourced from evil-bikes.com/products/epocalypse (fetched, live product/variant page). Same brake/weight/battery-removability gaps as the Eagle 90 sibling row (not stated on the fetched page). Price is the current site MSRP ($11,099 list, $9,949 as listed at fetch time, sold-out). catalog/emtb-depth-5 wave.',
+    lastChecked: '2026-07-23', source: 'https://evil-bikes.com/products/epocalypse'
+  },
+
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
