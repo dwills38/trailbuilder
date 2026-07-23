@@ -1794,6 +1794,17 @@ var KIT_PARTS = [
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
     source:'https://flylowgear.com/products/goodson-short', sourceType:'manufacturer' },
 
+  /* -- Chromag breadth (catalog/kit-apparel-brands-1, 2026-07-23): brand had only one
+     jersey row. FETCHED us.chromagbikes.com/products/seton-short-mens directly (clean
+     $120.00 USD confirmed). The Seton Pant and both gloves below could only be sourced
+     from us.chromagbikes.com's own collection LISTING pages this session (the individual
+     product pages either 404'd or rendered in a non-USD locale) - entered unverified. -- */
+  { id:'sht-chromag-seton-mens', cat:'shorts', brand:'Chromag', model:"Seton Short Men's", price:120,
+    liner:false, disciplines:['trail'], sizes:['28','30','32','34','36','38'],
+    desc:'Classic trail short, 90% nylon/10% spandex; no weight stated on the fetched maker page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
+    source:'https://us.chromagbikes.com/products/seton-short-mens', sourceType:'manufacturer' },
+
   /* -- Pants (MTB pants only; shorts are a separate cat above) -- */
   { id:'pnt-fox-defend', cat:'pants', brand:'Fox', model:'Defend Pant', price:169.95, weight:430,
     liner:false, disciplines:['trail','enduro'], sizes:['28','30','32','34','36','38'],
@@ -2040,6 +2051,9 @@ var KIT_PARTS = [
     sizes:['XS','S','M','L','XL','XXL'], disciplines:['trail','enduro'],
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.scott-sports.com/us/en/product/scott-trail-vertic-men-s-pants',
     desc:'kit-breadth-7 (2026-07-22): Scott had zero pants rows despite already-cataloged kneepad/bodyarmor/elbowpad coverage. Fetched scott-sports.com directly: $139.99 USD, ~330 g maker-stated weight, 89% Polyamide/11% Elastane four-way stretch, laser-cut ventilation, PFC-free DWR water repellency. The sibling "Trail Progressive" pant (also real - confirmed via search across multiple regional Scott storefronts) is NOT added here: its scott-sports.com product page 404s on every regional path tried, and only third-party-retailer prices were found, which is not an acceptable MSRP source per the fetch-ethics/verification doctrine - left for a future pass once the manufacturer page resolves.' },
+  { id:'pnt-chromag-seton-mens', cat:'pants', brand:'Chromag', model:"Seton Pant Men's", price:150,
+    liner:false, disciplines:['trail'], sizes:['28','30','32','34','36','38'],
+    desc:'Lightweight "smart/casual" 4-way-stretch nylon/spandex trail pant, room for kneepads. Price is from us.chromagbikes.com\'s own men\'s collection listing; a direct product-page fetch this session rendered in a non-USD locale, so left unverified pending a re-check.' },
 
   /* -- Gloves (all UNVERIFIED samples; weight is PER PAIR, approx USD MSRP) -- */
   { id:'glv-fox-dirtpaw', cat:'gloves', brand:'Fox', model:'Dirtpaw', price:39.95, weight:70, sizes:['S','M','L','XL','XXL','3XL','4XL'],
@@ -2530,6 +2544,10 @@ var KIT_PARTS = [
     desc:'Ultra-lightweight minimal-coverage glove, stretch mesh + suede palm; no weight stated on the fetched maker page.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
     source:'https://flylowgear.com/products/mission-glove', sourceType:'manufacturer' },
+  { id:'glv-chromag-tact', cat:'gloves', brand:'Chromag', model:'Tact Glove', price:40,
+    desc:'Price from us.chromagbikes.com\'s own collection listing (the product page itself did not load this session) - left unverified.' },
+  { id:'glv-chromag-habit', cat:'gloves', brand:'Chromag', model:'Habit Glove', price:40,
+    desc:'Price from us.chromagbikes.com\'s own collection listing (the product page itself did not load this session) - left unverified.' },
   { id:'glv-mucoff-rider', cat:'gloves', brand:'Muc-Off', model:'Rider Gloves', price:34.99,
     desc:'Regular (non-sale) US price; no weight stated on the fetched maker page.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
