@@ -1881,6 +1881,18 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://www.gasgas.com/bicycles/en-us/bikes/enduro/e-bike/ecc/ecc-4.html'
   },
 
+  {
+    id: 'em-rotwild-rex900-core', cat: 'emtb', brand: 'Rotwild', model: 'R.EX 900 CORE',
+    motorBrand: 'dji', motorModel: 'DJI Avinox M1 Drive Unit', motorTorque: 105, motorPowerPeak: 1000,
+    batteryWh: 864, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon',
+    disciplines: ['e-enduro'], weight: null, price: 10258.10, modelYear: 2026,
+    note: 'German maker Rotwild\'s DJI-powered full-power enduro flagship — distinct heavier-duty platform from the already-cataloged lightweight-class R.X375 (Shimano EP8/360Wh) — mullet (29in front/27.5in rear) wheels, an oversized 864Wh battery (bigger than DJI\'s own standard 800Wh Avinox pack), entry CORE trim of a 3-tier range (CORE/PRO/ULTRA).',
+    desc: 'Unverified sample via the credible-source breadth policy — cross-confirmed across Bikerumor ("DJI Avinox M1 motor... 105 Nm torque and 1000 W peak power... time limited boost mode bumping it up to 120 Nm... 864 Wh battery") and EMTB Forums\' bike-finder listing plus E-MOUNTAINBIKE Magazine\'s R.EX news coverage (mullet wheel concept, 170/160mm travel, three trims "CORE at EUR 8,990, PRO at EUR 9,990, ULTRA at EUR 12,490"). No rotwild.com product page fetched directly this session (the sibling R.X375 row already documents that maker\'s page as fetchable; not repeated here). No complete-bike weight found — a "22.4kg system weight" figure appears across sources but is disclosed there as the motor+battery system weight, not the complete bike, so left uncataloged rather than misapplied. PRICE: EUR 8,990 (CORE trim, maker-quoted per the cited coverage but not a session-fetched page) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $10,258.10 — disclosed estimate, no regional-conversion token. catalog/emtb-breadth-3 wave (Rotwild deepened from 1 row to 2).',
+    lastChecked: '2026-07-23', source: 'https://bikerumor.com/rotwild-r-ex-updates-enduro-emtb-with-dji-ebike-power-longer-range-864wh-battery/'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
