@@ -2290,6 +2290,28 @@ var EMTB_PARTS = [
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.raymon-bicycles.com/en/modelle/tarok'
   },
   {
+    id: 'em-r-raymon-tarok-ultimate', cat: 'emtb', brand: 'R Raymon', model: 'Tarok Ultimate',
+    motorBrand: 'avinox', motorModel: 'DJI Avinox M2S', motorTorque: 150, motorPowerPeak: 1500,
+    batteryWh: 700, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', weight: 20400, price: 11410, modelYear: 2026,
+    disciplines: ['e-trail', 'e-enduro'],
+    note: 'Flagship Tarok trim — top of the 4-model range (Comp/Pro/Ultra/Ultimate), same HSC carbon frame and Avinox M2S drive/700Wh FP700 battery as Ultra, lighter build kit (20.4kg vs 22kg Ultra), independently corroborated by bike-magazin.de\'s editorial coverage of the launch.',
+    desc: 'Fetched from raymon-bicycles.com\'s own Tarok model page (browser render); weight/price/motor cross-checked against bike-magazin.de\'s 2026-04-09 editorial launch piece (system weight 20.4kg, price bracket 4999-9999 EUR, four-variant Comp/Pro/Ultra/Ultimate range, matching Avinox M2S/M2 split). No drivetrain/brake spec text on the raymon page for this trim (left blank rather than guessed). PRICE: EUR 9,999 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $11,410. catalog/emtb-depth-9 wave (R Raymon thin-lineup deepen, 2 -> 4 rows).',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.raymon-bicycles.com/en/modelle/tarok'
+  },
+  {
+    id: 'em-r-raymon-tarok-comp', cat: 'emtb', brand: 'R Raymon', model: 'Tarok Comp',
+    motorBrand: 'avinox', motorModel: 'DJI Avinox M2', motorTorque: 125, motorPowerPeak: 1100,
+    batteryWh: 700, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', weight: 23400, price: 6047, modelYear: 2026,
+    disciplines: ['e-trail', 'e-enduro'],
+    note: 'Entry Tarok trim, the only variant on the smaller Avinox M2 (not M2S) motor — 125Nm/1100W peak vs the M2S\'s 150Nm/1500W on Comp/Pro/Ultra/Ultimate. Carbon main frame with an aluminium rear triangle per bike-magazin.de\'s teardown of the launch (cost-optimized construction), same 160/150mm travel and 700Wh FP700 battery as the rest of the range.',
+    desc: 'Fetched from raymon-bicycles.com\'s own Tarok model page (browser render, price/weight/frame material) plus bike-magazin.de\'s 2026-04-09 editorial launch piece (motor torque/power, carbon+alu frame construction, 700Wh FP700 battery, 160/150mm travel — the maker\'s own page did not itemize travel/battery for this specific trim, so those fields are sourced from the editorial corroboration instead). A third-party aggregator (avinoxlist.com) lists conflicting specs for a same-named model (800Wh non-removable battery, 150/150mm travel, Shimano CUES) — not used, as it disagrees with both the maker\'s own page and the editorial piece. No drivetrain/brake spec text confirmed for this trim (left blank rather than guessed). PRICE: EUR 5,299 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $6,047. catalog/emtb-depth-9 wave.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.raymon-bicycles.com/en/modelle/tarok'
+  },
+  {
     id: 'em-flyer-uproc-x-4-10', cat: 'emtb', brand: 'Flyer', model: 'Uproc X 4.10',
     motorBrand: 'bosch', motorModel: 'Bosch Smart System Performance Line CX', motorTorque: 85,
     batteryWh: 750, assist: 'full-power',
