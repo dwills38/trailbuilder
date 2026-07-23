@@ -1832,6 +1832,18 @@ var KIT_PARTS = [
     liner:false, disciplines:['trail'],
     desc:'"Unisex fit" hybrid technical/lifestyle short. Price is the site\'s own displayed USD figure - left unverified (currency-conversion basis, not a confirmed US MSRP).' },
 
+  /* -- DHaRCO breadth (catalog/kit-apparel-brands-1, 2026-07-23): a distinct product line
+     from the already-cataloged Gravity Shorts (Trail = lighter/casual cut vs Gravity =
+     enduro-weight cut). Price from us.dharco.com's Men's MTB collection listing page (not
+     an individually fetched product page this session) - left unverified. A same-session
+     fetch of "Men's Race Jersey - Infrared" was considered but dropped: its description
+     doesn't disambiguate it from the already-cataloged Race Jersey LS row and it risked
+     being the same product in a different colorway, which the split policy explicitly
+     rejects as a new row - see the branch report. -- */
+  { id:'sht-dharco-trail-mens', cat:'shorts', brand:'DHaRCO', model:"Men's Trail Shorts", price:107,
+    liner:false, disciplines:['trail'], sizes:['S','M','L','XL','2XL','3XL'],
+    desc:'Lighter, more casual cut than the already-cataloged Gravity Shorts. Price from us.dharco.com\'s own Men\'s MTB collection listing (not an individually fetched product page this session) - left unverified.' },
+
   /* -- Pants (MTB pants only; shorts are a separate cat above) -- */
   { id:'pnt-fox-defend', cat:'pants', brand:'Fox', model:'Defend Pant', price:169.95, weight:430,
     liner:false, disciplines:['trail','enduro'], sizes:['28','30','32','34','36','38'],
