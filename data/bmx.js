@@ -2836,6 +2836,20 @@ var BMX_PARTS = [
     headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
     frameOnly: false, price: 599,
     note: 'Second Free Agent row (deepens the new brand added this batch) - the next tier up from the Vergo above, same family. FETCHED freeagentbmx.com own 2025-model-year page (2025-free-agent-models/street-park-2025) directly, corroborated by Sams BMX retailer explicitly selling this exact "Free Agent Lumen BMX – 20.5\\"TT" (topTube:20.5 exact for this SKU). Maker page states verbatim "Frame: CrMo, Integrated Headtube, w/6mm Dropouts, Removable Brake Posts & Cable Stop" (headTube:integrated-1-1/8 per the same catalog convention as the Vergo row, "Removable Brake Posts" confirming mounts ship present), "BB: Mid Cartridge Bearings, 8-Spline" (bbShell:mid exact), "RR: Aluminum, 14mm Axle, 9T diver" (rearAxle:14mm exact), and "Brakes: Tektro FX350R, U-Brake, w/Green Pads" (rearBrakeMount:u-brake exact) at the pages own $599 MSRP. Complete-bike-only listing, same convention as the Vergo row (no complete-bike weight attributed). Left UNVERIFIED for the same reason as Vergo: topTube is retailer-corroborated rather than a literal maker-page figure.'
+  },
+  {
+    id: 'bmx-fr-hoffman-condor', cat: 'frame', brand: 'Hoffman Bikes', model: 'Condor Classic Frame',
+    family: 'hoffman-condor', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: true, gyroTabs: true, weight: 2268, price: 349.99,
+    note: 'New brand for this catalog (Hoffman Bikes absent entirely before this batch, bmx-breadth-5) - Mat Hoffmans original 1991 signature frame, "30 YR Anniversary" reissue. FETCHED hoffmanbikes.com own product page (product/condor-30yr-frame) directly, a genuine frame-only SKU. States verbatim "BB: Mid" (bbShell:mid exact), "Integrated head tube w/removable detangler tabs" (headTube:integrated-1-1/8, gyroTabs:true exact - a detangler tab IS a gyro tab, same fact), "Removable brake mounts and cable guides" (mounts ship present -> rearBrakeMount:u-brake per this catalogs modern-freestyle convention, not itself page-named as u-brake), sized "21\\", 20.5 TT" (topTube:21, the larger option) and "Weight: 5 lbs (21\\")" = 2268g, at the pages regular $349.99 price (a $227.49 sale price is also shown - per this catalogs standing PRICE RULE the list/MSRP figure is used, never the discounted one). rearAxle:14mm is NOT stated on this specific page - carried from the sibling Big Daddy row below (same brand/era, which explicitly states "AXLE SLOT: 14mm"), so the row stays UNVERIFIED despite most fields being page-literal.'
+  },
+  {
+    id: 'bmx-fr-hoffman-bigdaddy', cat: 'frame', brand: 'Hoffman Bikes', model: 'Big Daddy Frame',
+    family: 'hoffman-bigdaddy', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: true, gyroTabs: true, weight: 2438, price: 349.99,
+    note: 'Second Hoffman Bikes row (deepens the new brand added this batch) - Kevin Jones signature frame, "30 YR Anniversary" reissue. FETCHED hoffmanbikes.com own product page (product/big-daddy-frame) directly. States verbatim "BB: Mid" (bbShell:mid exact), "Integrated head tube w/removable detangler tabs" (headTube:integrated-1-1/8, gyroTabs:true exact), "CNC Cromo heat-treated dropouts with 14mm slots" and "AXLE SLOT: 14mm" (rearAxle:14mm exact - the confirmation used to carry the Condor row above), "Removeable brakes mounts and gyro tabs included" (rearBrakeMount:u-brake per catalog convention), sized "TT 19.75\\" or 20.5\\"" (topTube:20.5, the larger option) and "WEIGHT: 5lbs 6oz" = 2438g. Price: the page shows "$399.99" at top but its own body text states "MSRP: $349.99 black, $359.99 raw and $369.99 chrome" - the black colorways literal MSRP ($349.99) is used per THE PRICE RULE (the base/cheapest maker-stated MSRP, not a possibly-stale top-of-page figure). Left UNVERIFIED given the top-of-page/body-text price discrepancy just disclosed.'
   }
 ];
 
