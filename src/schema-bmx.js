@@ -69,7 +69,7 @@ var LOCAL_VOCAB = {
      other category. */
   priceBasis:  ['msrp-confirmed', 'discontinued-no-msrp', 'oe-only-no-msrp',
                 'regional-conversion', 'bundle-split-estimate', 'third-party-listed',
-                'pair-split-estimate']
+                'pair-split-estimate', 'deprioritized-no-price-source']
 };
 
 /* >>> COORDINATOR ROLLOUT SWITCH — DO NOT FLIP. See the identical constant in

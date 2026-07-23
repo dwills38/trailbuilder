@@ -49,11 +49,14 @@ function msrpCompareDesc(a, b){ return (b.price||0) - (a.price||0); }
    row's price is in.
 
      price: MSRP confirmed      priceBasis:'msrp-confirmed'
-     a disclosed exception      the other five tokens — a REAL price that
+     a disclosed exception      six of the other tokens — a REAL price that
                                 honestly isn't a current maker MSRP, each
                                 naming its own reason
      price: sample              no priceBasis (the honest default, and still
-                                most verified rows until the backfill runs)
+                                most verified rows until the backfill runs),
+                                OR priceBasis:'deprioritized-no-price-source'
+                                — still a sample price, just disclosing WHY
+                                the burndown grind stopped re-fetching it
 
    Rules these obey:
      - never claim more than the data says. A verified row without a
@@ -89,6 +92,8 @@ function priceBasisLabel(p){
       return 'price: an estimated split of the wheelset\'s pair MSRP — the maker prices only the pair';
     case 'third-party-listed':
       return 'price: no maker price exists — shown price is from a third-party listing';
+    case 'deprioritized-no-price-source':
+      return 'price: sample — the only source is a maker spec page that never publishes a price';
     default:
       /* Deliberately short and contrastive: this phrase sits INSIDE a badge
          title that has just said the SPEC was checked against the manufacturer

@@ -222,10 +222,15 @@ var GRAVEL_VOCAB = {
      Full per-token rationale lives in schema.js — same enum, not a gravel
      variant. Never feeds any compat rule.
      'pair-split-estimate' (2026-07-22) is WHEEL-ONLY — frontwheel/rearwheel —
-     a cross-rule below rejects it on any other category. */
+     a cross-rule below rejects it on any other category.
+     'deprioritized-no-price-source' (2026-07-23) — NOT a disclosed price like
+     the others; the stored price stays a SAMPLE. Marks a verified row whose
+     only source is a maker spec page that structurally never carries a price
+     (Shimano/SRAM/Zipp/Campagnolo component pages), so the priceBasis
+     burndown wave stops re-fetching it. Full rationale in schema.js. */
   priceBasis:   ['msrp-confirmed', 'discontinued-no-msrp', 'oe-only-no-msrp',
                  'regional-conversion', 'bundle-split-estimate', 'third-party-listed',
-                 'pair-split-estimate']
+                 'pair-split-estimate', 'deprioritized-no-price-source']
 };
 
 /* >>> COORDINATOR ROLLOUT SWITCH — DO NOT FLIP. See the identical constant in
