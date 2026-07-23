@@ -1941,6 +1941,18 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://www.ghost-bikes.com/int-en/p/e-asx-universal-gbbt1/'
   },
 
+  {
+    id: 'em-intense-tazer-pro-bosch', cat: 'emtb', brand: 'Intense', model: 'Tazer Pro',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Gen.5 (Race tune)', motorTorque: 120, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon',
+    disciplines: ['e-trail', 'e-enduro'], weight: 22850, price: 8999, modelYear: 2026,
+    note: 'The all-new third-generation Intense Tazer (2026) — a completely different platform from the already-cataloged second-gen "Tazer MX" rows (Shimano EP801-powered, still sold as a distinct legacy line): new Dual Co-Rotating Link (DCR) suspension, Bosch CX Gen5 motor (a 120Nm/750W tune, up from Bosch\'s stock 85Nm), carbon frame, buyer\'s choice of mixed or dual-29in wheels (cataloged at mullet). Pro is the higher of two standard builds (Foundation below it).',
+    desc: 'Unverified sample via the credible-source breadth policy — The Loam Wolf\'s 2026 eMTB Shootout review and intensecycles.com\'s own blog repost of that review, plus BikeMag\'s and Pinkbike\'s first-look coverage, consistently confirm "Bosch CX Gen 5 drive unit... 120Nm peak torque and 750W peak power... 600Wh or 800Wh battery options... carbon fiber frame... Dual Co-Rotating (DCR) link suspension... 150mm rear travel, with 160mm front travel... Foundation at $6,999 or the Pro at $8,999... medium Pro build weighs 50lbs 6oz (22.85kg)". Cataloged at the larger 800Wh option (matching the quoted weight figure\'s own build) and the Pro-trim price. No intensecycles.com Tazer-frameset/build-configurator page directly fetched this session. catalog/emtb-breadth-3 wave (Intense deepened from 2 rows to 3 — this row and the existing Tazer MX pair now span two full platform generations).',
+    lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/intense-tazer-review/'
+  },
+
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
