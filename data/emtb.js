@@ -1656,6 +1656,18 @@ var EMTB_PARTS = [
   },
 
   {
+    id: 'em-moustache-samedi29-game1608', cat: 'emtb', brand: 'Moustache', model: 'Samedi 29 Game 160.8',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX BDU38 (Smart System)', motorTorque: 120,
+    batteryWh: 600, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle AXS T-Type', brakes: 'Shimano XT BR-M8120 4-piston',
+    disciplines: ['e-enduro'], price: 8557,
+    note: "The high-performance GAME family alongside the already-cataloged Trail 150.2 and Samedi 27 Wide 5 — a distinct higher-power/higher-travel tier on Moustache's new (2026) frame generation, up to 120Nm Bosch CX Smart System vs the Trail's 85Nm. GAME 150 (160/150mm) and GAME 160 (170/160mm) sub-families each ship in 4-5 build levels; this is the GAME 160.8 build (SRAM GX AXS T-Type/Shimano XT). A 750Wh battery upgrade (+EUR 300) is offered on the same SKU.",
+    desc: 'Fetched via Exa directly from the maker\'s own configurator page (moustachebikes.com/fr/en/electric-bikes/samedi-29-game/game-160-8/), which — unlike the Trail/Wide pages used for this catalog\'s other Moustache rows — carries a real price. Confirmed: "Game, 6061 T4-T6 alloy, 160mm travel... Bosch PowerTube" frame, "FOX 38 Factory GRIP X2... 170mm" fork, "Fox Float X Factory... 160mm" shock, "Bosch Performance Line CX BDU38, Smart System, 120 Nm" motor, "Bosch PowerTube 600Wh" battery (base; 750Wh selectable for +EUR 300), "SRAM GX AXS T-Type 12-speed" derailleur/chain, "SRAM XS-1270 10-52T" cassette, "Shimano XT BR-M8120, hydraulic disc, 4 pistons" front AND rear brakes (220mm rotors). No complete-bike weight shown on the fetched spec table. PRICE: EUR 7,499 (base 600Wh config, maker\'s own configurator, VAT-inclusive per moustachebikes.com/fr convention) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $8,557.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://moustachebikes.com/fr/en/electric-bikes/samedi-29-game/game-160-8/'
+  },
+
+  {
     id: 'em-amflow-pl-carbon-pro-800', cat: 'emtb', brand: 'Amflow', model: 'PL Carbon Pro (800Wh)',
     motorBrand: 'dji', motorModel: 'DJI Avinox M1 Drive Unit', motorTorque: 105, motorPowerPeak: 850,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
