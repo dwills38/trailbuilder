@@ -592,6 +592,59 @@ var KIT_PARTS = [
     desc:'Budget-tier women\'s-specific trail helmet, same "all-new, rounder head form" fit claim as the Rail. No weight or CPSC/EN/ASTM code published on the page.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.liv-cycling.com/us/roost-helmet-liv-2023?partnumber=800002698' },
 
+  /* -- Helmets, new brands (catalog/kit-breadth-10, 2026-07-23): Kask, 6D, Limar, Bern were
+     entirely ABSENT. Kask rows fetched live via kask.com/en-us/Cycling/MTB (manufacturer page);
+     6D's own site (6dhelmets.com) 429'd on every fetch attempt this batch, so its three rows are
+     honest unverified samples sourced from Vital MTB/BikeRadar/Pinkbike review figures per
+     DATA-ENTRY-TEMPLATE §7 (a credible non-manufacturer source is fine for an unverified row;
+     no priceBasis is stated on unverified rows - priceBasis is a verified-only claim). Limar rows
+     are unverified samples (limar.com/us.limar.com not fetched this batch; figures from
+     Bikerumor/Singletracks/Cyclingnews reviews + retailer listings). Bern's CURRENT lineup is
+     urban/commuter-positioned (Hendrix/Major/Hudson), not MTB-specific gravity gear - Bern's own
+     copy calls the Hendrix suited to "trail riders looking for style", so these are entered
+     honestly with NO disciplines tag (absence = universal, not an MTB claim) rather than guessed
+     as trail/enduro; FLAGGING this for Douglas: Bern currently has no dedicated half-shell MTB
+     line the way Kask/6D/Limar do. bernhelmets.com 429'd on direct fetch, so unverified samples. -- */
+  { id:'hm-kask-rex', cat:'helmet', brand:'Kask', model:'Rex', price:245, weight:310,
+    type:'half-shell', disciplines:['xc','trail','enduro'],
+    desc:'20-vent half-shell, removable ratcheting visor, integrated goggle clip. No MIPS on the base Rex (a separate MIPS+ variant exists; its price was not confirmed this batch, so not entered). Weight (310g) is a Loam Wolf review figure, not maker-published.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.kask.com/en-us/Cycling/MTB', sourceType:'manufacturer' },
+  { id:'hm-kask-caipi', cat:'helmet', brand:'Kask', model:'Caipi', price:179, weight:250,
+    type:'half-shell', disciplines:['trail'],
+    desc:'22-vent lightweight half-shell trail lid, ventilated visor. No MIPS/rotational system (Kask cites its own shell/foam construction instead). Weight (250g, size M) is an off.road.cc review figure, not maker-published.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.kask.com/en-us/Cycling/MTB', sourceType:'manufacturer' },
+  { id:'hm-kask-valegro', cat:'helmet', brand:'Kask', model:'Valegro', price:250,
+    type:'half-shell', disciplines:['trail'],
+    desc:'Kask\'s trail half-shell, positioned above the Rex on kask.com. No maker-published weight found this batch.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.kask.com/en-us/Cycling/MTB', sourceType:'manufacturer' },
+  { id:'hm-6d-atb-1t', cat:'helmet', brand:'6D', model:'ATB-1T', price:269.95, weight:501,
+    type:'convertible', disciplines:['trail','enduro'],
+    desc:'3/4-shell trail/enduro helmet with 6D\'s ODS (Omni-Directional Suspension) liner; reviewed as effectively "two helmets in one" via its coverage/venting tradeoff, catalogued as convertible-type. UNVERIFIED sample: figures from Vital MTB/BikeRadar coverage, not a fetched 6dhelmets.com page (429 on every attempt this batch).' },
+  { id:'hm-6d-atb-2t', cat:'helmet', brand:'6D', model:'ATB-2T Ascent', price:229.95, weight:475,
+    type:'half-shell', disciplines:['trail','enduro'],
+    desc:'Open-face trail/enduro half-shell, 6D\'s 4th-gen ODS suspension liner. UNVERIFIED sample: figures from The Loam Wolf/Vital MTB press coverage, not a fetched manufacturer page (6dhelmets.com 429\'d this batch).' },
+  { id:'hm-6d-alterra', cat:'helmet', brand:'6D', model:'Alterra', price:395, weight:719,
+    type:'full-face', disciplines:['enduro','dh'],
+    desc:'Lightweight pedal-friendly full-face with in-molded carbon fiber chin bar and internal roll cage, 6D\'s ODS suspension liner. UNVERIFIED sample: figures from Pinkbike/Vital MTB reviews, not a fetched manufacturer page (6dhelmets.com 429\'d this batch).' },
+  { id:'hm-limar-alben-mips', cat:'helmet', brand:'Limar', model:'Alben + MIPS', price:141, weight:230,
+    type:'half-shell', rotational:'mips', disciplines:['xc','trail'],
+    desc:'22-vent lightweight in-mold shell, all-mountain/XC positioning. UNVERIFIED sample: US retailer listing ($141) and Bikerumor/Singletracks-reported weight (230g size M); limar.com/us.limar.com not fetched this batch.' },
+  { id:'hm-limar-air-atlas-mips', cat:'helmet', brand:'Limar', model:'Air Atlas + MIPS', price:320, weight:303,
+    type:'half-shell', rotational:'mips', disciplines:['xc'],
+    desc:'Road/XC-crossover half-shell, 23 vents, Air Fit Evo retention. Positioned by Limar as road-first but a real half-shell bike helmet (not e-bike/motor gear), included per the brand\'s XC-adjacent lineup. UNVERIFIED sample: Cyclingnews/road.cc review figures (weight is size L, above Limar\'s own 260g claim); no manufacturer-page fetch this batch.' },
+  { id:'hm-limar-livigno-mips', cat:'helmet', brand:'Limar', model:'Livigno + MIPS', price:249.95, weight:590,
+    type:'full-face', rotational:'mips', disciplines:['enduro','dh'],
+    desc:'Lightweight full-face rated for DH racing use, MIPS Air Node liner. UNVERIFIED sample: figures from Pinkbike/The Loam Wolf/Bikerumor reviews (weight size M); limar.com not fetched this batch.' },
+  { id:'hm-bern-hendrix-mips', cat:'helmet', brand:'Bern', model:'Hendrix MIPS', price:149.95, weight:400,
+    type:'half-shell', rotational:'mips',
+    desc:'ThinShell/Ribtech EPS half-shell, MIPS-equipped; Bern\'s own copy positions it for "commuters, recreational cyclists, and trail riders". Deliberately left without a disciplines tag (not an MTB-specific gravity helmet - see the batch header note). UNVERIFIED sample: retailer-listed price/weight; bernhelmets.com 429\'d on direct fetch this batch.' },
+  { id:'hm-bern-major-mips', cat:'helmet', brand:'Bern', model:'Major MIPS', price:88.99, weight:315,
+    type:'half-shell', rotational:'mips',
+    desc:'Bern\'s most-ventilated urban half-shell (14 vents), Virginia Tech 5-star rated, MIPS-equipped. No disciplines tag (urban/commuter positioning, not MTB-specific - see batch header note). UNVERIFIED sample: Walmart-listed price, retailer-reported weight; bernhelmets.com 429\'d this batch.' },
+  { id:'hm-bern-hudson-mips', cat:'helmet', brand:'Bern', model:'Hudson MIPS', price:139.99, weight:370,
+    type:'half-shell', rotational:'mips',
+    desc:'E-bike/commuter-rated half-shell (up to 27mph), 13 vents, integrated LED light mount, MIPS-equipped. No disciplines tag (commuter positioning). UNVERIFIED sample: retailer-listed price/weight; bernhelmets.com 429\'d this batch.' },
+
   /* -- Shoes (soleType required: flat / clipless) -- */
   { id:'sho-fiveten-freerider-pro', cat:'shoes', brand:'Five Ten', model:'Freerider Pro', price:160, weight:696,
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['40','41','42','43','44','45','46','47'],
@@ -1052,6 +1105,70 @@ var KIT_PARTS = [
     disciplines:['xc','trail'],
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.giro.com/p/riela-r-ii-mountain-bike-shoes/GR-7089932.html',
     desc:'Women\'s-specific XC/trail clipless (2-bolt) shoe - kit-breadth-2 pass (2026-07-22): the women\'s-fitCut shoe cell was almost empty (a single Ride Concepts row) before this addition. Fetched giro.com product page: style GR-7089932, list USD price $99.95 (currently $69.98 on a 29%-off sale, list price used per the MSRP pricing policy), EU sizes 36-43. No weight published on the page.' },
+
+  /* -- Shoes, new brands (catalog/kit-breadth-10, 2026-07-23): Fizik, Lake, Gaerne, Suplest,
+     Quoc, Bont were entirely ABSENT. "Fizik" casing matches the existing MTB-catalog saddle
+     brand (fizik.com) - same maker, new shoe products, no ambiguity. Lake rows are
+     manufacturer-page fetched (lakecycling.com/collections/mtb); the rest are honest unverified
+     samples per DATA-ENTRY-TEMPLATE §7 (fizik.com/gaernecyclingusa.com/kenver.com 429'd or
+     refused connection every attempt this batch; no priceBasis stated on unverified rows). -- */
+  { id:'sho-fizik-terra-x5', cat:'shoes', brand:'Fizik', model:'Terra X5', price:149.95, weight:576,
+    soleType:'clipless', closure:'boa', disciplines:['trail','enduro'],
+    desc:'Boa L6 Dial B + Slipstream lace guides, 25mm microfiber/velcro strap, nylon-reinforced sole. Weight per pair from a BikeRadar-measured 288g/shoe (size 42). UNVERIFIED sample: US list price per multiple US retailers (Mechanic Cycling, Total Cycling); fizik.com 429\'d every fetch attempt this batch.' },
+  { id:'sho-fizik-terra-ergolace-x2-flat', cat:'shoes', brand:'Fizik', model:'Terra Ergolace X2 Flat', price:129.99, weight:646,
+    soleType:'flat', closure:'lace', disciplines:['trail','enduro'],
+    desc:'Lace-up flat-pedal walkable trail shoe. Weight per pair from Fizik\'s own claimed 323g/shoe (per Bikerumor). UNVERIFIED sample: US retailer/BIKE24 listing; fizik.com 429\'d this batch.' },
+  { id:'sho-fizik-terra-ergolace-x2', cat:'shoes', brand:'Fizik', model:'Terra Ergolace X2', price:129,
+    soleType:'clipless', closure:'lace', disciplines:['trail','enduro'],
+    desc:'2-bolt clipless sibling of the Ergolace X2 Flat (sho-fizik-terra-ergolace-x2-flat), same lace-up upper on a clipless-specific sole. No reliable per-shoe weight found this batch, left unset rather than guessed. UNVERIFIED sample: biketart/RRP-GBP-converted listing; fizik.com 429\'d this batch.' },
+  { id:'sho-lake-mx239', cat:'shoes', brand:'Lake', model:'MX239', price:359.99,
+    soleType:'clipless', closure:'boa', disciplines:['trail','enduro'],
+    desc:'Dual BOA Li2 dials, Lake\'s premium enduro/gravity clipless shoe. No per-shoe weight published on the fetched collection page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.lakecycling.com/collections/mtb', sourceType:'manufacturer' },
+  { id:'sho-lake-mx190', cat:'shoes', brand:'Lake', model:'MX190', price:229.99,
+    soleType:'clipless', closure:'boa', disciplines:['trail','enduro'],
+    desc:'Dual BOA L6 dials, mid-tier MTB clipless shoe. No per-shoe weight published on the fetched collection page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.lakecycling.com/collections/mtb', sourceType:'manufacturer' },
+  { id:'sho-lake-mx169', cat:'shoes', brand:'Lake', model:'MX169', price:169.99,
+    soleType:'clipless', closure:'lace', disciplines:['trail'],
+    desc:'Entry-tier laced MTB clipless shoe. No per-shoe weight published on the fetched collection page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.lakecycling.com/collections/mtb', sourceType:'manufacturer' },
+  { id:'sho-suplest-edge-mountain-sport', cat:'shoes', brand:'Suplest', model:'Edge+ 2.0 Mountain Sport', price:184, weight:732,
+    soleType:'clipless', closure:'boa', disciplines:['trail'],
+    desc:'Fiber-reinforced sole, thin SUPtraction rubber tread, 2-bolt cleat mount. Weight per pair from review-measured 366g/shoe (size 42). Price converted from the EUR170 EU list (no confirmed US-dollar storefront figure this batch).' },
+  { id:'sho-suplest-edge-mountain-performance', cat:'shoes', brand:'Suplest', model:'Edge+ 2.0 Mountain Performance', price:270, weight:728,
+    soleType:'clipless', closure:'boa', disciplines:['trail','enduro'],
+    desc:'8/10-stiffness carbon-composite sole, 2-bolt cleat mount, low-profile walkable lugs. Weight per pair from review-measured 364g/shoe (size 42). Price converted from the EUR250 EU list (no confirmed US-dollar storefront figure this batch).' },
+  { id:'sho-suplest-edge-mountain-pro', cat:'shoes', brand:'Suplest', model:'Edge+ 2.0 Mountain Pro', price:429, weight:728,
+    soleType:'clipless', closure:'boa', disciplines:['trail','enduro'],
+    desc:'10/10-stiffness full-carbon sole (top tier), includes a SOLESTAR insole. Weight per pair from review-measured 364g/shoe (size 42, incl. insole). Price is Kenver\'s US-dollar MSRP listing.' },
+  { id:'sho-gaerne-g-hurricane-carbon', cat:'shoes', brand:'Gaerne', model:'Carbon G.Hurricane', price:216, weight:642,
+    soleType:'clipless', closure:'boa', disciplines:['xc','trail'],
+    desc:'BOA L6 reel closure, Michelin EPS carbon-fiber sole, G.air vented upper. Weight per pair from a Bergfreunde-measured 321g/shoe (size 43). Price converted from the EUR199.90 carbon-sole tier (EU pricing, no confirmed US-dollar storefront figure this batch) - same disclosed-basis convention as other regional-conversion rows.' },
+  { id:'sho-gaerne-g-trail', cat:'shoes', brand:'Gaerne', model:'G.Trail', price:113,
+    soleType:'flat', closure:'boa', disciplines:['trail','enduro'],
+    desc:'2Density nylon/fiberglass sole, BOA L6 dial, made in Italy. No per-shoe weight found this batch (gaernecyclingusa.com refused connection). UNVERIFIED sample: Bikeinn US-dollar retail listing.' },
+  { id:'sho-gaerne-g-sincro-plus', cat:'shoes', brand:'Gaerne', model:'Carbon G.Sincro+', price:500, weight:760,
+    soleType:'clipless', closure:'boa', disciplines:['xc','enduro'],
+    desc:'Flagship dual-BOA-offset-dial shoe, Gaerne/Michelin EPS carbon sole. Weight (760g/pair without cleats) confirmed by Mountain Bike Action\'s test review. FLAGGING: the $500 price is that same magazine review\'s figure and could not be independently reconfirmed against a live 2026 Gaerne page this batch (gaernecyclingusa.com refused connection, gaerne.com not attempted) - treat as a dated reference point, not a current MSRP.' },
+  { id:'sho-quoc-gran-tourer-ii', cat:'shoes', brand:'Quoc', model:'Gran Tourer II', price:265,
+    soleType:'clipless', closure:'boa', disciplines:['trail'],
+    desc:'BOA dial + velcro strap, all-terrain gravel/MTB clipless shoe. No per-shoe weight confirmed for this specific tier this batch. UNVERIFIED sample: quoc.cc US-dollar listed price.' },
+  { id:'sho-quoc-gran-tourer-iii', cat:'shoes', brand:'Quoc', model:'Gran Tourer III', price:250,
+    soleType:'clipless', closure:'boa', disciplines:['trail'],
+    desc:'BOA dial + velcro strap, updated Gran Tourer generation. No per-shoe weight confirmed for this specific tier this batch. UNVERIFIED sample: quoc.cc US-dollar listed price.' },
+  { id:'sho-quoc-gran-tourer-xc', cat:'shoes', brand:'Quoc', model:'Gran Tourer XC', price:310, weight:684,
+    soleType:'clipless', closure:'boa', disciplines:['xc','trail'],
+    desc:'Stiffer race-oriented Gran Tourer tier. Weight per pair from a bikepacking.com-measured 342g/shoe (size EU43). UNVERIFIED sample: quoc.cc US-dollar listed price.' },
+  { id:'sho-bont-riot-mtb-plus', cat:'shoes', brand:'Bont', model:'Riot MTB+', price:153.90,
+    soleType:'clipless', closure:'boa', disciplines:['xc'],
+    desc:'Carbon-composite, heat-moldable clipless MTB shoe, BOA dial. No reliable per-shoe weight found this batch. UNVERIFIED sample: Walmart-listed retail price; shop.bontcycling.com not fetched (product-line pricing shifts by colorway/season).' },
+  { id:'sho-bont-vaypor-s', cat:'shoes', brand:'Bont', model:'Vaypor S', price:459, weight:680,
+    soleType:'clipless', closure:'boa', disciplines:['xc'],
+    desc:'Bont\'s flagship carbon race shoe, BOA dial. Weight (680g/pair) and price are dated (2016-era) figures from Bikerumor/press coverage; FLAGGING: could not independently reconfirm against a live 2026 Bont page this batch (bontcycling.com product page showed the older Vaypor as "Discontinued" with no current-generation detail) - treat as a historical reference point, not a current MSRP.' },
+  { id:'sho-bont-vaypor-g', cat:'shoes', brand:'Bont', model:'Vaypor G', price:459,
+    soleType:'clipless', closure:'boa', disciplines:['xc'],
+    desc:'Gravel-tread version of the Vaypor platform (Bont\'s "G" suffix denotes the gravel-tread variant; no gravel discipline token exists in this catalog\'s vocab, so left as xc), same carbon sole/BOA closure. No per-shoe weight found this batch. Same dated-figure caveat as the Vaypor S (sho-bont-vaypor-s) - price could not be reconfirmed against a live 2026 page this batch.' },
 
   /* -- Jerseys (all fields optional) -- */
   { id:'jsy-fox-flexair', cat:'jersey', brand:'Fox', model:'Flexair', price:104.95, weight:135,
@@ -3071,6 +3188,27 @@ var KIT_PARTS = [
     desc:'kit-breadth-1 (2026-07-22): TSG had zero kneepad rows despite this being the knee counterpart to its already-cataloged Joint Elbow Sleeve (elp-tsg-joint-sleeve) - slip-on softshell, articulated PU memory foam. Weight maker-stated ("520 g") on the fetched ridetsg.com product page. Price is EUR84.95 (VAT incl.) converted to a $91.75 USD sample at ~1.08 USD/EUR (no confirmed US-dollar storefront - same disclosed-basis convention as the existing TSG rows) per THE PRICE RULE. Bike protocol PPETS0002 is only "partially based on" EN1621-1:2012 with no stated Level, so no cert token is tagged.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-22', source:'https://www.ridetsg.com/shop/kneesleeve-joint/71014-25-102/' },
 
+  /* -- Knee pads, new brands (catalog/kit-breadth-10, 2026-07-23): Fuse Protection, Amplifi,
+     Forcefield were entirely ABSENT from the pads/protection cell. Honest unverified samples per
+     DATA-ENTRY-TEMPLATE §7 - fuse-protection.com/amplifisports.com/forcefield-body-armour sites
+     were not fetched clean this batch (no priceBasis stated on unverified rows). No certs
+     asserted: source snippets cite standard numbers inconsistently (e.g. one Fuse page text says
+     "EN 1621-2012 Level 2" for a KNEE pad, but EN1621-2 is the BACK-protector family in this
+     catalog's vocab, not limb - likely a copy-paste/transcription slip on the source's part) so
+     none is confident enough to tag per the strict fetched-source-only rule for safety claims. -- */
+  { id:'knp-fuse-alpha-classic', cat:'kneepad', brand:'Fuse Protection', model:'Alpha Classic', price:67.95, weight:375,
+    disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL','2XL'],
+    desc:'EVA foam + nylon hard-cap knee pad, sleeve-style. Weight is fuse-protection.com\'s own listed pair weight. No certs asserted (see batch header note). UNVERIFIED sample: fuse-protection.com/Amazon-listed price.' },
+  { id:'knp-fuse-echo', cat:'kneepad', brand:'Fuse Protection', model:'Echo Knee Pad', price:81, weight:485,
+    disciplines:['trail','enduro','dh'], sizes:['S','M','L','XL'],
+    desc:'Cordura-face sleeve, dual-layer Lycra back, SAS-TEC viscoelastic foam, sharkskin neoprene gripper. Weight is fuse-protection.com\'s own listed pair weight. No certs asserted (see batch header note on the ambiguous EN-standard citation). Price converted from the EUR74.99 EU list (no confirmed US-dollar storefront figure this batch).' },
+  { id:'knp-amplifi-mkx', cat:'kneepad', brand:'Amplifi', model:'MKX Knee', price:89.27, weight:260,
+    disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
+    desc:'Strain-rate-sensitive silicone MKX material (flexible until impact, then stiffens), slip-on sleeve, no hard shell. Weight (260g, size L) is a review-measured pair figure. UNVERIFIED sample: Amazon-listed price; amplifisports.com not fetched clean this batch.' },
+  { id:'knp-forcefield-isolator2', cat:'kneepad', brand:'Forcefield', model:'Isolator 2 Upgrade Knee', price:49, weight:184,
+    disciplines:['trail','enduro','dh'], sizes:['S/M','L/XL'],
+    desc:'Dri-M moldable PU armor, 12mm thick, sold as a pair. Weight (184g/pair) derived from a retailer-listed 92g-per-piece figure. Reviews describe it as "CE approved to EN1621-2 Level 2", but EN1621-2 is the BACK-protector family in this catalog\'s vocab (limb pads use EN1621-1) - likely a source transcription slip, so no certs token is asserted rather than overstating the claim. UNVERIFIED sample: multiple US retailer-listed price (ChapMoto/RevZilla/Cycle Gear).' },
+
   /* -- Elbow pads (per pair) -- (grind/kit-elbowpad, expanded 2026-07-14: two rows
      fetch-verified against their own manufacturer product page - price, weight and
      cert all confirmed on-page; the rest are real current-lineup products at
@@ -3309,6 +3447,23 @@ var KIT_PARTS = [
     disciplines:['trail'], sizes:['S','M','L','XL'],
     desc:'kit-breadth-1 (2026-07-22): strapless stretch-mesh EVA pad, the elbow counterpart to the Mission Evo Knee Pads (knp-scott-missionevo) - same maker-stated PPE cat. I, untagged rather than mis-certed. No weight published.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.scott-sports.com/us/en/products/apparel-equipment-mw-equipment-body-protection' },
+
+  /* -- Elbow pads, new brands (catalog/kit-breadth-10, 2026-07-23): Fuse Protection, Amplifi,
+     Forcefield were entirely ABSENT (see the kneepad batch header for the shared sourcing/certs
+     caveat - same brands, same fetch-blocked sites, same no-certs-asserted reasoning, no
+     priceBasis on unverified rows). -- */
+  { id:'elp-fuse-omega', cat:'elbowpad', brand:'Fuse Protection', model:'Omega Elbow Pad', price:75, weight:165,
+    disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
+    desc:'Lightweight breathable Lycra/Dry-Fit mesh sleeve, SAS-TEC insert, Kenesio compression bands + sharkskin grippers (no straps). Weight is fuse-protection.com\'s own listed pair weight. No certs asserted (see kneepad batch header note). UNVERIFIED sample: US retailer-listed price.' },
+  { id:'elp-amplifi-mkx', cat:'elbowpad', brand:'Amplifi', model:'MKX Elbow', price:84.48,
+    disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
+    desc:'Strain-rate-sensitive silicone MKX material, slip-on sleeve, no hard shell - elbow counterpart to the MKX Knee (knp-amplifi-mkx). No per-pair weight found this batch. UNVERIFIED sample: Amazon-listed price; amplifisports.com not fetched clean this batch.' },
+  { id:'elp-amplifi-salvo', cat:'elbowpad', brand:'Amplifi', model:'Salvo Elbow', price:78, weight:320,
+    disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
+    desc:'Reinforced-panel sleeve, 3D-molded SAS-TEC protector, flex-zone venting. Weight is a retailer-listed pair figure. UNVERIFIED sample: amplifisports.com-listed retail price (site not fetched clean this batch).' },
+  { id:'elp-forcefield-pro-tube-xv1', cat:'elbowpad', brand:'Forcefield', model:'Pro Tube X-V 1', price:99, weight:270,
+    disciplines:['trail','enduro'], sizes:['S/M','L/XL'],
+    desc:'Dri-M tube-style sleeve armor (sold as an elbow/knee-interchangeable pair; catalogued here as elbowpad). Weight is a BikeRadar-measured pair figure. No certs asserted (same ambiguous-EN-citation reasoning as the Isolator 2, knp-forcefield-isolator2). UNVERIFIED sample: multiple US retailer-listed price.' },
 
   /* -- Body armor (coverage optional) -- */
   { id:'arm-fox-baseframe-pro', cat:'bodyarmor', brand:'Fox', model:'Baseframe Pro D3O', price:214.95, weight:640,
@@ -3580,6 +3735,17 @@ var KIT_PARTS = [
       + ' carries EN1621-1 Level 1 on the elbow/shoulder sleeve, which has no bodyarmor cert vocab'
       + ' token so is left unstated). Weight "from 1.064kg" (US product page) — the lightest listed spec.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://us.leatt.com/products/body-protector-reaflex-women' },
+
+  /* -- Body armor, new brand (catalog/kit-breadth-10, 2026-07-23): Forcefield was entirely
+     ABSENT. This row stays UNVERIFIED like its knee/elbow siblings (no manufacturer-page fetch
+     succeeded this batch), but its EN1621-2 Level 2 citation is specific and quantified (a stated
+     6.63 kN average force result, comfortably under the Level-2 <=9kN threshold vs Level 1's
+     <=18kN) rather than a bare "CE approved" claim, so - unlike the ambiguous knee/elbow
+     citations above - it clears the bar for a safety-cert token even on this unverified row (a
+     cert token is not itself gated on verified:true; only `priceBasis` is). -- */
+  { id:'arm-forcefield-pro-shirt-xv2-air', cat:'bodyarmor', brand:'Forcefield', model:'Pro Shirt X-V 2 Air', price:299.99,
+    coverage:'chest-back', certs:['en1621-2-l2'], disciplines:['enduro','dh'], sizes:['S','M','L','XL','XXL'],
+    desc:'Full removable CE-armored shirt (back/chest/shoulders/elbows) in a breathable BeCool base-layer shell. Cert per review-reported EN1621-2 CE-standard test data (6.63 kN result, within the Level 2 band). No maker-published weight found this batch (an older Pro Shirt X-V generation cites ~1250g, but that figure is not reliably attributable to this X-V 2 Air SKU, so left unset). UNVERIFIED sample: multiple US retailer-listed price (RevZilla).' },
 
   /* -- Neck braces (niche; no universal cert standard - certs stay dormant).
      Comprehensive sweep of the 4 recognized market brands (Leatt, Alpinestars,
@@ -4060,7 +4226,40 @@ var KIT_PARTS = [
   { id:'ewr-sungod-gts', cat:'eyewear', brand:'SunGod', model:'GTs', family:'sungod-gts', price:255,
     type:'glasses', sizes:['OSFA'],
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.sungod.co/en-us/road-cycling-sunglasses',
-    desc:'Fetched sungod.co (WebFetch): GTs (designed with Geraint Thomas) base colorway confirmed at $255 (Grey/Iris HV Blue variant runs to $308). No weight published.' }
+    desc:'Fetched sungod.co (WebFetch): GTs (designed with Geraint Thomas) base colorway confirmed at $255 (Grey/Iris HV Blue variant runs to $308). No weight published.' },
+
+  /* -- Eyewear, new brands (catalog/kit-breadth-10, 2026-07-23): Roka, Goodr, Zeal Optics were
+     entirely ABSENT. All three are honest unverified samples per DATA-ENTRY-TEMPLATE §7 -
+     roka.com/goodr.com/zealoptics.com either 429'd or reset every direct-fetch attempt this
+     batch; figures are search-summarized manufacturer/retailer listing prices, not confirmed via
+     a rendered page (no priceBasis stated on unverified rows). -- */
+  { id:'ewr-roka-cp1x', cat:'eyewear', brand:'Roka', model:'CP-1x', price:240,
+    type:'glasses',
+    desc:'Semi-rimless shield sunglasses, custom nose-bridge fit system. UNVERIFIED sample: roka.com listed price (non-prescription base tier; a prescription CP-1x tier runs higher). No weight found this batch.' },
+  { id:'ewr-roka-sl1x', cat:'eyewear', brand:'Roka', model:'SL-1x', price:185,
+    type:'glasses',
+    desc:'Rimless shield sunglasses, lighter-weight sibling of the CP-1x. UNVERIFIED sample: roka.com listed price. No weight found this batch.' },
+  { id:'ewr-roka-sr1x', cat:'eyewear', brand:'Roka', model:'SR-1x', price:175,
+    type:'glasses',
+    desc:'Semi-rimless shield sunglasses, Roka\'s protective/tactical-adjacent tier (also sold in a Z87+ ballistic-rated version). UNVERIFIED sample: roka.com listed price. No weight found this batch.' },
+  { id:'ewr-goodr-og', cat:'eyewear', brand:'Goodr', model:'The OG', price:30,
+    type:'glasses',
+    desc:'No-slip, no-bounce polarized sport sunglasses, Goodr\'s original entry-level model. UNVERIFIED sample: goodr.com listed price. No weight found this batch.' },
+  { id:'ewr-goodr-wrap-g', cat:'eyewear', brand:'Goodr', model:'Wrap G', price:45,
+    type:'glasses', disciplines:['trail','enduro'],
+    desc:'Wraparound cycling-specific shield, more curved/coverage than Goodr\'s round OG line, polarized. UNVERIFIED sample: goodr.com listed price. No weight found this batch.' },
+  { id:'ewr-goodr-bfg', cat:'eyewear', brand:'Goodr', model:'BFG', price:40,
+    type:'glasses',
+    desc:'Oversized-fit polarized sport sunglasses (larger heads), same no-slip/no-bounce build as the OG. UNVERIFIED sample: goodr.com listed price. No weight found this batch.' },
+  { id:'ewr-zeal-divide', cat:'eyewear', brand:'Zeal Optics', model:'Divide', price:189,
+    type:'glasses',
+    desc:'See Grass plant-fiber frame, plant-based Ellume Polarized lens (99.9% glare elimination, 100% UVA/UVB block per Zeal). UNVERIFIED sample: Scheels-listed retail price. No weight found this batch.' },
+  { id:'ewr-zeal-campo', cat:'eyewear', brand:'Zeal Optics', model:'Campo', price:159,
+    type:'glasses',
+    desc:'Z-Lite frame + Ellume Polarized lens, described by Zeal as weighing "less than one ounce" (no exact gram figure published, so weight left unset rather than guessed). UNVERIFIED sample: Mast General Store-listed retail price.' },
+  { id:'ewr-zeal-range', cat:'eyewear', brand:'Zeal Optics', model:'Range', price:149,
+    type:'glasses',
+    desc:'Zeal Optics active-line shield sunglasses. UNVERIFIED sample: zealoptics.com listed price (site search-summarized, not a rendered fetch). No weight found this batch.' }
 ];
 
 /* ---- legacy id aliases -----------------------------------------------------
