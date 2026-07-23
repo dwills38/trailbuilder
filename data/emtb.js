@@ -2356,6 +2356,17 @@ var EMTB_PARTS = [
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.noxcycles.com/en/helium-enduro-7.1-p1/helium-enduro-7-1-p1'
   },
   {
+    id: 'em-nox-helium-allmtn-5-9-p1-ultra', cat: 'emtb', brand: 'Nox Cycles', model: 'Helium All-Mtn 5.9 P1 Ultra',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 50 Trail Drivepack', motorTorque: 58,
+    batteryWh: 252, batteryRemovable: true, assist: 'lightweight',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XTR 12-speed',
+    disciplines: ['e-trail'], weight: null, price: 10269, modelYear: 2026,
+    note: 'Top build tier of the same platform as the already-cataloged Core row — identical NOX Helium All-Mountain NUC frame/Fazua Ride 50/252Wh battery, upgraded to a FOX 36 FLOAT F-S E-Optimized fork (vs the Core\'s Marzocchi Bomber Z1) and Shimano XTR 12-speed drivetrain (vs Core\'s Deore).',
+    desc: 'Fetched from noxcycles.com\'s own product configurator page (Core/Pro/Ultra spec-comparison table on the same page as the cataloged Core row) for the tier spec deltas (fork/drivetrain/stem/saddle). Brakes not itemized per-tier on the fetched table (left blank rather than guessed). No maker-published Ultra-tier price found on noxcycles.com itself; the Ultra price is a disclosed retailer price delta (swazicowboyz-shop.de: Core EUR 6,699.00 + Ultra upcharge EUR 2,300.00 = EUR 8,999.00) added to the maker\'s own confirmed Core MSRP already used on the sibling row. PRICE: EUR 8,999 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $10,269. Left unverified: the Ultra price itself is retailer-sourced, not maker-page-confirmed like the Core row. catalog/emtb-depth-9 wave (Nox thin-lineup deepen).',
+    lastChecked: '2026-07-23', source: 'https://www.noxcycles.com/en/helium-all-mtn-5.9-p1/helium-all-mtn-5-9-p1'
+  },
+  {
     id: 'em-bmc-trailfox-amp-two', cat: 'emtb', brand: 'BMC', model: 'Trailfox AMP Two',
     motorBrand: 'shimano', motorModel: 'Shimano STEPS MTB E-8000', motorTorque: 70, motorPowerPeak: 250,
     batteryWh: 500, assist: 'full-power',
