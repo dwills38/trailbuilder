@@ -29,7 +29,12 @@
 // SCOPE EXCLUSIONS (do NOT add on a breadth pass): Riese & Müller Superdelite "mountain" is a
 // TOURING e-bike, NOT an e-MTB (Douglas, 2026-07-23 — the maker's EC-conformity-PDF "E-MTB"
 // label is overruled by its actual touring positioning). Gazelle and Bird have no e-MTB
-// product at all (confirmed 2026-07-23). None of these belong in this catalog.
+// product at all (confirmed 2026-07-23). Wilier's current lineup (wilier.com, checked
+// 2026-07-23) carries NO e-MTB either — its E-Bikes category is all road/gravel/endurance
+// hybrids (Filante/Garda/Adlar/Urta Hybrid, Karga) and its MTB category is fully acoustic
+// (Urta/Usma); the E903TRN/E-Enduro line that once existed is discontinued and its rear-shock
+// travel spec couldn't be confirmed from any live source (PHANTOM-NUMBER guard — not entered
+// rather than guessed). None of these belong in this catalog.
 
 // ---------------------------------------------------------------------------
 // Parts (complete e-MTBs)
@@ -2168,6 +2173,171 @@ var EMTB_PARTS = [
     note: 'Top-tier Ariel 50E: Fox 38-E Factory (Kashima, GRIP2) fork + Fox Float DHX2 Factory coil shock, full Shimano XT 1x12 groupset, Shimano XT 4-piston brakes.',
     desc: 'Sourced from saracen.co.uk\'s own product page (fetched, saracen.co.uk/products/my22-ariel-50e-elite). This is the only Ariel 50E page to explicitly state motor torque (85Nm) on Saracen\'s own text; carried onto the Pro row above as the same EP-800 motor. No published weight; no current sale price shown for this trim (page shows only the £6,999.99 MSRP). PRICE: GBP 6,999.99 converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $9,362. catalog/emtb-depth-5 wave.',
     lastChecked: '2026-07-23', source: 'https://www.saracen.co.uk/products/my22-ariel-50e-elite'
+  },
+  {
+    id: 'em-r-raymon-tarok-ultra', cat: 'emtb', brand: 'R Raymon', model: 'Tarok Ultra',
+    motorBrand: 'avinox', motorModel: 'DJI Avinox M2S', motorTorque: 150, motorPowerPeak: 1500,
+    batteryWh: 700, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', weight: 22000, price: 9128, modelYear: 2026,
+    disciplines: ['e-trail', 'e-enduro'],
+    note: 'Second-tier full-power carbon e-MTB on DJI\'s Avinox M2S (150Nm/1500W peak) with a 700Wh FP700 battery; maker page confirms a mullet (29in/27.5in) wheel setup for the Tarok line.',
+    desc: 'Fetched from raymon-bicycles.com\'s own Tarok model page (browser render). No drivetrain/brake spec text on the page for this trim (left blank rather than guessed). PRICE: EUR 7,999 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $9,128.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.raymon-bicycles.com/en/modelle/tarok'
+  },
+  {
+    id: 'em-r-raymon-tarok-pro', cat: 'emtb', brand: 'R Raymon', model: 'Tarok Pro',
+    motorBrand: 'avinox', motorModel: 'DJI Avinox M2S', motorTorque: 150, motorPowerPeak: 1500,
+    batteryWh: 700, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', weight: 22300, price: 6846, modelYear: 2026,
+    disciplines: ['e-trail', 'e-enduro'],
+    note: 'Entry-carbon Tarok trim, same Avinox M2S drive system and 700Wh battery as the Ultra/Ultimate, heavier build kit accounts for the weight step vs Ultra.',
+    desc: 'Fetched from raymon-bicycles.com\'s own Tarok model page (browser render). No drivetrain/brake spec text on the page for this trim (left blank rather than guessed). PRICE: EUR 5,999 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $6,846.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.raymon-bicycles.com/en/modelle/tarok'
+  },
+  {
+    id: 'em-flyer-uproc-x-4-10', cat: 'emtb', brand: 'Flyer', model: 'Uproc X 4.10',
+    motorBrand: 'bosch', motorModel: 'Bosch Smart System Performance Line CX', motorTorque: 85,
+    batteryWh: 750, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'carbon', weight: null, price: 5248, modelYear: 2026,
+    disciplines: ['e-trail'],
+    note: 'Entry Uproc X trim, Swiss maker Flyer\'s allmountain-tier full-power e-MTB.',
+    desc: 'Motor/battery/travel/wheel/frame confirmed on flyer-bikes.com\'s own Uproc X model page (browser render, gb-en). No weight or per-trim component spec published there; entry price sourced from an ebike24.com launch article ("Flyer Uproc X 4.10 priced at 4,599 euros"). PRICE: EUR 4,599 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,248. Left unverified: price provenance is a press article, not the maker\'s own price page.',
+    lastChecked: '2026-07-23', source: 'https://www.flyer-bikes.com/gb-en/uprocx'
+  },
+  {
+    id: 'em-flyer-uproc-evox-8-70', cat: 'emtb', brand: 'Flyer', model: 'Uproc EVO:X 8.70',
+    motorBrand: 'bosch', motorModel: 'Bosch Smart System Performance Line CX', motorTorque: 85,
+    batteryWh: 750, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XT 12-speed', brakes: 'Shimano XT BR-M8120',
+    disciplines: ['e-enduro'], weight: 26000, price: 10269, modelYear: 2026,
+    note: 'Flyer\'s E-Enduro flagship; Fox 38 Float fork / Fox Float X2 Performance shock, 220/203mm rotors.',
+    desc: 'Motor/battery/wheel confirmed via flyer-bikes.com\'s own Uproc EVO:X page; travel figures from ebike-mtb.com\'s current-gen coverage (180/170mm, vs an earlier 170/165mm gen — flagged as a generational spec, not fabricated). Drivetrain/brakes/weight/price for the 8.70 build from an ebike24.com retailer listing (fork/shock/drivetrain/brakes/weight/price all matched one consistent trim). PRICE: EUR 8,999 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $10,269. Left unverified: component/weight/price provenance is press/retailer, not the maker\'s own spec sheet.',
+    lastChecked: '2026-07-23', source: 'https://www.flyer-bikes.com/gb-en/uprocevox'
+  },
+  {
+    id: 'em-nox-helium-allmtn-5-9-p1', cat: 'emtb', brand: 'Nox Cycles', model: 'Helium All-Mtn 5.9 P1 Core',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 50 Trail Drivepack', motorTorque: 58,
+    batteryWh: 252, batteryRemovable: true, assist: 'lightweight',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'Shimano SL-M5130 12-speed', brakes: 'Shimano BR-MT420',
+    disciplines: ['e-trail'], weight: 21000, price: 7642, modelYear: 2026,
+    note: 'German boutique maker; lightweight-class full-carbon all-mountain e-MTB with a removable Fazua motor+battery ("2-in-1" — rideable as an acoustic bike).',
+    desc: 'Fetched from noxcycles.com\'s own product configurator page (Core spec, size-agnostic geometry figures). Weight is the maker\'s stated size-M approximate figure. PRICE: EUR 6,699.00 listed MSRP (page shows a running discount to EUR4,689.30; MSRP used per catalog pricing policy) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,642.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.noxcycles.com/en/helium-all-mtn-5.9-p1/helium-all-mtn-5-9-p1'
+  },
+  {
+    id: 'em-nox-helium-enduro-7-1-p1', cat: 'emtb', brand: 'Nox Cycles', model: 'Helium Enduro 7.1 P1 Core',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 50 Trail Drivepack', motorTorque: 58,
+    batteryWh: 252, batteryRemovable: true, assist: 'lightweight',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 180,
+    frameMaterial: 'carbon', drivetrain: 'Shimano 10-speed (Core spec)', brakes: 'Shimano MT401/MT420',
+    disciplines: ['e-enduro'], weight: 22000, price: 7758, modelYear: 2026,
+    note: 'Nox\'s longer-travel lightweight-class enduro sibling to the Helium All-Mtn 5.9, same removable Fazua Ride 50 drive system, mullet wheels.',
+    desc: 'Fetched from noxcycles.com\'s own product configurator page (Core spec). Weight is the maker\'s stated size-M approximate figure. PRICE: EUR 6,799.00 maker-listed MSRP converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,758.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.noxcycles.com/en/helium-enduro-7.1-p1/helium-enduro-7-1-p1'
+  },
+  {
+    id: 'em-bmc-trailfox-amp-two', cat: 'emtb', brand: 'BMC', model: 'Trailfox AMP Two',
+    motorBrand: 'shimano', motorModel: 'Shimano STEPS MTB E-8000', motorTorque: 70, motorPowerPeak: 250,
+    batteryWh: 500, assist: 'full-power',
+    wheelConfig: '275', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'mixed', drivetrain: 'Fox Float 36 Performance GRIP fork / Fox Float DPS Performance Evol shock',
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 7499, modelYear: 2026,
+    note: 'BMC\'s all-mountain full-power e-MTB — carbon front triangle bonded to an Al-13 triple-butted aluminum rear (BMC\'s "Twin Hollow-core" construction, motor tucked into a carbon drive-unit nest); 27.5in wheels.',
+    desc: 'Sourced from theloamwolf.com\'s BMC AMP Speedfox/Trailfox launch coverage (bmc-switzerland.com\'s own product page returned a 404 at fetch time). Weight not published in this source. USD price is the US-market listing, no conversion needed.',
+    lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/first-ride-bmc-amp-speedfox-trailfox/'
+  },
+  {
+    id: 'em-bmc-speedfox-amp-two', cat: 'emtb', brand: 'BMC', model: 'Speedfox AMP Two',
+    motorBrand: 'shimano', motorModel: 'Shimano STEPS MTB E-8000', motorTorque: 70, motorPowerPeak: 250,
+    batteryWh: 500, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 130, travelRear: 130,
+    frameMaterial: 'mixed', drivetrain: 'RockShox Revelation RC fork / Fox Float DPS Performance Evol shock',
+    disciplines: ['e-trail'], weight: null, price: 7499, modelYear: 2026,
+    note: 'BMC\'s shorter-travel, 29in-wheel full-power e-MTB sibling to the Trailfox AMP — same E-8000/500Wh drive system, same mixed carbon-front/aluminum-rear construction, a lighter trail-focused build.',
+    desc: 'Sourced from theloamwolf.com\'s BMC AMP Speedfox/Trailfox launch coverage (bmc-switzerland.com\'s own product page returned a 404 at fetch time). Weight not published in this source. USD price is the US-market listing, no conversion needed.',
+    lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/first-ride-bmc-amp-speedfox-trailfox/'
+  },
+  {
+    id: 'em-liv-intrigue-x-advanced-eplus-elite-1', cat: 'emtb', brand: 'Liv', model: 'Intrigue X Advanced E+ Elite 1',
+    motorBrand: 'giant', motorModel: 'Giant SyncDrive Pro2 Mg (Yamaha-powered)', motorTorque: 85,
+    batteryWh: 400, batteryRemovable: true, rangeExtender: true, assist: 'lightweight',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission AXS', brakes: 'SRAM Code R (220/200mm)',
+    disciplines: ['e-trail'], weight: 19860, price: 10500, modelYear: 2024,
+    note: 'Liv\'s (Giant\'s women-specific brand) lightweight-class e-MTB, first Liv model on a mullet wheel setup; 85Nm SyncDrive Pro2 motor but a compact 400Wh battery + sub-20kg build puts it in the SL/lightweight class alongside Levo SL/Orbea Rise, not the full-power bucket.',
+    desc: 'Fetched from liv-cycling.com\'s own product page (browser render). Maxxis Minion DHF 29x2.5in front / Dissector 27.5x2.4in rear tires, Praxis carbon e-crank + SRAM 36T ring.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://liv-cycling.com/us/intrigue-x-advanced-eplus-elite-1'
+  },
+  {
+    id: 'em-liv-intrigue-x-advanced-eplus-elite-2', cat: 'emtb', brand: 'Liv', model: 'Intrigue X Advanced E+ Elite 2',
+    motorBrand: 'giant', motorModel: 'Giant SyncDrive Pro2 Mg (Yamaha-powered)', motorTorque: 85,
+    batteryWh: 400, batteryRemovable: true, rangeExtender: true, assist: 'lightweight',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'carbon', drivetrain: 'Shimano SLX 12-speed', brakes: 'Shimano SLX BR-M7120 (203mm)',
+    disciplines: ['e-trail'], weight: 20490, price: 7500, modelYear: 2024,
+    note: 'Second-tier Intrigue X Advanced E+ build on the same carbon chassis/motor/battery as the Elite 1, cable-actuated Shimano SLX drivetrain instead of SRAM AXS Transmission.',
+    desc: 'Fetched from liv-cycling.com\'s own product page (browser render). Fox 36 Float fork / Fox Float Performance shock.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.liv-cycling.com/us/intrigue-x-advanced-eplus-elite-2-2024'
+  },
+  {
+    id: 'em-bianchi-e-omnia-fx-type-gx-12sp', cat: 'emtb', brand: 'Bianchi', model: 'e-Omnia FX-Type GX 12SP',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 85, motorPowerPeak: 250,
+    batteryWh: 482, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle 12-speed', brakes: 'Shimano BL-MT501 (203mm)',
+    disciplines: ['e-enduro'], weight: 26080, price: 5500, modelYear: 2023,
+    note: 'Base-tier e-Omnia FX-Type: 6061 aluminum frame, RockShox Yari RC fork / Deluxe Select+ RL shock (both 150mm), Bosch PowerTube 500 (482.4Wh, "PowerTube 500" naming). An upgrade to a Deore XT drivetrain + the larger 625Wh PowerTube ("FX-Type XT") is offered for a stated +$400.',
+    desc: 'Fetched via electricbikereview.com\'s full spec-table review (Bosch/SRAM/Shimano/RockShox part numbers all matched, consistent with Bosch\'s own published CX 85Nm/250W figures).',
+    lastChecked: '2026-07-23', source: 'https://electricbikereview.com/bianchi/2023-e-omnia-fx-type-gx-12sp/'
+  },
+  {
+    id: 'em-bianchi-e-omnia-fx-type-xt', cat: 'emtb', brand: 'Bianchi', model: 'e-Omnia FX-Type XT',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 85, motorPowerPeak: 250,
+    batteryWh: 625, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore XT 1x12', brakes: 'Shimano BL-MT501 (203mm)',
+    disciplines: ['e-enduro'], weight: null, price: 5900, modelYear: 2023,
+    note: 'Upper-mid e-Omnia FX-Type trim: same aluminum chassis as the GX 12SP, Fox 36 Rhythm fork / Fox Float DPS Performance shock (160/150), Shimano Deore XT drivetrain, larger 625Wh Bosch PowerTube.',
+    desc: 'Motor/battery/travel confirmed via electricbikereview.com\'s XT-trim coverage; no weight published for this trim (left null rather than guessed). PRICE: derived as the GX 12SP\'s $5,500 base plus the reviewer-quoted "+$400 for the XT upgrade" (electricbikereview.com), not an independently confirmed price listing.',
+    lastChecked: '2026-07-23', source: 'https://electricbikereview.com/bianchi/2023-e-omnia-fx-type-gx-12sp/'
+  },
+  {
+    id: 'em-giant-talon-e-plus', cat: 'emtb', brand: 'Giant', model: 'Talon E+',
+    motorBrand: 'giant', motorModel: 'Giant SyncDrive Sport 2', motorTorque: 75,
+    batteryWh: 430, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'hardtail', travelFront: 100, travelRear: 0,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Cues 9-speed', brakes: 'Shimano MT200 (180mm F/R)',
+    disciplines: ['e-trail'], weight: 21700, price: 2950, modelYear: 2026,
+    note: "Giant's entry-price hardtail e-MTB, single spec/no trim tiers; SyncDrive Sport 2 is Giant's lower-torque motor tier (75Nm) vs the SyncDrive Pro2/Pro3 full-suspension line.",
+    desc: 'Fetched from giant-bicycles.com\'s own Talon E+ product page — a single-configuration model (no trim ladder). Weight is the maker\'s stated size-M figure.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.giant-bicycles.com/us/bikes-talon-eplus'
+  },
+  {
+    id: 'em-giant-stance-e-plus-0', cat: 'emtb', brand: 'Giant', model: 'Stance E+ 0',
+    motorBrand: 'giant', motorModel: 'Giant SyncDrive Pro3X', motorTorque: 100,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'aluminum', weight: null, price: 5500, modelYear: 2027,
+    disciplines: ['e-trail'],
+    note: "Giant's FlexPoint-suspension full-power trail e-MTB, ALUXX SL aluminum, Fox 36 Rhythm Air fork; top trim of a two-model Stance E+ range (E+ 1 is the lower-price sibling on the same chassis/motor/battery).",
+    desc: 'Fetched from giant-bicycles.com\'s own Stance E+ product page. Drivetrain/brakes/weight not published for either trim on the fetched page (left unset rather than guessed).',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.giant-bicycles.com/us/bikes-stance-eplus'
+  },
+  {
+    id: 'em-cube-stereo-hybrid-one22-pro-800', cat: 'emtb', brand: 'Cube', model: 'Stereo Hybrid ONE22 Pro 800',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 85,
+    batteryWh: 800, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 120, travelRear: 120,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano CUES U6000 10-speed', brakes: 'Shimano MT420 (203mm)',
+    disciplines: ['e-trail'], weight: 26800, price: 4221, modelYear: 2026,
+    note: "Shorter-travel, XC/allrounder-leaning sibling to the ONE44/ONE77 (this catalog's existing Cube rows are 140mm+); FSP 4-Link rear suspension, SR Suntour XCR34 Air fork / EdgeX R shock, SRAM UDH.",
+    desc: 'Fork/rear travel, wheel size, weight, frame, drivetrain and brakes confirmed via vitalmtb.com\'s spec-guide entry (matches the maker\'s own Bosch CX Gen 5/800Wh/Purion 200 claims from cube.eu and press coverage). PRICE: EUR 3,699 (800Wh trim, per cube.eu-sourced press coverage) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $4,221.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.vitalmtb.com/product/guide/e-bikes/cube/stereo-hybrid-one22-70166'
   }
 
 ];
