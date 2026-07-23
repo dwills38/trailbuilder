@@ -1759,17 +1759,6 @@ var EMTB_PARTS = [
     lastChecked: '2026-07-23', source: 'https://ebike-mtb.com/en/new-pole-hiisi/'
   },
 
-  {
-    id: 'em-riese-muller-superdelite-mountain', cat: 'emtb', brand: 'Riese & Müller', model: 'Superdelite mountain',
-    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen4)', motorTorque: 85,
-    batteryWh: 1125, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: '275', suspension: 'full', travelFront: 150, travelRear: 140,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX 11-speed', brakes: 'Magura hydraulic disc',
-    disciplines: ['e-trail'], weight: null, price: 12048.86, modelYear: 2026,
-    note: 'German maker Riese & Müller\'s off-road-capable full-suspension touring e-MTB — the maker\'s own EC Declaration of Conformity classifies "Delite mountain / Superdelite mountain" under "Product description/type: E-MTB" (Category 3-4, technical trail use up to 40 km/h). DualBattery (500Wh top-tube + 625Wh down-tube = 1,125Wh combined), Fox Float 36 Performance fork / Fox Float DPS Performance shock, R&M Control Technology full suspension, optional Rohloff/Gates belt drivetrain upgrade. Cataloged at the standard Touring/derailleur build.',
-    desc: 'Riese & Müller\'s own translated owner\'s manual / EC Declaration of Conformity PDF (preview.r-m.de, fetched via search) explicitly lists "Delite mountain, Superdelite mountain" under "Product description/type: E-MTB" for model year 2026 — confirming this is the maker\'s own currently-cataloged e-MTB-classified model (distinct from R&M\'s Charger/Nevo/Delite/Homage trekking lines, which the same document classifies as "E-City and E-Trekking"). Full build spec (dual Bosch PowerTube 500Wh+625Wh batteries, Performance Line CX Gen4 85Nm motor, Fox Float 36 Performance 150mm fork, Fox Float DPS Performance 140mm shock, Shimano SLX 11-speed 11-50T, Magura disc brakes, 27.5in wheels, aluminum frame) sourced from retailer listings for the current SKU (Dolomiti Electric Bicycles AUD $12,900; Phillip McCallen E-Bikes GBP was-£9,009 Rohloff variant) rather than a direct r-m.de product-page fetch this session (r-m.de\'s bike pages are heavily JS-rendered) — entered unverified via the credible-source breadth policy; no maker-published complete-bike weight found. PRICE: GBP 9,009 (Phillip McCallen\'s disclosed pre-discount/RRP figure) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $12,048.86 — a retailer-quoted price, not a maker-fetched USD MSRP, and NOT tagged regional-conversion since the maker\'s own currency figure was not directly fetched (per this catalog\'s established distinction, e.g. the Moustache Samedi 29 Trail 150.2 row). catalog/emtb-breadth-brands-1 wave (first Riese & Müller row — brand was fully absent; classification-only source is the EC-conformity PDF, not a marketing page, so this is a genuinely unusual but real inclusion — flagged for Douglas in the worker report since R&M\'s own marketing rarely calls this bike an "e-MTB").',
-    lastChecked: '2026-07-23', source: 'https://preview.r-m.de/media/filer_public/47/1e/471e4322-9a3c-48ac-93de-69c9052576f2/233365_rm-ba-e-bike_en-int_web_my26_0825.pdf'
-  },
 
   {
     id: 'em-focus-sam2-68', cat: 'emtb', brand: 'Focus', model: 'SAM² 6.8',
