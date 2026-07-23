@@ -2994,6 +2994,48 @@ var BMX_PARTS = [
     frameOnly: false, price: 309.00,
     verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-23', source: 'https://americancycle.com/redline-bmx-recon-20-bike/',
     note: 'catalog/bmx-race-data-1: second Redline row (this catalog already carries the Proline race family + a Flight crank; Recon is a distinct budget-freestyle SKU, not a duplicate). No longer on diamondback.com/collections/redline-bmx\'s current 6-product race-only lineup (Redline\'s BMX line has consolidated toward race in recent years), but the Recon is still actively sold new by multiple current US retailers with byte-identical spec text - americancycle.com ($309.00, structured Schema.org Offer, USD, In Stock at last check), jrbicycles.com, spiritedcyclist.com, bicyclesi.com, bicyclebarn.com - a strength-in-numbers cross-confirmation for a maker-absent SKU. States verbatim across every source: "HEADSET Threadless, 1 1/8\\"" (headTube:threadless-1-1/8 exact), "BOTTOM BRACKET Sealed Mid BB" (bbShell:mid exact), "REAR HUB Aluminum, Semi-sealed, Chromo 14mm axle" (rearAxle:14mm exact), "BRAKES Tektro 907A Rear U-Brake" (rearBrakeMount:u-brake exact), and bicyclebarn.coms geometry table states "Effective Top Tube 20.4\\"" (topTube:20.4, independently matching jrbicycles.coms product-name "20.4\\"TT" for the same SKU). Sold complete-bike-only -> frameOnly:false; weight not stated on any fetched source, left unset. CRANKS: "100% Chromo 3pc, 170mm" - not modeled as a separate cranks row (no standalone-SKU crank of this exact spec was found sold by Redline). Price $309.00 cross-confirmed identically on americancycle.com and bmx.bicyclesi.com (a third source, spiritedcyclist.com, lists $399.99 - likely an un-discounted MSRP vs the two $309 sale/standing prices - the lower, twice-corroborated figure was used per this catalogs THE PRICE RULE preference for the maker-consistent figure over an outlier). Marked verified:true/third-party-listed: every engine-read field (bbShell, headTube, rearBrakeMount, rearAxle) is independently corroborated across 5+ sources with zero disagreement, clearing this catalogs bar even without a direct maker-page fetch.'
+  },
+
+  // =======================================================================
+  // bmx-freestyle-depth-1 (2026-07-23): re-derived the depth-pass gap
+  // directly against the live file (grep, not the stale candidate list) -
+  // Eastern/Mutiny/SE Bikes/KHE/DK Bicycles/Division/Free Agent/Hoffman/
+  // Tree Bicycle Co were ALL already present from earlier depth passes
+  // (bmx-breadth-5/7). Terrible One/Bone Deth/Standard Byke Co (~"Standard")
+  // are also already present but sit on the HARD/defunct list and get no
+  // new rows either way. The ONLY genuinely-absent candidate that turned out
+  // to be fetchable was Mutiny Bike Co. (store.mutinybikes.com). Fairdale
+  // Bikes (fairdalebikes.com) has no live product/spec pages reachable this
+  // session (its BMX collection URL 404s; the one article page found carries
+  // no spec data) - documented wall, no rows added, brand stays absent.
+  // Kuwahara: kuwahara.co.jp is a dead storefront redirecting to a J-DATA
+  // holding page with zero BMX content, and kuwahara-bmx.com is a vintage
+  // (1979-1988) collector reference site explicitly NOT a current retailer
+  // ("no current BMX bikes or frames listed for sale") - Kuwahara does not
+  // appear to sell current BMX product at all; documented wall, no rows
+  // added, brand stays absent.
+  // -----------------------------------------------------------------------
+
+  // ---- Mutiny Bike Co. (new brand: store.mutinybikes.com, rider-owned,
+  //      est. 1998; own Shopify-style storefront, real per-SKU spec pages) --
+  {
+    id: 'bmx-fr-mutiny-pma', cat: 'frame', brand: 'Mutiny', model: 'PMA Frame',
+    family: 'mutiny-pma', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: true, weight: 2359, price: 600.00,
+    note: 'bmx-freestyle-depth-1: NEW BRAND (Mutiny Bike Co. absent entirely before this batch - a re-derived genuine gap, not the stale candidate list). FETCHED store.mutinybikes.com own product page directly (store.mutinybikes.com/PMA-Frame-p436394788), a genuine frame-only SKU. States verbatim ""Mid" type" bottom bracket (bbShell:mid exact), ""Integrated Campy Style"" headset (headTube:integrated-1-1/8 exact), "14mm Slot & 6.5mm thick" rear dropouts (rearAxle:14mm exact), "5.20 lbs" = 2359g, sold in four top-tube lengths (21"/21.3"/21.6"/21.8", topTube:21 modeled as the shortest/representative option per this catalogs sizes-are-a-field convention), at the pages own $600.00 price. The page itself offers FOUR real rear-brake configurations on one SKU - two chain-stay-mounted cable-routing variants, a disc option, and brakeless - none of them literally named "u-brake"; this row models the chain-stay-mounted variant, mapped to rearBrakeMount:u-brake per this catalogs established modern-freestyle-frame convention (same reasoning already used on the Eastern/Terrible One/Hoffman rows), not a literal page term, so the row stays UNVERIFIED despite every other field being page-literal. Listed "Available Late July 2026" (imminent restock, not discontinued - a real actively-merchandised current SKU).'
+  },
+  {
+    id: 'bmx-fr-mutiny-ftw', cat: 'frame', brand: 'Mutiny', model: 'FTW Frame',
+    family: 'mutiny-ftw', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.6, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: true, weight: 2313, price: 600.00,
+    note: 'bmx-freestyle-depth-1: second Mutiny row (deepens the new brand added this batch). FETCHED store.mutinybikes.com own product page directly (store.mutinybikes.com/FTW-Frame-p436408049), a genuine frame-only SKU, same sibling platform as the PMA above (built-in chain tensioners, aluminum seat clamp). States verbatim ""Mid" type" bottom bracket (bbShell:mid exact), ""Integrated Campy Style"" headset (headTube:integrated-1-1/8 exact), "14mm Slot & 6.5mm thick" rear dropouts (rearAxle:14mm exact), "5.10 lbs" = 2313g, sold in five top-tube lengths (20.6"/20.8"/21"/21.3"/21.6", topTube:20.6 modeled as the shortest option), at the pages own $600.00 price (currently "Available August 2026", same imminent-restock status as the PMA, not discontinued). Same rearBrakeMount:u-brake convention-mapping caveat as the PMA row above (the page itself names four real configurations, not a literal "u-brake" term) - row stays UNVERIFIED for the same reason.'
+  },
+  {
+    id: 'bmx-sp-mutiny-pentra-28', cat: 'sprocket', brand: 'Mutiny', model: 'Pentra Sprocket (28T)',
+    family: 'mutiny-pentra', teeth: 28, mount: 'spline', pitch: '1/8', price: 70.00,
+    note: 'bmx-freestyle-depth-1: third Mutiny row (parts side of the new brand). FETCHED store.mutinybikes.com own product page directly (store.mutinybikes.com/Pentra-Sprocket-p468185010): "CNC Machined From Aircraft Quality 7075 T6 Aluminum", tooth options 28T/30T/36T (teeth:28 modeled, the lightest/base option), "5/16 (24mm) center bore... accepts 19mm or 22mm inserts" -> mount:spline (a splined spindle interface, no sprocket bolt), at the pages own $70.00 price. pitch:1/8 is NOT stated on the maker page itself - cross-corroborated via two independent AveBmx.pl retailer listings of the same Pentra/Pentra V2 sprocket both stating verbatim "kompatybilny z lancuchem: 1/8"" (compatible with 1/8in chain) - a real cross-source confirmation, not a guess, but retailer-sourced rather than maker-first-party so left disclosed. Weight intentionally OMITTED: the makers own page states "0.50 lbs" (227g) but two independent AveBmx.pl listings for the same 28T sprocket state "89g" - an order-of-magnitude discrepancy (possibly a packaged/shipping-weight field on the maker page vs the bare-part weight on the retailer pages) that could not be resolved this session, so per "a blank field beats an invented value" no weight was entered rather than picking one of two disagreeing numbers. Row stays UNVERIFIED (pitch retailer-corroborated, weight conflict unresolved, sourceType:retailer would be rejected on a verified row regardless).'
   }
 ];
 
