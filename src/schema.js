@@ -823,6 +823,9 @@ var SCHEMA = {
   jersey:    { sleeve:{type:'string',vocab:'sleeve',optional:true},
                fitCut:{type:'string',vocab:'fitCut',optional:true},
                sizes:{type:'sizeList',optional:true}, sizeChart:{type:'sizeChart',measures:['chest'],optional:true} },
+  jacket:    { waterproof:{type:'bool',optional:true}, insulated:{type:'bool',optional:true},
+               fitCut:{type:'string',vocab:'fitCut',optional:true},
+               sizes:{type:'sizeList',optional:true}, sizeChart:{type:'sizeChart',measures:['chest'],optional:true} },
   shorts:    { liner:{type:'bool',optional:true},   // built-in chamois liner (annotation); shorts + pants are SEPARATE cats (decision #1)
                fitCut:{type:'string',vocab:'fitCut',optional:true},
                sizes:{type:'sizeList',optional:true}, sizeChart:{type:'sizeChart',measures:['waist','inseam'],optional:true} },
@@ -904,7 +907,7 @@ var ID_PREFIX = {
      list, not a fit-distinct SKU) and NO color token - so kit rows have few or zero
      variant tokens; the rare legit one is a genuinely fit-distinct build difference
      (a helmet sold in MIPS and non-MIPS versions = two rows, `-mips`). */
-  helmet:'hm', shoes:'sho', jersey:'jsy', shorts:'sht', pants:'pnt', gloves:'glv',
+  helmet:'hm', shoes:'sho', jersey:'jsy', jacket:'jkt', shorts:'sht', pants:'pnt', gloves:'glv',
   kneepad:'knp', elbowpad:'elp', bodyarmor:'arm', neckbrace:'nkb', shinguard:'shg', eyewear:'ewr'
 };
 var ID_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;

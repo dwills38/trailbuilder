@@ -39,6 +39,7 @@ var KIT_GROUPS = [
       {key:'eyewear',   label:'Eyewear',     cat:'eyewear',   optional:true} ] },
   { key:'torso', label:'Upper Body', icon:'\u{1F455}', slots:[
       {key:'jersey',    label:'Jersey',      cat:'jersey',    optional:true},
+      {key:'jacket',    label:'Jacket',      cat:'jacket',    optional:true},
       {key:'bodyarmor', label:'Body Armor',  cat:'bodyarmor', optional:true},
       {key:'neckbrace', label:'Neck Brace',  cat:'neckbrace', optional:true} ] },
   { key:'arms', label:'Arms & Hands', icon:'\u{1F9E4}', slots:[
@@ -4263,11 +4264,38 @@ var KIT_PARTS = [
 
   /* -- Apparel breadth (catalog/kit-breadth-11, 2026-07-23): Velocio, Wild Rye, Ornot, dhb,
      Pactimo, Machines for Freedom, Stolen Goat were entirely ABSENT from jersey/shorts/pants;
-     GOREWEAR deepened where still fetchable. NOTE: this catalog has no `jacket` or `bib`
-     CATEGORY (only jersey/shorts/pants/etc - see KIT_GROUPS/SCHEMA) - true shell jackets have no
-     home and are NOT force-fit into jersey; bib-style shorts/liners are entered under the existing
-     `shorts` category with the bib construction noted in `desc` (liner:true where a chamois is
-     built in), never a fabricated new category. Flagged in the worker report for Douglas's call. -- */
+     GOREWEAR deepened where still fetchable. NOTE (superseded 2026-07-23, Douglas's word):
+     shell jackets got their own `jacket` CATEGORY (see KIT_GROUPS/SCHEMA) instead of the
+     no-home gap flagged here — bib-style shorts/liners still stay under the existing `shorts`
+     category with the bib construction noted in `desc` (liner:true where a chamois is built
+     in), never a fabricated new category. -- */
+
+  /* -- Jacket category launch (catalog/kit-jacket-category, 2026-07-23): the first rows for
+     the new `jacket` cat - shell/rain jackets for MTB/gravel riding, sourced across brands
+     Douglas named. GOREWEAR excluded per kit-breadth-11's finding (brand winding down / site
+     closed). -- */
+  { id:'jkt-fox-ranger-25l', cat:'jacket', brand:'Fox', model:'Ranger 2.5-Layer Water Jacket', price:139.95,
+    fitCut:'mens', waterproof:true, sizes:['XS','S','M','L','XL','2XL'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.foxracing.com/product/ranger-2.5-layer-water-jacket/33769.html',
+    desc:'2.5-layer, 5k/5k waterproof/breathable polyester ripstop MTB shell, helmet-compatible hood, DWR finish. MSRP confirmed on foxracing.com (listed at a temporary markdown at fetch time; $139.95 is the stated regular price, matched at jensonusa.com). No weight published on the manufacturer page, so left unset rather than guessed.' },
+  { id:'jkt-pearlizumi-summit-wind', cat:'jacket', brand:'Pearl iZUMi', model:'Summit Wind Jacket', price:130,
+    fitCut:'mens', waterproof:false, sizes:['S','M','L','XL','XXL'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.pearlizumi.com/products/mens-summit-wind-jacket-19132501',
+    desc:'Packable wind-blocking ripstop shell with PFAS-free C0 DWR - windproof and water-resistant against light rain/spray, not a full waterproof shell (that is Pearl iZUMi\'s separate Summit 3L WxB Jacket), hence waterproof:false. Two-way YKK front zip, chest stow pocket with top-tube bungy clip. No weight published on the manufacturer page.' },
+  { id:'jkt-rab-kinetic-2', cat:'jacket', brand:'Rab', model:'Kinetic 2.0 Waterproof Jacket', price:260, weight:336,
+    fitCut:'mens', waterproof:true,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://rab.equipment/us/kinetic-2-0-jacket',
+    desc:'Stretch 3-layer Proflex shell (recycled polyester knit face + PU membrane), 10,000mm hydrostatic head, YKK AquaGuard front zip, under-helmet hood - general mountain/multisport shell riders also use on the bike. Weight (336g, size M) and US price confirmed on the manufacturer page. Sizes not listed on the fetched page, left unset rather than guessed.' },
+  { id:'jkt-sweetprotection-hunter-rain', cat:'jacket', brand:'Sweet Protection', model:'Hunter Rain Jacket', price:130, weight:255,
+    fitCut:'unisex', waterproof:true,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.sweetprotection.com/us/en/hunter-rain-jacket-unisex-black/',
+    desc:'PFC/PFAS-free 100% polyester hardshell, 20,000mm hydrostatic head, 20,000 g/m2/24h breathability, full-length front zip - Sweet Protection lists it under MTB usage. Price + 255g weight confirmed on the manufacturer page (sweetprotection.com). Sizes not listed on the fetched page, left unset rather than guessed.' },
+  { id:'jkt-patagonia-dirtroamer-storm', cat:'jacket', brand:'Patagonia', model:'Dirt Roamer Storm Bike Jacket', price:319, weight:343,
+    fitCut:'mens', waterproof:true,
+    desc:'3-layer H2No fully-waterproof MTB-specific shell, packs into a bib pocket/hip pack/bar bag, Fair Trade Certified sewn. UNVERIFIED sample: patagonia.com itself returned a bot-protection page on this fetch (not bypassed, per fetch ethics), so this rests on Patagonia\'s own regional storefronts (patagonia.ca/patagonia.co.nz, which state the same 343g weight) plus Patagonia\'s US retail listings ($319, matching stores.patagonia.com and its Worn Wear resale page) rather than a single confirmed patagonia.com/US page - kept unverified for that reason.' },
+  { id:'jkt-endura-mt500-waterproof-2', cat:'jacket', brand:'Endura', model:'MT500 Waterproof Jacket II', price:329,
+    fitCut:'mens', waterproof:true,
+    desc:'3-layer ExoShell40DR MTB shell, 20,000mm waterproof / 40,000 g/m2/24h breathability, helmet-compatible hood, pit-zip venting. UNVERIFIED sample: us.endurasport.com blocked the fetch (403, not bypassed, per fetch ethics) so price is a search-cached figure from the manufacturer\'s own US site rather than a rendered fetch; published weight conflicts across sources (UK "guidance weight" 650g vs third-party reviews measuring 536g/615g), so weight is left unset rather than guessed.' },
 
   /* Wild Rye (women's MTB apparel) - wild-rye.com fetched directly (WebFetch 404'd on this
      Shopify storefront; Exa's fetch rendered the real product pages cleanly - manufacturer pages,

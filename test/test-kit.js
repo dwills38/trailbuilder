@@ -26,11 +26,11 @@ test('the kit seed passes full schema validation (0 problems)', function(){
   var p = S.validateCatalog(kitCat);
   eq(p.length, 0, 'kit data problems:\n  - ' + p.join('\n  - '));
 });
-test('every one of the 12 kit categories has at least one seed product', function(){
+test('every one of the 13 kit categories has at least one seed product', function(){
   K.KIT_CATS.forEach(function(cat){
     ok(K.KIT_PARTS.some(function(p){ return p.cat === cat; }), 'no seed product for category ' + cat);
   });
-  eq(K.KIT_CATS.length, 12, 'expected 12 kit categories');
+  eq(K.KIT_CATS.length, 13, 'expected 13 kit categories');
 });
 test('no kit id collides with a bike part id', function(){
   U.C.PARTS.forEach(function(bp){ ok(!K.kitById(bp.id), 'bike id ' + bp.id + ' also exists in the kit catalog'); });
@@ -102,6 +102,15 @@ test('rheon (Kali\'s proprietary rotational system) is a valid helmet rotational
 });
 test('soleType on a non-shoe is caught (unknown field — shoes-only)', function(){
   some(probs(over('jsy-fox-flexair', { soleType:'flat' })), 'unknown field');
+});
+test('a valid seed jacket has no problems', function(){
+  eq(probs(K.kitById('jkt-patagonia-dirtroamer-storm')).length, 0);
+});
+test('jacket waterproof must be a bool', function(){
+  some(probs(over('jkt-patagonia-dirtroamer-storm', { waterproof:'yes' })), 'waterproof');
+});
+test('jacket category is present in KIT_CATS', function(){
+  ok(K.KIT_CATS.indexOf('jacket') >= 0, 'jacket missing from KIT_CATS');
 });
 test('a cert on a category that carries none is caught (jersey — unknown field)', function(){
   some(probs(over('jsy-fox-flexair', { certs:['cpsc'] })), 'unknown field');

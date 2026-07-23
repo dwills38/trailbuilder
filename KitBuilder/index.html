@@ -22,7 +22,7 @@
   localStorage 'tb-theme' key + pre-paint script as index.html.
 
   LAYOUT (2026-07-14 redesign): mirrors the Bike Builder's three-pane UX — a LEFT rail
-  (discipline + the 12 kit categories, text-only like the bike rail), a CENTER list of
+  (discipline + the 13 kit categories, text-only like the bike rail), a CENTER list of
   product ROWS for the selected category, and a RIGHT panel with the selected kit +
   running Kit total. The shared layout primitives (.layout/.chips/#rail/.pcard list
   rows/.side/.panel/.slot/.total) are REPLICATED verbatim from index.html so the two
@@ -203,7 +203,7 @@
   .layout{display:grid;grid-template-columns:210px minmax(0,1fr) 330px;gap:20px;align-items:start}
   .layout > *{min-width:0}
 
-  /* left rail — discipline + the 12 kit categories (text-only, like the bike rail) */
+  /* left rail — discipline + the 13 kit categories (text-only, like the bike rail) */
   #rail{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;align-self:start;
     position:sticky;top:calc(var(--hdr-h,116px) + 10px);max-height:calc(100vh - var(--hdr-h,116px) - 24px);overflow:auto}
   .rail-h{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-soft);font-weight:800;margin:16px 0 6px}
@@ -746,7 +746,7 @@
       + '</div>';
   }
 
-  /* ---- left rail: discipline filter + the 12 kit categories ------------------ */
+  /* ---- left rail: discipline filter + the 13 kit categories ------------------ */
   function mkChip(label, active, onClick, extraHtml){
     var b=document.createElement('button');
     b.type='button';
@@ -776,7 +776,7 @@
       presentDiscs.forEach(function(d){ dc.appendChild(mkChip(DISC_LABELS[d]||d, disciplineFilter===d, function(){ disciplineFilter=d; onFilterChange(); })); });
       rail.appendChild(dc);
     }
-    // Category (the 12 kit categories, grouped by anatomical section as a secondary organization)
+    // Category (the 13 kit categories, grouped by anatomical section as a secondary organization)
     var ch=document.createElement('div'); ch.className='rail-h'; ch.textContent='Category'; rail.appendChild(ch);
     var allWrap=document.createElement('div'); allWrap.className='chips';
     allWrap.appendChild(mkChip('All kit', activeCat==='all', function(){ activeCat='all'; onCatChange(); },
