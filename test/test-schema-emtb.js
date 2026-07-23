@@ -130,8 +130,20 @@ function emtbPbRow(changes){
 test('every priceBasis vocab token is accepted on a verified emtb row, except the wheel-only pair-split-estimate', function(){
   S.EMTB_VOCAB.priceBasis.forEach(function(token){
     if(token === 'pair-split-estimate') return; // this catalog has no wheel category — see the dedicated rejection test below
-    eq(S.validateEmtbPart(emtbPbRow({ priceBasis:token }), TODAY).length, 0, 'expected "' + token + '" to validate');
+    // discontinued-no-msrp needs status:'discontinued' too (the token law).
+    /** @type {any} */
+    var changes = { priceBasis:token };
+    if(token === 'discontinued-no-msrp') changes.status = 'discontinued';
+    eq(S.validateEmtbPart(emtbPbRow(changes), TODAY).length, 0, 'expected "' + token + '" to validate');
   });
+});
+/* ---- TOKEN LAW (2026-07-23): discontinued-no-msrp requires status:'discontinued' ---- */
+test('discontinued-no-msrp WITHOUT status:discontinued is rejected on an emtb row (the token law)', function(){
+  var probs = S.validateEmtbPart(emtbPbRow({ priceBasis:'discontinued-no-msrp' }), TODAY);
+  ok(probs.some(function(m){ return /discontinued-no-msrp/.test(m) && /status/.test(m); }), probs.join('\n'));
+});
+test('discontinued-no-msrp WITH status:discontinued validates clean on an emtb row', function(){
+  eq(S.validateEmtbPart(emtbPbRow({ priceBasis:'discontinued-no-msrp', status:'discontinued' }), TODAY).length, 0);
 });
 test('pair-split-estimate is rejected on every emtb row (no wheel category exists in this catalog)', function(){
   var probs = S.validateEmtbPart(emtbPbRow({ priceBasis:'pair-split-estimate' }), TODAY);

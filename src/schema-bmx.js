@@ -194,6 +194,10 @@ function validateBmxPart(p, today, idSet){
       bad('priceBasis "' + p.priceBasis + '" requires verified:true with a real source - an unverified row states no price provenance');
     if(p.priceBasis === 'pair-split-estimate' && ['frontWheel', 'rearWheel'].indexOf(p.cat) < 0)
       bad('priceBasis "pair-split-estimate" is wheel-only (frontWheel/rearWheel) - "' + p.cat + '" is not a wheel category');
+    // TOKEN LAW (2026-07-23, mirrors schema.js): discontinued-no-msrp must
+    // always travel with status:'discontinued' on the same row.
+    if(p.priceBasis === 'discontinued-no-msrp' && p.status !== 'discontinued')
+      bad('priceBasis "discontinued-no-msrp" requires status:"discontinued" on the same row (the token law - a discontinued price basis without a discontinued status is a contradiction)');
   } else if(PRICE_BASIS_STRICT && p.verified === true){
     bad('verified:true requires a priceBasis - "verified" must cover the price, not just the spec');
   }

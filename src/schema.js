@@ -1084,6 +1084,13 @@ function validatePart(p, ctx){
       bad('priceBasis "' + p.priceBasis + '" requires verified:true with a real source - an unverified row states no price provenance');
     if(p.priceBasis === 'pair-split-estimate' && ['frontwheel', 'rearwheel'].indexOf(p.cat) < 0)
       bad('priceBasis "pair-split-estimate" is wheel-only (frontwheel/rearwheel) - "' + p.cat + '" is not a wheel category');
+    /* TOKEN LAW (2026-07-23): priceBasis:'discontinued-no-msrp' is a claim that
+       the row's price was sourced the way it was BECAUSE the product is
+       discontinued and has no MSRP - so it must always travel with
+       status:'discontinued' in the same row. Enforced here so this can't
+       silently recur (a human-review-only convention kept getting violated). */
+    if(p.priceBasis === 'discontinued-no-msrp' && p.status !== 'discontinued')
+      bad('priceBasis "discontinued-no-msrp" requires status:"discontinued" on the same row (the token law - a discontinued price basis without a discontinued status is a contradiction)');
   } else if(PRICE_BASIS_STRICT && p.verified === true){
     bad('verified:true requires a priceBasis (see VOCAB.priceBasis) - "verified" must cover the price, not just the spec');
   }
