@@ -3962,7 +3962,27 @@ var KIT_PARTS = [
   { id:'ewr-koo-supernova', cat:'eyewear', brand:'KOO', model:'Supernova', family:'koo-supernova', price:220,
     type:'glasses', sizes:['OSFA'],
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.kask.com/en-us/koo',
-    desc:'Fetched kask.com/en-us/koo (WebFetch): Supernova confirmed at $220 flat. No weight published.' }
+    desc:'Fetched kask.com/en-us/koo (WebFetch): Supernova confirmed at $220 flat. No weight published.' },
+
+  /* -- SunGod breadth (catalog/kit-breadth-8, 2026-07-23): brand entirely ABSENT. Fetched
+     sungod.co/en-us product pages (WebFetch) for base-colorway prices; SunGod does not publish
+     frame weights on its product pages. -- */
+  { id:'ewr-sungod-vulcans', cat:'eyewear', brand:'SunGod', model:'Vulcans', family:'sungod-vulcans', price:187,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.sungod.co/en-us/shop/sunglasses/vulcans',
+    desc:'Fetched sungod.co (WebFetch): Vulcans Top Frame base colorway (Aurora Blue) confirmed at $187 (other lens/colorway combos run to $240). 8KO lens technology, screwless Pop-Lock hinge, three interchangeable nosepad sizes. No weight published.' },
+  { id:'ewr-sungod-velans2', cat:'eyewear', brand:'SunGod', model:'Velans 2', family:'sungod-velans', price:167,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.sungod.co/en-us/road-cycling-sunglasses',
+    desc:'Fetched sungod.co (WebFetch): Velans 2 base colorways confirmed at $167 (photochromic/Iris Smoke variants run to $220). No weight published.' },
+  { id:'ewr-sungod-airas', cat:'eyewear', brand:'SunGod', model:'Airas', family:'sungod-airas', price:214,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.sungod.co/en-us/road-cycling-sunglasses',
+    desc:'Fetched sungod.co (WebFetch): Airas confirmed at $214 across its colorways (Green/Black/Gold). 360-degree-vision road frame available in Zero Frame or Bottom Frame construction. No weight published.' },
+  { id:'ewr-sungod-gts', cat:'eyewear', brand:'SunGod', model:'GTs', family:'sungod-gts', price:255,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.sungod.co/en-us/road-cycling-sunglasses',
+    desc:'Fetched sungod.co (WebFetch): GTs (designed with Geraint Thomas) base colorway confirmed at $255 (Grey/Iris HV Blue variant runs to $308). No weight published.' }
 ];
 
 /* ---- legacy id aliases -----------------------------------------------------
