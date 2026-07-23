@@ -29,12 +29,13 @@
 // SCOPE EXCLUSIONS (do NOT add on a breadth pass): Riese & Müller Superdelite "mountain" is a
 // TOURING e-bike, NOT an e-MTB (Douglas, 2026-07-23 — the maker's EC-conformity-PDF "E-MTB"
 // label is overruled by its actual touring positioning). Gazelle and Bird have no e-MTB
-// product at all (confirmed 2026-07-23). Wilier's current lineup (wilier.com, checked
-// 2026-07-23) carries NO e-MTB either — its E-Bikes category is all road/gravel/endurance
-// hybrids (Filante/Garda/Adlar/Urta Hybrid, Karga) and its MTB category is fully acoustic
-// (Urta/Usma); the E903TRN/E-Enduro line that once existed is discontinued and its rear-shock
-// travel spec couldn't be confirmed from any live source (PHANTOM-NUMBER guard — not entered
-// rather than guessed). None of these belong in this catalog.
+// product at all (confirmed 2026-07-23). The E903TRN/E-Enduro line Wilier once sold is
+// discontinued and its rear-shock travel spec couldn't be confirmed from any live source
+// (PHANTOM-NUMBER guard — not entered rather than guessed) — but Wilier DOES currently sell a
+// real e-MTB, the Urta Hybrid (a down-country lightweight-assist bike on Fazua Ride 60), added
+// catalog/emtb-breadth-4 2026-07-23 (em-wilier-urta-hybrid-xx-sl-axs) after a same-day
+// WebFetch/Exa re-check found it under wilier.com's E-Bikes category — a prior same-day pass in
+// this file had looked only at the acoustic MTB category page and missed it.
 
 // ---------------------------------------------------------------------------
 // Parts (complete e-MTBs)
@@ -2486,6 +2487,19 @@ var EMTB_PARTS = [
     note: "Shorter-travel, XC/allrounder-leaning sibling to the ONE44/ONE77 (this catalog's existing Cube rows are 140mm+); FSP 4-Link rear suspension, SR Suntour XCR34 Air fork / EdgeX R shock, SRAM UDH.",
     desc: 'Fork/rear travel, wheel size, weight, frame, drivetrain and brakes confirmed via vitalmtb.com\'s spec-guide entry (matches the maker\'s own Bosch CX Gen 5/800Wh/Purion 200 claims from cube.eu and press coverage). PRICE: EUR 3,699 (800Wh trim, per cube.eu-sourced press coverage) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $4,221.',
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.vitalmtb.com/product/guide/e-bikes/cube/stereo-hybrid-one22-70166'
+  },
+
+  // --- catalog/emtb-breadth-4: one genuine absence (Wilier) + depth on the 17 thin brands ---
+  {
+    id: 'em-wilier-urta-hybrid-xx-sl-axs', cat: 'emtb', brand: 'Wilier', model: 'Urta Hybrid XX SL AXS',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60, motorPowerPeak: 450,
+    batteryWh: 430, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 120, travelRear: 120,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle AXS T-Type', brakes: 'Shimano Deore XT M8100',
+    disciplines: ['e-xc'], weight: 16400, price: 13579,
+    note: 'CORRECTS an earlier-today finding in this file\'s own header claiming Wilier "carries NO e-MTB": that check looked only at the acoustic MTB category page and missed the separate E-Bikes category. Urta Hybrid is Wilier\'s real, current down-country e-MTB (based on the Urta SLR XC race platform), Fazua Ride 60 mid-drive (60Nm/450W peak, 430Wh internal battery), 120mm front/rear travel, carbon monocoque frame+bar. Top SRAM XX SL AXS T-Type build shown; a GX T-Type build also exists at a lower price point.',
+    desc: "Fetched via Exa (wilier.com blocks WebFetch with a 403) from the maker's own Urta Hybrid product page, which lists per-trim spec accordions and a setup/price table. Top trim (code E557BS6X): SRAM XX SL Eagle AXS T-Type drivetrain, Shimano Deore XT M8100 brakes (180/160mm Shimano RT-MT800 rotors), RockShox SID FS 120mm fork / RockShox Deluxe Select 210x55 shock, maker-stated weight 16.400kg +/-5%. Motor torque/power (60Nm/450W) match this catalog's other Fazua Ride 60 rows exactly (independent cross-check, not guessed). PRICE: EUR 11,900 RRP (no USD market exists) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079, matching this file's other same-day regional-conversion rows) -> $13,579.",
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.wilier.com/en/bikes/e-bike/urta-hybrid'
   }
 
 ];
