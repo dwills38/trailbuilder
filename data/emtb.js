@@ -2745,6 +2745,65 @@ var EMTB_PARTS = [
     note: 'First Bergamont row in this catalog (German ZEG-group brand, absent before this wave) — "ultra lite AL-6061" frame, mullet (29in front/27.5in rear) wheels, RockShox Zeb Select fork / RockShox Deluxe Select+ shock, integrated 150mm dropper, Schwalbe Magic Mary/Hans Dampf Evo tires, 160kg max system weight.',
     desc: 'Fetched directly from the maker\'s own product page (bergamont.com/global/en/product/bergamont-e-trailster-150-elite): "Bosch Performance Line CX, Gen. 4, BES3, 250 W, 36 V" drive unit, "Bosch PowerTube, 36 V Li Ion, 750 Wh" battery, "150 mm" front / "140 mm" rear travel, "ultra lite AL-6061 tubing" frame, "Shimano Deore / Deore XT, 1x12" drivetrain with an e*thirteen 34T/165mm crank, "Shimano BR-MT520, hydraulic disc brake, 4-piston" brakes, weight approximately 27.9 kg. The page states only the drive unit\'s rated/continuous 250W figure, not a torque number; 85Nm is Bosch\'s own long-published standard rating for the un-upgraded Performance Line CX Gen4/BES3 unit (independently confirmed on bosch-ebike.com/us/products/performance-line-cx, whose Performance-upgrade-2.0 copy states the STANDARD range starts at 85Nm/10-120Nm adjustable) — not itemized on the specific Bergamont page fetched, so left unverified rather than claimed as re-confirmed there. Price was not on the fetched product page; a GBP 5,199 retail figure recurs across multiple UK retailers (99spokes.com, garyscycles.com) for this exact SKU. PRICE: GBP 5,199 converted at the 2026-07-24 open.er-api.com GBP->USD rate (1.332969) -> $6,930.30. catalog/emtb-breadth-5 wave (first Bergamont row).',
     lastChecked: '2026-07-24', source: 'https://www.bergamont.com/global/en/product/bergamont-e-trailster-150-elite'
+  },
+  // --- catalog/emtb-brands-7: five brand-pool absences confirmed present, entered unverified
+  // (no manufacturer page cleared THE BAR for a FETCHED motor-torque+peak-power+weight trio on
+  // any of the five — each row's desc names exactly which fields came off the maker's own site
+  // vs. a credible third party) ---
+  {
+    id: 'em-rose-root-miller-plus-2', cat: 'emtb', brand: 'Rose', model: 'Root Miller Plus 2', family: 'rose-root-miller',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (4th Generation)', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 625, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'Shimano 12-speed', brakes: 'Formula Cura 4 (203mm)',
+    disciplines: ['e-trail'], weight: 22900, price: 4319, modelYear: 2025,
+    note: 'Full-power mixed-wheel (29in front/27.5in rear) carbon trail e-MTB; Rose was absent from the live catalog before this wave. Root Miller Plus is the Bosch-motor line (a separate lighter "Root Miller" line on TQ exists but is not this row).',
+    desc: 'Fetched directly from rosebikes.com\'s own Root Miller Plus 2 product configurator page: frame ("Root Miller Plus Carbon"), fork ("Rock Shox ZEB SELECT CHARGER RC 29\\", 150mm"), motor ("Bosch Performance Line CX, 4th Generation"), battery ("Bosch Powertube Battery 625Watts"), wheels (DT Swiss H 1900 Spline, 29in front / 27.5in rear), brakes ("Formula Cura 4, ...203mm") all confirmed on that fetched page. Rear travel, motor torque/peak power (85Nm/600W is Bosch\'s own published Performance Line CX Gen4 spec, cross-checked via multiple motor-spec writeups, not itself fetched from a Rose or Bosch page this session — bosch-ebike.com 403-blocked WebFetch) and weight (22.9kg, from bike-magazin.de\'s review quoting Rose\'s manufacturer spec sheet, matched independently by 99spokes/bike-test.com) are credible-source, not maker-fetched — so this row stays unverified per THE BAR (not every field is off a fetched maker page). PRICE: rosebikes.com listed EUR 3,999 as the pre-discount/original price (a EUR 2,999 promotional price was also shown, not used); converted at an approximate ~1.08 EUR->USD rate to a sample $4,319 — no priceBasis claimed (unverified row).',
+    source: 'https://www.rosebikes.com/p/rose-root-miller-plus-2-162072', lastChecked: '2026-07-24'
+  },
+  {
+    id: 'em-alutech-efanes-20-mx-ep801', cat: 'emtb', brand: 'Alutech', model: 'eFanes 2.0 MX AXS Custom EP801', family: 'alutech-efanes',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'aluminum', drivetrain: null, brakes: null,
+    disciplines: ['e-enduro'], price: 9180, modelYear: 2026,
+    note: 'Full-power, long-travel (170/170mm) mixed-wheel e-enduro bike, hand-welded aluminum frame made in Germany; Alutech was absent from the live catalog before this wave. The eFanes platform also exists as an acoustic (non-e) MTB, correctly out of scope here.',
+    desc: 'Fetched directly from alutech-cycles.com\'s own eFanes 2.0 MX AXS Custom EP801 configurator page: motor ("Shimano EP801"), battery ("630Wh", Shimano Steps BT-EN806 Gen 2, a 504Wh option also offered), fork ("RockShox ZEB Ultimate RC2 Charger 3.2", 170mm base option), shock mount ("230x65mm", matching the platform\'s published 170mm rear travel figure — a second, independent WebSearch confirms "170 millimetres of spring travel at the front and rear" for the eFanes platform generally), wheels ("MX 29/27.5"), frame ("alu brushed"), and price ("EUR 8.499,95") all confirmed on that fetched page. Motor torque/peak power (85Nm/600W) is Shimano\'s own published EP801 spec, cross-checked via multiple motor-spec writeups (ebike-mtb.com, theloamwolf.com), not itself re-fetched from a Shimano page this session. The fetched Alutech configurator page does not state a total bike weight or itemize the exact drivetrain/brake groupset for this build (left out rather than guessed — "AXS" in the SKU name implies a SRAM Eagle AXS drivetrain but no specific tier is confirmed). Unverified per THE BAR (weight/drivetrain/brakes not fetched at all; torque/power not maker-fetched this session). PRICE: EUR 8,499.95 converted at an approximate ~1.08 EUR->USD rate to a sample $9,180 — no priceBasis claimed (unverified row).',
+    source: 'https://alutech-cycles.com/eFanes-20-MX-AXS-Custom-EP801_1', lastChecked: '2026-07-24'
+  },
+  {
+    id: 'em-megamo-reason-crb-03', cat: 'emtb', brand: 'Megamo', model: 'Reason CRB 03', family: 'megamo-reason',
+    motorBrand: 'avinox', motorModel: 'Avinox M2S', motorTorque: 150, motorPowerPeak: 1500,
+    batteryWh: 800, batteryRemovable: false, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: null, brakes: null,
+    disciplines: ['e-trail', 'e-enduro'], price: 8639, modelYear: 2027,
+    note: 'Full-power 160/160mm carbon e-enduro/all-mountain bike on the DJI Avinox M2S motor (FOX 38 Factory fork / FLOAT X2 Factory shock on this trim); Megamo was absent from the live catalog before this wave. Spanish brand (Bikeinn/tradeinn distribution network); also sells the lighter Reason Air (140mm) and alloy Reason AL trims, not cataloged here.',
+    desc: 'megamo.com (megamo.com/en/e-bike/e-full-suspension/reason and the CRB-03-specific product URL) 403-blocked WebFetch both attempts this session, so this row is built from credible third-party sources, not a fetched maker page — unverified per THE BAR. Motor: Avinox M2S, 150Nm peak boost torque (130Nm continuous) / 1500W peak (1300W continuous) / 800Wh non-removable DJI Avinox battery — figures cross-confirmed across ebike-mtb.com\'s motor group test, Pinkbike\'s Avinox M2/M2S launch coverage, and EMTB Forums\' bike-finder entry (all citing the same maker-published Avinox spec sheet). Travel: 160mm front/rear per ebike-mtb.com\'s Reason CRB review and MBR\'s Reason/Avinox writeup ("Fox 38 fork"). Frame: carbon (CRB tier code). Price: EUR 7,999 per mtbdatabase.com\'s 2026-model-year CRB 03 listing (a distinct EUR 7,999 figure was independently reported for the 2027 CRB 03 by a different outlet, corroborating); converted at an approximate ~1.08 EUR->USD rate to a sample $8,639 — no priceBasis claimed. Weight left unset: sources gave only whole-range figures ("20.3kg", "22.04kg", "from 20kg") not attributable to this specific CRB 03 trim with confidence, so no number is entered rather than guessing (THE BAR). Drivetrain/brakes not confirmed per-trim, left null.',
+    source: 'https://www.megamo.com/en/e-bike/e-full-suspension/reason', lastChecked: '2026-07-24'
+  },
+  {
+    id: 'em-bixs-lane-ex', cat: 'emtb', brand: 'Bixs', model: 'Lane-EX', family: 'bixs-lane-ex',
+    motorBrand: 'yamaha', motorModel: 'Yamaha PW-X3', motorTorque: 85, motorPowerPeak: 250,
+    batteryWh: 630, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: null, brakes: null,
+    disciplines: ['e-enduro'], weight: 25900, price: 9189, modelYear: 2025,
+    note: 'Full-power alloy e-enduro bike (170/160mm travel, 29in wheels) on the Yamaha PW-X3 motor; Bixs was absent from the live catalog before this wave. Bixs is a Swiss-market brand (bixs.com) also selling lighter e-touring/e-trekking lines, not cataloged here.',
+    desc: 'bixs.com/en/products/lane-ex itself 429-rate-limited WebFetch this session (retry-after 60s, not re-attempted within the wave), so this row is built from credible third-party sources, not a fetched maker page — unverified per THE BAR. Motor/battery ("Yamaha PW-X 3 Series with 250 watts", "Simplo 36V 630Wh") and travel/frame ("170mm front / 160mm rear", "Alloy 6061... E-Enduro geometry... 29in wheels") per mtbdatabase.com\'s and opticycles.com\'s 2023/2024 Lane-EX spec-guide entries; motorTorque (85Nm) is Yamaha\'s own published PW-X3 spec, matching this catalog\'s three existing PW-X3 rows exactly (independent cross-check, not guessed). Weight (25.9kg) per bike-magazin.de\'s summary of the 2024 model. Price: CHF 7,990 (2025 model, bixs.com per a secondary aggregator) converted at an approximate ~1.15 CHF->USD rate to a sample $9,189 — no priceBasis claimed. Drivetrain/brakes not itemized in the sources found, left null.',
+    source: 'https://www.bixs.com/en/products/lane-ex', lastChecked: '2026-07-24'
+  },
+  {
+    id: 'em-liteville-301ce-mk2-limited', cat: 'emtb', brand: 'Liteville', model: '301CE Mk2 Limited', family: 'liteville-301ce',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 725, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'mixed', drivetrain: null, brakes: null,
+    disciplines: ['e-trail', 'e-enduro'], weight: 22700, price: 12959, modelYear: 2025,
+    note: 'Full-power, mixed-wheel (29in front/27.5in rear) e-enduro bike with a carbon front triangle + aluminum rear end (Liteville\'s signature DUO-link construction); Liteville was absent from the live catalog before this wave. Owned by Syntace; liteville.com\'s own homepage was mid-relaunch ("Es entsteht etwas Neues" / "something new is being created") when fetched this session, with no reachable product-spec page.',
+    desc: 'liteville.com\'s own 301ce-mk2-limited product page did not render any bike specs when fetched this session (homepage-only content, site apparently mid-relaunch) — unverified per THE BAR, built from credible third-party sources instead. Motor/battery/travel ("Shimano EP801 motor (85 Nm)", "725 Wh BMZ battery", "170 mm front and 160 mm rear travel") and price (EUR 11,999) per stenger-bike.de\'s and a second retailer\'s Liteville 301 MK2 Limited listings; weight (22.7kg) per a third independent retailer/aggregator citing the same trim. motorPowerPeak (600W) is Shimano\'s own published EP801 spec (see the Alutech row above for the same cross-check), not itself re-confirmed against a Liteville-specific page. Frame material entered as "mixed" (carbon front triangle + aluminum rear, per multiple independent reviews of the 301CE platform incl. Bike Perfect and off.road.cc) rather than a single material. Price: EUR 11,999 converted at an approximate ~1.08 EUR->USD rate to a sample $12,959 — no priceBasis claimed. Drivetrain/brakes vary by build spec and were not confirmed for this exact trim, left null.',
+    source: 'https://www.liteville.com/en/bikes/301ce-mk2-limited', lastChecked: '2026-07-24'
   }
 
 ];
