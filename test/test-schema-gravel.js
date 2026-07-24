@@ -370,9 +370,12 @@ test('a dropper diameter of "proprietary" (a rigid-seatpost-only token) is rejec
 });
 
 test('a real dropper diameter still validates clean', function(){
+  // uses the live date, not the fixed TODAY above — same staleness fix as
+  // the catalog-wide tests near the top of this file: a real row's
+  // lastChecked keeps advancing as sessions verify parts.
   var dp = D.GRAVEL_PARTS.find(function(x){ return x.cat === 'dropper'; });
   if(!dp) throw new Error('no gravel dropper row found');
-  eq(S.validateGravelPart(dp, TODAY).length, 0);
+  eq(S.validateGravelPart(dp, new Date()).length, 0);
 });
 
 /* ---- priceBasis: price provenance (Douglas's 2026-07-22 ruling) -----------
