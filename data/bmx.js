@@ -2902,6 +2902,18 @@ var BMX_PARTS = [
     note: 'bmx-smallparts-2 (2026-07-24): second Federal peg SKU. Directly fetched federalbikes.com ($24.00 USD): "An Aluminium core encased in a Nylon sleeve...Bored to 14mm, supplied with a 10mm adapter" - material:alloy, axleFit:14mm, reducerIncluded:true all CONFIRMED. No weight stated on the listing.'
   },
   {
+    id: 'bmx-pg-wethepeople-toxic', cat: 'pegs', brand: 'WeThePeople', model: 'Toxic Peg',
+    axleFit: '14mm', material: 'steel', reducerIncluded: true, weight: 180, price: 32.95,
+    verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-24', source: 'https://www.skatepro.com/en-us/383-24481.htm',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched wethepeoplebmx.de (maker\'s own storefront): "Made out of heat treated 4140 chromoly...with 14mm holes and 3/8\\" adapters...WEIGHT: per peg: 180g" - material:steel (4140 crmo), axleFit:14mm, reducerIncluded:true, weight CONFIRMED. No price on the maker\'s EU site (the same gap this catalog\'s other WeThePeople rows already disclose); priced via named US retailer SkatePro ($32.95, matching spec) at the third-party-listed tier. Sold as a pair per the maker spec; priced here at the retailer\'s single listed figure per this catalog\'s existing pegs convention (see bmx-pg-fiction-steel).'
+  },
+  {
+    id: 'bmx-pg-wethepeople-dillpickle', cat: 'pegs', brand: 'WeThePeople', model: 'Dill Pickle Peg',
+    axleFit: '14mm', material: 'alloy', reducerIncluded: true, weight: 133, price: 42.95,
+    source: 'https://www.skatepro.com/en-us/383-32821.htm',
+    note: 'bmx-smallparts-2 (2026-07-24): second WeThePeople peg row (Dillon Lloyd signature). Directly fetched wethepeoplebmx.de: "heat-treated 7075-T6 alloy core with a specially designed nylon/fibreglass sleeve...with 14mm holes and 3/8\\" adapters...WEIGHT: per peg: 133g" - material:alloy (7075-T6), axleFit:14mm, reducerIncluded:true, weight CONFIRMED. No price on the maker\'s EU site; SkatePro lists a "Dill Pickle Nylon V2" at $42.95 - not promoted to verified since the "V2" naming on the retailer listing isn\'t confirmed to be the identical SKU described on the maker page (could be a later revision), so this row stays unverified pending a cleaner source match.'
+  },
+  {
     id: 'bmx-pg-sunday-seeley475', cat: 'pegs', brand: 'Sunday', model: 'Seeley 4.75" PC Peg',
     axleFit: '14mm', material: 'alloy', reducerIncluded: true, price: 27.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://shop.sundaybikes.com/collections/sunday-pegs',
