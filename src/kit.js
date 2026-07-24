@@ -4583,6 +4583,15 @@ var KIT_PARTS = [
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.clubrideapparel.com/products/mens-x-wind-jacket',
     desc:'Wind-resistant/water-repellent DWR-coated 4-way-stretch shell (no waterproof rating stated, hence waterproof:false), targeted venting panels, chest pocket doubling as a stow-away carry pouch. Price confirmed on clubrideapparel.com\'s US store (the same SKU\'s EU store lists a different EUR price). No weight or sizes published on the fetched page.' },
 
+  /* kit-breadth-15 (2026-07-24): jacket cross-category gap - road-apparel brands already
+     present in jersey/shorts/gloves that also genuinely sell cycling jackets, none previously
+     entered. Every row here is a real, currently-listed SKU with a directly fetched maker price. */
+  { id:'jkt-castelli-unlimited', cat:'jacket', brand:'Castelli', family:'castelli-unlimited', model:'Unlimited Jacket', price:230,
+    fitCut:'mens', waterproof:false, insulated:true,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.castelli-cycling.com/US/en/Men/Cycling/Top/Jackets/Cool/UNLIMITED-JACKET/p/4524520_085',
+    desc:'Fleece-lined jacket with shell wind protection at the front and cargo-style rear storage, marketed for "lonely gravel roads or your favorite trail." Full MSRP $230 confirmed on the US storefront (page also showed a $161 sale price, not used - pricing policy is MSRP-only). The "72 g" figure on the page reads as a fabric-weight spec, not total garment weight, so no weight field is set.' },
+
+
   /* Wild Rye (women's MTB apparel) - wild-rye.com fetched directly (WebFetch 404'd on this
      Shopify storefront; Exa's fetch rendered the real product pages cleanly - manufacturer pages,
      real prices/sizes/weights confirmed). Oz->g conversions rounded to whole grams. */
