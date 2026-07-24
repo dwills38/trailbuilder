@@ -2704,6 +2704,24 @@ var BMX_PARTS = [
     note: 'bmx-breadth-3 (2026-07-22): NEW brand for this catalog. Real current Fiction product, WebSearch-corroborated across SkatePro ($19.95), Dan\'s Comp, Albe\'s BMX and Stolen Brand (Fiction\'s parent/sister brand storefront, $19.99) all describing the same SKU: "45x45º integrated 1-1/8in headset for modern head tubes with built-in cups... two precision sealed Campy spec bearings, a CNC machined alloy dust cover with 11mm stack height." No manufacturer-direct page located/fetched this session (Fiction has no clearly separate storefront from Stolen Brand\'s site). Price entered at the SkatePro figure. Left unverified (retailer-corroborated).'
   },
   {
+    id: 'bmx-pg-kink-2xog', cat: 'pegs', brand: 'Kink', model: '2XOG Peg',
+    axleFit: '14mm', material: 'steel', reducerIncluded: false, price: 18.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://kinkbmx.com/products/2xog-peg',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched kinkbmx.com: "Heat Treated SCM 415 Steel" (material:steel CONFIRMED), "Size: 3/8\\" and 14mm" (dual native bore, no reducer needed at 14mm - reducerIncluded:false, matching this catalog\'s convention for other dual-bore pegs e.g. bmx-pg-colony-oneway), "Regular price $18.99" CONFIRMED. Weight (7.3oz for the 4.5in length) not recorded: this row models the peg generically across both cataloged lengths (4.5in/4.75in), matching this catalog\'s convention for length-variant pegs.'
+  },
+  {
+    id: 'bmx-pg-totalbmx-skinniesv2', cat: 'pegs', brand: 'Total BMX', model: 'Skinnies V2 Peg',
+    axleFit: '14mm', material: 'alloy', reducerIncluded: false, weight: 83, price: 26.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://totalbmx.com/products/total-bmx-skinnies-v2-peg-each-black',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched totalbmx.com: "Heat-treated 7075 Aluminium...weighing in at a mere 83 grams" (material:alloy + weight CONFIRMED), "Regular price $26.00 USD" CONFIRMED. Sold as separate 10mm and 14mm SKUs (not a dual-bore peg with an adapter) - this row models the 14mm variant, reducerIncluded:false (no adapter, a distinct bore-specific SKU). Currently shows sold-out in this colorway on the maker\'s own site (inventory status, not a discontinued product).'
+  },
+  {
+    id: 'bmx-pg-merritt-sir', cat: 'pegs', brand: 'Merritt', model: 'S.I.R. Chromoly Peg',
+    axleFit: '14mm', material: 'steel', reducerIncluded: true, price: 21.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://merritt.bigcartel.com/',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched merritt.bigcartel.com (Merritt\'s own storefront) - its own product listing states verbatim "MERRITT 4.5\\" S.I.R. CHROMOLY PEG 14MM W/ADAPTER FOR 3/8\\" - $21.00" (material:steel via "Chromoly", axleFit:14mm CONFIRMED, reducerIncluded:true via the stated 3/8in adapter, price CONFIRMED). Weight not recorded: third-party listings disagree (7.7oz vs 6.7oz across two different sources for the two lengths), not maker-stated, so no figure is trusted per the phantom-number rule. This row models the 4.5in length generically (a second identically-priced 5in SKU also exists on the same storefront).'
+  },
+  {
     id: 'bmx-pg-fiction-steel', cat: 'pegs', brand: 'Fiction', model: 'Steel Freestyle Pegs',
     axleFit: '14mm', material: 'steel', reducerIncluded: true, price: 30.95,
     note: 'bmx-breadth-3 (2026-07-22): real current Fiction product, WebSearch-corroborated (SkatePro $30.95): "made from solid Chromoly steel...come in sets of either 2 pieces or 4 pieces, designed for 14mm axles and with spacers included for 10mm setup" -> axleFit:14mm, material:steel, reducerIncluded:true (the 10mm spacers). Price entered at the single-peg-equivalent SkatePro figure; the page also sells 2- and 4-peg bundles at proportional prices, not modeled as separate rows (bundle count is a quantity axis, not a fit-distinct SKU per DATA-ENTRY-TEMPLATE §1). Left unverified (retailer-corroborated, no manufacturer page fetched).'
