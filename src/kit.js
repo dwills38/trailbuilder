@@ -84,9 +84,9 @@ var KIT_PARTS = [
     sizeChart:{ S:{head:[51,55]}, M:{head:[55,59]}, L:{head:[59,63]} },
     desc:'CORRECTED 2026-07-17: price is the fetched $189.95 list (was sample $169; page also shows a $132.99 sale, not used). Weight is size M, 380±30g maker-stated (was sample 370g, close already; S 355±30g, L 415±35g).',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-17', source:'https://www.foxracing.com/product/speedframe-pro-helmet/25102.html' },
-  { id:'hm-met-parachute-mcr', cat:'helmet', brand:'MET', model:'Parachute MCR MIPS', price:300, weight:840,
+  { id:'hm-met-parachute-mcr', cat:'helmet', brand:'MET', model:'Parachute MCR MIPS', price:398.55, weight:840,
     type:'convertible', rotational:'mips', certs:['astm-f1952'], disciplines:['trail','enduro','dh'], sizes:['S','M','L'],
-    desc:'Convertible: removable chin bar (full-face descents, half-shell climbs). Weight is size M full-face (840 g); MET also lists S 820/M 840/L 880 g full-face, 435/455/495 g open-face (chin bar off). Price is an approximate USD conversion of MET’s €350 EU MSRP — no US-MSRP page found.',
+    desc:'Convertible: removable chin bar (full-face descents, half-shell climbs). Weight is size M full-face (840 g); MET also lists S 820/M 840/L 880 g full-face, 435/455/495 g open-face (chin bar off). Price is an approximate USD conversion of MET’s €350 EU MSRP, converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) — no US-MSRP page found.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-19', source:'https://www.met-helmets.com/en/mtb/parachute-mcr-mips' },
   { id:'hm-troyleedesigns-stage', cat:'helmet', brand:'Troy Lee Designs', model:'Stage MIPS', price:325, weight:690,
     type:'full-face', rotational:'mips', certs:['cpsc','en1078','astm-f1952'], disciplines:['enduro','dh'], sizes:['XS/SM','MD/LG','XL/XXL'],
@@ -307,21 +307,21 @@ var KIT_PARTS = [
       + ' "MIPS" alongside "LDL" - kept `rotational:\'rheon\'` unchanged since that came from the actual'
       + ' product page copy (Kali\'s own RHEON LDL tech) with more confidence than a generic Shopify tag.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-16', source:'https://www.kaliprotectives.com/products/interceptor-2-0' },
-  { id:'hm-met-terrae', cat:'helmet', brand:'MET', model:'Terræ', price:162, weight:380,
+  { id:'hm-met-terrae', cat:'helmet', brand:'MET', model:'Terræ', price:170.81, weight:380,
     type:'half-shell', rotational:'mips', disciplines:['trail'], sizes:['S','M','L'],
-    desc:'Maker lists €150 (converted at ~1.08 USD/EUR).',
+    desc:'Maker lists €150 (converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://www.met-helmets.com/en/shop/mtb-helmets/trail-helmets/terrae/' },
-  { id:'hm-met-veleno-mips', cat:'helmet', brand:'MET', model:'Veleno MIPS', price:162, weight:300,
+  { id:'hm-met-veleno-mips', cat:'helmet', brand:'MET', model:'Veleno MIPS', price:170.81, weight:300,
     type:'half-shell', rotational:'mips', disciplines:['trail','xc'], sizes:['S','M','L'],
-    desc:'Maker lists €150 (converted at ~1.08 USD/EUR). Weight is size M (S 290g, L 335g on the maker page).',
+    desc:'Maker lists €150 (converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)). Weight is size M (S 290g, L 335g on the maker page).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://www.met-helmets.com/en/shop/mtb-helmets/trail-helmets/veleno-mips/' },
-  { id:'hm-met-shelter-mips', cat:'helmet', brand:'MET', model:'Shelter MIPS', price:108, weight:330,
+  { id:'hm-met-shelter-mips', cat:'helmet', brand:'MET', model:'Shelter MIPS', price:113.87, weight:330,
     type:'half-shell', rotational:'mips', disciplines:['trail'], sizes:['S','M','L','XL'],
-    desc:'Maker lists €100 (converted at ~1.08 USD/EUR). Extended-coverage half-shell.',
+    desc:'Maker lists €100 (converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)). Extended-coverage half-shell.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://www.met-helmets.com/en/shop/mtb-helmets/trail-helmets/shelter-mips/' },
-  { id:'hm-met-revo', cat:'helmet', brand:'MET', model:'Revo', price:216, weight:390,
+  { id:'hm-met-revo', cat:'helmet', brand:'MET', model:'Revo', price:227.74, weight:390,
     type:'half-shell', rotational:'mips', disciplines:['trail','enduro'], sizes:['S','M','L'],
-    desc:'Maker lists €200 (converted at ~1.08 USD/EUR).',
+    desc:'Maker lists €200 (converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://www.met-helmets.com/en/shop/mtb-helmets/enduro-helmets/revo/' },
   { id:'hm-lazer-jackal-kineticore', cat:'helmet', brand:'Lazer', model:'Jackal KinetiCore', price:159.99, weight:340,
     type:'half-shell', certs:['cpsc','en1078'], disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
@@ -339,21 +339,21 @@ var KIT_PARTS = [
     type:'full-face', disciplines:['enduro','dh'], sizes:['XS','S','M','L','XL'],
     desc:'Weight/type confirmed on lazersport.com; US price page 404’d, price is an unverified street estimate. Maker states "ASTM certified" for downhill without naming the exact designation, so no `certs` token is asserted. KinetiCore is not MIPS. token-law-fix (2026-07-23): RE-FETCHED lazersport.com/global/helmets/off-road/cage-kineticore via the browser pane - this is a CURRENT product (full spec/"FIND MY DEALER" page, no archived/discontinued marking) - priceBasis CORRECTED discontinued-no-msrp->third-party-listed (the honest token: current product, maker publishes no USD price, stored figure is the pre-existing disclosed street estimate). No status change (was already absent = current).',
     verified:true, priceBasis:'third-party-listed', lastChecked:'2026-07-23', source:'https://www.lazersport.com/global/helmets/off-road/cage-kineticore' },
-  { id:'hm-endura-hummvee-mips', cat:'helmet', brand:'Endura', model:'Hummvee MIPS', price:76,
+  { id:'hm-endura-hummvee-mips', cat:'helmet', brand:'Endura', model:'Hummvee MIPS', price:80.24,
     type:'half-shell', rotational:'mips', certs:['cpsc','en1078'], disciplines:['trail'], sizes:['S-M','M-L','L-XL'],
-    desc:'Maker lists £60 (converted at ~1.27 USD/GBP). Open-face; weight not stated on the fetched page.',
+    desc:'Maker lists £60 (converted at 1.337398 USD/GBP (open.er-api.com, queried 2026-07-23)). Open-face; weight not stated on the fetched page.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://www.endurasport.com/collections/helmets-mtb-open-face/products/hummvee-mips%C2%AE-helmet-black-re1583bk' },
-  { id:'hm-endura-hummvee-plus-mips', cat:'helmet', brand:'Endura', model:'Hummvee Plus MIPS', price:114,
+  { id:'hm-endura-hummvee-plus-mips', cat:'helmet', brand:'Endura', model:'Hummvee Plus MIPS', price:120.37,
     type:'half-shell', rotational:'mips', certs:['cpsc','en1078'], disciplines:['trail'], sizes:['S-M','M-L','L-XL'],
-    desc:'Maker lists £90 (converted at ~1.27 USD/GBP). Open-face; weight not stated on the fetched page.',
+    desc:'Maker lists £90 (converted at 1.337398 USD/GBP (open.er-api.com, queried 2026-07-23)). Open-face; weight not stated on the fetched page.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://www.endurasport.com/collections/helmets-mtb-open-face/products/hummvee-plus-mips%C2%AE-helmet-black-re1553bk' },
-  { id:'hm-endura-singletrack-mips', cat:'helmet', brand:'Endura', model:'SingleTrack MIPS', price:152,
+  { id:'hm-endura-singletrack-mips', cat:'helmet', brand:'Endura', model:'SingleTrack MIPS', price:160.49,
     type:'half-shell', rotational:'mips', certs:['en1078'], disciplines:['trail'], sizes:['S-M','M-L','L-XL'],
-    desc:'Maker lists £120 (converted at ~1.27 USD/GBP). Open-face with Koroyd panels; weight not stated on the fetched page.',
+    desc:'Maker lists £120 (converted at 1.337398 USD/GBP (open.er-api.com, queried 2026-07-23)). Open-face with Koroyd panels; weight not stated on the fetched page.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://www.endurasport.com/collections/helmets-mtb-open-face/products/singletrack-helmet-mips%C2%AE-black-re1552bk' },
-  { id:'hm-endura-mt500-fullface-mips', cat:'helmet', brand:'Endura', model:'MT500 Full Face MIPS', price:318,
+  { id:'hm-endura-mt500-fullface-mips', cat:'helmet', brand:'Endura', model:'MT500 Full Face MIPS', price:334.35,
     type:'full-face', rotational:'mips', certs:['cpsc','en1078','astm-f1952'], disciplines:['enduro','dh'], sizes:['S-M','M-L','L-XL'],
-    desc:'Maker lists £250 (converted at ~1.27 USD/GBP); weight not stated on the fetched page.',
+    desc:'Maker lists £250 (converted at 1.337398 USD/GBP (open.er-api.com, queried 2026-07-23)); weight not stated on the fetched page.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://www.endurasport.com/collections/helmets-mtb-full-face/products/mt500-full-face-mips%C2%AE-helmet-black-re1571bk' },
 
   /* -- Helmets, batch 3 (2026-07-14): new brands iXS, Sweet Protection, O'Neal,
@@ -378,17 +378,17 @@ var KIT_PARTS = [
     type:'half-shell', rotational:'mips', certs:['cpsc'], disciplines:['trail','enduro'], sizes:['S','M','L'],
     desc:'Weight is size M (S 340g, M 370g, L 390g on the maker page). All-round trail/enduro half-shell with visor.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-16', source:'https://www.abususa.com/products/modrop-mips' },
-  { id:'hm-ixs-trigger-am-mips', cat:'helmet', brand:'iXS', model:'Trigger AM MIPS', price:204,
+  { id:'hm-ixs-trigger-am-mips', cat:'helmet', brand:'iXS', model:'Trigger AM MIPS', price:215.21,
     type:'half-shell', rotational:'mips', certs:['cpsc','en1078'], disciplines:['trail','enduro'], sizes:['SM','M','ML'],
-    desc:'Maker lists €189 (converted at ~1.08 USD/EUR). Weight not stated on the fetched page.',
+    desc:'Maker lists €189 (converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)). Weight not stated on the fetched page.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://ixs.com/en/mtb/mtb-equipment/helmets/2296/helmet-trigger-am-mips-black' },
-  { id:'hm-ixs-trail-evo', cat:'helmet', brand:'iXS', model:'Trail Evo', price:118,
+  { id:'hm-ixs-trail-evo', cat:'helmet', brand:'iXS', model:'Trail Evo', price:124.12,
     type:'half-shell', certs:['cpsc','en1078'], disciplines:['trail'], sizes:['XS','SM','ML','XLW'],
-    desc:'Maker lists €109 (converted at ~1.08 USD/EUR). Base variant carries no rotational-impact system (a separate "Trail Evo MIPS" SKU exists). Weight not stated on the fetched page.',
+    desc:'Maker lists €109 (converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)). Base variant carries no rotational-impact system (a separate "Trail Evo MIPS" SKU exists). Weight not stated on the fetched page.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://ixs.com/en/mtb/mtb-equipment/helmets/1588/helmet-trail-evo-black' },
-  { id:'hm-ixs-xult-dh', cat:'helmet', brand:'iXS', model:'Xult DH', price:355,
+  { id:'hm-ixs-xult-dh', cat:'helmet', brand:'iXS', model:'Xult DH', price:374.63,
     type:'full-face', certs:['cpsc','en1078','astm-f1952'], disciplines:['dh','enduro'], sizes:['SM','ML','LXL'],
-    desc:'Maker lists €329 (converted at ~1.08 USD/EUR). iXS’s own Xmatter/Xrail-Liner rotational tech (not MIPS - omitted from `rotational`). Weight not stated on the fetched page.',
+    desc:'Maker lists €329 (converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)). iXS’s own Xmatter/Xrail-Liner rotational tech (not MIPS - omitted from `rotational`). Weight not stated on the fetched page.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://www.ixs.com/en-us/products/ixs-helm-xult-dh-schwarz' },
   { id:'hm-sweetprotection-bushwhacker-2vi-mips', cat:'helmet', brand:'Sweet Protection', model:'Bushwhacker 2Vi MIPS', price:275, weight:430,
     type:'half-shell', rotational:'mips', certs:['cpsc','en1078'], disciplines:['trail','enduro'], sizes:['SM','ML','LXL'],
@@ -397,29 +397,29 @@ var KIT_PARTS = [
   { id:'hm-sweetprotection-trailblazer-mips', cat:'helmet', brand:'Sweet Protection', model:'Trailblazer MIPS', price:220, weight:325,
     type:'half-shell', rotational:'mips', certs:['cpsc','en1078'], disciplines:['trail'], sizes:['SM','ML','LXL'],
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-14', source:'https://www.sweetprotection.com/us/en/trailblazer-mips-helmet-maze-green/' },
-  { id:'hm-sweetprotection-arbitrator-mips', cat:'helmet', brand:'Sweet Protection', model:'Arbitrator MIPS', price:377, weight:980,
+  { id:'hm-sweetprotection-arbitrator-mips', cat:'helmet', brand:'Sweet Protection', model:'Arbitrator MIPS', price:397.41, weight:980,
     type:'convertible', rotational:'mips', certs:['cpsc','en1078','astm-f1952'], disciplines:['dh','enduro'], sizes:['SM','ML'],
-    desc:'Maker lists €349 (converted at ~1.08 USD/EUR). Weight is the full-face configuration with chin guard (550g without).',
+    desc:'Maker lists €349 (converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)). Weight is the full-face configuration with chin guard (550g without).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://www.sweetprotection.com/eu/en/arbitrator-mips-helmet-matte-blacknatural-carbon/' },
-  { id:'hm-oneal-defender-solid', cat:'helmet', brand:"O'Neal", model:'Defender SOLID', price:89, weight:380,
+  { id:'hm-oneal-defender-solid', cat:'helmet', brand:"O'Neal", model:'Defender SOLID', price:93.62, weight:380,
     type:'half-shell', certs:['cpsc','en1078'], disciplines:['trail','enduro'], sizes:['XS/S/M','L/XL'],
-    desc:'Maker lists £70 (converted at ~1.27 USD/GBP). Double in-mold construction; no named rotational-impact system.',
+    desc:'Maker lists £70 (converted at 1.337398 USD/GBP (open.er-api.com, queried 2026-07-23)). Double in-mold construction; no named rotational-impact system.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://www.oneal.eu/en-gb/products/oneal-defender-helmet-solid-3' },
-  { id:'hm-oneal-trailfinder-evo-solid', cat:'helmet', brand:"O'Neal", model:'Trailfinder EVO SOLID', price:97,
+  { id:'hm-oneal-trailfinder-evo-solid', cat:'helmet', brand:"O'Neal", model:'Trailfinder EVO SOLID', price:102.47,
     type:'half-shell', certs:['en1078'], disciplines:['trail'], sizes:['XS','S','S/M','M','L','L/XL','XL','2XL'],
-    desc:'Maker lists €89.99 (converted at ~1.08 USD/EUR). Weight and rotational tech not stated on the fetchable collection page (variant pages 404’d).',
+    desc:'Maker lists €89.99 (converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)). Weight and rotational tech not stated on the fetchable collection page (variant pages 404’d).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://www.oneal.eu/en/collections/trailfinder-helmet' },
-  { id:'hm-oneal-backflip', cat:'helmet', brand:"O'Neal", model:'Backflip', price:135,
+  { id:'hm-oneal-backflip', cat:'helmet', brand:"O'Neal", model:'Backflip', price:142.33,
     type:'full-face', disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL','XXL'],
-    desc:'Maker lists €119.99–€129.99 by color (midpoint converted at ~1.08 USD/EUR). Weight, rotational tech and cert standard not stated on the fetchable collection page (variant pages 404’d).',
+    desc:'Maker lists €119.99–€129.99 by color (midpoint converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)). Weight, rotational tech and cert standard not stated on the fetchable collection page (variant pages 404’d).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://www.oneal.eu/en/collections/backflip-helmet' },
-  { id:'hm-uvex-quatro', cat:'helmet', brand:'Uvex', model:'Quatro', price:130, weight:280,
+  { id:'hm-uvex-quatro', cat:'helmet', brand:'Uvex', model:'Quatro', price:136.59, weight:280,
     type:'half-shell', certs:['en1078'], disciplines:['trail','xc'], sizes:['52-57cm','56-61cm'],
-    desc:'Maker lists €119.95 (converted at ~1.08 USD/EUR). Base model carries no rotational-impact system.',
+    desc:'Maker lists €119.95 (converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)). Base model carries no rotational-impact system.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://www.uvex-sports.com/en/bike/bike-helmets/s41077530-uvex-quatro-all-black-4043197336633' },
-  { id:'hm-uvex-revolt-mips', cat:'helmet', brand:'Uvex', model:'Revolt MIPS', price:270,
+  { id:'hm-uvex-revolt-mips', cat:'helmet', brand:'Uvex', model:'Revolt MIPS', price:284.62,
     type:'convertible', rotational:'mips', disciplines:['dh'],
-    desc:'Maker lists €249.95 (converted at ~1.08 USD/EUR). 2-in-1 one-hand detachable chin bar. Weight, sizes and cert standard not stated on the fetched page.',
+    desc:'Maker lists €249.95 (converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)). 2-in-1 one-hand detachable chin bar. Weight, sizes and cert standard not stated on the fetched page.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://www.uvex-sports.com/en/uvex-revolt' },
 
   /* -- Helmets, batch 4 (2026-07-14): new brands Urge, Bluegrass, Bontrager/Trek,
@@ -430,33 +430,33 @@ var KIT_PARTS = [
      confirms it. Models the researcher couldn't confirm as still-current on
      the maker's own site (Bontrager "Line MIPS", Giant "Method", Urge
      "Down-O-Matic RR") were not entered. -- */
-  { id:'hm-urge-endur-o-matic-2', cat:'helmet', brand:'Urge', model:'Endur-O-Matic 2', price:81, weight:420,
+  { id:'hm-urge-endur-o-matic-2', cat:'helmet', brand:'Urge', model:'Endur-O-Matic 2', price:85.29, weight:420,
     type:'half-shell', disciplines:['trail','enduro'], sizes:['S/M','L/XL'],
-    desc:'Maker lists €74.90 (converted at ~1.08 USD/EUR). Weight is S/M (L/XL 430g). No rotational-impact system stated on the fetched page.',
+    desc:'Maker lists €74.90 (converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)). Weight is S/M (L/XL 430g). No rotational-impact system stated on the fetched page.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://urgebike.com/en/product/endur-o-matic-2-blue/' },
-  { id:'hm-urge-gringo-de-la-sierra', cat:'helmet', brand:'Urge', model:'Gringo de la Sierra', price:162, weight:830,
+  { id:'hm-urge-gringo-de-la-sierra', cat:'helmet', brand:'Urge', model:'Gringo de la Sierra', price:170.69, weight:830,
     type:'convertible', disciplines:['enduro','dh'], sizes:['S/M','L/XL'],
-    desc:'Maker lists €149.90 (converted at ~1.08 USD/EUR). Marketed as usable full-face or open-face. Weight is S/M (L/XL 840g). No cert standard code stated on the fetched page.',
+    desc:'Maker lists €149.90 (converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)). Marketed as usable full-face or open-face. Weight is S/M (L/XL 840g). No cert standard code stated on the fetched page.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://urgebike.com/en/product/gringo-de-la-sierra-black/' },
-  { id:'hm-urge-treps', cat:'helmet', brand:'Urge', model:'TREPS', price:172, weight:400,
+  { id:'hm-urge-treps', cat:'helmet', brand:'Urge', model:'TREPS', price:181.05, weight:400,
     type:'half-shell', disciplines:['trail','enduro'], sizes:['S/M','L/XL'],
-    desc:'Maker lists €159 (converted at ~1.08 USD/EUR). Weight is S/M (L/XL 440g). Urge’s own "ERT" rotational-energy tech (not MIPS - omitted from `rotational`).',
+    desc:'Maker lists €159 (converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)). Weight is S/M (L/XL 440g). Urge’s own "ERT" rotational-energy tech (not MIPS - omitted from `rotational`).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://urgebike.com/en/product/treps-bloom-beam-ert/' },
-  { id:'hm-urge-rascas', cat:'helmet', brand:'Urge', model:'RASCAS', price:215, weight:420,
+  { id:'hm-urge-rascas', cat:'helmet', brand:'Urge', model:'RASCAS', price:226.6, weight:420,
     type:'half-shell', disciplines:['trail','enduro'], sizes:['S/M','L/XL'],
-    desc:'Maker lists €199 (converted at ~1.08 USD/EUR). Weight is S/M (L/XL 480g). Urge’s own "ERT" rotational-energy tech (not MIPS).',
+    desc:'Maker lists €199 (converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)). Weight is S/M (L/XL 480g). Urge’s own "ERT" rotational-energy tech (not MIPS).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://urgebike.com/en/product/rascas-dark-moon-ert/' },
-  { id:'hm-bluegrass-vanguard-core', cat:'helmet', brand:'Bluegrass', model:'Vanguard Core', price:356, weight:700,
+  { id:'hm-bluegrass-vanguard-core', cat:'helmet', brand:'Bluegrass', model:'Vanguard Core', price:375.77, weight:700,
     type:'full-face', rotational:'mips', certs:['astm-f1952'], disciplines:['enduro','dh'], sizes:['S','M','L'],
-    desc:'Maker lists €330 (converted at ~1.08 USD/EUR). Weight is size S (M 725g, L 790g). Fixed, non-removable chin bar.',
+    desc:'Maker lists €330 (converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)). Weight is size S (M 725g, L 790g). Fixed, non-removable chin bar.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://www.met-helmets.com/en/shop/gravity/bluegrass-helmets/bluegrass-trail-helmets/vanguard-core/' },
-  { id:'hm-bluegrass-rogue', cat:'helmet', brand:'Bluegrass', model:'Rogue', price:130, weight:310,
+  { id:'hm-bluegrass-rogue', cat:'helmet', brand:'Bluegrass', model:'Rogue', price:136.64, weight:310,
     type:'half-shell', disciplines:['trail','enduro'], sizes:['S','M','L'],
-    desc:'Maker lists €120 (converted at ~1.08 USD/EUR). Weight is size S (M 320g, L 340g). Base model carries no rotational-impact system (a "Rogue Core Mips" variant is sold separately).',
+    desc:'Maker lists €120 (converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)). Weight is size S (M 320g, L 340g). Base model carries no rotational-impact system (a "Rogue Core Mips" variant is sold separately).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://www.met-helmets.com/en/shop/gravity/bluegrass-helmets/bluegrass-trail-helmets/rogue/' },
-  { id:'hm-bluegrass-legit-mips', cat:'helmet', brand:'Bluegrass', model:'Legit MIPS', price:313, weight:1120,
+  { id:'hm-bluegrass-legit-mips', cat:'helmet', brand:'Bluegrass', model:'Legit MIPS', price:330.22, weight:1120,
     type:'full-face', rotational:'mips', certs:['astm-f1952'], disciplines:['dh','enduro'], sizes:['XS','S','M','L','XL'],
-    desc:'Maker lists €290 (converted at ~1.08 USD/EUR). Weight is XS/S/M (L/XL 1220g).',
+    desc:'Maker lists €290 (converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)). Weight is XS/S/M (L/XL 1220g).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://www.met-helmets.com/en/shop/gravity/bluegrass-helmets/downhill-helmets/legit-mips/' },
   { id:'hm-bontrager-rally-wavecel', cat:'helmet', brand:'Bontrager', model:'Rally WaveCel', price:159.99, weight:360,
     type:'half-shell', rotational:'wavecel', certs:['cpsc'], disciplines:['trail'], sizes:['S','L','XL'],
@@ -650,35 +650,38 @@ var KIT_PARTS = [
      (est. 1985, Baden-Wurttemberg) - cratoni.de itself is an unfetchable stale test-subdomain
      (self-signed cert / DNS traps), but cratoni.com is the live current maker domain and fetched
      cleanly via WebFetch. Prices are the maker's own RRP in EUR (Cratoni sells in Europe, no USD
-     price published) - disclosed conversion, priceBasis:'regional-conversion', ~1.08 USD/EUR
-     (approximate, 2026-07-23; no live FX API used, same disclosed-approximate convention as the
-     catalog's existing GBP rows). */
-  { id:'hm-cratoni-cairlite', cat:'helmet', brand:'Cratoni', model:'C-Airlite', price:216, weight:180,
+     price published) - disclosed conversion, priceBasis:'regional-conversion'. RATE FIX
+     (fix/kit-fx-rates-1, 2026-07-23): the original ~1.08 USD/EUR was a stale, undated, unsourced
+     approximation; replaced with a live-fetched rate of 1.138703 USD/EUR from open.er-api.com
+     (queried 2026-07-23) - same rate cited on every EUR row fixed in this pass. */
+  { id:'hm-cratoni-cairlite', cat:'helmet', brand:'Cratoni', model:'C-Airlite', price:227.68, weight:180,
     type:'half-shell', disciplines:['xc','trail'], sizes:['S-M','M-L','L-XL'],
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://cratoni.com/en/produkt/c-airlite/',
-    desc:'Fetched cratoni.com: "Ultra-Lightweight" XC/road half-shell, 32 vents, 270-degree adjustment system. RRP EUR199.95 x ~1.08 USD/EUR (disclosed conversion, not a US MSRP). Weight is the S-M shell (180g S-M, 195g M-L, 210g L-XL per the maker page); the S-M figure is stored, others noted here.' },
-  { id:'hm-cratoni-madroc-pro', cat:'helmet', brand:'Cratoni', model:'Madroc Pro', price:432, weight:760,
+    desc:'Fetched cratoni.com: "Ultra-Lightweight" XC/road half-shell, 32 vents, 270-degree adjustment system. RRP EUR199.95 x 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23; disclosed conversion, not a US MSRP). Weight is the S-M shell (180g S-M, 195g M-L, 210g L-XL per the maker page); the S-M figure is stored, others noted here.' },
+  { id:'hm-cratoni-madroc-pro', cat:'helmet', brand:'Cratoni', model:'Madroc Pro', price:455.42, weight:760,
     type:'convertible', disciplines:['enduro','dh'], sizes:['S-M','M-L','L-XL'],
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://cratoni.com/en/produkt/madroc-pro/',
-    desc:'Fetched cratoni.com: hybrid enduro/DH helmet with a removable chin-bar system ("the new tool for all the maniacs"), maker-stated 760g ("one of the lightest hybrid helmets in its field"). RRP EUR399.95 x ~1.08 USD/EUR (disclosed conversion, not a US MSRP).' },
-  { id:'hm-cratoni-allset-mips', cat:'helmet', brand:'Cratoni', model:'Allset MIPS', price:151, weight:290,
+    desc:'Fetched cratoni.com: hybrid enduro/DH helmet with a removable chin-bar system ("the new tool for all the maniacs"), maker-stated 760g ("one of the lightest hybrid helmets in its field"). RRP EUR399.95 x 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23; disclosed conversion, not a US MSRP).' },
+  { id:'hm-cratoni-allset-mips', cat:'helmet', brand:'Cratoni', model:'Allset MIPS', price:159.36, weight:290,
     type:'half-shell', rotational:'mips', certs:['en1078'], disciplines:['trail','enduro'], sizes:['S-M','M-L'],
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://cratoni.com/en/produkt/allset-mips/',
-    desc:'Fetched cratoni.com: 15-vent AM/trail half-shell, adjustable visor with MX-goggle port, camera mount, CE EN 1078 certified, MIPS-equipped. RRP EUR139.95 x ~1.08 USD/EUR (disclosed conversion, not a US MSRP).' },
+    desc:'Fetched cratoni.com: 15-vent AM/trail half-shell, adjustable visor with MX-goggle port, camera mount, CE EN 1078 certified, MIPS-equipped. RRP EUR139.95 x 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23; disclosed conversion, not a US MSRP).' },
 
   /* -- Casco (kit-breadth-12, 2026-07-23): brand entirely ABSENT. German helmet maker (est. 1989);
      casco-helmets.com fetched directly. EUR-only maker pricing, same disclosed-conversion basis as
      the Cratoni rows above. Casco's line is overwhelmingly road/urban/aero (SPEEDairo, Roadster,
      Cuda, Activ) - the MTBE family is its only true MTB line, so only those two SKUs are entered
-     (a road-branded helmet in an MTB parts catalog would be padding, not breadth). */
-  { id:'hm-casco-mtbe-full-face', cat:'helmet', brand:'Casco', model:'MTBE Full Face', price:346,
+     (a road-branded helmet in an MTB parts catalog would be padding, not breadth). RATE FIX
+     (fix/kit-fx-rates-1, 2026-07-23): ~1.08 USD/EUR replaced with the live-fetched 1.138703
+     USD/EUR (open.er-api.com, queried 2026-07-23) - see the Cratoni block above. */
+  { id:'hm-casco-mtbe-full-face', cat:'helmet', brand:'Casco', model:'MTBE Full Face', price:364.38,
     type:'full-face', disciplines:['dh','enduro'],
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://casco-helmets.com/en/collections/mtbe',
-    desc:'Fetched casco-helmets.com/en/collections/mtbe: carbon full-face DH/enduro helmet (Carbon Neon colorway). RRP EUR320.00 x ~1.08 USD/EUR (disclosed conversion, not a US MSRP). No weight published on the fetched page; the collection page\'s "350-499g" figure is a generic Shopify shipping-weight bucket, not a per-model spec (same caveat as other rows in this catalog that flag that field) - left unset rather than guessed.' },
-  { id:'hm-casco-mtbe2', cat:'helmet', brand:'Casco', model:'MTBE2', price:173,
+    desc:'Fetched casco-helmets.com/en/collections/mtbe: carbon full-face DH/enduro helmet (Carbon Neon colorway). RRP EUR320.00 x 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23; disclosed conversion, not a US MSRP). No weight published on the fetched page; the collection page\'s "350-499g" figure is a generic Shopify shipping-weight bucket, not a per-model spec (same caveat as other rows in this catalog that flag that field) - left unset rather than guessed.' },
+  { id:'hm-casco-mtbe2', cat:'helmet', brand:'Casco', model:'MTBE2', price:182.19,
     type:'half-shell', disciplines:['trail','enduro'],
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://casco-helmets.com/en/collections/mtbe',
-    desc:'Fetched casco-helmets.com/en/collections/mtbe: "the mountainbike helmet" half-shell. RRP EUR160.00 x ~1.08 USD/EUR (disclosed conversion, not a US MSRP - the fetched page shows several colorways discounted to EUR80/EUR140, the page\'s own EUR160 list price is used instead). No weight published (same shipping-weight-bucket caveat as the Full Face row).' },
+    desc:'Fetched casco-helmets.com/en/collections/mtbe: "the mountainbike helmet" half-shell. RRP EUR160.00 x 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23; disclosed conversion, not a US MSRP - the fetched page shows several colorways discounted to EUR80/EUR140, the page\'s own EUR160 list price is used instead). No weight published (same shipping-weight-bucket caveat as the Full Face row).' },
 
   /* -- HJC (kit-breadth-12, 2026-07-23): brand entirely ABSENT. HJC Sports Europe (hjcsports.com)
      is overwhelmingly road/TT/urban (Furion, Ibex, Adwatt, Calido, Coban) - Crosser is its one
@@ -747,9 +750,9 @@ var KIT_PARTS = [
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13'],
     desc:'RideGrip PRO compound, WaffleGrip Pro tread, compression laces. Weight per pair, size EU43.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-14', source:'https://us.leatt.com/products/shoe-flat-3-0', sourceType:'manufacturer' },
-  { id:'sho-northwave-clan-2', cat:'shoes', brand:'Northwave', model:'Clan 2', price:162, weight:850,
+  { id:'sho-northwave-clan-2', cat:'shoes', brand:'Northwave', model:'Clan 2', price:170.79, weight:850,
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['36','37','38','39','40','41','42','43','44','45','46','47','48','49'],
-    desc:'Enduro flat-pedal shoe with reinforced heel/toe. Weight per pair (approx). Fetched northwave.com confirms non-stretch laces (closure) and sizes 36-49; lists EUR149.99 (no USD manufacturer price found - northwave.com is EU-priced). Kit-6 (2026-07-20): price set to a EUR->USD sample ($162, basis disclosed) per THE PRICE RULE, formalizing verified:true.',
+    desc:'Enduro flat-pedal shoe with reinforced heel/toe. Weight per pair (approx). Fetched northwave.com confirms non-stretch laces (closure) and sizes 36-49; lists EUR149.99 (no USD manufacturer price found - northwave.com is EU-priced). Kit-6 (2026-07-20): price set to a EUR->USD sample ($170.79 at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23), basis disclosed) per THE PRICE RULE, formalizing verified:true.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-20', source:'https://www.northwave.com/en/bike/shoes/mtb/trailall-mountain/clan-2' },
   { id:'sho-shimano-gr7', cat:'shoes', brand:'Shimano', model:'GR7 (SH-GF600)', price:180, weight:800,
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['38','39','40','41','42','43','44','45','46','47','48'],
@@ -822,14 +825,14 @@ var KIT_PARTS = [
     soleType:'clipless', closure:'lace', disciplines:['enduro','dh'], sizes:['7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13'],
     desc:'2-bolt SPD clipless gravity shoe, ClipGrip outsole with a 40mm cleat box, D3O High Impact Zone insole, RC PowerDrive nylon shank. Weight per pair (483g/shoe x2, size M9).',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-16', source:'https://rideconcepts.com/products/mens-hellion-clip', sourceType:'manufacturer' },
-  { id:'sho-northwave-rockit-2', cat:'shoes', brand:'Northwave', model:'Rockit Plus', price:162, weight:700,
+  { id:'sho-northwave-rockit-2', cat:'shoes', brand:'Northwave', model:'Rockit Plus', price:170.79, weight:700,
     soleType:'clipless', closure:'boa', disciplines:['trail','enduro'], sizes:['37','38','39','40','41','42','43','44','45','46','47','48'],
     desc:'2-bolt SPD clipless trail/enduro shoe, Single X-Dial SLW3 dial closure. RE-RESOLVED kit-7'
       + ' (2026-07-20): no "Rockit 2" has ever existed on northwave.com in a full current-lineup'
       + ' sweep of both Trail/All-Mountain pages (37 SKUs, browser-rendered) - only plain "Rockit"'
       + ' (EUR129.99, LAST ITEMS IN STOCK/closeout) and "Rockit Plus" (EUR149.99, standing current'
       + ' product) exist. Re-scoped model name Rockit 2 -> Rockit Plus (the standing, non-closeout'
-      + ' SKU - the id stays append-only). Price EUR149.99 -> $162 USD sample per THE PRICE RULE'
+      + ' SKU - the id stays append-only). Price EUR149.99 -> $170.79 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) per THE PRICE RULE'
       + ' (basis disclosed, no US price published). No per-shoe weight published, stays prior sample.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-20', source:'https://www.northwave.com/en/bike/shoes/mtb/trailall-mountain/rockit-plus' },
   { id:'sho-leatt-clip-4-0', cat:'shoes', brand:'Leatt', model:'Shoe Clip 4.0', price:149, weight:750, status:'discontinued',
@@ -980,9 +983,9 @@ var KIT_PARTS = [
     soleType:'clipless', closure:'lace', disciplines:['trail','enduro'], sizes:['6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13'],
     desc:'Entry-tier endurance clip shoe, RideGrip compound, traditional lace closure, 2-bolt SPD via included cleat shims. Weight = 360g/shoe (EU43) x2.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-16', source:'https://us.leatt.com/collections/mtb-shoes/products/shoe-clip-2-0-endurance' },
-  { id:'sho-northwave-enduro-mid-2', cat:'shoes', brand:'Northwave', model:'Enduro Mid 2', price:194, weight:750,
+  { id:'sho-northwave-enduro-mid-2', cat:'shoes', brand:'Northwave', model:'Enduro Mid 2', price:204.96, weight:750,
     soleType:'clipless', closure:'boa', disciplines:['enduro'], sizes:['38','40','41','42','43','44','45','46','47','48'],
-    desc:'Mid-cut enduro clipless shoe with ankle protection. Weight per pair (approx). CORRECTED 2026-07-16: fetched northwave.com - closes with a single X-Dial SLW3 (step-by-step + full-release dial), not laces (closure lace->boa). Sizes corrected to 38,40-48 (39 not offered). No USD manufacturer price found (EUR179.99 listed). Kit-6 (2026-07-20): price set to a EUR->USD sample ($194, basis disclosed) per THE PRICE RULE, formalizing verified:true.',
+    desc:'Mid-cut enduro clipless shoe with ankle protection. Weight per pair (approx). CORRECTED 2026-07-16: fetched northwave.com - closes with a single X-Dial SLW3 (step-by-step + full-release dial), not laces (closure lace->boa). Sizes corrected to 38,40-48 (39 not offered). No USD manufacturer price found (EUR179.99 listed). Kit-6 (2026-07-20): price set to a EUR->USD sample ($204.96 at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23), basis disclosed) per THE PRICE RULE, formalizing verified:true.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-20', source:'https://www.northwave.com/en/bike/shoes/mtb/trailall-mountain/enduro-mid-2' },
   { id:'sho-northwave-origin-plus-2', cat:'shoes', brand:'Northwave', model:'Origin Plus 2', price:200, weight:600, status:'discontinued',
     soleType:'clipless', closure:'boa', disciplines:['xc'], sizes:['39','40','41','42','43','44','45','46','47'],
@@ -1109,24 +1112,24 @@ var KIT_PARTS = [
       + ' active -30% $258.99 sale) corrected from a $250 sample. Sizes widened to the full 38-48'
       + ' half-size run shown. Weight not published, stays sample.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-20', source:'https://sidi.com/en-us/products/mtb-dust-grig' },
-  { id:'sho-vaude-am-moab', cat:'shoes', brand:'Vaude', model:'AM Moab Gravity', price:149, weight:780,
+  { id:'sho-vaude-am-moab', cat:'shoes', brand:'Vaude', model:'AM Moab Gravity', price:156, weight:780,
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['36','37','38','39','40','41','42','43','44','45','46','47','48','49','50'],
     desc:'VERIFIED kit-7 (2026-07-20): the row matches VAUDE\'s "AM Moab Gravity" specifically (one'
       + ' of several current AM Moab variants - Mid Winter STX, Tech, Mid STX II also exist) --'
       + ' model corrected to disambiguate. Unisex canvas/hydrophobic-suede flat-pedal shoe,'
       + ' SUPtraction sole, lace closure confirmed (page text + a customer review both describe'
       + ' laces, not a dial/ratchet system). Weight 390g/shoe confirmed on the page (780g/pair).'
-      + ' vaude.com prices in EUR only (EUR137.00, no US store) -- converted to a $149 USD sample'
+      + ' vaude.com prices in EUR only (EUR137.00, no US store) -- converted to a $156.00 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)'
       + ' per THE PRICE RULE, basis disclosed. Sizes widened to the full EU 36-50 run shown.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-20', source:'https://www.vaude.com/int/en/20539-am-moab-gravity-cycling-shoes.html' },
-  { id:'sho-vaude-am-moab-mid-stx2', cat:'shoes', brand:'Vaude', model:'AM Moab Mid STX II', price:240, weight:920,
+  { id:'sho-vaude-am-moab-mid-stx2', cat:'shoes', brand:'Vaude', model:'AM Moab Mid STX II', price:251.65, weight:920,
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['36','37','38','39','40','41','42','43','44','45','46','47','48','49','50'],
     desc:'kit-breadth-2 (2026-07-23): mid-height, waterproof (Sympatex membrane) sibling of the'
       + ' AM Moab Gravity, distinct SKU. Fetched vaude.com/int/en/45361-am-moab-mid-stx-ii-'
       + ' cycling-shoes.html directly: EUR221.00, weight 460g/shoe (920g/pair), oiled-nubuck-leather'
       + '/waterproof-canvas flat-pedal shoe, unisex. Lace closure confirmed via a customer review'
       + ' describing laces (no dial/Boa on the fetched page). vaude.com is EUR-only (no US store) -'
-      + ' converted to a $240 USD sample per THE PRICE RULE, basis disclosed. Sizes carried over from'
+      + ' converted to a $251.65 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) per THE PRICE RULE, basis disclosed. Sizes carried over from'
       + ' VAUDE\'s standard EU 36-50 run used elsewhere in this line, not independently reconfirmed'
       + ' for this exact SKU page.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://www.vaude.com/int/en/45361-am-moab-mid-stx-ii-cycling-shoes.html' },
@@ -1401,10 +1404,10 @@ var KIT_PARTS = [
     desc:'See jsy-100-celium-ss - the whole Celium line is confirmed discontinued/renamed'
       + ' (RE-CHECKED 2026-07-19, zero results on 100percent.com search/collections). Left'
       + ' unverified, no fields changed.' },
-  { id:'jsy-100-ridecamp-ls', cat:'jersey', brand:'100%', model:'Ridecamp LS', price:50, weight:165,
+  { id:'jsy-100-ridecamp-ls', cat:'jersey', brand:'100%', model:'Ridecamp LS', price:50.1, weight:165,
     sleeve:'long', sizes:['S','M','L','XL','XXL'],
     desc:'Polyester mesh, moisture-wicking, drop-tail coverage, internal goggle wipe. $44 EUR'
-      + ' RRP (100percent.eu, current parent-brand SP25 collection) converted to $50 USD sample -'
+      + ' RRP (100percent.eu, current parent-brand SP25 collection) converted to $50.10 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) -'
       + ' no US-site page surfaced this session (100percent.com is Shopify JS-rendered, WebFetch'
       + ' 403s/blank). Weight not published, stays sample.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-19', source:'https://100percent.eu/collections/ridecamp-collection' },
@@ -1447,13 +1450,13 @@ var KIT_PARTS = [
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-16',
     source:'https://us.leatt.com/products/jersey-mtb-gravity-4-0-long-sleeve',
     desc:'RE-CORRECTED 2026-07-16: the prior fetch found only the "-sale"-tagged Obsolete SKU (jersey-mtb-gravity-4-0-sale, $51.99, sleeve unconfirmed). This is a DIFFERENT, currently-active product page ("Jersey MTB Gravity 4.0 - Long Sleeve", in stock, not discontinued): confirmed long sleeve, $76.99 (exact price string on the page, .js API returns 7699 cents). No weight published on the page, omitted rather than guessed.' },
-  { id:'jsy-leatt-mtballmtn-ss', cat:'jersey', brand:'Leatt', model:'MTB AllMtn 2.0 SS', price:67, weight:135,
+  { id:'jsy-leatt-mtballmtn-ss', cat:'jersey', brand:'Leatt', model:'MTB AllMtn 2.0 SS', price:73.36, weight:135,
     sleeve:'short', sizes:['XS','S','M','L','XL','XXL','3XL'], disciplines:['trail','enduro'],
     desc:'TENCEL soft-touch fabric, neck-brace-ready collar, wearable with or without body armor.'
       + ' RE-CHECKED 2026-07-19: the US site\'s clearance SKU (fetched 2026-07-16 at a stale'
       + ' $35.74) is gone from us.leatt.com\'s current jersey collection, but the same "Jersey MTB'
       + ' All Mountain 2.0" is confirmed CURRENT on Leatt\'s Swiss site at CHF59.90, converted to'
-      + ' $67 USD sample (no live US MSRP page this session). Weight not published, stays sample.',
+      + ' $73.36 USD sample at 1.224663 USD/CHF (open.er-api.com, queried 2026-07-23) (no live US MSRP page this session). Weight not published, stays sample.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-19', source:'https://mtb.leatt.ch/products/jersey-mtb-allmtn-2-0' },
   { id:'jsy-leatt-mtbtrail-ls', cat:'jersey', brand:'Leatt', model:'MTB Trail 3.0 LS', price:49.49,
     sleeve:'long', sizes:['XS','S','M','L','XL','XXL','3XL'], disciplines:['trail'],
@@ -1602,20 +1605,20 @@ var KIT_PARTS = [
     desc:'RESOLVED kit-10 (2026-07-21): tagged discontinued. An exact-name men\'s Shimano "Explorer SS Jersey" DID exist - Chain Reaction Cycles carried the "Shimano ACCU-3D MTB Explorer SS Jersey" and Backcountry the "Shimano Explorer Jersey - Short Sleeve - Men\'s", both matching this row\'s name (part of the March-2021 Explorer Collection launch, bikeperfect.com). No Explorer jersey exists on current ride.shimano.com (re-confirmed by the 07-17 sweep), so real-then-dropped, not fabricated. Price/weight left as prior sample (no live maker figure).' },
 
   /* -- Jersey grind batch 3: iXS / Mons Royale / Chromag / O'Neal (2026-07-14) -- */
-  { id:'jsy-ixs-triggerx-ss', cat:'jersey', brand:'iXS', model:'Trigger X Jersey', price:82, weight:140,
+  { id:'jsy-ixs-triggerx-ss', cat:'jersey', brand:'iXS', model:'Trigger X Jersey', price:86.43, weight:140,
     sleeve:'short', sizes:['S','M','L','XL','XXL'], disciplines:['enduro'],
     desc:'Recycled X-Stretch fabric, mesh back, tailored race fit, neck-brace ready. EUR75.90'
-      + ' RRP converted to $82 USD sample - no US MSRP page found. Weight not published, stays sample.',
+      + ' RRP converted to $86.43 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) - no US MSRP page found. Weight not published, stays sample.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-trigger-x-jersey-rot-schwarz' },
-  { id:'jsy-ixs-triggerxair-ss', cat:'jersey', brand:'iXS', model:'Trigger X Air Jersey', price:82, weight:130,
+  { id:'jsy-ixs-triggerxair-ss', cat:'jersey', brand:'iXS', model:'Trigger X Air Jersey', price:86.43, weight:130,
     sleeve:'short', sizes:['S','M','L','XL','XXL'], disciplines:['enduro','dh'],
-    desc:'Form-fitting race cut for enduro/DH racing, mesh back. EUR75.90 RRP converted to $82'
-      + ' USD sample - no US MSRP page found. Weight not published, stays sample.',
+    desc:'Form-fitting race cut for enduro/DH racing, mesh back. EUR75.90 RRP converted to $86.43'
+      + ' USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) - no US MSRP page found. Weight not published, stays sample.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-trigger-x-air-jersey-rot-graphit' },
-  { id:'jsy-ixs-triggerevo-ls', cat:'jersey', brand:'iXS', model:'Trigger EVO Long Sleeve Jersey', price:97, weight:175,
+  { id:'jsy-ixs-triggerevo-ls', cat:'jersey', brand:'iXS', model:'Trigger EVO Long Sleeve Jersey', price:102.37, weight:175,
     sleeve:'long', sizes:['S','M','L','XL','XXL'], disciplines:['enduro'],
     desc:'X-mesh rear panel, silicone rear grip strip, stretch cuffs. EUR89.90 RRP converted to'
-      + ' $97 USD sample - no US MSRP page found. Weight not published, stays sample.',
+      + ' $102.37 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) - no US MSRP page found. Weight not published, stays sample.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-19',
     source:'https://www.ixs.com/en/products/ixs-trigger-evo-long-sleeve-jersey-anthrazit-schwarz' },
   { id:'jsy-monsroyale-diversion-ss', cat:'jersey', brand:'Mons Royale', model:'Diversion Merino Bike Jersey Short Sleeve', price:129.95,
@@ -1945,30 +1948,30 @@ var KIT_PARTS = [
       + ' CHECKED kit-13 (2026-07-21): see sht-nukeproof-outland - the whole Outland line is absent'
       + ' from nukeproof.com\'s current site-search (zero results) and product-slug guesses 404.'
       + ' Left unverified, no fields changed.' },
-  { id:'sht-sweetprotection-hunter', cat:'shorts', brand:'Sweet Protection', model:'Hunter Shorts II', price:129, weight:246,
+  { id:'sht-sweetprotection-hunter', cat:'shorts', brand:'Sweet Protection', model:'Hunter Shorts II', price:146.89, weight:246,
     liner:false, disciplines:['trail'], sizes:['S','M','L','XL'],
-    desc:'Retargeted from the discontinued "Hunter Shorts" name to the current "Hunter Shorts II" SKU. Maker-stated weight (246g) confirmed; price is EUR129 converted at ~1.08 USD/EUR (no USD price shown on the EU page).',
+    desc:'Retargeted from the discontinued "Hunter Shorts" name to the current "Hunter Shorts II" SKU. Maker-stated weight (246g) confirmed; price is EUR129 converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) (no USD price shown on the EU page).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-16', source:'https://www.sweetprotection.com/eu/en/hunter-shorts-ii-mens-black/' },
   { id:'sht-sweetprotection-hunterenduro', cat:'shorts', brand:'Sweet Protection', model:'Hunter Enduro Shorts', price:140, weight:310,
     liner:false, disciplines:['enduro','dh'],
     status:'discontinued',
     desc:'RESOLVED kit-10 (2026-07-21): tagged discontinued. The men\'s Hunter Enduro Shorts was a real product - Blister reviewed it ("Sweet Protection Hunter Enduro Shorts and Chikamin Jersey"), feedthehabit.com reviewed it, and evo still lists it in its outlet - but sweetprotection.com\'s current men\'s line is Hunter Shorts II / Hunter Light / Hunter Slashed (only the womens Hunter Enduro survives on the maker site, per the 07-16 sweep). Closest live successor is the Hunter Shorts II already covered by sht-sweetprotection-hunter2. Price/weight left as prior sample.' },
-  { id:'sht-ixs-carveevo', cat:'shorts', brand:'iXS', model:'Carve Evo Shorts', price:108, weight:290,
+  { id:'sht-ixs-carveevo', cat:'shorts', brand:'iXS', model:'Carve Evo Shorts', price:113.76, weight:290,
     liner:false, disciplines:['trail','enduro'], sizes:['S','M','L','XL','XXL'],
     desc:'Recycled X-stretch fabric, silicone anti-slip print at rear, kneepad-compatible,'
-      + ' adjustable high waist. EUR99.90 RRP converted to $108 USD sample - no US MSRP page'
+      + ' adjustable high waist. EUR99.90 RRP converted to $113.76 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) - no US MSRP page'
       + ' found. Weight not published, stays sample.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-carve-evo-shorts-charcoal' },
-  { id:'sht-ixs-carve1', cat:'shorts', brand:'iXS', model:'Carve 1.0 Shorts', price:161, weight:300,
+  { id:'sht-ixs-carve1', cat:'shorts', brand:'iXS', model:'Carve 1.0 Shorts', price:169.67, weight:300,
     liner:false, disciplines:['trail','enduro'], sizes:['S','M','L','XL','XXL'],
     desc:'Updated comfort-led cut, removable elastic belt, rear phone pocket, lift-card leg'
-      + ' pocket. EUR149.00 RRP converted to $161 USD sample - no US MSRP page found. Weight'
+      + ' pocket. EUR149.00 RRP converted to $169.67 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) - no US MSRP page found. Weight'
       + ' not published, stays sample.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/carve-1-0-shorts-schwarz' },
-  { id:'sht-ixs-trigger', cat:'shorts', brand:'iXS', model:'Trigger Shorts', price:129, weight:310,
+  { id:'sht-ixs-trigger', cat:'shorts', brand:'iXS', model:'Trigger Shorts', price:135.51, weight:310,
     liner:false, disciplines:['enduro','dh'],
     desc:'Stretch ventilation inserts, 2 zippered pockets, tailored race-performance fit.'
-      + ' EUR119.00 RRP converted to $129 USD sample - no US MSRP page found.'
+      + ' EUR119.00 RRP converted to $135.51 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) - no US MSRP page found.'
       + ' Light moisture-wicking x-stretch fabric aimed at enduro racers/downhillers. Weight not'
       + ' published, stays sample.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-trigger-shorts-marine-lime' },
@@ -2005,13 +2008,13 @@ var KIT_PARTS = [
   { id:'sht-looseriders-cs', cat:'shorts', brand:'Loose Riders', model:'C/S Shorts', price:100, weight:290,
     liner:false, disciplines:['trail','enduro'], sizes:['S','M','L','XL','XXL'],
     desc:'"Cult of Shred" short: three sealed-zip water-resistant pockets, embedded-vinyl waistband grip. RE-ATTEMPTED kit-11 (2026-07-21): confirmed via WebSearch that Loose Riders currently sells several C/S-line shorts under distinct names (C/S Evo, C/S Light Shorts, C/S Cargo, C/S Casual) at loose-riders.com/en/men/technical/pants-o-shorts/ - so the C/S concept is real and current, but the exact product page (tried .../cos-evo-black~6423/) returned HTTP 403 on WebFetch and the browser pane stalled on the site\'s cookie-consent overlay before rendering price/weight, so which specific C/S variant (and its exact price) matches this row\'s generic "C/S Shorts" naming/$100 sample could not be confirmed this session. EUR-only pricing itself would not block verification (THE PRICE RULE) once a page is actually read. Left unverified sample, not force-matched to a specific variant per the ION-cluster SKU-ambiguity precedent.' },
-  { id:'sht-cube-cmpttrail', cat:'shorts', brand:'Cube', model:'CMPT Trail Shorts', price:54, weight:270,
+  { id:'sht-cube-cmpttrail', cat:'shorts', brand:'Cube', model:'CMPT Trail Shorts', price:56.88, weight:270,
     liner:false, disciplines:['trail'], sizes:['XS','S','M','L','XL','XXL','XXXL'],
-    desc:'Re-fetched cube.eu/de-de/cube-trail-short-cmpt/12598 kit-12 (2026-07-21): EUR49.95 UVP reconfirmed (no USD MSRP available, Cube sells apparel only through EU/UK sites - USD figure here is a converted ESTIMATE, basis disclosed per THE PRICE RULE, price never blocks verification). 100% polyester shell, two zip pockets, elastic waist confirmed; sizes XS-XXXL reconfirmed exactly. Page publishes no weight - stays a sample per the kit-apparel weight-exemption policy.',
+    desc:'Re-fetched cube.eu/de-de/cube-trail-short-cmpt/12598 kit-12 (2026-07-21): EUR49.95 UVP reconfirmed (no USD MSRP available, Cube sells apparel only through EU/UK sites - USD figure here is a converted ESTIMATE at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23), basis disclosed per THE PRICE RULE, price never blocks verification). 100% polyester shell, two zip pockets, elastic waist confirmed; sizes XS-XXXL reconfirmed exactly. Page publishes no weight - stays a sample per the kit-apparel weight-exemption policy.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-21', source:'https://www.cube.eu/de-de/cube-trail-short-cmpt/12598' },
-  { id:'sht-cube-cmpttmtrail', cat:'shorts', brand:'Cube', model:'CMPT TM Trail Shorts', price:54, weight:290,
+  { id:'sht-cube-cmpttmtrail', cat:'shorts', brand:'Cube', model:'CMPT TM Trail Shorts', price:56.88, weight:290,
     liner:false, disciplines:['trail'], sizes:['XS','S','M','L','XL','XXL','XXXL'],
-    desc:'Re-fetched cube.eu/de-de/cube-trail-short-cmpt-tm/11151 kit-12 (2026-07-21): EUR49.95 UVP reconfirmed - the SAME maker list price as the base CMPT Trail Short above (a retailer page had shown a higher EUR59.95 "regular" price for the TM, but the maker\'s own page confirms both trims share one MSRP). USD figure is a converted ESTIMATE, basis disclosed per THE PRICE RULE (price never blocks verification). 100% polyester confirmed; sizes XS-XXXL reconfirmed exactly. Page publishes no weight - stays a sample per the kit-apparel weight-exemption policy.',
+    desc:'Re-fetched cube.eu/de-de/cube-trail-short-cmpt-tm/11151 kit-12 (2026-07-21): EUR49.95 UVP reconfirmed - the SAME maker list price as the base CMPT Trail Short above (a retailer page had shown a higher EUR59.95 "regular" price for the TM, but the maker\'s own page confirms both trims share one MSRP). USD figure is a converted ESTIMATE at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23), basis disclosed per THE PRICE RULE (price never blocks verification). 100% polyester confirmed; sizes XS-XXXL reconfirmed exactly. Page publishes no weight - stays a sample per the kit-apparel weight-exemption policy.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-21', source:'https://www.cube.eu/de-de/cube-trail-short-cmpt-tm/11151' },
   { id:'sht-rapha-trail-mens', cat:'shorts', brand:'Rapha', model:"Men's Trail Shorts",
     price:165, family:'rapha-trail', mfgPn:'TOS01XX', liner:false,
@@ -2259,9 +2262,9 @@ var KIT_PARTS = [
       + ' liner confirmed. 400D poly body, 600D saddle, 4-way stretch panels, 54% Polyester/40% Polyamide/6% Spandex.'
       + ' Weight not published; kept as the existing sample per the kit weight policy.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-17', source:'https://fasthouse.com/products/fastline-2-mtb-pant-black' },
-  { id:'pnt-royalracing-apex', cat:'pants', brand:'Royal Racing', model:'Apex Pants', price:165, weight:440,
+  { id:'pnt-royalracing-apex', cat:'pants', brand:'Royal Racing', model:'Apex Pants', price:173.85, weight:440,
     liner:false, disciplines:['enduro','dh'], sizes:['XS','S','M','L','XL','XXL'],
-    desc:'Re-fetched royalracing.com/products/apex-pants-ltd-blk kit-12 (2026-07-21, via Exa): GBP129.99 regular price reconfirmed (USD figure here is a converted ESTIMATE at ~1.27 USD/GBP, basis disclosed per THE PRICE RULE - price never blocks verification) and sizes XS-XXL reconfirmed exactly. No weight published on the page - 440g stays an unverified sample figure per the kit-apparel weight-exemption policy.',
+    desc:'Re-fetched royalracing.com/products/apex-pants-ltd-blk kit-12 (2026-07-21, via Exa): GBP129.99 regular price reconfirmed (USD figure here is a converted ESTIMATE at 1.337398 USD/GBP (open.er-api.com, queried 2026-07-23), basis disclosed per THE PRICE RULE - price never blocks verification) and sizes XS-XXL reconfirmed exactly. No weight published on the page - 440g stays an unverified sample figure per the kit-apparel weight-exemption policy.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-21', source:'https://royalracing.com/products/apex-pants-ltd-blk' },
   { id:'pnt-royalracing-storm', cat:'pants', brand:'Royal Racing', model:'Storm Pants', price:160, weight:500,
     liner:false, disciplines:['trail','enduro'], sizes:['S','M','L','XL','XXL'],
@@ -2278,15 +2281,15 @@ var KIT_PARTS = [
     desc:'RE-CHECKED 2026-07-16 via the .js JSON endpoint: MSRP (compare_at_price) $149.95 confirmed exactly'
       + ' (currently on sale at $119.96), sizes 28-40 confirmed, no liner mentioned. No weight published on'
       + ' the page - the prior 400g sample is dropped rather than carried as an unverified claim.' },
-  { id:'pnt-ixs-trigger', cat:'pants', brand:'iXS', model:'Trigger Pants', price:172, weight:380,
+  { id:'pnt-ixs-trigger', cat:'pants', brand:'iXS', model:'Trigger Pants', price:181.05, weight:380,
     liner:false, disciplines:['enduro','dh'], sizes:['XXS','XS','S','M','L','XL','XXL'],
     desc:'Recycled PET fiber, X-stretch fabric, tight aerodynamic race fit, stretch ventilation'
-      + ' inserts. EUR159.00 RRP converted to $172 USD sample - no US MSRP page found. Weight'
+      + ' inserts. EUR159.00 RRP converted to $181.05 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) - no US MSRP page found. Weight'
       + ' not published, stays sample.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-trigger-hose-schwarz' },
-  { id:'pnt-sweetprotection-hunter-2', cat:'pants', brand:'Sweet Protection', model:'Hunter Pants II', price:139, weight:286,
+  { id:'pnt-sweetprotection-hunter-2', cat:'pants', brand:'Sweet Protection', model:'Hunter Pants II', price:146.89, weight:286,
     liner:false, disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
-    desc:'Maker-stated weight (286g) and sizes (S-XL, corrected from S-XXL) confirmed via fetched sweetprotection.com/eu/en/hunter-pants-ii-mens-black/. Price is EUR129 converted at ~1.08 USD/EUR (no USD price shown on the EU page).',
+    desc:'Maker-stated weight (286g) and sizes (S-XL, corrected from S-XXL) confirmed via fetched sweetprotection.com/eu/en/hunter-pants-ii-mens-black/. Price is EUR129 converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) (no USD price shown on the EU page).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-16', source:'https://www.sweetprotection.com/eu/en/hunter-pants-ii-mens-black/' },
   { id:'pnt-sweetprotection-hunter-light', cat:'pants', brand:'Sweet Protection', model:'Hunter Light Pants', price:150, weight:370,
     liner:false, disciplines:['trail'], sizes:['S','M','L','XL','XXL'],
@@ -2483,10 +2486,10 @@ var KIT_PARTS = [
     sizes:['S','M','L','XL','XXL'],
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-16', source:'https://www.endurasport.com/en-us/products/hummvee-plus-gloves-black-re1160bk',
     desc:'Verified 2026-07-16 vs fetched endurasport.com product page: "Hummvee Plus Gloves", "$45.00 USD" (was sampled at $35, corrected), sizes XS-2XL. Weight kept as the prior sample estimate - the page/Shopify JSON weight is a flat shipping-placeholder figure.' },
-  { id:'glv-fisthandwear-stocker', cat:'gloves', brand:'Fist Handwear', model:'Stocker Glove', price:33, weight:65,
+  { id:'glv-fisthandwear-stocker', cat:'gloves', brand:'Fist Handwear', model:'Stocker Glove', price:34.84, weight:65,
     disciplines:['dj'], sizes:['S','M','L','XL','XXL'],
     desc:'Weight per pair (approx, no weight published). Corrected price ($30 sample -> $33, fetched'
-      + ' fisthandwear.com.au AUD49.95 converted at ~0.66 USD/AUD - the brand\'s primary site'
+      + ' fisthandwear.com.au AUD49.95 converted at 0.697473 USD/AUD (open.er-api.com, queried 2026-07-23) - the brand\'s primary site'
       + ' (fisthandwear.com) now redirects entirely to the .com.au domain, AUD-only pricing).'
       + ' Kit-7 (2026-07-20): re-confirmed live at AUD49.95 exactly (Black colorway), custom FIST'
       + ' closure + single-layer Clarino palm confirmed. Formalizing verified:true per THE PRICE'
@@ -2516,9 +2519,9 @@ var KIT_PARTS = [
     sizes:['XS','S','M','L','XL','XXL'],
     desc:'Weight per pair (approx). Renamed from "Aspen Pro" to "Alderex Pro" by Alpinestars (old name survives only in the product-page URL slug/image filenames); id kept as-is per the append-only convention. Price+sizes corrected against the fetched maker page (was $35, sizes started at S). VERIFIED 2026-07-17: re-fetched alpinestars.com/products/alderex-pro-glove, $39.95 and sizes XS-2XL confirmed. No weight published; stays a nominal sample.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-17', source:'https://www.alpinestars.com/products/alderex-pro-glove' },
-  { id:'glv-sweetprotection-hunter', cat:'gloves', brand:'Sweet Protection', model:'Hunter Glove', price:38, weight:39,
+  { id:'glv-sweetprotection-hunter', cat:'gloves', brand:'Sweet Protection', model:'Hunter Glove', price:39.85, weight:39,
     sizes:['S','M','L','XL'],
-    desc:'Maker states weight "39g" without specifying single-glove-vs-pair (kept as-published rather than guessed-doubled). Price is EUR35 converted at ~1.08 USD/EUR (no USD price shown on the EU page); sizes corrected to the maker\'s S-XL run.',
+    desc:'Maker states weight "39g" without specifying single-glove-vs-pair (kept as-published rather than guessed-doubled). Price is EUR35 converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) (no USD price shown on the EU page); sizes corrected to the maker\'s S-XL run.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-16', source:'https://www.sweetprotection.com/eu/en/hunter-bike-gloves-mens-black/' },
   { id:'glv-raceface-ruxton', cat:'gloves', brand:'Race Face', model:'Ruxton Glove', price:45,
     sizes:['XS','S','M','L','XL'], verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-16',
@@ -2672,9 +2675,9 @@ var KIT_PARTS = [
     fitCut:'womens', sizes:['XS','S','M','L','XL'],
     desc:'Weather-resistant glove, women\'s-specific per the maker page. Weight per pair (approx). Price corrected against the fetched maker page (was $60). VERIFIED 2026-07-17: re-fetched alpinestars.com/products/stella-a-dura-rain-gloves, $59.95, sizes XS-XL, women\'s-specific fit all confirmed. No weight published; stays a nominal sample.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-17', source:'https://www.alpinestars.com/products/stella-a-dura-rain-gloves' },
-  { id:'glv-sweetprotection-hunterlight', cat:'gloves', brand:'Sweet Protection', model:'Hunter Light Glove', price:42, weight:36,
+  { id:'glv-sweetprotection-hunterlight', cat:'gloves', brand:'Sweet Protection', model:'Hunter Light Glove', price:44.41, weight:36,
     sizes:['S','M','L','XL'],
-    desc:'Maker states weight "36g" without specifying single-glove-vs-pair (kept as-published rather than guessed-doubled). Price is EUR39 converted at ~1.08 USD/EUR (no USD price shown on the EU page); sizes corrected to the maker\'s S-XL run.',
+    desc:'Maker states weight "36g" without specifying single-glove-vs-pair (kept as-published rather than guessed-doubled). Price is EUR39 converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) (no USD price shown on the EU page); sizes corrected to the maker\'s S-XL run.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-16', source:'https://www.sweetprotection.com/eu/en/hunter-light-bike-gloves-mens-black/' },
   { id:'glv-sweetprotection-huntermid', cat:'gloves', brand:'Sweet Protection', model:'Hunter Mid Glove', price:40, weight:65, status:'discontinued',
     sizes:['S','M','L','XL','XXL'],
@@ -2690,22 +2693,22 @@ var KIT_PARTS = [
       + ' full glove lineup is exactly three tiers - Hunter, Hunter Light, Hunter Pro - no "Race"'
       + ' tier at any price point. Tagged discontinued rather than guessing which of the three'
       + ' tiers it should map to.' },
-  { id:'glv-ixs-carve', cat:'gloves', brand:'iXS', model:'Carve Glove', price:33, weight:65,
+  { id:'glv-ixs-carve', cat:'gloves', brand:'iXS', model:'Carve Glove', price:34.05, weight:65,
     sizes:['S','M','L','XL','XXL'],
     desc:'Preformed slip-on, abrasion-resistant synthetic palm, touchscreen-compatible, 90%'
-      + ' polyester/10% elastane. EUR29.90 RRP converted to $33 USD sample - no US MSRP page'
+      + ' polyester/10% elastane. EUR29.90 RRP converted to $34.05 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) - no US MSRP page'
       + ' found. Weight per pair (approx, not published).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-carve-handschuhe-schwarz' },
-  { id:'glv-ixs-carvedigger', cat:'gloves', brand:'iXS', model:'Carve Digger Glove', price:46, weight:80,
+  { id:'glv-ixs-carvedigger', cat:'gloves', brand:'iXS', model:'Carve Digger Glove', price:48.85, weight:80,
     sizes:['S','M','L','XL','XXL'],
     desc:'Reinforced palm/fingertips for digging durability, touchscreen-compatible. EUR42.90'
-      + ' RRP converted to $46 USD sample - no US MSRP page found. Weight per pair (approx, not'
+      + ' RRP converted to $48.85 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) - no US MSRP page found. Weight per pair (approx, not'
       + ' published).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-carve-digger-handschuhe-schwarz' },
-  { id:'glv-ixs-carvewomens', cat:'gloves', brand:'iXS', model:'Women\'s Carve Glove', price:34, weight:60,
+  { id:'glv-ixs-carvewomens', cat:'gloves', brand:'iXS', model:'Women\'s Carve Glove', price:34.05, weight:60,
     fitCut:'womens', sizes:['XS','S','M','L'],
     desc:'Low-volume women\'s fit, abrasion-resistant synthetic palm, touchscreen-compatible.'
-      + ' EUR29.90 RRP converted to $34 USD sample - no US MSRP page found. Weight per pair'
+      + ' EUR29.90 RRP converted to $34.05 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) - no US MSRP page found. Weight per pair'
       + ' (approx, not published).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/damen-carve-handschuhe-sage' },
   { id:'glv-scott-ridance', cat:'gloves', brand:'Scott', model:'Ridance LF Glove', price:30, weight:60,
@@ -2749,9 +2752,9 @@ var KIT_PARTS = [
   { id:'glv-flyracing-media', cat:'gloves', brand:'Fly Racing', model:'Media Glove', price:25, weight:62,
     sizes:['S','M','L','XL','XXL'],
     desc:'FLAG for coordinator review (2026-07-16): the only Media Glove page found is a legacy pre-2018 URL pattern (flyracing.com/product/mtb/riderwear/gloves/media-glove/...) not reachable on the current site; likely discontinued. Left as an unverified sample.' },
-  { id:'glv-royalracing-apex', cat:'gloves', brand:'Royal Racing', model:'Apex Glove - LTD Edition', price:38, weight:65,
+  { id:'glv-royalracing-apex', cat:'gloves', brand:'Royal Racing', model:'Apex Glove - LTD Edition', price:40.11, weight:65,
     disciplines:['enduro','dh'], sizes:['XS','S','M','L','XL','XXL'],
-    desc:'Corrected price ($40 sample -> $38, GBP29.99 fetched regular price converted at ~1.27'
+    desc:'Corrected price ($40 sample -> $38, GBP29.99 fetched regular price converted at 1.337398 (open.er-api.com, queried 2026-07-23)'
       + ' USD/GBP) and sizes to the maker\'s XS-XXL run. Kit-7 (2026-07-20): the full current'
       + ' royalracing.com/collections/gloves lineup (browser-rendered) shows Apex Glove only ever'
       + ' sold as "LTD Edition" colorways (Black/Blast/Rally, all GBP29.99 - the exact match for'
@@ -2759,9 +2762,9 @@ var KIT_PARTS = [
       + ' the name, it is the standing current SKU. Formalizing verified:true - weight not required'
       + ' for kit apparel (stays sample).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-20', source:'https://royalracing.com/collections/gloves' },
-  { id:'glv-royalracing-core', cat:'gloves', brand:'Royal Racing', model:'Core Glove', price:32, weight:60,
+  { id:'glv-royalracing-core', cat:'gloves', brand:'Royal Racing', model:'Core Glove', price:33.42, weight:60,
     sizes:['XS','S','M','L','XL','XXL'],
-    desc:'Corrected price ($25 sample -> $32, GBP24.99 fetched regular price converted at ~1.27'
+    desc:'Corrected price ($25 sample -> $32, GBP24.99 fetched regular price converted at 1.337398 (open.er-api.com, queried 2026-07-23)'
       + ' USD/GBP, royalracing.com/products/core-glove-black) and sizes to the maker\'s XS-XXL run.'
       + ' Kit-7 (2026-07-20): re-confirmed live at GBP24.99 exactly, hook-and-loop (velcro) closure'
       + ' + AX suede palm confirmed. Formalizing verified:true - weight not required for kit apparel'
@@ -2776,22 +2779,22 @@ var KIT_PARTS = [
       + ' pull-on (no velcro strap) confirmed. Formalizing verified:true - weight not required for'
       + ' kit apparel (stays sample).',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-20', source:'https://www.handupco.com/products/gloves-pure-black' },
-  { id:'glv-bluegrass-prizma3d', cat:'gloves', brand:'Bluegrass', model:'Prizma 3D Glove', price:49, weight:80,
+  { id:'glv-bluegrass-prizma3d', cat:'gloves', brand:'Bluegrass', model:'Prizma 3D Glove', price:51.24, weight:80,
     disciplines:['enduro','dh'], sizes:['XS','S','M','L','XL'],
-    desc:'3D TPR knuckle protection. Re-fetched met-helmets.com (2026-07-17): price EUR45 (~$49 at ~1.08 USD/EUR), sizes XS-XL confirmed. Weight not published; kept as the existing sample per the kit weight policy.',
+    desc:'3D TPR knuckle protection. Re-fetched met-helmets.com (2026-07-17): price EUR45 ($51.24 at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)), sizes XS-XL confirmed. Weight not published; kept as the existing sample per the kit weight policy.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-17', source:'https://www.met-helmets.com/en/shop/gravity/bluegrass-gloves/prizma-3d/' },
-  { id:'glv-bluegrass-vaporlite', cat:'gloves', brand:'Bluegrass', model:'Vapor Lite Glove', price:38, weight:31,
+  { id:'glv-bluegrass-vaporlite', cat:'gloves', brand:'Bluegrass', model:'Vapor Lite Glove', price:39.85, weight:31,
     disciplines:['xc','trail'], sizes:['XS','S','M','L','XL'],
-    desc:'Price/sizes confirmed on met-helmets.com (maker lists EUR35, converted at ~1.08 USD/EUR; weight not stated there). Weight is BikeRadar\'s measured figure, per pair, size M.',
+    desc:'Price/sizes confirmed on met-helmets.com (maker lists EUR35, converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23); weight not stated there). Weight is BikeRadar\'s measured figure, per pair, size M.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-16', source:'https://www.met-helmets.com/en/shop/gravity/bluegrass-gloves/vapor-lite/',
     sourceType:'measured', weightSource:'https://www.bikeradar.com/reviews/clothing/gloves/bluegrass-vapour-lite-gloves-review' },
-  { id:'glv-bluegrass-react', cat:'gloves', brand:'Bluegrass', model:'React Glove', price:43, weight:62,
+  { id:'glv-bluegrass-react', cat:'gloves', brand:'Bluegrass', model:'React Glove', price:45.55, weight:62,
     sizes:['XS','S','M','L','XL'],
-    desc:'Re-fetched met-helmets.com (2026-07-17): price EUR40 (~$43 at ~1.08 USD/EUR), sizes XS-XL confirmed. Weight not published; kept as the existing sample per the kit weight policy.',
+    desc:'Re-fetched met-helmets.com (2026-07-17): price EUR40 ($45.55 at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)), sizes XS-XL confirmed. Weight not published; kept as the existing sample per the kit weight policy.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-17', source:'https://www.met-helmets.com/en/shop/gravity/bluegrass-gloves/react/' },
-  { id:'glv-bluegrass-union', cat:'gloves', brand:'Bluegrass', model:'Union Glove', price:32, weight:68,
+  { id:'glv-bluegrass-union', cat:'gloves', brand:'Bluegrass', model:'Union Glove', price:34.16, weight:68,
     sizes:['XS','S','M','L','XL'],
-    desc:'Re-fetched met-helmets.com (2026-07-17): price EUR30 (~$32 at ~1.08 USD/EUR), sizes XS-XL confirmed. Weight not published; kept as the existing sample per the kit weight policy.',
+    desc:'Re-fetched met-helmets.com (2026-07-17): price EUR30 ($34.16 at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)), sizes XS-XL confirmed. Weight not published; kept as the existing sample per the kit weight policy.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-17', source:'https://www.met-helmets.com/en/shop/gravity/bluegrass-gloves/union/' },
   { id:'glv-endura-hummveeliteicon', cat:'gloves', brand:'Endura', model:'Hummvee Lite Icon Glove', price:35, weight:50,
     sizes:['S','M','L','XL','XXL'],
@@ -2830,17 +2833,17 @@ var KIT_PARTS = [
       + ' kept (browser-rendered specialized.com/us/en - WebFetch 403s on this domain). Weight'
       + ' not published, stays sample.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-19', source:'https://www.specialized.com/us/en/shop/cycling-clothing/cycling-gloves' },
-  { id:'glv-madison-dte', cat:'gloves', brand:'Madison', model:'DTE 4 Season DWR Glove', price:32, weight:110,
+  { id:'glv-madison-dte', cat:'gloves', brand:'Madison', model:'DTE 4 Season DWR Glove', price:33.42, weight:110,
     sizes:['XS','S','M','L','XL','XXL'],
     desc:'Waterproof/windproof winter glove with Thinsulate insulation. Weight per pair (approx), no'
       + ' maker weight published (kit weight policy: never blocks verification). VERIFIED kit-13'
       + ' (2026-07-21): fetched madison.cc\'s own product page (browser pane) - confirms GBP24.99'
       + ' regular price (was on a GBP19.99 sale at fetch time, MSRP used per pricing policy), sizes'
       + ' XS-XXL (added XS, missing from the prior sample), windproof/DWR/touchscreen-compatible'
-      + ' features. Price is a USD estimate converted from the confirmed GBP24.99 MSRP.',
+      + ' features. Price is a USD estimate converted from the confirmed GBP24.99 MSRP at 1.337398 USD/GBP (open.er-api.com, queried 2026-07-23).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-21',
     source:'https://www.madison.cc/product/madison-dte-4-season-dwr-gloves-varmcl23w63/VARMCL23W63/MCL23W6307' },
-  { id:'glv-madison-flux', cat:'gloves', brand:'Madison', model:'Flux Glove', price:32, weight:55,
+  { id:'glv-madison-flux', cat:'gloves', brand:'Madison', model:'Flux Glove', price:33.42, weight:55,
     sizes:['S','M','L','XL','XXL'],
     desc:'Super-light mountain bike glove, perforated palm, silicone brake-lever grip. Weight per'
       + ' pair (approx), no maker weight published. VERIFIED kit-13 (2026-07-21): fetched'
@@ -2848,7 +2851,7 @@ var KIT_PARTS = [
       + ' GBP9.99 sale at fetch time, MSRP used per pricing policy) and the lightweight/perforated'
       + ' description; only size S was shown selectable for the fetched color at this stock'
       + ' snapshot, so the full S-XXL size range is carried forward unconfirmed rather than'
-      + ' re-asserted as fetched. Price is a USD estimate converted from the confirmed GBP24.99 MSRP.',
+      + ' re-asserted as fetched. Price is a USD estimate converted from the confirmed GBP24.99 MSRP at 1.337398 USD/GBP (open.er-api.com, queried 2026-07-23).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-21',
     source:'https://www.madison.cc/product/madison-flux-gloves-varmcl22s82/VARMCL22S82/MCL22S8212' },
   { id:'glv-clubride-ladyfinger', cat:'gloves', brand:'Club Ride Apparel', model:'Lady Finger Glove', price:30, weight:55,
@@ -3015,10 +3018,10 @@ var KIT_PARTS = [
     disciplines:['enduro','dh'], sizes:['XS','S','M','L','XL','XXL'],
     desc:'CORRECTED 2026-07-17: foxracing.com is now reachable via a bot-unblocker (was JS-title-only to plain WebFetch). Current maker product is "Enduro Pro Knee Guards" at $129.95 list (was sample $115 from a bikeradar editorial review). No weight published, stays prior sample.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-17', source:'https://www.foxracing.com/product/enduro-pro-knee-guards/32122.html' },
-  { id:'knp-poc-joint-vpd', cat:'kneepad', brand:'POC', model:'Joint VPD System Knee', family:'poc-joint-vpd', price:90, weight:330,
+  { id:'knp-poc-joint-vpd', cat:'kneepad', brand:'POC', model:'Joint VPD System Knee', family:'poc-joint-vpd', price:193.58, weight:330,
     certs:['en1621-1-l1'], disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
-    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14', source:'https://poc.com/en/product/joint-vpd-system-knee-uranium-black',
-    desc:'Weight per pair, size M, per the fetched poc.com product page (EN 1621-1 Level 1); price is a USD sample (page lists EUR pricing).' },
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://poc.com/en/product/joint-vpd-system-knee-uranium-black',
+    desc:'Weight per pair, size M, per the fetched poc.com product page (EN 1621-1 Level 1); price is EUR170.00 (regular price; re-fetched poc.com 2026-07-23, a 30%-off EUR119.00 sale price shown at fetch time is not used per pricing policy) converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23).' },
   { id:'knp-poc-vpd-air', cat:'kneepad', brand:'POC', model:'VPD Air Knee', family:'poc-vpd-air', price:80, weight:220,
     certs:['en1621-1-l1'], disciplines:['trail'], sizes:['XS','S','M','L','XL'],
     source:'https://poc.com/en-us/product/joint-vpd-air-knee-uranium-black',
@@ -3069,10 +3072,10 @@ var KIT_PARTS = [
       + ' protective liner SHORT (chamois + hip pads), not a knee guard at all. This row may be a'
       + ' mislabeled/fabricated catalog entry; left unverified pending a coordinator decision to'
       + ' retarget or remove it. Weight per pair (approx).' },
-  { id:'knp-ixs-carve-race', cat:'kneepad', brand:'iXS', model:'Carve Race Knee Guard', family:'ixs-carve', price:129, weight:330,
+  { id:'knp-ixs-carve-race', cat:'kneepad', brand:'iXS', model:'Carve Race Knee Guard', family:'ixs-carve', price:135.51, weight:330,
     disciplines:['enduro','dh'], sizes:['S','M','L','XL'], certs:['en1621-1-l1'],
     desc:'Xmatter padding + hard-shell skid plates on knee/shin, AeroMesh, EN1621-1:2012 L1'
-      + ' certified. EUR119.00 RRP converted to $129 USD sample - no US MSRP page found. Weight'
+      + ' certified. EUR119.00 RRP converted to $135.51 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) - no US MSRP page found. Weight'
       + ' per pair (approx, not published).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-19', source:'https://www.ixs.com/en-ch/products/ixs-carve-race-knieschoner-schwarz' },
   { id:'knp-7idp-sam-hill-lite', cat:'kneepad', brand:'7iDP', model:'Sam Hill Lite Knee', family:'7idp-sam-hill', price:84.99, weight:205,
@@ -3164,9 +3167,9 @@ var KIT_PARTS = [
   { id:'knp-bluegrass-skinny-d3o', cat:'kneepad', brand:'Bluegrass', model:'Skinny D3O Knee Pad', family:'bluegrass-skinny', price:100, weight:300,
     disciplines:['trail','enduro'], sizes:['S','M','L','XL'], status:'discontinued',
     desc:'CORRECTED to discontinued (2026-07-17): fetched met-helmets.com/en/shop/gravity/bluegrass-protections/ (the current Bluegrass protection catalog) - the "Skinny" line is absent; current knee pads are Aura Core/Aura/Arto/3Straps/Big Horn. The old skinny-knee/-d3o URL slugs 404. No successor SKU confirmed by name, so left as a documented discontinuation rather than guessing a replacement mapping.' },
-  { id:'knp-bluegrass-auracore', cat:'kneepad', brand:'Bluegrass', model:'Aura Core Knee', family:'bluegrass-auracore', price:140, weight:320,
+  { id:'knp-bluegrass-auracore', cat:'kneepad', brand:'Bluegrass', model:'Aura Core Knee', family:'bluegrass-auracore', price:148.03, weight:320,
     certs:['en1621-1-l2'], disciplines:['enduro','dh'], sizes:['XS','S','M','L','XL'],
-    desc:'kit-breadth-7 (2026-07-22): filling the gap left by the Skinny D3O\'s 2026-07-17 discontinuation - Bluegrass had had ZERO current (non-discontinued) kneepad row since that correction, despite the discontinued row itself already naming Aura Core as the current line. Fetched met-helmets.com/en/bluegrass/ (Bluegrass\'s parent-brand official site) directly: page states "EN 1621 level 2 Type B certified" (matches the en1621-1-l2 token used elsewhere in this catalog) and per-size weight (315g XS-S / 320g M / 330g L-XL) - M-size 320g used as the representative figure. Price is EUR130 converted to a $140 USD sample at ~1.08 USD/EUR (no USD storefront on the fetched page; matches the $140 figure independently cited by multiple US retailers) per THE PRICE RULE regional-conversion convention.',
+    desc:'kit-breadth-7 (2026-07-22): filling the gap left by the Skinny D3O\'s 2026-07-17 discontinuation - Bluegrass had had ZERO current (non-discontinued) kneepad row since that correction, despite the discontinued row itself already naming Aura Core as the current line. Fetched met-helmets.com/en/bluegrass/ (Bluegrass\'s parent-brand official site) directly: page states "EN 1621 level 2 Type B certified" (matches the en1621-1-l2 token used elsewhere in this catalog) and per-size weight (315g XS-S / 320g M / 330g L-XL) - M-size 320g used as the representative figure. Price is EUR130 converted to a $148.03 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) (no USD storefront on the fetched page; the $140 figure independently cited by multiple US retailers is close but the disclosed live rate is used) per THE PRICE RULE regional-conversion convention.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-22', source:'https://met-helmets.com/en/bluegrass/aura-core-knee' },
   { id:'knp-sweetprotection-bearsuit-light', cat:'kneepad', brand:'Sweet Protection', model:'Knee Pads', mfgPn:'835012BLACK', price:99.95, weight:180,
     certs:['en1621-1-l2'], disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL'],
@@ -3185,10 +3188,10 @@ var KIT_PARTS = [
     disciplines:['trail'], sizes:['XS','S','M','L','XL','XXL'], verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-16',
     source:'https://www.raceface.com/products/indy-knee',
     desc:'Verified vs fetched raceface.com Shopify product JSON + product page: compare_at_price (regular/list price) $90.00 USD, sizes XS-XXL confirmed (corrects 45->90 and the size range, which had no XS/XXL). No `certs` token: the page names a "D3O(R) LP1 foam pad" but states no CE/EN 1621-1 Level (one customer review calls it a "Level 1 knee pad", but that is not an official Race Face claim, so it is not tagged). No weight published on the page, so omitted rather than guessed (was a 230g sample estimate).' },
-  { id:'knp-ixs-flow-evo', cat:'kneepad', brand:'iXS', model:'Flow Evo+ Knee Guard', family:'ixs-flow', price:86, weight:240,
+  { id:'knp-ixs-flow-evo', cat:'kneepad', brand:'iXS', model:'Flow Evo+ Knee Guard', family:'ixs-flow', price:90.98, weight:240,
     disciplines:['trail'], sizes:['S/M','L/XL'], certs:['en1621-1-l1'],
     desc:'Soft, no-hard-shell guard, removable Xmatter padding, AeroMesh, EN1621-1:2012 L1'
-      + ' certified. EUR79.90 RRP converted to $86 USD sample - no US MSRP page found. Weight'
+      + ' certified. EUR79.90 RRP converted to $90.98 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) - no US MSRP page found. Weight'
       + ' per pair (approx, not published).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-flow-evo-knieschoner-camel' },
 
@@ -3250,9 +3253,9 @@ var KIT_PARTS = [
     disciplines:['trail'], sizes:['S','M','L','XL'],
     desc:'Strapless stretch-mesh sleeve, EVA pad, no hard shell/plate - maker-stated PPE cat. I (below the EN1621-1 pass/fail threshold, so untagged rather than mis-certed). No weight published.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.scott-sports.com/ca/en/product/scott-mission-evo-knee-pads' },
-  { id:'knp-tsg-joint-sleeve', cat:'kneepad', brand:'TSG', model:'Knee-Sleeve Joint', mfgPn:'71014', price:91.75, weight:520,
+  { id:'knp-tsg-joint-sleeve', cat:'kneepad', brand:'TSG', model:'Knee-Sleeve Joint', mfgPn:'71014', price:96.73, weight:520,
     disciplines:['trail','enduro','dh'], sizes:['XXS/XS','S/M','L/XL','XXL'],
-    desc:'kit-breadth-1 (2026-07-22): TSG had zero kneepad rows despite this being the knee counterpart to its already-cataloged Joint Elbow Sleeve (elp-tsg-joint-sleeve) - slip-on softshell, articulated PU memory foam. Weight maker-stated ("520 g") on the fetched ridetsg.com product page. Price is EUR84.95 (VAT incl.) converted to a $91.75 USD sample at ~1.08 USD/EUR (no confirmed US-dollar storefront - same disclosed-basis convention as the existing TSG rows) per THE PRICE RULE. Bike protocol PPETS0002 is only "partially based on" EN1621-1:2012 with no stated Level, so no cert token is tagged.',
+    desc:'kit-breadth-1 (2026-07-22): TSG had zero kneepad rows despite this being the knee counterpart to its already-cataloged Joint Elbow Sleeve (elp-tsg-joint-sleeve) - slip-on softshell, articulated PU memory foam. Weight maker-stated ("520 g") on the fetched ridetsg.com product page. Price is EUR84.95 (VAT incl.) converted to a $96.73 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) (no confirmed US-dollar storefront - same disclosed-basis convention as the existing TSG rows) per THE PRICE RULE. Bike protocol PPETS0002 is only "partially based on" EN1621-1:2012 with no stated Level, so no cert token is tagged.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-22', source:'https://www.ridetsg.com/shop/kneesleeve-joint/71014-25-102/' },
 
   /* -- Knee pads, new brands (catalog/kit-breadth-10, 2026-07-23): Fuse Protection, Amplifi,
@@ -3375,10 +3378,10 @@ var KIT_PARTS = [
     certs:['en1621-1-l1'], disciplines:['enduro','dh'], sizes:['S','M','L','XL'],
     desc:'Signature gravity-oriented pad. Weight per pair, size XL (maker-stated: "105G pair (size XL)").',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-16', source:'https://7idp.com/products/sam-hill-lite-elbow' },
-  { id:'elp-ixs-flow-evo-plus', cat:'elbowpad', brand:'iXS', model:'Flow Evo+ Elbow Guard', price:85, weight:180,
+  { id:'elp-ixs-flow-evo-plus', cat:'elbowpad', brand:'iXS', model:'Flow Evo+ Elbow Guard', price:90.98, weight:180,
     disciplines:['trail','enduro'], sizes:['S/M','L/XL','XXL'], certs:['en1621-1-l1'],
     desc:'No-hard-shell soft guard, removable Xmatter padding, AeroMesh, EN1621-1:2012 L1'
-      + ' certified. EUR79.90 RRP converted to $85 USD sample - no US MSRP page found. Weight'
+      + ' certified. EUR79.90 RRP converted to $90.98 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) - no US MSRP page found. Weight'
       + ' per pair (approx).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-flow-evo-ellbogenschoner-olive' },
   { id:'elp-ixs-carve-evo-plus', cat:'elbowpad', brand:'iXS', model:'Carve Evo+ Elbow', price:45, weight:150,
@@ -3486,17 +3489,17 @@ var KIT_PARTS = [
     disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
     desc:'The premium tier in O\'Neal\'s current Elbow Guards collection - IPX soft protector, extra-breathable, non-slip construction, has a matching knee pad. Fetched oneal.com product page: $79.99 confirmed. No cert standard stated on the page. No weight published. Added kit-breadth-6.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://oneal.com/products/redeema-elbow-guard-black' },
-  { id:'elp-tsg-joint-sleeve', cat:'elbowpad', brand:'TSG', model:'Joint Elbow Sleeve', price:75.55, weight:291,
+  { id:'elp-tsg-joint-sleeve', cat:'elbowpad', brand:'TSG', model:'Joint Elbow Sleeve', price:79.65, weight:291,
     disciplines:['trail'], sizes:['XXS/XS','S/M','L/XL','XXL'],
-    desc:'Softshell slip-on sleeve, low-profile trail guard. Weight per pair, maker-stated ("291 g") on the fetched ridetsg.com product page; sizes corrected to add XXL. Price is EUR69.95 (VAT incl.) converted to a $75.55 USD sample at ~1.08 USD/EUR (no confirmed US-dollar storefront, matching the catalog\'s existing EUR-conversion precedent for this class of source) -- basis disclosed per THE PRICE RULE. Cert protocol (PPE TS0002, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.',
+    desc:'Softshell slip-on sleeve, low-profile trail guard. Weight per pair, maker-stated ("291 g") on the fetched ridetsg.com product page; sizes corrected to add XXL. Price is EUR69.95 (VAT incl.) converted to a $79.65 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) (no confirmed US-dollar storefront, matching the catalog\'s existing EUR-conversion precedent for this class of source) -- basis disclosed per THE PRICE RULE. Cert protocol (PPE TS0002, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-20', source:'https://ridetsg.com/shop/elbowsleeve-joint/72014-25-102' },
-  { id:'elp-tsg-chamber', cat:'elbowpad', brand:'TSG', model:'Elbowguard Chamber', price:97.15, weight:291,
+  { id:'elp-tsg-chamber', cat:'elbowpad', brand:'TSG', model:'Elbowguard Chamber', price:102.43, weight:291,
     disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
-    desc:'Gravity-tier soft-shell pad above the Joint sleeve (matches the Kneepad Chamber) - Air Stream perforated neoprene/mesh body, PGF gel foam padding, anti-slip cuffs. Weight maker-stated ("291 g") on the fetched ridetsg.com product page. Price is EUR89.95 (VAT incl.) converted to a $97.15 USD sample at ~1.08 USD/EUR (no confirmed US-dollar storefront - matches the existing TSG-row convention in this catalog). "Bike protocol PPETS0002 (test method partially based on EN 1621-1:2012 and others)" is TSG\'s own hybrid protocol, not literally the EN1621-1 standard and states no Level, so no `certs` token is tagged (same convention as the sibling Joint/Kneepad Chamber rows). Added kit-breadth-6.',
+    desc:'Gravity-tier soft-shell pad above the Joint sleeve (matches the Kneepad Chamber) - Air Stream perforated neoprene/mesh body, PGF gel foam padding, anti-slip cuffs. Weight maker-stated ("291 g") on the fetched ridetsg.com product page. Price is EUR89.95 (VAT incl.) converted to a $102.43 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) (no confirmed US-dollar storefront - matches the existing TSG-row convention in this catalog). "Bike protocol PPETS0002 (test method partially based on EN 1621-1:2012 and others)" is TSG\'s own hybrid protocol, not literally the EN1621-1 standard and states no Level, so no `certs` token is tagged (same convention as the sibling Joint/Kneepad Chamber rows). Added kit-breadth-6.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-22', source:'https://www.ridetsg.com/shop/protection-all/elbowguard-chamber/72015-30-102/' },
-  { id:'elp-tsg-dermis-a', cat:'elbowpad', brand:'TSG', model:'Elbow-Sleeve Dermis A', price:80.95, weight:136,
+  { id:'elp-tsg-dermis-a', cat:'elbowpad', brand:'TSG', model:'Elbow-Sleeve Dermis A', price:85.35, weight:136,
     disciplines:['trail','enduro'], sizes:['XXS/XS'],
-    desc:'Packable travel-tier softshell sleeve - ACF impact foam, PU Powerband compression stripes, tough stretch abrasion cover. Weight maker-stated ("136 g") on the fetched ridetsg.com product page. Price is EUR74.95 (VAT incl.) converted to a $80.95 USD sample at ~1.08 USD/EUR (same disclosed-basis convention as the sibling TSG rows). "Bike protocol PPETS0002 (test method partially based on EN 1621-1:2012 and others)" states no Level, so no `certs` token is tagged. Only the XXS/XS size variant was shown on the fetched product page (other sizes may exist under separate SKUs not surfaced by this fetch). Added kit-breadth-6.',
+    desc:'Packable travel-tier softshell sleeve - ACF impact foam, PU Powerband compression stripes, tough stretch abrasion cover. Weight maker-stated ("136 g") on the fetched ridetsg.com product page. Price is EUR74.95 (VAT incl.) converted to a $85.35 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) (same disclosed-basis convention as the sibling TSG rows). "Bike protocol PPETS0002 (test method partially based on EN 1621-1:2012 and others)" states no Level, so no `certs` token is tagged. Only the XXS/XS size variant was shown on the fetched product page (other sizes may exist under separate SKUs not surfaced by this fetch). Added kit-breadth-6.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-22', source:'https://www.ridetsg.com/shop/elbow-sleeve-dermis-A/720132-25-031/' },
   { id:'elp-sweetprotection-elbowpads', cat:'elbowpad', brand:'Sweet Protection', model:'Elbow Pads', mfgPn:'835014BLACK', price:99.95, weight:155,
     certs:['en1621-1-l2'], disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL'],
@@ -3557,11 +3560,11 @@ var KIT_PARTS = [
     sizes:['S','M','L','XL'], source:'https://poc.com/en-us/product/spine-vpd-air-vest-uranium-black-1',
     desc:'Low-profile back-only vest, worn under a jersey. Weight approx, size L. Re-fetched poc.com (2026-07-17): confirmed price $170 exactly; weight not itemized per-size on the page so the sample is kept.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-17' },
-  { id:'arm-poc-spine-vpd-2-0-vest', cat:'bodyarmor', brand:'POC', model:'Spine VPD 2.0 Vest', price:248, weight:850,
+  { id:'arm-poc-spine-vpd-2-0-vest', cat:'bodyarmor', brand:'POC', model:'Spine VPD 2.0 Vest', price:261.9, weight:850,
     coverage:'back', certs:['en1621-2-l1'], disciplines:['enduro','dh'], sizes:['S','M','L'],
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-20',
     source:'https://poc.com/en/product/spine-vpd-20-vest-black',
-    desc:'Re-fetched poc.com 2026-07-20: CORRECTED coverage from chest-back to back-only - the maker page explicitly describes "full back protection", EN 1621-2 Level 1 (both re-confirmed), and a distinct "Spine VPD 2.0 Jacket" SKU exists separately for chest+back coverage (POC does not bundle both into the "Vest" name). Sizing is actually a slim/regular x S/M/L matrix (S-SLM/S-REG/M-SLM/M-REG/L-SLM/L-REG), simplified here to S/M/L; catalog\'s XL is not offered. Price CORRECTED to $248, converted from the confirmed 230 EUR maker price at ~1.08 USD/EUR (same disclosed-basis convention as the Bluegrass/iXS/Sweet Protection EUR-sourced armor rows elsewhere in this category) - no USD storefront exists. Weight not published, kept as the existing sample per the kit weight policy.' },
+    desc:'Re-fetched poc.com 2026-07-20: CORRECTED coverage from chest-back to back-only - the maker page explicitly describes "full back protection", EN 1621-2 Level 1 (both re-confirmed), and a distinct "Spine VPD 2.0 Jacket" SKU exists separately for chest+back coverage (POC does not bundle both into the "Vest" name). Sizing is actually a slim/regular x S/M/L matrix (S-SLM/S-REG/M-SLM/M-REG/L-SLM/L-REG), simplified here to S/M/L; catalog\'s XL is not offered. Price converted from the confirmed 230 EUR maker price at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) (same disclosed-basis convention as the Bluegrass/iXS/Sweet Protection EUR-sourced armor rows elsewhere in this category) - no USD storefront exists. Weight not published, kept as the existing sample per the kit weight policy.' },
   { id:'arm-fox-titan-sport-jacket', cat:'bodyarmor', brand:'Fox', model:'Titan Sport Jacket', price:199.95, weight:3175,
     coverage:'chest-back', disciplines:['enduro','dh'], sizes:['XS','S','M','L','XL','XXL'],
     desc:'Hard-shell plastic chest/back/shoulder plates over vented mesh. Weight approx (~7 lb), not published on the fetched page so stays prior sample. CORRECTED 2026-07-17: price is the fetched $199.95 (was sample $200, essentially unchanged); sizes widened to the fetched XS-2XL range. foxracing.com now catalogs this under Moto rather than MTB, but it remains a real, currently-sold crossover product - kept, not removed.',
@@ -3592,12 +3595,12 @@ var KIT_PARTS = [
     coverage:'chest-back', certs:['en1621-2-l2','en1621-3'], disciplines:['enduro','dh'], sizes:['S','M','L','XL','2XL'],
     desc:'The short-sleeve tier of the same Tarka line as the Long Sleeve row above (own SKU 70011-00001, own price) - see that row\'s note on the Vest\'s discontinued-flag discrepancy. This variant\'s own page shows "Out of Stock" (unlike the Long Sleeve, currently purchasable) - entered as a real current-catalog SKU rather than omitted, matching this catalog\'s standing policy that a temporarily out-of-stock SKU still gets cataloged (distinct from a confirmed-discontinued one). Same SmartShock cert set as the Long Sleeve (chest EN1621-3 L1, back EN1621-2:2014 L2). MSRP $199.00 confirmed (currently marked "Final Sale" at a clearance price, not used). No weight published.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.100percent.com/products/tarka-short-sleeve-black' },
-  { id:'arm-ixs-trigger-upper', cat:'bodyarmor', brand:'iXS', model:'Trigger Upper Body Protective', price:270, weight:900,
+  { id:'arm-ixs-trigger-upper', cat:'bodyarmor', brand:'iXS', model:'Trigger Upper Body Protective', price:284.56, weight:900,
     coverage:'chest-back', certs:['en1621-2-l1'], disciplines:['trail','enduro'],
     sizes:['S','M','L','XL'], source:'https://www.ixs.com/en/products/ixs-trigger-upper-body-protective-grau',
     desc:'Xmatter back/shoulder/elbow padding (EN1621-1:2012 L1) + NockOut chest/rib padding'
       + ' (back panel is EN1621-2:2014 L1, the certs token), FlexZip front closure. EUR249.90'
-      + ' RRP converted to $270 USD sample - no US MSRP page found. Weight not published, stays'
+      + ' RRP converted to $284.56 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) - no US MSRP page found. Weight not published, stays'
       + ' sample.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-19' },
   { id:'arm-dainese-trail-skins-air-vest', cat:'bodyarmor', brand:'Dainese', model:'Trail Skins Air Vest', price:139, weight:420,
@@ -3623,9 +3626,9 @@ var KIT_PARTS = [
       + ' Left UNVERIFIED: the two region pages disagree enough on weight (680g vs ~490g) that this'
       + ' may be two different generations/SKUs under different regional names, not one confirmed'
       + ' product - price/weight here follow the clean-USD US listing pending resolution.' },
-  { id:'arm-bluegrass-armour-lite', cat:'bodyarmor', brand:'Bluegrass', model:'Armour Lite', price:162, weight:520,
+  { id:'arm-bluegrass-armour-lite', cat:'bodyarmor', brand:'Bluegrass', model:'Armour Lite', price:170.81, weight:520,
     coverage:'back', certs:['en1621-2-l1'], disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
-    desc:'Back-only protection vest, EN 1621-2 Level 1 certified. Maker lists EUR150 (converted at ~1.08 USD/EUR). Weight is size S (M 525g, L 570g, XL 625g).',
+    desc:'Back-only protection vest, EN 1621-2 Level 1 certified. Maker lists EUR150 (converted at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23)). Weight is size S (M 525g, L 570g, XL 625g).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-16', source:'https://www.met-helmets.com/en/shop/gravity/bluegrass-protections/armour-lite/' },
 
   /* -- Body armor grind batch 2 (2026-07-14, coordinator-requested scope extension) --
@@ -3652,16 +3655,16 @@ var KIT_PARTS = [
     sizes:['Junior-S/M','Junior-L/XL'],
     desc:'Genuine junior-specific SKU (own product page, junior chest sizing 134-159cm), a lighter tier below the 4.5 Hybrid Junior: hard-shell front rated for roost only (EN14021, not a catalog protectionCert token, so left out of `certs`) + soft-shell back (EN1621-2 Level 1). Weight not published on the fetched page, stays unset.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://us.leatt.com/products/chest-protector-2-5-hybrid-junior' },
-  { id:'arm-ixs-flow-upper', cat:'bodyarmor', brand:'iXS', model:'Flow Upper Body Protective', price:185,
+  { id:'arm-ixs-flow-upper', cat:'bodyarmor', brand:'iXS', model:'Flow Upper Body Protective', price:192.44,
     coverage:'back', certs:['en1621-2-l1'], disciplines:['trail','enduro'],
     sizes:['S','M','L','XL'], verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14',
     source:'https://ixs.com/en/mtb/mtb-equipment/protection/1574/flow-upper-body-protective-grey',
-    desc:'Removable Xmatter spine padding, sleeveless. Price approx, converted from EUR169 maker MSRP; maker page does not publish a weight.' },
-  { id:'arm-sweetprotection-back-protector-vest-2', cat:'bodyarmor', brand:'Sweet Protection', model:'Back Protector Vest 2.0', price:195, weight:600,
+    desc:'Removable Xmatter spine padding, sleeveless. Price converted from EUR169 maker MSRP at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23); maker page does not publish a weight.' },
+  { id:'arm-sweetprotection-back-protector-vest-2', cat:'bodyarmor', brand:'Sweet Protection', model:'Back Protector Vest 2.0', price:203.83, weight:600,
     coverage:'back', certs:['en1621-2-l1'], disciplines:['trail','enduro'],
     sizes:['S','M','L','XL'], verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-14',
     source:'https://www.sweetprotection.com/eu/en/back-protector-vest-20-mens-true-black/',
-    desc:'3S Visco Elastic Foam back protector. Price approx, converted from EUR179 maker MSRP.' },
+    desc:'3S Visco Elastic Foam back protector. Price converted from EUR179 maker MSRP at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23).' },
   { id:'arm-sixsixone-recon-advance', cat:'bodyarmor', brand:'SixSixOne', model:'Recon Advance Upper Body Protection', price:250, weight:890,
     coverage:'chest-back', disciplines:['enduro','dh'], sizes:['S','M','L','XL'],
     desc:'Koroyd back plate + Astrotech elbow/shoulder; maker states EN1621-2 (back)/EN1621-1 (elbow-shoulder) without a published level, so no cert token is tagged. Weight approx, size M. Checked 2026-07-16: sixsixone.com now returns 403 Forbidden site-wide - the brand appears to have gone dark (see glv-sixsixone-comp for detail); no fetch possible.' },
@@ -3691,11 +3694,11 @@ var KIT_PARTS = [
       + ' Air back protector + coccyx/shoulder/collarbone/iliac-crest padding; weight is the size'
       + ' M figure (590/600/610/620g across S-XL). Cert stated as "CE certified" (back + coccyx)'
       + ' without a published EN1621-2 level, so no cert token is tagged.' },
-  { id:'arm-bluegrass-armour-bs-d3o', cat:'bodyarmor', brand:'Bluegrass', model:'Seamless B&S D3O', price:270, weight:580,
+  { id:'arm-bluegrass-armour-bs-d3o', cat:'bodyarmor', brand:'Bluegrass', model:'Seamless B&S D3O', price:284.68, weight:580,
     certs:['en1621-2-l1'], coverage:'chest-back', disciplines:['enduro','dh'], sizes:['S/M','L/XL'],
-    desc:'Fetched met-helmets.com (2026-07-17): the old "Armour B&S D3O" name/id is now sold as "Seamless B&S D3O" (€250 -> ~$270 at ~1.08 USD/EUR; the id kept for append-only continuity). Removable D3O BP4 L1 back protector + D3O T5 EVO X L1 shoulder shells, EN 1621-2:2014 Level 1, Dryarn microfiber, seamless construction. Weight = maker-published S/M figure (580g; L/XL is 660g).',
+    desc:'Fetched met-helmets.com (2026-07-17): the old "Armour B&S D3O" name/id is now sold as "Seamless B&S D3O" (€250 -> $284.68 at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23); the id kept for append-only continuity). Removable D3O BP4 L1 back protector + D3O T5 EVO X L1 shoulder shells, EN 1621-2:2014 Level 1, Dryarn microfiber, seamless construction. Weight = maker-published S/M figure (580g; L/XL is 660g).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-17', source:'https://www.met-helmets.com/en/shop/gravity/bluegrass-protections/seamless-bs-d3o/' },
-  { id:'arm-oneal-stv-long-sleeve', cat:'bodyarmor', brand:"O'Neal", model:'STV Long Sleeve Protector', price:184, weight:740,
+  { id:'arm-oneal-stv-long-sleeve', cat:'bodyarmor', brand:"O'Neal", model:'STV Long Sleeve Protector', price:193.57, weight:740,
     coverage:'chest-back', disciplines:['trail','enduro'], sizes:['S','M','L','XL','XXL'],
     desc:'Removable IPX shoulder/elbow foam, neck-brace compatible loops. VERIFIED kit-13'
       + ' (2026-07-21): fetched oneal.eu/en/products/oneal-stv-long-sleeve-protector-shirt-1'
@@ -3705,7 +3708,7 @@ var KIT_PARTS = [
       + ' compatible. The page states the EN1621-2 standard but not which protection level (L1 vs'
       + ' L2), so no level-specific `certs` token is asserted (a real cert with no confirmed level'
       + ' shouldn\'t be forced to one). Price is a USD estimate converted from the confirmed'
-      + ' EUR169.99 MSRP. Weight not published; kept as the existing sample per the kit weight policy.',
+      + ' EUR169.99 MSRP at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23). Weight not published; kept as the existing sample per the kit weight policy.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-21',
     source:'https://www.oneal.eu/en/products/oneal-stv-long-sleeve-protector-shirt-1' },
   { id:'arm-oneal-underdog-4', cat:'bodyarmor', brand:"O'Neal", model:'Under Dog 4 Body Armor', price:159.99, mfgPn:'0571-602',
@@ -3722,9 +3725,9 @@ var KIT_PARTS = [
     desc:'The women\'s-cut counterpart to the men\'s V7 row above - same six-pad D3O chest/back/shoulder/elbow construction, own SKU and own MSRP (a real distinct row per the same reasoning already used elsewhere in this catalog for gendered variants, not a duplicate). Same "CE EN 1621-1" (limb standard) claim, no bodyarmor-tier cert token applies. MSRP $199.99 confirmed via a WebSearch snippet quoting the direct product page (the fetched page itself renders in EUR/discounted-variant pricing, so the confirmed USD figure is used per pricing policy). No weight published. Added kit-breadth-6.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://demon-united.com/products/demon-united-x-v7-d3o%C2%AE-womens-impact-padded-top' },
 
-  { id:'arm-tsg-chest-guard-adult', cat:'bodyarmor', brand:'TSG', model:'Chest Guard Adult', price:151.15, weight:600,
+  { id:'arm-tsg-chest-guard-adult', cat:'bodyarmor', brand:'TSG', model:'Chest Guard Adult', price:159.36, weight:600,
     coverage:'chest-back', certs:['en1621-3'], disciplines:['trail','enduro'], sizes:['One Size'],
-    desc:'TSG\'s first cataloged bodyarmor row (a genuine 0-SKU gap found while extending its already-cataloged elbowpad/kneepad/shinguard lines, kit-breadth-6) - lightweight articulated full-torso protector, memory-foam pads, 3D Triple Layer Foam with air channels, one size fits 160-195cm body height. Fetched ridetsg.com product page: "EN 1621-2:2014, BS EN/EN 1621-3:2018" - the back standard (EN1621-2) states no L1/L2 level so is left untagged, only the level-less chest standard `en1621-3` is entered. Weight maker-stated (600g). Price is EUR139.95 (VAT incl.) converted to a $151.15 USD sample at ~1.08 USD/EUR (no confirmed US-dollar storefront - matches the existing TSG-row convention in this catalog).',
+    desc:'TSG\'s first cataloged bodyarmor row (a genuine 0-SKU gap found while extending its already-cataloged elbowpad/kneepad/shinguard lines, kit-breadth-6) - lightweight articulated full-torso protector, memory-foam pads, 3D Triple Layer Foam with air channels, one size fits 160-195cm body height. Fetched ridetsg.com product page: "EN 1621-2:2014, BS EN/EN 1621-3:2018" - the back standard (EN1621-2) states no L1/L2 level so is left untagged, only the level-less chest standard `en1621-3` is entered. Weight maker-stated (600g). Price is EUR139.95 (VAT incl.) converted to a $159.36 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) (no confirmed US-dollar storefront - matches the existing TSG-row convention in this catalog).',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-22', source:'https://www.ridetsg.com/shop/chest-guard-adult/74013-90-102/' },
 
   /* -- Body armor grind batch 3 (2026-07-14) -- */
@@ -3991,11 +3994,11 @@ var KIT_PARTS = [
   { id:'shg-tsg-samir', cat:'shinguard', brand:'TSG', model:'Shinguard Samir', price:89.95, weight:500,
     disciplines:['dh'], sizes:['S/M','L/XL'], desc:'Short-style removable PE hardshell + foam, designed to layer under a separate knee guard; weight per pair per mfr page. Cert protocol (PPE TS0013, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-14', source:'https://www.ridetsg.com/shop/protection-all/shinguard-samir/76016-35-147/', sourceType:'manufacturer' },
-  { id:'shg-tsg-bmx', cat:'shinguard', brand:'TSG', model:'Shinguard BMX', price:75.55, weight:461,
-    disciplines:['dh'], sizes:['S/M','L/XL'], desc:'Neoprene sleeve + removable high-density PE shin splint, EVA foam; weight per pair, maker-stated ("461 g") on the fetched ridetsg.com product page. Price is EUR69.95 (VAT incl.) converted to a $75.55 USD sample at ~1.08 USD/EUR (no confirmed US-dollar storefront) -- basis disclosed per THE PRICE RULE. Cert protocol (PPE TS0013, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.',
+  { id:'shg-tsg-bmx', cat:'shinguard', brand:'TSG', model:'Shinguard BMX', price:79.65, weight:461,
+    disciplines:['dh'], sizes:['S/M','L/XL'], desc:'Neoprene sleeve + removable high-density PE shin splint, EVA foam; weight per pair, maker-stated ("461 g") on the fetched ridetsg.com product page. Price is EUR69.95 (VAT incl.) converted to a $79.65 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) (no confirmed US-dollar storefront) -- basis disclosed per THE PRICE RULE. Cert protocol (PPE TS0013, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-20', source:'https://ridetsg.com/shop/shinguard-bmx/76012-35-102' },
-  { id:'shg-tsg-tempera2', cat:'shinguard', brand:'TSG', model:'Temper A 2.0 Knee-Shinguard', price:145.75, weight:524,
-    disciplines:['dh'], sizes:['S','M','L','XL'], desc:'Arti-Lage impact knee pad + removable hard-shell shin guard, Kevlar-stretch panel; per pair. Weight maker-stated ("524 g") on the fetched ridetsg.com product page. Price is EUR134.95 (VAT incl.) converted to a $145.75 USD sample at ~1.08 USD/EUR (no confirmed US-dollar storefront) -- basis disclosed per THE PRICE RULE. Cert protocol (PPE TS0002, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.',
+  { id:'shg-tsg-tempera2', cat:'shinguard', brand:'TSG', model:'Temper A 2.0 Knee-Shinguard', price:153.67, weight:524,
+    disciplines:['dh'], sizes:['S','M','L','XL'], desc:'Arti-Lage impact knee pad + removable hard-shell shin guard, Kevlar-stretch panel; per pair. Weight maker-stated ("524 g") on the fetched ridetsg.com product page. Price is EUR134.95 (VAT incl.) converted to a $153.67 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) (no confirmed US-dollar storefront) -- basis disclosed per THE PRICE RULE. Cert protocol (PPE TS0002, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-20', source:'https://ridetsg.com/shop/kneeshinguard-temper-a-20/7102801-40-030' },
   { id:'shg-ixs-cleaver', cat:'shinguard', brand:'iXS', model:'Cleaver Knee-Shin Guards', price:124.90,
     disciplines:['enduro','dh'],
@@ -4082,9 +4085,9 @@ var KIT_PARTS = [
       + ' currently-stocked "Goggle Velocity 4.0 MTB" at $76.99 - likely a different colorway/SKU'
       + ' of the same model, not confirmed as the same product. Still no clean single current MSRP'
       + ' to pin. Left unverified, no fields changed.' },
-  { id:'ewr-bliz-breeze', cat:'eyewear', brand:'Bliz', model:'Breeze', price:118, weight:29,
+  { id:'ewr-bliz-breeze', cat:'eyewear', brand:'Bliz', model:'Breeze', price:124.12, weight:29,
     type:'glasses', sizes:['OSFA'],
-    desc:'Kit-6 (2026-07-20): re-fetched bliz.com/en-be/sunglasses/ZB7002-7318480115194 (browser pane) and inspected the raw price element (class "pdp-js-price") directly: EUR109.00, no strikethrough/discount markup despite an active perpetual "FLASH SALE" countdown banner (Bliz runs one continuously per Settings.FlashSales in the page script) -- this IS the standing price, not a temporary markdown. bliz.com/en-us shows no price at all for any product (storefront bug, "Price: Free" placeholder). Price is a EUR->USD sample ($118, basis disclosed) per THE PRICE RULE; no weight published, kept as sample.',
+    desc:'Kit-6 (2026-07-20): re-fetched bliz.com/en-be/sunglasses/ZB7002-7318480115194 (browser pane) and inspected the raw price element (class "pdp-js-price") directly: EUR109.00, no strikethrough/discount markup despite an active perpetual "FLASH SALE" countdown banner (Bliz runs one continuously per Settings.FlashSales in the page script) -- this IS the standing price, not a temporary markdown. bliz.com/en-us shows no price at all for any product (storefront bug, "Price: Free" placeholder). Price is a EUR->USD sample ($124.12 at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23), basis disclosed) per THE PRICE RULE; no weight published, kept as sample.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-20', source:'https://www.bliz.com/en-be/sunglasses/ZB7002-7318480115194' },
   { id:'ewr-tifosi-sledge', cat:'eyewear', brand:'Tifosi', model:'Sledge', price:79.95, weight:37,
     type:'glasses', sizes:['OSFA'],
@@ -4157,13 +4160,13 @@ var KIT_PARTS = [
   { id:'ewr-sweetprotection-clockwork', cat:'eyewear', brand:'Sweet Protection', model:'Clockwork', price:169, weight:26, status:'discontinued',
     type:'goggles', sizes:['OSFA'],
     desc:'CORRECTED type from glasses -> goggles (2026-07-16): sweetprotection.com markets Clockwork as an "All Mountain Goggles" / ski-snowboard goggle, not sunglasses. Kit-5 (2026-07-20): fetched sweetprotection.com/us/en/goggles-and-sunglasses/mtb-goggles/ (17 products: Deckard/Durden/Firewall families only) AND the sunglasses page (41 products) fresh -- Clockwork appears in neither. The swapped-weight/price suspicion is now moot (Ronin\'s own fresh fetch confirms 31g/$160, nothing like Clockwork\'s 26g/$169, so no evidence of a data-entry swap after all). Clockwork is simply gone from the current lineup with no clean successor; tagged discontinued, stays unverified sample.' },
-  { id:'ewr-alpina-ram-hr-qlite', cat:'eyewear', brand:'Alpina', model:'Ram 2.0 Q-Lite', price:86, weight:27,
+  { id:'ewr-alpina-ram-hr-qlite', cat:'eyewear', brand:'Alpina', model:'Ram 2.0 Q-Lite', price:91.04, weight:27,
     type:'glasses', sizes:['OSFA'],
-    desc:'RE-SCOPED kit-6 (2026-07-20): alpina-sports.com/en/eyewear/sports-glasses/ (browser pane) lists no "Ram HR Q-Lite" anymore -- the current product is "RAM 2.0 Q-LITE", whose own page states outright "The evolution of the popular Ram: the Ram 2.0" (a direct 1:1 successor, same re-scope rule as the Shimano running-change pattern). Re-scoped model/id-target under the same id per the append-only id convention. EUR79.95 RRP confirmed on the maker page; price is a EUR->USD sample ($86, basis disclosed) per THE PRICE RULE. No weight published, kept as sample.',
+    desc:'RE-SCOPED kit-6 (2026-07-20): alpina-sports.com/en/eyewear/sports-glasses/ (browser pane) lists no "Ram HR Q-Lite" anymore -- the current product is "RAM 2.0 Q-LITE", whose own page states outright "The evolution of the popular Ram: the Ram 2.0" (a direct 1:1 successor, same re-scope rule as the Shimano running-change pattern). Re-scoped model/id-target under the same id per the append-only id convention. EUR79.95 RRP confirmed on the maker page; price is a EUR->USD sample ($91.04 at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23), basis disclosed) per THE PRICE RULE. No weight published, kept as sample.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-20', source:'https://www.alpina-sports.com/en/eyewear/sports-glasses/ram-2.0-q-lite/' },
-  { id:'ewr-uvex-sportstyle-227', cat:'eyewear', brand:'Uvex', model:'Sportstyle 227', price:108, weight:26,
+  { id:'ewr-uvex-sportstyle-227', cat:'eyewear', brand:'Uvex', model:'Sportstyle 227', price:113.81, weight:26,
     type:'glasses', sizes:['OSFA'],
-    desc:'Kit-6 (2026-07-20): fetched uvex-sports.com EU eyewear page (browser pane) -- confirms the model is CURRENT (article S5320662216), EUR99.95 RRP (no US price -- uvexsports.us\'s 20-product US lineup has moved on to sportstyle 235/236, not 227). Price is a same-tier EUR->USD sample ($108, basis disclosed) per THE PRICE RULE; weight not published, kept as sample.',
+    desc:'Kit-6 (2026-07-20): fetched uvex-sports.com EU eyewear page (browser pane) -- confirms the model is CURRENT (article S5320662216), EUR99.95 RRP (no US price -- uvexsports.us\'s 20-product US lineup has moved on to sportstyle 235/236, not 227). Price is a same-tier EUR->USD sample ($113.81 at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23), basis disclosed) per THE PRICE RULE; weight not published, kept as sample.',
     verified:true, priceBasis:'regional-conversion', source:'https://www.uvex-sports.com/en/eyewear/sports-eyewear/uvex-sportstyle-227-black-mat-mirsilver-4043197345482', lastChecked:'2026-07-20' },
   { id:'ewr-salice-016rw', cat:'eyewear', brand:'Salice', model:'016 RW', price:137, weight:26,
     type:'glasses', sizes:['OSFA'],
@@ -4179,21 +4182,21 @@ var KIT_PARTS = [
   { id:'ewr-torege-tr90', cat:'eyewear', brand:'Torege', model:'TR90 Polarized Sport', price:25, weight:24,
     type:'glasses', sizes:['OSFA'],
     desc:'Kit-6 (2026-07-20): fetched torege.com/collections/polarized-sunglasses (browser pane) -- "TR90" is Torege\'s common frame MATERIAL used across its whole current lineup (Theseus, Pure, Quietness, Unique, Fantastic, Apollo, Highway, Dreamy Lake, all $35-47), not a standalone named model called "TR90 Polarized Sport". No product by that exact name exists to verify against. Flagging for a catalog-scope decision (same pattern as the Cairn Ride flag) rather than force-matching an arbitrary named model. Left unverified, price/weight unchanged.' },
-  { id:'ewr-ixs-trigger', cat:'eyewear', brand:'iXS', model:'Trigger', price:102, weight:130,
+  { id:'ewr-ixs-trigger', cat:'eyewear', brand:'iXS', model:'Trigger', price:108.12, weight:130,
     type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'],
     desc:'Mirrored anti-fog/anti-scratch single lens, 178x78-degree field of view, universal'
       + ' helmet-compatible outriggers, roll-off/tear-off compatible. Certified EN1938:2010 (not'
       + ' in the eyewear cert vocab - ansi-z87/en166 - so no `certs` token). EUR94.95 base-tier'
-      + ' RRP converted to $102 USD sample - no US MSRP page found; lens-tier variants range'
+      + ' RRP converted to $108.12 USD sample at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23) - no US MSRP page found; lens-tier variants range'
       + ' EUR69.90-179.95. Weight not published, stays sample.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-goggle-trigger-camel-gold-verspiegelt' },
   { id:'ewr-eksbrand-lucid', cat:'eyewear', brand:'EKS Brand', model:'Lucid', price:109, weight:120,
     type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'],
     desc:'Price $109 re-confirmed kit-6 (2026-07-20) via browser pane fetch of eksbrand.com/pages/lucid-goggle (whole Lucid collection lists at $109). No weight published; kept as sample per kit-apparel no-weight-required policy.',
     verified:true, priceBasis:'msrp-confirmed', source:'https://eksbrand.com/pages/lucid-goggle', lastChecked:'2026-07-20' },
-  { id:'ewr-oneal-b10', cat:'eyewear', brand:"O'Neal", model:'B-10', price:57, weight:125,
+  { id:'ewr-oneal-b10', cat:'eyewear', brand:"O'Neal", model:'B-10', price:60.34, weight:125,
     type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'],
-    desc:'Kit-6 (2026-07-20): oneal.com (US) sells no goggles/eyewear at all currently (jerseys/pants/helmets/gearsets only); fetched oneal.eu (browser pane) instead -- same manufacturer\'s EU site -- confirming the B-10 SOLID SKU is current at EUR52.99. Price is a same-tier EUR->USD sample ($57, basis disclosed) per THE PRICE RULE; weight not published, kept as sample.',
+    desc:'Kit-6 (2026-07-20): oneal.com (US) sells no goggles/eyewear at all currently (jerseys/pants/helmets/gearsets only); fetched oneal.eu (browser pane) instead -- same manufacturer\'s EU site -- confirming the B-10 SOLID SKU is current at EUR52.99. Price is a same-tier EUR->USD sample ($60.34 at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23), basis disclosed) per THE PRICE RULE; weight not published, kept as sample.',
     verified:true, priceBasis:'regional-conversion', source:'https://www.oneal.eu/en/products/oneal-b-10-glasses-solid', lastChecked:'2026-07-20' },
   { id:'ewr-oneal-bflex', cat:'eyewear', brand:"O'Neal", model:'B-Flex', price:55, weight:135,
     type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'], status:'discontinued',
@@ -4202,9 +4205,9 @@ var KIT_PARTS = [
     type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'],
     desc:'Price re-confirmed kit-6 (2026-07-20) via flyracing.com/zone-goggle-2025/: $44.95 regular price (currently on sale at $35.96, not used here). No weight published; kept as sample per kit-apparel no-weight-required policy.',
     verified:true, priceBasis:'msrp-confirmed', source:'https://flyracing.com/zone-goggle-2025/', lastChecked:'2026-07-20' },
-  { id:'ewr-uvex-athletic-cv', cat:'eyewear', brand:'Uvex', model:'Athletic CV', price:108, weight:140,
+  { id:'ewr-uvex-athletic-cv', cat:'eyewear', brand:'Uvex', model:'Athletic CV', price:113.81, weight:140,
     type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'],
-    desc:'Kit-6 (2026-07-20): fetched uvex-sports.com\'s "athletic CV bike" colorway page (browser pane) -- confirmed CURRENT, marketed for "downhill action" (a real bike-specific SKU of a chassis the site files under Ski Goggles nav), EUR99.95 RRP, no US price found. Price is a same-tier EUR->USD sample ($108, basis disclosed) per THE PRICE RULE; weight not published, kept as sample.',
+    desc:'Kit-6 (2026-07-20): fetched uvex-sports.com\'s "athletic CV bike" colorway page (browser pane) -- confirmed CURRENT, marketed for "downhill action" (a real bike-specific SKU of a chassis the site files under Ski Goggles nav), EUR99.95 RRP, no US price found. Price is a same-tier EUR->USD sample ($113.81 at 1.138703 USD/EUR (open.er-api.com, queried 2026-07-23), basis disclosed) per THE PRICE RULE; weight not published, kept as sample.',
     verified:true, priceBasis:'regional-conversion', source:'https://www.uvex-sports.com/en/wintersports/ski-goggles/uvex-athletic-cv-black-mat-sl-blue-green-4043197339085', lastChecked:'2026-07-20' },
   { id:'ewr-sweetprotection-ronin', cat:'eyewear', brand:'Sweet Protection', model:'Ronin', price:160, weight:31,
     type:'glasses', disciplines:['enduro','dh'], sizes:['OSFA'],
@@ -4566,18 +4569,18 @@ var KIT_PARTS = [
      collection; USD figures are disclosed GBP->USD conversions (~1.27 rate, 2026-07 ballpark),
      priceBasis:'regional-conversion' per schema policy - NOT a US MSRP claim. Brand casing:
      lowercase "dhb" per the dispatcher's canonical-casing instruction. */
-  { id:'jsy-dhb-trail-ls-drirelease', cat:'jersey', brand:'dhb', model:'Trail Long Sleeve Jersey - DriRelease', price:57,
+  { id:'jsy-dhb-trail-ls-drirelease', cat:'jersey', brand:'dhb', model:'Trail Long Sleeve Jersey - DriRelease', price:60.18,
     sleeve:'long', sizes:['XS','S','M','L','XL','XXL'],
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://www.dhbsport.com/products/dhb-trail-long-sleeve-jersey-drirelease',
-    desc:'Half-raglan-sleeve drirelease(R) jersey, 84% polyester/11% lyocell/5% polyurethane, small YKK-zip side pocket. Price is a disclosed USD conversion of the fetched dhbsport.com GBP price (£45.00 GBP x ~1.27), not a stated US MSRP - dhb sells in GBP with no direct USD price published.' },
-  { id:'jsy-dhb-trail-merino-ss', cat:'jersey', brand:'dhb', model:'Trail Merino Short Sleeve Jersey M150', price:89,
+    desc:'Half-raglan-sleeve drirelease(R) jersey, 84% polyester/11% lyocell/5% polyurethane, small YKK-zip side pocket. Price is a disclosed USD conversion of the fetched dhbsport.com GBP price (£45.00 GBP x 1.337398 USD/GBP (open.er-api.com, queried 2026-07-23)), not a stated US MSRP - dhb sells in GBP with no direct USD price published.' },
+  { id:'jsy-dhb-trail-merino-ss', cat:'jersey', brand:'dhb', model:'Trail Merino Short Sleeve Jersey M150', price:93.62,
     sleeve:'short', sizes:['XS','S','M','L','XL','XXL'],
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://www.dhbsport.com/products/dhb-trail-merino-short-sleeve-jersey-m-130',
-    desc:'Merino/COOLMAX(R) blend off-road jersey (50% merino wool/33% COOLMAX/12% nylon/5% elastane main), merino mesh back yoke. Price is a disclosed USD conversion of the fetched dhbsport.com GBP price (£70.00 GBP x ~1.27), not a stated US MSRP. Product handle says "m-130" but the live page title reads "M150" - both kept verbatim from the source, not reconciled.' },
-  { id:'sht-dhb-trail-short', cat:'shorts', brand:'dhb', model:'Trail Short', price:83,
+    desc:'Merino/COOLMAX(R) blend off-road jersey (50% merino wool/33% COOLMAX/12% nylon/5% elastane main), merino mesh back yoke. Price is a disclosed USD conversion of the fetched dhbsport.com GBP price (£70.00 GBP x 1.337398 USD/GBP (open.er-api.com, queried 2026-07-23)), not a stated US MSRP. Product handle says "m-130" but the live page title reads "M150" - both kept verbatim from the source, not reconciled.' },
+  { id:'sht-dhb-trail-short', cat:'shorts', brand:'dhb', model:'Trail Short', price:86.93,
     sizes:['XS','S','M','L','XL','XXL'],
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://www.dhbsport.com/products/dhb-trail-short',
-    desc:'Casual-cut off-road short, 100% polyester, DWR-treated, half-elasticated waist, hidden slide-lock closure, no built-in chamois - `liner` left unset. Price is a disclosed USD conversion of the fetched dhbsport.com GBP price (£65.00 GBP x ~1.27), not a stated US MSRP.' },
+    desc:'Casual-cut off-road short, 100% polyester, DWR-treated, half-elasticated waist, hidden slide-lock closure, no built-in chamois - `liner` left unset. Price is a disclosed USD conversion of the fetched dhbsport.com GBP price (£65.00 GBP x 1.337398 USD/GBP (open.er-api.com, queried 2026-07-23)), not a stated US MSRP.' },
   { id:'sht-dhb-trail-storage-bib', cat:'shorts', brand:'dhb', model:'Trail Storage Bib Short', price:65, liner:true,
     sizes:['S','M','L','XL','XXL'],
     desc:'Bib-style storage short (recycled 80% polyamide/20% elastane, Elastic Interface NICE ANATOMIC MAN chamois, mesh bib straps, side + rear storage pockets) - entered under `shorts` since this catalog has no separate bib category (flagged in the worker report). No live dhbsport.com product page found this batch (searched directly; only third-party retailers - Evans Cycles, SportsDirect, Get The Label - carry it, consistently at £52 GBP). UNVERIFIED sample: price is a disclosed rough USD figure from the consistent £52 retailer price, not a manufacturer-page conversion.' },
@@ -4631,22 +4634,22 @@ var KIT_PARTS = [
      range. USD figures are disclosed GBP->USD conversions (~1.27 rate), priceBasis:'regional-
      conversion' - not a US MSRP claim. Prices are the page's own shown ORIGINAL list price, never
      the current sale price (every SKU checked this batch was discounted at time of fetch). */
-  { id:'sht-stolengoat-mtb-shorts-mens', cat:'shorts', brand:'Stolen Goat', model:'MTB Shorts', price:89,
+  { id:'sht-stolengoat-mtb-shorts-mens', cat:'shorts', brand:'Stolen Goat', model:'MTB Shorts', price:93.62,
     fitCut:'mens',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://stolengoat.com/product/mens-mtb-shorts/',
-    desc:'Off-road casual-fit short, two front zip pockets, adjustable hook-and-loop waistband (higher at back), 4-way stretch, UPF 50+, cut slightly longer than Stolen Goat\'s gravel shorts to layer over knee/shin pads - no built-in chamois, `liner` left unset. Price is a disclosed USD conversion of the fetched stolengoat.com original GBP list price (£70.00 GBP x ~1.27), not a stated US MSRP (current site price is a £35 sale, not used).' },
-  { id:'jsy-stolengoat-sector-mens', cat:'jersey', brand:'Stolen Goat', model:'Sector MTB Jersey', price:51,
+    desc:'Off-road casual-fit short, two front zip pockets, adjustable hook-and-loop waistband (higher at back), 4-way stretch, UPF 50+, cut slightly longer than Stolen Goat\'s gravel shorts to layer over knee/shin pads - no built-in chamois, `liner` left unset. Price is a disclosed USD conversion of the fetched stolengoat.com original GBP list price (£70.00 GBP x 1.337398 USD/GBP (open.er-api.com, queried 2026-07-23)), not a stated US MSRP (current site price is a £35 sale, not used).' },
+  { id:'jsy-stolengoat-sector-mens', cat:'jersey', brand:'Stolen Goat', model:'Sector MTB Jersey', price:53.5,
     sleeve:'short', fitCut:'mens', sizes:['XS','S','M','L','XL','XXL','XXXL','XXXXL'],
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://stolengoat.com/product/mens-sector-mtb-jersey/',
-    desc:'Casual-fit off-road jersey, 100% polyester, UV SPF 30, made in Bulgaria; size chart on the fetched page runs XS-XXXXL (chest cm). Price is a disclosed USD conversion of the fetched stolengoat.com original GBP list price (£40.00 GBP x ~1.27), not a stated US MSRP (current site price is discounted, not used).' },
-  { id:'jsy-stolengoat-biko-mens', cat:'jersey', brand:'Stolen Goat', model:'Biko MTB Jersey', price:51,
+    desc:'Casual-fit off-road jersey, 100% polyester, UV SPF 30, made in Bulgaria; size chart on the fetched page runs XS-XXXXL (chest cm). Price is a disclosed USD conversion of the fetched stolengoat.com original GBP list price (£40.00 GBP x 1.337398 USD/GBP (open.er-api.com, queried 2026-07-23)), not a stated US MSRP (current site price is discounted, not used).' },
+  { id:'jsy-stolengoat-biko-mens', cat:'jersey', brand:'Stolen Goat', model:'Biko MTB Jersey', price:53.5,
     sleeve:'short', fitCut:'mens',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://stolengoat.com/product/mens-biko-mtb-jersey/',
-    desc:'Casual-fit off-road jersey, same construction tier as the Sector (100% polyester, UV SPF 30, made in Bulgaria). £40.00 GBP list price corroborated on the women\'s Biko variant\'s own page (fetched separately) rather than re-confirmed in digits on this exact men\'s page fetch - noted for transparency. Price is a disclosed USD conversion (£40.00 GBP x ~1.27), not a stated US MSRP.' },
-  { id:'jsy-stolengoat-zion-mens', cat:'jersey', brand:'Stolen Goat', model:'Zion MTB Jersey', price:51,
+    desc:'Casual-fit off-road jersey, same construction tier as the Sector (100% polyester, UV SPF 30, made in Bulgaria). £40.00 GBP list price corroborated on the women\'s Biko variant\'s own page (fetched separately) rather than re-confirmed in digits on this exact men\'s page fetch - noted for transparency. Price is a disclosed USD conversion (£40.00 GBP x 1.337398 USD/GBP (open.er-api.com, queried 2026-07-23)), not a stated US MSRP.' },
+  { id:'jsy-stolengoat-zion-mens', cat:'jersey', brand:'Stolen Goat', model:'Zion MTB Jersey', price:53.5,
     sleeve:'short', fitCut:'mens',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-23', source:'https://stolengoat.com/product/mens-zion-mtb-jersey/',
-    desc:'Casual-fit off-road jersey with a blue gradient-fade design, same construction tier as the Sector (100% polyester, UV SPF 30). Price is a disclosed USD conversion of the fetched stolengoat.com original GBP list price (£40.00 GBP x ~1.27), not a stated US MSRP (current site price is a £20 sale, not used). Also sold in a long-sleeved version at the same price tier per the page\'s own cross-link - not entered as a separate row this batch (breadth cap).' },
+    desc:'Casual-fit off-road jersey with a blue gradient-fade design, same construction tier as the Sector (100% polyester, UV SPF 30). Price is a disclosed USD conversion of the fetched stolengoat.com original GBP list price (£40.00 GBP x 1.337398 USD/GBP (open.er-api.com, queried 2026-07-23)), not a stated US MSRP (current site price is a £20 sale, not used). Also sold in a long-sleeved version at the same price tier per the page\'s own cross-link - not entered as a separate row this batch (breadth cap).' },
 
   /* kit-breadth-13 (2026-07-23): kit-breadth-12 already landed most of the brief's target
      brands (Kask/6D/Casco/Cratoni/HJC/DZR/Magicshine/District Vision all present, 3+ rows
