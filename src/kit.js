@@ -4602,6 +4602,10 @@ var KIT_PARTS = [
     fitCut:'mens', waterproof:true,
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.pactimo.com/products/mens-cycling-jacket-storm',
     desc:'Water-resistant cool-weather cycling jacket built from a 150gsm Storm+ Laminate fabric. Price confirmed on pactimo.com (US store, USD-native). The 150gsm figure is a fabric-weight spec, not total garment weight, so no weight field is set.' },
+  { id:'jkt-dhb-trail-waterproof', cat:'jacket', brand:'dhb', family:'dhb-trail', model:"Trail Men's Hooded Waterproof Jacket", price:199.77,
+    fitCut:'mens', waterproof:true,
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-24', source:'https://www.dhbsport.com/products/trail-mens-waterproof-cycling-jacket',
+    desc:'From dhb\'s off-road-focused Trail collection ("exploring hidden gems and trails... it\'s for the adventure"); 100% nylon, taped seams, 10,000mm waterproof / 20,000 g/m²/24hr breathability rating. dhbsport.com prices in GBP only (£150.00); converted at the day\'s real mid-market rate (1 GBP = 1.3318 USD, xe.com, 2026-07-24) per the kit-breadth-15 FX-rate discipline - rate + date + provider disclosed here, not a stale figure. No weight published on the fetched page.' },
 
 
   /* Wild Rye (women's MTB apparel) - wild-rye.com fetched directly (WebFetch 404'd on this
