@@ -3334,12 +3334,14 @@ var KIT_PARTS = [
      "EN 1621-2012 Level 2" for a KNEE pad, but EN1621-2 is the BACK-protector family in this
      catalog's vocab, not limb - likely a copy-paste/transcription slip on the source's part) so
      none is confident enough to tag per the strict fetched-source-only rule for safety claims. -- */
-  { id:'knp-fuse-alpha-classic', cat:'kneepad', brand:'Fuse Protection', model:'Alpha Classic', price:67.95, weight:375,
+  { id:'knp-fuse-alpha-classic', cat:'kneepad', brand:'Fuse Protection', model:'Alpha Classic', price:74.00, weight:375,
     disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL','2XL'],
-    desc:'EVA foam + nylon hard-cap knee pad, sleeve-style. Weight is fuse-protection.com\'s own listed pair weight. No certs asserted (see batch header note). UNVERIFIED sample: fuse-protection.com/Amazon-listed price.' },
-  { id:'knp-fuse-echo', cat:'kneepad', brand:'Fuse Protection', model:'Echo Knee Pad', price:81, weight:485,
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-24', source:'https://fuse-protection.com/products/alpha-classic-knee-pad',
+    desc:'EVA foam + nylon hard-cap knee pad, sleeve-style, fully redesigned from the older Classic defence-line pad. Confirmed off fuse-protection.com (its own Knee Pads collection lists it at EUR64.99; no US-dollar storefront) - converted at EUR/USD 1.1386, xe.com, 2026-07-24. Weight (375g) stays fuse-protection.com\'s own listed pair figure, not restated on the redesigned product page this pass. No certs asserted (see batch header note).' },
+  { id:'knp-fuse-echo', cat:'kneepad', brand:'Fuse Protection', model:'Echo Knee Pad', price:102.46, weight:485,
     disciplines:['trail','enduro','dh'], sizes:['S','M','L','XL'],
-    desc:'Cordura-face sleeve, dual-layer Lycra back, SAS-TEC viscoelastic foam, sharkskin neoprene gripper. Weight is fuse-protection.com\'s own listed pair weight. No certs asserted (see batch header note on the ambiguous EN-standard citation). Price converted from the EUR74.99 EU list (no confirmed US-dollar storefront figure this batch).' },
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-24', source:'https://fuse-protection.com/products/echo-knee-pad',
+    desc:'Cordura-face sleeve, dual-layer Lycra back, SAS-TEC viscoelastic foam, sharkskin neoprene gripper. Confirmed off fuse-protection.com\'s own Knee Pads collection listing: EUR89.99 (up from the EUR74.99 the prior session cited - real price movement, not an error) - converted at EUR/USD 1.1386, xe.com, 2026-07-24. Weight (485g/pair) reconfirmed via a third-party retailer spec table (probmxbikes.com). No certs asserted (see batch header note on the ambiguous EN-standard citation).' },
   { id:'knp-amplifi-mkx', cat:'kneepad', brand:'Amplifi', model:'MKX Knee', price:102.46, weight:260,
     disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-24', source:'https://amplifisports.com/en/products/mkx-knee',
@@ -3591,9 +3593,10 @@ var KIT_PARTS = [
      Forcefield were entirely ABSENT (see the kneepad batch header for the shared sourcing/certs
      caveat - same brands, same fetch-blocked sites, same no-certs-asserted reasoning, no
      priceBasis on unverified rows). -- */
-  { id:'elp-fuse-omega', cat:'elbowpad', brand:'Fuse Protection', model:'Omega Elbow Pad', price:75, weight:165,
+  { id:'elp-fuse-omega', cat:'elbowpad', brand:'Fuse Protection', model:'Omega Elbow Pad', price:85.39, weight:165,
     disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
-    desc:'Lightweight breathable Lycra/Dry-Fit mesh sleeve, SAS-TEC insert, Kenesio compression bands + sharkskin grippers (no straps). Weight is fuse-protection.com\'s own listed pair weight. No certs asserted (see kneepad batch header note). UNVERIFIED sample: US retailer-listed price.' },
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-24', source:'https://fuse-protection.com/products/omega-elbow-pad',
+    desc:'Lightweight breathable Lycra/Dry-Fit mesh sleeve, SAS-TEC insert, Kenesio compression bands + sharkskin grippers (no straps). Confirmed off fuse-protection.com\'s own Omega Series collection listing: EUR74.99 (no US-dollar storefront) - converted at EUR/USD 1.1386, xe.com, 2026-07-24. Weight (165g) is close to a third-party retailer\'s (kunstform) 0.15kg/pair figure; kept as the existing fuse-protection.com pair-weight sample. No certs asserted (see kneepad batch header note).' },
   { id:'elp-amplifi-mkx', cat:'elbowpad', brand:'Amplifi', model:'MKX Elbow', price:86.53,
     disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-24', source:'https://amplifisports.com/en/products/mkx-elbow',
