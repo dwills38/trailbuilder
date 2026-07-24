@@ -636,7 +636,9 @@ var BMX_PARTS = [
   {
     id: 'bmx-gy-colony-rx3', cat: 'gyro', brand: 'Colony', model: 'RX3 Rotary Gyro',
     steererFit: 'integrated-1-1/8', cableRouting: 'dual', weight: 32, price: 44.00,
-    note: 'bmx-smallparts-1 (2026-07-23): UNVERIFIED sample, new brand for this category. Directly fetched colonybmx.com.au/products/rx3-rotary-detangler/: "CNC Alloy precision detangler...Weight: 32g (0.07 lbs)" -> weight CONFIRMED. steererFit/cableRouting left at the catalog-standard integrated-1-1/8/dual (not stated on this page; display-only fields per every other cataloged gyro row\'s convention). Maker page (AU distributor site) carries NO price - $44.00 entered as an approximate sample from a US retailer (LUXBMX sale-price listing, currently sold out there), not a confirmed MSRP; left unverified per THE PRICE RULE.'
+    verified: true, lastChecked: '2026-07-24', source: 'https://colonybmx.com.au/products/rx3-rotary-detangler/',
+    priceBasis: 'third-party-listed',
+    note: 'bmx-brands-2 (2026-07-24): re-fetched colonybmx.com.au/products/rx3-rotary-detangler/ directly this session: "CNC Alloy precision detangler...Weight: 32g (0.07 lbs)" -> weight CONFIRMED, a real maker-stated figure not a shipping bucket. steererFit/cableRouting are display-only in checkBmxBuild (no gyro rule reads them), left at the catalog-standard integrated-1-1/8/dual per every other cataloged gyro row\'s convention. Maker page (AU distributor site) carries no price at all; $44.00 is a named US retailer sample (LUXBMX sale-price listing, sold out there) - honestly disclosed as priceBasis:third-party-listed per THE PRICE RULE (a missing/non-MSRP price never blocks verification, provided the basis is stated - corrects the prior session\'s note, which cited the rule but reached the opposite conclusion).'
   },
 
   // ===== CRANKS ========================================================
@@ -2825,7 +2827,9 @@ var BMX_PARTS = [
   {
     id: 'bmx-hs-colony-headset', cat: 'headset', brand: 'Colony', model: 'Headset',
     fit: 'integrated-1-1/8', weight: 55, price: 27.99,
-    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched colonybmx.com.au/products/headset/: "45/45 style with Colony logo engraving" (fit:integrated-1-1/8 CONFIRMED - Campy 45/45 is this catalog\'s standard mapping) and "Weight: 55 grams" CONFIRMED. AU maker page carries no price (same gap as Colony\'s other rows); price entered from Dan\'s Comp\'s matching "Colony Integrated Headset" listing ($27.99, "Campy 45/45 style" confirms same product) but that retailer page is marked "Discontinued Online" - left UNVERIFIED per the same reasoning as bmx-br-colony-brethren above.'
+    verified: true, lastChecked: '2026-07-24', source: 'https://colonybmx.com.au/products/headset/',
+    priceBasis: 'third-party-listed',
+    note: 'bmx-brands-2 (2026-07-24): re-fetched colonybmx.com.au/products/headset/ directly this session: "45/45 style with Colony logo engraving" (fit:integrated-1-1/8 CONFIRMED - Campy 45/45 is this catalog\'s standard mapping; fit is display-only per compat-bmx.js\'s Q9 lean, no engine rule reads it, so this is opportunistic not a blocker) and "Weight: 55 grams" CONFIRMED - a real maker-stated weight, not a shipping bucket. AU maker page carries no price at all; $27.99 is Dan\'s Comp\'s matching "Colony Integrated Headset" listing ("Campy 45/45 style" confirms same SKU), honestly disclosed as priceBasis:third-party-listed per THE PRICE RULE (price never blocks verification) - that retailer page was previously seen marked "Discontinued Online" so currency is uncertain, but it is a real named listing, not an invented figure.'
   },
   {
     id: 'bmx-hs-federal-headset', cat: 'headset', brand: 'Federal', model: 'Headset',
