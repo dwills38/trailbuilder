@@ -1894,6 +1894,18 @@ var BMX_PARTS = [
     note: 'bmx-smallparts-2 (2026-07-24): second S&M seatpost, first stealth-system row for this brand. Directly fetched sandmbikes.com (maker\'s own storefront): "25.4 MM LONG JOHNSON STEALTH PIVOTAL SEATPOSTS...$39.95...Stealth Pivotal mounting system accepts an Allen wrench from below, not thru the seat...Diameter: 25.4mm...Weight: 6.85oz" (=194g). diameter/system:stealth/weight/price all CONFIRMED.'
   },
   {
+    id: 'bmx-sp-federal-pivotal-200', cat: 'seatpost', brand: 'Federal', model: 'Pivotal 200mm Seat Post',
+    diameter: 25.4, system: 'pivotal', price: 41.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://federalbikes.com/products/federal-pivotal-200mm-seat-post-black-25-4mm',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched federalbikes.com ($41.00 USD): "Federal Pivotal 200mm Seat Post - Black 25.4mm...for Pivotal mounted seats" - diameter/system/price CONFIRMED. No weight stated on the listing.'
+  },
+  {
+    id: 'bmx-sp-federal-stealthpivotal-200', cat: 'seatpost', brand: 'Federal', model: 'Stealth Pivotal 200mm Seat Post',
+    diameter: 25.4, system: 'stealth', price: 38.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://federalbikes.com/products/federal-stealth-pivotal-200mm-seat-post-black-25-4mm',
+    note: 'bmx-smallparts-2 (2026-07-24): second Federal seatpost row. Directly fetched federalbikes.com ($38.00 USD): "Federal Stealth Pivotal 200mm Seat Post - Black 25.4mm...Designed to be used with Stealth Pivotal seats but also compatible with regular Pivotal seats" - diameter/system:stealth/price CONFIRMED. No weight stated on the listing.'
+  },
+  {
     id: 'bmx-se-sm-fatpivotal', cat: 'seat', brand: 'S&M', model: 'Fat Pivotal Seat',
     system: 'pivotal', price: 29.95,
     note: 'BMX wave 6: raw-fetched sandmbikes.com/product/hardgoods/seating/fat-pivotal-seat/ (the manufacturer\'s own page) - confirms "PIVOTAL" mount and PADDED construction (matches system:\'pivotal\'), and the real price ("price":"29.95") - CORRECTED from the stale 49.95 albes.com-retailer figure. NOT VERIFIED: no per-product weight anywhere on the page, only a generic "1 lbs" shipping-box figure indistinguishable from the Odyssey/Cult shipping-weight-bucket trap (wave 2 doctrine) - fails THE BAR item 2 (seat is not an interface-verification-exception category). Left unverified.'
@@ -2876,6 +2888,18 @@ var BMX_PARTS = [
     id: 'bmx-pg-fiction-steel', cat: 'pegs', brand: 'Fiction', model: 'Steel Freestyle Pegs',
     axleFit: '14mm', material: 'steel', reducerIncluded: true, price: 30.95,
     note: 'bmx-breadth-3 (2026-07-22): real current Fiction product, WebSearch-corroborated (SkatePro $30.95): "made from solid Chromoly steel...come in sets of either 2 pieces or 4 pieces, designed for 14mm axles and with spacers included for 10mm setup" -> axleFit:14mm, material:steel, reducerIncluded:true (the 10mm spacers). Price entered at the single-peg-equivalent SkatePro figure; the page also sells 2- and 4-peg bundles at proportional prices, not modeled as separate rows (bundle count is a quantity axis, not a fit-distinct SKU per DATA-ENTRY-TEMPLATE §1). Left unverified (retailer-corroborated, no manufacturer page fetched).'
+  },
+  {
+    id: 'bmx-pg-federal-plasticchromoly-450', cat: 'pegs', brand: 'Federal', model: '4.5" Plastic/Chromoly Peg',
+    axleFit: '14mm', material: 'steel', reducerIncluded: true, price: 27.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://federalbikes.com/products/federal-450-plastic-chromoly-peg-black',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched federalbikes.com (Federal\'s own storefront, $27.00 USD shown at fetch time): "A heat-treated 4130 Chromoly core encased in a Nylon sleeve...Bored to 14mm, supplied with a 10mm adapter" - material:steel (4130 chromoly core), axleFit:14mm, reducerIncluded:true (10mm adapter supplied) all CONFIRMED. No weight stated on the listing.'
+  },
+  {
+    id: 'bmx-pg-federal-plasticalloy-450', cat: 'pegs', brand: 'Federal', model: '4.5" Plastic/Alloy Peg',
+    axleFit: '14mm', material: 'alloy', reducerIncluded: true, price: 24.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://federalbikes.com/products/federal-450-plastic-alloy-peg-black',
+    note: 'bmx-smallparts-2 (2026-07-24): second Federal peg SKU. Directly fetched federalbikes.com ($24.00 USD): "An Aluminium core encased in a Nylon sleeve...Bored to 14mm, supplied with a 10mm adapter" - material:alloy, axleFit:14mm, reducerIncluded:true all CONFIRMED. No weight stated on the listing.'
   },
   {
     id: 'bmx-pg-sunday-seeley475', cat: 'pegs', brand: 'Sunday', model: 'Seeley 4.75" PC Peg',
