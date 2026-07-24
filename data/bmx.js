@@ -3359,6 +3359,91 @@ var BMX_PARTS = [
     id: 'bmx-sp-mutiny-pentra-28', cat: 'sprocket', brand: 'Mutiny', model: 'Pentra Sprocket (28T)',
     family: 'mutiny-pentra', teeth: 28, mount: 'spline', pitch: '1/8', price: 70.00,
     note: 'bmx-freestyle-depth-1: third Mutiny row (parts side of the new brand). FETCHED store.mutinybikes.com own product page directly (store.mutinybikes.com/Pentra-Sprocket-p468185010): "CNC Machined From Aircraft Quality 7075 T6 Aluminum", tooth options 28T/30T/36T (teeth:28 modeled, the lightest/base option), "5/16 (24mm) center bore... accepts 19mm or 22mm inserts" -> mount:spline (a splined spindle interface, no sprocket bolt), at the pages own $70.00 price. pitch:1/8 is NOT stated on the maker page itself - cross-corroborated via two independent AveBmx.pl retailer listings of the same Pentra/Pentra V2 sprocket both stating verbatim "kompatybilny z lancuchem: 1/8"" (compatible with 1/8in chain) - a real cross-source confirmation, not a guess, but retailer-sourced rather than maker-first-party so left disclosed. Weight intentionally OMITTED: the makers own page states "0.50 lbs" (227g) but two independent AveBmx.pl listings for the same 28T sprocket state "89g" - an order-of-magnitude discrepancy (possibly a packaged/shipping-weight field on the maker page vs the bare-part weight on the retailer pages) that could not be resolved this session, so per "a blank field beats an invented value" no weight was entered rather than picking one of two disagreeing numbers. Row stays UNVERIFIED (pitch retailer-corroborated, weight conflict unresolved, sourceType:retailer would be rejected on a verified row regardless).'
+  },
+
+  // ---- catalog/bmx-brand-completion-1 (2026-07-24): cross-category
+  //      completion wave targeting the deepest per-brand gaps (Kink, Sunday,
+  //      WeThePeople, S&M, Federal, Colony, Fit Bike Co, Haro). Every row
+  //      below was checked against a FETCHED page on the brand's own
+  //      storefront this session (thebuildingdistro.com IS S&M's and Fit
+  //      Bike Co's real distributor-run storefront - confirmed by following
+  //      sandmbikes.com's own "Shop" nav link there; shop.sundaybikes.com and
+  //      federalbikes.com are the brands' own Shopify stores). Several
+  //      targeted gaps turned out to be genuine brand-side absences (no
+  //      fabricated rows were added for these - see the worker report):
+  //      Sunday's "Bottom Brackets" collection resells Odyssey-branded BBs
+  //      only (product URLs are literally odyssey-*, no Sunday-branded BB
+  //      exists to catalog); S&M's "Cranks" category on the same storefront
+  //      contains only bottom-bracket kits, no standalone S&M crank arm/set
+  //      SKU; Fit Bike Co currently sells no own-branded chain or seatpost
+  //      (Chains category empty for the Fitbikeco brand filter; Seatposts
+  //      category has no Fit-branded post, only a nut/bolt spare and a
+  //      Fit-seat+S&M-post combo); Fit's only brake-adjacent SKU (a
+  //      thread-on 990 hardware kit, not a caliper) was out of stock and not
+  //      a clean single-purchase brake unit, so no Fit brake row was added
+  //      either. -----------------------------------------------------------
+  {
+    id: 'bmx-bb-fitbikeco-blunt48spline-24mm', cat: 'bb', brand: 'Fit Bike Co',
+    model: 'Blunt 48 Spline Complete BB Kit (24mm)',
+    family: 'fitbikeco-blunt', shell: 'mid', spindleFit: '24mm', price: 74.95,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://thebuildingdistro.com/product/48-spline-complete-bb-kit-24mm/',
+    note: 'catalog/bmx-brand-completion-1: FETCHED thebuildingdistro.com (Fit Bike Co\'s real storefront) directly. The kit page itself ("1X 48 Spline 24mm spindle... 2X Sealed 24mm bearings", SKU 32-BB-48SPLN-KIT-24MM, $74.95, "Will also work with other brands 24mm 48 spline arms") confirms spindleFit:24mm and that it is a complete purchasable BB but does not literally say "Mid" shell. shell:mid is cross-confirmed on the SAME storefront by two adjacent facts: (1) the sibling "24MM MID BB BEARINGS" product is explicitly Mid-shell for the identical 24mm spindle class, and (2) this catalog\'s own bmx-fr-fitbikeco-seriesone row (Fit\'s current 24mm-crank complete-bike platform) has a verified bbShell:mid sourced from Fit\'s own spec sheet ("Sealed Mid" BB) - Fit runs no other 24mm-spindle shell family. No per-kit weight published.'
+  },
+  {
+    id: 'bmx-hs-fitbikeco-headset', cat: 'headset', brand: 'Fit Bike Co', model: 'Fit Headset',
+    fit: 'integrated-1-1/8', price: 24.95,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://thebuildingdistro.com/product/fit-headset/',
+    note: 'catalog/bmx-brand-completion-1: FETCHED thebuildingdistro.com directly. Page states verbatim "Integrated 1 1/8\\" Campagnolo Hiddenset compatible" -> fit:integrated-1-1/8 exact match to this catalog\'s headTube vocab token. No weight published (a headset has no engine-read weight dependency anyway).'
+  },
+  {
+    id: 'bmx-ti-fitbikeco-fafogtrailknobby-20', cat: 'tire', brand: 'Fit Bike Co',
+    model: 'FAF OG Trail Knobby', family: 'fitbikeco-faf',
+    wheelSize: '20', width: 2.36, casing: 'park', maxPsi: 110, weight: 697, price: 36.95,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://thebuildingdistro.com/product/faf-og-trail-knobby-20/',
+    note: 'catalog/bmx-brand-completion-1: FETCHED thebuildingdistro.com directly. Page spec block: "20\\"x2.25\\" (2.36\\")... Inflated Width 2.36\\"... Max Pressure 110psi... Weight 24.6 oz" (=697g, converted) - width modeled on the maker\'s own stated inflated width (2.36in) rather than the nominal 2.25in marking, since inflated width is the dimension that matters for clearance checks. casing:park (a knobby dirt/street multi-surface tire, not a slick and not stated as foldable-bead, matching this catalog\'s convention for the rest of the 20in freestyle/street tire class) - the page does note a "Puncture Resistant Kevlar Belt" but does not describe a foldable bead, so kevlar-foldable was not used per that token\'s narrower, bead-construction meaning elsewhere in this file.'
+  },
+  {
+    id: 'bmx-gr-sunday-cornerstone', cat: 'grips', brand: 'Sunday', model: 'Cornerstone Grip',
+    family: 'sunday-cornerstone', length: 150, flangeless: true, price: 9.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://shop.sundaybikes.com/collections/sunday-grips',
+    note: 'catalog/bmx-brand-completion-1: FETCHED shop.sundaybikes.com (Sunday\'s own storefront) directly. Listing states "Classic ribbed design. Odyssey Bar Ends included. 150mm length." for every colorway at $9.99 -> length:150 exact. flangeless:true inferred from the bar-ends-included spec (a flanged grip has an integral end stopper and does not need separately bundled bar ends; bundling bar ends is specifically how a flangeless grip is finished) - not a literal "flangeless" label on this SKU, so this inference is disclosed here rather than silent.'
+  },
+  {
+    id: 'bmx-hs-sunday-headset', cat: 'headset', brand: 'Sunday', model: 'Headset',
+    family: 'sunday-headset', fit: 'integrated-1-1/8', price: 25.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://shop.sundaybikes.com/collections/sunday-headsets',
+    note: 'catalog/bmx-brand-completion-1: FETCHED shop.sundaybikes.com directly. Listing ("Low stack height. Campagnolo standard spec. Spacers included. Gyro compatible. 1 1/8\\" integrated.", $25.99) confirms fit:integrated-1-1/8 exact. A second Sunday-branded "Conical Headset" (same price, taller stack, same 1 1/8in integrated spec) also exists on the same page - the lower-stack standard variant was modeled here as the more universal/default option. No weight published (not engine-read for this category).'
+  },
+  {
+    id: 'bmx-st-sunday-freezetopload', cat: 'stem', brand: 'Sunday', model: 'Freeze Top-Load Stem',
+    family: 'sunday-freeze', clamp: '22.2mm', weight: 298, price: 24.99,
+    note: 'catalog/bmx-brand-completion-1: FETCHED shop.sundaybikes.com\'s own product page directly (reach:48mm, stack:33mm, rise:34mm/-1mm inverted, "Weight: 10.5 oz" = 298g, $24.99 Black colorway - modernbike.com/universalcycles.com corroborate the same 10.5oz/297.7g figure independently). clamp:22.2mm is NOT stated on Sunday\'s own product page - it is corroborated by two independent US retailers (modernbike.com\'s own listing title literally reads "sunday freeze top load stem translucent black 22.2 clamp"; universalcycles.com\'s spec table separately states "Bar Clamp Diameter: 22.2mm") for the same current SKU. Per THE BAR, an engine-read interface field sourced only from retailers (not the maker\'s own page) does not earn verified:true even with two-source agreement, so this row stays UNVERIFIED despite the maker-confirmed weight/price/geometry.'
+  },
+  {
+    id: 'bmx-gr-wethepeople-perfect', cat: 'grips', brand: 'WeThePeople', model: 'Perfect Grips',
+    family: 'wethepeople-perfect', length: 165, flangeless: false, price: 12.99,
+    verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-24',
+    source: 'https://www.wethepeoplebmx.de/grips-barends/perfect-grips',
+    note: 'catalog/bmx-brand-completion-1: FETCHED wethepeoplebmx.de (wethepeople\'s own maker site - EU-based brand, no separate US storefront) directly. Page states "Super-long 165mm... increased rib thickness in critical areas... small chamfer to the inside edge" with x3 nylon Key Wedge Bar Ends included as a SEPARATE accessory rather than a required flangeless end-cap -> length:165, flangeless:false (this is a flanged grip design; the bar ends are a bundled extra, unlike the Sunday Cornerstone row above where bar ends were the flangeless end-cap itself). No USD MSRP is published on the maker\'s EUR-priced page, so priceBasis:third-party-listed - $12.99 is the price independently and consistently listed by multiple US retailers (SkatePro, Source BMX, Modern Bike) for the same current SKU, disclosed per THE PRICE RULE (price never blocks verification; the interfaces above are maker-sourced).'
+  },
+  {
+    id: 'bmx-gr-federal-commandflangeless', cat: 'grips', brand: 'Federal', model: 'Command Flangeless Grip',
+    family: 'federal-command', length: 168, flangeless: true, price: 15.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://federalbikes.com/products/federal-command-flangeless-grips-black',
+    note: 'catalog/bmx-brand-completion-1: FETCHED federalbikes.com (Federal\'s own storefront) directly. Product spec block: "168mm long, 32mm diameter", $15.00, named "Flangeless" in the product title itself -> length:168, flangeless:true both literal. No weight published.'
+  },
+  {
+    id: 'bmx-se-federal-slimpivotal', cat: 'seat', brand: 'Federal', model: 'Slim Pivotal Embroidered Word Seat',
+    family: 'federal-slim', system: 'pivotal', price: 55.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://federalbikes.com/collections/seats',
+    note: 'catalog/bmx-brand-completion-1: FETCHED federalbikes.com directly. "Pivotal" is in the product name itself and every current Federal seat in this collection is a Pivotal-system seat (no non-pivotal/railed Federal seat currently listed) -> system:pivotal, $55.00 regular (non-sale) price. No weight published.'
   }
 ];
 
