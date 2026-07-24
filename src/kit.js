@@ -3890,6 +3890,13 @@ var KIT_PARTS = [
     coverage:'chest-back', certs:['en1621-2-l2'], disciplines:['enduro','dh'], sizes:['S','M','L','XL','XXL'],
     desc:'Full removable CE-armored shirt (back/chest/shoulders/elbows) in a breathable BeCool base-layer shell. Cert per review-reported EN1621-2 CE-standard test data (6.63 kN result, within the Level 2 band). No maker-published weight found this batch (an older Pro Shirt X-V generation cites ~1250g, but that figure is not reliably attributable to this X-V 2 Air SKU, so left unset). UNVERIFIED sample: multiple US retailer-listed price (RevZilla).' },
 
+  /* kit-breadth-15 (2026-07-24): bodyarmor cross-category gap - Amplifi already had
+     kneepad/elbowpad rows but no full-torso vest, despite selling one. */
+  { id:'arm-amplifi-polymer-armor', cat:'bodyarmor', brand:'Amplifi', model:'Polymer Armor', price:273.41, weight:1240,
+    coverage:'chest-back', certs:['en1621-2-l1','en1621-3'],
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-24', source:'https://amplifisports.com/en/products/polymer-armor-1',
+    desc:'Full torso vest (chest + back) with vented SAS-TEC elements; maker page states "EN1621-1 & 2 & 3 - Level 1" (joint/back/chest coverage, Level 1 throughout), mapped here to the catalog\'s back (en1621-2-l1) and chest (en1621-3) tokens - the vocab has no separate joint-cert slot for a torso-only garment. Weight (1240 g) directly maker-published. amplifisports.com prices in EUR only (€239.99); converted at the day\'s real mid-market rate (1 EUR = 1.13926 USD, xe.com, 2026-07-24 07:10 UTC) per the kit-breadth-15 FX-rate discipline.' },
+
   /* -- Neck braces (niche; no universal cert standard - certs stay dormant).
      Comprehensive sweep of the 4 recognized market brands (Leatt, Alpinestars,
      Atlas, EVS - dirtwheelsmag's buyer's-guide lineup + retailer catalogs agree
@@ -3959,6 +3966,10 @@ var KIT_PARTS = [
     disciplines:['dh'], sizes:['Youth','Adult'], verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-20',
     desc:'PU core + ballistic nylon outer shell. Re-fetched evs-sports.com/products/r3-race-collar 2026-07-20: Adult price $65 and Youth price $25 both confirmed again (Adult stored as the representative figure), matching the 2026-07-16 pass. Page states no weight; omitted rather than guessed (matches the no-weight-published nkb-leatt-gpx-15-mini/junior rows in this same category).',
     source:'https://www.evs-sports.com/products/r3-race-collar' },
+  { id:'nkb-oneal-tron-shocker', cat:'neckbrace', brand:"O'Neal", model:'TRON Neckbrace Shocker', price:227.83, weight:585,
+    disciplines:['enduro','dh'],
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-24', source:'https://www.oneal.eu/en/products/oneal-tron-neckbrace-shocker',
+    desc:'kit-breadth-15 cross-category gap - O\'Neal already had helmet/shoes/jersey/pants/gloves/kneepad/elbowpad/bodyarmor/eyewear rows but no neck brace. CE certified to EN1621; weight 585g +/- 15g per the maker page. No USD-native O\'Neal storefront lists this SKU (oneal.com/US sells O\'Neal apparel but not this neck brace) - EUR price (E199.99) converted at the day\'s real mid-market rate (1 EUR = 1.13926 USD, xe.com, 2026-07-24 07:10 UTC) per the kit-breadth-15 FX-rate discipline.' },
 
   /* -- Shin guards (per pair). Scoped to SKUs the maker names "...Shin..." -
      a distinct shin-protection product, not a knee guard whose description
@@ -4081,6 +4092,19 @@ var KIT_PARTS = [
     disciplines:['enduro','dh'], sizes:['OSFA'],
     desc:'D3O padding, stretch/mesh sleeve, velcro-attaches to the Grenade Evo knee guards (also compatible with most competitors\' knee pads); one-size. Fetched scott-sports.com (model 274520): confirms one-size, "surpasses CE standards" via D3O but states no specific EN standard/level, so no cert token is tagged; the maker page lists no price. $63.99 is Bikeinn\'s listed retail price (a Ciclimattio EU listing showed EUR69.90). Weight not published anywhere found. Kit gap-fill: brand had zero prior shinguard rows.',
     source:'https://www.scott-sports.com/global/en/product/scott-grenade-evo-shin-guards' },
+
+  /* kit-breadth-15 (2026-07-24): shinguard cross-category gap - Sweet Protection already had
+     kneepad/elbowpad rows but no standalone shinguard, despite selling one. (Dainese/EVOC's
+     "shin" search hits turned out to be knee guards on re-verification - real gaps, not
+     padded here.) */
+  { id:'shg-sweetprotection-light', cat:'shinguard', brand:'Sweet Protection', model:'Shin Guards Light', price:80, weight:94,
+    disciplines:['enduro','dh'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.sweetprotection.com/us/en/shin-guards-light-black/',
+    desc:'Perforated Visco-Elastic shin protector designed to overlap with Sweet\'s Knee Guards Pro / Pro Hard Shell for continuous shin-to-knee coverage; no CE cert stated on the maker page, so left untagged. Price + weight (94g) both directly confirmed on the US storefront.' },
+  { id:'shg-blissprotection-team-kneeshin', cat:'shinguard', brand:'Bliss Protection', model:'Team Knee/Shin Pad', price:79.90,
+    disciplines:['enduro','dh'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://blisscamp.com/us/team-knee-shin-pad/123145000.2',
+    desc:'Combo knee/shin protector from Bliss\'s Team line. Price confirmed on blisscamp.com/us ($79.90, page marked "excl. VAT plus shipping costs" - the maker\'s own stated US-facing figure, not a computation). No weight published on the fetched page.' },
 
   /* -- Eyewear (type required: glasses / goggles) -- */
   { id:'ewr-oakley-sutro', cat:'eyewear', brand:'Oakley', model:'Sutro', price:203, weight:32,
@@ -4582,6 +4606,31 @@ var KIT_PARTS = [
     fitCut:'mens', waterproof:false,
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.clubrideapparel.com/products/mens-x-wind-jacket',
     desc:'Wind-resistant/water-repellent DWR-coated 4-way-stretch shell (no waterproof rating stated, hence waterproof:false), targeted venting panels, chest pocket doubling as a stow-away carry pouch. Price confirmed on clubrideapparel.com\'s US store (the same SKU\'s EU store lists a different EUR price). No weight or sizes published on the fetched page.' },
+
+  /* kit-breadth-15 (2026-07-24): jacket cross-category gap - road-apparel brands already
+     present in jersey/shorts/gloves that also genuinely sell cycling jackets, none previously
+     entered. Every row here is a real, currently-listed SKU with a directly fetched maker price. */
+  { id:'jkt-castelli-unlimited', cat:'jacket', brand:'Castelli', family:'castelli-unlimited', model:'Unlimited Jacket', price:230,
+    fitCut:'mens', waterproof:false, insulated:true,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.castelli-cycling.com/US/en/Men/Cycling/Top/Jackets/Cool/UNLIMITED-JACKET/p/4524520_085',
+    desc:'Fleece-lined jacket with shell wind protection at the front and cargo-style rear storage, marketed for "lonely gravel roads or your favorite trail." Full MSRP $230 confirmed on the US storefront (page also showed a $161 sale price, not used - pricing policy is MSRP-only). The "72 g" figure on the page reads as a fabric-weight spec, not total garment weight, so no weight field is set.' },
+  { id:'jkt-assos-tactica-rain', cat:'jacket', brand:'Assos', family:'assos-tactica', model:'Tactica Rain Jacket', price:410,
+    fitCut:'mens', waterproof:true,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.assos.com/us/tactica-rain-jacket-t5-51-32-313-6p.html',
+    desc:'Lightweight waterproof shell with a "comfort-tuned fit for adventure cycling, low-intensity touring, and daily commuting" - Assos\'s most off-road-relevant jacket tier. Full MSRP $410 confirmed on assos.com/us (page also showed a $287 sale price, not used per MSRP-only pricing policy). No weight published on the fetched page.' },
+  { id:'jkt-sportful-supergiara2', cat:'jacket', brand:'Sportful', family:'sportful-supergiara', model:'Supergiara 2 Jacket', price:280,
+    fitCut:'mens', waterproof:false,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.sportful.com/US/en/Mens/Cycling/Jackets/SUPERGIARA-2-JACKET/p/1125503_201',
+    desc:'Mid-season jacket the maker\'s own page lists "Gravel" under Disciplines, described as "ideal for mid-season rides on both gravel and road." Price confirmed on the US storefront. No waterproof rating or weight published on the fetched page, hence waterproof:false.' },
+  { id:'jkt-pactimo-storm-plus', cat:'jacket', brand:'Pactimo', family:'pactimo-storm', model:'Men\'s Storm+ Jacket', price:230,
+    fitCut:'mens', waterproof:true,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.pactimo.com/products/mens-cycling-jacket-storm',
+    desc:'Water-resistant cool-weather cycling jacket built from a 150gsm Storm+ Laminate fabric. Price confirmed on pactimo.com (US store, USD-native). The 150gsm figure is a fabric-weight spec, not total garment weight, so no weight field is set.' },
+  { id:'jkt-dhb-trail-waterproof', cat:'jacket', brand:'dhb', family:'dhb-trail', model:"Trail Men's Hooded Waterproof Jacket", price:199.77,
+    fitCut:'mens', waterproof:true,
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-24', source:'https://www.dhbsport.com/products/trail-mens-waterproof-cycling-jacket',
+    desc:'From dhb\'s off-road-focused Trail collection ("exploring hidden gems and trails... it\'s for the adventure"); 100% nylon, taped seams, 10,000mm waterproof / 20,000 g/m²/24hr breathability rating. dhbsport.com prices in GBP only (£150.00); converted at the day\'s real mid-market rate (1 GBP = 1.3318 USD, xe.com, 2026-07-24) per the kit-breadth-15 FX-rate discipline - rate + date + provider disclosed here, not a stale figure. No weight published on the fetched page.' },
+
 
   /* Wild Rye (women's MTB apparel) - wild-rye.com fetched directly (WebFetch 404'd on this
      Shopify storefront; Exa's fetch rendered the real product pages cleanly - manufacturer pages,
