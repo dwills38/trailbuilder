@@ -61,6 +61,13 @@ process.stdin.on('end', function () {
     if (n.indexOf('mtb bike builder') !== -1) return false;      // inside the project
     if (/\\temp\\claude\\/.test(n)) return false;                // harness scratchpad
     if (/^c:\\users\\[^\\]+\\\.claude\\/.test(n)) return false;  // harness home (memory, config)
+    // Douglas's sanctioned backup folder (2026-07-23, his explicit word: "you can make a
+    // back up buildmymtb for critical files that aren't on git... make sure it is on D:
+    // and that is THE ONLY OTHER FOLDER YOU HAVE PERMISSION TO TOUCH"). Deliberately an
+    // exact-prefix match on ONE path — it does not open D:\ generally.
+    // exact root or a child of it — NOT a bare prefix, so "…-backup-evil\" stays blocked
+    if (n === 'd:\\buildmymtb-backup' ||
+        n.indexOf('d:\\buildmymtb-backup\\') === 0) return false; // sanctioned backup root
     // unquoted "D:\MTB Bike Builder\..." truncates at the space to "D:\MTB" —
     // a token that is a PREFIX of the project root is inside, not a stray
     if ('d:\\mtb bike builder'.indexOf(n) === 0) return false;
