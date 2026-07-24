@@ -90,15 +90,130 @@ var GRAVEL_VOCAB = {
   // and it is not 'disc-hydraulic', so a Sword cable lever behind a HYDRAULIC
   // caliper correctly ERRORS (a true won't-fit — no fluid column to drive) and
   // stays silent against a mechanical-disc caliper.
-  bb:           ['bsa-road', 'bb86', 'bb30a', 'pf30', '24mm-road', 'dub', 'dub-wide', 'ultra-torque', 'bbright', 't47-road', 'bb386evo', 't47-86', 'pf92', 'square-taper', 'bsa-73', 't47a-bbright', 't47-73', 'threadfit82-5'],   // 'threadfit82-5' added catalog/gravel-breadth-5 (2026-07-23) — Colnago's own proprietary press-fit-adapter shell standard, real on the G3-X (glory-cycles.com's directly-fetched frameset spec sheet states "Bottom Bracket Type: TheadFit82.5" verbatim, and its own description explains the cups "screw into the frame, creating... space for any Pressfit BB adapter" — a genuinely distinct 82.5mm-shell standard from this vocab's existing 86.5mm-class 'bb86'/'t47-86' tokens, also used on the V3-RS/C64; per THE BAR, force-fitting it onto 'bb86' would misstate a real ~4mm shell-width difference, so it earns its own token rather than being merged. 't47-73' added catalog/gravel-breadth-2 (2026-07-23) — a 73mm-wide threaded T47 shell (MTB-width, like 'bsa-73' is to 'bsa-road'), real on the Curve GMX+ Steel: curvecycling.com's own product page states "T47 BB (73 mm)" verbatim, corroborated identically by a directly-fetched theradavist.com review ("Bottom Bracket: T47 BB (73 mm)"), distinct from the narrower 68mm-class 't47-road' token already in this vocab — same widening discipline as 'bsa-73' (vocab-tier1, 2026-07-22). 'pf86' retired 2026-07-21 — merged into 'bb86' (same physical 86.5mm press-fit shell; see schema-road.js's header note). Fixes the 2 Giant Revolt frames that had NO matching BB row under the old split. 'pf92' added gravel-verify-1 (2026-07-21) — the Salsa Cutthroat's own frame-specs table states "Bottom Bracket Press Fit BB92, 41 x 92 mm", an MTB-style 92mm press-fit shell distinct from every existing gravel BB token (BB86 is 86.5mm). 'square-taper' added vocab-tier1 (2026-07-22) — an older/budget touring-adjacent shell real on the Marin Nicasio+ (a retailer spec table states verbatim "Sealed Cartridge Bearings, Square Taper"), the exact non-fit this file's own header comment previously logged rather than force-fit. 'bsa-73' added vocab-tier1 (2026-07-22) — a 73mm-wide English-threaded MTB-derived shell, real on the Kona Sutra LTD (its own dedicated build spec table states "B/B SRAM GXP 73mm", corroborated by a bikepacking.com review's "73mm bottom bracket shell... 68mm shells be damned"), distinct from the narrower 68mm bsa-road token already in this vocab. 't47a-bbright' added vocab-tier1 (2026-07-22) — an asymmetric T47-threaded shell (Cervelo's own evolution of its BBRight standard, distinct from both the plain 't47-road' and 'bbright' tokens already in this vocab). Directly FETCHED cervelo.com/en-US/bikes/aspero (the manufacturer's own current Aspero platform page): "Aspero uses the asymmetrical T47a threaded bottom bracket we pioneered on R5-CX... allows us to deliver the benefits of BBRight in a more user-friendly form" — corroborated identically by a directly-fetched bikeradar.com Aspero-5 review build table ("Bottom bracket SRAM DUB Wide Ceramic, T47 BBright") and bikerumor.com ("a threaded T47 bottom bracket – well an asymmetric BBRight T47a BB"). No Aspero-5 catalog row was added this pass: the same review's build table also names an "FSA IS2 1-1/4, 45°x45° / 1-1/2, 36°x45°" headset — a 1-1/4-to-1-1/2 tapered class, WIDER than this vocab's existing generic 'tapered' token (which every other tapered gravel frame/fork in this file implicitly means as 1-1/8-to-1-1/2) — outside this pass's ratified steerer scope (only 'tapered'/'straight-1-1-8'/'straight-1-1-4' were ratified), so forcing plain 'tapered' onto it would be a false interface claim; deferred to a future pass alongside a steerer-vocab widening.
-  shell:        ['bsa-road', 't47-road', 'bb86', 't47-86'],
-  spindle:      ['24mm-road', 'dub', 'square-taper'],   // 'square-taper' added vocab-tier1 (2026-07-22), paired with the bb shell token above — the matching crank-side interface for a square-taper BB shell (no cataloged gravel crank currently uses it; landed for schema completeness alongside the shell token, same discipline as every other shell/spindle pair in this vocab).
+  /* ===========================================================================
+     BB = TWO ORTHOGONAL AXES.  A frame states a SHELL; a crank states a
+     SPINDLE; a bottom bracket is the ADAPTER that bridges one specific
+     (shell, spindle) PAIR. Until fix/gravel-bb-steerer-split (2026-07-24) this
+     file held ONE merged `bb` key that vocab'd frame.bb (a shell) AND
+     crankset.bb (a spindle) off a single list containing both kinds, while a
+     separate under-wired `shell`/`spindle` pair vocab'd only the bb rows.
+     The shared engine's R11 (rg-bb-shell / rg-bb-spindle, src/compat-road.js)
+     has always compared shell-to-shell and spindle-to-spindle correctly — the
+     VALUE SPACE was the problem, not the rule.
+
+     WHY IT HAD TO SPLIT (mechanic corpus FRM-62, tools/mechanic/
+     frame-standards-bearings.md, sourced to praxiscycles.com's own "PRAXIS M30
+     BB OPTIONS" page): ONE M30 spindle runs in NINE different shells via nine
+     different Praxis BBs ("M30-BSA THREADED | 68mm ROAD | 68/73/83mm MTN",
+     "M30-BB PF41 | BB86 ROAD/BMX | BB90/92 MTN", M30-386EVO, M30-BBRight,
+     M30-BB30/PF30 ROAD, M30-BB30/PF30 MTN, M30-T47 E.B., M30-T47 I.B.,
+     M30-T47 Asym), and conversely one shell (a BSA gravel frame) accepts many
+     spindles. A single collapsed axis produces wrong verdicts BOTH ways:
+       (1) FALSE FIT — an M30 crank forced onto the only available token type
+           (a shell name) becomes byte-identical to a 24mm Shimano BSA crank
+           and passes against a 24mm BB it cannot physically run in;
+       (2) FALSE WON'T-FIT — that same crank, pinned to one shell token, is
+           rejected on every other shell Praxis explicitly sells a BB for.
+     It also made the M30/30mm spindle interface UNENTERABLE, which is why the
+     Praxis Zayante Carbon-GR was skipped by an earlier wave (that worker was
+     right to refuse rather than mis-field it).
+
+     THIS IS NOT A NEW DESIGN: src/schema-road.js has always kept `bbShellRoad`
+     (frame.bb + bb.shell) separate from `crankBbRoad` (crankset.bb +
+     bb.spindle), and crankBbRoad already carried '30mm'. Gravel was the
+     lagging surface; this brings it to parity. The engine's own union table
+     (ROAD_VOCAB.bbShell / .crankBb) already documented both axes too.
+     ========================================================================= */
+  /* SHELL — the FRAME side (frame.bb) and the BB's frame-facing side
+     (bb.shell). Every token below was already accepted for frame.bb by the old
+     merged key and is carried over unchanged with its original sourcing; no
+     frame row's value changed. */
+  shell:        ['bsa-road', 'bb86', 'bb30a', 'pf30', 'bbright', 't47-road', 'bb386evo', 't47-86', 'pf92',
+                 'square-taper', 'bsa-73', 't47a-bbright', 't47-73', 'threadfit82-5'],
+  /* ⚠ 'square-taper' IS A SPINDLE INTERFACE AND IS LISTED HERE ONLY BECAUSE ONE
+     FRAME ROW STILL CARRIES IT AS ITS SHELL (gfr-marin-nicasio-plus, frame.bb).
+     src/compat-road.js's ROAD_VOCAB.bbShell note already flagged this as a
+     suspected mis-fielded value — square taper names the BB unit's crank-side
+     interface, while that frame's shell is threaded — and deliberately left it
+     as a catalog-data question. The split makes the mis-fielding VISIBLE (the
+     token now sits on both axes, which no real standard does) but does NOT
+     resolve it: no fetched Marin source states the Nicasio+'s shell standard,
+     and guessing 'bsa-road' would be a fabricated interface claim. FLAGGED to
+     the coordinator; the moment a source lands, correct the row and delete the
+     token from THIS list (it stays legitimately in `spindle` below).
+     'threadfit82-5' added catalog/gravel-breadth-5 (2026-07-23) — Colnago's own proprietary press-fit-adapter shell standard, real on the G3-X (glory-cycles.com's directly-fetched frameset spec sheet states "Bottom Bracket Type: TheadFit82.5" verbatim, and its own description explains the cups "screw into the frame, creating... space for any Pressfit BB adapter" — a genuinely distinct 82.5mm-shell standard from this vocab's existing 86.5mm-class 'bb86'/'t47-86' tokens, also used on the V3-RS/C64; per THE BAR, force-fitting it onto 'bb86' would misstate a real ~4mm shell-width difference, so it earns its own token rather than being merged. 't47-73' added catalog/gravel-breadth-2 (2026-07-23) — a 73mm-wide threaded T47 shell (MTB-width, like 'bsa-73' is to 'bsa-road'), real on the Curve GMX+ Steel: curvecycling.com's own product page states "T47 BB (73 mm)" verbatim, corroborated identically by a directly-fetched theradavist.com review ("Bottom Bracket: T47 BB (73 mm)"), distinct from the narrower 68mm-class 't47-road' token already in this vocab — same widening discipline as 'bsa-73' (vocab-tier1, 2026-07-22). 'pf86' retired 2026-07-21 — merged into 'bb86' (same physical 86.5mm press-fit shell; see schema-road.js's header note). Fixes the 2 Giant Revolt frames that had NO matching BB row under the old split. 'pf92' added gravel-verify-1 (2026-07-21) — the Salsa Cutthroat's own frame-specs table states "Bottom Bracket Press Fit BB92, 41 x 92 mm", an MTB-style 92mm press-fit shell distinct from every existing gravel BB token (BB86 is 86.5mm). 'square-taper' added vocab-tier1 (2026-07-22) — real on the Marin Nicasio+ (a retailer spec table states verbatim "Sealed Cartridge Bearings, Square Taper"), the exact non-fit this file's own header comment previously logged rather than force-fit. 'bsa-73' added vocab-tier1 (2026-07-22) — a 73mm-wide English-threaded MTB-derived shell, real on the Kona Sutra LTD (its own dedicated build spec table states "B/B SRAM GXP 73mm", corroborated by a bikepacking.com review's "73mm bottom bracket shell... 68mm shells be damned"), distinct from the narrower 68mm bsa-road token already in this vocab. 't47a-bbright' added vocab-tier1 (2026-07-22) — an asymmetric T47-threaded shell (Cervelo's own evolution of its BBRight standard, distinct from both the plain 't47-road' and 'bbright' tokens already in this vocab). Directly FETCHED cervelo.com/en-US/bikes/aspero (the manufacturer's own current Aspero platform page): "Aspero uses the asymmetrical T47a threaded bottom bracket we pioneered on R5-CX... allows us to deliver the benefits of BBRight in a more user-friendly form" — corroborated identically by a directly-fetched bikeradar.com Aspero-5 review build table ("Bottom bracket SRAM DUB Wide Ceramic, T47 BBright") and bikerumor.com ("a threaded T47 bottom bracket – well an asymmetric BBRight T47a BB"). */
+  /* SPINDLE — the CRANK side (crankset.bb) and the BB's crank-facing side
+     (bb.spindle). '24mm-road'/'dub'/'dub-wide'/'ultra-torque' move here from
+     the old merged key (every cataloged gravel crank uses one of the four);
+     'square-taper' was already here. */
+  spindle:      ['24mm-road', 'dub', 'dub-wide', 'ultra-torque', 'square-taper', '30mm'],
+  /* '30mm' ADDED fix/gravel-bb-steerer-split (2026-07-24) — the M30 / 30mm
+     crank spindle interface, the token whose ABSENCE (not a data gap) blocked
+     the Praxis Zayante Carbon-GR. FETCHED praxiscycles.com/product/
+     zayante-carbon-gr/ (the maker's own product page): "Alloy M30 spindle
+     (30mm/28mm)" and, under B.B., "This crank requires Praxis M30 BB / M30 =
+     30mm Drive Bearing / 28mm NonDrive Bearing". Spelled '30mm' to match
+     schema-road.js's crankBbRoad and the engine's ROAD_VOCAB.crankBb, which
+     have carried this exact token since the road wave — one spelling per
+     interface (the pf86/bb86 false-mismatch lesson). NEVER merge with 'dub':
+     SRAM DUB is 28.99mm, not 30mm (mechanic corpus FRM-4's explicit trap).
+     Backing rows: gcr-praxis-zayante-carbon-gr-2x, gbb-praxis-m30-bsa-68,
+     gbb-praxis-m30-pf41-bb86 in data/gravel.js.
+     'square-taper' added vocab-tier1 (2026-07-22) — the crank-side interface of
+     a square-taper BB; still no cataloged gravel crank or BB uses it. */
   seatpost:     ['27.2', '31.6', '30.9', 'proprietary'],
   // dropperDiameter — split from the 'seatpost' vocab above: a dropper is
   // always a real round tube (never the rigid-seatpost 'proprietary' token,
   // which would falsely validate a dropper diameter that can't exist).
   dropperDiameter: ['27.2', '31.6', '30.9'],
-  steerer:      ['tapered', 'straight-1-1-8', 'straight-1-1-4', 'cervelo-d-shaped'],
+  steerer:      ['tapered',
+                 /* ===== TAPERED-STEERER CLASSES (fix/gravel-bb-steerer-split,
+                    2026-07-24 — mechanic corpus FRM-55/56/57/59/60) ===========
+                    "Tapered" NAMES A FAMILY, NOT AN INTERFACE. Park Tool's own
+                    S.H.I.S. reference states the two-code structure verbatim —
+                    "A bike may have one headset standard at the top and a
+                    different standard and size on the bottom" — so a taper is
+                    the PAIR (upper steerer OD, lower crown-race seat OD), and
+                    the real market runs several distinct combinations over
+                    genuinely different head-tube bores (IS41 41.10–41.20mm,
+                    IS42 41.95–42.05, IS47 47.05–47.10, IS49 49.1–49.2,
+                    IS52 52.1–52.15). Giant's own technology page names three of
+                    them side by side under its own brand names: OverDrive road
+                    = "1 1/8-inch top and 1 1/4-inch bottom bearings",
+                    OverDrive mountain = 1-1/8 top / 1-1/2 bottom, OverDrive 2 =
+                    "Oversized headset bearings (1 1/4-inch top and 1 1/2-inch
+                    bottom bearings) and a tapered steerer tube" — and lists a
+                    "1 1/4-inch stem" as a REQUIRED part of OverDrive 2, i.e.
+                    changing the UPPER of the taper changes the stem clamp
+                    (28.6 vs 31.8mm) as well as the bore. White Industries'
+                    IS42/IS52 headset page corroborates the lower end: it is for
+                    "frames with integrated 42mm upper and 52mm lower head
+                    tubes" and needs a 1-1/2" (40mm) crown race, which a 1-1/4"
+                    (33mm) race does not seat in.
+                    NAMING (FRM-60): makers describe a taper by its two INCH
+                    sizes, upper-first — never by one word — so the tokens carry
+                    both ends, in this vocab's existing straight-1-1-8 /
+                    straight-1-1-4 style rather than a new naming scheme. */
+                 'tapered-1-1-8-1-1-2',   // 1-1/8" upper -> 1-1/2" lower (IS42/28.6 | IS52/40) — the common MTB/gravel taper; Giant "OverDrive" mountain
+                 'tapered-1-1-4-1-1-2',   // 1-1/4" upper -> 1-1/2" lower (IS47/31.8 | IS52/40) — Giant "OverDrive 2"; Cervelo's Aspero-5 headset line reads "1-1/4" X 1-1/2""; the class the FSA IS2 "1-1/4, 45°x45° / 1-1/2, 36°x45°" build spec named, which an earlier wave correctly refused to file under bare 'tapered'
+                 'tapered-1-1-8-1-1-4',   // 1-1/8" upper -> 1-1/4" lower (IS42/28.6 | IS47/33) — Giant "OverDrive" ROAD, "1 1/8-inch top and 1 1/4-inch bottom bearings"
+                 /* ⚠ BARE 'tapered' IS A LEGACY / UNVERIFIED VALUE, NOT A FOURTH
+                    CLASS. It is retained ONLY because ~120 gravel rows (and ~120
+                    road rows) already carry it, and re-labelling any of them to a
+                    specific class would ASSERT an interface nobody sourced —
+                    exactly the false claim THE BAR forbids. The shared engine
+                    (src/compat-road.js, R4) therefore treats it as UNKNOWN and
+                    emits NO verdict wherever the missing precision is what the
+                    answer turns on — against a specific taper class, in either
+                    direction. It stays DECISIVE against a straight tube and
+                    against the proprietary non-round systems, where "round,
+                    lower wider than upper" already answers the question; see
+                    R4's own SCOPE OF THE SILENCE note for why widening it
+                    further would manufacture false "fits".
+                    Rows promote to a two-ended token ONE AT A TIME as
+                    each is individually re-sourced; there is no bulk migration
+                    and there must never be one. A missing rule beats a wrong one. */
+                 'straight-1-1-8', 'straight-1-1-4', 'cervelo-d-shaped'],
   /* 'cervelo-d-shaped' ADDED schema/vocab-widen-ab (2026-07-22) — REQUIRED to
      enter the Cervelo Aspero-5, the row that backs this file's previously
      unbacked 't47a-bbright' bb token (Douglas-ruled group B). Cervelo's own
@@ -257,7 +372,10 @@ var GRAVEL_SCHEMA = {
   frame: {
     wheelSizes:{type:'strArray',vocab:'wheel'}, rearAxle:{type:'string',vocab:'rearAxle'},
     brakeSystem:{type:'string',vocab:'brakeSystem'}, brakeMount:{type:'string',vocab:'brakeMount'},
-    bb:{type:'string',vocab:'bb'}, seatpost:{type:'string',vocab:'seatpost'}, steerer:{type:'string',vocab:'steerer'},
+    // frame.bb is a SHELL standard (fix/gravel-bb-steerer-split, 2026-07-24 —
+    // was vocab:'bb', the merged shells+spindles key). Mirrors schema-road.js's
+    // frame.bb -> bbShellRoad. Engine side: R11's rg-bb-shell half.
+    bb:{type:'string',vocab:'shell'}, seatpost:{type:'string',vocab:'seatpost'}, steerer:{type:'string',vocab:'steerer'},
     maxTireByWheel:{type:'map'}, frontDerailleurMount:{type:'string',vocab:'frontDerailleurMount'},
     frameOnly:{type:'bool'}, material:{type:'string',vocab:'material',optional:true},
     gen:{type:'string',optional:true}, dropoutType:{type:'string',vocab:'dropoutType',optional:true},
@@ -317,8 +435,19 @@ var GRAVEL_SCHEMA = {
     system:{type:'string',vocab:'system'}, speeds:{type:'number',vocab:'speeds'}
   },
   crankset: {
-    bb:{type:'string',vocab:'bb'}, chainrings:{type:'string',vocab:'chainrings'}, ring:{type:'number'},
-    ringStd:{type:'strOrNull',vocab:'ringStd',optional:true}, speeds:{type:'number',vocab:'speeds'}, chainline:{type:'number'}
+    // crankset.bb is a SPINDLE interface, NOT a shell (fix/gravel-bb-steerer-split,
+    // 2026-07-24 — was vocab:'bb'). Same field NAME as frame.bb, different axis;
+    // mirrors schema-road.js's crankset.bb -> crankBbRoad. Engine: R11's
+    // rg-bb-spindle half.
+    bb:{type:'string',vocab:'spindle'}, chainrings:{type:'string',vocab:'chainrings'}, ring:{type:'number'},
+    // chainline is OPTIONAL (2026-07-24), matching schema-road.js's long-standing
+    // `chainline: {type:'number', optional:true}`. Display-only — no engine rule
+    // reads it (ROAD_VOCAB_MAP has no chainline axis) — and real makers do not all
+    // publish it: praxiscycles.com's Zayante Carbon-GR page states a Q-FACTOR
+    // (150mm) and no chainline figure, so requiring the field would force either a
+    // fabricated number or the row's omission. Every existing gravel crank row
+    // still carries its sourced value; nothing was removed.
+    ringStd:{type:'strOrNull',vocab:'ringStd',optional:true}, speeds:{type:'number',vocab:'speeds'}, chainline:{type:'number',optional:true}
   },
   bb: {
     shell:{type:'string',vocab:'shell'}, spindle:{type:'string',vocab:'spindle'}

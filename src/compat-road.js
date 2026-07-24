@@ -142,7 +142,18 @@ var ROAD_VOCAB = {
      here would document two spellings of one thing on ONE exact-match axis — the
      pf86/bb86 false-mismatch shape. The suspected duplicate spelling inside
      steererRG is flagged to the coordinator; retiring it is a schema call. */
+  /* 'tapered' is a LEGACY/UNVERIFIED value, NOT an interface — R4 below treats it
+     as UNKNOWN and emits no verdict against it (see the rule's own note). The
+     three two-ended tokens beside it ARE interfaces; sourcing lives at
+     GRAVEL_VOCAB.steerer in src/schema-gravel.js (mechanic corpus FRM-55/56/60).
+     They are listed here because this table is the UNION of what the validators
+     accept, and schema-gravel accepts them as of fix/gravel-bb-steerer-split
+     (2026-07-24); no catalog row carries one yet — rows promote only as each is
+     individually re-sourced. schema-road.js's steererRG is deliberately NOT
+     widened with them: no ROAD row is sourced to a class either, and this project
+     does not land a token in a validator without a backing row. */
   steerer:      ['tapered', 'straight-1-1-8',
+                 'tapered-1-1-8-1-1-2', 'tapered-1-1-4-1-1-2', 'tapered-1-1-8-1-1-4',
                  'straight-1-1-4',     // wider constant-diameter (1-1/4in) tube — Canyon Grizl CF SL fork ("Fork steer tube diameter: 1 1/4\""), the Wilier-class gap this file's gravel header comment logged; never conflated with the narrower straight-1-1-8 token
                  // Proprietary non-round steerer SYSTEMS (Douglas-ruled 2026-07-21) — one
                  // token per system, NEVER one shared 'proprietary' token: the rg-steerer /
@@ -251,16 +262,21 @@ var ROAD_VOCAB = {
      Aspero-5 service reference states it verbatim — "Bottom Bracket Type/Width:
      T47 BBright (T47A) Left cup: Inboard T47, Right cup: Outboard T47" — i.e. an
      asymmetric threaded SHELL standard, never a crank spindle, which is also why
-     it stays OUT of crankBb below. */
+     it stays OUT of crankBb below.
+     >>> The merged GRAVEL_VOCAB.bb the paragraph above is arguing about no longer
+     exists: fix/gravel-bb-steerer-split (2026-07-24) RETIRED it into a frame-side
+     `shell` and a crank-side `spindle` key, so gravel now attributes by FIELD like
+     road always did and no future token can arrive side-unknown. The history is
+     kept because it is the reasoning that justified this token's placement. */
   bbShell:      ['bsa-road', 'bb86', 'bb386evo', 'bbright', 'pf30', 't47-road', 'italian',
                  'bb90-road', 'bb30a', 't47-86', 'pf92', 'bsa-73', 'square-taper', 't47a-bbright', 't47-73', 'threadfit82-5'],
   /* 'threadfit82-5' added catalog/gravel-breadth-5 (2026-07-23) — Colnago's own
      proprietary press-fit-adapter shell (G3-X, also V3-RS/C64), a real ~82.5mm
      shell distinct from the 86.5mm-class bb86/t47-86 tokens already here; see
-     GRAVEL_VOCAB.bb's note in schema-gravel.js for the sourcing. */
+     GRAVEL_VOCAB.shell's note in schema-gravel.js for the sourcing. */
   /* 'square-taper' RECONCILED engine/road-vocab-map (2026-07-22) from
-     GRAVEL_VOCAB.spindle, which vocabs bb.spindle ONLY — an unambiguous one-field
-     key, so the crank-side attribution needs no guess. No cataloged gravel crank or
+     GRAVEL_VOCAB.spindle, an unambiguous crank-side key, so the attribution needs
+     no guess. No cataloged gravel crank or
      BB uses it yet (schema-gravel landed it for shell/spindle-pair completeness);
      it is listed because this table documents what the validators ACCEPT. */
   /* 'gxp' ADDED schema/vocab-widen-ab (2026-07-22) alongside the schema-road
@@ -306,10 +322,15 @@ var ROAD_VOCAB = {
    independently-named tables, and the naive assumption "same axis => same key"
    is FALSE in both directions:
 
-     - three GRAVEL_VOCAB keys are MERGED across engine axes — `hub` vocabs both
-       wheel ends, `actuation` vocabs shifters AND brake calipers AND droppers,
-       `bb` vocabs frame SHELLS and crank SPINDLES — so mapping any of them
-       wholesale to one ROAD_VOCAB key would manufacture bogus "gaps";
+     - two GRAVEL_VOCAB keys are MERGED across engine axes — `hub` vocabs both
+       wheel ends, and `actuation` vocabs shifters AND brake calipers AND
+       droppers — so mapping either wholesale to one ROAD_VOCAB key would
+       manufacture bogus "gaps". (A THIRD, `bb`, vocab'd frame SHELLS and crank
+       SPINDLES from one list until fix/gravel-bb-steerer-split, 2026-07-24
+       RETIRED it in favour of the `shell`/`spindle` pair schema-road.js always
+       had — that merge was not just a mapping nuisance, it made the M30/30mm
+       spindle interface unenterable; see the bbShell/crankBb entries below and
+       mechanic corpus FRM-62.);
      - two schema keys carry tokens that belong to NO engine axis: gravel's
        fork-side `axle` holds 'lefty-proprietary'/'15x100' (not hub values), and
        road's `steererRG` holds '1-1-8', which every row using it uses as a STEM
@@ -397,15 +418,15 @@ var ROAD_VOCAB_MAP = [
     rows: [ {cats: ['brake'], field: 'actuation'} ],
     why: 'The caliper axis (hydraulic vs mechanical). schema-road keeps it as its own key for exactly the reason this table needs — its own note: the value sets "do not overlap" with the shifter axis, so accepting a shifter-side token on a brake row (or vice versa) must stay impossible. schema-gravel merged the two, so the split is recovered here by row category.' },
 
-  { key: 'bbShell', schemaRoad: ['bbShellRoad'], schemaGravel: ['shell'], schemaShared: ['bb'], rules: 'R11 (rg-bb-shell)',
+  { key: 'bbShell', schemaRoad: ['bbShellRoad'], schemaGravel: ['shell'], rules: 'R11 (rg-bb-shell)',
     rows: [ {cats: ['frame'], field: 'bb'},
             {cats: ['bb'], field: 'shell'} ],
-    why: 'The FRAME-shell half of R11. schema-road\'s bbShellRoad vocabs frame.bb + bb.shell together, and GRAVEL_VOCAB.shell vocabs bb.shell alone — both unambiguous. GRAVEL_VOCAB.bb is SHARED: it vocabs frame.bb (a shell) AND crankset.bb (a spindle) from one list holding both kinds, so its tokens can only be attributed by the row that uses them. That is exactly how \'t47a-bbright\' was resolved in schema/vocab-widen-ab (2026-07-22): it sat here unattributed for as long as no row used it, and became a SHELL token the moment gfr-cervelo-aspero-5 carried it as frame.bb — attribution by usage, never by name.' },
+    why: 'The FRAME-shell half of R11. schema-road\'s bbShellRoad vocabs frame.bb + bb.shell together, and as of fix/gravel-bb-steerer-split (2026-07-24) GRAVEL_VOCAB.shell does the same on the gravel side — both unambiguous, and the two schemas finally agree in shape. GRAVEL_VOCAB.bb, the MERGED key that previously vocab\'d frame.bb (a shell) AND crankset.bb (a spindle) from one list holding both kinds, is RETIRED: it made every token attributable only by the row that used it (that is how \'t47a-bbright\' had to be resolved in schema/vocab-widen-ab, 2026-07-22 — attribution by usage, never by name) and it made the M30/30mm spindle interface unenterable at all. Mechanic corpus FRM-62 is the finding; nothing here changed a verdict, because R11 always compared shell-to-shell.' },
 
-  { key: 'crankBb', schemaRoad: ['crankBbRoad'], schemaGravel: ['spindle'], schemaShared: ['bb'], rules: 'R11 (rg-bb-spindle), rg-bb-advisory',
+  { key: 'crankBb', schemaRoad: ['crankBbRoad'], schemaGravel: ['spindle'], rules: 'R11 (rg-bb-spindle), rg-bb-advisory',
     rows: [ {cats: ['crankset'], field: 'bb'},
             {cats: ['bb'], field: 'spindle'} ],
-    why: 'The CRANK-spindle half of R11 — the mirror of bbShell, sharing the same merged GRAVEL_VOCAB.bb. Note the field trap this resolves: a CRANKSET\'s `bb` is a spindle interface while a FRAME\'s `bb` is a shell standard, i.e. the same field name on two different axes, disambiguated only by category.' },
+    why: 'The CRANK-spindle half of R11 — the mirror of bbShell. Note the field trap this resolves: a CRANKSET\'s `bb` is a spindle interface while a FRAME\'s `bb` is a shell standard, i.e. the same field name on two different axes, disambiguated only by category. Since fix/gravel-bb-steerer-split (2026-07-24) GRAVEL_VOCAB.spindle vocabs BOTH of this axis\'s fields (it previously vocab\'d bb.spindle only, while crankset.bb fell to the merged `bb` key), so the axis is now single-keyed in both schemas.' },
 
   { key: 'seatpostDia', schemaRoad: ['seatpostDiaRG'], schemaGravel: ['seatpost', 'dropperDiameter'], rules: 'R12, R12/dropper',
     rows: [ {cats: ['frame'], field: 'seatpost'},
@@ -778,15 +799,77 @@ function checkRoadBuild(build){
     err('rg-rear-axle', ['frame', 'rearWheel'], 'Rear axle mismatch: ' + roadNameOf(frame) + ' takes a ' + frame.rearAxle + ' hub but ' + roadNameOf(rW) + ' is ' + rW.hub + '.');
 
   /* R4. Steerer — fork vs frame head tube, and headset vs fork. Exact-match
-        over ['tapered','straight-1-1-8'] (definitional: a tapered steerer
-        does not enter a straight 1-1/8 head tube; the reducer-cup direction
-        for a straight fork in a tapered frame is real but stays an honest
-        ERROR pending the mechanic review — no adapter tier is claimed
-        without a documented product, and no catalog row can currently
-        produce the pairing). ERROR. */
-  if(frame && fork && frame.steerer != null && fork.steerer != null && frame.steerer !== fork.steerer)
+        (definitional: a 1-1/2in-lower tapered steerer does not enter a
+        straight 1-1/8 head tube; the reducer-cup direction for a straight
+        fork in a tapered frame is real but stays an honest ERROR pending the
+        mechanic review — no adapter tier is claimed without a documented
+        product, and no catalog row can currently produce the pairing). ERROR.
+
+        BARE 'tapered' IS UNKNOWN, NOT AN INTERFACE (2026-07-24, mechanic
+        corpus FRM-55/56/59/60 — fix/gravel-bb-steerer-split). "Tapered" names
+        a FAMILY: a real taper is the PAIR (upper steerer OD, lower crown-race
+        seat OD), and the market runs several genuinely different combinations
+        over different head-tube bores — Giant's own technology page contrasts
+        "1 1/8-inch top and 1 1/2-inch bottom" against "1 1/4-inch top and
+        1 1/2-inch bottom" and says the latter also REQUIRES a "1 1/4-inch
+        stem", so the classes differ at the bore, the bearing AND the stem
+        clamp. Comparing one collapsed 'tapered' token exact-match therefore
+        produced wrong verdicts in BOTH directions: two DIFFERENT tapers both
+        read 'tapered' and returned a false "fits", while an honestly-labelled
+        row (a 1-1/4-upper frame) could not be entered at all without a false
+        interface claim, so those bikes stayed out of the catalog.
+        THE RESOLUTION, per THE BAR (a missing rule beats a wrong one): the
+        specific two-ended tokens (tapered-1-1-8-1-1-2 / tapered-1-1-4-1-1-2 /
+        tapered-1-1-8-1-1-4) are compared exactly, as before; the LEGACY bare
+        token is treated as UNRECORDED DATA — no verdict, neither "fits" nor
+        "won't fit" — WHEREVER ITS MISSING PRECISION IS WHAT THE ANSWER TURNS
+        ON, i.e. against a specific taper class (and, trivially, against
+        another bare 'tapered'). Existing rows are NOT bulk-renamed: promoting
+        one asserts an interface nobody sourced. Each promotes on its own
+        re-sourcing, and this branch goes quiet for it the moment it does.
+
+        >>> SCOPE OF THE SILENCE, AND WHY IT IS NOT WIDER (deliberate; reported
+        to the coordinator). The lane brief asked for bare 'tapered' to produce
+        no verdict against ANY steerer value. Taken literally that manufactures
+        FALSE "FITS" — the one failure THE BAR ranks worst — because the family
+        name, imprecise as it is, still asserts a ROUND, LOWER-WIDER-THAN-UPPER
+        steerer, which is decisive against two whole classes of value:
+          - STRAIGHT tubes: every taper class in the corpus has a 1-1/4in or
+            1-1/2in lower, and none of them enters a straight 1-1/8in (IS41/
+            EC34) head tube. This is a TRUE won't-fit today.
+          - PROPRIETARY NON-ROUND SYSTEMS (cannondale-delta, overdrive-aero,
+            bmc-ics-flat, cervelo-d-shaped): FRM-58 states it for Cervelo in
+            the maker's own terms — "no round stem clamps a D-shaped tube" —
+            and these steerers take only their maker's own cockpit/headset.
+        Silencing those would turn ~120 road + ~120 gravel bare-'tapered' rows
+        GREEN against every proprietary frame and every straight head tube (the
+        dot contract reads "no verdict" as green). It would also require
+        WEAKENING four existing tests that pin exactly those true won't-fits,
+        which the golden rule forbids. So the silence is applied precisely
+        where the ambiguity actually lives — between the taper classes — and
+        nowhere else. If Douglas wants the wider version, it is a one-line
+        change to roadSteererComparable() below, made knowingly.
+
+        NOTE: within its scope this only SILENCES verdicts; it can never add
+        one, so no build that was buildable stops being buildable. */
+  /** A specific two-ended taper class, as opposed to the legacy family name.
+   *  @param {any} v @returns {boolean} */
+  function roadIsTaperClass(v){ return typeof v === 'string' && v.indexOf('tapered-') === 0; }
+  /** Can two steerer values yield a verdict at all? `false` = UNKNOWN, stay
+   *  silent (the same treatment an absent field gets). See the scope note above.
+   *  @param {any} a @param {any} b @returns {boolean} */
+  function roadSteererComparable(a, b){
+    if(a == null || b == null) return false;
+    if(a !== 'tapered' && b !== 'tapered') return true;
+    /* one side is the legacy family token. It cannot resolve WHICH taper, so a
+       comparison against a specific class — or against another equally vague
+       'tapered' — is undecidable. Against anything else (a straight tube, a
+       proprietary non-round system) "round and tapered" is already decisive. */
+    return !roadIsTaperClass(a) && !roadIsTaperClass(b) && !(a === 'tapered' && b === 'tapered');
+  }
+  if(frame && fork && roadSteererComparable(frame.steerer, fork.steerer) && frame.steerer !== fork.steerer)
     err('rg-steerer', ['frame', 'fork'], 'Steerer mismatch: ' + roadNameOf(fork) + ' has a ' + fork.steerer + ' steerer but ' + roadNameOf(frame) + ' takes ' + frame.steerer + '.');
-  if(hset && fork && hset.steerer != null && fork.steerer != null && hset.steerer !== fork.steerer)
+  if(hset && fork && roadSteererComparable(hset.steerer, fork.steerer) && hset.steerer !== fork.steerer)
     err('rg-headset-steerer', ['headset', 'fork'], 'Headset steerer mismatch: ' + roadNameOf(hset) + ' accepts a ' + hset.steerer + ' steerer but ' + roadNameOf(fork) + ' is ' + fork.steerer + '.');
   /* Proprietary-steerer integrated-headset info (coordinator, 2026-07-21 —
      post-wave-audit M1 resolution): for the per-system non-round steerers

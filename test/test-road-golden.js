@@ -235,8 +235,9 @@ test('vocab lint: every system + rearAxle token a data row uses exists in ROAD_V
    rearAxle). It stopped there because the field-key correspondence between
    ROAD_VOCAB, schema-road's LOCAL_VOCAB and schema-gravel's GRAVEL_VOCAB is
    genuinely ambiguous for several fields — three GRAVEL_VOCAB keys are MERGED
-   across engine axes (`hub` = both wheel ends, `bb` = shells AND spindles,
-   `actuation` = shifters AND calipers AND droppers), so a token-level superset
+   across engine axes (`hub` = both wheel ends, `actuation` = shifters AND
+   calipers AND droppers; a third, `bb` = shells AND spindles, was RETIRED by
+   fix/gravel-bb-steerer-split on 2026-07-24), so a token-level superset
    lint would have manufactured bogus gaps.
    src/compat-road.js's ROAD_VOCAB_MAP now ratifies that correspondence
    explicitly and maps the merged keys by ROWS (category + field) instead of by

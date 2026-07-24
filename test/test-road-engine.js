@@ -151,6 +151,75 @@ test('rg-steerer: straight-1-1-4 (vocab-tier1, 2026-07-22) fits its own class, e
   eq(errOf(r3, 'rg-steerer').length, 1, 'straight-1-1-8 fork in a straight-1-1-4 frame errors — the two straight classes are never interchangeable');
 });
 
+/* ---- R4 x TAPERED CLASSES (fix/gravel-bb-steerer-split, 2026-07-24 —
+       mechanic corpus FRM-55/56/57/59/60) --------------------------------------
+   Before this pass the whole taper family collapsed into ONE 'tapered' token,
+   so these cases could not even be expressed: the class tokens were not in any
+   vocab, and the engine had no notion of a legacy/unverified value. --------- */
+test('R4 tapered CLASSES: two different tapers are two different interfaces, and error', function(){
+  /* FRM-56, from Giant's own technology page: OverDrive mountain is "1 1/8-inch
+     top and 1 1/2-inch bottom", OverDrive 2 is "1 1/4-inch top and 1 1/2-inch
+     bottom" AND requires a "1 1/4-inch stem" — different bore, different
+     bearing, different stem clamp. Under one collapsed 'tapered' token both
+     read identical and returned a FALSE "fits"; that is the bug being closed. */
+  var frame118 = syn(gp('gfr-ibis-hakka-mx'), { id: 'gfr-syn-t118', steerer: 'tapered-1-1-8-1-1-2' });
+  var fork114  = syn(gp('gfk-cannondale-topstone-carbon'), { id: 'gfk-syn-t114', steerer: 'tapered-1-1-4-1-1-2' });
+  eq(errOf(ROAD.checkRoadBuild({ frame: frame118, fork: fork114 }), 'rg-steerer').length, 1,
+    'a 1-1/4-upper fork must NOT green in a 1-1/8-upper frame');
+  var fork118 = syn(fork114, { id: 'gfk-syn-t118', steerer: 'tapered-1-1-8-1-1-2' });
+  eq(of(ROAD.checkRoadBuild({ frame: frame118, fork: fork118 }), 'rg-steerer').length, 0,
+    'the matched class is silent — the split adds no false red');
+  var fork1114 = syn(fork114, { id: 'gfk-syn-t1114', steerer: 'tapered-1-1-8-1-1-4' });
+  eq(errOf(ROAD.checkRoadBuild({ frame: frame118, fork: fork1114 }), 'rg-steerer').length, 1,
+    'and the third class (Giant OverDrive ROAD, 1-1/8 -> 1-1/4) is distinct from both');
+  var hset114 = syn(gp('ghs-canecreek-40-zs44-zs56'), { id: 'ghs-syn-t114', steerer: 'tapered-1-1-4-1-1-2' });
+  eq(errOf(ROAD.checkRoadBuild({ fork: fork118, headset: hset114 }), 'rg-headset-steerer').length, 1,
+    'the headset half of R4 splits by class too');
+});
+
+test('R4: bare "tapered" is UNKNOWN against a specific class — no verdict either way', function(){
+  /* THE LEGACY-VALUE POLICY. ~120 gravel and ~120 road rows carry the bare
+     family token; re-labelling any of them would ASSERT an interface nobody
+     sourced (FRM-59). So against a specific class the engine says NOTHING —
+     it is missing data, not a fit and not a won't-fit. Rows promote one at a
+     time as each is re-sourced, and this silence lifts for each as it does. */
+  var legacyFrame = gp('gfr-ibis-hakka-mx');   // real row, steerer:'tapered'
+  eq(legacyFrame.steerer, 'tapered', 'precondition: an un-re-sourced legacy row');
+  var fork114 = syn(gp('gfk-cannondale-topstone-carbon'), { id: 'gfk-syn-unk114', steerer: 'tapered-1-1-4-1-1-2' });
+  eq(of(ROAD.checkRoadBuild({ frame: legacyFrame, fork: fork114 }), 'rg-steerer').length, 0,
+    'no ERROR: we do not know this frame is not a 1-1/4-upper');
+  var legacyFork = gp('gfk-cannondale-topstone-carbon');   // real row, steerer:'tapered'
+  var frame118 = syn(legacyFrame, { id: 'gfr-syn-unk118', steerer: 'tapered-1-1-8-1-1-2' });
+  eq(of(ROAD.checkRoadBuild({ frame: frame118, fork: legacyFork }), 'rg-steerer').length, 0,
+    'and symmetrically with the legacy value on the fork side');
+  var hset118 = syn(gp('ghs-canecreek-40-zs44-zs56'), { id: 'ghs-syn-unk118', steerer: 'tapered-1-1-8-1-1-2' });
+  eq(of(ROAD.checkRoadBuild({ fork: legacyFork, headset: hset118 }), 'rg-headset-steerer').length, 0,
+    'headset half likewise');
+  eq(of(ROAD.checkRoadBuild({ frame: legacyFrame, fork: legacyFork }), 'rg-steerer').length, 0,
+    'and bare-vs-bare stays silent (it always was — equal values never fired)');
+});
+
+test('R4: the legacy silence is SCOPED — bare "tapered" stays decisive where "round + tapered" already answers it', function(){
+  /* THE DELIBERATE LIMIT (reported to the coordinator). Silencing bare
+     'tapered' against EVERYTHING would manufacture false "fits", because the
+     family name still asserts a ROUND, lower-wider-than-upper steerer. These
+     four pins are the reason the scope stops where it does; each is a TRUE
+     won't-fit that must survive the change. */
+  var legacyFork = gp('gfk-cannondale-topstone-carbon');   // steerer:'tapered'
+  var straightFrame = gp('gfr-canyon-grizl-cf-sl');        // real row, steerer:'straight-1-1-4'
+  eq(errOf(ROAD.checkRoadBuild({ frame: straightFrame, fork: legacyFork }), 'rg-steerer').length, 1,
+    'no taper class has a 1-1/4 STRAIGHT-tube steerer — still a won\'t-fit');
+  var straight118 = syn(straightFrame, { id: 'gfr-syn-str118', steerer: 'straight-1-1-8' });
+  eq(errOf(ROAD.checkRoadBuild({ frame: straight118, fork: legacyFork }), 'rg-steerer').length, 1,
+    'and every taper\'s lower is 1-1/4 or 1-1/2, which never enters a straight 1-1/8 head tube');
+  eq(errOf(ROAD.checkRoadBuild({ frame: rp('fr-cannondale-supersix-evo'), fork: legacyFork }), 'rg-steerer').length, 1,
+    'a round tapered fork must NOT green in a Cannondale Delta (non-round) frame');
+  eq(errOf(ROAD.checkRoadBuild({ frame: gp('gfr-cervelo-aspero-5'), fork: legacyFork }), 'rg-steerer').length, 1,
+    'nor in a Cervelo D-shaped one — FRM-58: "no round stem clamps a D-shaped tube"');
+  eq(errOf(ROAD.checkRoadBuild({ fork: rp('fk-cannondale-supersix-evo'), headset: gp('ghs-canecreek-40-zs44-zs56') }), 'rg-headset-steerer').length, 1,
+    'and a bare-tapered HEADSET still errors on a proprietary steerer — the case that would have gone green');
+});
+
 test('proprietary steerer systems: same-system fits, cross-system and standard both error (Douglas-ruled 2026-07-21)', function(){
   // Real catalog rows: Giant OverDrive Aero (D-shaped) and Cannondale Delta are distinct
   // per-system tokens ON PURPOSE — a shared 'proprietary' token would let the exact-match
@@ -315,6 +384,82 @@ test('rg-bb-shell / rg-bb-spindle error their mismatches; advisory info with no 
   eq(of(r3, 'rg-bb-shell').length + of(r3, 'rg-bb-spindle').length, 0, 'PF86 shell + PF86 BB + 24mm crank all match');
   var r4 = ROAD.checkRoadBuild({ frame: rp('fr-specialized-sworks-tarmac-sl8'), crankset: rp('cr-shimano-da-r9200') });
   eq(infoOf(r4, 'rg-bb-advisory').length, 1, 'sold-separately nudge');
+});
+
+/* ---- R11 x the gravel SHELL/SPINDLE SPLIT (fix/gravel-bb-steerer-split,
+       2026-07-24 — mechanic corpus FRM-62) -----------------------------------
+   These four tests all FAILED before the split, for one reason: schema-gravel
+   had a single merged `bb` vocab of frame SHELL names covering both frame.bb
+   (a shell) and crankset.bb (a SPINDLE), so no 30mm/M30 spindle token existed
+   and gcr-praxis-zayante-carbon-gr-2x-48-32 could not be entered at all
+   (gp() throws on an unknown id). The engine's R11 never needed changing — it
+   has always compared shell-to-shell and spindle-to-spindle; the VALUE SPACE
+   was the bug. What these pin is the mechanical fact the merged axis could not
+   represent: a spindle and a shell are ORTHOGONAL, and the BB is the adapter
+   that bridges one specific (shell, spindle) pair. ------------------------- */
+test('gravel BB split: an M30 crank runs in TWO different shells via the right BBs (the false won\'t-fit is gone)', function(){
+  var crank = gp('gcr-praxis-zayante-carbon-gr-2x-48-32');
+  eq(crank.bb, '30mm', 'precondition: the row the merged vocab blocked, on the SPINDLE axis');
+
+  /* praxiscycles.com sells this ONE spindle interface in nine shell-specific
+     BBs; two are cataloged. Each must be clean on its OWN shell's frame. */
+  var bsaFrame = gp('gfr-specialized-crux-comp-carbon');   // real row, bb:'bsa-road'
+  var bsaBb    = gp('gbb-praxis-m30-bsa-68');              // real row, shell:'bsa-road', spindle:'30mm'
+  var r1 = ROAD.checkRoadBuild({ frame: bsaFrame, bb: bsaBb, crankset: crank });
+  eq(of(r1, 'rg-bb-shell').length + of(r1, 'rg-bb-spindle').length, 0,
+    'BSA frame + M30-BSA BB + M30 crank: shell matches shell, spindle matches spindle');
+
+  var pfFrame = gp('gfr-canyon-grail-cf-sl');              // real row, bb:'bb86'
+  var pfBb    = gp('gbb-praxis-m30-pf41-bb86');            // real row, shell:'bb86', spindle:'30mm'
+  var r2 = ROAD.checkRoadBuild({ frame: pfFrame, bb: pfBb, crankset: crank });
+  eq(of(r2, 'rg-bb-shell').length + of(r2, 'rg-bb-spindle').length, 0,
+    'THE SAME CRANK on a BB86 frame via the BB86 BB — one spindle, two shells, both clean');
+
+  eq(bsaBb.spindle, pfBb.spindle, 'and the two BBs really do share one spindle interface');
+  ok(bsaBb.shell !== pfBb.shell, 'while fitting genuinely different frame shells');
+});
+
+test('gravel BB split: an M30 crank on a 24mm-only BB still ERRORS, for the spindle reason', function(){
+  /* The other half of THE BAR: the split must not buy the missing "fits" with
+     a new false one. A 24mm Shimano bearing set does not take a 30mm spindle,
+     and under the OLD merged vocab this pairing was unrepresentable rather
+     than correct — the crank would have had to carry a shell name, making it
+     byte-identical to a 24mm BSA crank and GREEN against exactly this BB. */
+  var crank = gp('gcr-praxis-zayante-carbon-gr-2x-48-32');
+  var bb24  = gp('gbb-shimano-sm-bb52-bb86');   // real row, spindle:'24mm-road'
+  var r = ROAD.checkRoadBuild({ bb: bb24, crankset: crank });
+  eq(errOf(r, 'rg-bb-spindle').length, 1, 'a 24mm BB under a 30mm spindle is a hard won\'t-fit');
+  eq(errOf(r, 'rg-bb-shell').length, 0, 'and it is the SPINDLE half that fires, not the shell half');
+  ok(/30mm/.test(String(errOf(r, 'rg-bb-spindle')[0])) && /24mm-road/.test(String(errOf(r, 'rg-bb-spindle')[0])),
+    'the message names both interfaces: ' + errOf(r, 'rg-bb-spindle')[0]);
+
+  /* and the right-shell/wrong-spindle case is caught on the shell half alone */
+  var r2 = ROAD.checkRoadBuild({ frame: gp('gfr-specialized-crux-comp-carbon'), bb: gp('gbb-praxis-m30-pf41-bb86'), crankset: crank });
+  eq(errOf(r2, 'rg-bb-shell').length, 1, 'a BB86 BB in a BSA frame errors on the shell half');
+  eq(of(r2, 'rg-bb-spindle').length, 0, 'while the spindle half stays silent — the two axes are independent');
+});
+
+test('gravel BB split: the sold-separately advisory now names a SPINDLE and a SHELL, never one merged token', function(){
+  var r = ROAD.checkRoadBuild({ frame: gp('gfr-specialized-crux-comp-carbon'), crankset: gp('gcr-praxis-zayante-carbon-gr-2x-48-32') });
+  var adv = infoOf(r, 'rg-bb-advisory');
+  eq(adv.length, 1, 'BB genuinely sold separately');
+  ok(/30mm spindle/.test(String(adv[0])), 'names the crank\'s spindle: ' + adv[0]);
+  ok(/bsa-road-shell/.test(String(adv[0])), 'and the frame\'s shell: ' + adv[0]);
+});
+
+test('gravel BB split: ROAD did not regress — the shared engine\'s road-side R11 cases are untouched', function(){
+  /* compat-road.js is shared by both surfaces; this pass touched only vocab and
+     R4, but R11's road path is re-pinned here explicitly because the split
+     lives one file away from it. Mirrors the road cases above, with the
+     30mm-on-road pairing road's crankBbRoad has always accepted. */
+  var r = ROAD.checkRoadBuild({ frame: rp('fr-giant-tcr-advsl'), bb: rp('bb-shimano-smbb72-41'), crankset: rp('cr-shimano-da-r9200') });
+  eq(of(r, 'rg-bb-shell').length + of(r, 'rg-bb-spindle').length, 0, 'the road golden BB pairing stays clean');
+  var crank30 = syn(rp('cr-shimano-da-r9200'), { id: 'cr-syn-30mm', bb: '30mm' });
+  var r2 = ROAD.checkRoadBuild({ bb: rp('bb-shimano-smbb72-41'), crankset: crank30 });
+  eq(errOf(r2, 'rg-bb-spindle').length, 1, 'a 30mm spindle on a 24mm road BB errors on the road side too');
+  var bb30 = syn(rp('bb-shimano-smbb72-41'), { id: 'bb-syn-30mm', spindle: '30mm' });
+  eq(of(ROAD.checkRoadBuild({ bb: bb30, crankset: crank30 }), 'rg-bb-spindle').length, 0,
+    'and matches its own 30mm BB — the token means the same thing on both surfaces');
 });
 
 /* ---- R12 seatpost / dropper ------------------------------------------------ */
