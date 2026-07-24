@@ -2088,7 +2088,8 @@ var KIT_PARTS = [
      rejects as a new row - see the branch report. -- */
   { id:'sht-dharco-trail-mens', cat:'shorts', brand:'DHaRCO', model:"Men's Trail Shorts", price:107,
     liner:false, disciplines:['trail'], sizes:['S','M','L','XL','2XL','3XL'],
-    desc:'Lighter, more casual cut than the already-cataloged Gravity Shorts. Price from us.dharco.com\'s own Men\'s MTB collection listing (not an individually fetched product page this session) - left unverified.' },
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://us.dharco.com/collections/mens-shorts',
+    desc:'Lighter, more casual cut than the already-cataloged Gravity Shorts. Confirmed off us.dharco.com\'s own Men\'s Shorts + Men\'s MTB collection listings (Canyon/Black/Envy colorways all $107.00 USD): exact match to the existing sample.' },
 
   /* -- Castelli breadth continued (catalog/kit-breadth-8, 2026-07-23): a real "bib short" SKU
      entered under the shared `shorts` category (this catalog doesn't split out a separate
@@ -2926,9 +2927,10 @@ var KIT_PARTS = [
     sizes:['S','M','L','XL'],
     desc:'Fetched us.dharco.com: CORRECTED price $35 -> $44.95, sizes S-XL (no XXL). Velcro-less easy entry, silicone palm grip, 2025 redesign. Weight not published; kept as the existing sample per the kit weight policy.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-17', source:'https://us.dharco.com/products/mens-race-glove-black-1' },
-  { id:'glv-dharco-trail', cat:'gloves', brand:'DHaRCO', model:'Trail Glove', price:32, weight:58,
+  { id:'glv-dharco-trail', cat:'gloves', brand:'DHaRCO', model:'Trail Glove', price:38,
     sizes:['S','M','L','XL','XXL'],
-    desc:'UNVERIFIED (2026-07-17): no "Trail Glove" SKU found on us.dharco.com - the current men\'s glove lineup is Race Glove and Gravity Gloves only. Left as an unverified sample rather than guessing which current SKU this maps to.' },
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://us.dharco.com/collections/mens-mtb-accessories',
+    desc:'A "Mens Trail Glove" SKU is now live on us.dharco.com (Black/White/Canyon/Envy/Recon/Jinx/Bowen colorways, all $38.00 USD) - the row the 2026-07-17 session couldn\'t find has since shipped. Corrected from the $32 sample to the real $38 price; the prior no-weight-stated 58g sample figure dropped (not reconfirmed on the current product page, and kit apparel weight isn\'t required).' },
   { id:'glv-flylow-dirt', cat:'gloves', brand:'Flylow', model:'Dirt Glove', price:45,
     desc:'All-purpose light, quick-drying MTB glove; no weight stated on the fetched maker page.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23',
