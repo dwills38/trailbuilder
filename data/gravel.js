@@ -2318,6 +2318,10 @@ var GRAVEL_PARTS = [
     note: 'catalog/gravel-components-3: NEW row — closes the Fabric bartape brand gap. FETCHED fabric.cc/products/knurl-gravel directly this session (its own US-storefront product page): "$29.99", "3.5mm foam-backed Kraton rubber and a knurled diamond texture... A silicone gel backing soaks up vibration—perfect for long days on gravel, dirt, or cobbles", spec block states "Weight: 130 g" (for the 2-roll package, matching this catalog\'s per-package weight convention for other bartape rows) and "Tape thickness: 3.5mm". priceBasis:msrp-confirmed (maker\'s own USD storefront price).',
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://fabric.cc/products/knurl-gravel' },
 
+  { id: 'gtp-zipp-service-course', cat: 'bartape', brand: 'Zipp', model: 'Service Course Bar Tape', family: 'zipp-service-course-tape',
+    mfgPn: 'AC-SC-TAPE-A1', weight: 103, price: 35,
+    note: 'catalog/gravel-components-5: NEW brand — Zipp, closing a gap in the bartape category (SRAM\'s cockpit brand was absent). FETCHED sram.com/en/zipp/models/ac-sc-tape-a1 directly this session (SRAM\'s own per-brand model page, the same clean provenance class this catalog already trusts for SRAM drivetrain) and shop.sram.com/collections/zipp/products/zipp-service-course-bar-tape (SRAM\'s own US storefront): the sram.com model page confirms real/current, padded, cross-hatched-for-CX-or-smooth-for-road, "Model AC-SC-TAPE-A1", $30-35 depending on color/finish; the shop.sram.com storefront pins the exact figure for the currently-listed variant — "$30.00 USD (50% off from the original $35.00)" — so this row uses the $35.00 regular/MSRP figure per pricing policy (never the sale price). Neither SRAM page publishes a weight; 103g is a NAMED retailer figure (BikeTiresDirect) for the identical two-roll package, not independently manufacturer-confirmed, so this row stays UNVERIFIED sample despite the maker-confirmed MSRP (weight provenance incomplete, same convention as this file\'s Cinelli Cork Ribbon row).' },
+
 ];
 
 // Guard: this file loads nothing and is loaded by nothing the live app serves. If a future
