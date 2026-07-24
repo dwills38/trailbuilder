@@ -2217,6 +2217,10 @@ var GRAVEL_PARTS = [
     style: 'clip', weight: 320, price: 199.99,
     note: 'catalog/gravel-components-1: NEW row — the top trim tier of the Candy family (aluminum body, stainless steel wings, premium bearings — distinct weight/price from Candy 1/2/3). FETCHED crankbrothers.com/products/candy-7 directly this session — "320g per pair", "$199.99" MSRP.',
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.crankbrothers.com/products/candy-7' },
+  { id: 'gpd-crankbrothers-candy11', cat: 'pedal', brand: 'Crankbrothers', model: 'Candy 11 Titanium', family: 'crankbrothers-candy',
+    style: 'clip', weight: 249, price: 549.99,
+    note: 'catalog/gravel-components-2: NEW row — the flagship titanium tier of the Candy family, distinct weight/price from the already-cataloged Candy 1/2/3/7. FETCHED crankbrothers.com/products/candy-11 directly this session — "Weight 249g per pair", "$549.99 USD", titanium spindle + wings, igus LL-glide inner bearing / Enduro cartridge outer bearing, "Max Rider Weight 200 lbs / 90 kgs".',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.crankbrothers.com/products/candy-11' },
 
   // ===== BARTAPE ==========================================================
   { id: 'gtp-fizik-vento-microtex-tacky', cat: 'bartape', brand: 'Fizik', model: 'Vento Microtex Tacky',
