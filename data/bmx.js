@@ -593,6 +593,11 @@ var BMX_PARTS = [
     steererFit: 'integrated-1-1/8', cableRouting: 'dual', weight: 72, price: 44.99,
     note: 'bmx-breadth-4 (2026-07-22): UNVERIFIED sample. Directly fetched saltbmx.com/products/saltplus-geo-rotor: "Size: for 1 1/8\\" headtubes" -> steererFit CONFIRMED; "Weight: 72g (2.54oz : 0.15lbs)" -> weight CONFIRMED. cableRouting left at the catalog-standard \'dual\' (not itself stated on this page; SaltPlus separately sells a "Dual Upper Gyro Cable" for this same rotor line, consistent with dual routing). Maker page carries NO price (redirects off-site to a "Kingdom Store" distributor with no price shown) - retailer prices span $39.99 (thesecretbmx.com, listed sold-out) to $58.95 (SkatePro, EUR-region); $44.99 (LUXBMX-adjacent midpoint) entered as an approximate sample, not a confirmed MSRP. Left unverified: no source page states a USD price.'
   },
+  {
+    id: 'bmx-gy-colony-rx3', cat: 'gyro', brand: 'Colony', model: 'RX3 Rotary Gyro',
+    steererFit: 'integrated-1-1/8', cableRouting: 'dual', weight: 32, price: 44.00,
+    note: 'bmx-smallparts-1 (2026-07-23): UNVERIFIED sample, new brand for this category. Directly fetched colonybmx.com.au/products/rx3-rotary-detangler/: "CNC Alloy precision detangler...Weight: 32g (0.07 lbs)" -> weight CONFIRMED. steererFit/cableRouting left at the catalog-standard integrated-1-1/8/dual (not stated on this page; display-only fields per every other cataloged gyro row\'s convention). Maker page (AU distributor site) carries NO price - $44.00 entered as an approximate sample from a US retailer (LUXBMX sale-price listing, currently sold out there), not a confirmed MSRP; left unverified per THE PRICE RULE.'
+  },
 
   // ===== CRANKS ========================================================
   {
