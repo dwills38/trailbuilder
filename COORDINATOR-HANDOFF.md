@@ -26,7 +26,76 @@ seat does the housekeeping automatically — Douglas never renames/unpins/archiv
 
 ---
 
-## ★★★ SEAT 23 — START HERE (succession from seat 22, 2026-07-23 late) ★★★
+## ★★★ SEAT 23 — START HERE (succession from seat 22, 2026-07-24) ★★★
+
+Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today>-s23 -b
+coord/<today>-s23 origin/main` (Hard rule #5 — containment hook LIVE and now HARDENED against three
+false-positive classes). Run the gates yourself, never trust doc counts. **State at handoff: main
+`32b5fa67` green — MTB 5,275 (3,456 verified) · kit 995 (791, +26 advisory id-brand-token warnings,
+cosmetic) · BMX 480 (310) · road 470 (395) · gravel 426 (291) · EMTB 208 (187) · striders 48 (38) ·
+1,349 tests / 46 files · tsc clean · verdict harness clean (363 clean / 2 known catalog-gap errors) ·
+7 validators at 0 problems. 303 commits this seat, zero broken deploys.** Recreate the node_modules
+junction if missing: `cmd //c "mklink /J node_modules \"D:\MTB Bike Builder\node_modules\""`.
+
+**★ SEATING SEQUENCE:**
+1. **Succession handshake** — find seat 22 via `list_sessions` **BY TITLE** ("Main Coordinator
+   (Seat 22)"). `send_message` it to `set_session_title` you to "Main Coordinator (Seat 23)"; archive
+   it on confirm. If it never wakes, one line to Douglas and DON'T block.
+2. **RE-ARM BOTH session-lifetime watchers IMMEDIATELY** (they die with the seat): (a) the hourly
+   fleet-sweep cron — **use the corrected v3 prompt** whose known-legit D:\ root list includes
+   `BuildMyMTB-Backup` (sanctioned 2026-07-23), `MTB Videos` and `SMTB & Kung Fu Hustle` (his
+   personal media), and which treats Downloads as his day-job folder; (b) the persistent
+   worker-reports Monitor, **mtime-aware version** (per-file mtimes, emit on NEW *and* CHANGED).
+   `CronList` after, delete dupes. The **EIGHT** durable scheduled tasks survive on their own — daily
+   bug-triage, monthly drift (6th), monthly bias (12th), quarterly recall, weekly repo-audit (Sun),
+   plus three added this seat: **monthly mechanic rule audit (16th), monthly UI/mobile audit (18th),
+   quarterly security review (20th)**, and the **efficiency-audit reminder (1st/11th/21st)**. Do NOT
+   recreate any of them.
+3. Read **HANDOFF-CHIPS.md** (SEAT 22 WRAP block — open questions, rulings, ready chips) +
+   `_PDFs/OPEN-QUESTIONS.md` + `DOUGLAS-TODO.md` + memory MEMORY.md + CLAUDE.md hard rules 1-5.
+
+**★ IN FLIGHT AT HANDOFF: NOTHING.** Every chip merged, every worker archived. Only "Affiliate Setup"
+(never touch) + the bug-triage vessels remain. NOTE: there are now TWO "Bug report triage" sessions;
+the older is likely dead clutter but never archive the live vessel.
+
+**★ THINGS THAT CHANGED SHAPE THIS SEAT — know these before touching anything:**
+· **MTB catalog rows live in `data/mtb.js`** (`MTB_PARTS_RAW`), NOT `src/compat.js` (now the
+  ~2,100-line ENGINE). Any chip that adds/edits MTB rows must target data/mtb.js.
+· **`src/verdict-core.js`** holds Verdict/verdictKey/esc/fisherYatesShuffle; bmx/road/gravel no longer
+  load compat.js. Load order is load-bearing.
+· **`src/page-shell.js`** single-sources the footer legal links + the family switcher (TB_FAMILY).
+  Adding a builder should be a ONE-LINE change there, never six hand-edits.
+· **`garage.html`** is a real page on the flagship. Any new root .html needs its own
+  `cp <file>.html _site/` line in deploy.yml or it 404s in production.
+· **The shared checkout is now on `main`** — keep it there. It spent months on a stale branch and
+  that produced four separate false alarms.
+· **`CLOUDFLARE_API_TOKEN`** is set in Douglas's environment; `tools/cf-recon.js` / `cf-apply.js`
+  manage the redirect zones (apply is dry-run unless `--apply`).
+
+**★ RULES EARNED THIS SEAT (full text in HANDOFF-CHIPS.md):** a stale branch makes git lie · check
+for UNCOMMITTED work in a worktree before archiving (twice it hid real work) · bound your own repairs
+(my fix-all script rewrote 790 lines for a 10-line defect) · verify your own greps · batch the
+archives · cross-category gaps are the productive breadth seam · verification has hit structural
+walls everywhere except kit.
+
+**★ DOUGLAS'S WORKING PREFERENCES REINFORCED THIS SEAT:** every chip carries a deliberately-chosen
+`[Model, effort]` — grind = Sonnet/medium, live-page-or-engine = Opus/high, and say WHY above medium
+("ultracode" is the multi-agent keyword, NOT an effort tier). Chips are READY-ONLY — never hand him
+one whose lane is busy. Build UI on the flagship FIRST, he reviews, THEN replicate. Workflows are
+allowed but hand him the SCRIPT for review before launching a fleet.
+
+Standing workflow (unchanged): four gates (+ verdict harness on any compat.js/engine-read change) +
+YOUR OWN probes on engine merges; adversarial review; only taxonomy/money/visual-taste/account/
+business decisions to Douglas, kept SHORT; ANSWER-FIRST; coordinate-only lean seat; archive workers
+as each merges (batched); at YOUR wrap-up consolidate all outstanding Douglas questions into
+HANDOFF-CHIPS.md and pass this instruction forward (succession rule 5).
+
+---
+
+## ~~SEAT 23 (2026-07-23 late)~~ — SUPERSEDED, kept as history
+_This block was written at an earlier wrap-up on 2026-07-23; seat 22 then continued working
+through 2026-07-24. **Read the SEAT 23 block at the top of this file instead** — its state,
+counts and open questions are current; this one's are stale._
 
 Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today>-s23 -b
 coord/<today>-s23 origin/main` (Hard rule #5 — containment hook LIVE, and it is now VERSIONED at

@@ -1,5 +1,61 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-24 — SEAT 22 WRAP (day 2): Cloudflare goes live, the garage becomes a page, and breadth finds its real seam
+
+**main `058a6a31` -> `32b5fa67`, 303 commits across the seat, every gate green, zero broken deploys.**
+Catalog 7,663 -> 7,902 rows · verified ~4,900 -> ~5,487 (69%) · tests 1,195 -> 1,349 · priceBasis
+backlog 1,383 -> 507 · worktrees 216 -> 134 (2.3 GB reclaimed).
+
+- **THE CLOUDFLARE REDIRECTS ARE LIVE** — all five BuildMy* domains plus www (ten hostnames) now 301
+  to their builder pages, verified with real HTTP requests rather than assumed. The months-long stall
+  had a single root cause nobody had isolated: **every zone had ZERO DNS records**, and Cloudflare
+  only evaluates Rules for proxied traffic that reaches its edge — so a redirect rule, however
+  perfectly configured, could never fire. Each zone needed a proxied A record (RFC 5737
+  documentation address, never actually contacted) plus a proxied www CNAME *first*. Douglas created
+  a scoped API token; everything after that was API-side. Tooling committed for future use:
+  `tools/cf-recon.js` (read-only) and `tools/cf-apply.js` (dry-run unless `--apply`).
+- **The garage became a real page** (`garage.html`) and the header collapsed to one "🚲 Builders ▾"
+  dropdown, replacing the wordmark menu and two stray nav buttons. Shipped to the flagship on
+  Douglas's approval; **replication to the other five is deliberately deferred behind a uniformity
+  audit** he asked for after noticing EMTB has no coherent "saved builds" concept and BuildMyBMX has
+  its own inconsistencies. Auditing before copying is the whole point.
+- **A UI layout correction with real reasoning behind it.** Douglas asked for the service log to sit
+  right of inventory. The ui-expert measured that three cards across needs ~1,540 px while `main` is
+  capped at 1,380 px — genuinely unsatisfiable — and restructured to builds-full-width-top with
+  inventory and service log side by side beneath. Deviation from the original spec, surfaced
+  explicitly rather than silently shipped; he approved it.
+- **Breadth found its real seam: CROSS-CATEGORY GAPS.** Two independent workers discovered it without
+  being told — brands *already* in a catalog, already researched and trusted, simply absent from
+  categories they demonstrably sell into (WeThePeople with no pedals; Castelli and Assos with no
+  jackets). The round added +39 rows and **37 of them landed already verified**, because the maker
+  page was already known-good. New-*brand* breadth, by contrast, is largely exhausted.
+- **Verification hit its structural ceiling — unevenly, and that's the finding.** EMTB stood down at
+  90% because all 21 remaining rows are dead SKUs with no live maker page. BMX now yields ~2 rows a
+  round. Kit still yields 20+, because apparel makers publish clean fixed-SKU pages. The gap in the
+  other catalogs isn't work left undone; it's walls: makers who don't publish weights, discontinued
+  products, house-brand OE parts with no standalone page.
+- **Three quality catches worth more than their row counts:** a latent test bug that would have failed
+  on whoever next verified that row and looked like their fault; a *prior session's reasoning error*
+  (a part left unverified even though its specs were maker-confirmed — the old note cited the price
+  rule then reached the opposite conclusion); and a price drift correctly **flagged rather than
+  rewritten**, because the governing ruling is still open.
+- **Two coordinator mistakes, both caught and both instructive.** I wrote a "fix all quotes" repair
+  script that rewrote **790 lines for a 10-line defect**; I reverted it rather than ship an unbounded
+  change, and a later worker fixed it surgically precisely because the chip said *"do not write a
+  file-wide fix-all script — that is the known wrong approach."* And I launched a 14-agent fan-out
+  that silently ran only 2 brands, because I passed the brand list as a string and my own defensive
+  fallback degraded quietly instead of failing loudly — the exact silent-failure class I'd spent the
+  session catching in others.
+- **Douglas's rulings this seat:** `fxRate` = phased option (a) · WTB storefront figures accepted as
+  MSRP · MTB vocab gaps = add them · gearbox schema = widen it · the 12 missing fan-out brands = rerun
+  next week · garage on every builder = yes, but only after the uniformity audit. Three specialist
+  audits were also scheduled (mechanic monthly, UI monthly, security quarterly), all first firing in
+  August.
+- **The bike-mechanic specialist corrected our premise on the gravel steerer question** — the
+  Aspéro-5 is D-shaped and already handled correctly; the real finding is that *three* distinct
+  tapered classes collapse into one `tapered` token, including one (1-1/8→1-1/4) nobody knew existed.
+  Both failure directions are live today. The migration approach is Douglas's open call.
+
 ## 2026-07-23 — SEAT 22 WRAP: six-lane catalog wave, the compliance gap closed, the token law machined, and 7 MB dropped from three live pages
 
 **main `058a6a31` -> `127fd2cc`, 50+ commits, every gate green throughout, zero broken deploys.**
