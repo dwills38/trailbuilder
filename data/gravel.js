@@ -2236,6 +2236,10 @@ var GRAVEL_PARTS = [
     weight: 42, price: 11,
     note: 'catalog/gravel-components-1: NEW row — FETCHED dedaelementi.com/deda-tape directly this session. Confirms "42 grams (including plugs)", "180 centimeters" length, 2.8mm thickness. Price EUR10.20 (excl. VAT) converted to a disclosed USD estimate (~$11) since the catalog is USD-basis — priceBasis left unset per this file\'s own conversion convention (a converted estimate isn\'t a maker-stated USD figure).',
     verified: true, lastChecked: '2026-07-22', source: 'https://www.dedaelementi.com/deda-tape' },
+  { id: 'gtp-wolftooth-supple-lite', cat: 'bartape', brand: 'Wolf Tooth', model: 'Supple Lite Bar Tape', family: 'wolftooth-supple-lite',
+    mfgPn: 'SLITE-BARTAPE-BLK', weight: 77, price: 34.95,
+    note: 'catalog/gravel-components-2: NEW row — closes the Wolf Tooth bartape brand gap (on the suggested brand list; Wolf Tooth already has a cataloged gravel headset in this file). FETCHED wolftoothcomponents.com/products/supple-lite-bar-tape directly this session (US consumer storefront rendered a clean USD price, unlike the ZAR-geo\'d headset page) — "$34.95", "SLITE-BARTAPE-BLK", "2.5mm thick, 40mm wide, 152cm long per roll (two rolls per package)", "EVA foam compound... 3M adhesive backing". Weight (77g for two rolls) confirmed via the same manufacturer\'s Tech Specs block. The thicker sibling "Supple Bar Tape" (100% silicone, 236g/2 rolls) is a real, separate SKU but its wolftoothcomponents.com page geo-rendered EUR only this session — not entered this pass to avoid a currency-conversion price on a row that has a cleaner USD sibling.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.wolftoothcomponents.com/products/supple-lite-bar-tape' },
 
 ];
 
