@@ -8,7 +8,7 @@ function totals(map, presetBy){ return C.buildTotals(B(map), presetBy || {}); }
 
 var GXM = { shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275', chain:'ch-sram-gx-eagle', crankset:'cr-sram-gx-eagle' };
 var GXM_SUM = 55 + 150 + 255 + 45 + 175;   // 680 a la carte (component prices corrected 2026-07-11, drivetrain component audit)
-var GXM_KIT = 545;                          // gs-sram-gx-eagle bundle price
+var GXM_KIT = 645;                          // gs-sram-gx-eagle bundle price
 
 test('a single component weight is counted', function(){
   eq(totals({ fork:'fk-rockshox-zeb-ultimate-29-170' }).weight, 2150);
@@ -38,7 +38,7 @@ test('bundleActive is true only when every fill matches', function(){
 test('REVIEW #25: a preset from the WRONG group never activates (share-link corruption guard)', function(){
   // A drivetrain groupset shoved under the wheels group key (reachable via a
   // crafted/corrupted share link before readHash was hardened) used to bill
-  // the wheels group as the $545 kit, double-count the drivetrain and never
+  // the wheels group as the $645 kit, double-count the drivetrain and never
   // count the wheels. bundleActive now requires preset.cat === group.preset.cat.
   var wheels = C.GROUPS.filter(function(g){ return g.key === 'wheels'; })[0];
   ok(!C.bundleActive(wheels, B(GXM), { wheels:'gs-sram-gx-eagle' }));

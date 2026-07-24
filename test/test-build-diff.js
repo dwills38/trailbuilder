@@ -127,8 +127,8 @@ test('model: presetBy is honored per side — same parts, kit-priced side differ
   var sum = C.buildTotals(B(GXM), {}).price;
   var m = model(GXM, GXM, {}, { drivetrain: 'gs-sram-gx-eagle' });
   eq(m.changes.length, 0, 'identical parts must show no slot changes');
-  eq(m.totals.b.price, 545, 'B side billed at the kit price');
-  eq(m.totals.priceDelta, 545 - sum);
+  eq(m.totals.b.price, 645, 'B side billed at the kit price');
+  eq(m.totals.priceDelta, 645 - sum);
 });
 
 test('model: verdict differences land in onlyB verbatim when B introduces a conflict', function(){
