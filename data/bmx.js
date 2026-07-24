@@ -2745,6 +2745,12 @@ var BMX_PARTS = [
     note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched wethepeoplebmx.de (maker\'s own storefront): "made by KMC...incl. half link...90 links" - halfLink:true CONFIRMED, WEIGHT stated as "TBA" (not stored, no phantom number). pitch:1/8 is the catalog-standard BMX freestyle default (not itself numerically stated on this page). No price on the maker\'s EU site; US retailer prices for this SKU range widely ($24.99-$38.00 across five listings) with no single figure standing out as the clear MSRP, so this row stays UNVERIFIED (no priceBasis claim) with the 5150bmx.com figure ($26.99) recorded as a representative sample price, not a confirmed one.'
   },
   {
+    id: 'bmx-ch-tallorder-510', cat: 'chain', brand: 'Tall Order', model: '510 Chain',
+    pitch: '1/8', halfLink: true, weight: 249, price: 18.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://tallorderbmx.com/collections/bmx-parts/chains',
+    note: 'bmx-smallparts-2 (2026-07-24): second Tall Order row for this catalog (pedals already present). Directly fetched tallorderbmx.com (maker\'s own storefront, $18.00 USD): "Tall Order 510 Chain". Chain Width/Size/half-link/weight cross-confirmed via named retailer listings (Alans BMX, FoundationBMX): "1/2\\" x 1/8\\"...112 links...includes a half link...249g" - pitch:1/8, halfLink:true, weight all CONFIRMED.'
+  },
+  {
     id: 'bmx-se-mission-carrier', cat: 'seat', brand: 'Mission', model: 'Carrier Seat',
     system: 'stealth', weight: 343, price: 34.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
