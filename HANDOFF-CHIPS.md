@@ -98,11 +98,28 @@ priceBasis backlog 1,383 -> 507 · worktrees 216 -> 134 (2.3 GB reclaimed).
   the held uniformity audit, NOT a separate chip. The earlier "$1,999→$3,099 Spectral drift" example
   was a MISREADING (a frame sample price vs a complete-bike MSRP on a shared URL), corrected in
   OPEN-QUESTIONS before this ruling.
-- **BMX 48-spline vocab defect (open-Q 2.1) = (b) then (a):** the bike-mechanic specialist rules on the
-  factual question first (is a 48-spline BMX spindle 24 mm bore? are diameter and spline-pattern
-  orthogonal?), THEN the vocab axis is split per its ruling (mirroring MTB's shell-vs-spindle split).
-  Mechanic launched 2026-07-24. The gravel shell-vs-spindle conflation (open-Q 2.2) rides the same
-  fix pattern but was NOT bundled into this ruling — still open.
+- **BMX 48-spline vocab (open-Q 2.1) = (b) then (a).** Mechanic RULED (**FRM-61**, corpus): spindle
+  diameter (19/22/24/30mm) and spline count (8/48-spline) are ORTHOGONAL; the BB constrains diameter
+  ONLY and is spline-agnostic; false verdicts fire in BOTH directions, so the split is REQUIRED (it
+  removes a false red). **Chip ready** — split `BMX_VOCAB.spindle` into `spindleDiameter` + `splinePattern`.
+- **Gravel BB shell-vs-spindle (open-Q 2.2) = (b) then (a).** Mechanic RULED (**FRM-62**, corpus): a
+  drop-bar BB is the (shell, spindle) adapter; one Praxis M30 spindle runs in NINE shells; `ROAD_VOCAB`
+  ALREADY splits `bbShell` from `crankBb` (incl. `30mm`), so gravel is the lagging surface — the
+  reference pattern exists. Split REQUIRED, removes a false red. **Chip ready** (combined with Q5, same files).
+- **Merida price-basis family (open-Q 3) = (a) — DONE (`57ddd037`).** 4 rows re-tokened
+  `regional-conversion` → `deprioritized-no-price-source` (merida-bikes.com is a price-less spec site;
+  the GBP/EUR in two notes were third-party bands, not maker conversions). Verified per row first.
+- **Fox 38 Perf Elite 29/180 (open-Q 4) = (a) mark discontinued — DONE by confirmation.** The row
+  `fk-fox-38-performance-elite-29-180` was ALREADY `status:'discontinued'`; the ruling ratifies it.
+  `status` = maker lifecycle, not market availability; the part stays visible in the Discontinued Archive.
+- **Gravel steerer vocab (open-Q 5) = (a).** Add two-ended tapered tokens (`tapered-1-1-8-1-1-2`,
+  `tapered-1-1-4-1-1-2`, `tapered-1-1-8-1-1-4`); keep bare `tapered` as LEGACY/UNVERIFIED = no verdict,
+  promote per row as re-sourced (mechanic's rec, matches "a missing rule beats a wrong one"). Mechanic
+  corpus "Tapered-steerer CLASSES" section landed. **Chip ready** (combined with Q2.2, same files).
+- **The two engine-implementation chips (BMX split; gravel BB+steerer split) are the top-of-queue
+  work.** Grouped by file so parallel edits can't conflict. Each is `[Opus, high]` (engine + schema +
+  tests), removes a false red, adds no new hard error. Specs are in the mechanic corpus (FRM-61/62 +
+  the tapered section); the coordinator hands them over as fenced blocks.
 - **`fxRate` = option (a)**: add the field, use `lastChecked` as the date, land it OPTIONAL, backfill
   the derivable 66%, THEN make it validator-required. **NOT YET IMPLEMENTED — needs a chip.**
 - **WTB perpetual-sale storefronts** = accept the maker's storefront figure as MSRP.
