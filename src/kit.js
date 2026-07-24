@@ -4594,6 +4594,10 @@ var KIT_PARTS = [
     fitCut:'mens', waterproof:true,
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.assos.com/us/tactica-rain-jacket-t5-51-32-313-6p.html',
     desc:'Lightweight waterproof shell with a "comfort-tuned fit for adventure cycling, low-intensity touring, and daily commuting" - Assos\'s most off-road-relevant jacket tier. Full MSRP $410 confirmed on assos.com/us (page also showed a $287 sale price, not used per MSRP-only pricing policy). No weight published on the fetched page.' },
+  { id:'jkt-sportful-supergiara2', cat:'jacket', brand:'Sportful', family:'sportful-supergiara', model:'Supergiara 2 Jacket', price:280,
+    fitCut:'mens', waterproof:false,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.sportful.com/US/en/Mens/Cycling/Jackets/SUPERGIARA-2-JACKET/p/1125503_201',
+    desc:'Mid-season jacket the maker\'s own page lists "Gravel" under Disciplines, described as "ideal for mid-season rides on both gravel and road." Price confirmed on the US storefront. No waterproof rating or weight published on the fetched page, hence waterproof:false.' },
 
 
   /* Wild Rye (women's MTB apparel) - wild-rye.com fetched directly (WebFetch 404'd on this
