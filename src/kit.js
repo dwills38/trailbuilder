@@ -4393,13 +4393,16 @@ var KIT_PARTS = [
     desc:'Oversized-fit polarized sport sunglasses (larger heads), same no-slip/no-bounce build as the OG. Confirmed off goodr.com\'s own BFGs collection listing (Exa-rendered): regular $40 (current sitewide sale price $32, not used as the basis), exact match to the existing sample. No weight found this batch.' },
   { id:'ewr-zeal-divide', cat:'eyewear', brand:'Zeal Optics', model:'Divide', price:189,
     type:'glasses',
-    desc:'See Grass plant-fiber frame, plant-based Ellume Polarized lens (99.9% glare elimination, 100% UVA/UVB block per Zeal). UNVERIFIED sample: Scheels-listed retail price. No weight found this batch.' },
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.zealoptics.com/US/en_US/shop/sunglasses/active/divide',
+    desc:'See Grass plant-fiber frame, plant-based Ellume Polarized lens (99.9% glare elimination, 100% UVA/UVB block per Zeal). Confirmed off zealoptics.com/US (non-prescription lens tier): $189.00, exact match to the existing sample. No weight published on the maker page, left unset.' },
   { id:'ewr-zeal-campo', cat:'eyewear', brand:'Zeal Optics', model:'Campo', price:159,
     type:'glasses',
-    desc:'Z-Lite frame + Ellume Polarized lens, described by Zeal as weighing "less than one ounce" (no exact gram figure published, so weight left unset rather than guessed). UNVERIFIED sample: Mast General Store-listed retail price.' },
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.zealoptics.com/US/en_US/shop/sunglasses/lifestyle/campo',
+    desc:'Z-Lite frame + Ellume Polarized lens, described by Zeal as weighing "less than one ounce" (no exact gram figure published, so weight left unset rather than guessed). Confirmed off zealoptics.com/US: $159.00, exact match to the existing sample, and the "less than one ounce"/Z-LITE claim reconfirmed on the maker page itself (not just a search summary).' },
   { id:'ewr-zeal-range', cat:'eyewear', brand:'Zeal Optics', model:'Range', price:149,
     type:'glasses',
-    desc:'Zeal Optics active-line shield sunglasses. UNVERIFIED sample: zealoptics.com listed price (site search-summarized, not a rendered fetch). No weight found this batch.' },
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.zealoptics.com/US/en_US/shop/sunglasses/active/range',
+    desc:'Zeal Optics active-line shield sunglasses. Confirmed off zealoptics.com/US directly (not a search-summary this time): "Original Price: $149.00" (a concurrent 50%-off sale price of $74.50 was NOT used), exact match to the existing sample. No weight published on the maker page, left unset.' },
 
   /* -- Magicshine (kit-breadth-12, 2026-07-23): brand entirely ABSENT. Better known for bike
      lights, but magicshine.com also sells a real cycling-sunglasses line (ROULEUR/WINDBREAKER) -
