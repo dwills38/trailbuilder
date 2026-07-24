@@ -4089,6 +4089,15 @@ var KIT_PARTS = [
     desc:'D3O padding, stretch/mesh sleeve, velcro-attaches to the Grenade Evo knee guards (also compatible with most competitors\' knee pads); one-size. Fetched scott-sports.com (model 274520): confirms one-size, "surpasses CE standards" via D3O but states no specific EN standard/level, so no cert token is tagged; the maker page lists no price. $63.99 is Bikeinn\'s listed retail price (a Ciclimattio EU listing showed EUR69.90). Weight not published anywhere found. Kit gap-fill: brand had zero prior shinguard rows.',
     source:'https://www.scott-sports.com/global/en/product/scott-grenade-evo-shin-guards' },
 
+  /* kit-breadth-15 (2026-07-24): shinguard cross-category gap - Sweet Protection already had
+     kneepad/elbowpad rows but no standalone shinguard, despite selling one. (Dainese/EVOC's
+     "shin" search hits turned out to be knee guards on re-verification - real gaps, not
+     padded here.) */
+  { id:'shg-sweetprotection-light', cat:'shinguard', brand:'Sweet Protection', model:'Shin Guards Light', price:80, weight:94,
+    disciplines:['enduro','dh'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.sweetprotection.com/us/en/shin-guards-light-black/',
+    desc:'Perforated Visco-Elastic shin protector designed to overlap with Sweet\'s Knee Guards Pro / Pro Hard Shell for continuous shin-to-knee coverage; no CE cert stated on the maker page, so left untagged. Price + weight (94g) both directly confirmed on the US storefront.' },
+
   /* -- Eyewear (type required: glasses / goggles) -- */
   { id:'ewr-oakley-sutro', cat:'eyewear', brand:'Oakley', model:'Sutro', price:203, weight:32,
     type:'glasses', sizes:['OSFA'],
