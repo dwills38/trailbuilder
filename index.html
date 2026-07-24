@@ -1310,6 +1310,11 @@
      Shared with KitBuilder/index.html via the same 'tb-theme' key. Button
      state syncs in the main script at the end of the body. -->
 <script src="src/ui-common.js"></script>
+<!-- Shared page chrome (src/page-shell.js): the ONE definition of the legal-link
+     tail, mounted into the [data-tb-legal] placeholder in the footer below. See
+     that file for what is deliberately NOT shared (the theme blocks differ per
+     page for real reasons). Renders inert in-page markup only - never a pop-up. -->
+<script src="src/page-shell.js"></script>
 <!-- Cloudflare Web Analytics (privacy-first, cookie-less; token is publishable — same
      committed-constant pattern as REPORT_REPO/src/config.js). Enabled by Douglas 2026-07-16. -->
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "321537b0321746628c925f357de5a74a"}'></script>
@@ -1694,9 +1699,7 @@
   or pick a 27.5 rear wheel + tire on the YT Capra.</p>
   <p class="footer-legal">
     <a href="about.html">About</a> &middot;
-    <a href="privacy.html">Privacy</a> &middot;
-    <a href="terms.html">Terms</a> &middot;
-    <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+    <span data-tb-legal></span>
   </p>
 </footer>
 
