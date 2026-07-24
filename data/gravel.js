@@ -1850,9 +1850,13 @@ var GRAVEL_PARTS = [
 
   // ===== HEADSET ==============================================================
   { id: 'ghs-canecreek-40-zs44-zs56', cat: 'headset', brand: 'Cane Creek', model: '40 Series',
-    family: 'canecreek-40', upper: 'zs44', lower: 'zs56', steerer: 'tapered', weight: 110, price: 60 },
+    family: 'canecreek-40', upper: 'zs44', lower: 'zs56', steerer: 'tapered', weight: 145, price: 89.99,
+    note: 'gravel-brands-2: FETCHED canecreek.com/products/40.js (maker\'s own Shopify variant JSON) directly this session — the "ZS/ZS - Complete / 44/28.6 | 56/40 / BAA0533K" variant (bore tokens match zs44/zs56; the 28.6/40 steerer-side pair is a tapered assembly) states weight:145, price:$89.99 flat (not price-varying by variant on this SKU). WEIGHT CORRECTED 110->145, PRICE CORRECTED 60->89.99 to match the maker page exactly.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://www.canecreek.com/products/40' },
   { id: 'ghs-canecreek-110-zs44-ec49', cat: 'headset', brand: 'Cane Creek', model: '110 Series',
-    family: 'canecreek-110', upper: 'zs44', lower: 'ec49', steerer: 'tapered', weight: 95, price: 145 },
+    family: 'canecreek-110', upper: 'zs44', lower: 'ec49', steerer: 'tapered', weight: 154, price: 189.99,
+    note: 'gravel-brands-2: FETCHED canecreek.com/products/110.js (maker\'s own Shopify variant JSON) directly this session — the "Complete / ZS/EC / 44/28.6 | 49/40" variant (BAA0826K; bore tokens match zs44/ec49, 28.6/40 steerer sides = tapered) states weight:154, price:$189.99. WEIGHT CORRECTED 95->154, PRICE CORRECTED 145->189.99 to match the maker page exactly.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://www.canecreek.com/products/110' },
   { id: 'ghs-fsa-orbit-c40-zs44-zs56', cat: 'headset', brand: 'FSA', model: 'Orbit ZS Short Headset', family: 'fsa-orbit-c40',
     upper: 'zs44', lower: 'zs56', steerer: 'tapered', weight: 139, price: 76,
     note: 'gravel-fabfix-2 FIX (2026-07-21): resolved the gravel-verify-3 flag by re-fetching bikeparts.com\'s "FSA Orbit ZS Short Headset, ZS44/28.6|ZS56/40 Black" listing directly — this row\'s ZS44/ZS56 bore fields were ALREADY CORRECT for a real FSA product; only the MODEL NAME was wrong ("Orbit C-40" is a different, IS41-42/IS52 FSA product per the flag\'s prior research). MODEL CORRECTED "Orbit C-40"->"Orbit ZS Short Headset" (id kept per append-only, now reads oddly against the corrected name — flagging for a future id-alias pass), WEIGHT CORRECTED 100->139 per the listing\'s "139 grams", PRICE CORRECTED 50->76 per its "$76.00". Retailer-sourced, not a direct FSA.com fetch — stays unverified sample.' },
