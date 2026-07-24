@@ -4495,6 +4495,10 @@ var KIT_PARTS = [
     fitCut:'mens', waterproof:false,
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.velocio.cc/products/mens-alpha-air-jacket',
     desc:'Polartec Alpha insulation with an ultralight Japanese-woven wind shell + fleece back/underarm venting, two-way zipper. PFAS-free DWR "shrugs off light rain and road spray" rather than a stated waterproof membrane/rating, hence waterproof:false. Price confirmed on velocio.cc. No weight or sizes published on the fetched page.' },
+  { id:'jkt-clubrideapparel-xwind', cat:'jacket', brand:'Club Ride Apparel', family:'clubrideapparel-xwind', model:"Men's X-Wind Jacket", price:120,
+    fitCut:'mens', waterproof:false,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', source:'https://www.clubrideapparel.com/products/mens-x-wind-jacket',
+    desc:'Wind-resistant/water-repellent DWR-coated 4-way-stretch shell (no waterproof rating stated, hence waterproof:false), targeted venting panels, chest pocket doubling as a stow-away carry pouch. Price confirmed on clubrideapparel.com\'s US store (the same SKU\'s EU store lists a different EUR price). No weight or sizes published on the fetched page.' },
 
   /* Wild Rye (women's MTB apparel) - wild-rye.com fetched directly (WebFetch 404'd on this
      Shopify storefront; Exa's fetch rendered the real product pages cleanly - manufacturer pages,
