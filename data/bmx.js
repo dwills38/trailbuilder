@@ -2736,6 +2736,24 @@ var BMX_PARTS = [
     source: 'https://tallorderbmx.com/products/tall-order-catch-pedal-black-9-16',
     note: 'bmx-breadth-3 (2026-07-22): NEW brand for this catalog. FETCHED tallorderbmx.com directly (Tall Order\'s own storefront) — page states verbatim "Nylon plastic body" and "9/16\\" thread with heat treated axle" (platform:plastic, spindle:9/16 CONFIRMED). Regular price is £18.99 GBP (currently on sale at £11.99 — a labeled promotional price, NOT used per THE PRICE RULE); converted to USD at ~1.27 USD/GBP -> $24.12, priceBasis:regional-conversion (UK brand, no published US MSRP). No weight is stated on the page. Promoted to verified:true on the two engine-read/schema fields actually confirmed (platform, spindle); price is the disclosed conversion, not a literal maker-stated USD figure.'
   },
+  {
+    id: 'bmx-pd-kink-hemlock', cat: 'pedals', brand: 'Kink', model: 'Hemlock Pedals',
+    platform: 'plastic', spindle: '9/16', weight: 411, price: 16.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://kinkbmx.com/products/hemlock-pedals',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched kinkbmx.com: "Spindle Size 9/16\\"" and "Body Material Nylon and Fiber Glass Blend" (platform:plastic, spindle:9/16 both CONFIRMED - pedals carry zero checkBmxBuild rules, but both schema fields are page-confirmed regardless), "Weight 14.5oz(pair)" (=411g CONFIRMED), "Regular price $16.99" CONFIRMED.'
+  },
+  {
+    id: 'bmx-pd-merritt-p1', cat: 'pedals', brand: 'Merritt', model: 'P1 Pedals',
+    platform: 'plastic', spindle: '9/16', weight: 366, price: 24.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://merritt.bigcartel.com/product/p1-pedals',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched merritt.bigcartel.com (Merritt\'s own storefront): "a special nylon/fiberglass blend" (platform:plastic CONFIRMED) and "Weight: 12.9 oz" (=366g CONFIRMED). Regular price $24.00 used (several colorways sell at that price unmarked; a handful of colorways carry a separate "(sale $X)" discount tag on the same listing, not used per THE PRICE RULE). spindle:9/16 is this catalog\'s universal BMX pedal-thread default (not independently restated on this page).'
+  },
+  {
+    id: 'bmx-pd-flybikes-rubengraphite', cat: 'pedals', brand: 'Fly Bikes', model: 'Ruben Graphite Pedals',
+    platform: 'plastic', spindle: '9/16', weight: 357, price: 30.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.flybikes.com/product/fly-ruben-graphite-pedals-black',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched flybikes.com: "Nylon - Fiberglass Compound" body (platform:plastic CONFIRMED), "Weight 357 g / 12.59 oz" CONFIRMED, "$30.00" CONFIRMED (USD, flybikes.com\'s own storefront price). spindle:9/16 is this catalog\'s universal BMX pedal-thread default (not independently restated on this page).'
+  },
 
   // ---- GSport BMX (new brand: Roloway/Elite hub-wheel line; thin
   //      rearWheel category) ----------------------------------------------
