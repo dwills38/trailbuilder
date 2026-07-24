@@ -1955,6 +1955,10 @@ var GRAVEL_PARTS = [
     size: 160, mount: 'center-lock', weight: 139, price: 69.99,
     note: 'catalog/gravel-components-2: NEW row — TRP already has a cataloged gravel brake (gbr-trp-spyre) but no matching rotor. FETCHED archive.trpcycling.com/product/tr25/ directly this session (TRP\'s own product-catalog domain) — "TRP\'s two-piece center-lock disc rotor in 1.8 mm thickness, coming in all sizes of 203mm, 180mm, and 160mm", "Weight: 203mm: 198g | 180mm: 152g | 160mm: 139g" (manufacturer-stated per-size table; this row models the 160mm option). Price is a disclosed maker-stated RANGE ("$64.99 - $74.99" across the three sizes, no per-size breakdown) — this row uses the range midpoint ($69.99) per this file\'s own existing range-midpoint convention (see gch-sram-xplr-flattop-12\'s note); a midpoint is an estimate, not a literal single figure, so priceBasis is left unset.',
     verified: true, lastChecked: '2026-07-23', source: 'https://archive.trpcycling.com/product/tr25/' },
+  { id: 'gro-magura-mdrc-160-6b', cat: 'rotor', brand: 'Magura', model: 'MDR-C', family: 'magura-mdrc',
+    size: 160, mount: '6-bolt', weight: 145, price: 35.23,
+    note: 'catalog/gravel-components-3: NEW row — closes the Magura rotor brand gap (Magura has no other gravel rotor in this file). FETCHED magura.com/product/mdr-c/ directly this session (maker\'s own DE product page, the site\'s current storefront region): "Rotor mount: 6 hole", "Rotor diameter: 160 mm, 180 mm, 203 mm, 220 mm", "Weight: 145 g, 165 g, 222 g, 286 g" (per-size table, this row models the 160mm/145g figure), price "30,90 €" stated as "(RRP incl. 19% VAT)" — a maker-published EUR RRP, not a USD figure. Converted using the day\'s EUR/USD spot rate 1.14 (FT.com EURUSD tearsheet, fetched 2026-07-23: "Price (USD) 1.1373", rounded to 1.14 for this pass\'s single reused rate): 30.90 * 1.14 = 35.23. priceBasis:regional-conversion, never msrp-confirmed — this is a converted maker figure, not a USD-native one.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://magura.com/product/mdr-c/' },
 
   // ===== HANDLEBAR (flared) =====================================================
   { id: 'ghb-salsa-cowbell-318', cat: 'handlebar', brand: 'Salsa', model: 'Cowbell', family: 'salsa-cowbell',
@@ -2225,6 +2229,10 @@ var GRAVEL_PARTS = [
     style: 'clip', weight: 249, price: 549.99,
     note: 'catalog/gravel-components-2: NEW row — the flagship titanium tier of the Candy family, distinct weight/price from the already-cataloged Candy 1/2/3/7. FETCHED crankbrothers.com/products/candy-11 directly this session — "Weight 249g per pair", "$549.99 USD", titanium spindle + wings, igus LL-glide inner bearing / Enduro cartridge outer bearing, "Max Rider Weight 200 lbs / 90 kgs".',
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.crankbrothers.com/products/candy-11' },
+  { id: 'gpd-wahoo-speedplay-zero', cat: 'pedal', brand: 'Wahoo', model: 'Speedplay Zero', family: 'wahoo-speedplay-zero',
+    style: 'clip', weight: 224, price: 214.99,
+    note: 'catalog/gravel-components-3: NEW row — closes the Wahoo/Speedplay pedal brand gap. FETCHED wahoofitness.com/devices/pedals/speedplay/speedplay-zero-buy directly this session (Wahoo\'s own US storefront, current owner of the Speedplay brand): "$214.99", "Weight: 224g per pair", dual-sided stainless-steel clip-in road/gravel pedal with a walkable-cleat adaptor option ("Built to take on anything... the epic grind of a double-century"). priceBasis:msrp-confirmed (maker\'s own USD storefront price, not converted or a range).',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.wahoofitness.com/devices/pedals/speedplay/speedplay-zero-buy' },
 
   // ===== BARTAPE ==========================================================
   { id: 'gtp-fizik-vento-microtex-tacky', cat: 'bartape', brand: 'Fizik', model: 'Vento Microtex Tacky',
