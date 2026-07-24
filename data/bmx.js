@@ -1888,6 +1888,12 @@ var BMX_PARTS = [
     note: '14in chromoly layback post for old-school 7/8in (22.2mm) seat tubes - danscomp.com listing; a railed (non-Pivotal) post.'
   },
   {
+    id: 'bmx-sp-sm-longjohnson-stealth', cat: 'seatpost', brand: 'S&M', model: 'Long Johnson Stealth Pivotal Seatpost',
+    diameter: 25.4, system: 'stealth', weight: 194, price: 39.95,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://sandmbikes.com/product/hardgoods/seating/long-johnson-stealth-pivotal-seatpost/',
+    note: 'bmx-smallparts-2 (2026-07-24): second S&M seatpost, first stealth-system row for this brand. Directly fetched sandmbikes.com (maker\'s own storefront): "25.4 MM LONG JOHNSON STEALTH PIVOTAL SEATPOSTS...$39.95...Stealth Pivotal mounting system accepts an Allen wrench from below, not thru the seat...Diameter: 25.4mm...Weight: 6.85oz" (=194g). diameter/system:stealth/weight/price all CONFIRMED.'
+  },
+  {
     id: 'bmx-se-sm-fatpivotal', cat: 'seat', brand: 'S&M', model: 'Fat Pivotal Seat',
     system: 'pivotal', price: 29.95,
     note: 'BMX wave 6: raw-fetched sandmbikes.com/product/hardgoods/seating/fat-pivotal-seat/ (the manufacturer\'s own page) - confirms "PIVOTAL" mount and PADDED construction (matches system:\'pivotal\'), and the real price ("price":"29.95") - CORRECTED from the stale 49.95 albes.com-retailer figure. NOT VERIFIED: no per-product weight anywhere on the page, only a generic "1 lbs" shipping-box figure indistinguishable from the Odyssey/Cult shipping-weight-bucket trap (wave 2 doctrine) - fails THE BAR item 2 (seat is not an interface-verification-exception category). Left unverified.'
@@ -2904,6 +2910,12 @@ var BMX_PARTS = [
     platform: 'plastic', spindle: '9/16', weight: 357, price: 30.00,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.flybikes.com/product/fly-ruben-graphite-pedals-black',
     note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched flybikes.com: "Nylon - Fiberglass Compound" body (platform:plastic CONFIRMED), "Weight 357 g / 12.59 oz" CONFIRMED, "$30.00" CONFIRMED (USD, flybikes.com\'s own storefront price). spindle:9/16 is this catalog\'s universal BMX pedal-thread default (not independently restated on this page).'
+  },
+  {
+    id: 'bmx-pd-sm-hoderbtm', cat: 'pedals', brand: 'S&M', model: 'Hoder BTM Pedals',
+    platform: 'plastic', spindle: '9/16', weight: 405, price: 19.95,
+    verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-24', source: 'https://www.empirebmx.com/products/s-m-hoder-btm-pedals',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched sandmbikes.com (maker page): "Long Lasting Nylon/Fiber Blend" body and "14.3oz" (platform:plastic, weight CONFIRMED) but the page carries no listed price. Cross-checked against empirebmx.com (named US retailer): "9/16\\" only...14.3 oz (405 g)...$19.95" - spindle:9/16 explicitly restated (not this catalog\'s assumed default here), weight matches the maker figure exactly (405g), price taken at the third-party-listed tier since the maker page itself has no checkout price. Other retailers list this SKU anywhere from $14.95 (marked sale) to $34.00 (one outlier); $19.95 was chosen as the one matching both the maker\'s stated weight AND a non-sale-tagged listing.'
   },
 
   // ---- GSport BMX (new brand: Roloway/Elite hub-wheel line; thin
