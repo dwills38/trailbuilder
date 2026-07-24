@@ -3966,6 +3966,10 @@ var KIT_PARTS = [
     disciplines:['dh'], sizes:['Youth','Adult'], verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-20',
     desc:'PU core + ballistic nylon outer shell. Re-fetched evs-sports.com/products/r3-race-collar 2026-07-20: Adult price $65 and Youth price $25 both confirmed again (Adult stored as the representative figure), matching the 2026-07-16 pass. Page states no weight; omitted rather than guessed (matches the no-weight-published nkb-leatt-gpx-15-mini/junior rows in this same category).',
     source:'https://www.evs-sports.com/products/r3-race-collar' },
+  { id:'nkb-oneal-tron-shocker', cat:'neckbrace', brand:"O'Neal", model:'TRON Neckbrace Shocker', price:227.83, weight:585,
+    disciplines:['enduro','dh'],
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-24', source:'https://www.oneal.eu/en/products/oneal-tron-neckbrace-shocker',
+    desc:'kit-breadth-15 cross-category gap - O\'Neal already had helmet/shoes/jersey/pants/gloves/kneepad/elbowpad/bodyarmor/eyewear rows but no neck brace. CE certified to EN1621; weight 585g +/- 15g per the maker page. No USD-native O\'Neal storefront lists this SKU (oneal.com/US sells O\'Neal apparel but not this neck brace) - EUR price (E199.99) converted at the day\'s real mid-market rate (1 EUR = 1.13926 USD, xe.com, 2026-07-24 07:10 UTC) per the kit-breadth-15 FX-rate discipline.' },
 
   /* -- Shin guards (per pair). Scoped to SKUs the maker names "...Shin..." -
      a distinct shin-protection product, not a knee guard whose description
