@@ -2212,6 +2212,11 @@ var KIT_PARTS = [
     liner:false, disciplines:['trail','enduro'], sizes:['28','30','32','34','36','38'],
     desc:'TruMotion 4-way stretch, tapered fit, TruDri moisture-wicking. CORRECTED 2026-07-17: price is the fetched $174.95 list (was sample $200; page currently on sale at $139.99, list used per policy). No weight published on the fetched page, stays prior sample.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-17', source:'https://www.foxracing.com/product/flexair-pants/33704.html' },
+  { id:'pnt-giro-havoc', cat:'pants', brand:'Giro', model:'Havoc Pant', price:179.95,
+    liner:false, disciplines:['trail'], sizes:['28','30','32','34','36','38','40'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', sourceType:'manufacturer',
+    source:'https://www.giro.com/p/mens-havoc-mountain-bike-pant/GR-7170329.html',
+    desc:'Fetched giro.com via the browser pane: "Men\'s Havoc Pant", list price $179.95 USD (page currently on sale at $125.99, list used per policy), sizes 28-40. 4-way stretch Durablend, gusseted inseam for pad compatibility. No weight published on the fetched page, omitted rather than guessed.' },
   { id:'pnt-zoic-edge', cat:'pants', brand:'ZOIC', model:'Edge Pant', price:110,
     liner:false, disciplines:['trail'], sizes:['30','32','34','36','38','40'],
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', sourceType:'manufacturer',
@@ -2392,6 +2397,10 @@ var KIT_PARTS = [
     source:'https://www.fasthouse.com/products/shredder-pant-black', sourceType:'manufacturer' },
 
   /* -- Gloves (all UNVERIFIED samples; weight is PER PAIR, approx USD MSRP) -- */
+  { id:'glv-monsroyale-amp-fleece', cat:'gloves', brand:'Mons Royale', model:'Amp Merino Fleece Gloves', price:89.95,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', sourceType:'manufacturer',
+    source:'https://monsroyale.com/products/amp-wool-fleece-glove-black-unisex-fw21',
+    desc:'Fetched monsroyale.com via the browser pane: "Amp Merino Fleece Gloves", $89.95 USD, sizes S-XL. Their most durable cold-weather glove, silicone palm print, touchscreen-compatible. No weight published on the fetched page, omitted rather than guessed.' },
   { id:'glv-yeticycles-enduro', cat:'gloves', brand:'Yeti Cycles', model:'Enduro Glove', price:32,
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', sourceType:'manufacturer',
     source:'https://yeticycles.com/en-us/gear/gloves',
