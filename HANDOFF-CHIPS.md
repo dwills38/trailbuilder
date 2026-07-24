@@ -85,7 +85,24 @@ priceBasis backlog 1,383 -> 507 · worktrees 216 -> 134 (2.3 GB reclaimed).
     recall-badge scoping · fitter paywalls · TWO "Bug report triage" sessions now exist (the older is
     probably dead clutter; never archive the live vessel).
 
-## ★ RULED AT SEAT 22 (do NOT re-ask)
+## ★ RULED AT SEAT 23 (2026-07-24 — do NOT re-ask)
+- **Canyon / DTC live-price drift = option (b), PRICE-AT-VERIFICATION.** The stored price means "MSRP
+  as of `lastChecked`", shown that way in the UI. Standing convention for EVERY direct-to-consumer
+  brand (Canyon, YT, Commencal, Propain, Vitus, Radon, Fezzari). **Consequences that are now in force:**
+  (1) a verified row whose maker price has since changed is NOT a defect and NOT a blocker — it is
+  correct by convention; workers STOP flagging drift as a problem. (2) A price only changes when a row
+  is being re-verified anyway (and `lastChecked` moves with it) — no drift-hunting passes. (3) No
+  catalog rewrite: prices already carry `lastChecked`. (4) UI: the flagship's verified badge already
+  reads "Spec checked against the manufacturer **on `<lastChecked>`**"; the OTHER FIVE builders
+  (bmx/road/gravel/emtb/kit) omit the "on `<date>`" — a one-line-each replication gap that folds into
+  the held uniformity audit, NOT a separate chip. The earlier "$1,999→$3,099 Spectral drift" example
+  was a MISREADING (a frame sample price vs a complete-bike MSRP on a shared URL), corrected in
+  OPEN-QUESTIONS before this ruling.
+- **BMX 48-spline vocab defect (open-Q 2.1) = (b) then (a):** the bike-mechanic specialist rules on the
+  factual question first (is a 48-spline BMX spindle 24 mm bore? are diameter and spline-pattern
+  orthogonal?), THEN the vocab axis is split per its ruling (mirroring MTB's shell-vs-spindle split).
+  Mechanic launched 2026-07-24. The gravel shell-vs-spindle conflation (open-Q 2.2) rides the same
+  fix pattern but was NOT bundled into this ruling — still open.
 - **`fxRate` = option (a)**: add the field, use `lastChecked` as the date, land it OPTIONAL, backfill
   the derivable 66%, THEN make it validator-required. **NOT YET IMPLEMENTED — needs a chip.**
 - **WTB perpetual-sale storefronts** = accept the maker's storefront figure as MSRP.
