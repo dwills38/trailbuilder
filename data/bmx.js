@@ -2562,6 +2562,18 @@ var BMX_PARTS = [
     note: 'bmx-depth-9: VERIFIED via missionbmx.com (Mission\'s own domain). Page states verbatim: "TYPE: American...WEIGHT: 10.5oz" (=298g), price $34.99. This kit is sold in 19mm and 22mm spindle variants — this row pins the 19mm SKU (spindleFit:\'19mm\'); the 19mm size shows sold-out on the page (does not block a real-part entry).'
   },
   {
+    id: 'bmx-bb-colony-mid-19', cat: 'bb', brand: 'Colony', model: 'Mid Bottom Bracket Kit',
+    shell: 'mid', spindleFit: '19mm', weight: 176, price: 29.99,
+    verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-23', source: 'https://www.danscomp.com/colony-mid-bottom-bracket-black-19mm-i24-900/p1132694?v=1063691',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched colonybmx.com.au/products/bb-kit-mid/: "Available in 19mm & 22mm sizes" (shell:mid CONFIRMED, this row pins the 19mm spindle) - the AU maker page jokes it states no weight ("Come on... it\'s a BB kit!") and carries no price. Priced+weighed via Dan\'s Comp\'s matching current listing ("In Stock Online", not discontinued, unlike this catalog\'s other recent Colony finds): regular price $29.99 (a $22.99 sale price is shown alongside - NOT used per THE PRICE RULE) and "Weight: 6.2 oz (19mm)" (=176g) - promoted to verified:true under priceBasis:third-party-listed per this catalog\'s established convention.'
+  },
+  {
+    id: 'bmx-bb-stolen-revolver-19', cat: 'bb', brand: 'Stolen', model: 'Revolver Mid Bottom Bracket',
+    shell: 'mid', spindleFit: '19mm', price: 27.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.stolenbrand.com/products/revolver-bottom-bracket',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched stolenbrand.com (Stolen\'s own storefront): "REVOLVER MID BOTTOM BRACKET 19mm or 22mm...STYLE: MID" (shell:mid CONFIRMED, this row pins the 19mm size), "Regular price $27.99" CONFIRMED. Currently shows "Out Of Stock! ...Coming This Fall" on the maker\'s own site (restocking, not discontinued - the listing carries 14 customer reviews, a well-established current product). No weight published.'
+  },
+  {
     id: 'bmx-ch-mission-halflink', cat: 'chain', brand: 'Mission', model: 'Half-Link Chain',
     pitch: '1/8', halfLink: true, weight: 425, price: 34.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
