@@ -3028,6 +3028,12 @@ var BMX_PARTS = [
     note: 'catalog/bmx-race-data-1: third Answer row (front half of a wheelset pair - see the matching bmx-rh row). Uses the race vocab landed in c7a267d0 (axle 20mm). "Answer BMX Pro Carbon 20mm Front w/ Disc Rear Wheelset" ($1,320.99 total, answerbmx.coms own listed price, confirmed identically across every related-product listing site-wide) - the "20mm Front" variant name states the front thru-axle directly (axle:20mm exact). Americancycle.coms matching build description (Answer Pinnacle/Holeshot Pro Carbon wheels, same Holeshot Pro hub family) confirms "20mm CNCd front hub body with EZO bearings and 20mm thru axle" independently. wheelSize:20 is the frames wheel size this wheelset is built for (36H carbon rim, 20x1.75in tire fitment per J&R Bicycles matching product). Price split 50/50 across the pair ($660.50 each) per this catalogs pair-split-estimate convention - the source page prices the pair only, no per-wheel breakdown exists.'
   },
   {
+    id: 'bmx-fw-totalbmx-techfire', cat: 'frontWheel', brand: 'Total BMX', model: 'Techfire Front Wheel',
+    wheelSize: '20', axle: '10mm', weight: 960, price: 231.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://totalbmx.com/products/total-bmx-techfire-front-wheel-black-hub-with-black-rim-10mm-3-8-quot',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched totalbmx.com: product name itself states "10mm (3/8\\")" (axle CONFIRMED), "Weight 0.96kg/ 2lbs 2oz" (=960g CONFIRMED), "Regular price $231.00 USD" CONFIRMED. wheelSize:20 is this catalog\'s universal BMX freestyle default (matching the rim\'s stated 394mm ERD/34mm width, a 20in-class build; not independently restated as "20in" on this specific page). Currently shows sold-out on the maker\'s own site (inventory status, not a discontinued product).'
+  },
+  {
     id: 'bmx-rh-answer-holeshotpro-disc', cat: 'rearWheel', brand: 'Answer', model: 'Holeshot Pro Carbon Disc Rear Wheel',
     family: 'answer-holeshot-pro-carbon', driverType: 'cassette', driverTeeth: 16, side: 'RHD', axle: '10mm', price: 660.49,
     verified: true, priceBasis: 'pair-split-estimate', lastChecked: '2026-07-23',
