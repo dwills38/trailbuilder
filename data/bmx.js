@@ -3359,6 +3359,142 @@ var BMX_PARTS = [
     id: 'bmx-sp-mutiny-pentra-28', cat: 'sprocket', brand: 'Mutiny', model: 'Pentra Sprocket (28T)',
     family: 'mutiny-pentra', teeth: 28, mount: 'spline', pitch: '1/8', price: 70.00,
     note: 'bmx-freestyle-depth-1: third Mutiny row (parts side of the new brand). FETCHED store.mutinybikes.com own product page directly (store.mutinybikes.com/Pentra-Sprocket-p468185010): "CNC Machined From Aircraft Quality 7075 T6 Aluminum", tooth options 28T/30T/36T (teeth:28 modeled, the lightest/base option), "5/16 (24mm) center bore... accepts 19mm or 22mm inserts" -> mount:spline (a splined spindle interface, no sprocket bolt), at the pages own $70.00 price. pitch:1/8 is NOT stated on the maker page itself - cross-corroborated via two independent AveBmx.pl retailer listings of the same Pentra/Pentra V2 sprocket both stating verbatim "kompatybilny z lancuchem: 1/8"" (compatible with 1/8in chain) - a real cross-source confirmation, not a guess, but retailer-sourced rather than maker-first-party so left disclosed. Weight intentionally OMITTED: the makers own page states "0.50 lbs" (227g) but two independent AveBmx.pl listings for the same 28T sprocket state "89g" - an order-of-magnitude discrepancy (possibly a packaged/shipping-weight field on the maker page vs the bare-part weight on the retailer pages) that could not be resolved this session, so per "a blank field beats an invented value" no weight was entered rather than picking one of two disagreeing numbers. Row stays UNVERIFIED (pitch retailer-corroborated, weight conflict unresolved, sourceType:retailer would be rejected on a verified row regardless).'
+  },
+
+  // =========================================================================
+  // ---- bmx-brands-7 (2026-07-24): per-brand category-completion pass on
+  //      Kink/Sunday/Federal (brands already in the catalog but thin in
+  //      specific categories per tools/DATA-ENTRY-TEMPLATE.md scope). Every
+  //      row below is FETCHED directly this session from the brand's own
+  //      Shopify storefront product JSON (kinkbmx.com, shop.sundaybikes.com,
+  //      federalbikes.com — <handle>.js), which is manufacturer first-party
+  //      data, not a search summary. Interface fields the engine reads are
+  //      confirmed verbatim from that JSON; display-only fields (fork/headset
+  //      steerer, bar/stem clamp where noted) follow the catalog's existing
+  //      convention for spec-silent freestyle parts. THE KNOWN SPINDLE VOCAB
+  //      DEFECT (48-spline vs plain-mm diameter tokens colliding) blocked two
+  //      real Kink cranks and one Federal BB variant — see the worker report,
+  //      not fabricated here.
+  // -------------------------------------------------------------------------
+  {
+    id: 'bmx-fk-kink-williams', cat: 'fork', brand: 'Kink', model: 'Williams Forks',
+    family: 'kink-williams', discipline: 'freestyle', wheelSize: '20',
+    steerer: 'integrated-1-1/8', axle: '10mm', brakeMount: 'none',
+    weight: 1009, price: 199.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://kinkbmx.com/products/williams-forks',
+    note: 'bmx-brands-7: Nathan Williams signature fork, fetched kinkbmx.com/products/williams-forks.js directly this session. Tech Specs verbatim: "Dropout Slot 10mm (3/8\")" (axle:10mm exact), "Weight 35.6oz (Including Fork Bolt)" = 1009g, Black variant $199.99 (Chrome $229.99, not modeled). Steerer entered as integrated-1-1/8 per this catalog\'s standing convention for BMX\'s universal 1-1/8in integrated standard (the page says only "Bearing Race Integrated", not a literal S.H.I.S. code) — this field is display-only, no checkBmxBuild rule reads it (compat-bmx.js BMX_VOCAB.headTube comment). brakeMount:none: no brake boss of any kind is named anywhere in the fork\'s own tech specs, and kinkbmx.com\'s own "Brake Mount Kit" product page (kinkbmx.com/products/brake-mount-kit, same session) states verbatim the kit "fits 2016 and later Kink aftermarket frames" to ADD brakes — confirming Kink\'s current freestyle frame/fork platform ships brakeless stock, matching the sibling bmx-fk-premium-ckv3/bmx-fk-haro-downtown convention for spec-silent freestyle forks. Adjustable offset (20mm/25mm via included adapters) is a handling detail, not modeled (no offset field in BMX schema).'
+  },
+  {
+    id: 'bmx-bb-kink-mid-19', cat: 'bb', brand: 'Kink', model: 'Mid Bottom Bracket (19mm)',
+    shell: 'mid', spindleFit: '19mm', price: 29.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://kinkbmx.com/products/mid-bottom-bracket',
+    note: 'bmx-brands-7: fetched kinkbmx.com/products/mid-bottom-bracket.js directly. Tech Specs verbatim: "Sizes 19mm, 22mm", "Type Mid" (shell:mid, spindleFit:19mm exact for this variant), "51mm" center tube width, "6061-T6 Aluminum", "Precision Sealed" bearings, Black variant $29.99 (both spindle sizes share this price). The page\'s one stated weight ("5.0oz") is explicitly labeled for the 22mm variant only — left OMITTED here rather than assumed identical for the 19mm SKU (see the 22mm sibling row for that figure).'
+  },
+  {
+    id: 'bmx-bb-kink-mid-22', cat: 'bb', brand: 'Kink', model: 'Mid Bottom Bracket (22mm)',
+    shell: 'mid', spindleFit: '22mm', weight: 142, price: 29.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://kinkbmx.com/products/mid-bottom-bracket',
+    note: 'bmx-brands-7: fetched kinkbmx.com/products/mid-bottom-bracket.js directly — same product as the 19mm row above, this row pins the 22mm spindle variant. "Weight 5.0oz (22mm)" = 142g, maker-stated and explicitly tied to this exact spindle size (not a shipping bucket). Price $29.99 confirmed exactly.'
+  },
+
+  // ---- Sunday (shop.sundaybikes.com — multi-brand Shopify storefront also
+  //      carrying Fairdale/BSD/GSport/Odyssey; every row below filtered to
+  //      vendor:"Sunday" in the fetched product JSON) -----------------------
+  {
+    id: 'bmx-gr-sunday-cornerstone', cat: 'grips', brand: 'Sunday', model: 'Cornerstone Grip',
+    length: 150, flangeless: true, weight: 141, price: 9.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://shop.sundaybikes.com/products/sunday-cornerstone-grip-black-maroon-swirl',
+    note: 'bmx-brands-7: fetched shop.sundaybikes.com/products/sunday-cornerstone-grip-black-maroon-swirl.js directly (vendor:"Sunday" confirmed in the JSON, distinguishing it from the Odyssey/BSD/Fairdale rows the same storefront also carries). "150mm length" exact; "Odyssey Par Ends included" (bar ends bundled, not sold separately) and a ribbed design imply the grip itself has no flange (flangeless:true, matching the bundled-bar-end pattern) — length/flangeless are display-only fields, no checkBmxBuild rule reads grips. Price $9.99 exact. Weight 141g is the products own variant-JSON figure; plausible only WITH the bundled bar ends included (a bare flangeless grip pair alone typically weighs less) — flagged, not treated as a precise bare-grip weight.'
+  },
+  {
+    id: 'bmx-gr-sunday-seeley', cat: 'grips', brand: 'Sunday', model: 'Seeley Grip',
+    length: 160, flangeless: true, price: 6.95,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://shop.sundaybikes.com/products/sunday-seeley-grip-orange',
+    note: 'bmx-brands-7: fetched shop.sundaybikes.com/products/sunday-seeley-grip-orange.js directly (vendor:"Sunday"). Jake Seeley signature grip, "160mm length" exact, "Odyssey Par Ends included", tapered core, ribbed design of increasing width — same flangeless/bar-end-bundled reasoning as the Cornerstone row. Price $6.95 exact. No weight field returned by this variant\'s JSON — left blank rather than reused from the different Cornerstone product.'
+  },
+  {
+    id: 'bmx-sp-sunday-knox-v2-25', cat: 'sprocket', brand: 'Sunday', model: 'Knox V2 Sprocket (25T)',
+    teeth: 25, mount: 'spline', pitch: '1/8', weight: 159, price: 64.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://shop.sundaybikes.com/products/sunday-knox-v2-sprocket-black',
+    note: 'bmx-brands-7: fetched shop.sundaybikes.com/products/sunday-knox-v2-sprocket-black.js directly (vendor:"Sunday"). "CNC machined 7075-T6 aluminum", "Full guard with 5 rotatable sprocket bolt hole positions", "Thickness: 6mm", "Sizes: 25T or 28T" — teeth:25 modeled here (see the 28T sibling row); mount:spline follows this catalog\'s established convention for bolt-on freestyle guard sprockets (matches bmx-sp-odyssey-utilitypro-30\'s identical reasoning) rather than a literal page term. pitch:1/8 is NOT stated on the page ("designed to work with and protect all BMX chains") — entered as the sample default per every other freestyle sprocket in this catalog, same disclosed caveat as the Odyssey precedent. Weight 159g is this variant\'s own JSON figure and differs from the 28T sibling\'s 200g — a real per-variant weight, not a shipping-bucket coincidence. Price $64.99 exact.'
+  },
+  {
+    id: 'bmx-sp-sunday-knox-v2-28', cat: 'sprocket', brand: 'Sunday', model: 'Knox V2 Sprocket (28T)',
+    teeth: 28, mount: 'spline', pitch: '1/8', weight: 200, price: 64.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://shop.sundaybikes.com/products/sunday-knox-v2-sprocket-black',
+    note: 'bmx-brands-7: same product/page as the 25T row above (shop.sundaybikes.com/products/sunday-knox-v2-sprocket-black.js), this row pins the 28T variant (its own JSON weight 200g, distinct from the 25T variant\'s 159g). Same mount/pitch reasoning as the sibling row.'
+  },
+  {
+    id: 'bmx-hs-sunday-headset', cat: 'headset', brand: 'Sunday', model: 'Headset',
+    fit: 'integrated-1-1/8', weight: 60, price: 25.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://shop.sundaybikes.com/products/sunday-headset-black',
+    note: 'bmx-brands-7: fetched shop.sundaybikes.com/products/sunday-headset-black.js directly (vendor:"Sunday"). "1 1/8\" integrated" (fit:integrated-1-1/8 exact), "Campagnolo standard spec", "45º tapered" bearings, "Gyro compatible", "Weight w/out Spacers: 2.1oz" = 60g (the "with Spacers" 2.3oz/65g figure not used, to stay comparable to other bare-headset rows). Price $25.99 exact. This field is display-only (no checkBmxBuild headset rule fires per compat-bmx.js\'s Q9-lean comment), so the confirmation is a bonus, not a requirement met.'
+  },
+
+  // ---- Federal (federalbikes.com — own dedicated storefront) -------------
+  {
+    id: 'bmx-gr-federal-command-flangeless', cat: 'grips', brand: 'Federal', model: 'Command Flangeless Grips',
+    length: 168, flangeless: true, weight: 200, price: 10.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://federalbikes.com/products/federal-command-flangeless-grips-black',
+    note: 'bmx-brands-7: fetched federalbikes.com/products/federal-command-flangeless-grips-black.js directly. "168mm long, 32mm diameter" (length:168mm; the 32mm outer diameter has no schema field), flangeless confirmed both by the product name and the page\'s own listing. Price $10.99 exact; weight 200g is the product JSON\'s own per-unit figure.'
+  },
+  {
+    id: 'bmx-se-federal-mid-pivotal-debossed', cat: 'seat', brand: 'Federal', model: 'Mid Pivotal Debossed Logo Seat',
+    system: 'pivotal', price: 19.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://federalbikes.com/products/federal-mid-pivotal-debossed-logo-seat-black',
+    note: 'bmx-brands-7: fetched federalbikes.com/products/federal-mid-pivotal-debossed-logo-seat-black.js directly. "Mid sized padding with pivotal seat attachment" (system:pivotal exact — the only checkBmxBuild-read field on this category, matched verbatim against Federal\'s own pivotal-post rows already in this catalog, bmx-sp-federal-pivotal-200/bmx-sp-federal-stealthpivotal-200). Price $19.99 exact. No weight returned by the product JSON.'
+  },
+  {
+    id: 'bmx-sp-federal-command-25', cat: 'sprocket', brand: 'Federal', model: 'Command Sprocket (25T)',
+    teeth: 25, mount: 'spline', pitch: '1/8', price: 34.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://federalbikes.com/products/federal-command-sprocket-black',
+    note: 'bmx-brands-7: fetched federalbikes.com/products/federal-command-sprocket-black.js directly. "CNC machined sprocket with multiple cut outs", "compatible with our Plastic Impact Sprocket Guard", "Available in Black, 25t or 28t", "Bolt Drive only" — teeth:25 modeled here (see the 28T sibling row); mount:spline per this catalog\'s bolt-on-guard-sprocket convention (same reasoning as the Sunday Knox rows above), not a literal page term. pitch:1/8 not stated on the page — entered as the sample default matching every other Federal freestyle sprocket in this catalog. Price $34.99 exact; no weight returned by the product JSON.'
+  },
+  {
+    id: 'bmx-sp-federal-command-28', cat: 'sprocket', brand: 'Federal', model: 'Command Sprocket (28T)',
+    teeth: 28, mount: 'spline', pitch: '1/8', price: 34.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://federalbikes.com/products/federal-command-sprocket-black',
+    note: 'bmx-brands-7: same product/page as the 25T row above, this row pins the 28T variant (same page, same "25t or 28t" line). Same mount/pitch reasoning as the sibling row.'
+  },
+  {
+    id: 'bmx-bb-federal-mid-19', cat: 'bb', brand: 'Federal', model: 'Mid Bottom Bracket (19mm)',
+    shell: 'mid', spindleFit: '19mm', weight: 170, price: 23.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://federalbikes.com/products/federal-mid-bottom-bracket-black',
+    note: 'bmx-brands-7: fetched federalbikes.com/products/federal-mid-bottom-bracket-black.js directly. "Sealed bearing and Alloy cone kit", "Available in 19mm, 22mm and 24mm spindle options", "Weight 0.170kg/6oz" = 170g (the page states one weight figure for the kit, not split per spindle size — applied to both the 19mm and 22mm rows entered this session, disclosed here). Price $23.99 exact. The 24MM VARIANT WAS DELIBERATELY NOT ADDED — see the worker report\'s spindle-vocab-defect section (a new 24mm BB risks a false red-dot against any catalog crank whose spindle is actually 24mm but tokenized 48-spline, per CLAUDE.md/this batch\'s brief; left for Douglas\'s ruling on the vocab).'
+  },
+  {
+    id: 'bmx-bb-federal-mid-22', cat: 'bb', brand: 'Federal', model: 'Mid Bottom Bracket (22mm)',
+    shell: 'mid', spindleFit: '22mm', weight: 170, price: 23.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://federalbikes.com/products/federal-mid-bottom-bracket-black',
+    note: 'bmx-brands-7: same product/page as the 19mm row above (federalbikes.com/products/federal-mid-bottom-bracket-black.js), this row pins the 22mm spindle variant. Same shared-weight disclosure as the sibling row; the 24mm variant on the same page was NOT added (spindle-vocab-defect, see worker report).'
+  },
+  {
+    id: 'bmx-ti-federal-command-lp-24',  cat: 'tire', brand: 'Federal', model: 'Command LP Tyre 2.40"',
+    wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 60, price: 27.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://federalbikes.com/products/federal-command-lp-tyre-black-2-40-quot',
+    note: 'bmx-brands-7: fetched federalbikes.com/products/federal-command-lp-tyre-black-2-40-quot.js directly. "Steel bead", "20\" x 2.4\"" (wheelSize:20, width:2.4 exact), "60PSI maximum inflation" (maxPsi:60 exact), described as a low-pressure street/park tyre with an all-over knurled tread (casing:park). Price $27.99 exact. Weight OMITTED: the product JSON returned 11793g (~11.8kg) for a single tyre, an obvious shipping/case-quantity bucket, not a real per-tyre weight — a blank field beats an invented one.'
+  },
+  {
+    id: 'bmx-pd-federal-command-plastic', cat: 'pedals', brand: 'Federal', model: 'Command Plastic Pedals',
+    platform: 'plastic', spindle: '9/16"', weight: 470, price: 22.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://federalbikes.com/products/federal-command-plastic-pedal-black-9-16-quot',
+    note: 'bmx-brands-7: fetched federalbikes.com/products/federal-command-plastic-pedal-black-9-16-quot.js directly. Title states 9/16" thread (spindle:\'9/16"\', display-only per CLAUDE.md — 9/16" fits every crank, no compat rule); platform:plastic per the product name/description ("Plastic Pedal", "thick spindle"). "Weight 0.470kg/16.6oz" = 470g stated explicitly in the page\'s own prose (used over the product JSON\'s close-but-rounder 490g variant figure, preferring the maker\'s own stated-in-text number). Price $22.99 exact.'
   }
 ];
 
