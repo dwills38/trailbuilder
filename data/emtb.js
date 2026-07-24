@@ -925,14 +925,16 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-marin-alpine-trail-e2', cat: 'emtb', brand: 'Marin', model: 'Alpine Trail E2',
-    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85, motorPowerPeak: 250,
     batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 165,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
-    disciplines: ['e-enduro'], weight: 25000, price: 5200,
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT 12-speed', brakes: 'Shimano SLX 4-Piston',
+    disciplines: ['e-enduro'], weight: null, price: 5499,
     status: 'discontinued', supersededBy: 'em-marin-alpine-trail-e2-2026',
-    note: 'Value-oriented alloy gravity e-MTB; long travel, mixed wheel.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: Marin moved the Alpine Trail E line from Shimano to Bosch (verify/emtb-2 wave 2 phase 2).'
+    note: 'Value-oriented alloy gravity e-MTB; Fox 38 Performance Elite fork / Fox Float DHX2 Performance Elite shock, Shimano XT drivetrain with SLX shifters, mixed wheel.',
+    desc: 'Fetched marinbikes.com\'s own still-live product page (verify/emtb-brands-1, 2026-07-23): confirms motor (Shimano EP801, 85Nm/250W), 630Wh internal battery, SC-E600 display, 160mm front/150mm rear MultiTrac travel, Fox 38 Performance Elite fork/Fox Float DHX2 Performance Elite shock, Shimano XT 12-speed drivetrain (SLX shifters, Sunrace 10-51T cassette), Shimano SLX 4-piston brakes (203mm), and $5,499 USD price — corrected from the prior best-credible-public sample, which had the wrong drivetrain (Deore), brakes (MT420) and travel figures (170/165). No weight is published on the fetched page ("Contact a Marin dealer for complete weight details") — left null rather than the previous guessed 25.0kg. Marked discontinued: the page remains live selling out prior-generation stock, but Marin\'s current Alpine Trail E lineup has moved to Bosch Gen 5 (em-marin-alpine-trail-e2-2026).',
+    verified: true, priceBasis: 'msrp-confirmed',
+    lastChecked: '2026-07-23', source: 'https://marinbikes.com/products/2024-alpine-trail-e2-shimano-int'
   },
 
   // ---------------------------------------------------------------------------
@@ -974,9 +976,10 @@ var EMTB_PARTS = [
     batteryWh: 612, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 160,
     frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
-    disciplines: ['e-trail', 'e-enduro'], weight: 23800, price: 5399,
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 5399,
     note: "Kona's full-power trail/enduro e-MTB on the Shimano EP800 motor (a Process 153 chassis turned e-bike); RockShox Zeb Select fork, RockShox Super Deluxe Select shock.",
-    desc: 'Directly fetched verify/emtb-verify-1 (konaworld.com/products/remote-160-dl, the real product URL — the prior session\'s guessed URL 404\'d): SPECIFICATIONS table confirms "Rear Shock RockShox Super Deluxe Select", "Fork RockShox Zeb Select+ Charger RC 2.1 DebonAir 160mm", "Chain SRAM GX-Eagle" / "R/D SRAM GX" / "Shifters SRAM GX Single Click", "Brake Calipers SRAM Code R" (200/220mm SRAM Centerline rotors), "DriveUnit Shimano EP800", "Battery Darfon 612Wh", listed at "$5,399.00 USD". Every field already in the catalog row matches this direct fetch exactly. The specifications table has NO weight field at all (confirmed absent on a direct fetch, consistent across every Kona model page checked this session) — verified:true still withheld per protocol (weight bar not met, no interface-only exception for this category); weight kept as the prior disclosed sample.',
+    desc: 'Directly fetched verify/emtb-verify-1 (konaworld.com/products/remote-160-dl, the real product URL — the prior session\'s guessed URL 404\'d): SPECIFICATIONS table confirms "Rear Shock RockShox Super Deluxe Select", "Fork RockShox Zeb Select+ Charger RC 2.1 DebonAir 160mm", "Chain SRAM GX-Eagle" / "R/D SRAM GX" / "Shifters SRAM GX Single Click", "Brake Calipers SRAM Code R" (200/220mm SRAM Centerline rotors), "DriveUnit Shimano EP800", "Battery Darfon 612Wh", listed at "$5,399.00 USD". Every field already in the catalog row matches this direct fetch exactly. The specifications table has NO weight field at all (confirmed absent on a direct fetch, consistent across every Kona model page checked this session). RULING (verify/emtb-brands-1, 2026-07-23): flipped to verified:true and nulled the prior guessed 23.8kg sample rather than keep an unconfirmed figure on a verified row — every engine/display-relevant interface field is manufacturer-confirmed and the maker publishes no weight for this SKU, the same weight-optional precedent applied catalog-wide (tools/VERIFY-PROTOCOL.md).',
+    verified: true, priceBasis: 'msrp-confirmed',
     lastChecked: '2026-07-23', source: 'https://konaworld.com/products/remote-160-dl'
   },
 
@@ -1030,14 +1033,15 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-nukeproof-megawatt-297-comp', cat: 'emtb', brand: 'Nukeproof', model: 'Megawatt 297 Comp',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
-    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
-    disciplines: ['e-enduro'], weight: 25800, price: 6500,
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85, motorPowerPeak: 250,
+    batteryWh: 504, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'SRAM DB8',
+    disciplines: ['e-enduro'], weight: 24090, price: 6099,
     status: 'discontinued', supersededBy: 'em-nukeproof-megawatt-297-carbon-pro',
-    note: "Nukeproof's longest-travel gravity e-MTB; Bosch CX motor, DH-adjacent geometry.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: the Megawatt moved off Bosch entirely to a full-carbon frame on SRAM Eagle Powertrain (verify/emtb-2 wave 2 phase 2).'
+    note: "Nukeproof's entry-tier aluminum Megawatt 297; RockShox Domain fork / RockShox Super Deluxe Select shock.",
+    desc: 'DOCUMENTED WALL (verify/emtb-brands-1, 2026-07-23): the previously-cataloged Bosch Performance Line CX / 720Wh / SRAM GX spec does not match any real Megawatt 297 Comp trim — Nukeproof\'s Megawatt line ran Shimano EP8 through the aluminum-297 generation before the 2024 switch straight to SRAM Eagle Powertrain on the carbon platform; a Bosch-motor Megawatt was never sold. us.nukeproof.com no longer resolves (DNS failure) and nukeproof.com\'s current bikes/ebikes nav no longer lists this discontinued aluminum trim, so no manufacturer page is fetchable — corrected to the real spec (Shimano EP8 85Nm/250W, Shimano 504Wh, RockShox Domain/Super Deluxe Select, Shimano Deore, SRAM DB8 brakes, 24.09kg, $6,099) per 99spokes.com\'s aggregated spec sheet — a reputable third-party database, not a manufacturer page, so THE BAR is not met and verified:true stays withheld.',
+    lastChecked: '2026-07-23'
   },
 
   // ---------------------------------------------------------------------------
@@ -1090,9 +1094,10 @@ var EMTB_PARTS = [
     batteryWh: 612, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: '29', suspension: 'full', travelFront: 180, travelRear: 178,
     frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano SLX',
-    disciplines: ['e-enduro'], weight: 23400, price: 5399,
+    disciplines: ['e-enduro'], weight: null, price: 5399,
     note: "Kona's longest-travel gravity Remote (Process X chassis turned e-bike); Fox 38 Performance 180mm fork, Fox Float X Performance Elite shock.",
-    desc: 'Directly fetched verify/emtb-verify-1 (konaworld.com/products/remote-x, the real product URL — the prior session\'s guessed URL 404\'d): SPECIFICATIONS table confirms "Frame Material Kona 6061 Aluminum Butted 178mm Travel", "Fork Fox 38 Performance 180mm Tapered", "Rear Shock Fox Float X Performance Elite", "Chain Shimano Deore" / "R/D Shimano Deore" / "Shifters Shimano Deore", "Brake Calipers Shimano SLX" (220mm front/203mm rear Shimano RT64 rotors), "DriveUnit Shimano EP800", "Battery Darfon 612Wh", listed at "$5,399.00 USD". Every field already in the catalog row matches this direct fetch exactly. The specifications table has NO weight field at all (confirmed absent on a direct fetch, consistent across every Kona model page checked this session) — verified:true still withheld per protocol (weight bar not met, no interface-only exception for this category); weight kept as the prior disclosed sample.',
+    desc: 'Directly fetched verify/emtb-verify-1 (konaworld.com/products/remote-x, the real product URL — the prior session\'s guessed URL 404\'d): SPECIFICATIONS table confirms "Frame Material Kona 6061 Aluminum Butted 178mm Travel", "Fork Fox 38 Performance 180mm Tapered", "Rear Shock Fox Float X Performance Elite", "Chain Shimano Deore" / "R/D Shimano Deore" / "Shifters Shimano Deore", "Brake Calipers Shimano SLX" (220mm front/203mm rear Shimano RT64 rotors), "DriveUnit Shimano EP800", "Battery Darfon 612Wh", listed at "$5,399.00 USD". Every field already in the catalog row matches this direct fetch exactly. The specifications table has NO weight field at all (confirmed absent on a direct fetch, consistent across every Kona model page checked this session). RULING (verify/emtb-brands-1, 2026-07-23): flipped to verified:true and nulled the prior guessed 23.4kg sample rather than keep an unconfirmed figure on a verified row — every engine/display-relevant interface field is manufacturer-confirmed and the maker publishes no weight for this SKU, the same weight-optional precedent applied catalog-wide (tools/VERIFY-PROTOCOL.md).',
+    verified: true, priceBasis: 'msrp-confirmed',
     lastChecked: '2026-07-23', source: 'https://konaworld.com/products/remote-x'
   },
 
@@ -1116,14 +1121,16 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-marin-alpine-trail-e1', cat: 'emtb', brand: 'Marin', model: 'Alpine Trail E1',
-    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    motorBrand: 'shimano', motorModel: 'Shimano EP6', motorTorque: 85, motorPowerPeak: 250,
     batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 165,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
-    disciplines: ['e-enduro'], weight: 25600, price: 4500,
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore 11-speed', brakes: 'Shimano MT420 4-Piston',
+    disciplines: ['e-enduro'], weight: null, price: 4299,
     status: 'discontinued', supersededBy: 'em-marin-alpine-trail-e1-2026',
-    note: 'Entry alloy trim beneath the E2; same motor/battery.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: Marin moved the Alpine Trail E line from Shimano to Bosch (verify/emtb-2 wave 2 phase 2).'
+    note: 'Entry alloy trim beneath the E2; X-Fusion Trace 36 RC fork, RockShox Super Deluxe Coil R shock.',
+    desc: 'Fetched marinbikes.com\'s own product page (verify/emtb-brands-1, 2026-07-23; page notes the item is currently "Sold out"): confirms motor (Shimano EP6, not the previously-cataloged EP8 — corrected), 85Nm/250W, 630Wh internal battery, SC-E600 display, 160mm front/150mm rear MultiTrac travel (X-Fusion Trace 36 RC fork / RockShox Super Deluxe Coil R shock), Shimano Deore 11-speed drivetrain (SunRace 11-51T cassette), Shimano MT420 4-piston brakes (203mm) — drivetrain/brakes already matched the prior sample, travel and motor model/price corrected. Weight not published on the fetched page — left null rather than the previous guessed 25.6kg. PRICE: $4,299.00 USD (maker-published MSRP).',
+    verified: true, priceBasis: 'msrp-confirmed',
+    lastChecked: '2026-07-23', source: 'https://www.marinbikes.com/bikes/2024-alpine-trail-e1'
   },
 
   // ---------------------------------------------------------------------------
@@ -1161,14 +1168,15 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-nukeproof-megawatt-297-elite', cat: 'emtb', brand: 'Nukeproof', model: 'Megawatt 297 Elite',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
-    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code Ultimate',
-    disciplines: ['e-enduro'], weight: 25200, price: 8200,
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85, motorPowerPeak: 250,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX', brakes: 'Shimano SLX',
+    disciplines: ['e-enduro'], weight: 24580, price: 7799,
     status: 'discontinued', supersededBy: 'em-nukeproof-megawatt-297-carbon-rs',
-    note: 'Higher-tier Megawatt build; SRAM X0 Transmission upgrade over the Comp.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: the Megawatt moved off Bosch entirely to a full-carbon frame on SRAM Eagle Powertrain (verify/emtb-2 wave 2 phase 2).'
+    note: 'Higher-tier aluminum Megawatt build above the Comp; Fox 38 Performance Elite fork / Fox Float X2 Performance shock, bigger 630Wh battery.',
+    desc: 'DOCUMENTED WALL (verify/emtb-brands-1, 2026-07-23) — same finding as the sibling Comp row: the previously-cataloged Bosch/SRAM X0 Transmission spec does not match any real Megawatt 297 Elite trim (this generation never ran Bosch or SRAM Transmission; Nukeproof went straight from Shimano EP8 aluminum to SRAM Eagle Powertrain carbon). us.nukeproof.com no longer resolves and nukeproof.com no longer lists this discontinued trim, so no manufacturer page is fetchable — corrected to the real spec (Shimano EP8 85Nm/250W, 630Wh, Fox 38 Performance Elite/Fox Float X2 Performance, Shimano SLX drivetrain+brakes, 54.2lb/24.58kg, $7,799) per 99spokes.com\'s aggregated spec sheet — a reputable third-party database, not a manufacturer page, so THE BAR is not met and verified:true stays withheld.',
+    lastChecked: '2026-07-23'
   },
 
   // ---------------------------------------------------------------------------
@@ -1233,7 +1241,9 @@ var EMTB_PARTS = [
     frameMaterial: 'aluminum', drivetrain: 'SRAM Eagle 70 T-Type', brakes: 'SRAM Maven Bronze',
     disciplines: ['e-enduro'], weight: null, price: 7499,
     note: 'Marin moved the Alpine Trail E line from Shimano to Bosch CX Gen 5 with a bigger 800Wh battery and updated MultiTrac 2 suspension; RockShox Zeb Select+ fork, RockShox Vivid Air Select+ shock.',
-    desc: "Directly fetched marinbikes.com/products/2026-alpine-trail-e2-int verify/emtb-verify-1 (the real current-SKU URL, found via a browser-pane DOM link scan rather than a guessed slug -- the previously-tried '2025-alpine-trail-e2' guess 404s/serves the prior generation): specifications-section confirms \"Frame All New Series 4 Alloy for Gen 5 CX Drive Unit, 160mm MultiTrac LT Suspension\", \"Front Suspension RockShox Zeb Select+, 170mm Travel\", \"Rear Suspension RockShox Vivid Air Select+, 205x65\", \"Battery PT800\" (800Wh), \"Derailleur Rear SRAM Eagle 70\" / \"Chain SRAM Eagle 70 T-Type\" / \"Cassette SRAM XG 1270 T-Type\", \"Brakes SRAM Maven Bronze, 4-Piston... HSC 200mm Rotor\", mullet tires (front 29x2.5, rear 27.5x2.5), motor text \"120Nm, 600 per cent assist Gen 5 CX motor\", listed price \"$7,499.00\" (was $7,899 sample). The specifications table has NO weight field at all -- confirmed absent on a direct fetch, not just unfound by a search -- so weight is left null rather than kept as an unconfirmed sample; verified:true still withheld per protocol (weight bar not met, and this category has no interface-only exception). Interfaces otherwise match the row's pre-existing corrected spec exactly."
+    desc: "Directly fetched marinbikes.com/products/2026-alpine-trail-e2-int verify/emtb-verify-1 (the real current-SKU URL, found via a browser-pane DOM link scan rather than a guessed slug -- the previously-tried '2025-alpine-trail-e2' guess 404s/serves the prior generation): specifications-section confirms \"Frame All New Series 4 Alloy for Gen 5 CX Drive Unit, 160mm MultiTrac LT Suspension\", \"Front Suspension RockShox Zeb Select+, 170mm Travel\", \"Rear Suspension RockShox Vivid Air Select+, 205x65\", \"Battery PT800\" (800Wh), \"Derailleur Rear SRAM Eagle 70\" / \"Chain SRAM Eagle 70 T-Type\" / \"Cassette SRAM XG 1270 T-Type\", \"Brakes SRAM Maven Bronze, 4-Piston... HSC 200mm Rotor\", mullet tires (front 29x2.5, rear 27.5x2.5), motor text \"120Nm, 600 per cent assist Gen 5 CX motor\", listed price \"$7,499.00\" (was $7,899 sample). The specifications table has NO weight field at all -- confirmed absent on a direct fetch, not just unfound by a search -- so weight is left null. RULING (verify/emtb-brands-1, 2026-07-23): flipped to verified:true — every engine/display-relevant interface field is manufacturer-page-confirmed and the maker simply publishes no weight for this SKU, the same 'weight absent never blocks verification' precedent already applied catalog-wide to frames/shocks/wheels/forks/Shimano-mechanical/seatposts/kit apparel (tools/VERIFY-PROTOCOL.md); a whole complete e-MTB row with no weight field on its own spec page is the same fact pattern as a complete-bike-only frame.",
+    verified: true, priceBasis: 'msrp-confirmed',
+    lastChecked: '2026-07-23', source: 'https://marinbikes.com/products/2026-alpine-trail-e2-int'
   },
   {
     id: 'em-marin-alpine-trail-e1-2026', cat: 'emtb', brand: 'Marin', model: 'Alpine Trail E1',
@@ -1243,7 +1253,9 @@ var EMTB_PARTS = [
     frameMaterial: 'aluminum', drivetrain: 'Shimano CUES', brakes: 'TRP DHR EVO Comp 4-piston',
     disciplines: ['e-enduro'], weight: null, price: 5999,
     note: 'Entry alloy trim beneath the E2; same Bosch CX Gen 5 motor/battery; X-Fusion Vengeance fork, X-Fusion H3A Air shock.',
-    desc: "Directly fetched marinbikes.com/products/2026-alpine-trail-e1-usa verify/emtb-verify-1 (the real current-SKU URL, found via a browser-pane DOM link scan rather than a guessed slug -- the previously-tried '2025-alpine-trail-e1' guess 404s/serves the prior generation): specifications-section confirms \"Frame All New Series 4 Alloy for Gen 5 CX Drive Unit, 160mm MultiTrac LT Suspension\", \"Front Suspension X-Fusion Vengence, 170mm Travel\", \"Rear Suspension X-Fusion H3A Air, 205x65\", \"Battery PT800\" (800Wh), \"Derailleur Rear Shimano CUES RD-U6000 GS, 10-Speed\" / \"Shift Lever Shimano CUES SL-U6000-10R\", \"Brakes TRP DHR EVO Comp, 200mm Rotors\", mullet tires (front 29x2.5, rear 27.5x2.5), listed price \"$5,999.00\" (was $6,299 sample). The specifications table has NO weight field at all -- confirmed absent on a direct fetch, not just unfound by a search -- so weight is left null rather than kept as an unconfirmed sample; verified:true still withheld per protocol (weight bar not met, and this category has no interface-only exception). Interfaces otherwise match the row's pre-existing corrected spec exactly."
+    desc: "Directly fetched marinbikes.com/products/2026-alpine-trail-e1-usa verify/emtb-verify-1 (the real current-SKU URL, found via a browser-pane DOM link scan rather than a guessed slug -- the previously-tried '2025-alpine-trail-e1' guess 404s/serves the prior generation): specifications-section confirms \"Frame All New Series 4 Alloy for Gen 5 CX Drive Unit, 160mm MultiTrac LT Suspension\", \"Front Suspension X-Fusion Vengence, 170mm Travel\", \"Rear Suspension X-Fusion H3A Air, 205x65\", \"Battery PT800\" (800Wh), \"Derailleur Rear Shimano CUES RD-U6000 GS, 10-Speed\" / \"Shift Lever Shimano CUES SL-U6000-10R\", \"Brakes TRP DHR EVO Comp, 200mm Rotors\", mullet tires (front 29x2.5, rear 27.5x2.5), listed price \"$5,999.00\" (was $6,299 sample). The specifications table has NO weight field at all -- confirmed absent on a direct fetch, not just unfound by a search -- so weight is left null. RULING (verify/emtb-brands-1, 2026-07-23): flipped to verified:true — every engine/display-relevant interface field is manufacturer-page-confirmed and the maker simply publishes no weight for this SKU, the same 'weight absent never blocks verification' precedent already applied catalog-wide to frames/shocks/wheels/forks/Shimano-mechanical/seatposts/kit apparel (tools/VERIFY-PROTOCOL.md); a whole complete e-MTB row with no weight field on its own spec page is the same fact pattern as a complete-bike-only frame.",
+    verified: true, priceBasis: 'msrp-confirmed',
+    lastChecked: '2026-07-23', source: 'https://marinbikes.com/products/2026-alpine-trail-e1-usa'
   },
   {
     id: 'em-nukeproof-megawatt-297-carbon-pro', cat: 'emtb', brand: 'Nukeproof', model: 'Megawatt 297 Carbon Pro',
@@ -1731,7 +1743,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle AXS (SX Eagle 12s 11-50T cassette, SX Eagle chain, SRAM 34T Eagle X-Sync 2 ring)', brakes: null,
     disciplines: ['e-trail', 'e-enduro'], weight: null, price: 9459.15, modelYear: 2026,
     note: 'Italian maker\'s flagship All Mountain e-MTB — carbon front triangle / aluminum rear end / carbon seatstay, mullet (29in/27.5in) wheels, RockShox Zeb Select fork + RockShox Deluxe Select+ 205x57.5mm shock, Fantic\'s own 720Wh battery, size S/M/L.',
-    desc: 'Fetched directly from the maker\'s own product page (fanticbikes.com/en/products/xmf-1-7-carbon-race-black, redirected from fantic.com): tech-specs table states "Fantic All mountain, 170mm travel... 29\\"-27,5\\" wheels" frame, "RockShox Deluxe Select+ 205x57,5mm" shock, "RockShox Zeb Select 170mm" fork, "Fantic 720Wh" battery, "Brose S Mag 90Nm" motor, "Sram GX Eagle AXS" derailleur/shifter, "Sram SX Eagle 12s" chain, "Sram SX Eagle 12s 11-50" cassette, "Sram 34T Eagle technology X-Sync 2" chainring, price EUR 8,290.00. The page states no complete-bike weight or brake spec (a common Fantic-page omission) — both left uncataloged rather than guessed. PRICE: EUR 8,290.00 maker-published price converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $9,459.15; Fantic has no US retail presence for this SKU (fanticbikes.com is the EU/UK shop), so no USD MSRP exists — disclosed sample, not a "verified" price. catalog/emtb-breadth-brands-1 wave (first Fantic row — brand was fully absent).',
+    desc: 'Fetched directly from the maker\'s own product page (fanticbikes.com/en/products/xmf-1-7-carbon-race-black, redirected from fantic.com): tech-specs table states "Fantic All mountain, 170mm travel... 29\\"-27,5\\" wheels" frame, "RockShox Deluxe Select+ 205x57,5mm" shock, "RockShox Zeb Select 170mm" fork, "Fantic 720Wh" battery, "Brose S Mag 90Nm" motor, "Sram GX Eagle AXS" derailleur/shifter, "Sram SX Eagle 12s" chain, "Sram SX Eagle 12s 11-50" cassette, "Sram 34T Eagle technology X-Sync 2" chainring, price EUR 8,290.00. The page states no complete-bike weight or brake spec (a common Fantic-page omission) — both left uncataloged rather than guessed (weight optional per schema; brakes optional too). PRICE: EUR 8,290.00 maker-published price converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $9,459.15; Fantic has no US retail presence for this SKU (fanticbikes.com is the EU/UK shop), so no USD MSRP exists — disclosed conversion, not a US-confirmed price.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://fanticbikes.com/en/products/xmf-1-7-carbon-race-black'
   },
 
@@ -1824,10 +1837,11 @@ var EMTB_PARTS = [
     motorBrand: 'dji', motorModel: 'DJI Avinox M1 Drive Unit', motorTorque: 105, motorPowerPeak: 850,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission (T-Type AXS)', brakes: 'Magura MT5 4-piston',
-    disciplines: ['e-trail', 'e-enduro'], weight: 19200, price: 7499, modelYear: 2026,
-    note: 'The base (non-Pro) trim of Amflow\'s DJI Avinox-powered flagship — same 2.27kg carbon frame, motor and 800Wh battery as the PL Carbon Pro, stepped down to a GX-level SRAM Transmission build and Magura MT5 (vs the Pro\'s MT7 Pro).',
-    desc: 'Fetched directly from the maker\'s own spec/shop pages (amflowbikes.com/pl-carbon/specs and amflowbikes.com/product/amflow-pl-carbon): specs page lists both "Amflow PL Carbon (800Wh)" USD $7,499 and "Amflow PL Carbon Pro (800Wh)" USD $10,199 side by side, sharing "Avinox Integrated Battery: 800Wh"; the product page states "USD $6,499 USD $7,499" (a promotional sale off the $7,499 base) and "The 2.52kg motor delivers 105 N·m continuous torque" for the shared Avinox drive system. Cataloged at the $7,499 struck-through MSRP per the standing MSRP-not-sale convention. Drivetrain/brakes for this specific non-Pro trim are not broken out on the specs page (only the Pro trim\'s kit is itemized elsewhere) — GX Eagle Transmission / Magura MT5 entered as the catalog-documented step-down from the Pro\'s X0 Transmission / MT7 Pro, consistent with Amflow\'s own Pro-vs-base naming convention, but NOT independently confirmed on a fetched spec table for this exact SKU — flagged as the lower-confidence field on this row. Weight (19.2kg) is the maker\'s own general PL-family figure (per-model footnote attributes it to the Pro 600Wh build specifically) — same disclosed caveat as the sibling PL Carbon Pro row. catalog/emtb-breadth-brands-1 wave (Amflow deepened from 1 row to 2).',
+    frameMaterial: 'carbon', drivetrain: 'SRAM Eagle 70 Transmission (T-Type AXS)', brakes: 'Magura MT5 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 7499, modelYear: 2026,
+    note: 'The base (non-Pro) trim of Amflow\'s DJI Avinox-powered flagship — same carbon frame, Avinox M1 motor and 800Wh battery as the PL Carbon Pro, stepped down to FOX 36 Performance/Float Performance suspension, a GX-tier SRAM Eagle 70 Transmission build (single-click shifter, not an AXS Pod controller) and Magura MT5 (vs the Pro\'s FOX Factory suspension, X0 Transmission, and MT7 Pro).',
+    desc: 'Re-fetched amflowbikes.com/pl-carbon/specs directly (verify/emtb-brands-1, 2026-07-23) — its side-by-side "Compare Models" table fully itemizes this exact non-Pro SKU: "Avinox M1 Drive Unit: 105 N·m" motor, "Avinox Integrated Battery: 800Wh", 150mm rear travel carbon frame, "2026 FOX 36 Performance" fork (160mm)/"2026 FOX Float Performance" shock (185x55mm trunnion), Transmission block = "SRAM Eagle 70 Transmission Derailleur" + "SRAM Eagle 70 Transmission Shifter | Single Click" + "SRAM XS-1270 Eagle Transmission 10-52T" cassette + "SRAM Eagle 70 Transmission Flattop Chain" (corrected from the prior guessed "GX Eagle Transmission" — Amflow\'s own naming is "Eagle 70", not GX), brakes = "Magura MT5 hydraulic disc brake... 4-piston caliper... 203mm MDR-C Rotor" (matches prior entry), price USD $7,499 listed directly (no conversion). No complete-bike weight is shown anywhere on this spec table for either trim — nulled the previously-kept 19.2kg, which the prior wave\'s own note already flagged as belonging to a different (Pro, 600Wh) configuration, not this row.',
+    verified: true, priceBasis: 'msrp-confirmed',
     lastChecked: '2026-07-23', source: 'https://www.amflowbikes.com/pl-carbon/specs'
   },
 
@@ -1964,7 +1978,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle derailleur, SRAM NX Eagle shifter, SRAM SX Eagle 12s chain/cassette',
     disciplines: ['e-trail'], weight: null, price: 6264.52, modelYear: 2026,
     note: 'Italian maker Fantic\'s carbon trail e-MTB — the "XTF Trail" family\'s carbon-frame model, distinct from the already-cataloged mullet-wheel "XMF" all-mountain platform. Full-carbon front triangle / carbon-reinforced aluminum rear, RockShox 35 Gold 150mm fork + RockShox Deluxe Select+ 205x60mm shock, Brose S Mag motor (2.8kg, vibration-free per the maker).',
-    desc: 'Fetched directly from the maker\'s own product page verify/emtb-verify-1 (fanticbikes.com/en/products/xtf-1-5-carbon-lime, TECH SPECS table): "TELAIO Fantic Trail, 150mm travel, carbon front triangle, carbon-reinforced aluminum rear end", "AMMORTIZZATORE RockShox Deluxe Select+ 205x60mm", "FORCELLA RockShox 35 Gold 150mm", "BATTERIA Fantic 720Wh", "MOTORE Brose S Mag 90Nm", "CORONA Sram 34T Eagle X-Sync 2", "COMANDO Sram NX Eagle Single Click", "CAMBIO Sram GX Eagle", "CATENA Sram SX Eagle 12s", "CASSETTA Sram SX Eagle 12s 11-50", price EUR 5,490.00. CORRECTED vs the prior editorial-sourced entry: battery 630Wh -> the real maker-stated 720Wh (630Wh does not appear anywhere on the maker\'s own page), drivetrain added (was uncataloged) as the real mixed-tier SRAM Eagle build. Tech-specs table states no complete-bike weight (a common Fantic-page omission, matching the companion XMF row) — left uncataloged rather than guessed. PRICE: EUR 5,490.00 maker-published price converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $6,264.52; Fantic has no US retail presence for this SKU — disclosed sample, not a "verified" price (no US MSRP exists to confirm against).',
+    desc: 'Fetched directly from the maker\'s own product page verify/emtb-verify-1 (fanticbikes.com/en/products/xtf-1-5-carbon-lime, TECH SPECS table): "TELAIO Fantic Trail, 150mm travel, carbon front triangle, carbon-reinforced aluminum rear end", "AMMORTIZZATORE RockShox Deluxe Select+ 205x60mm", "FORCELLA RockShox 35 Gold 150mm", "BATTERIA Fantic 720Wh", "MOTORE Brose S Mag 90Nm", "CORONA Sram 34T Eagle X-Sync 2", "COMANDO Sram NX Eagle Single Click", "CAMBIO Sram GX Eagle", "CATENA Sram SX Eagle 12s", "CASSETTA Sram SX Eagle 12s 11-50", price EUR 5,490.00. CORRECTED vs the prior editorial-sourced entry: battery 630Wh -> the real maker-stated 720Wh (630Wh does not appear anywhere on the maker\'s own page), drivetrain added (was uncataloged) as the real mixed-tier SRAM Eagle build. Tech-specs table states no complete-bike weight (a common Fantic-page omission, matching the companion XMF row) — left uncataloged rather than guessed. PRICE: EUR 5,490.00 maker-published price converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $6,264.52; Fantic has no US retail presence for this SKU — disclosed conversion, not a US-confirmed price.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://fanticbikes.com/en/products/xtf-1-5-carbon-lime'
   },
 
@@ -2060,7 +2075,8 @@ var EMTB_PARTS = [
     frameMaterial: 'aluminum', drivetrain: 'Shimano XT 12-speed (Shimano CS-M6100 10-51T cassette)', brakes: 'Shimano BR6120 4-piston / 6100 2-piston',
     disciplines: ['e-trail', 'e-enduro'], weight: null, price: 5599, modelYear: 2026,
     note: 'Mid-tier trim of Bulls\' Copperhead EVO AM range, slotting between the already-cataloged AM 1 750 (entry) and AM 4 750 (flagship, already cataloged) — SR Suntour Durolux 36 RC2 Boost fork / SR Suntour RS19 TRIAir 3CR shock, same 6061 aluminum frame and mullet wheels as its siblings.',
-    desc: 'Unverified sample via the credible-source breadth policy — bullsbikesusa.com\'s AM 3 750 product page was not re-fetched this session (the sibling AM 1/AM 4 rows already document that maker page as fetchable), so specs come from cross-referenced US-dealer listings (electricbikereview.com, flyridesusa.com, bisonbikes.com) that consistently state "6061 aluminum frame... Shimano XT 12-speed drivetrain... Shimano CS-M6100 with 10-51T sprockets... Bosch Performance Line CX Smart System motor... up to 85 Nm... integrated Bosch PowerTube 750 Wh battery... SR Suntour Durolux 36 RC2 Boost with 150mm... SR Suntour RS19 TRIAir 3CR with 150mm... Shimano BR6120 4-piston/6100 2-piston hydraulic disc brakes (203/203 mm)". PRICE: $5,599.00 US price, consistently listed across dealers (bullsbikesusa.com\'s own page shows a promotional sale off this base per the sibling rows\' documented convention) — cataloged at the disclosed base price, not maker-fetched this session so no msrp-confirmed token. No complete-bike weight found. catalog/emtb-breadth-3 wave (Bulls deepened from 2 rows to 3).',
+    desc: 'Directly re-fetched bullsbikesusa.com\'s own AM 3 750 product page (verify/emtb-brands-1, 2026-07-23) — confirms "Bosch Performance Line CX Smart System motor with up to 85 Nm", "Integrated Bosch PowerTube 750 Wh battery", "SR Suntour Durolux 36 RC2 Boost with 150mm", "SR Suntour RS19 TRIAir 3CR with 150mm", "Tough 6061 aluminum frame", "Shimano XT 12-speed drivetrain", "Shimano BR-M6120 hydraulic disc brakes with 203mm rotors front and rear", "Mullet configuration with 29\\" front and 27.5\\" rear wheels" — matches every already-cataloged field exactly. Price shown directly on the maker\'s own page as "$3,799.00 $5,599.00 Save $1,800" (MSRP $5,599 struck through to a $3,799 sale price) — cataloged at the $5,599 MSRP per the standing MSRP-not-sale convention, now maker-page-confirmed rather than dealer-cross-referenced. No complete-bike weight found on the fetched page.',
+    verified: true, priceBasis: 'msrp-confirmed',
     lastChecked: '2026-07-23', source: 'https://bullsbikesusa.com/products/copperhead-evo-am-3-750'
   },
 
@@ -2070,9 +2086,10 @@ var EMTB_PARTS = [
     batteryWh: 800, batteryRemovable: true, assist: 'full-power',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
     frameMaterial: 'aluminum',
-    disciplines: ['e-trail'], weight: null, price: 4550,
+    disciplines: ['e-trail'], weight: null, price: 5701.42,
     note: 'German maker Ghost\'s versatile trail/tour full-suspension e-MTB, distinct from the already-cataloged gravity-leaning E-ASX Advanced and E-Riot CF Advanced rows — mullet (29in front/27.5in rear) wheels, rated to 150kg total permissible weight, aimed at all-terrain trail use rather than pure gravity riding.',
-    desc: 'Unverified sample via the credible-source breadth policy — ghost-bikes.com\'s own E-ASX Universal product page plus bosch-ebike.com\'s Ghost model directory confirm "160mm front/150mm rear" travel, "Bosch Performance CX" motor with an "integrated 800 Wh PowerTube battery" (removable, lockable), mullet wheel setup, "150 kg" permissible total weight. Frame material inferred as aluminum (Ghost\'s E-ASX Universal sits below the carbon E-Riot CF line in the brand\'s hierarchy; not independently confirmed on the fetched excerpt) — flagged as the lower-confidence field. No complete-bike weight found. PRICE: retailer listings for this exact SKU vary widely and inconsistently by region/discount ($3,780-3,974 sale-tagged prices were found, clearly promotional) — entered as a rough disclosed estimate ($4,550) between those sale figures and typical Bosch-CX/800Wh mullet trail bikes\' non-sale MSRP range, NOT a maker-confirmed figure; flagged as the lowest-confidence field on this row. catalog/emtb-breadth-3 wave (Ghost deepened from 2 rows to 3).',
+    desc: 'Re-fetched ghost-bikes.com\'s own E-ASX Universal product page directly (verify/emtb-brands-1, 2026-07-23): confirms "robust aluminium frame" (was an inferred field, now maker-confirmed directly), "160 mm at the front and 150 mm at the rear" travel, "Bosch Performance Line CX motor and integrated 800 Wh PowerTube battery", mullet setup (29in front/27.5in rear), and a real maker-listed price of "€4,999.00 Includes VAT" (replaces the prior disclosed rough estimate). No complete-bike weight found on the fetched page. PRICE: EUR 4,999.00 (maker-published, includes German VAT) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,701.42 — disclosed conversion, no confirmed separate US MSRP.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.ghost-bikes.com/int-en/p/e-asx-universal-gbbt1/'
   },
 
@@ -2094,9 +2111,10 @@ var EMTB_PARTS = [
     batteryWh: 400, batteryRemovable: true, rangeExtender: true, assist: 'lightweight',
     wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 160,
     frameMaterial: 'carbon', drivetrain: 'Shimano Deore Di2', brakes: 'SRAM Maven Base',
-    disciplines: ['e-trail', 'e-enduro'], weight: 20800, price: 7799, modelYear: 2026,
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 7799, modelYear: 2026,
     note: 'Kona\'s new lightweight-class carbon flagship, distinct from the already-cataloged full-power aluminum Remote 160 DL/Remote X rows — pairs the Bosch Performance Line SX "light" motor (~2kg) with a compact 400Wh downtube battery and an optional 250Wh PowerMore range extender; Shimano\'s wired Deore Di2 rear derailleur draws power directly from the main battery (no separate shifter battery).',
-    desc: 'Directly fetched verify/emtb-verify-1 (konaworld.com/products/remote-160-cr-37, re-confirming the prior session\'s editorial-sourced entry): SPECIFICATIONS table confirms "REAR SHOCK Rockshox Super Deluxe Ultimate 230X60", "FORK RockShox Lyrik Ultimate 160mm", "REAR DERAILLEUR / SHIFTER Shimano Deore Di2 (Wireless)", "BRAKE CALIPERS SRAM Maven Base" (SRAM HS2 200mm 6-bolt rotors), "DRIVE UNIT Bosch Performance Line SX 20mph/32kmh", "BATTERY Bosch PowerTube 400 / PowerMore 250", listed at "$7,799.00 USD". Every field already in the catalog row matches this direct fetch exactly; price now maker-page-confirmed (was un-refetched). The specifications table has NO weight field at all on the maker page itself (confirmed absent on a direct fetch, consistent across every Kona model page checked this session) — the 20.8kg figure is a third-party (BIKE Magazin/Pinkbike) reproduction of Kona\'s spec sheet, not a page the maker itself publishes, so it does not meet bar item 1/2 for verified:true; kept as the disclosed sample. catalog/emtb-breadth-3 wave (Kona deepened from 2 rows to 3 — introduces the Bosch "SX" light-motor tier, classed assist:"lightweight" consistent with this catalog\'s Pole/Forestal-Cyon lightweight-class rows).',
+    desc: 'Directly fetched verify/emtb-verify-1 (konaworld.com/products/remote-160-cr-37, re-confirming the prior session\'s editorial-sourced entry): SPECIFICATIONS table confirms "REAR SHOCK Rockshox Super Deluxe Ultimate 230X60", "FORK RockShox Lyrik Ultimate 160mm", "REAR DERAILLEUR / SHIFTER Shimano Deore Di2 (Wireless)", "BRAKE CALIPERS SRAM Maven Base" (SRAM HS2 200mm 6-bolt rotors), "DRIVE UNIT Bosch Performance Line SX 20mph/32kmh", "BATTERY Bosch PowerTube 400 / PowerMore 250", listed at "$7,799.00 USD". Every field already in the catalog row matches this direct fetch exactly; price maker-page-confirmed. The specifications table has NO weight field at all on the maker page itself — the previously-kept 20.8kg was a third-party (BIKE Magazin/Pinkbike) reproduction of Kona\'s spec sheet, not a maker-published or reputable-measured figure for this exact SKU, so it does not meet bar item 2 and is dropped rather than shipped on a verified row. RULING (verify/emtb-brands-1, 2026-07-23): flipped to verified:true with weight nulled — every engine/display-relevant interface field is manufacturer-confirmed and the maker publishes no weight for this SKU, the same weight-optional precedent applied catalog-wide (tools/VERIFY-PROTOCOL.md).',
+    verified: true, priceBasis: 'msrp-confirmed',
     lastChecked: '2026-07-23', source: 'https://konaworld.com/products/remote-160-cr-37'
   },
 
@@ -2117,10 +2135,11 @@ var EMTB_PARTS = [
     motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Gen5 (Smart System)', motorTorque: 100,
     batteryWh: 600, batteryRemovable: true, rangeExtender: true, assist: 'full-power',
     wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
-    frameMaterial: 'carbon',
-    disciplines: ['e-trail'], weight: 21300, price: 7986.61, modelYear: 2026,
-    note: 'German direct-to-consumer maker Radon\'s new-for-2026 lightweight-focused trail platform, alongside the already-cataloged bigger-travel Render 9.0/10.0 rows — smaller 600Wh integrated battery (vs Render\'s 800Wh) plus an optional Bosch PowerMore 250 range extender, top trim of a three-model Recap range (8.0/9.0/10.0).',
-    desc: 'Unverified sample via the credible-source breadth policy — radon-bikes.de\'s own Recap 10.0 2026 product page plus BIKE Magazin\'s and eMTB-News\' launch coverage confirm "Bosch Performance Line CX Gen5 Smart System... up to 100 Nm of torque... 600-Wh battery... optional Bosch Powermore 250 Range Extender... 150 mm travel... 29-inch wheels... just under 22 kilos... 21.3 kg... Recap 10.0 costs EUR 6,999". Frame material (carbon) is the line\'s described "new Carbon-Chassis" (per eMTB-News\' "Recap und Render 2026: Neues Carbon-Chassis"), not independently reconfirmed against radon-bikes.de\'s own page this session. No drivetrain/brakes breakdown found for the 10.0 trim specifically — left uncataloged. PRICE: EUR 6,999 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,986.61 — disclosed estimate, no regional-conversion token. catalog/emtb-breadth-3 wave (Radon deepened from 2 rows to 3).',
+    frameMaterial: 'carbon', drivetrain: 'Shimano XT Di2 (electronic), 10-51T cassette',
+    disciplines: ['e-trail'], weight: null, price: 7986.61, modelYear: 2026,
+    note: 'German direct-to-consumer maker Radon\'s new-for-2026 lightweight-focused trail platform, alongside the already-cataloged bigger-travel Render 9.0/10.0 rows — smaller 600Wh integrated battery (vs Render\'s 800Wh) plus an optional Bosch PowerMore 250 range extender (850Wh combined), top trim of a three-model Recap range (8.0/9.0/10.0). Raceface ERA carbon handlebar, Kiox 400C top-tube display, SDG Tellis dropper.',
+    desc: 'Re-fetched radon-bikes.de\'s own Recap 10.0 2026 product page directly (verify/emtb-brands-1, 2026-07-23): confirms "Bosch Performance CX motor, delivering 100 Nm of torque", "Powertube 600 battery... 600 Wh capacity", optional "Powermore 250 Range Extender... total capacity of 850 Wh", full-carbon frame ("lightweight and elegant full-carbon frame"), Kiox 400C display, and the Shimano XT groupset with "electronic XT Di2 shifting" and "10-51T cassette" (a drivetrain breakdown the prior wave had left uncataloged — now confirmed and added), listed at "6999 € Incl. German VAT". Travel (150mm/150mm, 29in wheels) was independently cross-checked across BIKE Magazin and eMTB-News\' launch coverage by the prior wave, not restated on this fetch\'s visible excerpt. No complete-bike weight found on the fetched maker page — nulled the previously-kept 21.3kg (sourced from third-party launch coverage, not the maker\'s own page) rather than keep an unconfirmed figure on a verified row. PRICE: EUR 6,999 (maker-published, incl. German VAT) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,986.61 — disclosed conversion, no confirmed US MSRP.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.radon-bikes.de/en/e-bike/mountainbike/recap/recap-100-2026/'
   },
 
@@ -2208,7 +2227,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'SRAM X0 T-Type AXS', brakes: 'SRAM Maven Ultimate',
     disciplines: ['e-trail', 'e-enduro'], weight: null, price: 11498, modelYear: 2026,
     note: 'Forbidden\'s trail/all-mountain e-MTB (brand was fully absent) — high-pivot Trifecta suspension, DJI Avinox motor system, top-tube-integrated 2" OLED touchscreen, mullet wheels (29in front/27.5in rear). T1 is the top of a 4-tier (T1-T4) range; the 800Wh battery option (600Wh is also offered) is cataloged here. Sold in Canadian dollars via Forbidden\'s own store; no US-market MSRP found.',
-    desc: 'Sourced from forbiddenbike.com/bikes/druid-e/ and shop.forbiddenbike.com/shop/2026-druid-e-tier-1-11330 (fetched maker pages). No complete-bike weight published by Forbidden or found in any reviewed source. Battery removability not confirmed (Forbidden\'s wording is ambiguous between "integrated" and swappable) so left uncataloged. PRICE: CAD 16,199 (Forbidden\'s own Canadian storefront, the only confirmed maker price) converted at the 2026-07-23 open.er-api.com CAD->USD rate (0.709729) -> $11,498 — disclosed conversion estimate, not a US MSRP. catalog/emtb-depth-5 wave (Forbidden absent -> 3 rows).',
+    desc: 'Sourced from forbiddenbike.com/bikes/druid-e/ and shop.forbiddenbike.com/shop/2026-druid-e-tier-1-11330 (fetched maker pages), re-confirmed verify/emtb-brands-1 (2026-07-23) against forbiddenbike.com\'s own tier comparison table. No complete-bike weight published by Forbidden or found in any reviewed source — left null. Battery removability not confirmed (Forbidden\'s wording is ambiguous between "integrated" and swappable) so left uncataloged. PRICE: CAD 16,199 (Forbidden\'s own Canadian storefront, the only confirmed maker price) converted at the 2026-07-23 open.er-api.com CAD->USD rate (0.709729) -> $11,498 — disclosed conversion estimate, not a US MSRP.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://shop.forbiddenbike.com/shop/2026-druid-e-tier-1-11330'
   },
   {
@@ -2219,8 +2239,9 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'SRAM X0 T-Type AXS', brakes: 'SRAM Maven Ultimate',
     disciplines: ['e-enduro'], weight: 23800, price: 12399, modelYear: 2026,
     note: 'Forbidden\'s enduro e-MTB, alongside the shorter-travel Druid E — same Trifecta high-pivot 4-bar layout and Avinox motor system, longer 180/170mm travel. Top tier of a 4-tier (T1-T4) range.',
-    desc: 'Sourced from forbiddenbike.com/bikes/dreadnought-e/ (fetched maker page) plus The Loam Wolf\'s review of this exact build for the US MSRP and tested weight (Forbidden\'s own storefront prices in CAD; the Loam Wolf figure is the confirmed US-market price). Weight: 52.5 lb (23.8kg), size S3, w/ Schwalbe control tires, per the review — a third-party test weight, not maker-published. Battery removability contradictory across sources (Forbidden\'s own wording calls it fixed/integrated, one third-party summary called it removable) — cataloged per the maker\'s own primary wording (not removable) rather than guessed. catalog/emtb-depth-5 wave.',
-    lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/forbidden-dreadnought-e-review/'
+    desc: 'Re-fetched forbiddenbike.com/bikes/dreadnought-e/ (verify/emtb-brands-1, 2026-07-23): the tier comparison table confirms Tier 1 = "Avinox M2S" 130Nm/1300W motor, 600Wh or 800Wh battery, 180mm front/170mm rear travel, high-modulus carbon frame, RockShox Zeb Ultimate fork/RockShox Vivid Coil shock, SRAM X0 T-Type drivetrain, SRAM Maven Ultimate brakes — matches every already-cataloged interface field exactly. Weight not published on the maker page itself; kept The Loam Wolf\'s tested-unit figure (52.5lb/23.8kg, size S3, Schwalbe control tires) as sourceType:measured — a reputable outlet\'s scale-tested weight for this exact build, not a guess. Battery removability contradictory across sources (Forbidden\'s own wording calls it fixed/integrated, one third-party summary called it removable) — cataloged per the maker\'s own primary wording (not removable) rather than guessed. PRICE: The Loam Wolf reports $12,399 as the confirmed US-market MSRP (Forbidden\'s own storefront prices in CAD only) — a third-party-reported US listing, not a currency conversion.',
+    verified: true, priceBasis: 'third-party-listed', sourceType: 'measured', weightSource: 'https://theloamwolf.com/emtb/forbidden-dreadnought-e-review/',
+    lastChecked: '2026-07-23', source: 'https://forbiddenbike.com/bikes/dreadnought-e/'
   },
   {
     id: 'em-forbidden-dreadnought-e-t2', cat: 'emtb', brand: 'Forbidden', model: 'Dreadnought E T2',
@@ -2230,8 +2251,9 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission (T-Type AXS)', brakes: 'SRAM Maven Silver',
     disciplines: ['e-enduro'], weight: null, price: 10999, modelYear: 2026,
     note: 'Second-tier Dreadnought E build: same carbon Trifecta frame/motor/battery as the T1, stepped down to SRAM GX Eagle Transmission and Maven Silver brakes.',
-    desc: 'Sourced from The Loam Wolf\'s review coverage of the Dreadnought E range (confirmed US-market MSRP; Forbidden\'s own CAD storefront was not cross-checked for this specific tier). No complete-bike weight found for this tier specifically (only the T1\'s tested weight was published). catalog/emtb-depth-5 wave.',
-    lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/forbidden-dreadnought-e-review/'
+    desc: 'Fetched forbiddenbike.com/bikes/dreadnought-e/ directly (verify/emtb-brands-1, 2026-07-23): the tier comparison table confirms Tier 2 = "Avinox M2S" 130Nm/1300W motor (same motor as T1, not the lesser M2), 600Wh or 800Wh battery, 180mm front/170mm rear travel, high-modulus carbon frame, Fox 38 Factory fork/Fox Float X2 Air Factory shock, SRAM GX T-Type drivetrain, SRAM Maven Silver brakes — matches every already-cataloged interface field exactly. No weight published on the maker page (only T1 has a published third-party test weight; T2 stays null rather than guessed). PRICE: The Loam Wolf\'s review of the Dreadnought E range reports $10,999 as this tier\'s confirmed US-market MSRP (Forbidden\'s own storefront prices in CAD only, not cross-checked for this specific tier) — a third-party-reported US listing, not a currency conversion.',
+    verified: true, priceBasis: 'third-party-listed',
+    lastChecked: '2026-07-23', source: 'https://forbiddenbike.com/bikes/dreadnought-e/'
   },
 
   {
@@ -2252,9 +2274,10 @@ var EMTB_PARTS = [
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
     frameMaterial: 'carbon', drivetrain: 'Shimano Deore XT M8100-12 1x12',
-    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 5248, modelYear: 2026,
+    disciplines: ['e-trail', 'e-enduro'], weight: 25400, price: 5248, modelYear: 2026,
     note: 'KTM (Austria)\'s "Macina Kapoho Dimmix CB 160 UDH" carbon frame, DiMMiX mixed wheels (29in front/27.5in rear), Bosch PowerTube 800Wh removable battery (Power Tube Top Loader), Bosch PURION 200 bar-mounted display/remote (not top-tube integrated). No range-extender option mentioned. RockShox 35 Silver TK fork / SR Suntour Tri-Air shock.',
-    desc: 'Sourced from ktm-bikes.at\'s own product page (fetched). Brakes not stated in the fetched spec table (cut off before the brake line) so left uncataloged; no complete-bike weight published on this page. PRICE: EUR 4,599 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,248. catalog/emtb-depth-5 wave (KTM absent -> 3 rows).',
+    desc: 'Re-fetched ktm-bikes.at\'s own product page (verify/emtb-brands-1 wave, 2026-07-23) — confirms motor (Bosch Performance CX BDU3840, 120Nm), 800Wh PowerTube, Purion 200 display, 160/160mm travel, RockShox 35 Silver TK fork / SR Suntour Tri-Air shock, 1x12 Shimano Deore XT drivetrain, and adds the complete-bike weight (25.4kg) the earlier fetch had missed. Brakes still not stated in the spec table (disc, model not listed) so left uncataloged. PRICE: EUR 4,599 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,248 — disclosed conversion, no separate US MSRP published.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.ktm-bikes.at/e-bikes/detail/mx1260014108-macina-kapoho-comp-ltd-l-48-mx1260014108macina-kapoho-comp-ltdgrey-dew-silver-matt-black-1x12-shimano-deore-xt-2026/MX1260014108'
   },
   {
@@ -2265,7 +2288,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'Shimano XTR Di2 M9260-11 (electronic)', brakes: 'Shimano XTR M9120',
     disciplines: ['e-trail', 'e-enduro'], weight: 24900, price: 13373, modelYear: 2026,
     note: 'Flagship Macina Kapoho: Bosch\'s ABS-integrated CX-R motor, Fox 36 Float Factory E fork + Fox DHX Factory shock (250x75), DT Swiss HXC carbon rims, electronic Shimano XTR Di2 11-speed drivetrain (Race Face ERA-E160 crank, 11-50T), Shimano XTR 4-piston brakes (203/180mm rotors).',
-    desc: 'Sourced from ktm-bikes.co.uk\'s own product page (fetched). Weight 24.9kg (size not specified on the fetched page). PRICE: GBP 9,999 (maker-published, UK store) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $13,373 — disclosed conversion, not a confirmed separate US MSRP. catalog/emtb-depth-5 wave.',
+    desc: 'Re-fetched ktm-bikes.co.uk\'s own product page (verify/emtb-brands-1 wave, 2026-07-23) — confirms motor (Bosch Performance CX-R ABS BDU3863, 120Nm), 800Wh PowerTube, Fox 36 Float Factory E fork/Fox DHX Factory shock, Shimano XTR Di2 M9260-11 drivetrain, Shimano XTR M9120 4-piston brakes, weight (24.9kg), and price (GBP 9,999) exactly as previously cataloged. PRICE: GBP 9,999 (maker-published, UK store) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $13,373 — disclosed conversion, not a confirmed separate US MSRP.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://ktm-bikes.co.uk/products/macina-kapoho-exonic-di2'
   },
   {
@@ -2276,7 +2300,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission (T-Type)', brakes: 'Shimano Saint M820',
     disciplines: ['e-enduro'], weight: 25800, price: 7074, modelYear: 2026,
     note: 'KTM\'s enduro e-MTB: "Macina Prowler Dimmix Carbon 170 UDH" carbon frame, Fox 38 Float Rhythm E fork + Fox Float X Performance shock (250x75), SRAM GX Eagle Transmission with SRAM POD AXS controller, Shimano Saint 4-piston brakes.',
-    desc: 'Sourced from ktm-bikes.at\'s own product page (fetched). KTM\'s own page shows a discrepancy between this spec table\'s "85 Nm" torque figure and separate marketing copy on the same page quoting "100 Nm/750 W/400%" for what it calls a "BDU384Y" motor — the hard spec-table figure (85 Nm, motor BDU3740, Bosch Performance Line CX Gen.4) is cataloged here as the more reliable of the two conflicting maker-stated numbers; motorPowerPeak left uncataloged given the conflict rather than guessed. Weight 25.8kg, size L. PRICE: EUR 6,199 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,074. catalog/emtb-depth-5 wave.',
+    desc: 'Re-fetched ktm-bikes.at\'s own product page (verify/emtb-brands-1 wave, 2026-07-23) — confirms Fox 38 Float Rhythm E fork/Fox Float X Performance shock, SRAM GX Eagle Transmission, SRAM POD AXS controller, Shimano Saint brakes, EUR 6,199 SRP, and weight 25.8kg exactly as previously cataloged. KTM\'s own page still shows a discrepancy between this spec table\'s "85 Nm" torque figure and separate marketing copy on the same page quoting "100 Nm/750 W/400%" for what it calls a "BDU384Y" motor — the hard spec-table figure (85 Nm, motor BDU3740, Bosch Performance Line CX Gen.4) is cataloged here as the more reliable of the two conflicting maker-stated numbers; motorPowerPeak left uncataloged given the conflict rather than guessed. PRICE: EUR 6,199 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,074.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.ktm-bikes.at/e-bikes/detail/mx1260004108-macina-prowler-master-gx-t-type-l-48-mx1260004108macina-prowler-mastertransparent-space-galaxy-matt1x12-sram-gx-transmission-2026'
   },
   {
@@ -2287,7 +2312,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'Shimano XTR M9100-12 (mechanical)', brakes: 'Shimano XTR M9100/M9120 4-Piston',
     disciplines: ['e-trail', 'e-enduro'], weight: 25200, price: 10040, modelYear: 2026,
     note: 'Mid/upper Kapoho trim distinguished from the already-cataloged EXONIC Di2 flagship by a MECHANICAL (cable) Shimano XTR groupset instead of electronic Di2, and a smaller 750Wh (vs 800Wh) PowerTube. Carbon "Macina Kapoho Dimmix Perf. Carbon SLL-LTE" frame, Fox 36 Float Factory fork/Fox Float X Factory shock, Mavic E-Deemax S wheels.',
-    desc: 'Sourced from ktm-bikes.at\'s own product page (fetched, spec table). This exact SKU name/price pairing (SH XTR 12 + BOSCH PT-CX7K4, 750Wh) matches the ktm-bikes.at Kapoho listing page\'s "MACINA KAPOHO PRESTIGE...8.799 EUR" row exactly; a separate, differently-specced "Prestige" SKU also exists on GX Eagle T-Type/800Wh (a distinct current listing) - this row is the XTR-mechanical/750Wh one, disambiguated in the id. PRICE: EUR 8,799 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $10,040. catalog/emtb-depth-9 wave (KTM thin-lineup deepen, 3 -> 6 rows).',
+    desc: 'Re-fetched ktm-bikes.at\'s own product page (verify/emtb-brands-1 wave, 2026-07-23) — confirms Fox 36 Float Factory fork/Fox Float X Factory shock, Shimano XTR M9100-12 mechanical drivetrain, Shimano XTR M9100/M9120 4-piston brakes, Mavic E-Deemax S wheels, 750Wh PowerTube, and weight 25.20kg exactly as previously cataloged. This exact SKU name/price pairing (SH XTR 12 + BOSCH PT-CX7K4, 750Wh) matches the ktm-bikes.at Kapoho listing\'s "MACINA KAPOHO PRESTIGE...8.799 EUR" row exactly; a separate, differently-specced "Prestige" SKU also exists on GX Eagle T-Type/800Wh (a distinct current listing) — this row is the XTR-mechanical/750Wh one, disambiguated in the id. PRICE: EUR 8,799 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $10,040.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.ktm-bikes.at/e-bikes/detail/macina-kapoho-prestige-transparent-orange-orange-black-sh-xtr-12-bosch-pt-cx7k4-2023'
   },
   {
@@ -2298,7 +2324,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission (T-Type)',
     disciplines: ['e-enduro'], weight: 25400, price: 13920, modelYear: 2026,
     note: 'Flagship Macina Prowler: Bosch\'s ABS-integrated CX-R motor (up to 120Nm), Fox 38 Float Factory E fork/Fox Float X NEO Factory shock, DT Swiss HXC 1200 carbon wheels, SRAM XX Eagle Transmission (T-Type), RockShox Reverb AXS wireless dropper. Brakes not cataloged: the fetched spec table\'s brake row was cut off before the caliper model line (only the rotor/wheelset section followed), and the caliper differs by trim on this platform, so left blank per THE BAR rather than assuming the sibling Exonic\'s Magura MT7.',
-    desc: 'Sourced from ktm-bikes.at\'s own product page (fetched, spec table); weight 25.4kg independently corroborated by dueruote.it\'s listing (25.40 kg, EUR 12,199 matching). PRICE: EUR 12,199 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $13,920. catalog/emtb-depth-9 wave.',
+    desc: 'Re-fetched ktm-bikes.at\'s own product page (verify/emtb-brands-1 wave, 2026-07-23) — confirms Fox 38 Float Factory E fork/Fox Float X NEO Factory shock, DT HXC 1200 carbon wheels, SRAM XX Eagle Transmission (T-Type), RockShox Reverb AXS wireless dropper, 800Wh PowerTube, EUR 12,199 SRP, and weight 25.4kg exactly as previously cataloged; also independently corroborated by dueruote.it\'s listing (25.40 kg, EUR 12,199 matching). Brakes still not stated in the fetched spec table (cut off before the caliper model line) so left uncataloged per THE BAR rather than assuming the sibling Exonic\'s Magura MT7. PRICE: EUR 12,199 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $13,920.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.ktm-bikes.at/e-bikes/detail/mx1260000108-mac-prowler-exonic-cx-r-xx-t-type-l-48-mx1260000108macina-prowler-exonic-cx-rfresh-burnt-orange-black-matt1x12-sram-xx-transmission-2026'
   },
   {
@@ -2309,7 +2336,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'Shimano Deore XT M8100-12',
     disciplines: ['e-enduro'], weight: 25900, price: 5704, modelYear: 2026,
     note: 'Entry-tier Macina Prowler (cheapest trim on the platform): "Macina Prowler Dimmix Carbon 170 UDH" carbon frame, RockShox Domain RC fork, Fox Float X Performance shock (250x75), Shimano Deore XT mechanical drivetrain. Brakes not stated in the fetched spec table (cut off before the brake line, same gap as the Comp LTD Kapoho row) so left uncataloged.',
-    desc: 'Sourced from ktm-bikes.at\'s own product page (fetched, spec table); price/spec combo matches the Prowler listing page\'s "MACINA PROWLER ELITE...1X12 SHIMANO DEORE XT...4.999 EUR" row exactly. PRICE: EUR 4,999 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,704. catalog/emtb-depth-9 wave.',
+    desc: 'Re-fetched ktm-bikes.at\'s own product page (verify/emtb-brands-1 wave, 2026-07-23) — confirms RockShox Domain RC fork, Fox Float X Performance shock, Shimano Deore XT mechanical drivetrain, 750Wh PowerTube, EUR 4,999 SRP, and weight 25.9kg exactly as previously cataloged. Brakes still not stated in the fetched spec table (cut off before the brake line, same gap as the Comp LTD Kapoho row) so left uncataloged. PRICE: EUR 4,999 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,704.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.ktm-bikes.at/e-bikes/detail/mx1260006108-macina-prowler-elite-l-48-mx1260006108macina-prowler-elitechrome-red-matt-black1x12-shimano-deore-xt-2026/MX1260006108'
   },
 
@@ -2321,7 +2349,8 @@ var EMTB_PARTS = [
     frameMaterial: 'aluminum', drivetrain: 'Shimano Deore/SLX 1x12', brakes: 'Shimano Deore BR-M6100',
     disciplines: ['e-trail'], weight: null, price: 6687, modelYear: 2022,
     note: 'UK maker Saracen\'s only e-MTB family (brand was fully absent), sold in 3 builds off one "Ariel 50E" 6013-aluminium platform with a flip-chip wheel-config link (S/M ship mullet 29in front/27.5in rear, L/XL ship full 29in — cataloged at the mullet ship config). Entry-tier build: Fox not fitted (base suspension), Deore/SLX mixed drivetrain, Deore 2-piston brakes. Torque/power figures are Shimano\'s own generic E-7000 spec (60Nm/250W), NOT independently stated on Saracen\'s own page — flagged as the lower-confidence field on this row.',
-    desc: 'Sourced from saracen.co.uk\'s own product page (fetched, saracen.co.uk/products/my22-ariel-50e). Still listed "MY22" (2022 model year) as the current e-bike range at fetch time (2026-07-23) — worth flagging that this may be an older platform still being sold, not a refreshed model. No complete-bike weight published. Battery: Darfon 720Wh, page wording "fully integrated" (cataloged not-removable); no range extender mentioned. Display model not named on the page. PRICE: GBP 4,999.99 MSRP (page also shows a current sale price of £2,499.99, not used per the standing MSRP-not-sale convention) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $6,687. catalog/emtb-depth-5 wave (Saracen absent -> 3 rows).',
+    desc: 'Sourced from saracen.co.uk\'s own product page (fetched, saracen.co.uk/products/my22-ariel-50e). Still listed "MY22" (2022 model year) as the current e-bike range at fetch time (2026-07-23) — worth flagging that this may be an older platform still being sold, not a refreshed model. No complete-bike weight published. Battery: Darfon 720Wh, page wording "fully integrated" (cataloged not-removable); no range extender mentioned. Display model not named on the page. PRICE: GBP 4,999.99 MSRP (page also shows a current sale price of £2,499.99, not used per the standing MSRP-not-sale convention) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $6,687.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.saracen.co.uk/products/my22-ariel-50e'
   },
   {
@@ -2332,7 +2361,8 @@ var EMTB_PARTS = [
     frameMaterial: 'aluminum', drivetrain: 'Shimano SLX/XT 1x12', brakes: 'Magura MT5 eSTOP',
     disciplines: ['e-trail'], weight: null, price: 8024, modelYear: 2022,
     note: 'Mid-tier Ariel 50E: same 6013-aluminium flip-chip platform as the base, stepped up to Fox 38-E Performance Elite fork / Fox Float X2 Performance shock, mixed Shimano SLX/XT drivetrain, Magura MT5 eSTOP 4-piston brakes.',
-    desc: 'Sourced from saracen.co.uk\'s own product page (fetched, saracen.co.uk/products/my22-ariel-50e-pro). Same "MY22" platform-age flag, no published weight, and unstated display model as the base Ariel 50E row. PRICE: GBP 5,999.99 MSRP (sale price £3,499.99 not used, per MSRP-not-sale convention) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $8,024. catalog/emtb-depth-5 wave.',
+    desc: 'Sourced from saracen.co.uk\'s own product page (fetched, saracen.co.uk/products/my22-ariel-50e-pro). Same "MY22" platform-age flag, no published weight, and unstated display model as the base Ariel 50E row. PRICE: GBP 5,999.99 MSRP (sale price £3,499.99 not used, per MSRP-not-sale convention) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $8,024.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.saracen.co.uk/products/my22-ariel-50e-pro'
   },
   {
@@ -2343,7 +2373,8 @@ var EMTB_PARTS = [
     frameMaterial: 'aluminum', drivetrain: 'Shimano XT 1x12', brakes: 'Shimano XT BR-M8120',
     disciplines: ['e-trail'], weight: null, price: 9362, modelYear: 2022,
     note: 'Top-tier Ariel 50E: Fox 38-E Factory (Kashima, GRIP2) fork + Fox Float DHX2 Factory coil shock, full Shimano XT 1x12 groupset, Shimano XT 4-piston brakes.',
-    desc: 'Sourced from saracen.co.uk\'s own product page (fetched, saracen.co.uk/products/my22-ariel-50e-elite). This is the only Ariel 50E page to explicitly state motor torque (85Nm) on Saracen\'s own text; carried onto the Pro row above as the same EP-800 motor. No published weight; no current sale price shown for this trim (page shows only the £6,999.99 MSRP). PRICE: GBP 6,999.99 converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $9,362. catalog/emtb-depth-5 wave.',
+    desc: 'Sourced from saracen.co.uk\'s own product page (fetched, saracen.co.uk/products/my22-ariel-50e-elite). This is the only Ariel 50E page to explicitly state motor torque (85Nm) on Saracen\'s own text; carried onto the Pro row above as the same EP-800 motor. No published weight; no current sale price shown for this trim (page shows only the £6,999.99 MSRP). PRICE: GBP 6,999.99 converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $9,362.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.saracen.co.uk/products/my22-ariel-50e-elite'
   },
   {
@@ -2442,7 +2473,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'Shimano XTR 12-speed',
     disciplines: ['e-trail'], weight: null, price: 10269, modelYear: 2026,
     note: 'Top build tier of the same platform as the already-cataloged Core row — identical NOX Helium All-Mountain NUC frame/Fazua Ride 50/252Wh battery, upgraded to a FOX 36 FLOAT F-S E-Optimized fork (vs the Core\'s Marzocchi Bomber Z1) and Shimano XTR 12-speed drivetrain (vs Core\'s Deore).',
-    desc: 'Fetched from noxcycles.com\'s own product configurator page (Core/Pro/Ultra spec-comparison table on the same page as the cataloged Core row) for the tier spec deltas (fork/drivetrain/stem/saddle). Brakes not itemized per-tier on the fetched table (left blank rather than guessed). No maker-published Ultra-tier price found on noxcycles.com itself; the Ultra price is a disclosed retailer price delta (swazicowboyz-shop.de: Core EUR 6,699.00 + Ultra upcharge EUR 2,300.00 = EUR 8,999.00) added to the maker\'s own confirmed Core MSRP already used on the sibling row. PRICE: EUR 8,999 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $10,269. Left unverified: the Ultra price itself is retailer-sourced, not maker-page-confirmed like the Core row. catalog/emtb-depth-9 wave (Nox thin-lineup deepen).',
+    desc: 'Re-fetched noxcycles.com\'s own product configurator page directly (verify/emtb-brands-1, 2026-07-23): its Core/Pro/Ultra spec-comparison table confirms this Ultra tier\'s "FOX 36 FLOAT 29in F-S E-Optimized 160 Grip 2 HSC LSC HSR LSR" fork, "Shimano XTR CS-M9100 12-speed" cassette (drivetrain), shared "NOX Helium All-Mountain 150mm NUC" carbon main frame and "FAZUA Ride 50 Trail Drivepack / 58Nm" motor with "FAZUA Energy 250X / 252Wh" battery across all three tiers — matches every already-cataloged interface field exactly. Brakes not itemized per-tier on the fetched table (left blank rather than guessed); a "ca. 21 kg" weight is shown but only for "Size M" of the general Helium All-Mtn 5.9 line without a per-tier breakdown, so left null rather than misattributed. No maker-published Ultra-tier price found on noxcycles.com itself; the Ultra price is a disclosed retailer price delta (swazicowboyz-shop.de: Core EUR 6,699.00 + Ultra upcharge EUR 2,300.00 = EUR 8,999.00) added to the maker\'s own confirmed Core MSRP already used on the sibling row — a third-party-reported figure, not a maker page or a currency conversion of one. PRICE: EUR 8,999 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $10,269.',
+    verified: true, priceBasis: 'third-party-listed',
     lastChecked: '2026-07-23', source: 'https://www.noxcycles.com/en/helium-all-mtn-5.9-p1/helium-all-mtn-5-9-p1'
   },
   {
@@ -2589,7 +2621,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: null, brakes: null,
     disciplines: ['e-trail', 'e-enduro'], weight: 19290, price: 9108.47, modelYear: 2026,
     note: 'A genuinely distinct lightweight-class sibling to this catalog\'s existing Bosch-CX-powered Rapcon :e (full-power) and Rift AL:e Core rows — same Rapcon carbon chassis, but the quiet TQ-HPR60 mid-drive (1850g motor unit, 82 Nm/dm3 torque density) and a small fixed 360Wh battery instead of the Bosch platform\'s 600/800Wh packs. Optional 29"/27.5" mullet via flip chip (cataloged at the stock full-29in setup).',
-    desc: 'Fetched directly from the maker\'s own product page (simplon.com/en/Bikes/E-Mountain-Bikes/Rapcon-eTQ_b_929052): "Frame material Carbon", "Travel (rear/front) 160 mm / 160 (170) mm", "Motor TQ-HPR60", "Battery 360 Wh", "Total bike weight from 19,29 kg", "60 Nm and currently the highest torque density on the market: 82 Nm/dm3", "the compact motor, which weighs in at only 1,850 g", starting price "from EUR 7,999.00". Cataloged at the stock 160/160mm spec (the page also lists an optional 170mm front); drivetrain/brakes not itemized on the fetched page section, left uncataloged rather than guessed. Battery is the integrated 360Wh pack (page: "the firmly integrated 360-Wh battery" on the sibling E2/e page copy; optional +160Wh dual-battery expansion noted, not cataloged as this SKU\'s standard spec). PRICE: EUR 7,999.00 ("from") maker-published starting price converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.138703) -> $9,108.47; Simplon has no US retail presence, no USD MSRP exists.',
+    desc: 'Fetched directly from the maker\'s own product page (simplon.com/en/Bikes/E-Mountain-Bikes/Rapcon-eTQ_b_929052): "Frame material Carbon", "Travel (rear/front) 160 mm / 160 (170) mm", "Motor TQ-HPR60", "Battery 360 Wh", "Total bike weight from 19,29 kg", "60 Nm and currently the highest torque density on the market: 82 Nm/dm3", "the compact motor, which weighs in at only 1,850 g", starting price "from EUR 7,999.00". Cataloged at the stock 160/160mm spec (the page also lists an optional 170mm front); drivetrain/brakes not itemized on the fetched page section, left uncataloged rather than guessed. Battery is the integrated 360Wh pack (page: "the firmly integrated 360-Wh battery" on the sibling E2/e page copy; optional +160Wh dual-battery expansion noted, not cataloged as this SKU\'s standard spec). PRICE: EUR 7,999.00 ("from") maker-published starting price converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.138703) -> $9,108.47; Simplon has no US retail presence, no USD MSRP exists. Re-fetched directly verify/emtb-brands-1 (2026-07-23) — every field above re-confirmed byte-for-byte against the live page.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.simplon.com/en/Bikes/E-Mountain-Bikes/Rapcon-eTQ_b_929052'
   }
 
