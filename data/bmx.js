@@ -2270,22 +2270,30 @@ var BMX_PARTS = [
   {
     id: 'bmx-st-kink-brute', cat: 'stem', brand: 'Kink', model: 'Brute Stem',
     clamp: '22.2mm', weight: 320, price: 29.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/brute-stem. Description states, verbatim: "48mm reach, 31.5mm rise...Weight 11.3oz" (11.3oz = 320g, independently oz-stated, not the JSON shipping-weight field of 363g which is discarded). Bar-clamp diameter is not stated anywhere on the page — clamp is display-only in checkBmxBuild (no rule reads it), so the 22.2mm sample value does not gate. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://kinkbmx.com/products/brute-stem',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched kinkbmx.com/products/brute-stem.js directly this session. Tech Specs state, verbatim: "Reach 48mm Rise 31.5mm...Weight 11.3oz" (11.3oz = 320g, independently oz-stated, not the JSON shipping-weight field of 363g, discarded). Bar-clamp diameter is not stated anywhere on the page — clamp is display-only in checkBmxBuild, no engine-critical field left unconfirmed. Price $29.99 confirmed exactly.'
   },
   {
     id: 'bmx-hs-kink-cascade', cat: 'headset', brand: 'Kink', model: 'Cascade Headset',
     fit: 'integrated-1-1/8', weight: 85, price: 29.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/cascade-headset. Description states, verbatim: "two precision sealed bearings...Weight 3.0oz" (3.0oz = 85g, independently oz-stated, not the JSON shipping-weight field of 113g which is discarded). fit is display-only in checkBmxBuild. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://kinkbmx.com/products/cascade-headset',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched kinkbmx.com/products/cascade-headset.js directly this session. Tech Specs state, verbatim: "two precision sealed bearings...Weight 3.0oz" (3.0oz = 85g, independently oz-stated, not the JSON shipping-weight field of 113g, discarded). fit is display-only in checkBmxBuild — no engine-critical field left unconfirmed. Price $29.99 confirmed exactly.'
   },
   {
     id: 'bmx-hb-kink-union-95', cat: 'handlebar', brand: 'Kink', model: 'Union 4pc Bars 9.5in',
     clamp: '22.2mm', rise: 9.5, width: 29.5, weight: 1168, price: 89.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/union-bars. Description states, verbatim: "Rise 9\\", 9.5\\" Width 29.5\\" Backsweep 12 Degrees Upsweep 1 Degree...Weight 41.2oz (9.5\\")" — this row pins the 9.5in rise variant the page\'s own weight figure names (41.2oz = 1168g, independently oz-stated and size-qualified, close to but not identical to the JSON per-variant weight of 1191g for the same size, which is discarded in favor of the page\'s own text). clamp is display-only. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://kinkbmx.com/products/union-bars',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched kinkbmx.com/products/union-bars.js directly this session. Tech Specs state, verbatim: "Rise 9\\", 9.5\\" Width 29.5\\" Backsweep 12 Degrees Upsweep 1 Degree...Weight 41.2oz (9.5\\")" — this row pins the 9.5in rise variant the page\'s own weight figure names (41.2oz = 1168g, independently oz-stated and size-qualified, not the JSON per-variant weight of 1191g for the same size, which is discarded in favor of the page\'s own text). clamp is display-only. Price $89.99 confirmed exactly.'
   },
   {
     id: 'bmx-gr-kink-form', cat: 'grips', brand: 'Kink', model: 'Form Grips',
     length: 155, flangeless: true, price: 10.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/form-grips. Description states, verbatim: "Length 155mm...Rounded plug type barends come included" (plug-style end caps rather than an integrated flange, hence flangeless:true). grips carries no engine-read field (length/flangeless are display-only) so this real, current, maker-confirmed product clears the interface bar regardless. Unverified sample (no stated weight figure on the page).'
+    verified: true, lastChecked: '2026-07-23', source: 'https://kinkbmx.com/products/form-grips',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched kinkbmx.com/products/form-grips.js directly this session. Description states, verbatim: "Length 155mm...Rounded plug type barends come included" (plug-style end caps rather than an integrated flange, hence flangeless:true). grips carries no engine-read field (length/flangeless are display-only) so this real, current, maker-confirmed product clears the interface bar. Price $10.99 confirmed exactly. No weight stated on the page.'
   },
   {
     id: 'bmx-ti-kink-wake-245', cat: 'tire', brand: 'Kink', model: 'Wake Tire 2.45in',
@@ -2295,7 +2303,9 @@ var BMX_PARTS = [
   {
     id: 'bmx-st-kink-gavel', cat: 'stem', brand: 'Kink', model: 'Gavel Topload Stem',
     clamp: '22.2mm', weight: 323, price: 64.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/gavel-stem. Description states, verbatim: "wide 50mm clamping area...Weight 11.4oz" (11.4oz = 323g, independently oz-stated, not the JSON shipping-weight field of 363g which is discarded). Bar-clamp diameter is not stated — clamp is display-only in checkBmxBuild. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://kinkbmx.com/products/gavel-stem',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched kinkbmx.com/products/gavel-stem.js directly this session. Tech Specs state, verbatim: "wide 50mm clamping area...Weight 11.4oz" (11.4oz = 323g, independently oz-stated, not the JSON shipping-weight field of 363g, discarded). Bar-clamp diameter is not stated — clamp is display-only in checkBmxBuild, no engine-critical field left unconfirmed. Price $64.99 confirmed exactly.'
   },
   {
     id: 'bmx-sp-kink-imprint-25t', cat: 'sprocket', brand: 'Kink', model: 'Imprint Sprocket 25T',
