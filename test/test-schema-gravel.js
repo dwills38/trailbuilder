@@ -38,7 +38,12 @@ test('an out-of-vocab bb value is caught', function(){
   var frame = aFrame();
   var bad = Object.assign({}, frame, { bb: 'press-fit-mystery' });
   var probs = S.validateGravelPart(bad, TODAY);
-  ok(probs.some(function(m){ return /bb.*not in bb/.test(m); }), probs.join('\n'));
+  // fix/gravel-bb-steerer-split (2026-07-24): a FRAME's bb is now measured
+  // against the `shell` axis, not the retired merged `bb` key — so the
+  // assertion names shell. Strictly stronger than the old /not in bb/: it
+  // pins WHICH axis the frame side is checked on, which is the whole point
+  // of the split (a frame must never be validated against spindle tokens).
+  ok(probs.some(function(m){ return /"bb".*not in shell/.test(m); }), probs.join('\n'));
 });
 
 // vocab-tier1 (2026-07-22): ratified straight-steerer tokens (mirrors road's
@@ -144,7 +149,12 @@ test('an out-of-vocab bb value distinct from square-taper is still caught', func
   var frame = aFrame();
   var bad = Object.assign({}, frame, { bb: 'octalink' });
   var probs = S.validateGravelPart(bad, TODAY);
-  ok(probs.some(function(m){ return /bb.*not in bb/.test(m); }), probs.join('\n'));
+  // fix/gravel-bb-steerer-split (2026-07-24): a FRAME's bb is now measured
+  // against the `shell` axis, not the retired merged `bb` key — so the
+  // assertion names shell. Strictly stronger than the old /not in bb/: it
+  // pins WHICH axis the frame side is checked on, which is the whole point
+  // of the split (a frame must never be validated against spindle tokens).
+  ok(probs.some(function(m){ return /"bb".*not in shell/.test(m); }), probs.join('\n'));
 });
 
 test('square-taper is a valid crankset bb value too (same shared bb vocab as the frame field)', function(){
@@ -173,7 +183,12 @@ test('an out-of-vocab bb value distinct from bsa-73 is still caught', function()
   var frame = aFrame();
   var bad = Object.assign({}, frame, { bb: 'bsa-100' });
   var probs = S.validateGravelPart(bad, TODAY);
-  ok(probs.some(function(m){ return /bb.*not in bb/.test(m); }), probs.join('\n'));
+  // fix/gravel-bb-steerer-split (2026-07-24): a FRAME's bb is now measured
+  // against the `shell` axis, not the retired merged `bb` key — so the
+  // assertion names shell. Strictly stronger than the old /not in bb/: it
+  // pins WHICH axis the frame side is checked on, which is the whole point
+  // of the split (a frame must never be validated against spindle tokens).
+  ok(probs.some(function(m){ return /"bb".*not in shell/.test(m); }), probs.join('\n'));
 });
 
 // vocab-tier1 (2026-07-22): ratified t47a-bbright shell token (Cervelo
@@ -188,7 +203,12 @@ test('an out-of-vocab bb value distinct from t47a-bbright is still caught', func
   var frame = aFrame();
   var bad = Object.assign({}, frame, { bb: 't47a-road' });
   var probs = S.validateGravelPart(bad, TODAY);
-  ok(probs.some(function(m){ return /bb.*not in bb/.test(m); }), probs.join('\n'));
+  // fix/gravel-bb-steerer-split (2026-07-24): a FRAME's bb is now measured
+  // against the `shell` axis, not the retired merged `bb` key — so the
+  // assertion names shell. Strictly stronger than the old /not in bb/: it
+  // pins WHICH axis the frame side is checked on, which is the whole point
+  // of the split (a frame must never be validated against spindle tokens).
+  ok(probs.some(function(m){ return /"bb".*not in shell/.test(m); }), probs.join('\n'));
 });
 
 // vocab-tier1 (2026-07-22): ratified display-only casing/compound SKU-axis
@@ -446,4 +466,100 @@ test('priceBasis on an UNVERIFIED gravel row is rejected (a basis is a claim, no
 test('STAGED ROLLOUT: a verified gravel row with NO priceBasis stays legal while PRICE_BASIS_STRICT is false', function(){
   eq(S.PRICE_BASIS_STRICT, false, 'PRICE_BASIS_STRICT flipped — the backfill must be complete in EVERY catalog first');
   eq(S.validateGravelPart(gravelPbRow(), TODAY).length, 0);
+});
+
+/* ===========================================================================
+   THE BB SHELL/SPINDLE SPLIT  (fix/gravel-bb-steerer-split, 2026-07-24 —
+   mechanic corpus FRM-62). Before this pass ONE merged `bb` vocab of frame
+   SHELL names validated BOTH frame.bb (a shell) and crankset.bb (a SPINDLE),
+   which (a) made the M30/30mm spindle interface unenterable and (b) let a
+   crank be filed under a shell name. Every test below fails against the
+   pre-split schema. schema-road.js has always had this separation.
+   ======================================================================== */
+/** @returns {any} a real gravel crankset row to clone/mutate */
+function aCrank(){
+  var p = D.GRAVEL_PARTS.find(function(x){ return x.cat === 'crankset'; });
+  if(!p) throw new Error('no gravel crankset row found in data/gravel.js');
+  return p;
+}
+/** @returns {any} a real gravel bottom-bracket row to clone/mutate */
+function aBb(){
+  var p = D.GRAVEL_PARTS.find(function(x){ return x.cat === 'bb'; });
+  if(!p) throw new Error('no gravel bb row found in data/gravel.js');
+  return p;
+}
+
+test('BB split: the merged `bb` vocab key is RETIRED — a frame is measured on shell, a crank on spindle', function(){
+  eq(S.GRAVEL_VOCAB.bb, undefined, 'the merged shells+spindles list must be gone, not left behind as a dead key');
+  ok(S.GRAVEL_SCHEMA.frame.bb.vocab === 'shell', 'frame.bb is a SHELL standard');
+  ok(S.GRAVEL_SCHEMA.crankset.bb.vocab === 'spindle', 'crankset.bb is a SPINDLE interface');
+  eq(S.GRAVEL_SCHEMA.bb.shell.vocab, 'shell', 'and a BB bridges the two: its frame-facing side is a shell');
+  eq(S.GRAVEL_SCHEMA.bb.spindle.vocab, 'spindle', 'its crank-facing side a spindle');
+});
+
+test('BB split: the 30mm/M30 spindle token exists and is accepted on the crank + BB spindle fields', function(){
+  ok(S.GRAVEL_VOCAB.spindle.indexOf('30mm') >= 0, 'the token whose absence blocked the Praxis Zayante');
+  eq(S.validateGravelPart(Object.assign({}, aCrank(), { bb: '30mm' }), new Date()).length, 0,
+    'a 30mm-spindle crank validates');
+  eq(S.validateGravelPart(Object.assign({}, aBb(), { spindle: '30mm' }), new Date()).length, 0,
+    'and so does a 30mm-spindle bottom bracket');
+  /* one spelling per interface, shared with the road side (the pf86/bb86 lesson) */
+  var road = require('../src/schema-road.js');
+  ok(road.LOCAL_VOCAB.crankBbRoad.indexOf('30mm') >= 0,
+    'schema-road has carried this exact spelling since the road wave — gravel matches it, never invents a variant');
+});
+
+test('BB split NEGATIVE: a SHELL name on a crank and a SPINDLE name on a frame are both rejected', function(){
+  /* THE WHOLE POINT. Under the merged vocab BOTH of these validated clean,
+     which is how a 30mm crank could only be entered by writing a shell name
+     onto its spindle field — a false interface claim in the data itself. */
+  var crankProbs = S.validateGravelPart(Object.assign({}, aCrank(), { bb: 'bsa-road' }), new Date());
+  ok(crankProbs.some(function(m){ return /"bb".*not in spindle/.test(m); }),
+    'a frame SHELL standard is not a crank spindle interface: ' + crankProbs.join('\n'));
+  var frameProbs = S.validateGravelPart(Object.assign({}, aFrame(), { bb: 'dub' }), TODAY);
+  ok(frameProbs.some(function(m){ return /"bb".*not in shell/.test(m); }),
+    'and a crank SPINDLE interface is not a frame shell: ' + frameProbs.join('\n'));
+  var bb30 = S.validateGravelPart(Object.assign({}, aFrame(), { bb: '30mm' }), TODAY);
+  ok(bb30.some(function(m){ return /"bb".*not in shell/.test(m); }),
+    'specifically: 30mm is a spindle and must NEVER validate as a frame shell: ' + bb30.join('\n'));
+});
+
+test('BB split: crankset.chainline is OPTIONAL, matching schema-road (a maker may publish only Q-factor)', function(){
+  eq(S.GRAVEL_SCHEMA.crankset.chainline.optional, true);
+  var road = require('../src/schema-road.js');
+  eq(road.ROAD_SCHEMA.crankset.chainline.optional, true, 'gravel is matching road here, not inventing a looser rule');
+  var noChainline = Object.assign({}, aCrank());
+  delete noChainline.chainline;
+  eq(S.validateGravelPart(noChainline, new Date()).length, 0, 'a crank with no published chainline is enterable');
+});
+
+/* ===========================================================================
+   TAPERED-STEERER CLASSES (same wave — mechanic corpus FRM-55/56/60)
+   ======================================================================== */
+test('steerer: the three two-ended taper classes are accepted, and bare "tapered" is retained as legacy', function(){
+  ['tapered-1-1-8-1-1-2', 'tapered-1-1-4-1-1-2', 'tapered-1-1-8-1-1-4'].forEach(function(tok){
+    ok(S.GRAVEL_VOCAB.steerer.indexOf(tok) >= 0, tok + ' must be a legal steerer value');
+    // live date, not the fixed TODAY: a real row's lastChecked keeps advancing
+    // (the same staleness fix the positive tests above already apply)
+    eq(S.validateGravelPart(Object.assign({}, aFrame(), { steerer: tok }), new Date()).length, 0,
+      tok + ' must validate on a real frame row');
+  });
+  ok(S.GRAVEL_VOCAB.steerer.indexOf('tapered') >= 0,
+    'bare "tapered" STAYS legal: ~120 rows carry it and re-labelling them would assert an unsourced interface');
+});
+
+test('steerer: NO bulk migration happened — the legacy rows still carry bare "tapered"', function(){
+  /* The policy is promote-on-re-sourcing, one row at a time. A wave that
+     "helpfully" renamed them would have asserted ~120 interfaces nobody
+     checked; this pins that it did not, and that no row silently claims a
+     class instead. */
+  var legacy = D.GRAVEL_PARTS.filter(function(p){ return p.steerer === 'tapered'; });
+  ok(legacy.length > 50, 'the legacy population is still there (' + legacy.length + ' rows), un-relabelled');
+  var classed = D.GRAVEL_PARTS.filter(function(p){ return typeof p.steerer === 'string' && p.steerer.indexOf('tapered-') === 0; });
+  eq(classed.length, 0, 'and NO row claims a specific class yet — each promotes only on its own re-sourcing');
+});
+
+test('steerer NEGATIVE: a plausible-looking but unratified taper spelling is still caught', function(){
+  var probs = S.validateGravelPart(Object.assign({}, aFrame(), { steerer: 'tapered-1-5-8-1-1-2' }), TODAY);
+  ok(probs.some(function(m){ return /"steerer".*not in steerer/.test(m); }), probs.join('\n'));
 });
