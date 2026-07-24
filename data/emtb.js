@@ -925,14 +925,16 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-marin-alpine-trail-e2', cat: 'emtb', brand: 'Marin', model: 'Alpine Trail E2',
-    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85, motorPowerPeak: 250,
     batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 165,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
-    disciplines: ['e-enduro'], weight: 25000, price: 5200,
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT 12-speed', brakes: 'Shimano SLX 4-Piston',
+    disciplines: ['e-enduro'], weight: null, price: 5499,
     status: 'discontinued', supersededBy: 'em-marin-alpine-trail-e2-2026',
-    note: 'Value-oriented alloy gravity e-MTB; long travel, mixed wheel.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: Marin moved the Alpine Trail E line from Shimano to Bosch (verify/emtb-2 wave 2 phase 2).'
+    note: 'Value-oriented alloy gravity e-MTB; Fox 38 Performance Elite fork / Fox Float DHX2 Performance Elite shock, Shimano XT drivetrain with SLX shifters, mixed wheel.',
+    desc: 'Fetched marinbikes.com\'s own still-live product page (verify/emtb-brands-1, 2026-07-23): confirms motor (Shimano EP801, 85Nm/250W), 630Wh internal battery, SC-E600 display, 160mm front/150mm rear MultiTrac travel, Fox 38 Performance Elite fork/Fox Float DHX2 Performance Elite shock, Shimano XT 12-speed drivetrain (SLX shifters, Sunrace 10-51T cassette), Shimano SLX 4-piston brakes (203mm), and $5,499 USD price — corrected from the prior best-credible-public sample, which had the wrong drivetrain (Deore), brakes (MT420) and travel figures (170/165). No weight is published on the fetched page ("Contact a Marin dealer for complete weight details") — left null rather than the previous guessed 25.0kg. Marked discontinued: the page remains live selling out prior-generation stock, but Marin\'s current Alpine Trail E lineup has moved to Bosch Gen 5 (em-marin-alpine-trail-e2-2026).',
+    verified: true, priceBasis: 'msrp-confirmed',
+    lastChecked: '2026-07-23', source: 'https://marinbikes.com/products/2024-alpine-trail-e2-shimano-int'
   },
 
   // ---------------------------------------------------------------------------
@@ -1116,14 +1118,16 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-marin-alpine-trail-e1', cat: 'emtb', brand: 'Marin', model: 'Alpine Trail E1',
-    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    motorBrand: 'shimano', motorModel: 'Shimano EP6', motorTorque: 85, motorPowerPeak: 250,
     batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 165,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
-    disciplines: ['e-enduro'], weight: 25600, price: 4500,
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore 11-speed', brakes: 'Shimano MT420 4-Piston',
+    disciplines: ['e-enduro'], weight: null, price: 4299,
     status: 'discontinued', supersededBy: 'em-marin-alpine-trail-e1-2026',
-    note: 'Entry alloy trim beneath the E2; same motor/battery.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: Marin moved the Alpine Trail E line from Shimano to Bosch (verify/emtb-2 wave 2 phase 2).'
+    note: 'Entry alloy trim beneath the E2; X-Fusion Trace 36 RC fork, RockShox Super Deluxe Coil R shock.',
+    desc: 'Fetched marinbikes.com\'s own product page (verify/emtb-brands-1, 2026-07-23; page notes the item is currently "Sold out"): confirms motor (Shimano EP6, not the previously-cataloged EP8 — corrected), 85Nm/250W, 630Wh internal battery, SC-E600 display, 160mm front/150mm rear MultiTrac travel (X-Fusion Trace 36 RC fork / RockShox Super Deluxe Coil R shock), Shimano Deore 11-speed drivetrain (SunRace 11-51T cassette), Shimano MT420 4-piston brakes (203mm) — drivetrain/brakes already matched the prior sample, travel and motor model/price corrected. Weight not published on the fetched page — left null rather than the previous guessed 25.6kg. PRICE: $4,299.00 USD (maker-published MSRP).',
+    verified: true, priceBasis: 'msrp-confirmed',
+    lastChecked: '2026-07-23', source: 'https://www.marinbikes.com/bikes/2024-alpine-trail-e1'
   },
 
   // ---------------------------------------------------------------------------
@@ -1233,7 +1237,9 @@ var EMTB_PARTS = [
     frameMaterial: 'aluminum', drivetrain: 'SRAM Eagle 70 T-Type', brakes: 'SRAM Maven Bronze',
     disciplines: ['e-enduro'], weight: null, price: 7499,
     note: 'Marin moved the Alpine Trail E line from Shimano to Bosch CX Gen 5 with a bigger 800Wh battery and updated MultiTrac 2 suspension; RockShox Zeb Select+ fork, RockShox Vivid Air Select+ shock.',
-    desc: "Directly fetched marinbikes.com/products/2026-alpine-trail-e2-int verify/emtb-verify-1 (the real current-SKU URL, found via a browser-pane DOM link scan rather than a guessed slug -- the previously-tried '2025-alpine-trail-e2' guess 404s/serves the prior generation): specifications-section confirms \"Frame All New Series 4 Alloy for Gen 5 CX Drive Unit, 160mm MultiTrac LT Suspension\", \"Front Suspension RockShox Zeb Select+, 170mm Travel\", \"Rear Suspension RockShox Vivid Air Select+, 205x65\", \"Battery PT800\" (800Wh), \"Derailleur Rear SRAM Eagle 70\" / \"Chain SRAM Eagle 70 T-Type\" / \"Cassette SRAM XG 1270 T-Type\", \"Brakes SRAM Maven Bronze, 4-Piston... HSC 200mm Rotor\", mullet tires (front 29x2.5, rear 27.5x2.5), motor text \"120Nm, 600 per cent assist Gen 5 CX motor\", listed price \"$7,499.00\" (was $7,899 sample). The specifications table has NO weight field at all -- confirmed absent on a direct fetch, not just unfound by a search -- so weight is left null rather than kept as an unconfirmed sample; verified:true still withheld per protocol (weight bar not met, and this category has no interface-only exception). Interfaces otherwise match the row's pre-existing corrected spec exactly."
+    desc: "Directly fetched marinbikes.com/products/2026-alpine-trail-e2-int verify/emtb-verify-1 (the real current-SKU URL, found via a browser-pane DOM link scan rather than a guessed slug -- the previously-tried '2025-alpine-trail-e2' guess 404s/serves the prior generation): specifications-section confirms \"Frame All New Series 4 Alloy for Gen 5 CX Drive Unit, 160mm MultiTrac LT Suspension\", \"Front Suspension RockShox Zeb Select+, 170mm Travel\", \"Rear Suspension RockShox Vivid Air Select+, 205x65\", \"Battery PT800\" (800Wh), \"Derailleur Rear SRAM Eagle 70\" / \"Chain SRAM Eagle 70 T-Type\" / \"Cassette SRAM XG 1270 T-Type\", \"Brakes SRAM Maven Bronze, 4-Piston... HSC 200mm Rotor\", mullet tires (front 29x2.5, rear 27.5x2.5), motor text \"120Nm, 600 per cent assist Gen 5 CX motor\", listed price \"$7,499.00\" (was $7,899 sample). The specifications table has NO weight field at all -- confirmed absent on a direct fetch, not just unfound by a search -- so weight is left null. RULING (verify/emtb-brands-1, 2026-07-23): flipped to verified:true — every engine/display-relevant interface field is manufacturer-page-confirmed and the maker simply publishes no weight for this SKU, the same 'weight absent never blocks verification' precedent already applied catalog-wide to frames/shocks/wheels/forks/Shimano-mechanical/seatposts/kit apparel (tools/VERIFY-PROTOCOL.md); a whole complete e-MTB row with no weight field on its own spec page is the same fact pattern as a complete-bike-only frame.",
+    verified: true, priceBasis: 'msrp-confirmed',
+    lastChecked: '2026-07-23', source: 'https://marinbikes.com/products/2026-alpine-trail-e2-int'
   },
   {
     id: 'em-marin-alpine-trail-e1-2026', cat: 'emtb', brand: 'Marin', model: 'Alpine Trail E1',
@@ -1243,7 +1249,9 @@ var EMTB_PARTS = [
     frameMaterial: 'aluminum', drivetrain: 'Shimano CUES', brakes: 'TRP DHR EVO Comp 4-piston',
     disciplines: ['e-enduro'], weight: null, price: 5999,
     note: 'Entry alloy trim beneath the E2; same Bosch CX Gen 5 motor/battery; X-Fusion Vengeance fork, X-Fusion H3A Air shock.',
-    desc: "Directly fetched marinbikes.com/products/2026-alpine-trail-e1-usa verify/emtb-verify-1 (the real current-SKU URL, found via a browser-pane DOM link scan rather than a guessed slug -- the previously-tried '2025-alpine-trail-e1' guess 404s/serves the prior generation): specifications-section confirms \"Frame All New Series 4 Alloy for Gen 5 CX Drive Unit, 160mm MultiTrac LT Suspension\", \"Front Suspension X-Fusion Vengence, 170mm Travel\", \"Rear Suspension X-Fusion H3A Air, 205x65\", \"Battery PT800\" (800Wh), \"Derailleur Rear Shimano CUES RD-U6000 GS, 10-Speed\" / \"Shift Lever Shimano CUES SL-U6000-10R\", \"Brakes TRP DHR EVO Comp, 200mm Rotors\", mullet tires (front 29x2.5, rear 27.5x2.5), listed price \"$5,999.00\" (was $6,299 sample). The specifications table has NO weight field at all -- confirmed absent on a direct fetch, not just unfound by a search -- so weight is left null rather than kept as an unconfirmed sample; verified:true still withheld per protocol (weight bar not met, and this category has no interface-only exception). Interfaces otherwise match the row's pre-existing corrected spec exactly."
+    desc: "Directly fetched marinbikes.com/products/2026-alpine-trail-e1-usa verify/emtb-verify-1 (the real current-SKU URL, found via a browser-pane DOM link scan rather than a guessed slug -- the previously-tried '2025-alpine-trail-e1' guess 404s/serves the prior generation): specifications-section confirms \"Frame All New Series 4 Alloy for Gen 5 CX Drive Unit, 160mm MultiTrac LT Suspension\", \"Front Suspension X-Fusion Vengence, 170mm Travel\", \"Rear Suspension X-Fusion H3A Air, 205x65\", \"Battery PT800\" (800Wh), \"Derailleur Rear Shimano CUES RD-U6000 GS, 10-Speed\" / \"Shift Lever Shimano CUES SL-U6000-10R\", \"Brakes TRP DHR EVO Comp, 200mm Rotors\", mullet tires (front 29x2.5, rear 27.5x2.5), listed price \"$5,999.00\" (was $6,299 sample). The specifications table has NO weight field at all -- confirmed absent on a direct fetch, not just unfound by a search -- so weight is left null. RULING (verify/emtb-brands-1, 2026-07-23): flipped to verified:true — every engine/display-relevant interface field is manufacturer-page-confirmed and the maker simply publishes no weight for this SKU, the same 'weight absent never blocks verification' precedent already applied catalog-wide to frames/shocks/wheels/forks/Shimano-mechanical/seatposts/kit apparel (tools/VERIFY-PROTOCOL.md); a whole complete e-MTB row with no weight field on its own spec page is the same fact pattern as a complete-bike-only frame.",
+    verified: true, priceBasis: 'msrp-confirmed',
+    lastChecked: '2026-07-23', source: 'https://marinbikes.com/products/2026-alpine-trail-e1-usa'
   },
   {
     id: 'em-nukeproof-megawatt-297-carbon-pro', cat: 'emtb', brand: 'Nukeproof', model: 'Megawatt 297 Carbon Pro',
