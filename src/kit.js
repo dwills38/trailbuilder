@@ -2392,6 +2392,14 @@ var KIT_PARTS = [
     source:'https://www.fasthouse.com/products/shredder-pant-black', sourceType:'manufacturer' },
 
   /* -- Gloves (all UNVERIFIED samples; weight is PER PAIR, approx USD MSRP) -- */
+  { id:'glv-yeticycles-enduro', cat:'gloves', brand:'Yeti Cycles', model:'Enduro Glove', price:32,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', sourceType:'manufacturer',
+    source:'https://yeticycles.com/en-us/gear/gloves',
+    desc:'Fetched yeticycles.com/en-us/gear/gloves: "ENDURO GLOVE", $32.00 USD, listed alongside the Turq Air/Maverick/Polar tiers. Touchscreen-compatible synthetic-leather palm. No weight or size range published on the fetched page, both omitted rather than guessed.' },
+  { id:'glv-shimano-enduro', cat:'gloves', brand:'Shimano', model:'Enduro Gloves', price:36,
+    verified:true, priceBasis:'third-party-listed', lastChecked:'2026-07-23',
+    source:'https://neweracycle.com/products/shimano-enduro-full-finger-mtb-gloves',
+    desc:'bike.shimano.com (fetched via browser pane) redirected to the site homepage - no stable US product page found. $36.00 USD confirmed via a real named retailer listing (neweracycle.com), matching the manufacturer\'s own product copy verbatim (single-layer 57% recycled-polyester suede palm, chloroprene cuff) - third-party-listed, not manufacturer-confirmed. No weight or size range found, both omitted rather than guessed.' },
   { id:'glv-rapha-trail-finale', cat:'gloves', brand:'Rapha', model:'Trail Finale Gloves', price:65,
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', sourceType:'manufacturer',
     source:'https://www.rapha.cc/us/en/product/GLO02XXBLW',
