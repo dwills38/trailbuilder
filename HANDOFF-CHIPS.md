@@ -119,8 +119,7 @@ priceBasis backlog 1,383 -> 507 · worktrees 216 -> 134 (2.3 GB reclaimed).
 [Opus, high effort - READ-ONLY]
 git fetch origin; git worktree add .claude/worktrees/uniformity-audit-u1 -b review/builder-uniformity origin/main
 CHECK FIRST: IF review/builder-uniformity already exists with commits, STAND DOWN and report; otherwise proceed.
-cd into the worktree. If node_modules missing: cmd //c "mklink /J node_modules \"D:\MTB Bike Builder
-ode_modules\""
+cd into the worktree. If node_modules is missing, create the junction from the main checkout's copy.
 
 WHY (Douglas, 2026-07-24): "each builder website should be identical in form to BuildMyMTB in the
 end." He approved the new nav + garage page on the flagship, then deliberately HELD replication:
@@ -168,7 +167,7 @@ the DOM. Do NOT sign in. Screenshots time out; use read_page / javascript_tool. 
 GATES (prove you changed nothing): node validate.js (7 OK) + npm test (1349 baseline) + npx tsc --noEmit.
 RULES: NEVER push. NEVER prompt Douglas. NEVER edit. All files INSIDE D:\MTB Bike Builder.
 NO BROWSER DOWNLOADS. In-app Browser pane only - never claude-in-chrome.
-FINAL ACT: write D:\MTB Bike Builder\.claude\worker-reportsuilder-uniformity.md - the full matrix,
+FINAL ACT: write D:\MTB Bike Builder\.claude\worker-reports/builder-uniformity.md - the full matrix,
 the A/B/C classification, the ranked category-A list, and a "what the replication chip should do"
 section. Then RETURN a concise ranked summary.
 ```
