@@ -4590,6 +4590,10 @@ var KIT_PARTS = [
     fitCut:'mens', waterproof:false, insulated:true,
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.castelli-cycling.com/US/en/Men/Cycling/Top/Jackets/Cool/UNLIMITED-JACKET/p/4524520_085',
     desc:'Fleece-lined jacket with shell wind protection at the front and cargo-style rear storage, marketed for "lonely gravel roads or your favorite trail." Full MSRP $230 confirmed on the US storefront (page also showed a $161 sale price, not used - pricing policy is MSRP-only). The "72 g" figure on the page reads as a fabric-weight spec, not total garment weight, so no weight field is set.' },
+  { id:'jkt-assos-tactica-rain', cat:'jacket', brand:'Assos', family:'assos-tactica', model:'Tactica Rain Jacket', price:410,
+    fitCut:'mens', waterproof:true,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.assos.com/us/tactica-rain-jacket-t5-51-32-313-6p.html',
+    desc:'Lightweight waterproof shell with a "comfort-tuned fit for adventure cycling, low-intensity touring, and daily commuting" - Assos\'s most off-road-relevant jacket tier. Full MSRP $410 confirmed on assos.com/us (page also showed a $287 sale price, not used per MSRP-only pricing policy). No weight published on the fetched page.' },
 
 
   /* Wild Rye (women's MTB apparel) - wild-rye.com fetched directly (WebFetch 404'd on this
