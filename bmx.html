@@ -482,7 +482,7 @@
 
 <!-- Mobile sticky build bar (≤880px only): verdict + totals mirror, tap = jump to panel -->
 <button type="button" id="mobileBar" aria-label="Build summary — tap to jump to the build panel">
-  <span class="mb-v" id="mbVerdict">Add parts to start checking.</span>
+  <span class="mb-v" id="mbVerdict" role="status" aria-live="polite">Add parts to start checking.</span>
   <span class="mb-t" id="mbTotal">≈ $0</span>
   <span class="mb-w" id="mbWeight">—</span>
   <span class="mb-go">View ▸</span>
@@ -792,7 +792,7 @@
       +     '</div>'
       +     '<div class="grid" id="bCatalog"></div>'
       +   '</section>'
-      +   '<aside><div class="side"><div class="panel" id="bReport"></div><div class="panel" id="bPanel"></div></div></aside>'
+      +   '<aside><div class="side"><div class="panel" id="bReport" role="status" aria-live="polite"></div><div class="panel" id="bPanel"></div></div></aside>'
       + '</div>';
   }
 
