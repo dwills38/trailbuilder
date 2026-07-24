@@ -61,10 +61,34 @@ var BMX_VOCAB = {
      these existed — re-tokenizing those rows is a DATA task for the follow-up
      catalog chip, NOT this vocab pass (this chip adds no data rows). */
   bbShell:     ['mid', 'spanish', 'american', 'euro', 'bb86', 'bb30', 'pf30'],
-  /* crank spindles: 19mm (modern freestyle default), 22mm (Profile/Primo HD),
-     24mm, 30mm (Profile Elite AL — VERIFIED on profileracing.com 2026-07-11,
-     a real value the analysis doc's draft list missed), 48-spline legacy. */
-  spindle:     ['19mm', '22mm', '24mm', '30mm', '48-spline'],
+  /* THE SPINDLE IS TWO ORTHOGONAL AXES, NOT ONE (split 2026-07-24, mechanic
+     ruling FRM-61 in tools/mechanic/frame-standards-bearings.md). Until then a
+     single `spindle` enum mixed DIAMETERS (19/22/24/30mm) with a SPLINE COUNT
+     ('48-spline') and the bmx-bb-spindle rule exact-matched the tokens — wrong
+     in BOTH directions, so no mapping table could rescue it:
+       - same spline, different diameter: Fit's "48 Spline Complete BB Kit
+         (24mm)" is a 48-spline spindle in a 24mm bore, Rant's Bangin' 48 is
+         "19mm ... 48 spline" — keying on '48-spline' FALSE-FITS them to each
+         other's BB;
+       - same diameter, different spline: Rant's Bangin' 8 and Bangin' 48 are
+         both 19mm and both run the identical 19mm BB — keying on the spline
+         FALSE-REJECTS a correct BB.
+     So: `spindleDiameter` is the BB-constrained axis (the bearing bore the
+     spindle passes through — BMXunion: you "need a new bottom bracket to match
+     the spindle size"), and `splinePattern` is the BB-AGNOSTIC crank-arm↔
+     spindle (and spline-drive-sprocket↔spindle) joint — capitalbmx: it is how
+     "the Crank Arms fit snug on the Spindle." The bmx-bb-spindle rule below
+     therefore reads DIAMETER ONLY and never the spline. This mirrors the MTB
+     bb category's `shell` (frame side) vs `spindle` (crank side) separation:
+     one part, two interfaces, each checked against its own counterpart.
+     Diameters: 19mm (modern freestyle default), 22mm (Profile/Primo HD), 24mm,
+     30mm (Profile Elite AL — VERIFIED on profileracing.com 2026-07-11, a real
+     value the analysis doc's draft list missed). */
+  spindleDiameter: ['19mm', '22mm', '24mm', '30mm'],
+  /* Extensible — add a token only with a maker-sourced row behind it (the
+     DATA-ENTRY-TEMPLATE rule). 'bolt-drive' is the bolt/pinch-clamped
+     non-splined arm interface; no catalog row carries it yet. */
+  splinePattern:   ['8-spline', '48-spline', 'bolt-drive'],
   crankPieces: ['1-piece', '2-piece', '3-piece'],
   /* '15mm'/'20mm' added vocab-race (2026-07-23, coordinator-authorized BMX-race
      go-live): real BMX RACE axle standards beyond the 3/8in(10mm)/14mm freestyle
@@ -289,20 +313,27 @@ function checkBmxBuild(build){
         'Wheel size mismatch: ' + ws.map(function(x){ return x[0] + ' = ' + x[1] + 'in'; }).join(', ') + '. A BMX is built around one wheel size end to end.');
   }
 
-  /* BMX-1. BB shell x spindle — via a PURCHASABLE BB row, the MTB rule-7
-        philosophy: with a real BB picked, both of its interfaces are exact
-        definitional checks (a Mid bearing set does not press into a Spanish
-        shell; a 19mm-bore bearing does not take a 22mm spindle). With no BB
-        picked, an advisory INFO nudges. This deliberately AVOIDS the
+  /* BMX-1. BB shell x spindle DIAMETER — via a PURCHASABLE BB row, the MTB
+        rule-7 philosophy: with a real BB picked, both of its interfaces are
+        exact definitional checks (a Mid bearing set does not press into a
+        Spanish shell; a 19mm-bore bearing does not take a 22mm spindle). With
+        no BB picked, an advisory INFO nudges. This deliberately AVOIDS the
         [MECHANIC REVIEW] shell x spindle bearing-kit matrix the analysis doc
         flagged — servability is proven by a purchasable kit row, never
-        guessed from a matrix, so no false error is possible. */
+        guessed from a matrix, so no false error is possible.
+        DIAMETER ONLY (FRM-61, 2026-07-24): the BB is a bearing bore, so it
+        constrains the spindle's DIAMETER and is blind to its SPLINE PATTERN —
+        an 8-spline and a 48-spline 19mm spindle run in the identical 19mm BB.
+        Reading splinePattern here would re-introduce the false "won't fit"
+        this split removed; the spline is judged at the crank-arm↔spindle and
+        sprocket↔spindle joints, which are inside a purchased crankset, never
+        at the BB. Never widen this comparison to the spline. */
   if(bb && frame && bb.shell !== frame.bbShell)
     err('bmx-bb-shell', ['bb', 'frame'], 'BB shell mismatch: ' + bmxNameOf(bb) + ' fits a ' + bb.shell + ' shell but ' + bmxNameOf(frame) + ' has a ' + frame.bbShell + ' shell.');
-  if(bb && cranks && bb.spindleFit !== cranks.spindle)
-    err('bmx-bb-spindle', ['bb', 'cranks'], 'BB spindle mismatch: ' + bmxNameOf(bb) + ' takes a ' + bb.spindleFit + ' spindle but ' + bmxNameOf(cranks) + ' runs a ' + cranks.spindle + ' spindle.');
+  if(bb && cranks && bb.spindleDiameter !== cranks.spindleDiameter)
+    err('bmx-bb-spindle', ['bb', 'cranks'], 'BB spindle mismatch: ' + bmxNameOf(bb) + ' takes a ' + bb.spindleDiameter + ' spindle but ' + bmxNameOf(cranks) + ' runs a ' + cranks.spindleDiameter + ' spindle.');
   if(!bb && cranks && frame)
-    info('bmx-bb-advisory', ['cranks', 'frame'], 'Bottom bracket: ' + bmxNameOf(cranks) + ' has a ' + cranks.spindle + ' spindle - pick the matching ' + frame.bbShell + '-shell / ' + cranks.spindle + ' bearing kit for this frame (BMX BBs are sold as shell+spindle-specific kits).');
+    info('bmx-bb-advisory', ['cranks', 'frame'], 'Bottom bracket: ' + bmxNameOf(cranks) + ' has a ' + cranks.spindleDiameter + ' spindle - pick the matching ' + frame.bbShell + '-shell / ' + cranks.spindleDiameter + ' bearing kit for this frame (BMX BBs are sold as shell+spindle-specific kits).');
 
   /* BMX-2. Crank piece-count vs frame shell. Definitional (Sheldon Brown BB
         standards; universal BMX practice): a 1-piece (Ashtabula) crank is one
@@ -316,7 +347,7 @@ function checkBmxBuild(build){
     if(cranks.pieces === '1-piece' && frame.bbShell !== 'american')
       err('bmx-crank-pieces', ['cranks', 'frame'], 'Crank/BB mismatch: ' + bmxNameOf(cranks) + ' is a one-piece (Ashtabula) crank, which fits only an American bottom-bracket shell - ' + bmxNameOf(frame) + ' has a ' + frame.bbShell + ' shell.');
     else if(cranks.pieces === '3-piece' && frame.bbShell === 'american' && !(bb && bb.shell === 'american'))
-      warn('bmx-crank-pieces', ['cranks', 'frame'], 'Conversion BB needed: ' + bmxNameOf(frame) + ' has an old-school American shell and ' + bmxNameOf(cranks) + ' is a 3-piece crank - it works with an American-shell conversion BB for its ' + cranks.spindle + ' spindle (sold separately).', {kind: 'adapter', name: 'American-to-' + cranks.spindle + ' conversion BB'});
+      warn('bmx-crank-pieces', ['cranks', 'frame'], 'Conversion BB needed: ' + bmxNameOf(frame) + ' has an old-school American shell and ' + bmxNameOf(cranks) + ' is a 3-piece crank - it works with an American-shell conversion BB for its ' + cranks.spindleDiameter + ' spindle (sold separately).', {kind: 'adapter', name: 'American-to-' + cranks.spindleDiameter + ' conversion BB'});
   }
 
   /* BMX-3. Chain pitch — sprocket, rear cog and chain share a width class
