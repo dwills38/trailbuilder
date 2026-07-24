@@ -2206,8 +2206,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'SRAM Eagle 90 Transmission (T-Type AXS)',
     disciplines: ['e-enduro'], weight: null, price: 8699, modelYear: 2026,
     note: 'The Epocalypse is Evil\'s only current e-MTB (brand was fully absent from the catalog); full carbon frame, RockShox ZEB Ultimate fork (170mm) + Super Deluxe Coil Ultimate shock (166mm rear), 29in wheels only (no mullet option), adjustable 442/444mm chainstay (LOW/XLOW). This is the entry "Eagle 90" build on Industry Nine 1/1 Enduro S V2 alloy wheels.',
-    desc: 'Sourced from evil-bikes.com/products/epocalypse (fetched, live product/variant page). Battery removability is described inconsistently across sources (Evil\'s current page doesn\'t explicitly call it removable, an older review does) so batteryRemovable left uncataloged rather than guessed; brakes not stated on the fetched page text so left uncataloged too. Complete-bike weight not published by Evil (an older ~50lb figure cited by a 2023 review was for a discontinued Shimano XT build, not this current Eagle 90/X0 Transmission lineup, so not carried forward). Price is the current site MSRP ($9,499 list, $8,699 as listed at fetch time). catalog/emtb-depth-5 wave (Evil absent -> 2 rows).',
-    lastChecked: '2026-07-23', source: 'https://evil-bikes.com/products/epocalypse'
+    desc: 'Sourced from evil-bikes.com/products/epocalypse (fetched, live product/variant page). Battery removability is described inconsistently across sources (Evil\'s current page doesn\'t explicitly call it removable, an older review does) so batteryRemovable left uncataloged rather than guessed; brakes not stated on the fetched page text so left uncataloged too. Complete-bike weight not published by Evil (an older ~50lb figure cited by a 2023 review was for a discontinued Shimano XT build, not this current Eagle 90/X0 Transmission lineup, so not carried forward). Price is the current site MSRP ($9,499 list, $8,699 as listed at fetch time). catalog/emtb-depth-5 wave (Evil absent -> 2 rows). verify/emtb-brands-2 (2026-07-23): re-confirmed via Exa fetch of the same live evil-bikes.com product/variant listing — "Wasabi Shadow / Small Eagle 90 / Industry Nine 1/1 Enduro S V2 - $8,699.00 USD" and the page copy\'s "Shimano EP801... 85Nm... 630Wh battery" both match this row exactly, no changes needed.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://evil-bikes.com/products/epocalypse'
   },
   {
     id: 'em-evil-epocalypse-x0', cat: 'emtb', brand: 'Evil', model: 'Epocalypse X0',
@@ -2215,10 +2215,10 @@ var EMTB_PARTS = [
     batteryWh: 630, assist: 'full-power', display: 'system-controller',
     wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 166,
     frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission (T-Type AXS)',
-    disciplines: ['e-enduro'], weight: null, price: 9949, modelYear: 2026,
+    disciplines: ['e-enduro'], weight: null, price: 9999, modelYear: 2026,
     note: 'Top current Epocalypse build: same frame/motor/battery as the Eagle 90, stepped up to SRAM X0 Eagle Transmission and Industry Nine Hydra2 System Triad carbon wheels. Listed sold out in all sizes at fetch time (still the real current top SKU, not discontinued).',
-    desc: 'Sourced from evil-bikes.com/products/epocalypse (fetched, live product/variant page). Same brake/weight/battery-removability gaps as the Eagle 90 sibling row (not stated on the fetched page). Price is the current site MSRP ($11,099 list, $9,949 as listed at fetch time, sold-out). catalog/emtb-depth-5 wave.',
-    lastChecked: '2026-07-23', source: 'https://evil-bikes.com/products/epocalypse'
+    desc: 'Sourced from evil-bikes.com/products/epocalypse (fetched, live product/variant page). Same brake/weight/battery-removability gaps as the Eagle 90 sibling row (not stated on the fetched page). Price is the current site MSRP ($11,099 list, $9,949 as listed at fetch time, sold-out). catalog/emtb-depth-5 wave. CORRECTED verify/emtb-brands-2 (2026-07-23): re-fetched the same live listing via Exa — the exact current sale price for every X0-tier size/color combo is "$9,999.00 USD" (not $9,949, a $50 transcription error from the prior wave); motor/battery (Shimano EP801, 85Nm, 630Wh) also re-confirmed.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://evil-bikes.com/products/epocalypse'
   },
 
   {
@@ -2430,9 +2430,9 @@ var EMTB_PARTS = [
     wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 150,
     frameMaterial: 'carbon', weight: null, price: 5248, modelYear: 2026,
     disciplines: ['e-trail'],
-    note: 'Entry Uproc X trim, Swiss maker Flyer\'s allmountain-tier full-power e-MTB.',
-    desc: 'Motor/battery/travel/wheel/frame confirmed on flyer-bikes.com\'s own Uproc X model page (browser render, gb-en). No weight or per-trim component spec published there; entry price sourced from an ebike24.com launch article ("Flyer Uproc X 4.10 priced at 4,599 euros"). PRICE: EUR 4,599 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,248. Left unverified: price provenance is a press article, not the maker\'s own price page.',
-    lastChecked: '2026-07-23', source: 'https://www.flyer-bikes.com/gb-en/uprocx'
+    note: 'Entry Uproc X trim, Swiss maker Flyer\'s allmountain-tier full-power e-MTB. Note: Flyer\'s Uproc X platform ran a Panasonic GX Ultimate Pro motor through the 2022-2024 model years (95Nm/630-750Wh) before switching to this Bosch Smart System generation — the maker\'s CURRENT flyer-bikes.com/gb-en/uprocx family page (re-checked verify/emtb-brands-2) confirms Bosch is the live spec, so no correction needed, but a future pass should watch for this platform\'s motor-brand history if re-deriving specs from an older review.',
+    desc: 'Motor/battery/travel/wheel/frame confirmed on flyer-bikes.com\'s own Uproc X model page (browser render, gb-en). No weight or per-trim component spec published there; entry price sourced from an ebike24.com launch article ("Flyer Uproc X 4.10 priced at 4,599 euros"). PRICE: EUR 4,599 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,248. Left unverified: price provenance is a press article, not the maker\'s own price page. verify/emtb-brands-2 (2026-07-23): re-fetched flyer-bikes.com/gb-en/uprocx directly (via Exa) — confirms "Bosch Smart System" motor, "750 Wh battery", "600 watts (up to 340%)" peak power, "50 / 150 mm" (150mm travel), mullet wheel concept, all matching this row exactly. Motor torque (85Nm) is the catalog\'s standing cross-checked figure for Bosch Performance CX (the family page doesn\'t itemize torque directly). Interfaces meet the verification bar; price stays the disclosed press estimate (no priceBasis token, not a maker-fetched price).',
+    verified: true, lastChecked: '2026-07-23', source: 'https://www.flyer-bikes.com/gb-en/uprocx'
   },
   {
     id: 'em-flyer-uproc-evox-8-70', cat: 'emtb', brand: 'Flyer', model: 'Uproc EVO:X 8.70',
