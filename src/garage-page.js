@@ -5,13 +5,18 @@
    Saved builds used to live in a click-opened dialog (#garageModal) and the
    inventory in an in-page view (#inventoryPage), reached by two separate
    header buttons. They are one place — the rider's own stuff — so they became
-   one page, laid out the way he asked for it:
+   one page. Douglas then moved the service log to sit to the RIGHT of the
+   inventory rather than under it (same day, after testing the live page):
 
-       ┌──────────────────────┬──────────────────────┐
-       │ saved + completed    │ inventory            │
-       │ builds               ├──────────────────────┤
-       │                      │ service log          │
+       ┌─────────────────────────────────────────────┐
+       │ saved + completed builds  (spans row 1)     │
+       ├──────────────────────┬──────────────────────┤
+       │ inventory            │ service log          │
        └──────────────────────┴──────────────────────┘
+
+   The proportions are garage.html's business, not this file's — see the
+   measured per-card knees in its `.grg-grid` comment for why builds spans
+   instead of the three cards sitting across. Nothing here changed with it.
 
    WHAT IS IN HERE, AND WHY
    Everything that can be decided WITHOUT a DOM: folding Supabase rows into

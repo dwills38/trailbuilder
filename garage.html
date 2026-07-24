@@ -80,15 +80,59 @@
   .theme-pop .btn.primary::after{content:"✓";margin-left:auto;font-weight:800}
 
   /* ---- the three-card layout --------------------------------------------
-     LEFT: saved + completed builds. RIGHT: inventory, and the service log
-     under it (Douglas's layout, 2026-07-24). Two equal columns on desktop;
-     ONE column on phones, in reading order — builds, inventory, service —
-     with min-width:0 on both tracks so a long part name wraps instead of
-     forcing the body to scroll sideways. */
+     SERVICE LOG SITS TO THE RIGHT OF INVENTORY (Douglas, 2026-07-24, after
+     testing the live page). His placement, our proportions — and the
+     proportions are measured, not guessed. Each card's height was sampled
+     against its own width (260-720 px, real content: 4 builds, 9 inventory
+     rows incl. the catalog's three longest part names, 3 service records),
+     and each has a knee below which its rows start breaking up:
+
+       builds     490 px  — below it the five row buttons (Open in builder /
+                            Rename / Mark complete / Service / Delete) wrap
+                            onto a SECOND line: 94 px row -> 126 px row.
+                            490-650 px is a dead flat plateau; the card is
+                            byte-identical at 490 and at 600.
+       inventory  570 px  — below it a typical row stops fitting on one line
+                            (57 px -> 94 px), and the longest part names go
+                            to four lines (135 px).
+       service    ~400 px — the least width-hungry of the three by far; only
+                            21 px taller at 395 than at 540.
+
+     Sum of the knees = 1460 px of card + 32 px of gaps + 48 px of page
+     padding = ~1540 px of viewport. THREE COLUMNS ACROSS NEVER FIT: at
+     1280 px each column is 395 px (under every knee), and `main` is capped
+     at 1380 px, so even the widest possible page gives 433 px columns. A
+     device-driven three-across would be permanently below its own content's
+     needs -- content decides the layout, not the column count we wanted
+     (RSP-1, web.dev responsive basics).
+
+     So: builds spans the full first row, inventory and the service log sit
+     SIDE BY SIDE beneath it. Nothing ends up narrower than it is today
+     (600 px each), which a three-across split could not say.
+
+         +-----------------------------------------------+
+         | builds  (spans; its own list goes 2-up wide)   |
+         +----------------------+------------------------+
+         | inventory            | service log            |
+         +----------------------+------------------------+
+
+     The second row is a plain flex-wrap pair on a 560 px basis, so it
+     collapses to one column intrinsically at ~1184 px -- no breakpoint to
+     write or maintain in four themes (RSP-19). It also means a HIDDEN
+     service log (the table is feature-detected) leaves inventory growing to
+     the full width on its own, with no :has() selector and no JS. */
   main{max-width:1380px;margin:0 auto;padding:18px 24px 60px}
-  .grg-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
-  .grg-col{display:flex;flex-direction:column;gap:16px;min-width:0}
+  .grg-grid{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start}
+  #cardBuilds{flex:1 1 100%}
+  #cardInv,#cardSvc{flex:1 1 560px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;min-width:0}
+  /* Builds is the full-width card, so its LIST is what absorbs the width:
+     as many columns as fit at >= the measured 490 px knee, none narrower
+     (MDN's auto-fit + minmax card pattern, RSP-12). `min(490px,100%)` is the
+     guard that keeps a track from exceeding a 320 px container and pushing
+     the body sideways; source order is untouched, so tab order still follows
+     reading order, and `dense` is deliberately not used (RSP-12's warning). */
+  #cardBuilds .glist{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(490px,100%),1fr));gap:8px}
   .card > h2{margin:0 0 2px;font-size:17px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .card > h2 .grg-count{font-size:12px;font-weight:700;color:var(--ink-soft);background:var(--chip);
     border-radius:999px;padding:2px 8px}
@@ -230,7 +274,9 @@
 
   /* ---- responsive -------------------------------------------------------- */
   @media (max-width:880px){
-    .grg-grid{grid-template-columns:1fr}
+    /* No column rule here on purpose: the second row already collapses on
+       its own basis (RSP-19 — an axis handled intrinsically is a breakpoint
+       nobody has to maintain). This block is padding + touch density only. */
     main{padding:14px 12px 48px}
     footer{padding:0 12px 32px}
     header{padding:8px 12px}
@@ -405,9 +451,14 @@
       <b>Log in</b> button &mdash; it asks for a username at the same time.</p>
   </div>
 
-  <!-- Signed in: the three cards. -->
+  <!-- Signed in: the three cards. Source order IS reading order — builds,
+       inventory, service log — and that holds at every width: on one column
+       they read top to bottom in that order, and on desktop builds spans the
+       first row with inventory and the service log side by side beneath it.
+       Nothing here is reordered visually away from the DOM (RSP-12's tab-order
+       caution), so keyboard order never diverges from what is on screen. -->
   <div class="grg-grid" id="garageGrid" hidden>
-    <!-- UPPER LEFT: saved AND completed builds -->
+    <!-- ROW 1, FULL WIDTH: saved AND completed builds -->
     <section class="card" id="cardBuilds" aria-labelledby="buildsH">
       <h2 id="buildsH">🅖 Your builds <span class="grg-count" id="buildsCount">—</span></h2>
       <p class="card-sub" id="buildsSub">Everything you&rsquo;ve saved, in progress and completed. Verdicts are
@@ -420,49 +471,47 @@
       </div>
     </section>
 
-    <div class="grg-col">
-      <!-- RIGHT: inventory -->
-      <section class="card" id="cardInv" aria-labelledby="invH">
-        <h2 id="invH">🧰 Your inventory <span class="grg-count" id="invCount">—</span></h2>
-        <p class="card-sub">Parts you own. In the builder, the ⋯ menu can add a whole build&rsquo;s
-          parts at once, and <b>🧰 Owned only</b> filters the catalog to them.</p>
-        <div id="recallBanners"></div>
-        <div id="invBody"><div class="gempty">Loading…</div></div>
-      </section>
+    <!-- ROW 2, LEFT: inventory -->
+    <section class="card" id="cardInv" aria-labelledby="invH">
+      <h2 id="invH">🧰 Your inventory <span class="grg-count" id="invCount">—</span></h2>
+      <p class="card-sub">Parts you own. In the builder, the ⋯ menu can add a whole build&rsquo;s
+        parts at once, and <b>🧰 Owned only</b> filters the catalog to them.</p>
+      <div id="recallBanners"></div>
+      <div id="invBody"><div class="gempty">Loading…</div></div>
+    </section>
 
-      <!-- UNDER INVENTORY: the service log -->
-      <section class="card" id="cardSvc" aria-labelledby="svcH">
-        <h2 id="svcH">🔧 Service log <span class="grg-count" id="svcCount">—</span></h2>
-        <p class="card-sub">Your own maintenance notebook. It records what you wrote, nothing else &mdash;
-          no service intervals are implied or suggested.</p>
-        <div id="svcBody"><div class="gempty">Loading…</div></div>
-        <div id="svcAddBox">
-          <div class="svc-form-head">Add a record</div>
-          <div class="svc-form">
-            <div class="svc-form-row">
-              <div>
-                <label for="svcTarget">What did you service?</label>
-                <select id="svcTarget"></select>
-              </div>
-              <div>
-                <label for="svcDate">When</label>
-                <input type="date" id="svcDate">
-              </div>
+    <!-- ROW 2, RIGHT OF INVENTORY: the service log (Douglas, 2026-07-24) -->
+    <section class="card" id="cardSvc" aria-labelledby="svcH">
+      <h2 id="svcH">🔧 Service log <span class="grg-count" id="svcCount">—</span></h2>
+      <p class="card-sub">Your own maintenance notebook. It records what you wrote, nothing else &mdash;
+        no service intervals are implied or suggested.</p>
+      <div id="svcBody"><div class="gempty">Loading…</div></div>
+      <div id="svcAddBox">
+        <div class="svc-form-head">Add a record</div>
+        <div class="svc-form">
+          <div class="svc-form-row">
+            <div>
+              <label for="svcTarget">What did you service?</label>
+              <select id="svcTarget"></select>
             </div>
             <div>
-              <label for="svcWhat">What was done</label>
-              <input type="text" id="svcWhat" maxlength="120" placeholder="e.g. Lower-leg service, new seals">
+              <label for="svcDate">When</label>
+              <input type="date" id="svcDate">
             </div>
-            <div>
-              <label for="svcNote">Notes (optional)</label>
-              <textarea id="svcNote" maxlength="1000" placeholder="Torque values, parts used, how it feels…"></textarea>
-            </div>
-            <p id="svcMsg" class="pm-note" hidden></p>
-            <div><button type="button" class="btn primary" id="svcAdd">Add record</button></div>
           </div>
+          <div>
+            <label for="svcWhat">What was done</label>
+            <input type="text" id="svcWhat" maxlength="120" placeholder="e.g. Lower-leg service, new seals">
+          </div>
+          <div>
+            <label for="svcNote">Notes (optional)</label>
+            <textarea id="svcNote" maxlength="1000" placeholder="Torque values, parts used, how it feels…"></textarea>
+          </div>
+          <p id="svcMsg" class="pm-note" hidden></p>
+          <div><button type="button" class="btn primary" id="svcAdd">Add record</button></div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   </div>
 </main>
 

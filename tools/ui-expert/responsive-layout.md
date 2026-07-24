@@ -2,7 +2,9 @@
 
 **Maturity: master** (L1+L2 complete + L3 craft depth — the Every Layout primary pinned,
 breakpoint-count practice sourced, and the site's own three thresholds audited against both,
-yielding the intrinsic-layout-beats-breakpoints doctrine (RSP-19); round 4, 2026-07-18)
+yielding the intrinsic-layout-beats-breakpoints doctrine (RSP-19); round 4, 2026-07-18.
+Round 7, 2026-07-24 adds the **card-knee measurement method** (RSP-21) and its first run
+(RSP-22–25, garage.html), turning "let the content decide" into a number.)
 
 Breakpoint strategy, container vs media queries, wrap behavior, the never-horizontal-scroll
 rule. Read [`INDEX.md`](INDEX.md) first.
@@ -212,6 +214,75 @@ rule. Read [`INDEX.md`](INDEX.md) first.
   adding a fourth breakpoint. *Corpus judgment; recorded because "we now have the primary" is
   not the same as "we should use it," and a future round should not read RSP-16 as a mandate.*
 
+## The card-knee method (round 7, 2026-07-24 — garage.html three-card layout)
+
+- **RSP-21 — Measure a card's KNEE, don't guess its "minimum comfortable width."** Method,
+  recorded because it settled a layout argument in one pass and generalises to every card on
+  every builder: clone the card offscreen, fill it with **real worst-case content** (real
+  catalog names, not lorem), sweep an explicit width from ~260 px to ~720 px in 10 px steps and
+  record `offsetHeight` at each. The curve is a **staircase, not a slope** — flat plateaus where
+  extra width buys literally nothing, separated by step-ups where one more line of content wraps.
+  **The knee is the narrowest width on the card's lowest plateau**, and it is the only number a
+  column-proportion decision needs. Two corollaries that fell straight out of the first run:
+  (a) width above the knee is *free to give away* (the builds card is byte-identical at 490 px
+  and at 600 px), and (b) the per-**row** height (`.grow.offsetHeight`) localises *what* wraps
+  far better than the card total does. *Method fact; the numbers it produced are RSP-22.
+  Complements RSP-1 (content-driven breakpoints) by making "let the content decide" a
+  measurement instead of a slogan.*
+
+- **RSP-22 — garage.html's three cards, measured (2026-07-24).** Real content: 4 saved builds,
+  9 inventory rows including the catalog's three longest part names (the longest is 83
+  characters — *"Reynolds Blacklabel 309/289 XC Expert 29 rear (Ringle SBX, Microspline,
+  Centerlock)"*), 3 service records.
+  | card | knee | what breaks below it | plateau |
+  |---|---|---|---|
+  | builds | **490 px** | the five row buttons (Open in builder / Rename / Mark complete / 🔧 Service / Delete) wrap to a second line — 94 px row → 126 px row | flat 490–650 px |
+  | inventory | **570 px** | a typical row stops fitting on one line (57 → 94 px); the longest names reach four lines (135 px) at 395 px | flat 570–650 px |
+  | service log | **~400 px** | almost nothing — only 21 px taller at 395 px than at 540 px | flat 400–610 px |
+  **Inventory is the width-hungriest card and the service log the least** — the opposite of the
+  intuition that the log, with the most prose, would need the most room. Its rows are a date,
+  a short title and one button; the inventory's carry a long part name *plus* price, quantity
+  stepper and two buttons on the same line. *Live-DOM measurement, method per RSP-21.*
+
+- **RSP-23 — ⚠ Three cards across never fit this page shell, at any width — the arithmetic.**
+  RSP-22's knees sum to 490 + 570 + 400 = **1460 px of card**, + 32 px of grid gaps + 48 px of
+  `main` padding = **~1540 px of viewport** before three-across clears its own content's needs.
+  Two consequences: at 1280 px each column is **395 px — under all three knees**; and because
+  `main` is capped at `max-width:1380px`, the widest column this shell can *ever* produce is
+  **433 px**, still under two of the three. **A three-column ask on a page with these cards is
+  therefore not a "tight at 1280" problem, it is structurally unsatisfiable** — the honest
+  answer is a different arrangement, not a smaller gap or a tighter padding. *Corpus arithmetic
+  over RSP-22 + the shipped `main` cap; recorded as the reusable check to run BEFORE agreeing
+  to a column count.*
+
+- **RSP-24 — The row-spans-then-splits arrangement, and why it beat three-across here.** When a
+  requested left-to-right adjacency (Douglas: "service log to the RIGHT of inventory") cannot be
+  paid for in columns, **give the widest-content card its own full-width row and put the pair
+  beneath it**: builds spans row 1; inventory and the service log sit side by side in row 2.
+  This satisfies the adjacency literally while leaving **every card at or above its knee, and
+  none narrower than the layout it replaced** (600 px each, before and after) — a three-across
+  split could say neither. Row 2 is a plain `flex-wrap` pair on a `flex: 1 1 560px` basis, which
+  buys three things with no media query (RSP-19's doctrine paying out again): it collapses to one
+  column intrinsically at ~1184 px; the last side-by-side state is 560 px, 10 px under the
+  inventory knee for a disclosed 20 px of height; and when the service log is **hidden** (it is
+  feature-detected against the Supabase table) inventory's `flex-grow` fills the row on its own —
+  **no `:has()` selector and no JS**, which a `grid-template-columns` version would have needed.
+  *Site synthesis, shipped on `ui/garage-layout-2` 2026-07-24 and measured at 1280/768/375/320.*
+
+- **RSP-25 — RSP-12's `auto-fit` + `minmax` is the right tool for the LIST inside a card that
+  spans a full row** (first live use on this site). A full-width card whose list stays one column
+  either strands ~600 px of whitespace or opens a long name→action association gap. Setting the
+  list to `repeat(auto-fit, minmax(min(<knee>px, 100%), 1fr))` turns the spare width into
+  *columns of rows at the knee* instead: measured at 1280 px, the builds list renders **two
+  585.7 px tracks**, each above its 490 px knee, and each row's buttons stay directly under
+  their own name (measured association offset: **0 px**). **`min(<knee>px, 100%)` is
+  load-bearing, not decoration** — a bare `minmax(490px, 1fr)` makes the track floor exceed a
+  320 px container and pushes the body sideways, failing RSP-3/SC 1.4.10; with the `min()` guard
+  the same declaration resolves to a single 296 px track at 320 px (measured, 0 overflowing
+  elements). Source order is untouched and `grid-auto-flow: dense` is deliberately unused, so
+  RSP-12's own tab-order caution is satisfied. *Live-DOM measurement applying RSP-12 (Tier A,
+  MDN).*
+
 ## Gaps (next-round targets)
 
 - ~~Breakpoint-count practice~~ → **CLOSED round 4 by RSP-17** (NN/g: 2–3 in practice, four
@@ -221,5 +292,8 @@ rule. Read [`INDEX.md`](INDEX.md) first.
   CSS. See **RSP-20** for why the pattern is nonetheless *not* recommended for `.layout`.
 - No fetched source yet on `grid-template-columns: subgrid` or the newer CSS `masonry` layout
   proposal — L3/emerging, low priority while browser support is incomplete.
+- **RSP-22's knees are garage.html's, not universal.** The catalog/build-panel cards on
+  `index.html` and the five sibling builders have never had RSP-21 run on them; do not reuse
+  490/570/400 as if they were site constants — re-measure per card.
 - RSP-14/15 (print, reader-mode) are seeded but currently dormant — no shipped feature uses
   either; re-visit if Douglas ever asks for a "print/share my build" or article-reader feature.
