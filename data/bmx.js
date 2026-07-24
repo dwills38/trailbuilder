@@ -2225,13 +2225,17 @@ var BMX_PARTS = [
   // --- Eclat (eclatbmx.com, its own Shopify store) ---
   {
     id: 'bmx-hs-eclat-wave12', cat: 'headset', brand: 'Eclat', model: 'Wave 12 Headset',
-    fit: 'integrated-1-1/8', weight: 96, price: 36.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/wave-12-headset ("mid-stack 12mm top cap and x2 3mm spacers...6061-T6 alloy cnc machined, high-end sealed bearings"). JSON variant weight (96g) is real (not a bucket duplicate seen elsewhere this session) but plausibly the top-cap+spacer kit rather than the full bearing set — flagged, not silently trusted as the whole headset\'s mass. fit is display-only in checkBmxBuild (no rule reads it). Unverified sample.'
+    fit: 'integrated-1-1/8', weight: 64, price: 36.99,
+    verified: true, lastChecked: '2026-07-23', source: 'https://eclatbmx.com/products/wave-12-headset',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched eclatbmx.com/products/wave-12-headset.js directly this session. WEIGHT CORRECTED 96 -> 64: the page\'s Specs line states, verbatim, "Weight 64g (2.3oz) (includes everything)" — the maker\'s own explicit total-mass figure (the prior 96g JSON variant weight was a flagged, unconfirmed guess at a sub-kit mass, per the prior note). fit is display-only in checkBmxBuild — no engine-critical field left unconfirmed. Price $36.99 confirmed exactly.'
   },
   {
     id: 'bmx-cr-eclat-tibiaxlt', cat: 'cranks', brand: 'Eclat', model: 'Tibia XLT Cranks',
     spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 770, price: 259.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/eclat-tibia-xlt-crank-1. Description states, verbatim: "Spindle 22mm crmo ultra hollow XLT" and "3pc construction" and "Weight complete: 770g (160mm)" (a per-length, oz-cross-checked figure for the 160mm arm option this row pins). ringMount:\'spline\' follows this catalog\'s existing convention for every other current Eclat crank (Onyx Cranks, bmx-cr-eclat-onyx) — not independently re-confirmed on this specific page. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://eclatbmx.com/products/eclat-tibia-xlt-crank-1',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched eclatbmx.com/products/eclat-tibia-xlt-crank-1.js directly this session. Description states, verbatim: "Spindle 22mm crmo ultra hollow XLT" and "3pc construction" — confirms spindle:\'22mm\' and pieces:\'3-piece\' (both bmx-bb-spindle/bmx-crank-pieces-critical fields) directly. "Weight complete: 770g (160mm)" confirms weight for the 160mm arm length this row pins. ringMount:\'spline\' is display-only in checkBmxBuild. Price $259.99 confirmed exactly.'
   },
   {
     id: 'bmx-ch-eclat-4stroke', cat: 'chain', brand: 'Eclat', model: '4 Stroke Halflink Chain',
@@ -2248,17 +2252,23 @@ var BMX_PARTS = [
   {
     id: 'bmx-gr-eclat-filter', cat: 'grips', brand: 'Eclat', model: 'Filter Grip',
     length: 164, flangeless: true, price: 10.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/filter-grips. Description states, verbatim: "one long-lasting flangeless grip...Now longer at 164mm". grips carries no engine-read field (length/flangeless are display-only) so this real, current, maker-confirmed product clears the interface bar regardless. Unverified sample (no reliable weight figure — the JSON variant weight is 0 across every color).'
+    verified: true, lastChecked: '2026-07-23', source: 'https://eclatbmx.com/products/filter-grips',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched eclatbmx.com/products/filter-grips.js directly this session. Description states, verbatim: "one long-lasting flangeless grip...Now longer at 164mm" — confirms length:164 and flangeless:true. grips carries no engine-read field (length/flangeless are display-only) so this real, current, maker-confirmed product clears the interface bar. Price $10.99 confirmed exactly. No reliable weight figure (JSON variant weight is 0 across every color).'
   },
   {
     id: 'bmx-hb-eclat-dive', cat: 'handlebar', brand: 'Eclat', model: 'Dive Bar',
     clamp: '22.2mm', rise: 9.25, width: 29.5, price: 64.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/dive-bar. Description states, verbatim: "Rise 9.25\\" / 9.5\\" / 10\\" Width 29.5\\" Backsweep 12° Upsweep 2.5°...Clamping 22.2mm" (this row pins the 9.25in rise option). clamp is display-only in checkBmxBuild (no rule reads it). Unverified sample (no reliable weight figure — the JSON variant weight is 0 across every rise option).'
+    verified: true, lastChecked: '2026-07-23', source: 'https://eclatbmx.com/products/dive-bar',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched eclatbmx.com/products/dive-bar.js directly this session. Description states, verbatim: "Rise 9.25\\" / 9.5\\" / 10\\" Width 29.5\\" Backsweep 12° Upsweep 2.5°...Clamping 22.2mm" (this row pins the 9.25in rise option, width confirmed). clamp is display-only in checkBmxBuild. Price $64.99 confirmed exactly. No reliable weight figure (JSON variant weight is 0 across every rise option).'
   },
   {
     id: 'bmx-st-eclat-onyx', cat: 'stem', brand: 'Eclat', model: 'Onyx Stem',
     clamp: '25.4mm', price: 47.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/onyx-stem. Description states, verbatim: "Available in Oversize (OS) 25.4mm clamping to fit our Strangler, Chocolate, Dive and other 25.4mm bars...Clamping 25.4mm oversize (OS) or 22.2mm" (this row pins the 25.4mm OS variant). clamp is display-only in checkBmxBuild. Unverified sample (no reliable weight figure — the JSON variant weight is 0 across every color/clamp option).'
+    verified: true, lastChecked: '2026-07-23', source: 'https://eclatbmx.com/products/onyx-stem',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched eclatbmx.com/products/onyx-stem.js directly this session. Description states, verbatim: "Available in Oversize (OS) 25.4mm clamping to fit our Strangler, Chocolate, Dive and other 25.4mm bars...Clamping 25.4mm oversize (OS) or 22.2mm" (this row pins the 25.4mm OS variant). clamp is display-only in checkBmxBuild — no engine-critical field left unconfirmed. Price $47.99 confirmed exactly. No reliable weight figure (JSON variant weight is 0 across every color/clamp option).'
   },
   {
     id: 'bmx-fw-eclat-cortexta', cat: 'frontWheel', brand: 'Eclat', model: 'Cortex TA Front Hub',
