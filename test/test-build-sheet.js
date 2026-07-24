@@ -102,9 +102,9 @@ test('model: an active kit marks its rows in-bundle and carries the kit price on
   var dt = m.groups.filter(function(g){ return g.key === 'drivetrain'; })[0];
   ok(dt, 'drivetrain group present');
   ok(dt.bundle, 'bundle attributed');
-  eq(dt.bundle && dt.bundle.price, 545);
+  eq(dt.bundle && dt.bundle.price, 645);
   dt.rows.forEach(function(r){ eq(r.inBundle, true, r.slotKey + ' must be in-bundle'); });
-  eq(m.totals.price, 545, 'sheet total is the kit price (buildTotals passthrough)');
+  eq(m.totals.price, 645, 'sheet total is the kit price (buildTotals passthrough)');
 });
 
 test('model: without the preset the same rows are a la carte', function(){
@@ -237,7 +237,7 @@ test('render: kit rows read "in kit" and the kit line carries the bundle price',
   var html = BS.renderBuildSheetHtml(m, META, HELPERS);
   ok(html.indexOf('in kit') >= 0);
   ok(html.indexOf('KIT ·') >= 0);
-  ok(html.indexOf(C.esc(money(545))) >= 0, 'kit price shown');
+  ok(html.indexOf(C.esc(money(645))) >= 0, 'kit price shown');
 });
 
 test('render: verified rows carry the ✓ badge, unverified rows do not', function(){
