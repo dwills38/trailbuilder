@@ -2485,6 +2485,18 @@ var BMX_PARTS = [
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "25.4 mm micro-adjust seat post...only compatible with railed seats...Weight: 180 g (6.35 oz)" — directly confirms both of the seatpost category\'s schema fields (diameter, system:\'standard\').'
   },
   {
+    id: 'bmx-sp-flybikes-tripod', cat: 'seatpost', brand: 'Fly Bikes', model: 'Tripod Post',
+    diameter: 25.4, system: 'standard', price: 40.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.flybikes.com/product/fly-tripod-seat-post',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched flybikes.com: "The Tripod system is simple, easy to install and extremely strong due to its three fixing points" - a railed 3-point-clamp design, not Pivotal, matching this catalog\'s existing "Tripod" naming convention for system:\'standard\' (see bmx-sp-odyssey-standard-post, also literally named "Tripod Seat Post"). "$40.00" CONFIRMED. diameter:25.4 is this catalog\'s universal BMX seatpost default (not independently restated on this page - no maker figure for weight either, so weight stays unset).'
+  },
+  {
+    id: 'bmx-sp-wethepeople-pivotal', cat: 'seatpost', brand: 'WeThePeople', model: 'Pivotal Seat Post',
+    diameter: 25.4, system: 'pivotal', price: 39.99,
+    verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-23', source: 'https://us.sourcebmx.com/products/wethepeople-pivotal-seatpost',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched wethepeoplebmx.de (WeThePeople\'s own storefront): "PIVOTAL SEAT POST...SIZE: FOR STANDARD 25.4MM SEAT POSTS...SYSTEM: PIVOTAL SYSTEM" (diameter/system both CONFIRMED). No price on the maker\'s EU marketing site (the same gap this catalog\'s other WeThePeople rows already disclose); priced via named US retailer (us.sourcebmx.com, $39.99, matching the maker\'s 200mm length) per the third-party-listed tier. Weight NOT recorded: the maker page states "WEIGHT: 19G (0.65OZ)" but that figure is implausibly light for a full 200-300mm alloy post (likely a stray clamp-hardware weight mis-attached to this spec block) - fails the phantom-number bar, so no weight is stored.'
+  },
+  {
     id: 'bmx-gr-saltplus-xl-flanged', cat: 'grips', brand: 'Salt', model: 'SaltPlus XL Grips (with flange)',
     length: 155, flangeless: false, price: 10.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
