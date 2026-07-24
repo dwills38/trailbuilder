@@ -1914,14 +1914,15 @@ var EMTB_PARTS = [
 
   {
     id: 'em-corratec-epower-rs160-factory', cat: 'emtb', brand: 'Corratec', model: 'E-Power RS 160 Factory',
-    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Smart System)', motorTorque: 85,
-    batteryWh: 800, batteryRemovable: true, assist: 'full-power',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Smart System BDU38', motorTorque: 85,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
-    frameMaterial: 'aluminum',
-    disciplines: ['e-trail', 'e-enduro'], weight: 25300, price: 7999,
-    note: 'German maker Corratec\'s enduro/all-mountain flagship — mullet (29in front/27.5in rear) aluminum full-suspension frame, RockShox suspension, SRAM drivetrain (per-tier build details not independently confirmed for this specific SKU). First Corratec row — the brand was fully absent from the catalog; confirmed a currently-sold, real full-power Bosch CX lineup (E-Power RS 160 / X-Vert / MTC series) via bosch-ebike.com\'s own model directory.',
-    desc: 'Unverified sample entered via the credible-source breadth policy (DATA-ENTRY-TEMPLATE.md sec 7) — sourced from bosch-ebike.com\'s Corratec model page plus independent spec aggregators (99spokes, mtbdatabase, opticycles), none directly maker-fetched this session. Motor/battery/travel/wheel-mullet/frame-material cross-confirmed across sources ("Bosch Performance Line CX Smart System... 85 Nm", "Power Tube 800... battery", "160 mm of spring travel at the front and rear", "29-inch front wheel joined by a 650b rear wheel", aluminum frame). Weight (25.3kg) is a size-L complete-bike figure from an independent review (velomotion.net). No confirmed USD/EUR maker MSRP found in this pass — price entered as a disclosed rough estimate converted from a Polish-retailer listing (31,899 PLN, ~$7,999 at prevailing rates), NOT a maker-published figure and NOT a regional-conversion claim (that token requires the maker\'s own non-USD figure) — flagged as the lowest-confidence field on this row. Drivetrain/brakes left uncataloged (no single confirmed spec across sources for this exact trim). catalog/emtb-breadth-3 wave.',
-    lastChecked: '2026-07-23', source: 'https://www.bosch-ebike.com/us/ebikes/corratec/e-power-rs-160-factory_1582'
+    frameMaterial: 'aluminum', drivetrain: 'SRAM S1000 Eagle AXS T-Type', brakes: 'SRAM Code Bronze Stealth 4-piston (203mm)',
+    disciplines: ['e-trail', 'e-enduro'], weight: 26750, price: 9677.84, modelYear: 2025,
+    note: 'German maker Corratec\'s enduro/all-mountain flagship — mullet (29in front/27.5in rear) aluminum full-suspension frame, RockShox ZEB Ultimate RC2 fork / RockShox Vivid Ultimate shock, Mavic E-Deemax S wheels, SRAM T-Type Transmission drivetrain, SRAM Code Bronze Stealth brakes (this exact colorway/trim: White, Brown, Blue, Black).',
+    desc: 'verify/emtb-brands-2 (2026-07-23): fetched the maker\'s own product page (corratec.com/en/E-Bikes/E-Power-RS-160-Factory-White-Brown-Blue-Black-S.html) via Exa\'s full-page fetch — confirms "engine: Bosch Performance Line CX Smart System BDU38", "capacity: 800", "torque: 85", "weight: 26.75 kg", "shift lever: SRAM AXS POD... shifting: SRAM S1000 EAGLE AXS T-TYPE", "brake back/front: SRAM CODE BRONZE STEALTH 4-Piston 203mm", model year 2025, RRP EUR 8,499.00. CORRECTED vs the prior credible-source-breadth entry: weight 25.3kg -> the real maker-stated 26.75kg; drivetrain/brakes added (were uncataloged); price corrected from an unsourced Polish-retailer estimate to the maker\'s own RRP. PRICE: EUR 8,499.00 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.138703) -> $9,677.84 — Corratec has no US retail presence, no USD MSRP exists; the RS 160 Factory name is reused across model years with different colorways/prices (a EUR 7,499.00 SKU also currently listed under the same base name), so this row is pinned to the exact White/Brown/Blue/Black 2025 colorway/spec confirmed on the fetched page.',
+    verified: true, priceBasis: 'regional-conversion',
+    lastChecked: '2026-07-23', source: 'https://www.corratec.com/en/E-Bikes/E-Power-RS-160-Factory-White-Brown-Blue-Black-S.html'
   },
 
   {
@@ -1949,14 +1950,15 @@ var EMTB_PARTS = [
 
   {
     id: 'em-conway-xyron-lt-90', cat: 'emtb', brand: 'Conway', model: 'Xyron LT 9.0',
-    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen5, Smart System)', motorTorque: 85,
-    batteryWh: 800, batteryRemovable: true, assist: 'full-power',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX / Cargo (BDU384, Gen5 Smart System)', motorTorque: 100,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
     frameMaterial: 'carbon', drivetrain: 'Shimano Deore XT 12-speed',
-    disciplines: ['e-enduro'], weight: 23700, price: 7416.95, modelYear: 2026,
-    note: 'German direct-to-consumer maker Conway\'s enduro-leaning "Xyron LT" line — distinct full-carbon platform from the already-cataloged aluminum eWME 4.9 — FOX 36 Rhythm Float fork / FOX Float X Performance shock, removable/lockable Bosch PowerTube 800.',
-    desc: 'Unverified sample via the credible-source breadth policy — bike-magazin.de\'s review of this exact SKU ("Xyron LT 9.0... Bosch Performance CX... 800 Wh... 29in wheels... 23.7 kilos... full carbon frame... Shimano Deore XT 12-speed... FOX Rhythm 38 Float / Float X Performance") supplies the drivetrain/weight/suspension detail; conway-bikes.com\'s own 2026 model listing confirms the SKU exists for the current model year but was not itself fetched this session (a 2025-dated listing for the same name showed EUR 6,499.95). PRICE: EUR 6,499.95 (the 2025 listing\'s maker price, carried forward as the best-available figure — the 2026 page\'s own price was not captured) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,416.95 — a retailer/maker LISTING price, not a session-fetched RRP, so no regional-conversion token. Rear travel (160mm) is the platform\'s named frame-travel figure (matching the "LT" line\'s general spec, mirroring how the eWME row already handles this same maker\'s frame-vs-fork travel distinction) — not independently reconfirmed for this specific SKU. catalog/emtb-breadth-3 wave (Conway deepened from 1 row to 2).',
-    lastChecked: '2026-07-23', source: 'https://www.bike-magazin.de/en/enduro-bikes/this-is-how-good-the-conway-xyron-lt-9-0-is-lightweight-bosch-enduro-bike-from-germany/'
+    disciplines: ['e-enduro'], weight: 24200, price: 7401.52, modelYear: 2025,
+    note: 'German direct-to-consumer maker Conway\'s enduro-leaning "Xyron LT" line — distinct full-carbon platform from the already-cataloged aluminum eWME 4.9 — FOX 38 Rhythm fork / FOX Float X Performance shock, removable/lockable Bosch PowerTube 800.',
+    desc: 'verify/emtb-brands-2 (2026-07-23): fetched conway-bikes.com\'s own product page directly (conway-bikes.com/e-bikes/e-mountainbike/xyron-lt-st/02810186-conway-xyron-lt-9.0-full-suspension-2025/) — confirms "Motor: BOSCH \\"Performance Line CX / Cargo\\" (BDU384), max. 100 Nm", "Akku: BOSCH \\"PowerTube 800\\", 800 Wh", "Gewicht: 24,20 kg", price EUR 6,499.95, 12-speed Shimano Deore XT derailleur/shifter (Deore-tier cassette/chain), FOX 38 Float Rhythm fork/Float X Performance shock. CORRECTED vs the prior editorial-sourced entry: motorTorque 85 -> the maker-page-stated 100Nm (this SKU\'s BDU384 unit is explicitly labeled "CX / Cargo" on the maker\'s own spec table, a higher torque tuning than this catalog\'s other 85Nm Gen5-CX rows — flagged as an unusual but directly-quoted figure, not assumed); weight 23.7kg -> 24.20kg. PRICE: EUR 6,499.95 maker-stated converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.138703) -> $7,401.52; Conway has no US retail presence, disclosed conversion only.',
+    verified: true, priceBasis: 'regional-conversion',
+    lastChecked: '2026-07-23', source: 'https://www.conway-bikes.com/e-bikes/e-mountainbike/xyron-lt-st/02810186-conway-xyron-lt-9.0-full-suspension-2025/'
   },
   {
     id: 'em-conway-xyron-s-40', cat: 'emtb', brand: 'Conway', model: 'Xyron S 4.0',
@@ -2540,8 +2542,8 @@ var EMTB_PARTS = [
     frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle 12-speed', brakes: 'Shimano BL-MT501 (203mm)',
     disciplines: ['e-enduro'], weight: 26080, price: 5500, modelYear: 2023,
     note: 'Base-tier e-Omnia FX-Type: 6061 aluminum frame, RockShox Yari RC fork / Deluxe Select+ RL shock (both 150mm), Bosch PowerTube 500 (482.4Wh, "PowerTube 500" naming). An upgrade to a Deore XT drivetrain + the larger 625Wh PowerTube ("FX-Type XT") is offered for a stated +$400.',
-    desc: 'Fetched via electricbikereview.com\'s full spec-table review (Bosch/SRAM/Shimano/RockShox part numbers all matched, consistent with Bosch\'s own published CX 85Nm/250W figures).',
-    lastChecked: '2026-07-23', source: 'https://electricbikereview.com/bianchi/2023-e-omnia-fx-type-gx-12sp/'
+    desc: 'verify/emtb-brands-2 (2026-07-23): interfaces re-confirmed directly against bianchi.com\'s own EU product page (bianchi.com/store/int_EN/ysba3-e-omniafxtype-gxeagle1x12-6.html), which states "BOSCH PERFORMANCE LINE CX 250W 85NM", "BOSCH POWERTUBE 500WH" (Bosch\'s own PowerTube-500 nominal capacity is 482.4Wh, matching this row) and "Sram GX Eagle 12sp" — motor/battery/drivetrain all match the existing electricbikereview.com-sourced row exactly, no changes needed. Bianchi\'s own EU RRP is EUR 5,699 (not USD) — this row keeps electricbikereview.com\'s independently-stated US MSRP ($5,500) as the priced figure per THE PRICE RULE (a real named third-party listing, not a fabrication), since Bianchi USA does not itself publish a USD MSRP on a fetchable page this pass. Weight (26.08kg) stays the electricbikereview.com editorial figure — no maker-published weight found.',
+    verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-23', source: 'https://www.bianchi.com/store/int_EN/ysba3-e-omniafxtype-gxeagle1x12-6.html'
   },
   {
     id: 'em-bianchi-e-omnia-fx-type-xt', cat: 'emtb', brand: 'Bianchi', model: 'e-Omnia FX-Type XT',
@@ -2551,8 +2553,8 @@ var EMTB_PARTS = [
     frameMaterial: 'aluminum', drivetrain: 'Shimano Deore XT 1x12', brakes: 'Shimano BL-MT501 (203mm)',
     disciplines: ['e-enduro'], weight: null, price: 5900, modelYear: 2023,
     note: 'Upper-mid e-Omnia FX-Type trim: same aluminum chassis as the GX 12SP, Fox 36 Rhythm fork / Fox Float DPS Performance shock (160/150), Shimano Deore XT drivetrain, larger 625Wh Bosch PowerTube.',
-    desc: 'Motor/battery/travel confirmed via electricbikereview.com\'s XT-trim coverage; no weight published for this trim (left null rather than guessed). PRICE: derived as the GX 12SP\'s $5,500 base plus the reviewer-quoted "+$400 for the XT upgrade" (electricbikereview.com), not an independently confirmed price listing.',
-    lastChecked: '2026-07-23', source: 'https://electricbikereview.com/bianchi/2023-e-omnia-fx-type-gx-12sp/'
+    desc: 'verify/emtb-brands-2 (2026-07-23): fetched directly against bianchi.com\'s own EU product page (bianchi.com/store/mc_EN/ysba4-e-omniafxtype-xt1x12-9.html), which states "BOSCH PERFORMANCE LINE CX 250W 85NM" and "BOSCH POWERTUBE 625WH" — motor torque and battery both confirmed exactly matching this row (no changes needed). No complete-bike weight is published on the maker page (left null, not guessed). PRICE: no maker USD or EUR RRP was found on this pass for the XT trim specifically (Bianchi\'s int_EN store lists the product but did not surface a price in the fetched region); the existing $5,900 figure (GX 12SP\'s $5,500 electricbikereview.com MSRP + the reviewer-quoted "+$400 XT upgrade") stays a disclosed derived estimate, not a priceBasis-token claim.',
+    verified: true, lastChecked: '2026-07-23', source: 'https://www.bianchi.com/store/mc_EN/ysba4-e-omniafxtype-xt1x12-9.html'
   },
   {
     id: 'em-giant-talon-e-plus', cat: 'emtb', brand: 'Giant', model: 'Talon E+',
