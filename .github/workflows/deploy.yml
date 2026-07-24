@@ -69,6 +69,13 @@ jobs:
           # brief About-redirect stub at that path).
           cp about.html _site/
           cp home.html _site/
+          # /garage.html (2026-07-24): the rider's own page — saved + completed
+          # builds, inventory, service log. It was the garage MODAL and the
+          # in-page inventory view inside index.html, so it never needed a line
+          # here before. Same trap as every root .html above: without this it
+          # 404s in production while working perfectly on localhost, and the
+          # header's 🅖 Garage button leads nowhere.
+          cp garage.html _site/
           # Kit Builder page (separate /KitBuilder route — a real directory index that
           # shares src/ via ../src). Same staging trap: not served unless copied.
           mkdir -p _site/KitBuilder

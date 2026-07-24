@@ -36,6 +36,10 @@ const BUILDER_PAGES = [
   { file: 'gravel.html',           base: '',     famId: 'gravel' },
   { file: 'emtb.html',             base: '',     famId: 'emtb' },
   { file: 'KitBuilder/index.html', base: '../',  famId: 'kit' },
+  /* garage.html (2026-07-24) is not a BUILDER, but it is a served page with the
+     same header and footer chrome, so it takes the same guards. It marks 'mtb'
+     as current: it is BuildMyMTB's garage. */
+  { file: 'garage.html',           base: '',     famId: 'mtb' },
 ];
 
 /* Static content pages — literal links, must work with JS off. */
@@ -173,11 +177,27 @@ describe('page-shell: every served page carries the shared chrome', () => {
     }
   });
 
-  it('index.html labels the builders control in words, not just an icon', () => {
-    const html = read('index.html');
+  it.each(['index.html', 'garage.html'])('%s labels the builders control in words, not just an icon', (file) => {
+    const html = read(file);
     // .hdr-long hides a label on phones; the primary nav control must not be
     // a bare emoji there (that is the hidden affordance we just removed).
     expect(html).toMatch(/id="buildersBtn"[^>]*>🚲 Builders /);
+  });
+
+  /* THE DEPLOY TRAP. Every root .html the site serves needs its own cp line in
+     deploy.yml or it 404s in production while working perfectly on localhost —
+     the file's own comments warn about it, and CNAME/about.html/home.html each
+     learned it the hard way. The TB_FAMILY check below covers pages in the
+     Builders menu; garage.html is reached from the header instead, so it needs
+     its own assertion. */
+  it.each(['garage.html'])('%s is staged by deploy.yml', (file) => {
+    expect(read('.github/workflows/deploy.yml')).toContain('cp ' + file + ' _site/');
+  });
+
+  /* Accounts-gated pages must be kept out of search results — the page itself
+     shows nothing without a session, but the URL should not be indexed. */
+  it('garage.html is noindex (private, account-gated content)', () => {
+    expect(read('garage.html')).toContain('name="robots" content="noindex"');
   });
 
   it.each(BUILDER_PAGES)('$file no longer hand-writes the family menu', ({ file }) => {

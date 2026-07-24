@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your garage — BuildMyMTB</title>
+<meta name="description" content="Your saved and completed bike builds, the parts you own, and your service log — all in one place." />
+<!-- Private, account-gated content: keep it out of search results. -->
+<meta name="robots" content="noindex" />
+<meta name="theme-color" id="metaThemeColor" content="#16523a" />
+<style>
+  /* ---- theme tokens ------------------------------------------------------
+     Same four palettes as index.html (light / rad / dark / loam), pruned to
+     the selectors this page actually has. The tokens themselves are copied
+     verbatim, on purpose: the page-shell file documents WHY the theme blocks
+     stay per-page (3-5 genuinely different variants each), and a garage page
+     whose --card was a shade off would read as a different site. */
+  :root{
+    --brand-text:#1f6f4a;
+    --ink:#1c2321; --ink-soft:#566058; --line:#e3e6e2; --bg:#f6f7f4;
+    --card:#ffffff; --brand:#1f6f4a; --brand-d:#16523a; --accent:#9a3412;
+    --ok:#166534; --ok-bg:#e7f5ec; --warn:#92400e; --warn-bg:#fdf3e1;
+    --err:#c23b3b; --err-bg:#fbeaea; --chip:#eef1ec;
+    --dot-ring:#5a625e;
+    --hdr-bg:#123f2b; --hdr-topo:rgba(255,255,255,.11);
+  }
+  *{box-sizing:border-box}
+  /* [hidden] hardening — several rules below set an explicit display, which
+     silently beats the UA's [hidden]{display:none} (index.html carries the
+     same pin for the same reason: logged-out account buttons leaking). */
+  [hidden]{display:none!important}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink);background:var(--bg);line-height:1.45}
+
+  /* ---- header (the shared chrome: wordmark, Builders menu, account) ------ */
+  header{background:var(--hdr-bg);color:#fff;padding:10px 24px;position:sticky;top:0;z-index:40}
+  .hdr-topo{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+  html.rad .hdr-topo{display:none}
+  header .wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  header h1{margin:0;font-size:19px;white-space:nowrap;flex:1 1 auto}
+  header .btn{white-space:nowrap}
+  .btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 13px;border-radius:10px;
+       font-size:13px;cursor:pointer;font-weight:600;text-decoration:none;display:inline-block}
+  .btn:hover{border-color:#c7ccc6}
+  .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  .btn.danger{border-color:var(--err);color:var(--err)}
+  .btn.danger:hover{border-color:var(--err);background:var(--err-bg)}
+  .acctbox{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .acctbox .btn{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff}
+  .acctbox .btn:hover{background:rgba(255,255,255,.26)}
+  .acct-email{color:#fff;font-size:13px;font-weight:600;opacity:.95;max-width:180px;overflow:hidden;
+    text-overflow:ellipsis;white-space:nowrap}
+  .honesty-strip{background:#10271b;color:#cfe8d8;font-size:12px;padding:6px 12px;text-align:center}
+
+  /* Builders dropdown + theme dropdown — click-opened <details>, never
+     auto-opening (hard rule 2). Identical markup/classes to index.html so the
+     two headers stay one design. */
+  .fam-menu,.theme-menu{position:relative;display:inline-block}
+  .fam-menu summary,.theme-menu summary{list-style:none;cursor:pointer}
+  .fam-menu summary::-webkit-details-marker,.theme-menu summary::-webkit-details-marker{display:none}
+  summary.btn{display:inline-flex;align-items:center}
+  .fam-menu .fam-caret{font-size:12px;opacity:.8}
+  .fam-pop{position:absolute;right:0;top:calc(100% + 6px);min-width:280px;max-width:calc(100vw - 24px);
+    z-index:80;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;
+    box-shadow:0 12px 34px rgba(0,0,0,.18)}
+  .fam-pop a{display:flex;align-items:baseline;gap:8px;padding:9px 10px;border-radius:9px;
+    color:var(--ink);text-decoration:none;font-weight:600;font-size:13.5px}
+  .fam-pop a:hover{background:var(--chip)}
+  .fam-pop a .fam-soft{font-weight:500;font-size:12px;color:var(--ink-soft)}
+  .fam-pop a.here{background:var(--chip);outline:1px solid var(--line)}
+  .fam-mission{border-top:1px solid var(--line);margin-top:8px;padding:9px 10px 3px;
+    font-size:11.5px;color:var(--ink-soft);line-height:1.5}
+  .theme-pop{position:absolute;right:0;top:calc(100% + 6px);background:var(--card);border:1px solid var(--line);
+    border-radius:12px;box-shadow:0 12px 34px rgba(0,0,0,.18);padding:6px;display:flex;flex-direction:column;
+    gap:4px;min-width:172px;z-index:80}
+  .theme-pop .btn{width:100%;text-align:left;border-color:transparent;background:none;color:var(--ink);
+    display:flex;align-items:center;gap:8px}
+  .theme-pop .btn:hover{background:var(--chip)}
+  .theme-pop .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  .theme-pop .btn.primary::after{content:"✓";margin-left:auto;font-weight:800}
+
+  /* ---- the three-card layout --------------------------------------------
+     LEFT: saved + completed builds. RIGHT: inventory, and the service log
+     under it (Douglas's layout, 2026-07-24). Two equal columns on desktop;
+     ONE column on phones, in reading order — builds, inventory, service —
+     with min-width:0 on both tracks so a long part name wraps instead of
+     forcing the body to scroll sideways. */
+  main{max-width:1380px;margin:0 auto;padding:18px 24px 60px}
+  .grg-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+  .grg-col{display:flex;flex-direction:column;gap:16px;min-width:0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;min-width:0}
+  .card > h2{margin:0 0 2px;font-size:17px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .card > h2 .grg-count{font-size:12px;font-weight:700;color:var(--ink-soft);background:var(--chip);
+    border-radius:999px;padding:2px 8px}
+  .card-sub{color:var(--ink-soft);font-size:12.5px;margin:2px 0 12px}
+  .card-foot{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+  .grg-sub{font-size:12px;text-transform:uppercase;letter-spacing:.3px;color:var(--ink-soft);
+    margin:14px 0 6px;display:flex;align-items:center;gap:7px}
+  .grg-sub:first-child{margin-top:2px}
+  .grg-sub .grg-count{font-size:11px;font-weight:700;background:var(--chip);border-radius:999px;padding:1px 7px}
+  .grg-note{font-size:11.5px;color:var(--ink-soft);margin:10px 0 0}
+
+  /* ---- rows (shared bones with index.html's garage/inventory lists) ------ */
+  .glist,.invlist{display:flex;flex-direction:column;gap:8px}
+  .grow{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;
+    padding:9px 11px;flex-wrap:wrap}
+  .grow .gmain{flex:1 1 190px;min-width:0}
+  .grow .gname{font-weight:700;font-size:14px;overflow-wrap:anywhere}
+  .grow .gmeta{font-size:12px;color:var(--ink-soft)}
+  .grow.unknown{border-style:dashed}
+  .grow .gacts{display:flex;gap:6px;flex-wrap:wrap}
+  .grow .gacts button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 8px;
+    font-size:12px;cursor:pointer;font-weight:600;color:var(--ink)}
+  .grow .gacts button:hover{border-color:var(--brand)}
+  .grow .gacts button.del{color:var(--ink-soft)}
+  .grow .gacts button.del:hover{border-color:var(--err);color:var(--err)}
+  .invlist .gprice{font-weight:700;font-size:13px;white-space:nowrap}
+  .qty{display:inline-flex;align-items:center;gap:6px}
+  .qty button{width:24px;height:24px;line-height:1;padding:0;text-align:center}
+  /* The dot is a REDUNDANT cue: every row spells the verdict out in words next
+     to it ("2 conflicts" / "No conflicts found"), so state is never carried by
+     colour alone. Fills match index.html's garage rows exactly. */
+  .gdot{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:middle;
+    margin-right:4px;border:1.5px solid var(--dot-ring)}
+  .gdot-ok{background:#2aa35a} .gdot-warn{background:#e0a52e}
+  .gdot-error{background:#d23b3b} .gdot-unknown{background:var(--chip)}
+  .gempty{color:var(--ink-soft);font-size:13px;padding:14px 2px;text-align:center}
+
+  /* recall notices — in-page banners inside the inventory card, never a popup */
+  .recall-banner{border:1px solid var(--err);background:var(--err-bg);border-radius:10px;padding:10px 12px;
+    font-size:13px;line-height:1.45;margin-bottom:8px}
+  .recall-banner .rb-head{font-weight:700;color:var(--err);margin-bottom:3px}
+  .recall-banner .rb-part{font-weight:600}
+  .recall-banner .rb-scope{color:var(--ink-soft);font-style:italic}
+  .recall-banner a{color:inherit;font-weight:700}
+
+  /* service log rows (rendered by src/service-log.js — same classes as index.html) */
+  .svc-row{display:flex;align-items:flex-start;gap:10px;border:1px solid var(--line);border-radius:10px;padding:9px 11px}
+  .svc-row .svc-main{flex:1;min-width:0}
+  .svc-row .svc-title{font-weight:700;font-size:14px}
+  .svc-row .svc-date{font-weight:600;font-size:12px;color:var(--ink-soft);font-variant-numeric:tabular-nums;margin-right:2px}
+  .svc-row .svc-target{font-size:12px;color:var(--ink-soft)}
+  .svc-row .svc-target.svc-gone{font-style:italic}
+  .svc-row .svc-note{font-size:13px;color:var(--ink);margin-top:4px;white-space:pre-wrap;overflow-wrap:anywhere}
+  .svc-row .gacts button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 8px;
+    font-size:12px;cursor:pointer;font-weight:600;color:var(--ink)}
+  .svc-row .gacts button:hover{border-color:var(--err);color:var(--err)}
+  #svcList{display:flex;flex-direction:column;gap:8px}
+  .svc-form{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+  .svc-form-head{font-size:13px;font-weight:700;margin:14px 0 6px;padding-top:12px;border-top:1px solid var(--line)}
+  .svc-form label{font-size:12px;font-weight:700;color:var(--ink-soft);display:block;margin-bottom:5px}
+  .svc-form select,.svc-form input[type=text],.svc-form input[type=date],.svc-form textarea{
+    width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:14px;
+    font-family:inherit;background:#fff;color:var(--ink)}
+  .svc-form textarea{resize:vertical;min-height:64px;line-height:1.4}
+  .svc-form .svc-form-row{display:flex;gap:10px;flex-wrap:wrap}
+  .svc-form .svc-form-row > div{flex:1 1 150px;min-width:0}
+
+  /* ---- signed-out / unconfigured states --------------------------------- */
+  .gate{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 22px;
+    max-width:560px;margin:0 auto}
+  .gate h2{margin:0 0 8px;font-size:19px}
+  .gate p{margin:0 0 14px;font-size:14px;color:var(--ink-soft)}
+  .gate .gate-acts{display:flex;gap:8px;flex-wrap:wrap}
+
+  /* ---- dialogs (sign-in, build diff) ------------------------------------ */
+  dialog#authModal,dialog#buildDiffModal{border:none;border-radius:14px;padding:0;max-width:540px;
+    width:calc(100% - 32px);max-height:calc(100svh - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  dialog#authModal[open],dialog#buildDiffModal[open]{display:flex;flex-direction:column;overflow:hidden}
+  dialog#authModal::backdrop,dialog#buildDiffModal::backdrop{background:rgba(18,28,22,.45)}
+  .rm-head,.rm-foot{flex:none}
+  .rm-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .rm-head{padding:18px 20px 4px}
+  .rm-head h2{margin:0 0 5px;font-size:18px}
+  .rm-head p{margin:0;font-size:13px;color:var(--ink-soft)}
+  .rm-body{padding:10px 20px 4px;display:flex;flex-direction:column;gap:12px}
+  .rm-body label{font-size:12px;font-weight:700;color:var(--ink-soft);display:block;margin-bottom:5px}
+  .rm-body select,.rm-body input[type=email],.rm-body input[type=password]{width:100%;border:1px solid var(--line);
+    border-radius:9px;padding:9px 11px;font-size:14px;font-family:inherit;background:#fff;color:var(--ink)}
+  .rm-foot{display:flex;gap:8px;justify-content:flex-end;padding:14px 20px 18px;flex-wrap:wrap}
+  .auth-or{display:flex;align-items:center;gap:8px;text-align:center;color:var(--ink-soft);font-size:12px;margin:2px 0}
+  .auth-or::before,.auth-or::after{content:"";flex:1;height:1px;background:var(--line)}
+  .auth-alt{text-align:center}
+  .pm-note{font-size:11.5px;color:var(--ink-soft);font-style:italic;margin:0}
+  .linklike{background:none;border:none;padding:0;color:var(--brand-text);font-weight:600;
+    text-decoration:underline;cursor:pointer;font:inherit}
+  .linklike:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+  .cmp-picks{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:4px 0 2px}
+  .cmp-picks select{flex:1;min-width:120px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;
+    background:#fff;font-size:13px;color:var(--ink)}
+  .cmp-vs{color:var(--ink-soft);font-size:12px;font-weight:700}
+
+  /* build-diff renderer output (src/build-diff.js) */
+  .bd-cols{display:flex;align-items:center;gap:8px;font-weight:700;font-size:13px;margin:8px 0 2px}
+  .bd-arrow{color:var(--ink-soft)}
+  .bd-summary,.bd-same{font-size:12.5px;color:var(--ink-soft);margin:6px 0}
+  .bd-table{width:100%;border-collapse:collapse;font-size:12.5px;margin:4px 0 10px}
+  .bd-table th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.3px;color:var(--ink-soft);
+    padding:4px 6px;border-bottom:1px solid var(--line)}
+  .bd-table td{padding:5px 6px;border-bottom:1px dashed var(--line);vertical-align:top}
+  .bd-kind{font-size:10px;text-transform:uppercase;letter-spacing:.4px;font-weight:700;border-radius:6px;
+    padding:1px 6px;margin-left:4px;white-space:nowrap}
+  .bd-kind-added{background:var(--ok-bg);color:var(--ok)}
+  .bd-kind-removed{background:var(--err-bg);color:var(--err)}
+  .bd-kind-swapped{background:var(--warn-bg);color:var(--warn)}
+  .bd-none{color:var(--ink-soft)}
+  .bd-totals{border-top:1px solid var(--line);margin-top:4px;padding-top:6px}
+  .bd-trow{display:grid;grid-template-columns:100px 1fr 1fr auto;gap:10px;font-size:12.5px;padding:4px 0;align-items:baseline}
+  .bd-trow .bd-k{color:var(--ink-soft);font-size:11px;text-transform:uppercase;letter-spacing:.3px}
+  .bd-delta{font-weight:700}
+  .bd-approx{color:var(--ink-soft);cursor:help}
+  .bd-verdicts{margin-top:10px}
+  .bd-verdicts h3{font-size:12px;text-transform:uppercase;letter-spacing:.3px;color:var(--ink-soft);margin:0 0 4px}
+  .bd-vside{font-size:12px;font-weight:700;margin:6px 0 2px}
+  .bd-vlist{list-style:none;margin:0;padding:0;font-size:12.5px}
+  .bd-vlist li{padding:2px 0}
+  .bd-vlist .bd-err{color:var(--err)}
+  .bd-vlist .bd-warn{color:var(--warn)}
+  .bd-vlist .bd-info{color:var(--ink-soft)}
+  .bd-vnone,.bd-vshared{font-size:12px;color:var(--ink-soft);margin:4px 0}
+  .bd-disclosure{font-size:11px;color:var(--ink-soft);margin:10px 0 0}
+
+  /* ---- footer + toast ---------------------------------------------------- */
+  footer{max-width:1380px;margin:0 auto;padding:0 24px 40px;font-size:12px;color:var(--ink-soft)}
+  .footer-legal{margin:14px 0 0;padding-top:14px;border-top:1px solid var(--line)}
+  .footer-legal a{color:var(--brand-text);font-weight:600}
+  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;
+    padding:10px 16px;border-radius:10px;font-size:13px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:90}
+  .toast.show{opacity:1}
+
+  /* ---- responsive -------------------------------------------------------- */
+  @media (max-width:880px){
+    .grg-grid{grid-template-columns:1fr}
+    main{padding:14px 12px 48px}
+    footer{padding:0 12px 32px}
+    header{padding:8px 12px}
+    header .wrap{gap:6px}
+    header h1{font-size:17px;flex:1 1 100%}
+    .card{padding:14px 13px}
+  }
+  @media (max-width:768px){
+    /* ≥44px touch targets + 16px fields (iOS auto-zoom) — index.html's rules,
+       narrowed to the controls this page has. */
+    .btn,summary.btn{min-height:44px;display:inline-flex;align-items:center;padding:10px 13px}
+    .grow .gacts button,.svc-row .gacts button{min-height:38px;padding:8px 10px}
+    .qty button{width:38px;height:38px}
+    .rm-body select,.rm-body input[type=email],.rm-body input[type=password],
+    .svc-form select,.svc-form input[type=text],.svc-form input[type=date],.svc-form textarea,
+    .cmp-picks select{font-size:16px}
+    .footer-legal a{display:inline-block;padding:11px 4px;margin:-8px 0}
+    .bd-trow{grid-template-columns:1fr;gap:2px}
+  }
+
+  /* ---- ⚡ RAD ------------------------------------------------------------ */
+  html.rad{
+    --brand-text:#ff5cd9; color-scheme:dark;
+    --ink:#f4eaff; --ink-soft:#c9a6ff; --line:#ff2fd0; --bg:#150029;
+    --card:#22093f; --brand:#ff2fd0; --brand-d:#a3007f; --accent:#00e5ff;
+    --ok:#39ff14; --ok-bg:#0a2e12; --warn:#ffe600; --warn-bg:#332b00;
+    --err:#ff2020; --err-bg:#330000; --chip:#3a1466;
+    --dot-ring:#dfe4e0;
+  }
+  html.rad body{background:
+    repeating-linear-gradient(45deg,#1a0033 0 2px,transparent 2px 40px),
+    repeating-linear-gradient(-45deg,#1a0033 0 2px,transparent 2px 40px),
+    var(--bg)}
+  html.rad header{background:repeating-conic-gradient(#000 0% 25%,#ff2fd0 0% 50%) 50% / 34px 34px;
+    box-shadow:inset 0 0 0 999px rgba(21,0,41,.72)}
+  html.rad header h1,html.rad .rm-head h2{font-family:Impact,"Arial Black","Segoe UI Black",sans-serif;
+    letter-spacing:.5px;text-shadow:0 0 6px var(--accent),0 0 14px var(--brand)}
+  html.rad .btn.primary{background:linear-gradient(90deg,var(--brand),var(--accent));
+    border-color:transparent;color:#150029;font-weight:800}
+  html.rad dialog{background:var(--card);color:var(--ink);border-color:var(--line)}
+  html.rad .btn,html.rad .grow .gacts button,html.rad .svc-row .gacts button,html.rad .cmp-picks select,
+  html.rad .rm-body select,html.rad .rm-body input[type=email],html.rad .rm-body input[type=password],
+  html.rad .svc-form select,html.rad .svc-form input[type=text],html.rad .svc-form input[type=date],
+  html.rad .svc-form textarea{background:var(--card);color:var(--ink)}
+  html.rad .honesty-strip{background:#1c0836}
+
+  /* ---- 🌙 Dark ----------------------------------------------------------- */
+  html.dark{
+    --brand-text:#6fcf97; color-scheme:dark;
+    --ink:#e6ebe7; --ink-soft:#a8b3ab; --line:#3a423d; --bg:#161a18;
+    --card:#1f2522; --brand-d:#123f2b; --accent:#e0703c;
+    --ok:#7fd6a2; --ok-bg:#17301f; --warn:#e8b25c; --warn-bg:#33270f;
+    --err:#e57575; --err-bg:#331717; --chip:#262d29;
+    --dot-ring:#dfe4e0;
+    --hdr-bg:#0c2b1c; --hdr-topo:rgba(255,255,255,.09);
+  }
+  /* ---- 🍂 Loam ----------------------------------------------------------- */
+  html.loam{
+    --brand-text:#7ecb8e; color-scheme:dark;
+    --ink:#f2e8d8; --ink-soft:#c2ad92; --line:#3c2e22; --bg:#1a1310;
+    --card:#241a13; --brand:#2f7048; --brand-d:#1e4a30; --accent:#e2a94a;
+    --ok:#84cf97; --ok-bg:#16301d; --warn:#e6b45c; --warn-bg:#33270f;
+    --err:#e88b7b; --err-bg:#331a14; --chip:#30241a;
+    --dot-ring:#dfe4e0;
+    --hdr-bg:#14301f; --hdr-topo:rgba(242,232,216,.11);
+  }
+  /* Controls that hardcode a white background need the card surface under a
+     dark palette, or dark ink lands on white. Same list index.html carries. */
+  html.dark .btn,html.loam .btn,
+  html.dark .grow .gacts button,html.loam .grow .gacts button,
+  html.dark .svc-row .gacts button,html.loam .svc-row .gacts button,
+  html.dark .cmp-picks select,html.loam .cmp-picks select,
+  html.dark .rm-body select,html.loam .rm-body select,
+  html.dark .rm-body input[type=email],html.loam .rm-body input[type=email],
+  html.dark .rm-body input[type=password],html.loam .rm-body input[type=password],
+  html.dark .svc-form select,html.loam .svc-form select,
+  html.dark .svc-form input[type=text],html.loam .svc-form input[type=text],
+  html.dark .svc-form input[type=date],html.loam .svc-form input[type=date],
+  html.dark .svc-form textarea,html.loam .svc-form textarea{background:var(--card);color:var(--ink)}
+  /* …but `html.dark .btn` (0,2,1) outranks `.btn.primary` (0,2,0), which would
+     leave every primary card-on-card at 1.00:1. Restore both, with the lifted
+     #2f8f5c rim that clears WCAG 1.4.11's 3:1 against --card. */
+  html.dark .btn.primary,html.loam .btn.primary{background:var(--brand);border-color:#2f8f5c;color:#fff}
+  html.dark .btn.danger,html.loam .btn.danger{color:var(--err)}
+  /* Header chrome follows the BANNER, not the page surface — --hdr-bg stays a
+     deep green in every theme, so card-coloured buttons on it were invisible. */
+  html.dark header .btn,html.loam header .btn{
+    background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.4);color:#fff}
+  html.dark header .btn:hover,html.loam header .btn:hover{
+    background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.55)}
+  html.dark .btn:hover{border-color:#4d5750}
+  html.loam .btn:hover{border-color:#5a4636}
+  html.dark .honesty-strip{background:#0b1d13}
+  html.loam .honesty-strip{background:#140d08}
+  html.dark dialog,html.loam dialog{background:var(--card);color:var(--ink);border-color:var(--line)}
+</style>
+<!-- Pre-paint theme guard + shared money/theme helpers — classic, render-blocking
+     <script src> so the saved/OS theme applies before first paint. -->
+<script src="src/ui-common.js"></script>
+<!-- Shared page chrome: the ONE definition of the legal-link tail and the
+     Builders list. Renders inert in-page markup only — never a pop-up. -->
+<script src="src/page-shell.js"></script>
+<!-- Cloudflare Web Analytics (privacy-first, cookie-less; token is publishable — same
+     committed-constant pattern as REPORT_REPO/src/config.js). -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "321537b0321746628c925f357de5a74a"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<header>
+  <svg class="hdr-topo" aria-hidden="true"><defs>
+    <pattern id="hdrTopo" width="150" height="100" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--hdr-topo)" stroke-width="1">
+        <path d="M25,50 C22,28 48,14 72,18 C98,22 112,40 102,60 C92,79 52,82 34,68 C26,61 27,57 25,50 Z"/>
+        <path d="M42,48 C42,35 58,27 72,31 C87,35 94,47 86,57 C77,68 52,64 42,48 Z"/>
+        <path d="M56,46 C58,40 68,38 74,42 C80,46 78,53 70,55 C62,57 55,52 56,46 Z"/>
+        <path d="M120,6 C132,20 140,40 132,58 C128,68 120,76 108,82"/>
+        <path d="M134,0 C146,18 154,44 146,66 C142,76 134,86 122,94"/>
+      </g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
+  </svg>
+  <div class="wrap">
+    <h1>BuildMyMTB</h1>
+    <a class="btn" href="index.html" title="Back to the parts builder">← Builder</a>
+    <!-- THE builders control — one dropdown, list mounted from TB_FAMILY. -->
+    <details class="fam-menu" id="famMenu">
+      <summary class="btn" id="buildersBtn" title="Switch between the BuildMy builders"
+        aria-haspopup="true" aria-label="Builders — switch between the BuildMy sites">🚲 Builders <span class="fam-caret" aria-hidden="true">▾</span></summary>
+      <div class="fam-pop" role="menu" aria-label="The BuildMy family">
+        <span data-tb-family="mtb"></span>
+        <div class="fam-mission">BuildMyMTB is a free, unbiased bike-building tool with accurate data — pick parts and see, in real time, whether they fit. Same tool, every ride style.</div>
+      </div>
+    </details>
+    <details class="theme-menu" id="themeMenu">
+      <summary class="btn" title="Choose a color theme" aria-label="Choose a color theme" aria-haspopup="true">🎨 <span class="hdr-long">Theme</span> ▾</summary>
+      <div class="theme-pop" role="menu" aria-label="Color theme">
+        <button class="btn" id="theme-light" data-theme="light" role="menuitemradio" aria-checked="false">☀️ Light</button>
+        <button class="btn" id="theme-dark" data-theme="dark" role="menuitemradio" aria-checked="false">🌙 Dark</button>
+        <button class="btn" id="theme-rad" data-theme="rad" role="menuitemradio" aria-checked="false" title="Purely cosmetic — changes nothing about fit">⚡ RAD</button>
+        <button class="btn" id="theme-loam" data-theme="loam" role="menuitemradio" aria-checked="false">🍂 Loam</button>
+      </div>
+    </details>
+    <div class="acctbox" id="acctBox" hidden>
+      <button class="btn" id="acctLogin" hidden>Log in</button>
+      <span class="acct-email" id="acctEmail" hidden></span>
+      <button class="btn" id="acctLogout" hidden>Log out</button>
+    </div>
+  </div>
+</header>
+<div class="honesty-strip"><span class="badge">Prototype</span> Your saved builds, the parts you own, and what you&rsquo;ve serviced. Only you can see this page.</div>
+
+<main>
+  <!-- Accounts not configured for this deployment (ACCOUNTS_ENABLED false). -->
+  <div class="gate" id="gateOff" hidden>
+    <h2>🅖 Your garage</h2>
+    <p>Accounts aren&rsquo;t switched on for this site yet, so there is nothing to show here.
+       The builder itself works without an account &mdash; your build lives in the page URL,
+       and the <b>Share / save link</b> button copies it.</p>
+    <div class="gate-acts"><a class="btn primary" href="index.html">Back to the builder</a></div>
+  </div>
+
+  <!-- Signed out. Honest, not empty: nothing here is loaded or guessed. -->
+  <div class="gate" id="gateOut" hidden>
+    <h2>🅖 Your garage</h2>
+    <p>Your garage is private &mdash; saved builds, the parts you own and your service log are
+       tied to your account. Sign in to see them.</p>
+    <div class="gate-acts">
+      <button class="btn primary" id="gateSignIn">Sign in</button>
+      <a class="btn" href="index.html">Back to the builder</a>
+    </div>
+    <p class="pm-note" style="margin-top:12px">New here? Create an account from the builder&rsquo;s
+      <b>Log in</b> button &mdash; it asks for a username at the same time.</p>
+  </div>
+
+  <!-- Signed in: the three cards. -->
+  <div class="grg-grid" id="garageGrid" hidden>
+    <!-- UPPER LEFT: saved AND completed builds -->
+    <section class="card" id="cardBuilds" aria-labelledby="buildsH">
+      <h2 id="buildsH">🅖 Your builds <span class="grg-count" id="buildsCount">—</span></h2>
+      <p class="card-sub" id="buildsSub">Everything you&rsquo;ve saved, in progress and completed. Verdicts are
+        re-checked against today&rsquo;s catalog every time this page loads.</p>
+      <div id="buildsBody"><div class="gempty">Loading…</div></div>
+      <div class="card-foot">
+        <button type="button" class="btn" id="diffBtn" disabled
+          title="See exactly what changed between two builds">⇄ Diff two builds</button>
+        <a class="btn" href="index.html" title="Pick parts, then save the build here">＋ Build a bike</a>
+      </div>
+    </section>
+
+    <div class="grg-col">
+      <!-- RIGHT: inventory -->
+      <section class="card" id="cardInv" aria-labelledby="invH">
+        <h2 id="invH">🧰 Your inventory <span class="grg-count" id="invCount">—</span></h2>
+        <p class="card-sub">Parts you own. In the builder, the ⋯ menu can add a whole build&rsquo;s
+          parts at once, and <b>🧰 Owned only</b> filters the catalog to them.</p>
+        <div id="recallBanners"></div>
+        <div id="invBody"><div class="gempty">Loading…</div></div>
+      </section>
+
+      <!-- UNDER INVENTORY: the service log -->
+      <section class="card" id="cardSvc" aria-labelledby="svcH">
+        <h2 id="svcH">🔧 Service log <span class="grg-count" id="svcCount">—</span></h2>
+        <p class="card-sub">Your own maintenance notebook. It records what you wrote, nothing else &mdash;
+          no service intervals are implied or suggested.</p>
+        <div id="svcBody"><div class="gempty">Loading…</div></div>
+        <div id="svcAddBox">
+          <div class="svc-form-head">Add a record</div>
+          <div class="svc-form">
+            <div class="svc-form-row">
+              <div>
+                <label for="svcTarget">What did you service?</label>
+                <select id="svcTarget"></select>
+              </div>
+              <div>
+                <label for="svcDate">When</label>
+                <input type="date" id="svcDate">
+              </div>
+            </div>
+            <div>
+              <label for="svcWhat">What was done</label>
+              <input type="text" id="svcWhat" maxlength="120" placeholder="e.g. Lower-leg service, new seals">
+            </div>
+            <div>
+              <label for="svcNote">Notes (optional)</label>
+              <textarea id="svcNote" maxlength="1000" placeholder="Torque values, parts used, how it feels…"></textarea>
+            </div>
+            <p id="svcMsg" class="pm-note" hidden></p>
+            <div><button type="button" class="btn primary" id="svcAdd">Add record</button></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p class="footer-legal">
+    <a href="index.html">Builder</a> &middot;
+    <a href="about.html">About</a> &middot;
+    <span data-tb-legal></span>
+  </p>
+</footer>
+
+<!-- Sign-in dialog. Click-opened only (hard rule 2) — the page never pops it up
+     on load; a signed-out visitor sees the honest #gateOut panel and chooses.
+     SIGN-IN ONLY on purpose: creating an account also picks a public username
+     (reserved-name checks, normalization, the profiles row) and that belongs in
+     ONE place — the builder's dialog. Duplicating it here would be two
+     implementations of the same rules, which is how they drift apart. -->
+<dialog id="authModal" aria-labelledby="authTitle" role="dialog" aria-modal="true">
+  <div class="rm-head">
+    <h2 id="authTitle">Sign in to BuildMyMTB</h2>
+    <p>Your garage is tied to your account.</p>
+  </div>
+  <div class="rm-body">
+    <button type="button" class="btn primary" id="authGithub" style="width:100%">Continue with GitHub</button>
+    <div class="auth-or">or</div>
+    <div>
+      <label for="authEmail">Email</label>
+      <input type="email" id="authEmail" placeholder="you@example.com" autocomplete="email">
+    </div>
+    <div>
+      <label for="authPassword">Password</label>
+      <input type="password" id="authPassword" autocomplete="current-password" placeholder="Your password">
+    </div>
+    <p id="authMsg" class="pm-note" hidden></p>
+    <div class="auth-alt">
+      <button type="button" class="linklike" id="authMagicLink">Email me a magic link instead</button>
+    </div>
+    <p class="pm-note">No account yet? <a href="index.html">Create one from the builder</a> — it asks for a username too.</p>
+  </div>
+  <div class="rm-foot">
+    <button type="button" class="btn" id="authClose">Cancel</button>
+    <button type="button" class="btn primary" id="authSubmit">Sign in</button>
+  </div>
+</dialog>
+
+<!-- Build diff — click-opened from the builds card, never auto-appears. -->
+<dialog id="buildDiffModal" aria-labelledby="bdTitle" role="dialog" aria-modal="true">
+  <div class="rm-head">
+    <h2 id="bdTitle">⇄ Build diff</h2>
+    <p>What changed between two builds — parts added, removed or swapped, the price and weight deltas, and any compatibility findings that differ. Specs are illustrative sample data unless a part shows ✓ Verified in the app.</p>
+  </div>
+  <div class="rm-body">
+    <div class="cmp-picks">
+      <select id="bdSelA" aria-label="Baseline build"></select>
+      <span class="cmp-vs">→</span>
+      <select id="bdSelB" aria-label="Build to compare against the baseline"></select>
+    </div>
+    <div id="bdResult"></div>
+  </div>
+  <div class="rm-foot">
+    <button type="button" class="btn" id="bdClose" autofocus>Close</button>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script src="src/vendor/supabase.min.js"></script>
+<script src="src/config.js"></script>
+<script src="src/account.js"></script>
+<script src="src/recall-notes.js"></script>
+<script src="src/cat-labels.js"></script>
+<!-- The MTB catalog + engine. data/mtb.js MUST come before src/compat.js
+     (compat.js binds PARTS at load time) — the same load-bearing order
+     index.html documents, and deploy.yml stages both. -->
+<script src="src/verdict-core.js"></script>
+<script src="data/mtb.js"></script>
+<script src="src/compat.js"></script>
+<script src="src/build-diff.js"></script>
+<script src="src/service-log.js"></script>
+<script src="src/garage-page.js"></script>
+<script>
+/* ==========================================================================
+   garage.html — the rider's own page: saved + completed builds (left),
+   inventory (right), service log (under it). Douglas's layout, 2026-07-24.
+
+   This file is WIRING. Every decision that can be made without a DOM lives in
+   src/garage-page.js (models + renderers, unit-tested); the service log's own
+   normalizer/renderer stay in src/service-log.js and the diff in
+   src/build-diff.js, both reused verbatim — nothing here forks them.
+
+   Data access is src/account.js, unchanged: listBuilds / updateBuild /
+   deleteBuild / listInventory / setInventoryQty / removeInventoryItem /
+   listServiceEvents / addServiceEvent / deleteServiceEvent.
+
+   ZERO engine and ZERO catalog changes: compat.js is read-only here.
+   ========================================================================== */
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var money = tbMoney;
+  var grams = function(g){ return g.toLocaleString() + ' g (' + (g/1000).toFixed(2) + ' kg / ' + (g/453.592).toFixed(2) + ' lb)'; };
+  var FMT = { esc: esc, money: money };
+  var BUILD_DEPS = { sanitizeShare: sanitizeShare, byId: byId, checkBuild: checkBuild, buildTotals: buildTotals };
+  var INV_DEPS   = { canonicalId: canonicalId, byId: byId, nameOf: nameOf, catLabel: tbCatLabel };
+  var SVC_DEPS   = { canonicalId: canonicalId, byId: byId, nameOf: nameOf };
+
+  var _acctReady = (typeof accountsReady === 'function') && accountsReady();
+  var _svcOn = false;          // feature-detected: the service_events table exists
+  var _buildRows = [];         // raw rows from listBuilds()
+  var _builds = [];            // garageBuildsModel(_buildRows)
+  var _inv = { rows: [], unknownCount: 0, totalUnits: 0 };
+
+  function toast(msg){ var t=$('toast'); t.textContent=msg; t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 2200); }
+
+  /* ---- which of the three states is showing -------------------------------
+     Exactly one of: accounts-off / signed-out / the grid. Never a half-rendered
+     grid with "Loading…" that will never resolve. */
+  function renderShell(){
+    var u = _acctReady && typeof currentUser === 'function' ? currentUser() : null;
+    $('gateOff').hidden = !!_acctReady;
+    $('gateOut').hidden = !_acctReady || !!u;
+    $('garageGrid').hidden = !_acctReady || !u;
+    $('acctBox').hidden = !_acctReady;
+    if(_acctReady){
+      $('acctLogin').hidden = !!u;
+      $('acctLogout').hidden = !u;
+      $('acctEmail').hidden = !u;
+      $('acctEmail').textContent = u ? (u.email || 'Signed in') : '';
+    }
+  }
+
+  /* ---- builds card -------------------------------------------------------- */
+  function renderBuilds(){
+    $('buildsBody').innerHTML = renderGarageBuildsHtml(_builds, FMT, { serviceLog: _svcOn });
+    $('buildsCount').textContent = String(_builds.length);
+    // The diff needs two SIDES. Saved builds are the two sides here; a build
+    // handed over from the builder (see currentFromHash) counts as one.
+    $('diffBtn').disabled = (_builds.length + (currentFromHash() ? 1 : 0)) < 2;
+    $('diffBtn').title = $('diffBtn').disabled
+      ? 'Save a second build (or open the garage from a build in progress) to compare two'
+      : 'See exactly what changed between two builds';
+    wireBuildRows();
+  }
+
+  function wireBuildRows(){
+    var root = $('buildsBody');
+    Array.prototype.forEach.call(root.querySelectorAll('[data-a]'), function(btn){
+      var id = btn.getAttribute('data-id');
+      var row = null;
+      for(var i=0;i<_buildRows.length;i++){ if(String(_buildRows[i].id) === id){ row = _buildRows[i]; break; } }
+      if(!row) return;
+      var name = (row.name || '').trim() || GARAGE_UNTITLED;
+      switch(btn.getAttribute('data-a')){
+        case 'load':
+          // Opening a saved build IS navigation to the builder. The payload
+          // rides in the SAME #b= share grammar readHash() already parses and
+          // sanitizeShare() re-validates, so nothing new can be smuggled in.
+          btn.onclick = function(){
+            var h = hashForBuild(row.data);
+            location.href = h ? ('index.html' + h) : 'index.html';
+          };
+          break;
+        case 'rename':
+          btn.onclick = function(){
+            var n = prompt('Rename build', name); if(n == null) return;
+            updateBuild(row.id, { name: n }).then(loadBuilds)
+              .catch(function(e){ toast((e && e.message) || 'Rename failed'); });
+          };
+          break;
+        case 'toggle':
+          btn.onclick = function(){
+            var done = row.status === 'completed';
+            updateBuild(row.id, { status: done ? 'in_progress' : 'completed' }).then(loadBuilds)
+              .catch(function(e){ toast((e && e.message) || 'Update failed'); });
+          };
+          break;
+        case 'del':
+          btn.onclick = function(){
+            if(!confirm('Delete “' + name + '”?')) return;
+            deleteBuild(row.id).then(function(){ toast('Build deleted'); return loadBuilds(); })
+              .catch(function(e){ toast((e && e.message) || 'Delete failed'); });
+          };
+          break;
+        case 'svc':
+          btn.onclick = function(){ focusServiceTarget('build:' + row.id); };
+          break;
+      }
+    });
+  }
+
+  /* Arriving from the Upgrade Advisor's "pick from my garage" button, which
+     navigates here as garage.html?upgrade=1. Opening a build then hands it
+     back as the upgrade BASELINE ('#upgrade/b=…', upgradeHashOf's grammar and
+     parseUpgradeHash's input) instead of a plain load — the behaviour the
+     garage modal had when it set upgradeBaseline directly. */
+  var _forUpgrade = location.search.indexOf('upgrade=1') >= 0;
+
+  /** The builder hash for a stored payload, or '' if it cannot be read. */
+  function hashForBuild(data){
+    try{
+      var d = data || {};
+      var clean = sanitizeShare(d.b || {}, d.p || {});
+      var payload = btoa(encodeURIComponent(JSON.stringify({ b: clean.build, p: clean.presetBy })));
+      return (_forUpgrade ? '#upgrade/b=' : '#b=') + payload;
+    }catch(e){ return ''; }
+  }
+
+  /* The builder hands its in-progress build over in the SAME #b= grammar when
+     you click 🅖 Garage, so the diff can still compare "what I'm working on"
+     against a saved build — the one thing the old garage MODAL could do that a
+     standalone page otherwise could not. Absent hash = no such option, and the
+     diff simply offers saved builds only. */
+  function currentFromHash(){
+    try{
+      var m = location.hash.match(/b=([^&]+)/); if(!m) return null;
+      var o = JSON.parse(decodeURIComponent(atob(m[1])));
+      var clean = sanitizeShare((o && o.b) || {}, (o && o.p) || {});
+      if(!Object.keys(clean.build).length) return null;
+      return clean;
+    }catch(e){ return null; }
+  }
+
+  function loadBuilds(){
+    return listBuilds().then(function(rows){
+      _buildRows = rows || [];
+      _builds = garageBuildsModel(_buildRows, BUILD_DEPS);
+      renderBuilds();
+      return _builds;
+    }).catch(function(e){
+      $('buildsBody').innerHTML = '<div class="gempty">Could not load your builds: ' + esc((e && e.message) || '') + '</div>';
+      return [];
+    });
+  }
+
+  /* ---- inventory card ----------------------------------------------------- */
+  function renderInv(){
+    $('invBody').innerHTML = renderInventoryHtml(_inv, FMT, { serviceLog: _svcOn });
+    $('invCount').textContent = String(_inv.totalUnits);
+    renderRecalls();
+    wireInvRows();
+  }
+
+  /* Recall watcher: the SAME read-join the inventory view carried before the
+     page split (src/recall-notes.js over the owned part ids). In-page banners
+     at the top of the inventory card, never a popup, and only for the
+     signed-in rider's own parts. Silence is not an all-clear and is not
+     rendered as one. */
+  function renderRecalls(){
+    var el = $('recallBanners');
+    el.innerHTML = '';
+    if(typeof recallNoticesForOwnedParts !== 'function') return;
+    var ids = _inv.rows.map(function(r){ return r.partId; });
+    el.innerHTML = renderRecallBannersHtml(recallNoticesForOwnedParts(ids),
+      { esc: esc, byId: byId, nameOf: nameOf });
+  }
+
+  function wireInvRows(){
+    var root = $('invBody');
+    Array.prototype.forEach.call(root.querySelectorAll('[data-a]'), function(btn){
+      var id = btn.getAttribute('data-id');
+      var row = null;
+      for(var i=0;i<_inv.rows.length;i++){ if(_inv.rows[i].rowId === id){ row = _inv.rows[i]; break; } }
+      switch(btn.getAttribute('data-a')){
+        case 'inc':
+          btn.onclick = function(){ if(!row) return;
+            setInventoryQty(row.rowId, row.qty + 1).then(loadInventory)
+              .catch(function(e){ toast((e && e.message) || 'Failed'); }); };
+          break;
+        case 'dec':
+          btn.onclick = function(){ if(!row) return;
+            (row.qty <= 1 ? removeInventoryItem(row.rowId) : setInventoryQty(row.rowId, row.qty - 1))
+              .then(loadInventory).catch(function(e){ toast((e && e.message) || 'Failed'); }); };
+          break;
+        case 'del':
+          btn.onclick = function(){ if(!row) return;
+            if(!confirm('Remove “' + row.name + '” from your inventory?')) return;
+            removeInventoryItem(row.rowId).then(loadInventory)
+              .catch(function(e){ toast((e && e.message) || 'Failed'); }); };
+          break;
+        case 'svc':
+          btn.onclick = function(){ focusServiceTarget('part:' + id); };
+          break;
+      }
+    });
+  }
+
+  function loadInventory(){
+    return listInventory().then(function(rows){
+      _inv = inventoryModel(rows || [], INV_DEPS);
+      renderInv();
+      return _inv;
+    }).catch(function(e){
+      $('invBody').innerHTML = '<div class="gempty">Could not load your inventory: ' + esc((e && e.message) || '') + '</div>';
+      return _inv;
+    });
+  }
+
+  /* ---- service log card ---------------------------------------------------
+     Triple-gated exactly like the dialog it replaces: accounts configured +
+     signed in + the service_events table exists (hasServiceLog feature-detect),
+     so the whole card stays hidden until the owner runs the Phase 5 migration
+     (supabase/SETUP.md §10). */
+  function refreshServiceFlag(){
+    if(!_acctReady || !currentUser() || typeof hasServiceLog !== 'function'){
+      _svcOn = false; return Promise.resolve(false);
+    }
+    return hasServiceLog().then(function(on){ _svcOn = on; return on; })
+      .catch(function(){ _svcOn = false; return false; });
+  }
+
+  function renderServiceTargets(){
+    $('svcTarget').innerHTML = renderServiceTargetOptionsHtml(
+      serviceTargetOptions(_builds, _inv.rows), FMT);
+  }
+
+  function loadServiceLog(){
+    $('cardSvc').hidden = !_svcOn;
+    if(!_svcOn) return Promise.resolve();
+    renderServiceTargets();
+    return listServiceEvents().then(function(rows){
+      var names = {};
+      _buildRows.forEach(function(b){ names[b.id] = (b.name || '').trim() || GARAGE_UNTITLED; });
+      var entries = serviceLogModel(rows || [], names, SVC_DEPS, null);
+      $('svcCount').textContent = String(entries.length);
+      $('svcBody').innerHTML = renderServiceLogHtml(entries, { esc: esc }, { showTarget: true });
+      Array.prototype.forEach.call($('svcBody').querySelectorAll('[data-a=del]'), function(btn){
+        btn.onclick = function(){
+          if(!confirm('Remove this service record?')) return;
+          deleteServiceEvent(btn.getAttribute('data-id')).then(loadServiceLog)
+            .catch(function(e){ toast((e && e.message) || 'Remove failed'); });
+        };
+      });
+    }).catch(function(e){
+      $('svcBody').innerHTML = '<div class="gempty">Could not load the service log: ' + esc((e && e.message) || '') + '</div>';
+    });
+  }
+
+  /** A 🔧 button on a build/part row pre-selects that target in the add form
+      and scrolls to it — the page equivalent of the old per-target dialog. */
+  function focusServiceTarget(value){
+    if(!_svcOn) return;
+    var sel = $('svcTarget');
+    for(var i=0;i<sel.options.length;i++){
+      if(sel.options[i].value === value){ sel.selectedIndex = i; break; }
+    }
+    $('svcWhat').focus();
+    $('cardSvc').scrollIntoView({ block: 'nearest' });
+  }
+
+  function addServiceRecord(){
+    var v = $('svcTarget').value || '';
+    var kind = v.split(':')[0], id = v.slice(kind.length + 1);
+    var r = normalizeServiceEvent({
+      title: $('svcWhat').value, note: $('svcNote').value, dateStr: $('svcDate').value,
+      buildId: kind === 'build' ? id : null,
+      partId:  kind === 'part'  ? id : null
+    }, new Date().toISOString().slice(0,10));
+    var msg = $('svcMsg');
+    if(!r.ok){ msg.textContent = r.error; msg.hidden = false; return; }
+    msg.hidden = true;
+    addServiceEvent(r.event).then(function(){
+      $('svcWhat').value = ''; $('svcNote').value = '';
+      toast('Service record added'); loadServiceLog();
+    }).catch(function(e){ msg.textContent = (e && e.message) || 'Could not save the record.'; msg.hidden = false; });
+  }
+
+  /* ---- build diff --------------------------------------------------------- */
+  /* A BuildDiffSide for src/build-diff.js: {label, res, presetBy}, where `res`
+     is the slotKey -> part OBJECT map checkBuild takes (the field is `res`, not
+     `resolved` — buildDiffModel reads a.res directly). */
+  function bdSource(val){
+    if(val === 'current'){
+      var c = currentFromHash();
+      if(!c) return null;
+      var res = {}; Object.keys(c.build).forEach(function(k){ res[k] = byId(c.build[k]); });
+      return { label: 'Current build', res: res, presetBy: c.presetBy };
+    }
+    for(var i=0;i<_buildRows.length;i++){
+      if(String(_buildRows[i].id) !== val) continue;
+      var row = _buildRows[i];
+      try{
+        var d = row.data || {};
+        var clean = sanitizeShare(d.b || {}, d.p || {});
+        var r = {}; Object.keys(clean.build).forEach(function(k){ r[k] = byId(clean.build[k]); });
+        return { label: (row.name || '').trim() || GARAGE_UNTITLED, res: r, presetBy: clean.presetBy };
+      }catch(e){ return null; }
+    }
+    return null;
+  }
+  function runBuildDiff(){
+    var a = bdSource($('bdSelA').value), b = bdSource($('bdSelB').value);
+    if(!a || !b){ $('bdResult').innerHTML = ''; return; }
+    var m = buildDiffModel(a, b, { SLOTS: SLOTS, checkBuild: checkBuild, buildTotals: buildTotals, verdictKey: verdictKey });
+    $('bdResult').innerHTML = renderBuildDiffHtml(m, { esc: esc, money: money, grams: grams });
+  }
+  function openBuildDiff(){
+    var opts = (currentFromHash() ? '<option value="current">Current build (from the builder)</option>' : '')
+      + _buildRows.map(function(b){
+          return '<option value="' + esc(String(b.id)) + '">' + esc((b.name || '').trim() || GARAGE_UNTITLED) + '</option>';
+        }).join('');
+    $('bdSelA').innerHTML = opts; $('bdSelB').innerHTML = opts;
+    // Oldest saved build as the baseline, newest as the compared side (rows are
+    // newest-first); with one saved build, diff it against the handed-over one.
+    if(_buildRows.length >= 2){
+      $('bdSelA').value = String(_buildRows[1].id); $('bdSelB').value = String(_buildRows[0].id);
+    } else if(_buildRows.length === 1 && currentFromHash()){
+      $('bdSelA').value = String(_buildRows[0].id); $('bdSelB').value = 'current';
+    }
+    $('buildDiffModal').showModal();
+    runBuildDiff();
+  }
+
+  /* ---- sign-in (sign-in only — see the dialog's comment) ------------------- */
+  function authErr(e){ var m = $('authMsg'); m.hidden = false; m.textContent = (e && e.message) || 'Something went wrong.'; }
+  function openAuth(){
+    if(!_acctReady) return;
+    $('authEmail').value = ''; $('authPassword').value = '';
+    $('authMsg').hidden = true;
+    $('authModal').showModal();
+  }
+  function doSignin(){
+    var email = ($('authEmail').value || '').trim(), pw = $('authPassword').value || '';
+    if(!email){ authErr({ message: 'Enter your email.' }); return; }
+    if(!pw){ authErr({ message: 'Enter your password.' }); return; }
+    $('authSubmit').disabled = true;
+    signInWithPassword(email, pw).then(function(){ $('authSubmit').disabled = false; })
+      .catch(function(e){ $('authSubmit').disabled = false; authErr(e); });
+  }
+  function doMagicLink(){
+    var email = ($('authEmail').value || '').trim();
+    if(!email){ authErr({ message: 'Enter your email first.' }); return; }
+    signInWithEmail(email).then(function(){
+      var m = $('authMsg'); m.hidden = false; m.textContent = 'Check your email for a magic sign-in link.';
+    }).catch(authErr);
+  }
+
+  /* ---- load everything ---------------------------------------------------- */
+  function refreshAll(){
+    renderShell();
+    if(!_acctReady || !currentUser()) return;
+    var today = new Date().toISOString().slice(0,10);
+    $('svcDate').value = today; $('svcDate').max = today;   // the log records service already done
+    refreshServiceFlag().then(function(){
+      return Promise.all([loadBuilds(), loadInventory()]);
+    }).then(loadServiceLog);
+  }
+
+  /* ---- wiring ------------------------------------------------------------- */
+  $('acctLogin').onclick = openAuth;
+  $('gateSignIn').onclick = openAuth;
+  $('acctLogout').onclick = function(){
+    signOut().then(function(){ toast('Logged out'); }).catch(function(e){ toast((e && e.message) || 'Logout failed'); });
+  };
+  $('authClose').onclick = function(){ $('authModal').close(); };
+  $('authSubmit').onclick = doSignin;
+  $('authGithub').onclick = function(){ signInWithGitHub().catch(authErr); };
+  $('authMagicLink').onclick = doMagicLink;
+  $('authEmail').addEventListener('keydown', function(e){ if(e.key === 'Enter') doSignin(); });
+  $('authPassword').addEventListener('keydown', function(e){ if(e.key === 'Enter') doSignin(); });
+  $('authModal').addEventListener('click', function(e){ if(e.target === this){ this.close(); } });
+
+  $('diffBtn').onclick = openBuildDiff;
+  $('bdClose').onclick = function(){ $('buildDiffModal').close(); };
+  $('bdSelA').onchange = runBuildDiff;
+  $('bdSelB').onchange = runBuildDiff;
+  $('buildDiffModal').addEventListener('click', function(e){ if(e.target === this){ this.close(); } });
+
+  $('svcAdd').onclick = addServiceRecord;
+
+  if(_forUpgrade){
+    $('buildsSub').textContent = '🔧 Pick the bike to check parts against — “Open in builder” '
+      + 'loads it as your Upgrade Advisor baseline.';
+  }
+
+  /* Dropdowns: pick-to-close, click-outside-to-close, Escape closes and
+     refocuses the summary. Identical to index.html's, and neither ever opens
+     on its own (hard rule 2). */
+  ['famMenu','themeMenu'].forEach(function(mid){
+    var d = $(mid); if(!d) return;
+    d.addEventListener('click', function(e){ if(e.target.closest('.fam-pop a, .theme-pop .btn')) d.open = false; });
+    document.addEventListener('click', function(e){ if(d.open && !d.contains(e.target)) d.open = false; });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && d.open){ d.open = false; var s = d.querySelector('summary'); if(s) s.focus(); }
+    });
+  });
+
+  /* Theme buttons — tbApplyTheme/tbCurrentTheme from src/ui-common.js, the same
+     'tb-theme' localStorage key every other page uses. */
+  function markTheme(){
+    var cur = tbCurrentTheme();
+    ['light','dark','rad','loam'].forEach(function(k){
+      var b = $('theme-' + k); if(!b) return;
+      b.classList.toggle('primary', cur === k);
+      b.setAttribute('aria-checked', String(cur === k));
+    });
+  }
+  ['light','dark','rad','loam'].forEach(function(k){
+    var b = $('theme-' + k); if(!b) return;
+    b.onclick = function(){ tbApplyTheme(k); markTheme(); };
+  });
+  markTheme();
+
+  /* Auth state. initAccount fires once on session restore and again on every
+     sign-in/out, so this is the single entry point for the whole page. */
+  if(_acctReady && typeof initAccount === 'function'){
+    initAccount(function(u){
+      if(u && $('authModal').open){ $('authModal').close(); }
+      refreshAll();
+    });
+  }
+  refreshAll();
+})();
+</script>
+</body>
+</html>
