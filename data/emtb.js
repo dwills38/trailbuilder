@@ -1033,14 +1033,15 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-nukeproof-megawatt-297-comp', cat: 'emtb', brand: 'Nukeproof', model: 'Megawatt 297 Comp',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
-    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
-    disciplines: ['e-enduro'], weight: 25800, price: 6500,
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85, motorPowerPeak: 250,
+    batteryWh: 504, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'SRAM DB8',
+    disciplines: ['e-enduro'], weight: 24090, price: 6099,
     status: 'discontinued', supersededBy: 'em-nukeproof-megawatt-297-carbon-pro',
-    note: "Nukeproof's longest-travel gravity e-MTB; Bosch CX motor, DH-adjacent geometry.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: the Megawatt moved off Bosch entirely to a full-carbon frame on SRAM Eagle Powertrain (verify/emtb-2 wave 2 phase 2).'
+    note: "Nukeproof's entry-tier aluminum Megawatt 297; RockShox Domain fork / RockShox Super Deluxe Select shock.",
+    desc: 'DOCUMENTED WALL (verify/emtb-brands-1, 2026-07-23): the previously-cataloged Bosch Performance Line CX / 720Wh / SRAM GX spec does not match any real Megawatt 297 Comp trim — Nukeproof\'s Megawatt line ran Shimano EP8 through the aluminum-297 generation before the 2024 switch straight to SRAM Eagle Powertrain on the carbon platform; a Bosch-motor Megawatt was never sold. us.nukeproof.com no longer resolves (DNS failure) and nukeproof.com\'s current bikes/ebikes nav no longer lists this discontinued aluminum trim, so no manufacturer page is fetchable — corrected to the real spec (Shimano EP8 85Nm/250W, Shimano 504Wh, RockShox Domain/Super Deluxe Select, Shimano Deore, SRAM DB8 brakes, 24.09kg, $6,099) per 99spokes.com\'s aggregated spec sheet — a reputable third-party database, not a manufacturer page, so THE BAR is not met and verified:true stays withheld.',
+    lastChecked: '2026-07-23'
   },
 
   // ---------------------------------------------------------------------------
@@ -1167,14 +1168,15 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-nukeproof-megawatt-297-elite', cat: 'emtb', brand: 'Nukeproof', model: 'Megawatt 297 Elite',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
-    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code Ultimate',
-    disciplines: ['e-enduro'], weight: 25200, price: 8200,
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85, motorPowerPeak: 250,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX', brakes: 'Shimano SLX',
+    disciplines: ['e-enduro'], weight: 24580, price: 7799,
     status: 'discontinued', supersededBy: 'em-nukeproof-megawatt-297-carbon-rs',
-    note: 'Higher-tier Megawatt build; SRAM X0 Transmission upgrade over the Comp.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: the Megawatt moved off Bosch entirely to a full-carbon frame on SRAM Eagle Powertrain (verify/emtb-2 wave 2 phase 2).'
+    note: 'Higher-tier aluminum Megawatt build above the Comp; Fox 38 Performance Elite fork / Fox Float X2 Performance shock, bigger 630Wh battery.',
+    desc: 'DOCUMENTED WALL (verify/emtb-brands-1, 2026-07-23) — same finding as the sibling Comp row: the previously-cataloged Bosch/SRAM X0 Transmission spec does not match any real Megawatt 297 Elite trim (this generation never ran Bosch or SRAM Transmission; Nukeproof went straight from Shimano EP8 aluminum to SRAM Eagle Powertrain carbon). us.nukeproof.com no longer resolves and nukeproof.com no longer lists this discontinued trim, so no manufacturer page is fetchable — corrected to the real spec (Shimano EP8 85Nm/250W, 630Wh, Fox 38 Performance Elite/Fox Float X2 Performance, Shimano SLX drivetrain+brakes, 54.2lb/24.58kg, $7,799) per 99spokes.com\'s aggregated spec sheet — a reputable third-party database, not a manufacturer page, so THE BAR is not met and verified:true stays withheld.',
+    lastChecked: '2026-07-23'
   },
 
   // ---------------------------------------------------------------------------
