@@ -112,6 +112,67 @@ priceBasis backlog 1,383 -> 507 · worktrees 216 -> 134 (2.3 GB reclaimed).
    represented in, fill it. Finite, well-defined, comes back verified.
 6. Verification continues to pay in **kit** only; other catalogs are near their structural ceiling.
 
+## ★★ THE UNIFORMITY-AUDIT CHIP — PASTE-READY (seat 23: this is ready chip #1, hand it over first)
+## Douglas asked for this EXPLICITLY on 2026-07-24 and it GATES the garage/nav replication.
+
+```
+[Opus, high effort - READ-ONLY]
+git fetch origin; git worktree add .claude/worktrees/uniformity-audit-u1 -b review/builder-uniformity origin/main
+CHECK FIRST: IF review/builder-uniformity already exists with commits, STAND DOWN and report; otherwise proceed.
+cd into the worktree. If node_modules missing: cmd //c "mklink /J node_modules \"D:\MTB Bike Builder
+ode_modules\""
+
+WHY (Douglas, 2026-07-24): "each builder website should be identical in form to BuildMyMTB in the
+end." He approved the new nav + garage page on the flagship, then deliberately HELD replication:
+"before, I will want a chip that audits BuildMyMTB flagship and make all the sites uniform. The EMTB
+missing saved builds is a great example and I noticed inconsistencies in the BuildMyBMX site as well.
+I'm sure there are others."
+
+GOAL: audit all six live builders against index.html as the FORM reference and produce a complete
+inventory of every inconsistency. READ-ONLY - find and report, change NOTHING. This audit is the
+input to the replication chip; it is not the replication.
+
+ACT AS THE UI-EXPERT SPECIALIST. READ tools/ui-expert/ first and cite the corpus for anything you
+call a defect. Separate OBJECTIVE inconsistencies from TASTE; only the objective set is actionable
+without Douglas.
+
+SURFACES: index.html (reference) - bmx.html - road.html - gravel.html - emtb.html - KitBuilder/index.html.
+
+AUDIT, page by page, producing a MATRIX (feature x page, present/absent/different):
+ 1. HEADER + NAV - single "Builders" dropdown? wordmark a plain link? leftover per-site nav buttons?
+    aria-current on the current page? do all six links resolve from every page (KitBuilder needs ../)?
+ 2. ACCOUNTS - which pages load src/account.js and support login AT ALL? Load-bearing for garage
+    replication: a Garage button on a page without accounts is a dead link.
+ 3. GARAGE / INVENTORY / SERVICE LOG - what exists where, and what WOULD each page's garage contain?
+    Douglas's own example: emtb.html is BROWSE-ONLY (no build slots, no checkBuild) so "saved builds"
+    may not be coherent there. Say per page what a garage should and should NOT show.
+ 4. BUILDER FEATURES - build sheet, build diff, upgrade optimizer, owned-vs-buy, discontinued archive,
+    service log, recall banners, compare builds, sample build, share links, verified-only filter,
+    sub-filters/sliders. Which are genuinely inapplicable vs simply MISSING?
+ 5. FOOTER + LEGAL + ANALYTICS - unified 2026-07-23; confirm no drift.
+ 6. ACCESSIBILITY - verdict aria-live (fixed 2026-07-24, verify), focus order, labelling, and whether
+    compat dots are distinguishable WITHOUT colour.
+ 7. STRUCTURE - what is genuinely shared (src/page-shell.js, ui-common.js) vs hand-duplicated? Flag
+    anything duplicated that SHOULD be single-sourced - that determines replication cost.
+
+* CLASSIFY EACH INCONSISTENCY: (A) make uniform - replicate the flagship - (B) legitimately different
+  (browse-only, no engine, subdirectory) - (C) needs Douglas's ruling. CATEGORY B IS AS VALUABLE AS A;
+  forcing uniformity where it does not belong is the failure this audit exists to prevent.
+* RANK category A by user impact and replication cost.
+* HARD RULE #2: never recommend a pop-up, interstitial or auto-appearing element.
+
+METHOD: IN-APP Browser pane at 1280 AND 375, light and dark. Account-gated UI renders at width 0 when
+signed out - reveal with document.querySelectorAll('[hidden]').forEach(e => e.hidden = false) and read
+the DOM. Do NOT sign in. Screenshots time out; use read_page / javascript_tool. Evidence per finding.
+
+GATES (prove you changed nothing): node validate.js (7 OK) + npm test (1349 baseline) + npx tsc --noEmit.
+RULES: NEVER push. NEVER prompt Douglas. NEVER edit. All files INSIDE D:\MTB Bike Builder.
+NO BROWSER DOWNLOADS. In-app Browser pane only - never claude-in-chrome.
+FINAL ACT: write D:\MTB Bike Builder\.claude\worker-reportsuilder-uniformity.md - the full matrix,
+the A/B/C classification, the ranked category-A list, and a "what the replication chip should do"
+section. Then RETURN a concise ranked summary.
+```
+
 # ============================================================================================
 # ↓↓ EARLIER SEAT SECTIONS BELOW — kept as history ↓↓
 # ============================================================================================
