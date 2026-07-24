@@ -1632,6 +1632,29 @@ var BMX_PARTS = [
     mount: 'disc', price: 64.99,
     note: 'Mechanical disc caliper commonly specced on disc-mount BMX race frames (Redline Proline Flight class).'
   },
+  {
+    id: 'bmx-br-eclat-unit', cat: 'brake', brand: 'Eclat', model: 'Unit Brake',
+    mount: 'u-brake', weight: 171, price: 71.99,
+    verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-23', source: 'https://thesecretbmx.com/products/eclat-unit-u-brake',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched eclatbmx.com/products/eclat-unit-brake-1: "compatible with rear brake mounts only" (mount:u-brake, the checkBmxBuild-read field, CONFIRMED) and "Weight complete: 171g (6.03oz)" (weight CONFIRMED). Maker page carries no price (redirects to a Kingdom Store distributor with no price shown, same gap as the Cyclone Rotor above); priced via named US retailer The Secret BMX ($71.99), whose own weight figure (6.03oz) matches the maker page exactly, confirming the same SKU - promoted to verified:true under priceBasis:third-party-listed per this catalog\'s established convention (e.g. bmx-fk-wethepeople-* rows).'
+  },
+  {
+    id: 'bmx-br-kink-desist2', cat: 'brake', brand: 'Kink', model: 'Desist II Brakes',
+    mount: 'u-brake', weight: 102, price: 64.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://kinkbmx.com/products/desist-ii-brakes',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched kinkbmx.com/products/desist-ii-brakes: "Particulars: Front and Rear Compatible" (a standard 990-post caliper, mount:u-brake CONFIRMED - the checkBmxBuild-read field), "Weight: 3.6oz" (=102g CONFIRMED), "Regular price $64.99" CONFIRMED.'
+  },
+  {
+    id: 'bmx-br-colony-brethren', cat: 'brake', brand: 'Colony', model: 'Brethren Brake Set',
+    mount: 'u-brake', weight: 185, price: 84.99,
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched colonybmx.com.au/products/brethren-brake-set/: "Suitable for front or rear brakes" (mount:u-brake CONFIRMED, the checkBmxBuild-read field), "Weight: 185 grams" CONFIRMED. AU maker page carries no price (same gap as this catalog\'s other Colony rows). Price entered from Dan\'s Comp\'s own listing ($84.99, weight 6.5oz = 184g there - matches the maker figure closely, same SKU) but that retailer page is itself marked "Discontinued Online" - left UNVERIFIED (not priceBasis:third-party-listed) since it is unclear whether $84.99 is still this SKU\'s live current price anywhere, even though the maker\'s own site still lists the product as current.'
+  },
+  {
+    id: 'bmx-br-flybikes-manualcncog', cat: 'brake', brand: 'Fly Bikes', model: 'Manual CNC OG Brake',
+    mount: 'u-brake', weight: 147, price: 140.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.flybikes.com/product/fly-manual-cnc-classic-brake',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched flybikes.com: "Compatible with all u-brake system mounts" (mount:u-brake CONFIRMED, the checkBmxBuild-read field), "Weight 147 g / 5.2 oz" CONFIRMED, "$140.00" CONFIRMED.'
+  },
 
   // ---- Standard Byke Co (new brand: standardbyke.com, 1991-, USA-made) --
   {
