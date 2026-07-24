@@ -2960,6 +2960,12 @@ var BMX_PARTS = [
     note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched wethepeoplebmx.de (maker\'s own storefront): "high-impact nylon/fiberglass" (platform:plastic), "SIZE: 9/16\\"" (spindle CONFIRMED, not the assumed default here), "WEIGHT: pair: 391g" CONFIRMED. No price on the maker\'s EU site; priced via named US retailer MASH SF ($18.99, mid-range among several US listings clustered $17-25) at the third-party-listed tier.'
   },
   {
+    id: 'bmx-pd-mission-impulse', cat: 'pedals', brand: 'Mission', model: 'Impulse Pedals',
+    platform: 'plastic', spindle: '9/16', weight: 403, price: 15.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://missionbmx.com/products/impulse-pedals',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched missionbmx.com (maker\'s own storefront): "SIZE: 9/16\\"...BODY: Nylon Composite...SPINDLE: Chromoly Steel...WEIGHT: 14.2oz" (=403g). platform:plastic/spindle/weight/price ($15.99, the base-color price; several premium colorways carry $29.99/$44.99 upcharges, not used per THE PRICE RULE) all CONFIRMED.'
+  },
+  {
     id: 'bmx-pd-sm-hoderbtm', cat: 'pedals', brand: 'S&M', model: 'Hoder BTM Pedals',
     platform: 'plastic', spindle: '9/16', weight: 405, price: 19.95,
     verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-24', source: 'https://www.empirebmx.com/products/s-m-hoder-btm-pedals',
