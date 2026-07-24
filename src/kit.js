@@ -4598,6 +4598,10 @@ var KIT_PARTS = [
     fitCut:'mens', waterproof:false,
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.sportful.com/US/en/Mens/Cycling/Jackets/SUPERGIARA-2-JACKET/p/1125503_201',
     desc:'Mid-season jacket the maker\'s own page lists "Gravel" under Disciplines, described as "ideal for mid-season rides on both gravel and road." Price confirmed on the US storefront. No waterproof rating or weight published on the fetched page, hence waterproof:false.' },
+  { id:'jkt-pactimo-storm-plus', cat:'jacket', brand:'Pactimo', family:'pactimo-storm', model:'Men\'s Storm+ Jacket', price:230,
+    fitCut:'mens', waterproof:true,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.pactimo.com/products/mens-cycling-jacket-storm',
+    desc:'Water-resistant cool-weather cycling jacket built from a 150gsm Storm+ Laminate fabric. Price confirmed on pactimo.com (US store, USD-native). The 150gsm figure is a fabric-weight spec, not total garment weight, so no weight field is set.' },
 
 
   /* Wild Rye (women's MTB apparel) - wild-rye.com fetched directly (WebFetch 404'd on this
