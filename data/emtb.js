@@ -2252,9 +2252,10 @@ var EMTB_PARTS = [
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
     frameMaterial: 'carbon', drivetrain: 'Shimano Deore XT M8100-12 1x12',
-    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 5248, modelYear: 2026,
+    disciplines: ['e-trail', 'e-enduro'], weight: 25400, price: 5248, modelYear: 2026,
     note: 'KTM (Austria)\'s "Macina Kapoho Dimmix CB 160 UDH" carbon frame, DiMMiX mixed wheels (29in front/27.5in rear), Bosch PowerTube 800Wh removable battery (Power Tube Top Loader), Bosch PURION 200 bar-mounted display/remote (not top-tube integrated). No range-extender option mentioned. RockShox 35 Silver TK fork / SR Suntour Tri-Air shock.',
-    desc: 'Sourced from ktm-bikes.at\'s own product page (fetched). Brakes not stated in the fetched spec table (cut off before the brake line) so left uncataloged; no complete-bike weight published on this page. PRICE: EUR 4,599 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,248. catalog/emtb-depth-5 wave (KTM absent -> 3 rows).',
+    desc: 'Re-fetched ktm-bikes.at\'s own product page (verify/emtb-brands-1 wave, 2026-07-23) — confirms motor (Bosch Performance CX BDU3840, 120Nm), 800Wh PowerTube, Purion 200 display, 160/160mm travel, RockShox 35 Silver TK fork / SR Suntour Tri-Air shock, 1x12 Shimano Deore XT drivetrain, and adds the complete-bike weight (25.4kg) the earlier fetch had missed. Brakes still not stated in the spec table (disc, model not listed) so left uncataloged. PRICE: EUR 4,599 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,248 — disclosed conversion, no separate US MSRP published.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.ktm-bikes.at/e-bikes/detail/mx1260014108-macina-kapoho-comp-ltd-l-48-mx1260014108macina-kapoho-comp-ltdgrey-dew-silver-matt-black-1x12-shimano-deore-xt-2026/MX1260014108'
   },
   {
@@ -2265,7 +2266,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'Shimano XTR Di2 M9260-11 (electronic)', brakes: 'Shimano XTR M9120',
     disciplines: ['e-trail', 'e-enduro'], weight: 24900, price: 13373, modelYear: 2026,
     note: 'Flagship Macina Kapoho: Bosch\'s ABS-integrated CX-R motor, Fox 36 Float Factory E fork + Fox DHX Factory shock (250x75), DT Swiss HXC carbon rims, electronic Shimano XTR Di2 11-speed drivetrain (Race Face ERA-E160 crank, 11-50T), Shimano XTR 4-piston brakes (203/180mm rotors).',
-    desc: 'Sourced from ktm-bikes.co.uk\'s own product page (fetched). Weight 24.9kg (size not specified on the fetched page). PRICE: GBP 9,999 (maker-published, UK store) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $13,373 — disclosed conversion, not a confirmed separate US MSRP. catalog/emtb-depth-5 wave.',
+    desc: 'Re-fetched ktm-bikes.co.uk\'s own product page (verify/emtb-brands-1 wave, 2026-07-23) — confirms motor (Bosch Performance CX-R ABS BDU3863, 120Nm), 800Wh PowerTube, Fox 36 Float Factory E fork/Fox DHX Factory shock, Shimano XTR Di2 M9260-11 drivetrain, Shimano XTR M9120 4-piston brakes, weight (24.9kg), and price (GBP 9,999) exactly as previously cataloged. PRICE: GBP 9,999 (maker-published, UK store) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $13,373 — disclosed conversion, not a confirmed separate US MSRP.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://ktm-bikes.co.uk/products/macina-kapoho-exonic-di2'
   },
   {
@@ -2276,7 +2278,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission (T-Type)', brakes: 'Shimano Saint M820',
     disciplines: ['e-enduro'], weight: 25800, price: 7074, modelYear: 2026,
     note: 'KTM\'s enduro e-MTB: "Macina Prowler Dimmix Carbon 170 UDH" carbon frame, Fox 38 Float Rhythm E fork + Fox Float X Performance shock (250x75), SRAM GX Eagle Transmission with SRAM POD AXS controller, Shimano Saint 4-piston brakes.',
-    desc: 'Sourced from ktm-bikes.at\'s own product page (fetched). KTM\'s own page shows a discrepancy between this spec table\'s "85 Nm" torque figure and separate marketing copy on the same page quoting "100 Nm/750 W/400%" for what it calls a "BDU384Y" motor — the hard spec-table figure (85 Nm, motor BDU3740, Bosch Performance Line CX Gen.4) is cataloged here as the more reliable of the two conflicting maker-stated numbers; motorPowerPeak left uncataloged given the conflict rather than guessed. Weight 25.8kg, size L. PRICE: EUR 6,199 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,074. catalog/emtb-depth-5 wave.',
+    desc: 'Re-fetched ktm-bikes.at\'s own product page (verify/emtb-brands-1 wave, 2026-07-23) — confirms Fox 38 Float Rhythm E fork/Fox Float X Performance shock, SRAM GX Eagle Transmission, SRAM POD AXS controller, Shimano Saint brakes, EUR 6,199 SRP, and weight 25.8kg exactly as previously cataloged. KTM\'s own page still shows a discrepancy between this spec table\'s "85 Nm" torque figure and separate marketing copy on the same page quoting "100 Nm/750 W/400%" for what it calls a "BDU384Y" motor — the hard spec-table figure (85 Nm, motor BDU3740, Bosch Performance Line CX Gen.4) is cataloged here as the more reliable of the two conflicting maker-stated numbers; motorPowerPeak left uncataloged given the conflict rather than guessed. PRICE: EUR 6,199 converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,074.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.ktm-bikes.at/e-bikes/detail/mx1260004108-macina-prowler-master-gx-t-type-l-48-mx1260004108macina-prowler-mastertransparent-space-galaxy-matt1x12-sram-gx-transmission-2026'
   },
   {
@@ -2287,7 +2290,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'Shimano XTR M9100-12 (mechanical)', brakes: 'Shimano XTR M9100/M9120 4-Piston',
     disciplines: ['e-trail', 'e-enduro'], weight: 25200, price: 10040, modelYear: 2026,
     note: 'Mid/upper Kapoho trim distinguished from the already-cataloged EXONIC Di2 flagship by a MECHANICAL (cable) Shimano XTR groupset instead of electronic Di2, and a smaller 750Wh (vs 800Wh) PowerTube. Carbon "Macina Kapoho Dimmix Perf. Carbon SLL-LTE" frame, Fox 36 Float Factory fork/Fox Float X Factory shock, Mavic E-Deemax S wheels.',
-    desc: 'Sourced from ktm-bikes.at\'s own product page (fetched, spec table). This exact SKU name/price pairing (SH XTR 12 + BOSCH PT-CX7K4, 750Wh) matches the ktm-bikes.at Kapoho listing page\'s "MACINA KAPOHO PRESTIGE...8.799 EUR" row exactly; a separate, differently-specced "Prestige" SKU also exists on GX Eagle T-Type/800Wh (a distinct current listing) - this row is the XTR-mechanical/750Wh one, disambiguated in the id. PRICE: EUR 8,799 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $10,040. catalog/emtb-depth-9 wave (KTM thin-lineup deepen, 3 -> 6 rows).',
+    desc: 'Re-fetched ktm-bikes.at\'s own product page (verify/emtb-brands-1 wave, 2026-07-23) — confirms Fox 36 Float Factory fork/Fox Float X Factory shock, Shimano XTR M9100-12 mechanical drivetrain, Shimano XTR M9100/M9120 4-piston brakes, Mavic E-Deemax S wheels, 750Wh PowerTube, and weight 25.20kg exactly as previously cataloged. This exact SKU name/price pairing (SH XTR 12 + BOSCH PT-CX7K4, 750Wh) matches the ktm-bikes.at Kapoho listing\'s "MACINA KAPOHO PRESTIGE...8.799 EUR" row exactly; a separate, differently-specced "Prestige" SKU also exists on GX Eagle T-Type/800Wh (a distinct current listing) — this row is the XTR-mechanical/750Wh one, disambiguated in the id. PRICE: EUR 8,799 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $10,040.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.ktm-bikes.at/e-bikes/detail/macina-kapoho-prestige-transparent-orange-orange-black-sh-xtr-12-bosch-pt-cx7k4-2023'
   },
   {
@@ -2298,7 +2302,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission (T-Type)',
     disciplines: ['e-enduro'], weight: 25400, price: 13920, modelYear: 2026,
     note: 'Flagship Macina Prowler: Bosch\'s ABS-integrated CX-R motor (up to 120Nm), Fox 38 Float Factory E fork/Fox Float X NEO Factory shock, DT Swiss HXC 1200 carbon wheels, SRAM XX Eagle Transmission (T-Type), RockShox Reverb AXS wireless dropper. Brakes not cataloged: the fetched spec table\'s brake row was cut off before the caliper model line (only the rotor/wheelset section followed), and the caliper differs by trim on this platform, so left blank per THE BAR rather than assuming the sibling Exonic\'s Magura MT7.',
-    desc: 'Sourced from ktm-bikes.at\'s own product page (fetched, spec table); weight 25.4kg independently corroborated by dueruote.it\'s listing (25.40 kg, EUR 12,199 matching). PRICE: EUR 12,199 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $13,920. catalog/emtb-depth-9 wave.',
+    desc: 'Re-fetched ktm-bikes.at\'s own product page (verify/emtb-brands-1 wave, 2026-07-23) — confirms Fox 38 Float Factory E fork/Fox Float X NEO Factory shock, DT HXC 1200 carbon wheels, SRAM XX Eagle Transmission (T-Type), RockShox Reverb AXS wireless dropper, 800Wh PowerTube, EUR 12,199 SRP, and weight 25.4kg exactly as previously cataloged; also independently corroborated by dueruote.it\'s listing (25.40 kg, EUR 12,199 matching). Brakes still not stated in the fetched spec table (cut off before the caliper model line) so left uncataloged per THE BAR rather than assuming the sibling Exonic\'s Magura MT7. PRICE: EUR 12,199 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $13,920.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.ktm-bikes.at/e-bikes/detail/mx1260000108-mac-prowler-exonic-cx-r-xx-t-type-l-48-mx1260000108macina-prowler-exonic-cx-rfresh-burnt-orange-black-matt1x12-sram-xx-transmission-2026'
   },
   {
@@ -2309,7 +2314,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'Shimano Deore XT M8100-12',
     disciplines: ['e-enduro'], weight: 25900, price: 5704, modelYear: 2026,
     note: 'Entry-tier Macina Prowler (cheapest trim on the platform): "Macina Prowler Dimmix Carbon 170 UDH" carbon frame, RockShox Domain RC fork, Fox Float X Performance shock (250x75), Shimano Deore XT mechanical drivetrain. Brakes not stated in the fetched spec table (cut off before the brake line, same gap as the Comp LTD Kapoho row) so left uncataloged.',
-    desc: 'Sourced from ktm-bikes.at\'s own product page (fetched, spec table); price/spec combo matches the Prowler listing page\'s "MACINA PROWLER ELITE...1X12 SHIMANO DEORE XT...4.999 EUR" row exactly. PRICE: EUR 4,999 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,704. catalog/emtb-depth-9 wave.',
+    desc: 'Re-fetched ktm-bikes.at\'s own product page (verify/emtb-brands-1 wave, 2026-07-23) — confirms RockShox Domain RC fork, Fox Float X Performance shock, Shimano Deore XT mechanical drivetrain, 750Wh PowerTube, EUR 4,999 SRP, and weight 25.9kg exactly as previously cataloged. Brakes still not stated in the fetched spec table (cut off before the brake line, same gap as the Comp LTD Kapoho row) so left uncataloged. PRICE: EUR 4,999 (maker-published) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,704.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.ktm-bikes.at/e-bikes/detail/mx1260006108-macina-prowler-elite-l-48-mx1260006108macina-prowler-elitechrome-red-matt-black1x12-shimano-deore-xt-2026/MX1260006108'
   },
 
