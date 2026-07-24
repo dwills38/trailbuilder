@@ -21,7 +21,8 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { TB_LEGAL_LINKS, TB_LEGAL_SEP, tbLegalLinksHtml, tbLegalLinksText } = require('../src/page-shell.js');
+const { TB_LEGAL_LINKS, TB_LEGAL_SEP, tbLegalLinksHtml, tbLegalLinksText,
+        TB_FAMILY, TB_FAMILY_HERE_NOTE, tbFamilyMenuItemsHtml } = require('../src/page-shell.js');
 
 const ROOT = path.join(__dirname, '..');
 /** @param {string} f @returns {string} */
@@ -29,12 +30,12 @@ const read = (f) => fs.readFileSync(path.join(ROOT, f), 'utf8');
 
 /* Pages that render their catalog from JS and mount the tail via page-shell.js. */
 const BUILDER_PAGES = [
-  { file: 'index.html',            base: '' },
-  { file: 'bmx.html',              base: '' },
-  { file: 'road.html',             base: '' },
-  { file: 'gravel.html',           base: '' },
-  { file: 'emtb.html',             base: '' },
-  { file: 'KitBuilder/index.html', base: '../' },
+  { file: 'index.html',            base: '',     famId: 'mtb' },
+  { file: 'bmx.html',              base: '',     famId: 'bmx' },
+  { file: 'road.html',             base: '',     famId: 'road' },
+  { file: 'gravel.html',           base: '',     famId: 'gravel' },
+  { file: 'emtb.html',             base: '',     famId: 'emtb' },
+  { file: 'KitBuilder/index.html', base: '../',  famId: 'kit' },
 ];
 
 /* Static content pages — literal links, must work with JS off. */
@@ -46,7 +47,10 @@ const STATIC_PAGES = [
   { file: 'affiliate-disclosure.html', base: '' },
 ];
 
-const ALL_PAGES = BUILDER_PAGES.concat(STATIC_PAGES);
+/* Every page the site serves. Only `file`/`base` are read here, so the two
+   lists are narrowed to that shape before joining. */
+const ALL_PAGES = BUILDER_PAGES.map(({ file, base }) => ({ file, base }))
+  .concat(STATIC_PAGES.map(({ file, base }) => ({ file, base })));
 
 /* The publishable Cloudflare Web Analytics token (committed constant, same
    pattern as REPORT_REPO/src/config.js). Four pages were missing this. */
@@ -139,6 +143,95 @@ describe('page-shell: every served page carries the shared chrome', () => {
     }
   });
 
+  it.each(BUILDER_PAGES)('$file mounts the family switcher as its own id', ({ file, famId }) => {
+    const html = read(file);
+    expect(html).toContain('<span data-tb-family="' + famId + '"></span>');
+    // Exactly one switcher per page, and its <details>/.fam-pop wrapper stays
+    // in the markup (each page's inline handler resolves #famMenu at parse
+    // time, and the wordmark/mission legitimately differ per page).
+    expect(html.split('data-tb-family=').length - 1).toBe(1);
+    expect(html).toContain('<details class="fam-menu" id="famMenu">');
+    expect(html).toContain('<div class="fam-pop" role="menu"');
+  });
+
+  it.each(BUILDER_PAGES)('$file no longer hand-writes the family menu', ({ file }) => {
+    const html = read(file);
+    const famPop = html.split('<div class="fam-pop"')[1].split('<div class="fam-mission"')[0];
+    expect(famPop).not.toContain('<a ');   // the whole point: one list, one place
+  });
+});
+
+describe('page-shell: the family switcher', () => {
+  it('lists exactly the live surfaces, in order, plus About last', () => {
+    expect(TB_FAMILY.map((f) => f.id)).toEqual(
+      ['mtb', 'bmx', 'road', 'gravel', 'emtb', 'kit', 'about']
+    );
+  });
+
+  it('marks the current page, and only the current page', () => {
+    const html = tbFamilyMenuItemsHtml('road', '');
+    expect((html.match(/class="here"/g) || []).length).toBe(1);
+    expect((html.match(/aria-current="page"/g) || []).length).toBe(1);
+    expect(html).toContain('<a class="here" href="road.html" role="menuitem" aria-current="page">'
+      + '🚴 BuildMyRoadbike <span class="fam-soft">— ' + TB_FAMILY_HERE_NOTE + '</span></a>');
+  });
+
+  it('marks nothing when the current id is unknown or omitted', () => {
+    for (const cur of [undefined, '', 'strider']) {
+      expect(tbFamilyMenuItemsHtml(cur, '')).not.toContain('class="here"');
+    }
+  });
+
+  it('sends the MTB entry to the site root, from either depth', () => {
+    expect(tbFamilyMenuItemsHtml('bmx', '')).toContain('<a href="/" role="menuitem">🚵 BuildMyMTB</a>');
+    expect(tbFamilyMenuItemsHtml('kit', '../')).toContain('<a href="../" role="menuitem">🚵 BuildMyMTB</a>');
+  });
+
+  it('prefixes every non-root entry for /KitBuilder/', () => {
+    const html = tbFamilyMenuItemsHtml('kit', '../');
+    for (const f of TB_FAMILY) {
+      if (f.href === '') continue;
+      expect(html).toContain('href="../' + f.href + '"');
+    }
+  });
+
+  it('escapes the About note rather than emitting a raw ampersand', () => {
+    const html = tbFamilyMenuItemsHtml('mtb', '');
+    expect(html).toContain('mission, family &amp; what verified means');
+    expect(html).not.toMatch(/family & what/);
+  });
+
+  it('renders one anchor per surface and nothing else', () => {
+    const html = tbFamilyMenuItemsHtml('mtb', '');
+    expect((html.match(/<a /g) || []).length).toBe(TB_FAMILY.length);
+    expect(html).not.toContain('<script');
+    expect(html).not.toContain('<div');
+  });
+
+  it('is pure and deterministic', () => {
+    const a = tbFamilyMenuItemsHtml('gravel', '');
+    const b = tbFamilyMenuItemsHtml('gravel', '');
+    expect(a).toBe(b);
+    expect(TB_FAMILY.map((f) => f.id).join()).toBe('mtb,bmx,road,gravel,emtb,kit,about');
+  });
+
+  /* Hard rule 3: a new bike type stays OFF-LIVE until Douglas gives the word.
+     Adding a row here is part of a go-live, never a way to preview one — so
+     every surface listed must be a page that actually ships. */
+  it.each(TB_FAMILY.filter((f) => f.href !== ''))('$id points at a page that exists', ({ href }) => {
+    const target = href === 'KitBuilder/' ? 'KitBuilder/index.html' : href;
+    expect(fs.existsSync(path.join(ROOT, target))).toBe(true);
+  });
+
+  it.each(TB_FAMILY.filter((f) => f.href !== ''))('$id is staged by deploy.yml', ({ href }) => {
+    // A page in the menu that deploy.yml never copies is a 404 in production.
+    const deploy = read('.github/workflows/deploy.yml');
+    const target = href === 'KitBuilder/' ? 'KitBuilder/index.html' : href;
+    expect(deploy).toContain('cp ' + target + ' _site/');
+  });
+});
+
+describe('page-shell: hard rule 2', () => {
   /* Hard rule 2 — the shell must never introduce an auto-appearing anything. */
   it('page-shell.js opens no dialog, appends nothing to <body>, sets no timer', () => {
     const src = read('src/page-shell.js');

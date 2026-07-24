@@ -72,8 +72,75 @@ function tbLegalLinksText() {
   return TB_LEGAL_LINKS.map(function (l) { return l.label; }).join(TB_LEGAL_SEP);
 }
 
+/* ---- The BuildMy family switcher ----------------------------------------
+   The list of live surfaces, in the order they appear in every header menu.
+
+   THIS is the block that cost six edits per go-live: BMX (2026-07-17), road
+   + EMTB (2026-07-20) and gravel (2026-07-21) each had to be hand-added to
+   every other page's menu, and any page that got missed silently stopped
+   offering the new surface. One list now.
+
+   Only the LIVE surfaces belong here. A genuinely-new bike type stays OFF-LIVE
+   — its own dataset, not wired into any page — until Douglas gives the word
+   (CLAUDE.md hard rule 3). Adding a row here is part of a go-live, never a
+   way to preview one.
+
+   `href` is joined onto the page's base prefix. The MTB entry's empty href
+   means "the site root", which is '/' from the root and '../' from
+   /KitBuilder/ — both land on index.html.
+   -------------------------------------------------------------------------- */
+/** @type {ReadonlyArray<{id:string,href:string,icon:string,name:string,note?:string}>} */
+var TB_FAMILY = [
+  { id: 'mtb',    href: '',             icon: '🚵', name: 'BuildMyMTB' },
+  { id: 'bmx',    href: 'bmx.html',     icon: '🏁', name: 'BuildMyBMX' },
+  { id: 'road',   href: 'road.html',    icon: '🚴', name: 'BuildMyRoadbike' },
+  { id: 'gravel', href: 'gravel.html',  icon: '🌾', name: 'BuildMyGravelBike' },
+  { id: 'emtb',   href: 'emtb.html',    icon: '⚙️', name: 'BuildMyEMTB' },
+  { id: 'kit',    href: 'KitBuilder/',  icon: '🧰', name: 'BuildMyRideKit' },
+  { id: 'about',  href: 'about.html',   icon: 'ℹ️', name: 'About BuildMy',
+    note: 'mission, family & what verified means' }
+];
+
+/** The soft note marking the page you are already on. */
+var TB_FAMILY_HERE_NOTE = "you're here";
+
+/** Minimal HTML-text escape for the one interpolated string (the About note's
+ * ampersand). Everything else in TB_FAMILY is author-controlled plain text.
+ * @param {string} s @returns {string} */
+function tbEscText(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+/** Render the family switcher's menu items — the <a> run that goes inside an
+ * existing `.fam-pop`. Deliberately NOT the whole <details>: each page keeps
+ * its own wordmark, summary and mission line, which legitimately differ (emtb
+ * brands its header BuildMyEMTB and carries the longer mission text). What is
+ * shared is the LIST, and that is what this returns.
+ *
+ * @param {string} [current] the TB_FAMILY id of the page being rendered; that
+ *   entry is marked `here` / aria-current. Unknown or omitted marks nothing.
+ * @param {string} [base] path prefix to the site root ('' or '../').
+ * @returns {string}
+ */
+function tbFamilyMenuItemsHtml(current, base) {
+  var b = base || '';
+  return TB_FAMILY.map(function (f) {
+    var href = f.href === '' ? (b || '/') : b + f.href;
+    var here = f.id === current;
+    var note = here ? TB_FAMILY_HERE_NOTE : f.note;
+    return '<a' + (here ? ' class="here"' : '') + ' href="' + href + '" role="menuitem"'
+      + (here ? ' aria-current="page"' : '') + '>'
+      + f.icon + ' ' + f.name
+      + (note ? ' <span class="fam-soft">— ' + tbEscText(note) + '</span>' : '')
+      + '</a>';
+  }).join('\n        ');
+}
+
 /* ---- Browser mount -------------------------------------------------------
-   Fills every `<span data-tb-legal></span>` placeholder on the page.
+   Fills every `<span data-tb-legal></span>` placeholder on the page, and
+   replaces every `<span data-tb-family="<id>"></span>` with the menu items
+   (replaces, not fills, so the anchors stay direct children of `.fam-pop`
+   exactly as the hand-written markup had them — the CSS targets `.fam-pop a`).
 
    Base-path detection is DERIVED, never configured per page: this script
    reads its own <script src> (…/src/page-shell.js) and keeps whatever came
@@ -106,12 +173,22 @@ var TB_SHELL_BASE = '';
   var me = doc.currentScript && doc.currentScript.getAttribute('src');
   if (me) TB_SHELL_BASE = me.replace(/src\/page-shell\.js.*$/, '');
 
+  /** @param {any} el @returns {string} */
+  function baseOf(el) {
+    var b = el.getAttribute('data-base');
+    return b === null ? TB_SHELL_BASE : b;
+  }
+
   function mount() {
-    var slots = doc.querySelectorAll('[data-tb-legal]');
-    for (var i = 0; i < slots.length; i++) {
-      var el = slots[i];
-      var base = el.getAttribute('data-base');
-      el.innerHTML = tbLegalLinksHtml(base === null ? TB_SHELL_BASE : base);
+    var legal = doc.querySelectorAll('[data-tb-legal]');
+    for (var i = 0; i < legal.length; i++) {
+      legal[i].innerHTML = tbLegalLinksHtml(baseOf(legal[i]));
+    }
+    var fam = doc.querySelectorAll('[data-tb-family]');
+    for (var j = 0; j < fam.length; j++) {
+      var el = fam[j];
+      // outerHTML, so the <a>s end up as direct children of .fam-pop.
+      el.outerHTML = tbFamilyMenuItemsHtml(el.getAttribute('data-tb-family'), baseOf(el));
     }
   }
 
@@ -128,5 +205,7 @@ var TB_SHELL_BASE = '';
 /* ---- Export for Node tests (ignored by the browser) ---------------------- */
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { TB_LEGAL_LINKS: TB_LEGAL_LINKS, TB_LEGAL_SEP: TB_LEGAL_SEP,
-    tbLegalLinksHtml: tbLegalLinksHtml, tbLegalLinksText: tbLegalLinksText };
+    tbLegalLinksHtml: tbLegalLinksHtml, tbLegalLinksText: tbLegalLinksText,
+    TB_FAMILY: TB_FAMILY, TB_FAMILY_HERE_NOTE: TB_FAMILY_HERE_NOTE,
+    tbFamilyMenuItemsHtml: tbFamilyMenuItemsHtml };
 }
