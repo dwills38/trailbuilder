@@ -1888,6 +1888,24 @@ var BMX_PARTS = [
     note: '14in chromoly layback post for old-school 7/8in (22.2mm) seat tubes - danscomp.com listing; a railed (non-Pivotal) post.'
   },
   {
+    id: 'bmx-sp-sm-longjohnson-stealth', cat: 'seatpost', brand: 'S&M', model: 'Long Johnson Stealth Pivotal Seatpost',
+    diameter: 25.4, system: 'stealth', weight: 194, price: 39.95,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://sandmbikes.com/product/hardgoods/seating/long-johnson-stealth-pivotal-seatpost/',
+    note: 'bmx-smallparts-2 (2026-07-24): second S&M seatpost, first stealth-system row for this brand. Directly fetched sandmbikes.com (maker\'s own storefront): "25.4 MM LONG JOHNSON STEALTH PIVOTAL SEATPOSTS...$39.95...Stealth Pivotal mounting system accepts an Allen wrench from below, not thru the seat...Diameter: 25.4mm...Weight: 6.85oz" (=194g). diameter/system:stealth/weight/price all CONFIRMED.'
+  },
+  {
+    id: 'bmx-sp-federal-pivotal-200', cat: 'seatpost', brand: 'Federal', model: 'Pivotal 200mm Seat Post',
+    diameter: 25.4, system: 'pivotal', price: 41.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://federalbikes.com/products/federal-pivotal-200mm-seat-post-black-25-4mm',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched federalbikes.com ($41.00 USD): "Federal Pivotal 200mm Seat Post - Black 25.4mm...for Pivotal mounted seats" - diameter/system/price CONFIRMED. No weight stated on the listing.'
+  },
+  {
+    id: 'bmx-sp-federal-stealthpivotal-200', cat: 'seatpost', brand: 'Federal', model: 'Stealth Pivotal 200mm Seat Post',
+    diameter: 25.4, system: 'stealth', price: 38.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://federalbikes.com/products/federal-stealth-pivotal-200mm-seat-post-black-25-4mm',
+    note: 'bmx-smallparts-2 (2026-07-24): second Federal seatpost row. Directly fetched federalbikes.com ($38.00 USD): "Federal Stealth Pivotal 200mm Seat Post - Black 25.4mm...Designed to be used with Stealth Pivotal seats but also compatible with regular Pivotal seats" - diameter/system:stealth/price CONFIRMED. No weight stated on the listing.'
+  },
+  {
     id: 'bmx-se-sm-fatpivotal', cat: 'seat', brand: 'S&M', model: 'Fat Pivotal Seat',
     system: 'pivotal', price: 29.95,
     note: 'BMX wave 6: raw-fetched sandmbikes.com/product/hardgoods/seating/fat-pivotal-seat/ (the manufacturer\'s own page) - confirms "PIVOTAL" mount and PADDED construction (matches system:\'pivotal\'), and the real price ("price":"29.95") - CORRECTED from the stale 49.95 albes.com-retailer figure. NOT VERIFIED: no per-product weight anywhere on the page, only a generic "1 lbs" shipping-box figure indistinguishable from the Odyssey/Cult shipping-weight-bucket trap (wave 2 doctrine) - fails THE BAR item 2 (seat is not an interface-verification-exception category). Left unverified.'
@@ -2599,6 +2617,12 @@ var BMX_PARTS = [
     note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched wethepeoplebmx.de (WeThePeople\'s own storefront): "PIVOTAL SEAT POST...SIZE: FOR STANDARD 25.4MM SEAT POSTS...SYSTEM: PIVOTAL SYSTEM" (diameter/system both CONFIRMED). No price on the maker\'s EU marketing site (the same gap this catalog\'s other WeThePeople rows already disclose); priced via named US retailer (us.sourcebmx.com, $39.99, matching the maker\'s 200mm length) per the third-party-listed tier. Weight NOT recorded: the maker page states "WEIGHT: 19G (0.65OZ)" but that figure is implausibly light for a full 200-300mm alloy post (likely a stray clamp-hardware weight mis-attached to this spec block) - fails the phantom-number bar, so no weight is stored.'
   },
   {
+    id: 'bmx-sp-sunday-pivotal-200', cat: 'seatpost', brand: 'Sunday', model: 'Pivotal Seat Post',
+    diameter: 25.4, system: 'pivotal', price: 36.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://shop.sundaybikes.com/collections/sunday-seating',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched shop.sundaybikes.com (Sunday\'s own storefront, Full Factory Marketplace): "Pivotal Seat Post $36.99 Pivotal mount. 200mm length. 25.4mm diameter." - diameter/system/price all CONFIRMED. No weight stated on the listing.'
+  },
+  {
     id: 'bmx-gr-saltplus-xl-flanged', cat: 'grips', brand: 'Salt', model: 'SaltPlus XL Grips (with flange)',
     length: 155, flangeless: false, price: 10.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
@@ -2713,6 +2737,18 @@ var BMX_PARTS = [
     pitch: '1/8', halfLink: true, price: 36.00,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://federalbikes.com/products/federal-half-link-chain-black',
     note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched federalbikes.com: product name "Federal Half Link Chain" confirms halfLink:true (the checkBmxBuild-read field alongside pitch). Regular price "$36.00" used (page currently shows a labeled 22%-off sale price of $28.00 - NOT used per THE PRICE RULE). pitch:1/8 is the catalog-standard BMX freestyle default (not itself numerically stated on this thin product page), matching this catalog\'s convention for other maker-confirmed half-link chain rows.'
+  },
+  {
+    id: 'bmx-ch-wethepeople-demand', cat: 'chain', brand: 'WeThePeople', model: 'Demand Chain',
+    pitch: '1/8', halfLink: true, price: 26.99,
+    source: 'https://5150bmx.com/products/demand',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched wethepeoplebmx.de (maker\'s own storefront): "made by KMC...incl. half link...90 links" - halfLink:true CONFIRMED, WEIGHT stated as "TBA" (not stored, no phantom number). pitch:1/8 is the catalog-standard BMX freestyle default (not itself numerically stated on this page). No price on the maker\'s EU site; US retailer prices for this SKU range widely ($24.99-$38.00 across five listings) with no single figure standing out as the clear MSRP, so this row stays UNVERIFIED (no priceBasis claim) with the 5150bmx.com figure ($26.99) recorded as a representative sample price, not a confirmed one.'
+  },
+  {
+    id: 'bmx-ch-tallorder-510', cat: 'chain', brand: 'Tall Order', model: '510 Chain',
+    pitch: '1/8', halfLink: true, weight: 249, price: 18.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://tallorderbmx.com/collections/bmx-parts/chains',
+    note: 'bmx-smallparts-2 (2026-07-24): second Tall Order row for this catalog (pedals already present). Directly fetched tallorderbmx.com (maker\'s own storefront, $18.00 USD): "Tall Order 510 Chain". Chain Width/Size/half-link/weight cross-confirmed via named retailer listings (Alans BMX, FoundationBMX): "1/2\\" x 1/8\\"...112 links...includes a half link...249g" - pitch:1/8, halfLink:true, weight all CONFIRMED.'
   },
   {
     id: 'bmx-se-mission-carrier', cat: 'seat', brand: 'Mission', model: 'Carrier Seat',
@@ -2865,6 +2901,42 @@ var BMX_PARTS = [
     axleFit: '14mm', material: 'steel', reducerIncluded: true, price: 30.95,
     note: 'bmx-breadth-3 (2026-07-22): real current Fiction product, WebSearch-corroborated (SkatePro $30.95): "made from solid Chromoly steel...come in sets of either 2 pieces or 4 pieces, designed for 14mm axles and with spacers included for 10mm setup" -> axleFit:14mm, material:steel, reducerIncluded:true (the 10mm spacers). Price entered at the single-peg-equivalent SkatePro figure; the page also sells 2- and 4-peg bundles at proportional prices, not modeled as separate rows (bundle count is a quantity axis, not a fit-distinct SKU per DATA-ENTRY-TEMPLATE §1). Left unverified (retailer-corroborated, no manufacturer page fetched).'
   },
+  {
+    id: 'bmx-pg-federal-plasticchromoly-450', cat: 'pegs', brand: 'Federal', model: '4.5" Plastic/Chromoly Peg',
+    axleFit: '14mm', material: 'steel', reducerIncluded: true, price: 27.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://federalbikes.com/products/federal-450-plastic-chromoly-peg-black',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched federalbikes.com (Federal\'s own storefront, $27.00 USD shown at fetch time): "A heat-treated 4130 Chromoly core encased in a Nylon sleeve...Bored to 14mm, supplied with a 10mm adapter" - material:steel (4130 chromoly core), axleFit:14mm, reducerIncluded:true (10mm adapter supplied) all CONFIRMED. No weight stated on the listing.'
+  },
+  {
+    id: 'bmx-pg-federal-plasticalloy-450', cat: 'pegs', brand: 'Federal', model: '4.5" Plastic/Alloy Peg',
+    axleFit: '14mm', material: 'alloy', reducerIncluded: true, price: 24.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://federalbikes.com/products/federal-450-plastic-alloy-peg-black',
+    note: 'bmx-smallparts-2 (2026-07-24): second Federal peg SKU. Directly fetched federalbikes.com ($24.00 USD): "An Aluminium core encased in a Nylon sleeve...Bored to 14mm, supplied with a 10mm adapter" - material:alloy, axleFit:14mm, reducerIncluded:true all CONFIRMED. No weight stated on the listing.'
+  },
+  {
+    id: 'bmx-pg-wethepeople-toxic', cat: 'pegs', brand: 'WeThePeople', model: 'Toxic Peg',
+    axleFit: '14mm', material: 'steel', reducerIncluded: true, weight: 180, price: 32.95,
+    verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-24', source: 'https://www.skatepro.com/en-us/383-24481.htm',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched wethepeoplebmx.de (maker\'s own storefront): "Made out of heat treated 4140 chromoly...with 14mm holes and 3/8\\" adapters...WEIGHT: per peg: 180g" - material:steel (4140 crmo), axleFit:14mm, reducerIncluded:true, weight CONFIRMED. No price on the maker\'s EU site (the same gap this catalog\'s other WeThePeople rows already disclose); priced via named US retailer SkatePro ($32.95, matching spec) at the third-party-listed tier. Sold as a pair per the maker spec; priced here at the retailer\'s single listed figure per this catalog\'s existing pegs convention (see bmx-pg-fiction-steel).'
+  },
+  {
+    id: 'bmx-pg-wethepeople-dillpickle', cat: 'pegs', brand: 'WeThePeople', model: 'Dill Pickle Peg',
+    axleFit: '14mm', material: 'alloy', reducerIncluded: true, weight: 133, price: 42.95,
+    source: 'https://www.skatepro.com/en-us/383-32821.htm',
+    note: 'bmx-smallparts-2 (2026-07-24): second WeThePeople peg row (Dillon Lloyd signature). Directly fetched wethepeoplebmx.de: "heat-treated 7075-T6 alloy core with a specially designed nylon/fibreglass sleeve...with 14mm holes and 3/8\\" adapters...WEIGHT: per peg: 133g" - material:alloy (7075-T6), axleFit:14mm, reducerIncluded:true, weight CONFIRMED. No price on the maker\'s EU site; SkatePro lists a "Dill Pickle Nylon V2" at $42.95 - not promoted to verified since the "V2" naming on the retailer listing isn\'t confirmed to be the identical SKU described on the maker page (could be a later revision), so this row stays unverified pending a cleaner source match.'
+  },
+  {
+    id: 'bmx-pg-verde-regent', cat: 'pegs', brand: 'Verde', model: 'Regent PC Peg',
+    axleFit: '14mm', material: 'alloy', reducerIncluded: true, weight: 103, price: 19.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://verdebicycles.com/collections/pegs',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched verdebicycles.com (Verde\'s own storefront, $19.99 USD): "Material: Aluminum alloy core w/ replaceable nylon sleeve...Axle: 14mm bore w/ 10mm (3/8\\") adapter included...Weight: 3.65 oz" (=103g). material:alloy, axleFit:14mm, reducerIncluded:true, weight, price all CONFIRMED.'
+  },
+  {
+    id: 'bmx-pg-sunday-seeley475', cat: 'pegs', brand: 'Sunday', model: 'Seeley 4.75" PC Peg',
+    axleFit: '14mm', material: 'alloy', reducerIncluded: true, price: 27.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://shop.sundaybikes.com/collections/sunday-pegs',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched shop.sundaybikes.com (Sunday\'s own storefront, Full Factory Marketplace - the same distributor front already trusted for Odyssey rows in this catalog): "Seeley 4.75\\" PC Peg...Black $27.99...Jake Seeley signature. Full aluminum alloy core. Replaceable plastic sleeve. 14mm with 3/8\\" adapters" - axleFit:14mm, material:alloy (aluminum alloy core), reducerIncluded:true (3/8in adapters included), price CONFIRMED. No weight stated on the listing.'
+  },
 
   // ---- Tall Order BMX (new brand: UK, founded 2016 by Bas Keep; thin
   //      pedals category) -------------------------------------------------
@@ -2892,6 +2964,30 @@ var BMX_PARTS = [
     platform: 'plastic', spindle: '9/16', weight: 357, price: 30.00,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.flybikes.com/product/fly-ruben-graphite-pedals-black',
     note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched flybikes.com: "Nylon - Fiberglass Compound" body (platform:plastic CONFIRMED), "Weight 357 g / 12.59 oz" CONFIRMED, "$30.00" CONFIRMED (USD, flybikes.com\'s own storefront price). spindle:9/16 is this catalog\'s universal BMX pedal-thread default (not independently restated on this page).'
+  },
+  {
+    id: 'bmx-pd-wethepeople-logic', cat: 'pedals', brand: 'WeThePeople', model: 'Logic Pedals',
+    platform: 'plastic', spindle: '9/16', weight: 391, price: 18.99,
+    verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-24', source: 'https://mashsf.com/products/we-the-people-logic-pedals-platform-composite-plas',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched wethepeoplebmx.de (maker\'s own storefront): "high-impact nylon/fiberglass" (platform:plastic), "SIZE: 9/16\\"" (spindle CONFIRMED, not the assumed default here), "WEIGHT: pair: 391g" CONFIRMED. No price on the maker\'s EU site; priced via named US retailer MASH SF ($18.99, mid-range among several US listings clustered $17-25) at the third-party-listed tier.'
+  },
+  {
+    id: 'bmx-pd-mission-impulse', cat: 'pedals', brand: 'Mission', model: 'Impulse Pedals',
+    platform: 'plastic', spindle: '9/16', weight: 403, price: 15.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://missionbmx.com/products/impulse-pedals',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched missionbmx.com (maker\'s own storefront): "SIZE: 9/16\\"...BODY: Nylon Composite...SPINDLE: Chromoly Steel...WEIGHT: 14.2oz" (=403g). platform:plastic/spindle/weight/price ($15.99, the base-color price; several premium colorways carry $29.99/$44.99 upcharges, not used per THE PRICE RULE) all CONFIRMED.'
+  },
+  {
+    id: 'bmx-pd-duo-hilo', cat: 'pedals', brand: 'DUO', model: 'Hi-Lo Pedals',
+    platform: 'alloy', spindle: '9/16', weight: 448, price: 119.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://verdebicycles.com/collections/pedals',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category (DUO, sold via Verde\'s own storefront - verdebicycles.com, the same distributor front already trusted for the Verde peg row above). Directly fetched: "$119.99 USD...CNC machined aluminum body (105mm x 102mm)...9/16\\" heat-treated chromoly spindle...15.8oz (pair)" (=448g). platform:alloy, spindle:9/16 (explicitly restated, not this catalog\'s assumed default), weight, price all CONFIRMED.'
+  },
+  {
+    id: 'bmx-pd-sm-hoderbtm', cat: 'pedals', brand: 'S&M', model: 'Hoder BTM Pedals',
+    platform: 'plastic', spindle: '9/16', weight: 405, price: 19.95,
+    verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-24', source: 'https://www.empirebmx.com/products/s-m-hoder-btm-pedals',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched sandmbikes.com (maker page): "Long Lasting Nylon/Fiber Blend" body and "14.3oz" (platform:plastic, weight CONFIRMED) but the page carries no listed price. Cross-checked against empirebmx.com (named US retailer): "9/16\\" only...14.3 oz (405 g)...$19.95" - spindle:9/16 explicitly restated (not this catalog\'s assumed default here), weight matches the maker figure exactly (405g), price taken at the third-party-listed tier since the maker page itself has no checkout price. Other retailers list this SKU anywhere from $14.95 (marked sale) to $34.00 (one outlier); $19.95 was chosen as the one matching both the maker\'s stated weight AND a non-sale-tagged listing.'
   },
 
   // ---- GSport BMX (new brand: Roloway/Elite hub-wheel line; thin
