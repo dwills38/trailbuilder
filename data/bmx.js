@@ -593,6 +593,11 @@ var BMX_PARTS = [
     steererFit: 'integrated-1-1/8', cableRouting: 'dual', weight: 72, price: 44.99,
     note: 'bmx-breadth-4 (2026-07-22): UNVERIFIED sample. Directly fetched saltbmx.com/products/saltplus-geo-rotor: "Size: for 1 1/8\\" headtubes" -> steererFit CONFIRMED; "Weight: 72g (2.54oz : 0.15lbs)" -> weight CONFIRMED. cableRouting left at the catalog-standard \'dual\' (not itself stated on this page; SaltPlus separately sells a "Dual Upper Gyro Cable" for this same rotor line, consistent with dual routing). Maker page carries NO price (redirects off-site to a "Kingdom Store" distributor with no price shown) - retailer prices span $39.99 (thesecretbmx.com, listed sold-out) to $58.95 (SkatePro, EUR-region); $44.99 (LUXBMX-adjacent midpoint) entered as an approximate sample, not a confirmed MSRP. Left unverified: no source page states a USD price.'
   },
+  {
+    id: 'bmx-gy-colony-rx3', cat: 'gyro', brand: 'Colony', model: 'RX3 Rotary Gyro',
+    steererFit: 'integrated-1-1/8', cableRouting: 'dual', weight: 32, price: 44.00,
+    note: 'bmx-smallparts-1 (2026-07-23): UNVERIFIED sample, new brand for this category. Directly fetched colonybmx.com.au/products/rx3-rotary-detangler/: "CNC Alloy precision detangler...Weight: 32g (0.07 lbs)" -> weight CONFIRMED. steererFit/cableRouting left at the catalog-standard integrated-1-1/8/dual (not stated on this page; display-only fields per every other cataloged gyro row\'s convention). Maker page (AU distributor site) carries NO price - $44.00 entered as an approximate sample from a US retailer (LUXBMX sale-price listing, currently sold out there), not a confirmed MSRP; left unverified per THE PRICE RULE.'
+  },
 
   // ===== CRANKS ========================================================
   {
@@ -1627,6 +1632,29 @@ var BMX_PARTS = [
     mount: 'disc', price: 64.99,
     note: 'Mechanical disc caliper commonly specced on disc-mount BMX race frames (Redline Proline Flight class).'
   },
+  {
+    id: 'bmx-br-eclat-unit', cat: 'brake', brand: 'Eclat', model: 'Unit Brake',
+    mount: 'u-brake', weight: 171, price: 71.99,
+    verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-23', source: 'https://thesecretbmx.com/products/eclat-unit-u-brake',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched eclatbmx.com/products/eclat-unit-brake-1: "compatible with rear brake mounts only" (mount:u-brake, the checkBmxBuild-read field, CONFIRMED) and "Weight complete: 171g (6.03oz)" (weight CONFIRMED). Maker page carries no price (redirects to a Kingdom Store distributor with no price shown, same gap as the Cyclone Rotor above); priced via named US retailer The Secret BMX ($71.99), whose own weight figure (6.03oz) matches the maker page exactly, confirming the same SKU - promoted to verified:true under priceBasis:third-party-listed per this catalog\'s established convention (e.g. bmx-fk-wethepeople-* rows).'
+  },
+  {
+    id: 'bmx-br-kink-desist2', cat: 'brake', brand: 'Kink', model: 'Desist II Brakes',
+    mount: 'u-brake', weight: 102, price: 64.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://kinkbmx.com/products/desist-ii-brakes',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched kinkbmx.com/products/desist-ii-brakes: "Particulars: Front and Rear Compatible" (a standard 990-post caliper, mount:u-brake CONFIRMED - the checkBmxBuild-read field), "Weight: 3.6oz" (=102g CONFIRMED), "Regular price $64.99" CONFIRMED.'
+  },
+  {
+    id: 'bmx-br-colony-brethren', cat: 'brake', brand: 'Colony', model: 'Brethren Brake Set',
+    mount: 'u-brake', weight: 185, price: 84.99,
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched colonybmx.com.au/products/brethren-brake-set/: "Suitable for front or rear brakes" (mount:u-brake CONFIRMED, the checkBmxBuild-read field), "Weight: 185 grams" CONFIRMED. AU maker page carries no price (same gap as this catalog\'s other Colony rows). Price entered from Dan\'s Comp\'s own listing ($84.99, weight 6.5oz = 184g there - matches the maker figure closely, same SKU) but that retailer page is itself marked "Discontinued Online" - left UNVERIFIED (not priceBasis:third-party-listed) since it is unclear whether $84.99 is still this SKU\'s live current price anywhere, even though the maker\'s own site still lists the product as current.'
+  },
+  {
+    id: 'bmx-br-flybikes-manualcncog', cat: 'brake', brand: 'Fly Bikes', model: 'Manual CNC OG Brake',
+    mount: 'u-brake', weight: 147, price: 140.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.flybikes.com/product/fly-manual-cnc-classic-brake',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched flybikes.com: "Compatible with all u-brake system mounts" (mount:u-brake CONFIRMED, the checkBmxBuild-read field), "Weight 147 g / 5.2 oz" CONFIRMED, "$140.00" CONFIRMED.'
+  },
 
   // ---- Standard Byke Co (new brand: standardbyke.com, 1991-, USA-made) --
   {
@@ -2457,6 +2485,18 @@ var BMX_PARTS = [
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "25.4 mm micro-adjust seat post...only compatible with railed seats...Weight: 180 g (6.35 oz)" — directly confirms both of the seatpost category\'s schema fields (diameter, system:\'standard\').'
   },
   {
+    id: 'bmx-sp-flybikes-tripod', cat: 'seatpost', brand: 'Fly Bikes', model: 'Tripod Post',
+    diameter: 25.4, system: 'standard', price: 40.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.flybikes.com/product/fly-tripod-seat-post',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched flybikes.com: "The Tripod system is simple, easy to install and extremely strong due to its three fixing points" - a railed 3-point-clamp design, not Pivotal, matching this catalog\'s existing "Tripod" naming convention for system:\'standard\' (see bmx-sp-odyssey-standard-post, also literally named "Tripod Seat Post"). "$40.00" CONFIRMED. diameter:25.4 is this catalog\'s universal BMX seatpost default (not independently restated on this page - no maker figure for weight either, so weight stays unset).'
+  },
+  {
+    id: 'bmx-sp-wethepeople-pivotal', cat: 'seatpost', brand: 'WeThePeople', model: 'Pivotal Seat Post',
+    diameter: 25.4, system: 'pivotal', price: 39.99,
+    verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-23', source: 'https://us.sourcebmx.com/products/wethepeople-pivotal-seatpost',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched wethepeoplebmx.de (WeThePeople\'s own storefront): "PIVOTAL SEAT POST...SIZE: FOR STANDARD 25.4MM SEAT POSTS...SYSTEM: PIVOTAL SYSTEM" (diameter/system both CONFIRMED). No price on the maker\'s EU marketing site (the same gap this catalog\'s other WeThePeople rows already disclose); priced via named US retailer (us.sourcebmx.com, $39.99, matching the maker\'s 200mm length) per the third-party-listed tier. Weight NOT recorded: the maker page states "WEIGHT: 19G (0.65OZ)" but that figure is implausibly light for a full 200-300mm alloy post (likely a stray clamp-hardware weight mis-attached to this spec block) - fails the phantom-number bar, so no weight is stored.'
+  },
+  {
     id: 'bmx-gr-saltplus-xl-flanged', cat: 'grips', brand: 'Salt', model: 'SaltPlus XL Grips (with flange)',
     length: 155, flangeless: false, price: 10.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
@@ -2522,6 +2562,18 @@ var BMX_PARTS = [
     note: 'bmx-depth-9: VERIFIED via missionbmx.com (Mission\'s own domain). Page states verbatim: "TYPE: American...WEIGHT: 10.5oz" (=298g), price $34.99. This kit is sold in 19mm and 22mm spindle variants — this row pins the 19mm SKU (spindleFit:\'19mm\'); the 19mm size shows sold-out on the page (does not block a real-part entry).'
   },
   {
+    id: 'bmx-bb-colony-mid-19', cat: 'bb', brand: 'Colony', model: 'Mid Bottom Bracket Kit',
+    shell: 'mid', spindleFit: '19mm', weight: 176, price: 29.99,
+    verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-23', source: 'https://www.danscomp.com/colony-mid-bottom-bracket-black-19mm-i24-900/p1132694?v=1063691',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched colonybmx.com.au/products/bb-kit-mid/: "Available in 19mm & 22mm sizes" (shell:mid CONFIRMED, this row pins the 19mm spindle) - the AU maker page jokes it states no weight ("Come on... it\'s a BB kit!") and carries no price. Priced+weighed via Dan\'s Comp\'s matching current listing ("In Stock Online", not discontinued, unlike this catalog\'s other recent Colony finds): regular price $29.99 (a $22.99 sale price is shown alongside - NOT used per THE PRICE RULE) and "Weight: 6.2 oz (19mm)" (=176g) - promoted to verified:true under priceBasis:third-party-listed per this catalog\'s established convention.'
+  },
+  {
+    id: 'bmx-bb-stolen-revolver-19', cat: 'bb', brand: 'Stolen', model: 'Revolver Mid Bottom Bracket',
+    shell: 'mid', spindleFit: '19mm', price: 27.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.stolenbrand.com/products/revolver-bottom-bracket',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched stolenbrand.com (Stolen\'s own storefront): "REVOLVER MID BOTTOM BRACKET 19mm or 22mm...STYLE: MID" (shell:mid CONFIRMED, this row pins the 19mm size), "Regular price $27.99" CONFIRMED. Currently shows "Out Of Stock! ...Coming This Fall" on the maker\'s own site (restocking, not discontinued - the listing carries 14 customer reviews, a well-established current product). No weight published.'
+  },
+  {
     id: 'bmx-ch-mission-halflink', cat: 'chain', brand: 'Mission', model: 'Half-Link Chain',
     pitch: '1/8', halfLink: true, weight: 425, price: 34.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
@@ -2541,6 +2593,24 @@ var BMX_PARTS = [
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://missionbmx.com/products/510-chain',
     note: 'bmx-breadth-4 (2026-07-22): VERIFIED via missionbmx.com. Page states verbatim: "SIZE: 1/8\\"", "Features a factory-installed half-link and master link", "WEIGHT: 14.0oz" (=397g), "Regular price $19.99" — directly confirms both chain schema fields (pitch, halfLink:true) plus price. Mid-tier SKU (heat-treated pins, thicker side plates) between 410 and Half-Link Chain in Mission\'s own lineup.'
+  },
+  {
+    id: 'bmx-ch-flybikes-tractor', cat: 'chain', brand: 'Fly Bikes', model: 'Tractor Chain',
+    pitch: '1/8', halfLink: true, weight: 340, price: 45.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.flybikes.com/product/fly-tractor-chain',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched flybikes.com: "1.3 mm link plates...the convenience of a built in half-link" (halfLink:true CONFIRMED) and "Weight 340 g / 11.9 oz" CONFIRMED, "$45.00" CONFIRMED. pitch:1/8 is the catalog-standard BMX freestyle default (not itself numerically stated on this page, same convention as other cataloged chain rows e.g. bmx-ch-odyssey-seance), so verified:true rests on halfLink + price + weight, all independently page-confirmed.'
+  },
+  {
+    id: 'bmx-ch-shadow-interlockv2', cat: 'chain', brand: 'The Shadow Conspiracy', model: 'Interlock V2 Chain',
+    pitch: '1/8', halfLink: true, price: 61.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.sparkysbrands.com/products/shadow-interlock-v2-chain',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched sparkysbrands.com (Shadow\'s own storefront): "1/8\\" size" (pitch CONFIRMED) and "Half-Link Proprietary Design" (halfLink:true CONFIRMED), "Regular price $61.99" CONFIRMED. Weight NOT recorded: the page states "Weight: 11.3 oz for 72 links" but also states the chain "Includes 98 links" - an internal contradiction (72 vs 98 links) that fails the phantom-number bar, so no weight is stored rather than trusting either figure.'
+  },
+  {
+    id: 'bmx-ch-federal-halflink', cat: 'chain', brand: 'Federal', model: 'Half Link Chain',
+    pitch: '1/8', halfLink: true, price: 36.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://federalbikes.com/products/federal-half-link-chain-black',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched federalbikes.com: product name "Federal Half Link Chain" confirms halfLink:true (the checkBmxBuild-read field alongside pitch). Regular price "$36.00" used (page currently shows a labeled 22%-off sale price of $28.00 - NOT used per THE PRICE RULE). pitch:1/8 is the catalog-standard BMX freestyle default (not itself numerically stated on this thin product page), matching this catalog\'s convention for other maker-confirmed half-link chain rows.'
   },
   {
     id: 'bmx-se-mission-carrier', cat: 'seat', brand: 'Mission', model: 'Carrier Seat',
@@ -2653,9 +2723,38 @@ var BMX_PARTS = [
   // ---- Fiction BMX (new brand: a Stolen-family parts brand; thin headset +
   //      pegs categories) -------------------------------------------------
   {
+    id: 'bmx-hs-colony-headset', cat: 'headset', brand: 'Colony', model: 'Headset',
+    fit: 'integrated-1-1/8', weight: 55, price: 27.99,
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched colonybmx.com.au/products/headset/: "45/45 style with Colony logo engraving" (fit:integrated-1-1/8 CONFIRMED - Campy 45/45 is this catalog\'s standard mapping) and "Weight: 55 grams" CONFIRMED. AU maker page carries no price (same gap as Colony\'s other rows); price entered from Dan\'s Comp\'s matching "Colony Integrated Headset" listing ($27.99, "Campy 45/45 style" confirms same product) but that retailer page is marked "Discontinued Online" - left UNVERIFIED per the same reasoning as bmx-br-colony-brethren above.'
+  },
+  {
+    id: 'bmx-hs-federal-headset', cat: 'headset', brand: 'Federal', model: 'Headset',
+    fit: 'integrated-1-1/8', price: 36.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://federalbikes.com/products/federal-headset-black',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched federalbikes.com: "Regular Price $36.00" CONFIRMED. fit is display-only in checkBmxBuild (no rule reads it, per every other cataloged headset row\'s convention) - entered as the catalog-standard integrated-1-1/8 default (this page states only bearing-cap heights, not the head-tube bore) matching every current Federal frame in this catalog.'
+  },
+  {
     id: 'bmx-hs-fiction-savage', cat: 'headset', brand: 'Fiction', model: 'Savage Headset',
     fit: 'integrated-1-1/8', price: 19.95,
     note: 'bmx-breadth-3 (2026-07-22): NEW brand for this catalog. Real current Fiction product, WebSearch-corroborated across SkatePro ($19.95), Dan\'s Comp, Albe\'s BMX and Stolen Brand (Fiction\'s parent/sister brand storefront, $19.99) all describing the same SKU: "45x45º integrated 1-1/8in headset for modern head tubes with built-in cups... two precision sealed Campy spec bearings, a CNC machined alloy dust cover with 11mm stack height." No manufacturer-direct page located/fetched this session (Fiction has no clearly separate storefront from Stolen Brand\'s site). Price entered at the SkatePro figure. Left unverified (retailer-corroborated).'
+  },
+  {
+    id: 'bmx-pg-kink-2xog', cat: 'pegs', brand: 'Kink', model: '2XOG Peg',
+    axleFit: '14mm', material: 'steel', reducerIncluded: false, price: 18.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://kinkbmx.com/products/2xog-peg',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched kinkbmx.com: "Heat Treated SCM 415 Steel" (material:steel CONFIRMED), "Size: 3/8\\" and 14mm" (dual native bore, no reducer needed at 14mm - reducerIncluded:false, matching this catalog\'s convention for other dual-bore pegs e.g. bmx-pg-colony-oneway), "Regular price $18.99" CONFIRMED. Weight (7.3oz for the 4.5in length) not recorded: this row models the peg generically across both cataloged lengths (4.5in/4.75in), matching this catalog\'s convention for length-variant pegs.'
+  },
+  {
+    id: 'bmx-pg-totalbmx-skinniesv2', cat: 'pegs', brand: 'Total BMX', model: 'Skinnies V2 Peg',
+    axleFit: '14mm', material: 'alloy', reducerIncluded: false, weight: 83, price: 26.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://totalbmx.com/products/total-bmx-skinnies-v2-peg-each-black',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched totalbmx.com: "Heat-treated 7075 Aluminium...weighing in at a mere 83 grams" (material:alloy + weight CONFIRMED), "Regular price $26.00 USD" CONFIRMED. Sold as separate 10mm and 14mm SKUs (not a dual-bore peg with an adapter) - this row models the 14mm variant, reducerIncluded:false (no adapter, a distinct bore-specific SKU). Currently shows sold-out in this colorway on the maker\'s own site (inventory status, not a discontinued product).'
+  },
+  {
+    id: 'bmx-pg-merritt-sir', cat: 'pegs', brand: 'Merritt', model: 'S.I.R. Chromoly Peg',
+    axleFit: '14mm', material: 'steel', reducerIncluded: true, price: 21.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://merritt.bigcartel.com/',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched merritt.bigcartel.com (Merritt\'s own storefront) - its own product listing states verbatim "MERRITT 4.5\\" S.I.R. CHROMOLY PEG 14MM W/ADAPTER FOR 3/8\\" - $21.00" (material:steel via "Chromoly", axleFit:14mm CONFIRMED, reducerIncluded:true via the stated 3/8in adapter, price CONFIRMED). Weight not recorded: third-party listings disagree (7.7oz vs 6.7oz across two different sources for the two lengths), not maker-stated, so no figure is trusted per the phantom-number rule. This row models the 4.5in length generically (a second identically-priced 5in SKU also exists on the same storefront).'
   },
   {
     id: 'bmx-pg-fiction-steel', cat: 'pegs', brand: 'Fiction', model: 'Steel Freestyle Pegs',
@@ -2671,6 +2770,24 @@ var BMX_PARTS = [
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22',
     source: 'https://tallorderbmx.com/products/tall-order-catch-pedal-black-9-16',
     note: 'bmx-breadth-3 (2026-07-22): NEW brand for this catalog. FETCHED tallorderbmx.com directly (Tall Order\'s own storefront) — page states verbatim "Nylon plastic body" and "9/16\\" thread with heat treated axle" (platform:plastic, spindle:9/16 CONFIRMED). Regular price is £18.99 GBP (currently on sale at £11.99 — a labeled promotional price, NOT used per THE PRICE RULE); converted to USD at ~1.27 USD/GBP -> $24.12, priceBasis:regional-conversion (UK brand, no published US MSRP). No weight is stated on the page. Promoted to verified:true on the two engine-read/schema fields actually confirmed (platform, spindle); price is the disclosed conversion, not a literal maker-stated USD figure.'
+  },
+  {
+    id: 'bmx-pd-kink-hemlock', cat: 'pedals', brand: 'Kink', model: 'Hemlock Pedals',
+    platform: 'plastic', spindle: '9/16', weight: 411, price: 16.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://kinkbmx.com/products/hemlock-pedals',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched kinkbmx.com: "Spindle Size 9/16\\"" and "Body Material Nylon and Fiber Glass Blend" (platform:plastic, spindle:9/16 both CONFIRMED - pedals carry zero checkBmxBuild rules, but both schema fields are page-confirmed regardless), "Weight 14.5oz(pair)" (=411g CONFIRMED), "Regular price $16.99" CONFIRMED.'
+  },
+  {
+    id: 'bmx-pd-merritt-p1', cat: 'pedals', brand: 'Merritt', model: 'P1 Pedals',
+    platform: 'plastic', spindle: '9/16', weight: 366, price: 24.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://merritt.bigcartel.com/product/p1-pedals',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched merritt.bigcartel.com (Merritt\'s own storefront): "a special nylon/fiberglass blend" (platform:plastic CONFIRMED) and "Weight: 12.9 oz" (=366g CONFIRMED). Regular price $24.00 used (several colorways sell at that price unmarked; a handful of colorways carry a separate "(sale $X)" discount tag on the same listing, not used per THE PRICE RULE). spindle:9/16 is this catalog\'s universal BMX pedal-thread default (not independently restated on this page).'
+  },
+  {
+    id: 'bmx-pd-flybikes-rubengraphite', cat: 'pedals', brand: 'Fly Bikes', model: 'Ruben Graphite Pedals',
+    platform: 'plastic', spindle: '9/16', weight: 357, price: 30.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.flybikes.com/product/fly-ruben-graphite-pedals-black',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched flybikes.com: "Nylon - Fiberglass Compound" body (platform:plastic CONFIRMED), "Weight 357 g / 12.59 oz" CONFIRMED, "$30.00" CONFIRMED (USD, flybikes.com\'s own storefront price). spindle:9/16 is this catalog\'s universal BMX pedal-thread default (not independently restated on this page).'
   },
 
   // ---- GSport BMX (new brand: Roloway/Elite hub-wheel line; thin
@@ -2921,6 +3038,12 @@ var BMX_PARTS = [
     verified: true, priceBasis: 'pair-split-estimate', lastChecked: '2026-07-23',
     source: 'https://answerbmx.com/product/answer-bmx-pro-carbon-20mm-front-w-disc-rear-wheelset/',
     note: 'catalog/bmx-race-data-1: third Answer row (front half of a wheelset pair - see the matching bmx-rh row). Uses the race vocab landed in c7a267d0 (axle 20mm). "Answer BMX Pro Carbon 20mm Front w/ Disc Rear Wheelset" ($1,320.99 total, answerbmx.coms own listed price, confirmed identically across every related-product listing site-wide) - the "20mm Front" variant name states the front thru-axle directly (axle:20mm exact). Americancycle.coms matching build description (Answer Pinnacle/Holeshot Pro Carbon wheels, same Holeshot Pro hub family) confirms "20mm CNCd front hub body with EZO bearings and 20mm thru axle" independently. wheelSize:20 is the frames wheel size this wheelset is built for (36H carbon rim, 20x1.75in tire fitment per J&R Bicycles matching product). Price split 50/50 across the pair ($660.50 each) per this catalogs pair-split-estimate convention - the source page prices the pair only, no per-wheel breakdown exists.'
+  },
+  {
+    id: 'bmx-fw-totalbmx-techfire', cat: 'frontWheel', brand: 'Total BMX', model: 'Techfire Front Wheel',
+    wheelSize: '20', axle: '10mm', weight: 960, price: 231.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://totalbmx.com/products/total-bmx-techfire-front-wheel-black-hub-with-black-rim-10mm-3-8-quot',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched totalbmx.com: product name itself states "10mm (3/8\\")" (axle CONFIRMED), "Weight 0.96kg/ 2lbs 2oz" (=960g CONFIRMED), "Regular price $231.00 USD" CONFIRMED. wheelSize:20 is this catalog\'s universal BMX freestyle default (matching the rim\'s stated 394mm ERD/34mm width, a 20in-class build; not independently restated as "20in" on this specific page). Currently shows sold-out on the maker\'s own site (inventory status, not a discontinued product).'
   },
   {
     id: 'bmx-rh-answer-holeshotpro-disc', cat: 'rearWheel', brand: 'Answer', model: 'Holeshot Pro Carbon Disc Rear Wheel',
