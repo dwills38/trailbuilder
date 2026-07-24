@@ -2161,27 +2161,37 @@ var BMX_PARTS = [
   {
     id: 'bmx-rh-shadow-symbolcassette-rhd', cat: 'rearWheel', brand: 'The Shadow Conspiracy', model: 'Symbol Cassette Hub (RHD)',
     driverType: 'cassette', driverTeeth: 9, side: 'RHD', axle: '14mm', weight: 733, price: 171.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, sparkysbrands.com/products/shadow-symbol-cassette-hub-rhd. Description states, verbatim: "14mm solid cro-mo male axle 9T 1pc CNC cro-mo driver...Left or Right Hand Drive" (this handle is the RHD variant) and "Weight: 25.85 oz" (25.85oz = 733g, independently oz-stated, not the JSON shipping-weight field). Unverified sample (interfaces are real-page-sourced but not cross-checked against a second source).'
+    verified: true, lastChecked: '2026-07-23', source: 'https://sparkysbrands.com/products/shadow-symbol-cassette-hub-rhd',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched sparkysbrands.com/products/shadow-symbol-cassette-hub-rhd.js directly this session. Description states, verbatim: "14mm solid cro-mo male axle 9T 1pc CNC cro-mo driver...Left or Right Hand Drive" (this handle is the RHD variant) — confirms driverType:\'cassette\' (title), driverTeeth:9, axle:\'14mm\', side:\'RHD\' directly (rearWheel carries no engine-read wheelSize field). "Weight: 25.85 oz" = 733g, independently oz-stated, not the JSON shipping-weight field. Price $171.99 confirmed exactly.'
   },
   {
     id: 'bmx-ti-shadow-serpent-23', cat: 'tire', brand: 'The Shadow Conspiracy', model: 'Serpent Tire 2.3in',
     wheelSize: '20', width: 2.3, casing: 'park', maxPsi: 110, weight: 474, price: 52.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, sparkysbrands.com/products/shadow-serpent-foldable-tyre. Description states, verbatim: "110 PSI Size 20\\" x 2.30\\"...Weight: 16.7 oz" (16.7oz = 474g, oz-stated, not the JSON shipping-weight field); tags confirm "TyreDia : 20". casing:\'park\' per the described "close course park and ramp riding" use case (not a literal page token, since BMX_SCHEMA\'s casing vocab is engine-external display-only). Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://sparkysbrands.com/products/shadow-serpent-foldable-tyre',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched sparkysbrands.com/products/shadow-serpent-foldable-tyre.js directly this session. Description states, verbatim: "110 PSI Size 20\\" x 2.30\\"...Weight: 16.7 oz" — confirms wheelSize:\'20\', width:2.3, maxPsi:110 directly (all engine-critical tire fields); 16.7oz = 474g, oz-stated, not the JSON shipping-weight field; tags confirm "TyreDia : 20" independently. casing:\'park\' per the described "close course park and ramp riding" use case — display-only, BMX_SCHEMA\'s casing vocab is engine-external. Price $52.99 confirmed exactly.'
   },
   {
     id: 'bmx-ti-shadow-contender-235', cat: 'tire', brand: 'The Shadow Conspiracy', model: 'Contender Welterweight Tire 2.35in',
     wheelSize: '20', width: 2.35, casing: 'park', maxPsi: 110, weight: 677, price: 42.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, sparkysbrands.com/products/shadow-contender-welterweight-tyre. Description states, verbatim: "20\\" x 2.35\\" 110 PSI...Weight: 23.9 oz" (23.9oz = 677g, oz-stated, not the JSON shipping-weight field, and the steel-bead Welterweight tier specifically — heavier than the folding-bead Featherweight tier mentioned in the same copy); tags confirm "TyreDia : 20". Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://sparkysbrands.com/products/shadow-contender-welterweight-tyre',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched sparkysbrands.com/products/shadow-contender-welterweight-tyre.js directly this session. Description states, verbatim: "20\\" x 2.35\\" 110 PSI...Weight: 23.9 oz" — confirms wheelSize:\'20\', width:2.35, maxPsi:110 directly, and the steel-bead Welterweight tier specifically (heavier than the folding-bead Featherweight tier mentioned in the same copy); 23.9oz = 677g, oz-stated, not the JSON shipping-weight field; tags confirm "TyreDia : 20" independently. Price $42.99 confirmed exactly.'
   },
   {
     id: 'bmx-st-shadow-odin', cat: 'stem', brand: 'The Shadow Conspiracy', model: 'Odin Top Load Stem',
     clamp: '25.4mm', weight: 326, price: 40.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, sparkysbrands.com/products/shadow-odin-top-load-stem. Description states, verbatim: "Reach: 48mm Rise: 36mm Stack Height: 29mm Width: 48mm Weight: 11.5oz" (11.5oz = 326g, oz-stated, not the JSON shipping-weight field). clamp is display-only in checkBmxBuild (no rule reads it) so the 25.4mm sample value doesn\'t gate. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://sparkysbrands.com/products/shadow-odin-top-load-stem',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched sparkysbrands.com/products/shadow-odin-top-load-stem.js directly this session. Description states, verbatim: "Reach: 48mm Rise: 36mm Stack Height: 29mm Width: 48mm Weight: 11.5oz" (11.5oz = 326g, oz-stated, not the JSON shipping-weight field). clamp is display-only in checkBmxBuild — no engine-critical field left unconfirmed. Price $40.99 confirmed exactly.'
   },
   {
     id: 'bmx-pd-shadow-metalunsealed', cat: 'pedals', brand: 'The Shadow Conspiracy', model: 'Metal Unsealed Alloy Pedals',
     platform: 'alloy', spindle: '9/16', weight: 524, price: 54.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product (Trey Jones signature), sparkysbrands.com/products/shadow-metal-unsealed-alloy-pedals — a distinct SKU from this catalog\'s existing "Metal Sealed Alloy Pedals" row (sealed vs. unsealed bearings). Tags state "9/16 - 3pc" and description states "6061 alloy body...Weight: 18.5 oz" (18.5oz = 524g, oz-stated, not the JSON shipping-weight field). Note: this product carries a "REMOVED" internal tag (ambiguous — may mean a discontinued colorway rather than the whole SKU); flagged here rather than silently dropped, since the model itself, price and spec text are all real and current as fetched. Pedals carry zero checkBmxBuild rules. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://sparkysbrands.com/products/shadow-metal-unsealed-alloy-pedals',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched sparkysbrands.com/products/shadow-metal-unsealed-alloy-pedals.js directly this session (Trey Jones signature) — a distinct SKU from this catalog\'s existing "Metal Sealed Alloy Pedals" row (sealed vs. unsealed bearings), page still live/purchasable this session despite carrying a "REMOVED" internal tag (a Shopify merchandising tag, not a 404/discontinuation — the product page and full spec text are current). Tags state "9/16 - 3pc" (spindle confirmed) and description states "6061 alloy body...Weight: 18.5 oz" (platform:\'alloy\' confirmed; 18.5oz = 524g, oz-stated, not the JSON shipping-weight field). Pedals carry zero checkBmxBuild rules. Price $54.99 confirmed exactly.'
   },
   {
     id: 'bmx-sp-shadow-railed-200', cat: 'seatpost', brand: 'The Shadow Conspiracy', model: 'Railed Seatpost 200mm',
@@ -2215,13 +2225,17 @@ var BMX_PARTS = [
   // --- Eclat (eclatbmx.com, its own Shopify store) ---
   {
     id: 'bmx-hs-eclat-wave12', cat: 'headset', brand: 'Eclat', model: 'Wave 12 Headset',
-    fit: 'integrated-1-1/8', weight: 96, price: 36.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/wave-12-headset ("mid-stack 12mm top cap and x2 3mm spacers...6061-T6 alloy cnc machined, high-end sealed bearings"). JSON variant weight (96g) is real (not a bucket duplicate seen elsewhere this session) but plausibly the top-cap+spacer kit rather than the full bearing set — flagged, not silently trusted as the whole headset\'s mass. fit is display-only in checkBmxBuild (no rule reads it). Unverified sample.'
+    fit: 'integrated-1-1/8', weight: 64, price: 36.99,
+    verified: true, lastChecked: '2026-07-23', source: 'https://eclatbmx.com/products/wave-12-headset',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched eclatbmx.com/products/wave-12-headset.js directly this session. WEIGHT CORRECTED 96 -> 64: the page\'s Specs line states, verbatim, "Weight 64g (2.3oz) (includes everything)" — the maker\'s own explicit total-mass figure (the prior 96g JSON variant weight was a flagged, unconfirmed guess at a sub-kit mass, per the prior note). fit is display-only in checkBmxBuild — no engine-critical field left unconfirmed. Price $36.99 confirmed exactly.'
   },
   {
     id: 'bmx-cr-eclat-tibiaxlt', cat: 'cranks', brand: 'Eclat', model: 'Tibia XLT Cranks',
     spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 770, price: 259.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/eclat-tibia-xlt-crank-1. Description states, verbatim: "Spindle 22mm crmo ultra hollow XLT" and "3pc construction" and "Weight complete: 770g (160mm)" (a per-length, oz-cross-checked figure for the 160mm arm option this row pins). ringMount:\'spline\' follows this catalog\'s existing convention for every other current Eclat crank (Onyx Cranks, bmx-cr-eclat-onyx) — not independently re-confirmed on this specific page. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://eclatbmx.com/products/eclat-tibia-xlt-crank-1',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched eclatbmx.com/products/eclat-tibia-xlt-crank-1.js directly this session. Description states, verbatim: "Spindle 22mm crmo ultra hollow XLT" and "3pc construction" — confirms spindle:\'22mm\' and pieces:\'3-piece\' (both bmx-bb-spindle/bmx-crank-pieces-critical fields) directly. "Weight complete: 770g (160mm)" confirms weight for the 160mm arm length this row pins. ringMount:\'spline\' is display-only in checkBmxBuild. Price $259.99 confirmed exactly.'
   },
   {
     id: 'bmx-ch-eclat-4stroke', cat: 'chain', brand: 'Eclat', model: '4 Stroke Halflink Chain',
@@ -2238,17 +2252,23 @@ var BMX_PARTS = [
   {
     id: 'bmx-gr-eclat-filter', cat: 'grips', brand: 'Eclat', model: 'Filter Grip',
     length: 164, flangeless: true, price: 10.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/filter-grips. Description states, verbatim: "one long-lasting flangeless grip...Now longer at 164mm". grips carries no engine-read field (length/flangeless are display-only) so this real, current, maker-confirmed product clears the interface bar regardless. Unverified sample (no reliable weight figure — the JSON variant weight is 0 across every color).'
+    verified: true, lastChecked: '2026-07-23', source: 'https://eclatbmx.com/products/filter-grips',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched eclatbmx.com/products/filter-grips.js directly this session. Description states, verbatim: "one long-lasting flangeless grip...Now longer at 164mm" — confirms length:164 and flangeless:true. grips carries no engine-read field (length/flangeless are display-only) so this real, current, maker-confirmed product clears the interface bar. Price $10.99 confirmed exactly. No reliable weight figure (JSON variant weight is 0 across every color).'
   },
   {
     id: 'bmx-hb-eclat-dive', cat: 'handlebar', brand: 'Eclat', model: 'Dive Bar',
     clamp: '22.2mm', rise: 9.25, width: 29.5, price: 64.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/dive-bar. Description states, verbatim: "Rise 9.25\\" / 9.5\\" / 10\\" Width 29.5\\" Backsweep 12° Upsweep 2.5°...Clamping 22.2mm" (this row pins the 9.25in rise option). clamp is display-only in checkBmxBuild (no rule reads it). Unverified sample (no reliable weight figure — the JSON variant weight is 0 across every rise option).'
+    verified: true, lastChecked: '2026-07-23', source: 'https://eclatbmx.com/products/dive-bar',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched eclatbmx.com/products/dive-bar.js directly this session. Description states, verbatim: "Rise 9.25\\" / 9.5\\" / 10\\" Width 29.5\\" Backsweep 12° Upsweep 2.5°...Clamping 22.2mm" (this row pins the 9.25in rise option, width confirmed). clamp is display-only in checkBmxBuild. Price $64.99 confirmed exactly. No reliable weight figure (JSON variant weight is 0 across every rise option).'
   },
   {
     id: 'bmx-st-eclat-onyx', cat: 'stem', brand: 'Eclat', model: 'Onyx Stem',
     clamp: '25.4mm', price: 47.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/onyx-stem. Description states, verbatim: "Available in Oversize (OS) 25.4mm clamping to fit our Strangler, Chocolate, Dive and other 25.4mm bars...Clamping 25.4mm oversize (OS) or 22.2mm" (this row pins the 25.4mm OS variant). clamp is display-only in checkBmxBuild. Unverified sample (no reliable weight figure — the JSON variant weight is 0 across every color/clamp option).'
+    verified: true, lastChecked: '2026-07-23', source: 'https://eclatbmx.com/products/onyx-stem',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched eclatbmx.com/products/onyx-stem.js directly this session. Description states, verbatim: "Available in Oversize (OS) 25.4mm clamping to fit our Strangler, Chocolate, Dive and other 25.4mm bars...Clamping 25.4mm oversize (OS) or 22.2mm" (this row pins the 25.4mm OS variant). clamp is display-only in checkBmxBuild — no engine-critical field left unconfirmed. Price $47.99 confirmed exactly. No reliable weight figure (JSON variant weight is 0 across every color/clamp option).'
   },
   {
     id: 'bmx-fw-eclat-cortexta', cat: 'frontWheel', brand: 'Eclat', model: 'Cortex TA Front Hub',
@@ -2260,22 +2280,30 @@ var BMX_PARTS = [
   {
     id: 'bmx-st-kink-brute', cat: 'stem', brand: 'Kink', model: 'Brute Stem',
     clamp: '22.2mm', weight: 320, price: 29.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/brute-stem. Description states, verbatim: "48mm reach, 31.5mm rise...Weight 11.3oz" (11.3oz = 320g, independently oz-stated, not the JSON shipping-weight field of 363g which is discarded). Bar-clamp diameter is not stated anywhere on the page — clamp is display-only in checkBmxBuild (no rule reads it), so the 22.2mm sample value does not gate. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://kinkbmx.com/products/brute-stem',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched kinkbmx.com/products/brute-stem.js directly this session. Tech Specs state, verbatim: "Reach 48mm Rise 31.5mm...Weight 11.3oz" (11.3oz = 320g, independently oz-stated, not the JSON shipping-weight field of 363g, discarded). Bar-clamp diameter is not stated anywhere on the page — clamp is display-only in checkBmxBuild, no engine-critical field left unconfirmed. Price $29.99 confirmed exactly.'
   },
   {
     id: 'bmx-hs-kink-cascade', cat: 'headset', brand: 'Kink', model: 'Cascade Headset',
     fit: 'integrated-1-1/8', weight: 85, price: 29.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/cascade-headset. Description states, verbatim: "two precision sealed bearings...Weight 3.0oz" (3.0oz = 85g, independently oz-stated, not the JSON shipping-weight field of 113g which is discarded). fit is display-only in checkBmxBuild. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://kinkbmx.com/products/cascade-headset',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched kinkbmx.com/products/cascade-headset.js directly this session. Tech Specs state, verbatim: "two precision sealed bearings...Weight 3.0oz" (3.0oz = 85g, independently oz-stated, not the JSON shipping-weight field of 113g, discarded). fit is display-only in checkBmxBuild — no engine-critical field left unconfirmed. Price $29.99 confirmed exactly.'
   },
   {
     id: 'bmx-hb-kink-union-95', cat: 'handlebar', brand: 'Kink', model: 'Union 4pc Bars 9.5in',
     clamp: '22.2mm', rise: 9.5, width: 29.5, weight: 1168, price: 89.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/union-bars. Description states, verbatim: "Rise 9\\", 9.5\\" Width 29.5\\" Backsweep 12 Degrees Upsweep 1 Degree...Weight 41.2oz (9.5\\")" — this row pins the 9.5in rise variant the page\'s own weight figure names (41.2oz = 1168g, independently oz-stated and size-qualified, close to but not identical to the JSON per-variant weight of 1191g for the same size, which is discarded in favor of the page\'s own text). clamp is display-only. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://kinkbmx.com/products/union-bars',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched kinkbmx.com/products/union-bars.js directly this session. Tech Specs state, verbatim: "Rise 9\\", 9.5\\" Width 29.5\\" Backsweep 12 Degrees Upsweep 1 Degree...Weight 41.2oz (9.5\\")" — this row pins the 9.5in rise variant the page\'s own weight figure names (41.2oz = 1168g, independently oz-stated and size-qualified, not the JSON per-variant weight of 1191g for the same size, which is discarded in favor of the page\'s own text). clamp is display-only. Price $89.99 confirmed exactly.'
   },
   {
     id: 'bmx-gr-kink-form', cat: 'grips', brand: 'Kink', model: 'Form Grips',
     length: 155, flangeless: true, price: 10.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/form-grips. Description states, verbatim: "Length 155mm...Rounded plug type barends come included" (plug-style end caps rather than an integrated flange, hence flangeless:true). grips carries no engine-read field (length/flangeless are display-only) so this real, current, maker-confirmed product clears the interface bar regardless. Unverified sample (no stated weight figure on the page).'
+    verified: true, lastChecked: '2026-07-23', source: 'https://kinkbmx.com/products/form-grips',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched kinkbmx.com/products/form-grips.js directly this session. Description states, verbatim: "Length 155mm...Rounded plug type barends come included" (plug-style end caps rather than an integrated flange, hence flangeless:true). grips carries no engine-read field (length/flangeless are display-only) so this real, current, maker-confirmed product clears the interface bar. Price $10.99 confirmed exactly. No weight stated on the page.'
   },
   {
     id: 'bmx-ti-kink-wake-245', cat: 'tire', brand: 'Kink', model: 'Wake Tire 2.45in',
@@ -2285,7 +2313,9 @@ var BMX_PARTS = [
   {
     id: 'bmx-st-kink-gavel', cat: 'stem', brand: 'Kink', model: 'Gavel Topload Stem',
     clamp: '22.2mm', weight: 323, price: 64.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/gavel-stem. Description states, verbatim: "wide 50mm clamping area...Weight 11.4oz" (11.4oz = 323g, independently oz-stated, not the JSON shipping-weight field of 363g which is discarded). Bar-clamp diameter is not stated — clamp is display-only in checkBmxBuild. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://kinkbmx.com/products/gavel-stem',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched kinkbmx.com/products/gavel-stem.js directly this session. Tech Specs state, verbatim: "wide 50mm clamping area...Weight 11.4oz" (11.4oz = 323g, independently oz-stated, not the JSON shipping-weight field of 363g, discarded). Bar-clamp diameter is not stated — clamp is display-only in checkBmxBuild, no engine-critical field left unconfirmed. Price $64.99 confirmed exactly.'
   },
   {
     id: 'bmx-sp-kink-imprint-25t', cat: 'sprocket', brand: 'Kink', model: 'Imprint Sprocket 25T',
@@ -2332,27 +2362,37 @@ var BMX_PARTS = [
   {
     id: 'bmx-se-sunday-blockhead-fat', cat: 'seat', brand: 'Sunday', model: 'Blockhead Fat Seat',
     system: 'pivotal', price: 46.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-blockhead-fat-seat-black-w-berry-silver-embroidery. Description states, verbatim: "Available in Pivotal only" — confirms system:\'pivotal\' (the one engine-read seat field). JSON weight (635g) discarded — identical across every other Sunday seat SKU fetched this session, the shipping-bucket tell. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://shop.sundaybikes.com/products/sunday-blockhead-fat-seat-black-w-berry-silver-embroidery',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched shop.sundaybikes.com/products/sunday-blockhead-fat-seat-black-w-berry-silver-embroidery.js directly this session. Description states, verbatim: "Available in Pivotal only" — confirms system:\'pivotal\' (the one engine-read seat field) directly. Price $46.99 confirmed exactly. No weight stored (JSON weight 635g is a shipping-bucket figure shared identically across every other Sunday seat SKU, never taken as product weight).'
   },
   {
     id: 'bmx-se-sunday-silvabrick-pivotal', cat: 'seat', brand: 'Sunday', model: 'Silva Brick Pivotal Seat',
     system: 'pivotal', price: 42.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-silva-brick-pivotal-seat-black (Brett Silva signature). Description states, verbatim: "Available in pivotal only" — confirms system:\'pivotal\'. JSON weight (635g) discarded as the same shipping-bucket figure shared with the Blockhead Fat Seat above. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://shop.sundaybikes.com/products/sunday-silva-brick-pivotal-seat-black',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched shop.sundaybikes.com/products/sunday-silva-brick-pivotal-seat-black.js directly this session (Brett Silva signature). Description states, verbatim: "Available in pivotal only" — confirms system:\'pivotal\'. Price $42.99 confirmed exactly. No weight stored (JSON weight 635g is a shipping-bucket figure shared with the Blockhead Fat Seat above, never taken as product weight).'
   },
   {
     id: 'bmx-se-sunday-silvabrick-cruiser-railed', cat: 'seat', brand: 'Sunday', model: 'Silva Brick Cruiser Railed Seat',
     system: 'standard', price: 32.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-silva-brick-cruiser-railed-seat-brown — the railed (system:\'standard\') variant of the same Silva Brick seat above ("Available in railed or pivotal versions"). JSON weight (635g) discarded as the same shipping-bucket figure. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://shop.sundaybikes.com/products/sunday-silva-brick-cruiser-railed-seat-brown',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched shop.sundaybikes.com/products/sunday-silva-brick-cruiser-railed-seat-brown.js directly this session — the railed (system:\'standard\') variant of the same Silva Brick seat above ("Available in railed or pivotal versions"), confirmed via the "Railed" tag. Price $32.99 confirmed exactly. No weight stored (JSON weight 635g is the same shipping-bucket figure, never taken as product weight).'
   },
   {
     id: 'bmx-se-sunday-wallflower-v1', cat: 'seat', brand: 'Sunday', model: 'Wallflower v1 Seat',
     system: 'pivotal', weight: 386, price: 36.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-wallflower-v1-seat. Description states, verbatim: "Available in Pivotal only" — confirms system:\'pivotal\'. JSON weight (386g) kept — distinct from the 635g bucket figure shared by every other Sunday seat fetched this session, so not flagged as that specific tell, though still not description-text-confirmed. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://shop.sundaybikes.com/products/sunday-wallflower-v1-seat',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched shop.sundaybikes.com/products/sunday-wallflower-v1-seat.js directly this session. Description states, verbatim: "Available in Pivotal only" — confirms system:\'pivotal\'. Price $36.99 confirmed exactly. JSON weight 386g kept — distinct from the 635g shipping-bucket figure shared by every other Sunday seat fetched this session; not description-text-confirmed but not a recurring shipping-bucket duplicate either.'
   },
   {
     id: 'bmx-se-sunday-scribblesv2-pivotal', cat: 'seat', brand: 'Sunday', model: 'Scribbles v2 Seat (Aaron Ross signature)',
     system: 'pivotal', price: 46.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-scribbles-v2-seat-aaron-ross-signature-multicolor — this handle\'s variant is titled "Pivotal" (the page also separately offers a "Fat/Pivotal or Cruiser/Railed" split, matching this catalog\'s existing Silva Brick pattern above). JSON weight (635g) discarded as the same shipping-bucket figure. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://shop.sundaybikes.com/products/sunday-scribbles-v2-seat-aaron-ross-signature-multicolor',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched shop.sundaybikes.com/products/sunday-scribbles-v2-seat-aaron-ross-signature-multicolor.js directly this session — the "Pivotal" tag on this handle confirms system:\'pivotal\' (the page also separately offers a "Fat/Pivotal or Cruiser/Railed" split, matching this catalog\'s existing Silva Brick pattern above). Price $46.99 confirmed exactly. No weight stored (JSON weight 635g is the same shipping-bucket figure, never taken as product weight).'
   },
   {
     id: 'bmx-cr-sunday-sakerv2', cat: 'cranks', brand: 'Sunday', model: 'Saker v2 Cranks',
@@ -2380,22 +2420,30 @@ var BMX_PARTS = [
   {
     id: 'bmx-hs-fiend-lowintegrated', cat: 'headset', brand: 'Fiend', model: 'Integrated Low Headset',
     fit: 'integrated-1-1/8', price: 27.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/intergrated-low-headset ("integrated 45x45 headset...2 precision sealed cartridge bearings"). fit is display-only in checkBmxBuild. JSON weight (227g) discarded — identical to two other unrelated Fiend products fetched this session (the Belmont Peg, the Half Link Chain), the shipping-bucket tell. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://fiendbmx.com/products/intergrated-low-headset',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched fiendbmx.com/products/intergrated-low-headset.js directly this session. Price $27.99 confirmed exactly. fit is display-only in checkBmxBuild — no engine-critical field left unconfirmed. No weight stored (JSON weight 227g is a shipping-bucket figure shared with unrelated Fiend products, per the BMX-small-parts interface-verification exception 2026-07-20 — never taken as product weight).'
   },
   {
     id: 'bmx-cr-fiend-teamv2', cat: 'cranks', brand: 'Fiend', model: 'Team V2 Cranks',
     spindle: '22mm', pieces: '2-piece', ringMount: 'spline', weight: 964, price: 209.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/fiend-team-2-cranks. Description states, verbatim: "2pc design...48 spline 22mm hollow chromoly spindle...Weight:34ozs. @ 165mm" (34oz = 964g, independently oz-stated for the 165mm arm length this row pins, not the JSON shipping-weight field of 1361g which is discarded — that figure recurs identically on the unrelated Process Fork). ringMount:\'spline\' follows the "1pc spindle/sprocket boss" phrasing, matching this catalog\'s existing spline convention for splined-spindle cranks elsewhere. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://fiendbmx.com/products/fiend-team-2-cranks',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched fiendbmx.com/products/fiend-team-2-cranks.js directly this session. Description states, verbatim: "2pc design...48 spline 22mm hollow chromoly spindle...Weight:34ozs. @ 165mm" — confirms spindle:\'22mm\' and pieces:\'2-piece\' directly (both bmx-bb-spindle/bmx-crank-pieces-critical fields), and 34oz = 964g independently oz-stated for the 165mm arm length this row pins (not the JSON shipping-weight field of 1361g, discarded — that figure recurs identically on the unrelated Process Fork). Price $209.99 confirmed exactly. ringMount:\'spline\' is display-only in checkBmxBuild, follows the "1pc spindle/sprocket boss" phrasing/this catalog\'s existing convention, not independently re-stated.'
   },
   {
     id: 'bmx-bb-fiend-mid-19', cat: 'bb', brand: 'Fiend', model: 'Mid Bottom Bracket (19mm)',
     shell: 'mid', spindleFit: '19mm', weight: 408, price: 27.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/mid-bottom-bracket ("Mid BB bearing kit...sealed bearings", sold in 19mm/22mm spindle variants — this row pins the 19mm option). JSON weight (408g) kept — not seen recurring elsewhere this session, but not description-text-confirmed either. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://fiendbmx.com/products/mid-bottom-bracket',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched fiendbmx.com/products/mid-bottom-bracket.js directly this session. Title "Fiend Mid Bottom Bracket" + the 19mm variant confirm shell:\'mid\'/spindleFit:\'19mm\' (both bmx-bb-spindle-critical fields) exactly. JSON weight 408g kept as trustworthy — it does NOT recur on any other unrelated Fiend product fetched this session (unlike the 227g/454g/907g/1361g shipping-bucket figures caught elsewhere in this batch), and both the 19mm and 22mm variants of this SAME product report it identically, consistent with a real per-unit weight rather than a coincidence across unrelated SKUs. Price $27.99 confirmed exactly.'
   },
   {
     id: 'bmx-bb-fiend-mid-22', cat: 'bb', brand: 'Fiend', model: 'Mid Bottom Bracket (22mm)',
     shell: 'mid', spindleFit: '22mm', weight: 408, price: 27.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/mid-bottom-bracket — same product as the 19mm row above, this row pins the 22mm spindle variant (matching this pass\'s own Team V2 Cranks\' 22mm spindle). Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://fiendbmx.com/products/mid-bottom-bracket',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched fiendbmx.com/products/mid-bottom-bracket.js directly this session — same product as the 19mm row above, this row pins the 22mm spindle variant (its own listed weight 408g, matching the 19mm variant, per-unit not shipping-bucket per that row\'s note). Price $27.99 confirmed exactly.'
   },
   {
     id: 'bmx-sp-fiend-reynolds-25', cat: 'sprocket', brand: 'Fiend', model: 'Reynolds Sprocket 25T',
@@ -2405,32 +2453,44 @@ var BMX_PARTS = [
   {
     id: 'bmx-ch-fiend-halflink', cat: 'chain', brand: 'Fiend', model: 'PYC P121 Half Link Chain',
     pitch: '1/8', halfLink: true, price: 29.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/pyc-p121-half-link-chain. Description states, verbatim: "1/2\\"x1/8\\" cromized steel heat-treated half link chain...90 links" — confirms both pitch:\'1/8\' and halfLink:true directly. JSON weight (227g) discarded — identical to the unrelated Integrated Low Headset row above, the shipping-bucket tell. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://fiendbmx.com/products/pyc-p121-half-link-chain',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched fiendbmx.com/products/pyc-p121-half-link-chain.js directly this session. Description states, verbatim: "1/2\\"x1/8\\" cromized steel heat-treated half link chain...90 links" — confirms both pitch:\'1/8\' (bmx-chain-pitch-critical) and halfLink:true directly. Price $29.99 confirmed exactly. No weight stored (JSON weight 227g is a shipping-bucket figure shared with the unrelated Integrated Low Headset row, never taken as product weight).'
   },
   {
     id: 'bmx-hb-fiend-team-925', cat: 'handlebar', brand: 'Fiend', model: 'Team Bars 9.25in',
     clamp: '22.2mm', rise: 9.25, width: 29, price: 86.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/team-bars. Description states, verbatim: "All rises feature 12 degree backsweep and 1 degree upsweep. All rises are 29\\" wide" (sold in 9.25\\"/9.5\\"/9.75\\" rise; this row pins the 9.25in option). clamp is display-only in checkBmxBuild. JSON weight (907g) discarded — identical to the unrelated Cab V2 Freecoaster Hub row below, the shipping-bucket tell. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://fiendbmx.com/products/team-bars',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched fiendbmx.com/products/team-bars.js directly this session. Description states, verbatim: "All rises feature 12 degree backsweep and 1 degree upsweep. All rises are 29\\" wide" (sold in 9.25"/9.5"/9.75" rise; this row pins the 9.25in variant, confirmed present). clamp is display-only in checkBmxBuild. Price $86.99 confirmed exactly. No weight stored (JSON weight 907g is a shipping-bucket figure shared with the unrelated Cab V2 Freecoaster Hub row, never taken as product weight).'
   },
   {
     id: 'bmx-st-fiend-mills', cat: 'stem', brand: 'Fiend', model: 'Mills Stem',
     clamp: '22.2mm', price: 49.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/fiend-mills-stem (Lew Mills signature — "48MM reach, 23MM rise"). clamp is display-only. JSON weight (454g) discarded — identical to two other unrelated Fiend products fetched this session (the Reynolds V2 Seat, the Reynolds Pedals), the shipping-bucket tell. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://fiendbmx.com/products/fiend-mills-stem',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched fiendbmx.com/products/fiend-mills-stem.js directly this session (Lew Mills signature — "48MM reach, 23MM rise"). clamp is display-only in checkBmxBuild — no engine-critical field left unconfirmed. Price $49.99 confirmed exactly. No weight stored (JSON weight 454g is a shipping-bucket figure shared with the unrelated Reynolds V2 Seat/Reynolds Pedals rows, never taken as product weight).'
   },
   {
     id: 'bmx-se-fiend-reynoldsv2', cat: 'seat', brand: 'Fiend', model: 'Reynolds V2 Pivotal Seat',
     system: 'pivotal', price: 49.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/reynolds-v2-seat (Garrett Reynolds signature). Description states, verbatim: "For use with Pivotal Technology seat posts only" — confirms system:\'pivotal\'. JSON weight (454g) discarded as the same shipping-bucket figure shared with the Mills Stem/Reynolds Pedals rows. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://fiendbmx.com/products/reynolds-v2-seat',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched fiendbmx.com/products/reynolds-v2-seat.js directly this session (Garrett Reynolds signature). Description states, verbatim: "For use with Pivotal Technology seat posts only" — confirms system:\'pivotal\' (bmx-seat-system-critical field) directly. Price $49.99 confirmed exactly. No weight stored (JSON weight 454g is a shipping-bucket figure shared with the unrelated Mills Stem/Reynolds Pedals rows, never taken as product weight).'
   },
   {
     id: 'bmx-pd-fiend-reynolds', cat: 'pedals', brand: 'Fiend', model: 'Reynolds Pedals',
     platform: 'plastic', spindle: '9/16', price: 24.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/reynolds-pedals. Description states, verbatim: "Nylon composite concave body...9/16\\" chromoly spindle" (nylon composite -> platform:\'plastic\'). Pedals carry zero checkBmxBuild rules. JSON weight (454g) discarded as the same shipping-bucket figure shared with the Mills Stem/Reynolds V2 Seat rows. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://fiendbmx.com/products/reynolds-pedals',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched fiendbmx.com/products/reynolds-pedals.js directly this session. Description states, verbatim: "Nylon composite concave body...9/16\\" chromoly spindle" (nylon composite -> platform:\'plastic\'; spindle confirmed). Pedals carry zero checkBmxBuild rules. Price $24.99 confirmed exactly. No weight stored (JSON weight 454g is a shipping-bucket figure shared with the unrelated Mills Stem/Reynolds V2 Seat rows, never taken as product weight).'
   },
   {
     id: 'bmx-rh-fiend-cabv2freecoaster', cat: 'rearWheel', brand: 'Fiend', model: 'Cab V2 Freecoaster Hub',
     driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', weight: 588, price: 139.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/cab-freecoaster. Description states, verbatim: "hollow chromoly 14mm axle, a 9 tooth driver...Weight 20.75ozs" (20.75oz = 588g, independently oz-stated, not the JSON shipping-weight field of 907g which is discarded — that figure recurs identically on the unrelated Team Bars row above); sold in LHD/RHD variants (side:\'both\'). Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://fiendbmx.com/products/cab-freecoaster',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched fiendbmx.com/products/cab-freecoaster.js directly this session. Description states, verbatim: "hollow chromoly 14mm axle, a 9 tooth driver...Weight 20.75ozs" — confirms axle:\'14mm\', driverTeeth:9, and driverType:\'freecoaster\' (title) directly; 20.75oz = 588g independently oz-stated, not the JSON shipping-weight field of 907g which is discarded (that figure recurs identically on the unrelated Team Bars row above); sold in LHD/RHD variants confirms side:\'both\'. Price $139.99 confirmed exactly.'
   },
 
   // --- Salt / SaltPlus (saltbmx.com, its own Shopify store — a full structured spec sheet in
