@@ -2223,7 +2223,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'SRAM X0 T-Type AXS', brakes: 'SRAM Maven Ultimate',
     disciplines: ['e-trail', 'e-enduro'], weight: null, price: 11498, modelYear: 2026,
     note: 'Forbidden\'s trail/all-mountain e-MTB (brand was fully absent) — high-pivot Trifecta suspension, DJI Avinox motor system, top-tube-integrated 2" OLED touchscreen, mullet wheels (29in front/27.5in rear). T1 is the top of a 4-tier (T1-T4) range; the 800Wh battery option (600Wh is also offered) is cataloged here. Sold in Canadian dollars via Forbidden\'s own store; no US-market MSRP found.',
-    desc: 'Sourced from forbiddenbike.com/bikes/druid-e/ and shop.forbiddenbike.com/shop/2026-druid-e-tier-1-11330 (fetched maker pages). No complete-bike weight published by Forbidden or found in any reviewed source. Battery removability not confirmed (Forbidden\'s wording is ambiguous between "integrated" and swappable) so left uncataloged. PRICE: CAD 16,199 (Forbidden\'s own Canadian storefront, the only confirmed maker price) converted at the 2026-07-23 open.er-api.com CAD->USD rate (0.709729) -> $11,498 — disclosed conversion estimate, not a US MSRP. catalog/emtb-depth-5 wave (Forbidden absent -> 3 rows).',
+    desc: 'Sourced from forbiddenbike.com/bikes/druid-e/ and shop.forbiddenbike.com/shop/2026-druid-e-tier-1-11330 (fetched maker pages), re-confirmed verify/emtb-brands-1 (2026-07-23) against forbiddenbike.com\'s own tier comparison table. No complete-bike weight published by Forbidden or found in any reviewed source — left null. Battery removability not confirmed (Forbidden\'s wording is ambiguous between "integrated" and swappable) so left uncataloged. PRICE: CAD 16,199 (Forbidden\'s own Canadian storefront, the only confirmed maker price) converted at the 2026-07-23 open.er-api.com CAD->USD rate (0.709729) -> $11,498 — disclosed conversion estimate, not a US MSRP.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://shop.forbiddenbike.com/shop/2026-druid-e-tier-1-11330'
   },
   {
@@ -2234,8 +2235,9 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'SRAM X0 T-Type AXS', brakes: 'SRAM Maven Ultimate',
     disciplines: ['e-enduro'], weight: 23800, price: 12399, modelYear: 2026,
     note: 'Forbidden\'s enduro e-MTB, alongside the shorter-travel Druid E — same Trifecta high-pivot 4-bar layout and Avinox motor system, longer 180/170mm travel. Top tier of a 4-tier (T1-T4) range.',
-    desc: 'Sourced from forbiddenbike.com/bikes/dreadnought-e/ (fetched maker page) plus The Loam Wolf\'s review of this exact build for the US MSRP and tested weight (Forbidden\'s own storefront prices in CAD; the Loam Wolf figure is the confirmed US-market price). Weight: 52.5 lb (23.8kg), size S3, w/ Schwalbe control tires, per the review — a third-party test weight, not maker-published. Battery removability contradictory across sources (Forbidden\'s own wording calls it fixed/integrated, one third-party summary called it removable) — cataloged per the maker\'s own primary wording (not removable) rather than guessed. catalog/emtb-depth-5 wave.',
-    lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/forbidden-dreadnought-e-review/'
+    desc: 'Re-fetched forbiddenbike.com/bikes/dreadnought-e/ (verify/emtb-brands-1, 2026-07-23): the tier comparison table confirms Tier 1 = "Avinox M2S" 130Nm/1300W motor, 600Wh or 800Wh battery, 180mm front/170mm rear travel, high-modulus carbon frame, RockShox Zeb Ultimate fork/RockShox Vivid Coil shock, SRAM X0 T-Type drivetrain, SRAM Maven Ultimate brakes — matches every already-cataloged interface field exactly. Weight not published on the maker page itself; kept The Loam Wolf\'s tested-unit figure (52.5lb/23.8kg, size S3, Schwalbe control tires) as sourceType:measured — a reputable outlet\'s scale-tested weight for this exact build, not a guess. Battery removability contradictory across sources (Forbidden\'s own wording calls it fixed/integrated, one third-party summary called it removable) — cataloged per the maker\'s own primary wording (not removable) rather than guessed. PRICE: The Loam Wolf reports $12,399 as the confirmed US-market MSRP (Forbidden\'s own storefront prices in CAD only) — a third-party-reported US listing, not a currency conversion.',
+    verified: true, priceBasis: 'third-party-listed', sourceType: 'measured', weightSource: 'https://theloamwolf.com/emtb/forbidden-dreadnought-e-review/',
+    lastChecked: '2026-07-23', source: 'https://forbiddenbike.com/bikes/dreadnought-e/'
   },
   {
     id: 'em-forbidden-dreadnought-e-t2', cat: 'emtb', brand: 'Forbidden', model: 'Dreadnought E T2',
@@ -2245,8 +2247,9 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission (T-Type AXS)', brakes: 'SRAM Maven Silver',
     disciplines: ['e-enduro'], weight: null, price: 10999, modelYear: 2026,
     note: 'Second-tier Dreadnought E build: same carbon Trifecta frame/motor/battery as the T1, stepped down to SRAM GX Eagle Transmission and Maven Silver brakes.',
-    desc: 'Sourced from The Loam Wolf\'s review coverage of the Dreadnought E range (confirmed US-market MSRP; Forbidden\'s own CAD storefront was not cross-checked for this specific tier). No complete-bike weight found for this tier specifically (only the T1\'s tested weight was published). catalog/emtb-depth-5 wave.',
-    lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/forbidden-dreadnought-e-review/'
+    desc: 'Fetched forbiddenbike.com/bikes/dreadnought-e/ directly (verify/emtb-brands-1, 2026-07-23): the tier comparison table confirms Tier 2 = "Avinox M2S" 130Nm/1300W motor (same motor as T1, not the lesser M2), 600Wh or 800Wh battery, 180mm front/170mm rear travel, high-modulus carbon frame, Fox 38 Factory fork/Fox Float X2 Air Factory shock, SRAM GX T-Type drivetrain, SRAM Maven Silver brakes — matches every already-cataloged interface field exactly. No weight published on the maker page (only T1 has a published third-party test weight; T2 stays null rather than guessed). PRICE: The Loam Wolf\'s review of the Dreadnought E range reports $10,999 as this tier\'s confirmed US-market MSRP (Forbidden\'s own storefront prices in CAD only, not cross-checked for this specific tier) — a third-party-reported US listing, not a currency conversion.',
+    verified: true, priceBasis: 'third-party-listed',
+    lastChecked: '2026-07-23', source: 'https://forbiddenbike.com/bikes/dreadnought-e/'
   },
 
   {
