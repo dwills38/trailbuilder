@@ -29,12 +29,13 @@
 // SCOPE EXCLUSIONS (do NOT add on a breadth pass): Riese & Müller Superdelite "mountain" is a
 // TOURING e-bike, NOT an e-MTB (Douglas, 2026-07-23 — the maker's EC-conformity-PDF "E-MTB"
 // label is overruled by its actual touring positioning). Gazelle and Bird have no e-MTB
-// product at all (confirmed 2026-07-23). Wilier's current lineup (wilier.com, checked
-// 2026-07-23) carries NO e-MTB either — its E-Bikes category is all road/gravel/endurance
-// hybrids (Filante/Garda/Adlar/Urta Hybrid, Karga) and its MTB category is fully acoustic
-// (Urta/Usma); the E903TRN/E-Enduro line that once existed is discontinued and its rear-shock
-// travel spec couldn't be confirmed from any live source (PHANTOM-NUMBER guard — not entered
-// rather than guessed). None of these belong in this catalog.
+// product at all (confirmed 2026-07-23). The E903TRN/E-Enduro line Wilier once sold is
+// discontinued and its rear-shock travel spec couldn't be confirmed from any live source
+// (PHANTOM-NUMBER guard — not entered rather than guessed) — but Wilier DOES currently sell a
+// real e-MTB, the Urta Hybrid (a down-country lightweight-assist bike on Fazua Ride 60), added
+// catalog/emtb-breadth-4 2026-07-23 (em-wilier-urta-hybrid-xx-sl-axs) after a same-day
+// WebFetch/Exa re-check found it under wilier.com's E-Bikes category — a prior same-day pass in
+// this file had looked only at the acoustic MTB category page and missed it.
 
 // ---------------------------------------------------------------------------
 // Parts (complete e-MTBs)
@@ -319,6 +320,17 @@ var EMTB_PARTS = [
     note: 'The mid-tier build on the same Oso TR chassis as em-ibis-oso (SRAM Eagle 90 mechanical/Maven Base) — swaps in a wireless SRAM GX Eagle Transmission (AXS Pod shifter, XS-1275 T-Type 10-52T cassette) and SRAM Maven Silver brakes, plus an upgraded RockShox Lyrik Ultimate fork (vs the base build\'s Lyrik Base); same RockShox Super Deluxe Select+ 230x60mm shock, motor and battery as the base build.',
     desc: 'Verified vs the maker\'s interactive build-configurator on the same product page as em-ibis-oso (ibiscycles.com/bikes/oso-tr) — selecting the "$9699" build tier via the browser pane (a JS click on the price-selector button; the static page/WebFetch only shows the default $8499 build\'s spec table) rendered the tier-specific component table: "RockShox Lyrik, Ultimate, 160mm" fork, "SRAM Maven, Silver" brakes, "SRAM GX Eagle Transmission" rear derailleur, "SRAM AXS Pod" shifter, "SRAM XS 1275 Transmission, T-Type, 10-52T" cassette, "SRAM GX Eagle Transmission, T-Type" chain — motor/battery/frame/travel/wheel fields match the base build\'s already-confirmed spec (unchanged across tiers per the page). No per-tier complete-bike weight is published (only the base build\'s 22.77kg figure, which does not apply to this heavier-brakes/AXS-electronics build), left null rather than guessed.',
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.ibiscycles.com/bikes/oso-tr'
+  },
+  {
+    id: 'em-ibis-oso-hd-90', cat: 'emtb', brand: 'Ibis', model: 'Oso HD 90',
+    family: 'ibis-oso', motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 120, motorPowerPeak: 750,
+    batteryWh: 600, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 165,
+    frameMaterial: 'carbon', drivetrain: 'SRAM Eagle 90 T-Type', brakes: 'SRAM Maven',
+    disciplines: ['e-enduro'], weight: 23450, price: 8999,
+    note: "The longest-travel member of the Oso family (HD/TR/S travel classes on a shared modular chassis) — same Bosch Gen 5 CX motor and 600Wh battery + optional 250Wh PowerMore extender as em-ibis-oso (Oso TR), stretched to 180mm front/165mm rear for full enduro/gravity use. Single build kit ('90', SRAM Eagle 90 Transmission).",
+    desc: "Fetched from the maker's own oso-hd product page. Motor/battery/extender fields match the sibling Oso TR row exactly (same drivetrain platform, independently confirmed on this bike's own page, not carried over blind). Frame/travel/wheel-size and the single '90 Build' $8,999 price are maker-stated; drivetrain confirmed as SRAM Eagle 90 (brake model tier not broken out on the fetched page, so kept at the SRAM Maven family name only). Weight is the maker-stated complete-build claimed figure (\"51.7 lbs / 23.45kg with all protection/sealant\", size/shock variant not specified).",
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.ibiscycles.com/bikes/oso-hd'
   },
   {
     id: 'em-santa-cruz-vala-al-deore', cat: 'emtb', brand: 'Santa Cruz', model: 'Vala AL Deore 2026',
@@ -1644,6 +1656,18 @@ var EMTB_PARTS = [
   },
 
   {
+    id: 'em-moustache-samedi29-game1608', cat: 'emtb', brand: 'Moustache', model: 'Samedi 29 Game 160.8',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX BDU38 (Smart System)', motorTorque: 120,
+    batteryWh: 600, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle AXS T-Type', brakes: 'Shimano XT BR-M8120 4-piston',
+    disciplines: ['e-enduro'], price: 8557,
+    note: "The high-performance GAME family alongside the already-cataloged Trail 150.2 and Samedi 27 Wide 5 — a distinct higher-power/higher-travel tier on Moustache's new (2026) frame generation, up to 120Nm Bosch CX Smart System vs the Trail's 85Nm. GAME 150 (160/150mm) and GAME 160 (170/160mm) sub-families each ship in 4-5 build levels; this is the GAME 160.8 build (SRAM GX AXS T-Type/Shimano XT). A 750Wh battery upgrade (+EUR 300) is offered on the same SKU.",
+    desc: 'Fetched via Exa directly from the maker\'s own configurator page (moustachebikes.com/fr/en/electric-bikes/samedi-29-game/game-160-8/), which — unlike the Trail/Wide pages used for this catalog\'s other Moustache rows — carries a real price. Confirmed: "Game, 6061 T4-T6 alloy, 160mm travel... Bosch PowerTube" frame, "FOX 38 Factory GRIP X2... 170mm" fork, "Fox Float X Factory... 160mm" shock, "Bosch Performance Line CX BDU38, Smart System, 120 Nm" motor, "Bosch PowerTube 600Wh" battery (base; 750Wh selectable for +EUR 300), "SRAM GX AXS T-Type 12-speed" derailleur/chain, "SRAM XS-1270 10-52T" cassette, "Shimano XT BR-M8120, hydraulic disc, 4 pistons" front AND rear brakes (220mm rotors). No complete-bike weight shown on the fetched spec table. PRICE: EUR 7,499 (base 600Wh config, maker\'s own configurator, VAT-inclusive per moustachebikes.com/fr convention) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $8,557.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://moustachebikes.com/fr/en/electric-bikes/samedi-29-game/game-160-8/'
+  },
+
+  {
     id: 'em-amflow-pl-carbon-pro-800', cat: 'emtb', brand: 'Amflow', model: 'PL Carbon Pro (800Wh)',
     motorBrand: 'dji', motorModel: 'DJI Avinox M1 Drive Unit', motorTorque: 105, motorPowerPeak: 850,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
@@ -1721,6 +1745,17 @@ var EMTB_PARTS = [
     note: 'Spanish motorcycle brand GasGas\' full-power e-enduro flagship (Pierer Mobility group, sister brand to Husqvarna/KTM e-bicycles) — full-carbon frame with a distinctive moto-plastics kit, DVO Onyx D1CV OTT fork / DVO JadeX CV coil shock (WP Cone Valve co-development), RockShox Reverb AXS dropper, Maxxis Assegai/Minion DHR II tires.',
     desc: 'Fetched directly from the maker\'s own product page verify/emtb-verify-1 (gasgas.com/bicycles/en-us/bikes/enduro/e-bike/ecc/ecc-6.html) via the browser pane (the prior session\'s WebFetch/Exa attempts only returned the nav shell — a JS-rendered wall, not an anti-bot wall, so the browser pane cleanly rendered the full US spec table): "FRAME 29\\", Carbon, Integrated battery, Boost, 160 mm", "FORK DVO Onyx D1CV OTT, Air, 170 mm, tapered", "SHOCK DVO JadeX CV Coil, Coil, 205x65 mm", "MOTOR SRAM Eagle Powertrain Drive Unit, 250 W, 90 Nm", "BATTERY SRAM Eagle Powertrain, 630 Wh", "FRONT/REAR BRAKE SRAM Code RSC, 4-piston... 220 mm / 200 mm rotors", "REAR DERAILLEUR SRAM X0 Eagle Transmission, 12-S", "WEIGHT 24.1 kg", listed at "USD 10,999.00 MSRP plus USD 60 freight". Corrections vs the prior editorial-sourced row: brakes "SRAM Code Ultimate Stealth" -> the real spec "SRAM Code RSC" (Ultimate Stealth does not appear on this SKU\'s own page), weight 24.6kg -> the maker-stated 24.1kg, price from a EUR-converted estimate -> the real US MSRP $10,999.00 (freight excluded, matching this catalog\'s MSRP-only pricing convention).',
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.gasgas.com/bicycles/en-us/bikes/enduro/e-bike/ecc/ecc-6.html'
+  },
+  {
+    id: 'em-gasgas-ecc5', cat: 'emtb', brand: 'GasGas', model: 'ECC 5',
+    motorBrand: 'sram', motorModel: 'SRAM Eagle Powertrain Drive Unit', motorTorque: 90,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission 12-speed', brakes: 'SRAM G2 RS 4-piston',
+    disciplines: ['e-enduro'], weight: 24400, price: 8999,
+    note: 'The mid-tier ECC model — same full-carbon frame platform and SRAM Eagle Powertrain motor/630Wh battery as the already-cataloged flagship ECC 6, stepping down to a WP/DVO 38CV SL air fork + WP CV Coil HLC shock (vs the ECC 6\'s higher-spec DVO Onyx D1CV OTT/JadeX CV Coil) and SRAM GX Eagle Transmission + G2 RS brakes (vs the ECC 6\'s X0 Eagle Transmission + Code RSC). A third tier, ECC 4, sits below at $6,999.',
+    desc: 'Fetched via the browser pane (gasgas.com/bicycles/en-us/bikes/enduro/e-bike/ecc/ecc-5.html — same JS-rendered-wall page type as the sibling ECC 6 row, WebFetch/Exa both returned only a nav shell): "FRAME 29\\", Carbon, Integrated battery, Boost, 160 mm", "FORK DVO Onyx D1CV SL, Air, 170 mm, tapered", "SHOCK DVO JadeX CV Coil, Coil, 205x65 mm", "MOTOR SRAM Eagle Powertrain Drive Unit, 250 W, 90 Nm" (motorPowerPeak left unset — the page\'s marketing text separately claims "680W peak power" but the spec table itself states 250W; the sibling ECC 6 row likewise carries no motorPowerPeak, so this stays consistent rather than picking one of two conflicting numbers), "BATTERY SRAM Eagle Powertrain, 630 Wh", "FRONT/REAR BRAKE SRAM G2 RS, 4-piston... 220 mm / 200 mm rotors", "REAR DERAILLEUR SRAM GX Eagle Transmission, 12-S", "WEIGHT 24.4 kg", "USD 8,999.00 MSRP plus USD 60 freight" (freight excluded per this catalog\'s standing convention).',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.gasgas.com/bicycles/en-us/bikes/enduro/e-bike/ecc/ecc-5.html'
   },
 
   {
@@ -1831,6 +1866,17 @@ var EMTB_PARTS = [
     desc: 'Verified vs the fetched maker product page (husqvarna-bicycles.com/en-us/models/offroad/hard-cross/hard-cross-hc5-2023.html — "Shimano EP8 (DU-EP801)... 250 W, 85 Nm" motor, "Core S2+, 720 Wh, 36 V" battery, "FOX Float 38 Factory... 180 mm" fork / "FOX Float X2 Factory... 170mm" shock (rear travel per the maker\'s own product description text: "180/170mm of suspension travel"), "Alloy 6061... New HQV Alloy" frame, "SRAM X01 Eagle, 12-S" w/ 34T chainring, "Magura MT7, 4-piston" brakes, "24.6 kg" weight, "$6,599.00 USD" MSRP (plus separately-listed freight, excluded from the cataloged price per this catalog\'s standing freight-exclusion convention, same as the sibling MC6 row). Cassette range (10-50T) and rotor sizes (220/203mm) are the platform\'s commonly-cited figures, not independently re-confirmed in this fetch pass. Page URL still carries a "2023" model-year token but is the live, currently-linked-from-homepage model page (same "current lineup" treatment as the sibling MC6 row). catalog/emtb-breadth-brands-1 wave (Husqvarna deepened from 1 row to 2).',
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.husqvarna-bicycles.com/en-us/models/offroad/hard-cross/hard-cross-hc5-2023.html'
   },
+  {
+    id: 'em-husqvarna-light-cross-lc6', cat: 'emtb', brand: 'Husqvarna', model: 'Light Cross LC6',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8 (DU-EP801)', motorTorque: 85,
+    batteryWh: 720, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 130, travelRear: 120,
+    frameMaterial: 'mixed', drivetrain: 'SRAM X01 Eagle 12-speed', brakes: 'SRAM G2 R 4-piston',
+    disciplines: ['e-trail'], price: 5749,
+    note: "A third, shorter-travel Husqvarna line alongside the already-cataloged Mountain Cross MC6/Hard Cross HC5 — a mullet-wheel (29in front/27.5in rear) short-travel Trail e-MTB on a carbon-front/aluminum-rear-triangle frame; RockShox Pike Select 130mm fork / RockShox SIDLuxe Select+ 190x45mm shock. Not sold in the US market (the husqvarna-bicycles.com/en-us offroad listing carries only Hard Cross/Mountain Cross) — cataloged from the UK site.",
+    desc: 'Fetched via Exa from husqvarna-bicycles.com\'s en-gb model page (en-int and en-us both show "Price is not available in your region" / omit Light Cross entirely — this SKU is EU/UK-market only). Spec table confirmed: "Shimano EP8, DU-EP801, 250 W, 85 Nm" motor, "Core S3+, 720 Wh, 36 V" battery, "Frame 29/27.5\", Carbon/Aluminium 6061, ... New HQV Carbon, 120 mm" (mixed material, 120mm rear travel), "RockShox Pike Select, DebonAir, Air, 130 mm, tapered" fork, "RockShox SIDLuxe Select+, Air, 190x45 mm" shock, "SRAM X01 Eagle, 12-S" derailleur, "SRAM G2 R, 4-piston, Hydraulic disc brake". No complete-bike weight published on the page — left unset rather than guessed. PRICE: GBP 4,299.00 maker RRP (UK site, VAT-inclusive) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $5,749.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.husqvarna-bicycles.com/en-gb/models/offroad/light-cross/light-cross-lc6-2023.html'
+  },
 
   {
     id: 'em-moustache-samedi27-wide5', cat: 'emtb', brand: 'Moustache', model: 'Samedi 27 Wide 5',
@@ -1875,6 +1921,17 @@ var EMTB_PARTS = [
     desc: 'Verified vs the fetched maker product page (corratec.com/en/Bikes/E-Mountainbike-E-SUV/E-SUV/E-Power-MTC-100-Wave-CX8.html — "Bosch Performance Line CX Smart System BDU38" motor, "85 Nm", "Bosch PowerTube 800 Horizontal" battery, RockShox Recon Silver RL 100mm fork / RockShox Deluxe Select+ 170x35mm shock, "Shimano SL-U6000-11R CUES 11-speed" w/ RD-U6000 CUES GS derailleur and Miranda DM CF3D 38T crank, "Tektro HD M535 4/4 Piston" 203mm front/180mm rear brakes, 29kg complete-bike weight, EUR 5,599.00 price). PRICE: EUR 5,599.00 maker RRP converted at the 2026-07-23 open.er-api.com rate (1.141079) -> $6,388.90 — Corratec has no US retail presence, no USD MSRP exists. Frame material was not stated on the fetched page (only "Wave"/comfort-geometry description) — left uncataloged per this catalog\'s no-guessing convention. catalog/emtb-depth-8 wave (Corratec deepened from 1 row to 2).',
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.corratec.com/en/Bikes/E-Mountainbike-E-SUV/E-SUV/E-Power-MTC-100-Wave-CX8.html'
   },
+  {
+    id: 'em-corratec-epower-xvert-prosport', cat: 'emtb', brand: 'Corratec', model: 'E-Power X-Vert Pro Sport',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Smart System BDU38', motorTorque: 85,
+    batteryWh: 800, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'hardtail', travelFront: 120, travelRear: 0,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT RD-M8100 SGS 12-speed (Deore shifter/cassette)', brakes: 'Shimano MT420/MT410 4/2-piston (180mm)',
+    disciplines: ['e-trail'], price: 5248,
+    note: 'A genuinely different Corratec product line from the already-cataloged full-suspension RS 160 Factory (enduro) and MTC 100 Wave CX8 (100mm step-through) — E-Power X-Vert is a hardtail eMTB family (Pro/Elite/LTD/Race tiers), this the mid-tier Pro Sport build: SR Suntour XCR34X Air 2CR 120mm fork, KindShock RAGEi dropper, Bosch Performance CX 800Wh.',
+    desc: 'Fetched directly from the maker\'s own product page (corratec.com/en/Bikes/E-Mountainbike-E-SUV/E-Mountainbike/E-Power-X-Vert-Pro-Sport.html), cross-confirmed against bosch-ebike.com\'s own model directory entry (which independently confirms "Category: eMTB > Hardtail eMTB", "Frame material: Aluminium", "Front suspension travel: 120mm", 2026 model year for this SKU). Spec table: "engine Bosch Performance Line CX Smart System BDU38... capacity 800... torque 85", "SR Suntour XCR34X Air 2CR 29\\" 15x110mm 120mm" fork, "SHIMANO RD-M8100 XT SGS 12-SPEED" derailleur w/ "SHIMANO CS-M6100-12 DEORE 12-SPEED 10-51T" cassette and "SHIMANO SL-M6100-R DEORE 12-SPEED" shifter, "SHIMANO MT420 / MT410 4/2 Piston 180mm" front and rear brakes, "ALLOY" frame form "Trapez". No complete-bike weight published. PRICE: EUR 4,599.00 maker RRP converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,248.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.corratec.com/en/Bikes/E-Mountainbike-E-SUV/E-Mountainbike/E-Power-X-Vert-Pro-Sport.html'
+  },
 
   {
     id: 'em-conway-xyron-lt-90', cat: 'emtb', brand: 'Conway', model: 'Xyron LT 9.0',
@@ -1886,6 +1943,17 @@ var EMTB_PARTS = [
     note: 'German direct-to-consumer maker Conway\'s enduro-leaning "Xyron LT" line — distinct full-carbon platform from the already-cataloged aluminum eWME 4.9 — FOX 36 Rhythm Float fork / FOX Float X Performance shock, removable/lockable Bosch PowerTube 800.',
     desc: 'Unverified sample via the credible-source breadth policy — bike-magazin.de\'s review of this exact SKU ("Xyron LT 9.0... Bosch Performance CX... 800 Wh... 29in wheels... 23.7 kilos... full carbon frame... Shimano Deore XT 12-speed... FOX Rhythm 38 Float / Float X Performance") supplies the drivetrain/weight/suspension detail; conway-bikes.com\'s own 2026 model listing confirms the SKU exists for the current model year but was not itself fetched this session (a 2025-dated listing for the same name showed EUR 6,499.95). PRICE: EUR 6,499.95 (the 2025 listing\'s maker price, carried forward as the best-available figure — the 2026 page\'s own price was not captured) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $7,416.95 — a retailer/maker LISTING price, not a session-fetched RRP, so no regional-conversion token. Rear travel (160mm) is the platform\'s named frame-travel figure (matching the "LT" line\'s general spec, mirroring how the eWME row already handles this same maker\'s frame-vs-fork travel distinction) — not independently reconfirmed for this specific SKU. catalog/emtb-breadth-3 wave (Conway deepened from 1 row to 2).',
     lastChecked: '2026-07-23', source: 'https://www.bike-magazin.de/en/enduro-bikes/this-is-how-good-the-conway-xyron-lt-9-0-is-lightweight-bosch-enduro-bike-from-germany/'
+  },
+  {
+    id: 'em-conway-xyron-s-40', cat: 'emtb', brand: 'Conway', model: 'Xyron S 4.0',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5, Smart System)', motorTorque: 85,
+    batteryWh: 600, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM E90 Transmission 12-speed', brakes: 'Magura Gustav Elite 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23800, price: 5705,
+    note: "A third, distinct Conway e-MTB line alongside the already-cataloged aluminum eWME 4.9 (Shimano EP800) and full-carbon Xyron LT 9.0 (Bosch CX/800Wh) — the aluminum Xyron S runs a smaller fully-integrated 600Wh battery in a closed down tube for a lighter, quieter build (23.8kg claimed). FOX 36 Rhythm fork / FOX Float Rhythm shock, SRAM E90 Transmission 1x12 drivetrain, Bosch Kiox 400 display.",
+    desc: "Fetched directly from the maker's own product page (conway-bikes.com/en/e-bikes/e-mountainbike/xyron-s-fix/...xyron-s-4.0-full-suspension-2026), which carries a full spec table but no motorTorque figure explicitly (only \"BOSCH Mittelmotor Gen.5 'Performance CX', 36V, 250W\") — the Gen 5 Performance CX's 85Nm torque figure is this catalog's own established cross-checked value for every other Gen-5-CX row (not guessed here). Frame material \"aluminium\", 600Wh integrated battery, 160mm/160mm travel, SRAM E90 (SRAM's Transmission-tier OEM naming) 1x12 drivetrain w/ XS1275 10-52T cassette, Magura Gustav Elite 4-piston 203/203mm brakes, weight 23.80kg — all maker-page-stated. Battery removability not stated on this page — left unset rather than guessed. PRICE: EUR 4,999.95 (conway-bikes.com's own 2026 listing, per search-indexed price on the same product page) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $5,705.",
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.conway-bikes.com/en/e-bikes/e-mountainbike/xyron-s-fix/02810847-conway-xyron-s-4.0-full-suspension-2026/'
   },
 
   {
@@ -2486,6 +2554,19 @@ var EMTB_PARTS = [
     note: "Shorter-travel, XC/allrounder-leaning sibling to the ONE44/ONE77 (this catalog's existing Cube rows are 140mm+); FSP 4-Link rear suspension, SR Suntour XCR34 Air fork / EdgeX R shock, SRAM UDH.",
     desc: 'Fork/rear travel, wheel size, weight, frame, drivetrain and brakes confirmed via vitalmtb.com\'s spec-guide entry (matches the maker\'s own Bosch CX Gen 5/800Wh/Purion 200 claims from cube.eu and press coverage). PRICE: EUR 3,699 (800Wh trim, per cube.eu-sourced press coverage) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $4,221.',
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.vitalmtb.com/product/guide/e-bikes/cube/stereo-hybrid-one22-70166'
+  },
+
+  // --- catalog/emtb-breadth-4: one genuine absence (Wilier) + depth on the 17 thin brands ---
+  {
+    id: 'em-wilier-urta-hybrid-xx-sl-axs', cat: 'emtb', brand: 'Wilier', model: 'Urta Hybrid XX SL AXS',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60, motorPowerPeak: 450,
+    batteryWh: 430, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 120, travelRear: 120,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle AXS T-Type', brakes: 'Shimano Deore XT M8100',
+    disciplines: ['e-xc'], weight: 16400, price: 13579,
+    note: 'CORRECTS an earlier-today finding in this file\'s own header claiming Wilier "carries NO e-MTB": that check looked only at the acoustic MTB category page and missed the separate E-Bikes category. Urta Hybrid is Wilier\'s real, current down-country e-MTB (based on the Urta SLR XC race platform), Fazua Ride 60 mid-drive (60Nm/450W peak, 430Wh internal battery), 120mm front/rear travel, carbon monocoque frame+bar. Top SRAM XX SL AXS T-Type build shown; a GX T-Type build also exists at a lower price point.',
+    desc: "Fetched via Exa (wilier.com blocks WebFetch with a 403) from the maker's own Urta Hybrid product page, which lists per-trim spec accordions and a setup/price table. Top trim (code E557BS6X): SRAM XX SL Eagle AXS T-Type drivetrain, Shimano Deore XT M8100 brakes (180/160mm Shimano RT-MT800 rotors), RockShox SID FS 120mm fork / RockShox Deluxe Select 210x55 shock, maker-stated weight 16.400kg +/-5%. Motor torque/power (60Nm/450W) match this catalog's other Fazua Ride 60 rows exactly (independent cross-check, not guessed). PRICE: EUR 11,900 RRP (no USD market exists) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079, matching this file's other same-day regional-conversion rows) -> $13,579.",
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.wilier.com/en/bikes/e-bike/urta-hybrid'
   }
 
 ];
