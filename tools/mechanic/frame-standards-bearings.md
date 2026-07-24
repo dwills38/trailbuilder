@@ -68,6 +68,54 @@ spindle interface, not a brand name: "24mm steel spindle" / Hollowtech II / Cinc
 not conflate); e*thirteen → `p3`. *Confidence: convention.* Source: tools/DATA-ENTRY-TEMPLATE.md
 §4.
 
+**FRM-62 [ROAD/GRAVEL] — a drop-bar BB is the ADAPTER between a frame SHELL and a crank SPINDLE;
+the two are orthogonal, and a BB SKU is defined by the (shell, spindle) PAIR — one M30 spindle
+runs in NINE different shells via nine different Praxis BBs. The road-side FRM-1 shell×spindle law
+carries verbatim to road/gravel; the merged single-axis `bb` vocab cannot represent it.** Praxis's
+own "M30 BB Options" page lists ONE spindle interface — *"30mm DRIVE / 28mm NON-DRIVE"* —
+compatible with the same M30 cranks (Praxis/InfoCrank/Box BMX/Oval M30, and the Zayante Carbon-GR
+gravel crank is a Praxis M30 crank per the M30-BB compatibility list), and then enumerates nine
+shell-specific bottom brackets that all carry that identical spindle interface but mount to
+different frame shells: **M30-BSA THREADED** (68 mm road / 68·73·83 mm MTN), **M30-BB PF41**
+(BB86 road / BB90·92 MTN), **M30-386EVO**, **M30-BBRight**, **M30-BB30/PF30 ROAD** (68 mm),
+**M30-BB30/PF30 MTN** (73 mm), **M30-T47 E.B.** (external, 68 mm road / 73 mm MTN), **M30-T47 I.B.**
+(internal, 85.5 mm road), **M30-T47 Asym** (76.75 mm). So the SAME spindle (M30) legitimately fits
+many shells (BSA, BB86, T47, PF30, 386EVO, BBright) via different BBs, and conversely a single
+shell (e.g. a BSA gravel frame) legitimately accepts multiple spindle interfaces — a 24 mm Shimano
+GRX crank via a BSA-24 mm BB OR a Praxis M30 crank via the M30-BSA BB. Both facts are exactly
+FRM-1/FRM-3's MTB reality (30 mm servable across BB86/BB92/PF92 shells) and FRM-4's spindle-mapping
+discipline (DUB 28.99 ≠ 30 mm; M30 ≠ 24 mm), restated on the road/gravel side with a road/gravel
+primary. **Direction-aware wrong-verdict cases a single collapsed axis produces (both fire):**
+(1) **same shell token, different spindle → FALSE FIT** — force the Praxis Zayante's crank `bb` to
+the only available token type (a shell name like `bsa-road`, since no M30/30 mm spindle token
+exists) and it becomes byte-identical to a 24 mm Shimano BSA crank; the engine would then PASS the
+M30 crank against a 24 mm BSA BB it will NOT physically run in. (2) **one crank, several shells →
+FALSE WON'T-FIT** — a crank pinned to one shell token (`bsa-road`) is falsely REJECTED on a BB86 or
+T47 gravel frame, though Praxis explicitly sells the M30-PF41 and M30-T47 BBs for precisely that
+crank on precisely those shells. **⚠ CONTRADICTION** — collides with `GRAVEL_VOCAB.bb`
+(`src/schema-gravel.js`): a single merged axis whose tokens are ALL shell-class names
+(`bsa-road`/`bb86`/`t47-86`/…) vocabs BOTH `frame.bb` (a shell) and `crankset.bb` (a spindle), and
+the shared drop-bar engine's R11 (`rg-bb-shell` + `rg-bb-spindle`, `src/compat-road.js`)
+exact-matches frame-`bb` against crank-`bb` across that one list. There is NO 30 mm/M30
+spindle-interface token, so the Praxis Zayante Carbon-GR M30 crank cannot be entered without
+mis-fielding a shell name onto a spindle interface — the worker who declined to force it was
+correct. Notably the ROAD schema already carries the fix pattern: `ROAD_VOCAB` separates `bbShell`
+from `crankBb`, and `crankBb` already lists `'30mm'` alongside `'dub'`/`'24mm-road'`/`'gxp'` — so
+gravel is the lagging surface, not a new design question. *Confidence: confirmed — Praxis's own
+product page pins the single M30 spindle interface across nine shell-specific BBs directly; the
+orthogonality principle is additionally carried by the already-confirmed FRM-1/FRM-3/FRM-4.*
+Source: praxiscycles.com "Praxis M30 BB Options" (fetched, "30mm DRIVE / 28mm NON-DRIVE" + the
+nine shell-specific model list); Praxis M30-BB compatibility list naming Zayante Carbon among M30
+cranks (fetched via search of praxiscycles.com / northwestbicycle.com listings), 2026-07-24.
+Cross-reference: FRM-1 (the shell×spindle exact-match law this extends), FRM-3 (one spindle across
+multiple shells, MTB), FRM-4 (spindle-interface vocab mapping / DUB≠30 mm trap), FRM-18 (shell
+naming), FRM-61 (the structurally identical BMX diameter-vs-spline split). Recommended data-model
+action (for the coordinator, not made here): split `GRAVEL_VOCAB.bb` into a frame-side `shell`
+axis and a crank-side `spindle` axis — the `shell`/`spindle` GRAVEL_VOCAB keys already exist but
+are under-wired; add a `30mm`/`m30` spindle-interface token (mirroring `ROAD_VOCAB.crankBb`'s
+`'30mm'`), so R11's crank half compares spindle-to-spindle and its frame half shell-to-shell,
+matching the MTB BB's `shell`-vs-`spindle` separation and closing the false red without adding one.
+
 **FRM-18 — BB shell/bore identification: threaded standards name the SHELL, press-fit standards
 name the BORE.** Threaded: English/BSA (1.37″ x 24 tpi, ≈34.8 mm — the 68 mm/73 mm widths FRM-2
 already treats as one thread family), Italian (36 mm x 24 tpi, 35 mm shell ID), T47 (47 mm x
@@ -791,6 +839,48 @@ bmxdirect.net "BMX Hub and Crank Bearing sizes" (fetched, bearing part numbers);
 "Bottom Bracket Sizes" (fetched, corroborating shell OD figures), 2026-07-18. Cross-reference:
 FRM-15.
 
+**FRM-61 [BMX] — spindle DIAMETER and crank-arm SPLINE COUNT are two ORTHOGONAL axes: the BB
+constrains the diameter only, and is agnostic to spline. Clarifies/partially supersedes FRM-15's
+spindle-list framing, which conflated "48-spline" with a diameter.** In a modern 3-piece BMX
+crank the **spline count** (8-spline / 48-spline) describes ONLY the crank-arm↔spindle joint —
+capitalbmx's own guide: it is how "the Crank Arms fit snug on the Spindle," whereas the spindle
+diameter is separately "the thickness of the Cranks' 'axle' that runs through the Bottom Bracket."
+The **diameter** (19 / 22 / 24 / 30 mm) is what the BB bearing bore must match: BMXunion states you
+"need a new bottom bracket to match the spindle size" (the bearing bore), never a word about
+spline. So a single spindle carries BOTH properties independently, and the SAME spline count ships
+in MULTIPLE diameters — proven by the maker's own product data: Fit Bike Co's **"48 Spline
+Complete BB Kit (24mm)"** page lists its contents as "1 x 48 Spline 24mm spindle" + "2 x Sealed
+24mm bearings" (a 48-spline spindle running in a 24 mm bore), while Rant's **Bangin' 48** crank is
+a "19mm 48 spline" spindle and the Rant **Bangin' 8** is 8-spline at the same 19 mm — 48-spline
+appearing at both 24 mm and 19 mm, and 8- vs 48-spline appearing at the same 19 mm. Direct
+consequences that a single-axis spindle model gets WRONG in BOTH directions: (1) **same spline,
+different diameter** — a Fit Blunt (48-spline, 24 mm) and a Rant Bangin' 48 (48-spline, 19 mm) key
+identically on "48-spline" yet need different BB bores → a spline-keyed model FALSE-FITS them to a
+wrong-bore BB; (2) **same diameter, different spline** — a Rant Bangin' 8 (8-spline, 19 mm) and a
+Bangin' 48 (48-spline, 19 mm) both run in the identical 19 mm BB (the BB does not see the spline)
+→ a spline-keyed model FALSE-REJECTS a correct BB. The spline only matters crank-arm↔spindle and
+spline-drive-sprocket↔spindle, never at the BB interface. **⚠ CONTRADICTION** — collides with the
+BMX engine's single-token spindle axis: `BMX_VOCAB.spindle` (`src/compat-bmx.js` line 67) lists
+`'48-spline'` inside the same enum as the diameters `'19mm'/'22mm'/'24mm'/'30mm'`, and the
+`bmx-bb-spindle` rule (lines 302-303) exact-matches `bb.spindleFit !== cranks.spindle`. A BB
+recorded as `24mm` versus a crank recorded as `48-spline` therefore fires "BB spindle mismatch —
+won't fit" comparing two DIFFERENT axes — a false red, and the same model could equally false-PASS
+a 48-spline/24 mm crank against any `48-spline` BB regardless of bore. *Confidence: confirmed —
+manufacturer product data (Fit's own BB-kit spec) pins the 48-spline+24 mm pairing directly;
+BMXunion + capitalbmx (BMX-retailer/technical tier, corpus rule 5) supply the diameter-not-spline
+BB principle and the spline=arm-interface definition, mutually consistent and matching Fit's own
+part.* Source: fitbikeco.com "48 Spline Complete BB Kit 24mm" product page (fetched via search,
+"1 x 48 Spline 24mm spindle / 2 x Sealed 24mm bearings"); capitalbmxbrand.com "Buying BMX Cranks"
+(fetched — spline = arm-to-spindle joint vs diameter = the axle through the BB); bmxunion.com "What
+Size BMX Cranks Do I Need?" (fetched — bearing must match spindle diameter); Rant Bangin' 48 /
+Bangin' 8 product listings (sourcebmx.com / americancycle.com, 48-spline at 19 mm + 8-spline at
+19 mm), 2026-07-24. Cross-reference: FRM-15 (whose "48-spline American ~22.2 mm" refers to the
+LEGACY one-piece/American conflation, not this modern arm-interface axis), FRM-48 (shell×diameter
+matrix), FRM-16 (piece-count axis). Recommended data-model action (for the coordinator, not made
+here): split the BMX spindle axis into a BB-constrained `spindleDiameter` (19/22/24/30 mm) and a
+BB-agnostic `splinePattern` (8-spline / 48-spline / bolt-drive), mirroring the MTB BB's
+`shell`-vs-`spindle` separation, so the `bmx-bb-spindle` check compares diameter-to-diameter only.
+
 **FRM-16 [BMX] — crank piece-count vs shell: a 1-piece crank fits ONLY an American shell.** BMX
 cranks are **3-piece** (spindle + 2 arms, modern standard, Mid/Spanish/Euro shell), **2-piece**
 (rare), or **1-piece** (Ashtabula — spindle+arms one forging, needs the wide **American** shell
@@ -969,6 +1059,109 @@ growth must not exceed **54 mm for Eagle Transmission** and **90 mm for DH Trans
 *Confidence: confirmed.* Source: sram.com Eagle Transmission and DH Transmission FRAME FIT
 SPECIFICATIONS, GEN.0000000008642 Rev D (fetched + text-extracted 2026-07-18);
 `UDH&FULL_MOUNT_RD_FRAME_SPEC_REV_H.pdf` sheet 3. Cross-reference: FRM-10, FRM-41, FRM-42.
+
+---
+
+## Tapered-steerer CLASSES — "tapered" is not one interface (gravel/road vocab question, 2026-07-24)
+
+**FRM-55 — "Tapered" names a FAMILY, not an interface: S.H.I.S. describes a fork with TWO
+independent codes (upper steerer OD + lower crown-race seat OD), and the real market runs at
+least four distinct round-tapered combinations.** Park Tool's SHIS reference (fetched, the same
+document behind FRM-36/37) states the two-code structure directly — *"A bike may have one headset
+standard at the top and a different standard and size on the bottom"* — and gives the two code
+tables that make a taper class: **steering-column (stem-clamp) OD** 25.4 (1″) / 28.6 (1-1/8″) /
+31.8 (1-1/4″) / 38.1 (1-1/2″), and **fork crown-race seat OD** 26 & 27 (1″) / 30 (1-1/8″) / 33
+(1-1/4″) / 40 (1-1/2″). The corresponding head-tube bore IDs are separately toleranced and
+genuinely different bores: **IS41 41.10–41.20 mm, IS42 41.95–42.05 mm, IS47 47.05–47.10 mm,
+IS49 49.1–49.2 mm, IS52 52.1–52.15 mm** (Park Tool table, fetched this session; IS47 and IS52 are
+the two figures FRM-37 did not carry). Because a taper is (upper code, lower code), the classes
+are combinatorial, not a single "tapered" value. *Confidence: confirmed (fetched primary,
+parktool.com SHIS page, direct quote + tables).* Source: parktool.com "Standardized Headset
+Identification System (aka Headset Code)" (fetched 2026-07-24). Cross-reference: FRM-6, FRM-36,
+FRM-37.
+
+**FRM-56 — 1-1/4″→1-1/2″ is a genuinely DIFFERENT interface from 1-1/8″→1-1/2″ on BOTH ends, and
+one maker documents all three common classes side by side under its own names.** Giant's own
+technology page (fetched, maker primary) distinguishes: **OverDrive** road = *"1 1/8-inch top and
+1 1/4-inch bottom bearings"*; **OverDrive** mountain = 1-1/8″ top and 1-1/2″ bottom; **OverDrive
+2** = *"Oversized headset bearings (1 1/4-inch top and 1 1/2-inch bottom bearings) and a tapered
+steerer tube"*, and Giant lists a **"1 1/4-inch stem"** as a required component of the OverDrive 2
+system. That last clause is the load-bearing consequence for a fit checker: changing the UPPER of
+the taper changes the **stem clamp diameter** (28.6 vs 31.8 mm) as well as the upper head-tube
+bore/bearing (IS42-class vs IS47-class), so a 1-1/4″-upper fork is incompatible with both an
+ordinary 1-1/8″ head tube AND an ordinary stem. Independently corroborated on the LOWER end by a
+maker-primary fitment statement: White Industries' own IS42/IS52 headset page (fetched) says it is
+for *"frames with integrated 42mm upper and 52mm lower head tubes"* and requires a tapered **1-1/2″
+(40 mm)** fork crown race — a 1-1/4″ (33 mm) crown race does not seat in it. *Confidence: confirmed
+(two independently fetched maker-primary pages, direct quotes).* Source: giant-bicycles.com
+"OverDrive 2 / OverDrive" technology page (fetched 2026-07-24); whiteind.com IS42/IS52 headset
+product page (fetched 2026-07-24). Cross-reference: FRM-55, FRM-57.
+
+**FRM-57 — The interchangeability that DOES exist is direction-aware and never symmetric: a
+bigger frame/stem can be shimmed down to a smaller fork, never the reverse.** Two real,
+maker-catalogued adapters, both running big→small only: (a) **head-tube side** — Cane Creek's
+IS47-to-IS41 headset adapter, described by its listing as a *"Headset adapter for IS47 (1 1/4″ IS)
+frames for use with straight 1 1/8″ forks"* (retailer-hosted product description of a Cane Creek
+part — retailer tier, corroborating only); (b) **stem side** — Ritchey's own Stem Shim Adaptor
+page (fetched, maker primary) states it *"converts forks with a 28.6mm (1″-1/8″) steerer to be
+compatible with 31.8mm (1-1/4″) diameter stems"* (and 25.4→28.6), i.e. **small steerer into large
+stem clamp**. No maker-catalogued part does the opposite on either end — you cannot add bore to a
+head tube or remove material from a steerer, so a 1-1/4″ fork in a 1-1/8″-upper frame, or a
+1-1/8″-clamp stem on a 1-1/4″ steerer, is a hard won't-fit. This is the same asymmetry shape as
+the engine's dropper-vs-seat-tube rule 13 (too big = error, smaller = shim warning) and the rotor
+CL/6-bolt rule. *Confidence: mixed — maker-primary confirmed for the Ritchey stem-shim direction;
+medium for the Cane Creek IS47→IS41 head-tube adapter (retailer description of a real Cane Creek
+SKU; Cane Creek's own product page for it was not reachable this session).* Source:
+ritcheylogic.com "Stem Shim Adaptor" (fetched 2026-07-24); bike-components.de Cane Creek
+IS47-to-IS41 adapter listing (fetched 2026-07-24, retailer tier).
+
+**FRM-58 — A real gravel bike documents the 1-1/4″×1-1/2″ class in the maker's own words, and it
+is NOT the same fact as the steerer's SHAPE — the two can disagree, which is a live catalog trap.**
+Cervélo's own support/spec page for the **Áspero-5 Disc MK1** (fetched, maker primary) states the
+headset as **1-1/4″ × 1-1/2″**, with upper bearing **34 × 46.8 × 7, 45°×45°** and lower bearing
+**40 × 51.8 × 7.5, 36°×45°** — i.e. an IS47-class upper (46.8 mm OD) over an IS52-class lower
+(51.8 mm OD), the exact 1-1/4″→1-1/2″ combination of FRM-56. **However**, the same bike's service
+reference (CER-ALB-EX-V1, Frame Code FM164, cited in `src/schema-gravel.js`) states *"Fork Steerer
+Type: Cervelo D-Shaped"* — a non-round tube. Both are true and they describe different things: the
+1-1/4″×1-1/2″ figure is the **bearing/head-tube envelope**, the D-shape is the **steerer's own
+cross-section**. A round 1-1/4″ fork still will not fit this frame and no round stem clamps a
+D-shaped tube, so the gravel catalog's existing `cervelo-d-shaped` steerer token is the **correct,
+honest** value for this row and must NOT be re-labelled to any round tapered token on the strength
+of the "1-1/4 x 1-1/2" headset line. *Confidence: confirmed (fetched Cervélo maker-primary spec
+page) for the bearing figures; the D-shaped steerer line is carried from the in-repo citation of
+Cervélo's own service reference.* Source: cervelo.com support page "ASPERO-5 DISC MK1" (fetched
+2026-07-24); `src/schema-gravel.js` steerer-vocab comment citing Cervélo CER-ALB-EX-V1.
+Cross-reference: FRM-56, FRM-59.
+
+**FRM-59 — ⚠ CONTRADICTION (vocab-tier, gravel + road): a single generic `tapered` token cannot
+represent the taper classes FRM-55/56 establish, and the engine's exact-match steerer rule turns
+that collapse into wrong verdicts in BOTH directions.** `src/schema-gravel.js` `GRAVEL_VOCAB.steerer`
+= `['tapered','straight-1-1-8','straight-1-1-4','cervelo-d-shaped']`, and the gravel/road engine
+(`src/compat-road.js`) compares frame `steerer` vs fork `steerer` as an exact match (the same field
+is also read on `stem` and `headset` rows). With one `tapered` value: a 1-1/4″→1-1/2″ fork and a
+1-1/8″→1-1/2″ frame both read `tapered` and would return a **false "fits"** (per FRM-56 the upper
+bore, the upper bearing and the stem clamp all differ); conversely, workers refusing to enter
+1-1/4″-upper frames rather than mislabel them means those bikes are **absent from the catalog**,
+which is the honest-but-costly failure mode. This is a **vocab/data-model** contradiction, not an
+engine-logic one — the exact-match rule is correct; the value space it compares is too coarse.
+Flagged for the coordinator per `tools/MECHANIC-FINDINGS-INTAKE.md`; **this corpus proposes, it
+does not edit.** *Confidence: confirmed (the vocab list and the exact-match semantics are both
+read directly from the repo; the mechanical distinctness is FRM-56's fetched maker primaries).*
+Source: `src/schema-gravel.js` (GRAVEL_VOCAB.steerer + its own comment block), `src/compat-road.js`;
+mechanical basis FRM-55/56/57. Cross-reference: FRM-5, FRM-6, FRM-56.
+
+**FRM-60 — Naming: manufacturers describe a taper by its two INCH sizes, upper-first, not by a
+brand or a bare "tapered" — so a vocab token should carry both ends.** Every maker-primary fetched
+this session names the pair, never a single word: Giant *"1 1/8-inch top and 1 1/2-inch bottom"* /
+*"1 1/4-inch top and 1 1/2-inch bottom"*; Cervélo *"1-1/4″ X 1-1/2″"*; White Industries *"42mm
+upper and 52mm lower"*. The industry's own machine-readable form for the same information is the
+S.H.I.S. pair (e.g. `IS42/28.6 | IS52/40` vs `IS47/31.8 | IS52/40`), which the catalog already
+models *separately* on the frame side (`headTubeUpper`/`headTubeLower` on MTB frames, FRM-8) — so
+the mechanic-honest naming for a fork-side taper token is a two-ended one, e.g. `tapered-1-1-8-1-1-2`
+and `tapered-1-1-4-1-1-2`, mirroring the existing `straight-1-1-8` / `straight-1-1-4` convention
+already in `GRAVEL_VOCAB` rather than inventing a new naming style. *Confidence: confirmed
+(naming observed verbatim across four independently fetched maker/standard sources).* Source: as
+FRM-55/56/58. Cross-reference: FRM-8, FRM-37.
 
 ---
 
