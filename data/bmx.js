@@ -2711,6 +2711,17 @@ var BMX_PARTS = [
   // ---- Fiction BMX (new brand: a Stolen-family parts brand; thin headset +
   //      pegs categories) -------------------------------------------------
   {
+    id: 'bmx-hs-colony-headset', cat: 'headset', brand: 'Colony', model: 'Headset',
+    fit: 'integrated-1-1/8', weight: 55, price: 27.99,
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched colonybmx.com.au/products/headset/: "45/45 style with Colony logo engraving" (fit:integrated-1-1/8 CONFIRMED - Campy 45/45 is this catalog\'s standard mapping) and "Weight: 55 grams" CONFIRMED. AU maker page carries no price (same gap as Colony\'s other rows); price entered from Dan\'s Comp\'s matching "Colony Integrated Headset" listing ($27.99, "Campy 45/45 style" confirms same product) but that retailer page is marked "Discontinued Online" - left UNVERIFIED per the same reasoning as bmx-br-colony-brethren above.'
+  },
+  {
+    id: 'bmx-hs-federal-headset', cat: 'headset', brand: 'Federal', model: 'Headset',
+    fit: 'integrated-1-1/8', price: 36.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://federalbikes.com/products/federal-headset-black',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched federalbikes.com: "Regular Price $36.00" CONFIRMED. fit is display-only in checkBmxBuild (no rule reads it, per every other cataloged headset row\'s convention) - entered as the catalog-standard integrated-1-1/8 default (this page states only bearing-cap heights, not the head-tube bore) matching every current Federal frame in this catalog.'
+  },
+  {
     id: 'bmx-hs-fiction-savage', cat: 'headset', brand: 'Fiction', model: 'Savage Headset',
     fit: 'integrated-1-1/8', price: 19.95,
     note: 'bmx-breadth-3 (2026-07-22): NEW brand for this catalog. Real current Fiction product, WebSearch-corroborated across SkatePro ($19.95), Dan\'s Comp, Albe\'s BMX and Stolen Brand (Fiction\'s parent/sister brand storefront, $19.99) all describing the same SKU: "45x45º integrated 1-1/8in headset for modern head tubes with built-in cups... two precision sealed Campy spec bearings, a CNC machined alloy dust cover with 11mm stack height." No manufacturer-direct page located/fetched this session (Fiction has no clearly separate storefront from Stolen Brand\'s site). Price entered at the SkatePro figure. Left unverified (retailer-corroborated).'
