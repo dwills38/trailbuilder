@@ -3890,6 +3890,13 @@ var KIT_PARTS = [
     coverage:'chest-back', certs:['en1621-2-l2'], disciplines:['enduro','dh'], sizes:['S','M','L','XL','XXL'],
     desc:'Full removable CE-armored shirt (back/chest/shoulders/elbows) in a breathable BeCool base-layer shell. Cert per review-reported EN1621-2 CE-standard test data (6.63 kN result, within the Level 2 band). No maker-published weight found this batch (an older Pro Shirt X-V generation cites ~1250g, but that figure is not reliably attributable to this X-V 2 Air SKU, so left unset). UNVERIFIED sample: multiple US retailer-listed price (RevZilla).' },
 
+  /* kit-breadth-15 (2026-07-24): bodyarmor cross-category gap - Amplifi already had
+     kneepad/elbowpad rows but no full-torso vest, despite selling one. */
+  { id:'arm-amplifi-polymer-armor', cat:'bodyarmor', brand:'Amplifi', model:'Polymer Armor', price:273.41, weight:1240,
+    coverage:'chest-back', certs:['en1621-2-l1','en1621-3'],
+    verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-24', source:'https://amplifisports.com/en/products/polymer-armor-1',
+    desc:'Full torso vest (chest + back) with vented SAS-TEC elements; maker page states "EN1621-1 & 2 & 3 - Level 1" (joint/back/chest coverage, Level 1 throughout), mapped here to the catalog\'s back (en1621-2-l1) and chest (en1621-3) tokens - the vocab has no separate joint-cert slot for a torso-only garment. Weight (1240 g) directly maker-published. amplifisports.com prices in EUR only (€239.99); converted at the day\'s real mid-market rate (1 EUR = 1.13926 USD, xe.com, 2026-07-24 07:10 UTC) per the kit-breadth-15 FX-rate discipline.' },
+
   /* -- Neck braces (niche; no universal cert standard - certs stay dormant).
      Comprehensive sweep of the 4 recognized market brands (Leatt, Alpinestars,
      Atlas, EVS - dirtwheelsmag's buyer's-guide lineup + retailer catalogs agree
