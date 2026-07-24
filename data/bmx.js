@@ -2362,27 +2362,37 @@ var BMX_PARTS = [
   {
     id: 'bmx-se-sunday-blockhead-fat', cat: 'seat', brand: 'Sunday', model: 'Blockhead Fat Seat',
     system: 'pivotal', price: 46.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-blockhead-fat-seat-black-w-berry-silver-embroidery. Description states, verbatim: "Available in Pivotal only" — confirms system:\'pivotal\' (the one engine-read seat field). JSON weight (635g) discarded — identical across every other Sunday seat SKU fetched this session, the shipping-bucket tell. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://shop.sundaybikes.com/products/sunday-blockhead-fat-seat-black-w-berry-silver-embroidery',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched shop.sundaybikes.com/products/sunday-blockhead-fat-seat-black-w-berry-silver-embroidery.js directly this session. Description states, verbatim: "Available in Pivotal only" — confirms system:\'pivotal\' (the one engine-read seat field) directly. Price $46.99 confirmed exactly. No weight stored (JSON weight 635g is a shipping-bucket figure shared identically across every other Sunday seat SKU, never taken as product weight).'
   },
   {
     id: 'bmx-se-sunday-silvabrick-pivotal', cat: 'seat', brand: 'Sunday', model: 'Silva Brick Pivotal Seat',
     system: 'pivotal', price: 42.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-silva-brick-pivotal-seat-black (Brett Silva signature). Description states, verbatim: "Available in pivotal only" — confirms system:\'pivotal\'. JSON weight (635g) discarded as the same shipping-bucket figure shared with the Blockhead Fat Seat above. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://shop.sundaybikes.com/products/sunday-silva-brick-pivotal-seat-black',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched shop.sundaybikes.com/products/sunday-silva-brick-pivotal-seat-black.js directly this session (Brett Silva signature). Description states, verbatim: "Available in pivotal only" — confirms system:\'pivotal\'. Price $42.99 confirmed exactly. No weight stored (JSON weight 635g is a shipping-bucket figure shared with the Blockhead Fat Seat above, never taken as product weight).'
   },
   {
     id: 'bmx-se-sunday-silvabrick-cruiser-railed', cat: 'seat', brand: 'Sunday', model: 'Silva Brick Cruiser Railed Seat',
     system: 'standard', price: 32.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-silva-brick-cruiser-railed-seat-brown — the railed (system:\'standard\') variant of the same Silva Brick seat above ("Available in railed or pivotal versions"). JSON weight (635g) discarded as the same shipping-bucket figure. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://shop.sundaybikes.com/products/sunday-silva-brick-cruiser-railed-seat-brown',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched shop.sundaybikes.com/products/sunday-silva-brick-cruiser-railed-seat-brown.js directly this session — the railed (system:\'standard\') variant of the same Silva Brick seat above ("Available in railed or pivotal versions"), confirmed via the "Railed" tag. Price $32.99 confirmed exactly. No weight stored (JSON weight 635g is the same shipping-bucket figure, never taken as product weight).'
   },
   {
     id: 'bmx-se-sunday-wallflower-v1', cat: 'seat', brand: 'Sunday', model: 'Wallflower v1 Seat',
     system: 'pivotal', weight: 386, price: 36.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-wallflower-v1-seat. Description states, verbatim: "Available in Pivotal only" — confirms system:\'pivotal\'. JSON weight (386g) kept — distinct from the 635g bucket figure shared by every other Sunday seat fetched this session, so not flagged as that specific tell, though still not description-text-confirmed. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://shop.sundaybikes.com/products/sunday-wallflower-v1-seat',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched shop.sundaybikes.com/products/sunday-wallflower-v1-seat.js directly this session. Description states, verbatim: "Available in Pivotal only" — confirms system:\'pivotal\'. Price $36.99 confirmed exactly. JSON weight 386g kept — distinct from the 635g shipping-bucket figure shared by every other Sunday seat fetched this session; not description-text-confirmed but not a recurring shipping-bucket duplicate either.'
   },
   {
     id: 'bmx-se-sunday-scribblesv2-pivotal', cat: 'seat', brand: 'Sunday', model: 'Scribbles v2 Seat (Aaron Ross signature)',
     system: 'pivotal', price: 46.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-scribbles-v2-seat-aaron-ross-signature-multicolor — this handle\'s variant is titled "Pivotal" (the page also separately offers a "Fat/Pivotal or Cruiser/Railed" split, matching this catalog\'s existing Silva Brick pattern above). JSON weight (635g) discarded as the same shipping-bucket figure. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://shop.sundaybikes.com/products/sunday-scribbles-v2-seat-aaron-ross-signature-multicolor',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched shop.sundaybikes.com/products/sunday-scribbles-v2-seat-aaron-ross-signature-multicolor.js directly this session — the "Pivotal" tag on this handle confirms system:\'pivotal\' (the page also separately offers a "Fat/Pivotal or Cruiser/Railed" split, matching this catalog\'s existing Silva Brick pattern above). Price $46.99 confirmed exactly. No weight stored (JSON weight 635g is the same shipping-bucket figure, never taken as product weight).'
   },
   {
     id: 'bmx-cr-sunday-sakerv2', cat: 'cranks', brand: 'Sunday', model: 'Saker v2 Cranks',
