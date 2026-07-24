@@ -44,7 +44,15 @@ function dateOk(v, today){
 var GRAVEL_VOCAB = {
   wheel:        ['700c', '650b'],
   rearAxle:     ['12x142', '12x148', '135x9-qr', '135x10-qr'],   // '12x148' (Boost, MTB-derived) added gravel-verify-1 (2026-07-21) — the Salsa Cutthroat's own frame-specs table states "Rear Spacing 148 x 12 mm Thru-axle" (a drop-bar-mountain-bike bikepacking platform, not a road-derived 142mm frame); a real, sourced value, not a guess. '135x9-qr'/'135x10-qr' added vocab-tier1 (2026-07-22) — QR (not thru-axle) rear spacing, real on several older/budget gravel platforms this file previously flagged rather than force-fit as 12x142: '135x9-qr' is the classic 9mm-skewer QR standard (a retailer spec table states the Marin Nicasio+'s rear axle verbatim as "135x9mm Quick-Release Axle"); '135x10-qr' is the wider 10mm-skewer class named on this file's Kona Rove AL ("10x135mm rear axle", Joytech-hub spec table) and Salsa Journeyman ("10 x 135mm, QR", Salsa's own archived spec page) rows — two independent makers naming the same 10mm/135mm QR combination, distinct from the narrower 9mm class.
-  axle:         ['12x100', '12x142', 'lefty-proprietary', '15x100'],
+  axle:         ['12x100', '12x142', 'lefty-proprietary', '15x100', '15x110'],
+  // '15x110' added catalog/gravel-components-6 (2026-07-24) — a wider front thru-axle spacing
+  // distinct from this vocab's existing '15x100' token, real on the current Salsa Cutthroat
+  // Carbon V2 Fork (pairs with the Cutthroat frame's own Boost 12x148 rear, already in
+  // GRAVEL_VOCAB.rearAxle): worldwidecyclery.com's own fetched spec table states "Front Axle |
+  // 15mm Thru x 110mm" verbatim, corroborated identically by treefortbikes.com and
+  // aroundthecycle.com's independently-fetched spec tables for the same SKU — three
+  // independent retailer echoes of one manufacturer part number (FK6104), not a guess. Backing
+  // row: gfk-salsa-cutthroat-carbon-v2 in data/gravel.js.
   hub:          ['12x100', '12x142', '135x9-qr'],   // '135x9-qr' added gravel-qr-wheels (2026-07-22) — the Hunt 4 Season Gravel Disc wheelset's own axle-adapter table states a "Quick Release 9x135mm" rear option verbatim, closing the rg-rear-axle gap on the Marin Nicasio+ (rearAxle:'135x9-qr'). No '135x10-qr' wheel token exists: no fetched manufacturer/retailer page this pass named a 10mm-skewer QR option distinct from the generic/9mm QR class (see grw-hunt-4season-gravel-700c-qr9x135's note) — the Kona Rove AL / Salsa Journeyman-alloy / Surly Straggler classic frames stay unbuildable at the rear-wheel end, an open wall.
   // FRAME/FORK-side brake mount. 'is-mount' added engine/gravel-is-mount
   // (2026-07-22) — I.S. (International Standard), the pre-flat-mount two-bolt
