@@ -8,6 +8,12 @@
 //       3. Bash/PowerShell write-shaped commands (redirects, tee/mv/cp/mkdir/
 //          touch, Out-File/Set-Content/Add-Content/New-Item/Copy-Item/Move-Item)
 //          carrying an outside absolute path. Read-only system-path commands pass.
+//          Scoped PER PIPE/;/&&-SEGMENT (2026-07-23, H3 harden) — a keyword in one
+//          stage of a command line no longer cross-trips a path merely mentioned in
+//          another stage. Heredoc bodies (`<<'EOF' ... EOF`, e.g. a `git commit -F-`
+//          message) and quoted `node -e`/`python -c` inline-source arguments are
+//          blanked before scanning — they're DATA a command carries, not a target
+//          the command writes to; see sanitizeForScan() below.
 //
 //  B. NO DOWNLOADS (2026-07-23, Douglas: a chip tried to browser-download
 //     "intro_tecnica_jena_eng.pdf"): no session downloads files (PDFs especially).
@@ -79,6 +85,32 @@ process.stdin.on('end', function () {
   // Downloadable file extension at the END of a URL/path (query already stripped).
   var DL_EXT = /\.(pdf|zip|7z|rar|tar|gz|tgz|dmg|exe|msi|xls|xlsx|doc|docx|csv|ppt|pptx|bin|iso|apk|pkg)$/i;
 
+  // 2026-07-23 (H3 harden, three real false positives): a shell command can carry a
+  // blocked-looking path as plain DATA rather than as a real command target — a
+  // heredoc'd commit message quoting a path as documentation, or a string/regex
+  // literal inside an interpreter's inline source that happens to look like
+  // "C:\..." or "D:\...". Blank those spans out before scanning so they can't trip
+  // the containment checks below. This intentionally can't see a REAL filesystem
+  // write buried inside interpreted source (e.g. `node -e "fs.writeFileSync(...)"`)
+  // — that was already unreachable by this regex-based guard before this change
+  // (no test covered it), so nothing that was actually enforced regresses.
+  function sanitizeForScan(raw) {
+    var s = raw;
+    // Heredoc body: everything between `<<[-]['"]DELIM['"]` and a line that is just
+    // DELIM is literal text handed to the command (git commit -F-, cat, etc.), not a
+    // command itself.
+    s = s.replace(/<<-?\s*(['"]?)([A-Za-z_][A-Za-z0-9_]*)\1[\s\S]*?\n[ \t]*\2(?=[\s;|&]|$)/g, '<<HEREDOC');
+    // Inline interpreter source (`node -e "..."`, `python -c '...'`): a quoted string
+    // or regex literal inside can coincidentally match a drive-letter pattern.
+    s = s.replace(/(-e|-c)(\s+)("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')/g, '$1$2""');
+    return s;
+  }
+
+  // Segments split on pipe/semicolon/&&/&/newline — a write-shaped keyword or an
+  // outside path only matters when BOTH land in the same segment (a path mentioned
+  // in one piped stage and an unrelated `cp` in another stage should not cross-trip).
+  function splitSegments(s) { return s.split(/\|\||\||;|&&|&|\n/); }
+
   // --- Route 4: browser navigation to a file-download URL (NO DOWNLOADS) ---
   if (toolName === 'mcp__Claude_Browser__navigate' ||
       toolName === 'mcp__Claude_Browser__preview_start' ||
@@ -100,8 +132,9 @@ process.stdin.on('end', function () {
   }
 
   // --- Shell commands (Routes 5, 1, 3) ---
-  var cmd = ti.command || '';
-  if (!cmd) return;
+  var rawCmd = ti.command || '';
+  if (!rawCmd) return;
+  var cmd = sanitizeForScan(rawCmd);
 
   // Route 5: file-download shell commands. The tool must be at a real COMMAND POSITION
   // (start, or after a pipe / ; / && / newline) so a MENTION inside a quoted commit message
@@ -120,18 +153,29 @@ process.stdin.on('end', function () {
     }
   }
 
-  var absTokens = cmd.match(/(?:"[A-Za-z]:[\\\/][^"]*"|'[A-Za-z]:[\\\/][^']*'|[A-Za-z]:[\\\/][^\s'"]+|"\/[a-z]\/[^"]*"|'\/[a-z]\/[^']*'|\/[a-z]\/[^\s'"]+)/g) || [];
-  if (!absTokens.length) return;
-  var bad = absTokens.filter(isOutside);
-  if (!bad.length) return;
+  // Routes 1 & 3 are scoped PER SEGMENT: an outside path only matters together with a
+  // worktree/clone or write-shaped keyword in the SAME pipe/semicolon/&&-separated
+  // segment — a path merely mentioned in one stage no longer cross-trips a keyword
+  // sitting in an unrelated stage of the same command line.
+  var absTokenRe = /(?:"[A-Za-z]:[\\\/][^"]*"|'[A-Za-z]:[\\\/][^']*'|[A-Za-z]:[\\\/][^\s'"]+|"\/[a-z]\/[^"]*"|'\/[a-z]\/[^']*'|\/[a-z]\/[^\s'"]+)/g;
+  var worktreeRe = /\bworktree\s+add\b|\bgit\s+clone\b/i;
+  var writeShapedRe = /(?:^|[^>])>{1,2}\s*["']?(?:[A-Za-z]:[\\\/]|\/[a-z]\/)|\b(?:tee|mv|cp|mkdir|touch|rsync|robocopy|xcopy)\b|\b(?:Out-File|Set-Content|Add-Content|New-Item|Copy-Item|Move-Item)\b/i;
 
-  // Route 1: worktree/clone with ANY outside absolute path -> deny.
-  if (/\bworktree\s+add\b|\bgit\s+clone\b/i.test(cmd)) {
-    deny(bad[0], 'create your worktree at .claude/worktrees/<unique-name> instead.');
-    return;
-  }
-  // Route 3: write-shaped shell command with an outside absolute path -> deny.
-  if (/(?:^|[^>])>{1,2}\s*["']?(?:[A-Za-z]:[\\\/]|\/[a-z]\/)|\b(?:tee|mv|cp|mkdir|touch|rsync|robocopy|xcopy)\b|\b(?:Out-File|Set-Content|Add-Content|New-Item|Copy-Item|Move-Item)\b/i.test(cmd)) {
-    deny(bad[0], 'redirect/copy/create files only inside D:\\MTB Bike Builder (or the harness Temp\\claude scratchpad).');
+  var segments = splitSegments(cmd);
+  for (var si = 0; si < segments.length; si++) {
+    var seg = segments[si];
+    var tokens = seg.match(absTokenRe) || [];
+    var bad = tokens.filter(isOutside);
+    if (!bad.length) continue;
+    // Route 1: worktree/clone with an outside absolute path in the same segment -> deny.
+    if (worktreeRe.test(seg)) {
+      deny(bad[0], 'create your worktree at .claude/worktrees/<unique-name> instead.');
+      return;
+    }
+    // Route 3: write-shaped shell command with an outside absolute path in the same segment -> deny.
+    if (writeShapedRe.test(seg)) {
+      deny(bad[0], 'redirect/copy/create files only inside D:\\MTB Bike Builder (or the harness Temp\\claude scratchpad).');
+      return;
+    }
   }
 });
