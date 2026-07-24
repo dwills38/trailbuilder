@@ -2920,6 +2920,12 @@ var BMX_PARTS = [
     note: 'bmx-smallparts-2 (2026-07-24): second WeThePeople peg row (Dillon Lloyd signature). Directly fetched wethepeoplebmx.de: "heat-treated 7075-T6 alloy core with a specially designed nylon/fibreglass sleeve...with 14mm holes and 3/8\\" adapters...WEIGHT: per peg: 133g" - material:alloy (7075-T6), axleFit:14mm, reducerIncluded:true, weight CONFIRMED. No price on the maker\'s EU site; SkatePro lists a "Dill Pickle Nylon V2" at $42.95 - not promoted to verified since the "V2" naming on the retailer listing isn\'t confirmed to be the identical SKU described on the maker page (could be a later revision), so this row stays unverified pending a cleaner source match.'
   },
   {
+    id: 'bmx-pg-verde-regent', cat: 'pegs', brand: 'Verde', model: 'Regent PC Peg',
+    axleFit: '14mm', material: 'alloy', reducerIncluded: true, weight: 103, price: 19.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://verdebicycles.com/collections/pegs',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched verdebicycles.com (Verde\'s own storefront, $19.99 USD): "Material: Aluminum alloy core w/ replaceable nylon sleeve...Axle: 14mm bore w/ 10mm (3/8\\") adapter included...Weight: 3.65 oz" (=103g). material:alloy, axleFit:14mm, reducerIncluded:true, weight, price all CONFIRMED.'
+  },
+  {
     id: 'bmx-pg-sunday-seeley475', cat: 'pegs', brand: 'Sunday', model: 'Seeley 4.75" PC Peg',
     axleFit: '14mm', material: 'alloy', reducerIncluded: true, price: 27.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://shop.sundaybikes.com/collections/sunday-pegs',
@@ -2964,6 +2970,12 @@ var BMX_PARTS = [
     platform: 'plastic', spindle: '9/16', weight: 403, price: 15.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://missionbmx.com/products/impulse-pedals',
     note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched missionbmx.com (maker\'s own storefront): "SIZE: 9/16\\"...BODY: Nylon Composite...SPINDLE: Chromoly Steel...WEIGHT: 14.2oz" (=403g). platform:plastic/spindle/weight/price ($15.99, the base-color price; several premium colorways carry $29.99/$44.99 upcharges, not used per THE PRICE RULE) all CONFIRMED.'
+  },
+  {
+    id: 'bmx-pd-duo-hilo', cat: 'pedals', brand: 'DUO', model: 'Hi-Lo Pedals',
+    platform: 'alloy', spindle: '9/16', weight: 448, price: 119.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://verdebicycles.com/collections/pedals',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category (DUO, sold via Verde\'s own storefront - verdebicycles.com, the same distributor front already trusted for the Verde peg row above). Directly fetched: "$119.99 USD...CNC machined aluminum body (105mm x 102mm)...9/16\\" heat-treated chromoly spindle...15.8oz (pair)" (=448g). platform:alloy, spindle:9/16 (explicitly restated, not this catalog\'s assumed default), weight, price all CONFIRMED.'
   },
   {
     id: 'bmx-pd-sm-hoderbtm', cat: 'pedals', brand: 'S&M', model: 'Hoder BTM Pedals',
