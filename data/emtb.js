@@ -2345,7 +2345,8 @@ var EMTB_PARTS = [
     frameMaterial: 'aluminum', drivetrain: 'Shimano Deore/SLX 1x12', brakes: 'Shimano Deore BR-M6100',
     disciplines: ['e-trail'], weight: null, price: 6687, modelYear: 2022,
     note: 'UK maker Saracen\'s only e-MTB family (brand was fully absent), sold in 3 builds off one "Ariel 50E" 6013-aluminium platform with a flip-chip wheel-config link (S/M ship mullet 29in front/27.5in rear, L/XL ship full 29in — cataloged at the mullet ship config). Entry-tier build: Fox not fitted (base suspension), Deore/SLX mixed drivetrain, Deore 2-piston brakes. Torque/power figures are Shimano\'s own generic E-7000 spec (60Nm/250W), NOT independently stated on Saracen\'s own page — flagged as the lower-confidence field on this row.',
-    desc: 'Sourced from saracen.co.uk\'s own product page (fetched, saracen.co.uk/products/my22-ariel-50e). Still listed "MY22" (2022 model year) as the current e-bike range at fetch time (2026-07-23) — worth flagging that this may be an older platform still being sold, not a refreshed model. No complete-bike weight published. Battery: Darfon 720Wh, page wording "fully integrated" (cataloged not-removable); no range extender mentioned. Display model not named on the page. PRICE: GBP 4,999.99 MSRP (page also shows a current sale price of £2,499.99, not used per the standing MSRP-not-sale convention) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $6,687. catalog/emtb-depth-5 wave (Saracen absent -> 3 rows).',
+    desc: 'Sourced from saracen.co.uk\'s own product page (fetched, saracen.co.uk/products/my22-ariel-50e). Still listed "MY22" (2022 model year) as the current e-bike range at fetch time (2026-07-23) — worth flagging that this may be an older platform still being sold, not a refreshed model. No complete-bike weight published. Battery: Darfon 720Wh, page wording "fully integrated" (cataloged not-removable); no range extender mentioned. Display model not named on the page. PRICE: GBP 4,999.99 MSRP (page also shows a current sale price of £2,499.99, not used per the standing MSRP-not-sale convention) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $6,687.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.saracen.co.uk/products/my22-ariel-50e'
   },
   {
@@ -2356,7 +2357,8 @@ var EMTB_PARTS = [
     frameMaterial: 'aluminum', drivetrain: 'Shimano SLX/XT 1x12', brakes: 'Magura MT5 eSTOP',
     disciplines: ['e-trail'], weight: null, price: 8024, modelYear: 2022,
     note: 'Mid-tier Ariel 50E: same 6013-aluminium flip-chip platform as the base, stepped up to Fox 38-E Performance Elite fork / Fox Float X2 Performance shock, mixed Shimano SLX/XT drivetrain, Magura MT5 eSTOP 4-piston brakes.',
-    desc: 'Sourced from saracen.co.uk\'s own product page (fetched, saracen.co.uk/products/my22-ariel-50e-pro). Same "MY22" platform-age flag, no published weight, and unstated display model as the base Ariel 50E row. PRICE: GBP 5,999.99 MSRP (sale price £3,499.99 not used, per MSRP-not-sale convention) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $8,024. catalog/emtb-depth-5 wave.',
+    desc: 'Sourced from saracen.co.uk\'s own product page (fetched, saracen.co.uk/products/my22-ariel-50e-pro). Same "MY22" platform-age flag, no published weight, and unstated display model as the base Ariel 50E row. PRICE: GBP 5,999.99 MSRP (sale price £3,499.99 not used, per MSRP-not-sale convention) converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $8,024.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.saracen.co.uk/products/my22-ariel-50e-pro'
   },
   {
@@ -2367,7 +2369,8 @@ var EMTB_PARTS = [
     frameMaterial: 'aluminum', drivetrain: 'Shimano XT 1x12', brakes: 'Shimano XT BR-M8120',
     disciplines: ['e-trail'], weight: null, price: 9362, modelYear: 2022,
     note: 'Top-tier Ariel 50E: Fox 38-E Factory (Kashima, GRIP2) fork + Fox Float DHX2 Factory coil shock, full Shimano XT 1x12 groupset, Shimano XT 4-piston brakes.',
-    desc: 'Sourced from saracen.co.uk\'s own product page (fetched, saracen.co.uk/products/my22-ariel-50e-elite). This is the only Ariel 50E page to explicitly state motor torque (85Nm) on Saracen\'s own text; carried onto the Pro row above as the same EP-800 motor. No published weight; no current sale price shown for this trim (page shows only the £6,999.99 MSRP). PRICE: GBP 6,999.99 converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $9,362. catalog/emtb-depth-5 wave.',
+    desc: 'Sourced from saracen.co.uk\'s own product page (fetched, saracen.co.uk/products/my22-ariel-50e-elite). This is the only Ariel 50E page to explicitly state motor torque (85Nm) on Saracen\'s own text; carried onto the Pro row above as the same EP-800 motor. No published weight; no current sale price shown for this trim (page shows only the £6,999.99 MSRP). PRICE: GBP 6,999.99 converted at the 2026-07-23 open.er-api.com GBP->USD rate (1.337398) -> $9,362.',
+    verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.saracen.co.uk/products/my22-ariel-50e-elite'
   },
   {
