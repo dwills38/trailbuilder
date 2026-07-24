@@ -454,12 +454,12 @@ var STRIDER_PARTS = [
   },
   {
     id: 'sb-yvolution-y-velo-junior', cat: 'balancebike', brand: 'Yvolution', model: 'Y Velo Junior',
-    wheel: '10', seatMin: 267, seatMax: 381, bikeWeight: 3492, tire: 'rubber-foam',
+    wheel: '10', seatMin: 279, seatMax: 361, bikeWeight: 3492, tire: 'rubber-foam',
     brake: 'none', frameMaterial: 'steel', price: 64.99,
-    note: 'Entry Yvolution balance bike for the 18-month-to-3-year range; distinctive dual-rear-wheel design (converts to a single rear wheel as the child\'s balance improves) - the widest stance in this catalog. yvolution.com\'s own product pages are JS-rendered and did not surface a spec table on fetch; spec table sourced from rascalrides.com\'s independent review (seat height 10.5-15in, weight 7.7lb, 10in non-marking rubber tires, no brake, $64.99 list price) - kept unverified sample per THE BAR (no fetched maker spec page).',
-    lastChecked: '2026-07-22', sourceType: 'maker',
-    source: 'https://rascalrides.com/yvolution-y-velo-junior-balance-bike-review/',
-    desc: 'Unverified sample (aggregator-sourced, rascalrides.com review fetched 2026-07-22) — seat height 10.5-15in (267-381mm), weight 7.7lb/3.49kg, 10in wheels w/ non-marking rubber tires (dual rear wheel convertible to single), no hand brake, $64.99 list price.'
+    note: 'Entry Yvolution balance bike for the 18-month-to-3-year range; distinctive dual-rear-wheel design (converts to a single rear wheel as the child\'s balance improves) - the widest stance in this catalog. Promoted to verified 2026-07-23 (verify/striders-1): yvolution.com\'s own product page (Exa-fetched — a prior wave\'s "JS-rendered, no spec table" note no longer holds) now surfaces a full spec block: "Min seat height: 11 inches", "Max seat height: 14.2 inches" (corrected from the prior rascalrides-sourced 10.5-15in sample), "Weight: 7.7 lbs" (exact match to the existing 3492g figure), "$64.99" (exact price match). Wheel size and tire/frame material are not restated on the maker page (only "non-marking, puncture-proof wheels") — retained from the prior rascalrides.com sourcing.',
+    verified: true, lastChecked: '2026-07-23', sourceType: 'maker', priceBasis: 'msrp-confirmed',
+    source: 'https://www.yvolution.com/product-page/yvolution-velo-junior-balance-bike',
+    desc: 'Verified (partial) — yvolution.com Velo Junior product page (Exa-fetched 2026-07-23): Min seat height 11in/279mm, Max seat height 14.2in/361mm, Weight 7.7lb/3492g (exact match to the existing figure), $64.99, dual-rear-wheel 2-stage design, non-marking puncture-proof wheels, no brake. Wheel size (10in) and rubber-foam tire material retained from rascalrides.com\'s independent review (not restated on the maker page).'
   },
   {
     id: 'sb-cleary-starfish', cat: 'balancebike', brand: 'Cleary', model: 'Starfish',
