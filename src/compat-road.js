@@ -122,7 +122,14 @@ var ROAD_VOCAB = {
      fork row uses and which is REAR spacing — adding it to the FRONT axis would
      document an interface that cannot exist. Flagged to the coordinator as
      suspected dead vocab on the gravel side rather than mirrored here. */
-  frontAxle:    ['12x100', 'qr100', 'lefty-proprietary', '15x100'],
+  frontAxle:    ['12x100', 'qr100', 'lefty-proprietary', '15x100', '15x110'],
+  /* '15x110' added catalog/gravel-components-6 (2026-07-24) — the Salsa Cutthroat Carbon V2
+     Fork's own front axle spacing (gfk-salsa-cutthroat-carbon-v2), distinct from the existing
+     15x100 token; three independent retailer spec tables for the same manufacturer part number
+     (FK6104) state it verbatim (see schema-gravel.js's GRAVEL_VOCAB.axle header comment for the
+     citations). FORK-SIDE ONLY like 15x100/lefty-proprietary above: no cataloged front wheel hub
+     carries it, so this fork errors against every wheel in R2 — a true won't-fit over a real
+     catalog gap, not a false verdict. */
   /* steerer = the R4 axis ONLY: frame.steerer vs fork.steerer, and headset.steerer
      vs fork.steerer. DELIBERATELY EXCLUDED: schema-road's steererRG also accepts
      '1-1-8', but every one of the 14 catalog rows carrying that token is a STEM or
