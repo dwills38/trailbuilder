@@ -2198,6 +2198,16 @@ var KIT_PARTS = [
      to alias to, so this is a plain tombstone (no KIT_ALIASES entry) rather than a
      retarget - adding the Rhythm Resistance Pants as a new row is a data-entry task,
      out of scope here. See tools/verify-notes-kit.md "Kit Wave 10". */
+  { id:'pnt-poc-motion', cat:'pants', brand:'POC', model:'Motion Pants', price:180, weight:270,
+    liner:false, disciplines:['trail'], sizes:['S','M','L','XL','XXL'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', sourceType:'manufacturer',
+    source:'https://poc.com/en-us/product/ms-motion-pants-granite-grey',
+    desc:'Fetched poc.com (US): "Men\'s Motion Pants", $180.00 USD, sizes S-XXL, 270g at size M (matches poc.com AU listing). Not the retired-fabricated "Resistance Enduro Pants" - a distinct, real POC MTB pants tier.' },
+  { id:'pnt-nukeproof-blackline-trail', cat:'pants', brand:'Nukeproof', model:'Blackline Trail Pant', price:60,
+    liner:false, disciplines:['trail','enduro'],
+    verified:true, priceBasis:'third-party-listed', lastChecked:'2026-07-23',
+    source:'https://us.sportsdirect.com/nukeproof-blackline-trail-mtb-trousers-333838',
+    desc:'nukeproof.com has no fetchable direct product page for this SKU (own-store platform serves no matching product/search path); consistently named "Blackline Trail MTB Trousers", product code 333838, across three independent retailers (Sports Direct US $60.00, Evans Cycles, House of Fraser) - third-party-listed, not manufacturer-confirmed. No weight or size range published, both omitted rather than guessed.' },
   { id:'pnt-fox-flexair', cat:'pants', brand:'Fox', model:'Flexair Pant', price:174.95, weight:390,
     liner:false, disciplines:['trail','enduro'], sizes:['28','30','32','34','36','38'],
     desc:'TruMotion 4-way stretch, tapered fit, TruDri moisture-wicking. CORRECTED 2026-07-17: price is the fetched $174.95 list (was sample $200; page currently on sale at $139.99, list used per policy). No weight published on the fetched page, stays prior sample.',
@@ -2367,6 +2377,10 @@ var KIT_PARTS = [
     source:'https://www.fasthouse.com/products/shredder-pant-black', sourceType:'manufacturer' },
 
   /* -- Gloves (all UNVERIFIED samples; weight is PER PAIR, approx USD MSRP) -- */
+  { id:'glv-rapha-trail-finale', cat:'gloves', brand:'Rapha', model:'Trail Finale Gloves', price:65,
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-23', sourceType:'manufacturer',
+    source:'https://www.rapha.cc/us/en/product/GLO02XXBLW',
+    desc:'Fetched rapha.cc (US): "Trail Finale Gloves", $65.00 USD. Full-finger, maker-recommended for trail/off-road use over Rapha\'s road-focused glove tiers. No weight or size range published on the fetched page, both omitted rather than guessed.' },
   { id:'glv-fox-dirtpaw', cat:'gloves', brand:'Fox', model:'Dirtpaw', price:39.95, weight:70, sizes:['S','M','L','XL','XXL','3XL','4XL'],
     desc:'CORRECTED 2026-07-17: price is the fetched $39.95 (was sample $30); sizes widened to the fetched S-4XL range. foxracing.com now catalogs this as a Moto (dirt-bike) product, not MTB, but it remains a real, currently-sold crossover glove commonly used for MTB - kept, not removed. No weight published on the fetched page, stays prior sample.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-17', source:'https://www.foxracing.com/product/dirtpaw-gloves/31325.html' },
