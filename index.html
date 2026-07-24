@@ -954,7 +954,6 @@
        text — pad their HIT AREA, not their box */
     .prov .ver,.prov .sheet-ver{position:relative}
     .prov .ver::after,.prov .sheet-ver::after{content:"";position:absolute;inset:-10px -8px}
-    .fam-menu summary{padding:9px 6px;margin:-9px -6px}
     .footer-legal a{display:inline-block;padding:11px 4px;margin:-8px 0}
     dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal,dialog#profileModal,dialog#buildSheetModal,dialog#svcModal,dialog#buildDiffModal,dialog#archiveModal,dialog#upgradeOptModal,dialog#ovbModal{width:calc(100% - 20px)}
     /* list rows on phones: the spec line drops, the name column flexes; wide
@@ -1034,16 +1033,20 @@
   .theme-pop .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
   .theme-pop .btn.primary::after{content:"✓";margin-left:auto;font-weight:800}
   .samples-pop .rail-hint{padding:2px 8px 4px;max-width:230px}
-  /* Family switcher (D1, 2026-07-20): the header wordmark is a click-opened
+  /* Family switcher (D1, 2026-07-20; re-homed 2026-07-24): a click-opened
      <details> menu — same disclosure idiom as .theme-menu/.samples-menu above,
      never auto-opens (no-popups rule). Lists only LIVE BuildMy surfaces + a
-     link to /about.html; the mission line is the menu's own footer. */
+     link to /about.html; the mission line is the menu's own footer.
+     It used to hang off the header WORDMARK; it is now the explicit
+     "🚲 Builders ▾" button, so the summary is a .btn like every other header
+     control and the popup right-aligns (it no longer sits at the far left,
+     where left:0 was always on-screen). */
   .fam-menu{position:relative;display:inline-block}
-  .fam-menu summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:2px}
+  .fam-menu summary{list-style:none;cursor:pointer}
   .fam-menu summary::-webkit-details-marker{display:none}
-  .fam-menu summary h1{margin:0}
   .fam-menu .fam-caret{font-size:12px;opacity:.8}
-  .fam-pop{position:absolute;left:0;top:calc(100% + 6px);min-width:280px;z-index:80;
+  .fam-pop{position:absolute;right:0;top:calc(100% + 6px);min-width:280px;
+    max-width:calc(100vw - 24px);z-index:80;
     background:var(--card);border:1px solid var(--line);border-radius:12px;
     padding:10px;box-shadow:0 12px 34px rgba(0,0,0,.18)}
   .fam-pop a{display:flex;align-items:baseline;gap:8px;padding:9px 10px;border-radius:9px;
@@ -1053,9 +1056,6 @@
   .fam-pop a.here{background:var(--chip);outline:1px solid var(--line)}
   .fam-mission{border-top:1px solid var(--line);margin-top:8px;padding:9px 10px 3px;
     font-size:11.5px;color:var(--ink-soft);line-height:1.5}
-  /* fam-menu sits at the FAR LEFT of the header (unlike .theme-menu/.samples-menu,
-     which sit toward the right and correctly flip right-aligned on phones) — its
-     default left:0 already keeps the popup on-screen at every width, so no flip. */
   /* phones: the rail is always visible, stacked inline above the catalog (the
      .layout grid collapses to a single block column at ≤880px) — not sticky, so
      it scrolls away and gives the catalog the full viewport. The desktop rail's
@@ -1335,19 +1335,15 @@
     <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
   </svg>
   <div class="wrap">
-    <!-- Family switcher (D1): the wordmark is a click-opened <details> menu listing
-         only LIVE BuildMy surfaces + a link to /about.html, with the mission line as
-         its footer. "/" still loads straight into the builder — this only adds a
-         one-click path to the rest of the family, never a step in front of it. -->
-    <details class="fam-menu" id="famMenu">
-      <summary aria-haspopup="true" aria-label="BuildMyMTB — open the BuildMy family switcher">
-        <h1>BuildMyMTB</h1><span class="fam-caret" aria-hidden="true">▾</span>
-      </summary>
-      <div class="fam-pop" role="menu" aria-label="The BuildMy family">
-        <span data-tb-family="mtb"></span>
-        <div class="fam-mission">BuildMyMTB is a free, unbiased bike-building tool with accurate data — pick parts and see, in real time, whether they fit. Same tool, every ride style.</div>
-      </div>
-    </details>
+    <!-- The wordmark is a plain heading. It used to double as the family
+         switcher's <summary>, but that made TWO ways to reach the same six
+         surfaces (the hidden wordmark menu, plus standalone 🏁 BuildMyBMX /
+         🧰 BuildMyRideKit buttons). Douglas asked for ONE clearly-labelled
+         builders control (2026-07-24), so the switcher moved to the explicit
+         "🚲 Builders ▾" button below and the wordmark went back to being a
+         wordmark — you are already on this surface, so there is nothing to
+         click here. -->
+    <h1>BuildMyMTB</h1>
     <input type="search" id="search" placeholder="Search brand or model (e.g. ZEB, XT, Code)…" aria-label="Search parts by brand or model" />
     <!-- Share button moved into the build panel next to "Your build" (Douglas 2026-07-18) -->
 
@@ -1360,21 +1356,27 @@
            aria-label="Community — ask questions & share builds on BuildMyMTB Discussions (opens in a new tab)" hidden>💬<span class="hdr-long"> Community</span></a>
         <button type="button" class="btn" id="forumNavBtn"
           title="Bug reports, build questions, feature requests" hidden>💬<span class="hdr-long"> Community</span></button>
-        <!-- BuildMyBMX: a SEPARATE root page (bmx.html) for BMX builds. Wired
-             live 2026-07-17 on Douglas's go-live word (memory: bmx-golive) — no
-             feature-gate needed, a plain link like the Guides button. Ordered
-             before RideKit per the gear-last rule (Douglas 2026-07-20). -->
-        <a class="btn" id="bmxNavBtn" href="bmx.html"
-          title="BMX — frame, fork, drivetrain, wheels &amp; cockpit">🏁<span class="hdr-long"> BuildMyBMX</span></a>
-        <!-- BuildMyRideKit: a SEPARATE page (/KitBuilder) for rider gear — helmets,
-             shoes, apparel, protection. Gated on KIT_ENABLED (same feature-gate
-             pattern as reportGithub); hidden until Douglas flips it live. A plain
-             link, so the bike page needs no kit.js payload. Renamed from "Kit
-             Builder" to "BuildMyKit" 2026-07-17, then to "BuildMyRideKit"
-             2026-07-19 (Douglas) — label text only, the /KitBuilder route and
-             KIT_ENABLED id are unchanged. -->
-        <a class="btn" id="kitBuilderNavBtn" href="KitBuilder/"
-          title="Rider kit — helmets, shoes, apparel &amp; protection" hidden>🧰<span class="hdr-long"> BuildMyRideKit</span></a>
+        <!-- THE builders control (Douglas 2026-07-24): one clearly-labelled
+             dropdown listing every live BuildMy surface, replacing the two
+             standalone 🏁 BuildMyBMX / 🧰 BuildMyRideKit buttons AND the
+             wordmark's hidden copy of the same list. The list itself is NOT
+             written here — it is mounted from TB_FAMILY in src/page-shell.js,
+             so a future builder is still a one-line change in one file, and
+             the current page is marked (aria-current) rather than linking to
+             itself. Click-opened <details>, same disclosure idiom as the ⋯ /
+             🎨 / 🚵 menus — it never auto-opens (hard rule 2). -->
+        <details class="fam-menu" id="famMenu">
+          <!-- The word "Builders" is NOT wrapped in .hdr-long (which drops a
+               label on phones): this is the site's primary navigation control,
+               and an unlabelled 🚲 is exactly the hidden affordance we just
+               removed from the wordmark. -->
+          <summary class="btn" id="buildersBtn" title="Switch between the BuildMy builders"
+            aria-haspopup="true" aria-label="Builders — switch between the BuildMy sites">🚲 Builders <span class="fam-caret" aria-hidden="true">▾</span></summary>
+          <div class="fam-pop" role="menu" aria-label="The BuildMy family">
+            <span data-tb-family="mtb"></span>
+            <div class="fam-mission">BuildMyMTB is a free, unbiased bike-building tool with accurate data — pick parts and see, in real time, whether they fit. Same tool, every ride style.</div>
+          </div>
+        </details>
         <!-- Guides: always-on entry to the buyer's/compatibility guides page (static
              content from src/guides.js — no account/feature gate). Opens #guidesPage. -->
         <button type="button" class="btn" id="guidesNavBtn"
@@ -6011,7 +6013,8 @@
       if(e.key==='Escape' && !pop.hidden){ closeMenu(); btn.focus(); }
     });
   })();
-  // Family switcher (D1, header wordmark): same close conventions as the ⋯
+  // Family switcher (D1; the header's 🚲 Builders button since 2026-07-24):
+  // same close conventions as the ⋯
   // menu — picking an item closes it, clicking outside closes it, Escape
   // closes and refocuses the summary. Never auto-opens (no-popups rule).
   (function(){
@@ -6174,10 +6177,11 @@
   $('forumNavBtn').onclick = function(){ location.hash = '#forum'; };
   $('forumBack').onclick = function(){ closeForum(); writeHash(); };
 
-  /* Kit Builder (separate /KitBuilder page): reveal the nav button only when the
-     feature is enabled (same committed-constant gate as reportGithub). The href is
-     in the markup; this just unhides it. Default OFF keeps a merge live-safe. */
-  $('kitBuilderNavBtn').hidden = !(typeof KIT_ENABLED !== 'undefined' && KIT_ENABLED);
+  /* (The Kit Builder nav button and its KIT_ENABLED gate were removed 2026-07-24:
+     BuildMyRideKit went live 2026-07-21 and is listed unconditionally in
+     TB_FAMILY, which every surface's 🚲 Builders menu now renders. One list,
+     one gate — a page-level feature flag on top of it could only ever disagree
+     with the other five headers.) */
 
   /* Upgrade Advisor controls (feature slate #1). Entering is a real history
      entry (location.hash — NAV-15: a place); everything after is state via

@@ -154,6 +154,32 @@ describe('page-shell: every served page carries the shared chrome', () => {
     expect(html).toContain('<div class="fam-pop" role="menu"');
   });
 
+  /* ONE builders control (Douglas 2026-07-24). index.html used to offer the
+     same six surfaces THREE ways: the wordmark's hidden <details>, a 🏁
+     BuildMyBMX button and a 🧰 BuildMyRideKit button. The switcher is now the
+     explicit "🚲 Builders ▾" control and the standalone buttons are gone.
+     Scoped to index.html on purpose — the other five builders still carry the
+     old wordmark menu until the replication chip lands, and a cross-page
+     assertion here would fail for work that has not been done yet. Widen this
+     to BUILDER_PAGES at replication. */
+  it('index.html has no standalone per-surface nav buttons', () => {
+    const html = read('index.html');
+    expect(html).not.toContain('id="bmxNavBtn"');
+    expect(html).not.toContain('id="kitBuilderNavBtn"');
+    // …and no hand-written link to a sibling builder outside the mounted list.
+    for (const f of TB_FAMILY) {
+      if (f.href === '' || f.id === 'about') continue;   // About keeps its own header button
+      expect(html).not.toContain('href="' + f.href + '"');
+    }
+  });
+
+  it('index.html labels the builders control in words, not just an icon', () => {
+    const html = read('index.html');
+    // .hdr-long hides a label on phones; the primary nav control must not be
+    // a bare emoji there (that is the hidden affordance we just removed).
+    expect(html).toMatch(/id="buildersBtn"[^>]*>🚲 Builders /);
+  });
+
   it.each(BUILDER_PAGES)('$file no longer hand-writes the family menu', ({ file }) => {
     const html = read(file);
     const famPop = html.split('<div class="fam-pop"')[1].split('<div class="fam-mission"')[0];
