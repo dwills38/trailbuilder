@@ -2122,14 +2122,14 @@ var EMTB_PARTS = [
 
   {
     id: 'em-merida-eone-sixty-10k', cat: 'emtb', brand: 'Merida', model: 'eONE-SIXTY 10K',
-    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
-    batteryWh: 630, assist: 'full-power',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: null, brakes: null,
-    disciplines: ['e-enduro'], weight: 22960, price: 11407.98, modelYear: 2026,
-    note: 'Merida\'s eONE-SIXTY carbon flagship trim, alongside the already-cataloged eONE-SIXTY 8000/875 rows — FOX 38 fork, mixed 29in/27.5in wheels (XS gets a smaller 504Wh battery for frame-size clearance, cataloged at the standard 630Wh spec).',
-    desc: 'Unverified sample via the credible-source breadth policy — enduro-mtb.com\'s 2026 enduro-comparison test of this exact SKU plus ebike-mtb.com\'s and vitalmtb.com\'s spec listings confirm "Shimano EP8 motor and a 630 Wh battery... 85 NM torque... 160/150 mm travel suspension with a FOX 38 fork and mixed 29\\"/27.5\\" wheels... Size XS comes with a smaller 504 Wh battery". No merida-bikes.com product page fetched directly this session. Weight (22.96kg, size L) is from an earlier model-year test of the same SKU name — not independently reconfirmed for the current 2026 spec, flagged as the lower-confidence field. Drivetrain/brakes not confirmed in this pass, left uncataloged (Merida\'s 10K historically pairs SRAM/Shimano builds that vary by market). PRICE: EUR 9,999 (enduro-mtb.com\'s quoted 2026 price) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079) -> $11,407.98 — disclosed estimate, no regional-conversion token. catalog/emtb-breadth-3 wave (Merida deepened from 2 rows to 3).',
-    lastChecked: '2026-07-23', source: 'https://enduro-mtb.com/en/the-best-enduro-mtb-review/merida-one-sixty-review-2026/'
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
+    batteryWh: 600, rangeExtender: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 174,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission AXS', brakes: null,
+    disciplines: ['e-enduro'], weight: 22800, price: 11407.98, modelYear: 2026,
+    note: 'Merida\'s eONE-SIXTY carbon flagship trim, alongside the already-cataloged eONE-SIXTY 8000/875 rows — FOX 38 Factory fork, mixed 29in/27.5in wheels, optional 360Wh range extender.',
+    desc: 'verify/emtb-brands-2 (2026-07-23): fetched merida-bikes.com\'s own current US product page directly (merida-bikes.com/en/bike/5690-7649/eone-sixty-10k) — confirms "Shimano EP801... 85Nm" motor, "Integrated 600 Wh battery with optional 360 Wh range extender" (CORRECTED from the prior 630Wh figure, which does not appear on the maker\'s own page), "170 mm travel at the front and 174 mm at the rear" (CORRECTED from 160/150, a real generational drift), "approx. weight 22.8 kg" (corrected from 22.96kg), and "SRAM\'s wireless XX T-type drivetrain" (added, was uncataloged). Brakes not stated in the fetched maker prose (a UK retailer\'s detailed spec table lists SRAM Code Ultimate Stealth, consistent with the XX-tier build, but that is not the maker\'s own page so left uncataloged rather than asserted). No USD price found on the fetched maker page (the UK price is GBP 10,500, a different currency the standing EUR rate does not cover) — the existing $11,407.98 (EUR 9,999 press-quoted price, converted) stays a disclosed estimate, no priceBasis token.',
+    verified: true, lastChecked: '2026-07-23', source: 'https://www.merida-bikes.com/en/bike/5690-7649/eone-sixty-10k'
   },
 
   {
@@ -2172,8 +2172,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'Shimano XT 1x12 (EM900 crank)', brakes: 'SRAM Code RSC',
     disciplines: ['e-trail', 'e-enduro'], weight: 23760, price: 12700,
     note: 'Yeti\'s only e-MTB line (160E, dual-29in-only, no mullet option) — TURQ Series carbon frame, Sixfinity 6-bar linkage, 160mm rear travel, Shimano EP801 full-power motor family, 630Wh semi-integrated removable battery, Shimano EM800 bar-mounted controller (not a top-tube display). T1 is a mid/upper trim: Fox Factory 38 GRIP2 fork (170mm E-Tune), Fox Factory Float X2 shock, SRAM Reverb AXS dropper.',
-    desc: 'Unverified sample via the credible-source breadth policy (brand was fully absent) — Yeti\'s own product pages (yeticycles.com/en-us/bikes/160e) are JS-rendered and returned only nav chrome to WebFetch/Exa; specs below are cross-checked across independent dealer/review pages that mirror Yeti\'s official spec sheets, not a directly fetched maker page. Weight is The Loam Wolf\'s tested-unit figure, "52.4 lb" (23.76kg), no size stated. Peak motor wattage not confirmed for this specific trim (Yeti\'s own EP801 family is quoted 500-600W across sibling trims; left uncataloged here rather than guessed). Price $12,700 per The Loam Wolf\'s review of this exact build. catalog/emtb-depth-5 wave (Yeti absent -> 2 rows).',
-    lastChecked: '2026-07-23', source: 'https://theloamwolf.com/emtb/review-yeti-160e-t1/'
+    desc: 'Unverified sample via the credible-source breadth policy (brand was fully absent) — Yeti\'s own product pages (yeticycles.com/en-us/bikes/160e) are JS-rendered and returned only nav chrome to WebFetch/Exa; specs below are cross-checked across independent dealer/review pages that mirror Yeti\'s official spec sheets, not a directly fetched maker page. Weight is The Loam Wolf\'s tested-unit figure, "52.4 lb" (23.76kg), no size stated. Peak motor wattage not confirmed for this specific trim (Yeti\'s own EP801 family is quoted 500-600W across sibling trims; left uncataloged here rather than guessed). Price $12,700 per The Loam Wolf\'s review of this exact build. catalog/emtb-depth-5 wave (Yeti absent -> 2 rows). verify/emtb-brands-2 (2026-07-23): yeticycles.com/en-us/bikes/160e now fetches cleanly (WebFetch) and confirms the platform-level facts this row depends on — "Motor: Shimano EP8... Battery: 630 watt-hour capacity... Wheel size: 29\"... Rear travel: 160mm" — matching motorBrand/motorTorque/batteryWh/wheelConfig/travelRear exactly (the per-trim build kit/pricing page itself stayed JS-thin to WebFetch, so trim-specific drivetrain/brake/price/weight fields stay on their existing dealer/review sourcing).',
+    verified: true, lastChecked: '2026-07-23', source: 'https://yeticycles.com/en-us/bikes/160e'
   },
   {
     id: 'em-yeti-160e-t2', cat: 'emtb', brand: 'Yeti', model: '160E T2',
@@ -2183,8 +2183,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'SRAM X01 Eagle 12-speed', brakes: 'SRAM Code RSC',
     disciplines: ['e-trail', 'e-enduro'], weight: 22630, price: 10800,
     note: 'Current top trim of the 160E: Fox Factory 38 GRIP2 (Kashima) fork, Fox Float X2 Factory shock (205x65mm trunnion, Kashima), DT Swiss HX1700 wheels, SRAM Reverb AXS dropper, SRAM HS2 220mm rotors both ends.',
-    desc: 'Unverified sample via the credible-source breadth policy — Vital MTB\'s and MTB Database\'s spec-sheet pages (mirroring Yeti\'s own T2 build sheet), cross-checked against Alex Bicycles\' dealer listing for the US MSRP. Weight is Vital MTB\'s tested-unit figure, "49 lb 14.2 oz" = 22.63kg. One aggregator (Opticycles) listed $12,883, likely a regional/currency variant — not used. catalog/emtb-depth-5 wave.',
-    lastChecked: '2026-07-23', source: 'https://www.vitalmtb.com/product/guide/e-bikes/yeti/160e-59316'
+    desc: 'Unverified sample via the credible-source breadth policy — Vital MTB\'s and MTB Database\'s spec-sheet pages (mirroring Yeti\'s own T2 build sheet), cross-checked against Alex Bicycles\' dealer listing for the US MSRP. Weight is Vital MTB\'s tested-unit figure, "49 lb 14.2 oz" = 22.63kg. One aggregator (Opticycles) listed $12,883, likely a regional/currency variant — not used. catalog/emtb-depth-5 wave. verify/emtb-brands-2 (2026-07-23): yeticycles.com/en-us/bikes/160e fetched directly, confirming the platform-level Shimano EP8/85Nm/630Wh/29in/160mm-rear facts this row depends on; trim-specific drivetrain/brake/price/weight fields stay on their existing dealer/review sourcing (the build-kit page itself is still JS-thin to WebFetch).',
+    verified: true, lastChecked: '2026-07-23', source: 'https://yeticycles.com/en-us/bikes/160e'
   },
   {
     id: 'em-yeti-160e-c2-gx', cat: 'emtb', brand: 'Yeti', model: '160E C2 GX',
@@ -2194,8 +2194,8 @@ var EMTB_PARTS = [
     frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle 12-speed (mechanical)', brakes: 'SRAM Code R',
     disciplines: ['e-trail', 'e-enduro'], weight: null, price: 8500,
     note: 'Value trim of the 160E — same TURQ Series carbon frame/Sixfinity suspension and Shimano EP801/630Wh drive system as the T1/T2, stepped down to Fox PERFORMANCE-tier suspension (Float 38/Float X, vs the T1/T2\'s Factory-tier) and SRAM GX Eagle mechanical drivetrain, SRAM Code R (non-RSC) brakes.',
-    desc: 'Unverified sample via the credible-source breadth policy (same wall as the T1/T2 rows: yeticycles.com is JS-rendered and returned only nav chrome to WebFetch/Exa/the in-app browser pane) — price/spec cross-checked across two independent dealer listings mirroring Yeti\'s own build sheet: alexbicycles.com ($8,500 MSRP, full component spec table) and evo.com\'s 2024 model-year listing ($8,500 MSRP, matching frame/travel/drivetrain). Weight not published on either fetched dealer page (left blank rather than guessed). catalog/emtb-depth-9 wave (Yeti thin-lineup deepen, 2 -> 3 rows).',
-    lastChecked: '2026-07-23', source: 'https://www.alexbicycles.com/product/yeti-cycles-160e-c2-gx-927819-1.htm'
+    desc: 'Unverified sample via the credible-source breadth policy (same wall as the T1/T2 rows: yeticycles.com is JS-rendered and returned only nav chrome to WebFetch/Exa/the in-app browser pane) — price/spec cross-checked across two independent dealer listings mirroring Yeti\'s own build sheet: alexbicycles.com ($8,500 MSRP, full component spec table) and evo.com\'s 2024 model-year listing ($8,500 MSRP, matching frame/travel/drivetrain). Weight not published on either fetched dealer page (left blank rather than guessed). catalog/emtb-depth-9 wave (Yeti thin-lineup deepen, 2 -> 3 rows). verify/emtb-brands-2 (2026-07-23): yeticycles.com/en-us/bikes/160e now fetches cleanly (WebFetch) confirming the platform-level Shimano EP8/85Nm/630Wh/29in/160mm-rear facts; $8,500 price independently matches both dealer listings above (msrp-confirmed via cross-check, not the maker\'s own price page, so no priceBasis token). Weight stays unpublished/uncataloged.',
+    verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-23', source: 'https://yeticycles.com/en-us/bikes/160e'
   },
 
   {
