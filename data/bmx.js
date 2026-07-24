@@ -2161,27 +2161,37 @@ var BMX_PARTS = [
   {
     id: 'bmx-rh-shadow-symbolcassette-rhd', cat: 'rearWheel', brand: 'The Shadow Conspiracy', model: 'Symbol Cassette Hub (RHD)',
     driverType: 'cassette', driverTeeth: 9, side: 'RHD', axle: '14mm', weight: 733, price: 171.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, sparkysbrands.com/products/shadow-symbol-cassette-hub-rhd. Description states, verbatim: "14mm solid cro-mo male axle 9T 1pc CNC cro-mo driver...Left or Right Hand Drive" (this handle is the RHD variant) and "Weight: 25.85 oz" (25.85oz = 733g, independently oz-stated, not the JSON shipping-weight field). Unverified sample (interfaces are real-page-sourced but not cross-checked against a second source).'
+    verified: true, lastChecked: '2026-07-23', source: 'https://sparkysbrands.com/products/shadow-symbol-cassette-hub-rhd',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched sparkysbrands.com/products/shadow-symbol-cassette-hub-rhd.js directly this session. Description states, verbatim: "14mm solid cro-mo male axle 9T 1pc CNC cro-mo driver...Left or Right Hand Drive" (this handle is the RHD variant) — confirms driverType:\'cassette\' (title), driverTeeth:9, axle:\'14mm\', side:\'RHD\' directly (rearWheel carries no engine-read wheelSize field). "Weight: 25.85 oz" = 733g, independently oz-stated, not the JSON shipping-weight field. Price $171.99 confirmed exactly.'
   },
   {
     id: 'bmx-ti-shadow-serpent-23', cat: 'tire', brand: 'The Shadow Conspiracy', model: 'Serpent Tire 2.3in',
     wheelSize: '20', width: 2.3, casing: 'park', maxPsi: 110, weight: 474, price: 52.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, sparkysbrands.com/products/shadow-serpent-foldable-tyre. Description states, verbatim: "110 PSI Size 20\\" x 2.30\\"...Weight: 16.7 oz" (16.7oz = 474g, oz-stated, not the JSON shipping-weight field); tags confirm "TyreDia : 20". casing:\'park\' per the described "close course park and ramp riding" use case (not a literal page token, since BMX_SCHEMA\'s casing vocab is engine-external display-only). Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://sparkysbrands.com/products/shadow-serpent-foldable-tyre',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched sparkysbrands.com/products/shadow-serpent-foldable-tyre.js directly this session. Description states, verbatim: "110 PSI Size 20\\" x 2.30\\"...Weight: 16.7 oz" — confirms wheelSize:\'20\', width:2.3, maxPsi:110 directly (all engine-critical tire fields); 16.7oz = 474g, oz-stated, not the JSON shipping-weight field; tags confirm "TyreDia : 20" independently. casing:\'park\' per the described "close course park and ramp riding" use case — display-only, BMX_SCHEMA\'s casing vocab is engine-external. Price $52.99 confirmed exactly.'
   },
   {
     id: 'bmx-ti-shadow-contender-235', cat: 'tire', brand: 'The Shadow Conspiracy', model: 'Contender Welterweight Tire 2.35in',
     wheelSize: '20', width: 2.35, casing: 'park', maxPsi: 110, weight: 677, price: 42.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, sparkysbrands.com/products/shadow-contender-welterweight-tyre. Description states, verbatim: "20\\" x 2.35\\" 110 PSI...Weight: 23.9 oz" (23.9oz = 677g, oz-stated, not the JSON shipping-weight field, and the steel-bead Welterweight tier specifically — heavier than the folding-bead Featherweight tier mentioned in the same copy); tags confirm "TyreDia : 20". Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://sparkysbrands.com/products/shadow-contender-welterweight-tyre',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched sparkysbrands.com/products/shadow-contender-welterweight-tyre.js directly this session. Description states, verbatim: "20\\" x 2.35\\" 110 PSI...Weight: 23.9 oz" — confirms wheelSize:\'20\', width:2.35, maxPsi:110 directly, and the steel-bead Welterweight tier specifically (heavier than the folding-bead Featherweight tier mentioned in the same copy); 23.9oz = 677g, oz-stated, not the JSON shipping-weight field; tags confirm "TyreDia : 20" independently. Price $42.99 confirmed exactly.'
   },
   {
     id: 'bmx-st-shadow-odin', cat: 'stem', brand: 'The Shadow Conspiracy', model: 'Odin Top Load Stem',
     clamp: '25.4mm', weight: 326, price: 40.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product, sparkysbrands.com/products/shadow-odin-top-load-stem. Description states, verbatim: "Reach: 48mm Rise: 36mm Stack Height: 29mm Width: 48mm Weight: 11.5oz" (11.5oz = 326g, oz-stated, not the JSON shipping-weight field). clamp is display-only in checkBmxBuild (no rule reads it) so the 25.4mm sample value doesn\'t gate. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://sparkysbrands.com/products/shadow-odin-top-load-stem',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched sparkysbrands.com/products/shadow-odin-top-load-stem.js directly this session. Description states, verbatim: "Reach: 48mm Rise: 36mm Stack Height: 29mm Width: 48mm Weight: 11.5oz" (11.5oz = 326g, oz-stated, not the JSON shipping-weight field). clamp is display-only in checkBmxBuild — no engine-critical field left unconfirmed. Price $40.99 confirmed exactly.'
   },
   {
     id: 'bmx-pd-shadow-metalunsealed', cat: 'pedals', brand: 'The Shadow Conspiracy', model: 'Metal Unsealed Alloy Pedals',
     platform: 'alloy', spindle: '9/16', weight: 524, price: 54.99,
-    note: 'bmx-depth-8 (2026-07-22): real current product (Trey Jones signature), sparkysbrands.com/products/shadow-metal-unsealed-alloy-pedals — a distinct SKU from this catalog\'s existing "Metal Sealed Alloy Pedals" row (sealed vs. unsealed bearings). Tags state "9/16 - 3pc" and description states "6061 alloy body...Weight: 18.5 oz" (18.5oz = 524g, oz-stated, not the JSON shipping-weight field). Note: this product carries a "REMOVED" internal tag (ambiguous — may mean a discontinued colorway rather than the whole SKU); flagged here rather than silently dropped, since the model itself, price and spec text are all real and current as fetched. Pedals carry zero checkBmxBuild rules. Unverified sample.'
+    verified: true, lastChecked: '2026-07-23', source: 'https://sparkysbrands.com/products/shadow-metal-unsealed-alloy-pedals',
+    priceBasis: 'msrp-confirmed',
+    note: 'bmx-verify-1 (2026-07-23): re-fetched sparkysbrands.com/products/shadow-metal-unsealed-alloy-pedals.js directly this session (Trey Jones signature) — a distinct SKU from this catalog\'s existing "Metal Sealed Alloy Pedals" row (sealed vs. unsealed bearings), page still live/purchasable this session despite carrying a "REMOVED" internal tag (a Shopify merchandising tag, not a 404/discontinuation — the product page and full spec text are current). Tags state "9/16 - 3pc" (spindle confirmed) and description states "6061 alloy body...Weight: 18.5 oz" (platform:\'alloy\' confirmed; 18.5oz = 524g, oz-stated, not the JSON shipping-weight field). Pedals carry zero checkBmxBuild rules. Price $54.99 confirmed exactly.'
   },
   {
     id: 'bmx-sp-shadow-railed-200', cat: 'seatpost', brand: 'The Shadow Conspiracy', model: 'Railed Seatpost 200mm',
