@@ -88,12 +88,29 @@ Four shell standards, **not interchangeable** (a BB threads/pressed into exactly
 | `american` | 51mm press-fit (outboard bearing cups) | Common on older-school and some race frames; bearings sit outboard in cups. |
 | `euro` | Threaded | Threaded shell, seen on race frames from the early '90s to present. |
 
-The crank's **spindle** (axle) diameter — `19mm`, `22mm`, or `24mm` (rarer) — must fit inside the
+The crank's **spindle diameter** — `19mm`, `22mm`, `24mm` or `30mm` — must fit inside the
 BB's bearing bore. **This is the real cross-check**, structurally identical to the MTB
 `crankset.bb` vs `bb.spindle` rule already in `compat.js`: `frame.bbShell` must equal
-`bb.shell`, and `bb.spindleFit` must equal `cranks.spindle`. A BB shell type and a crank spindle
-diameter are two independent axes — e.g. a Euro-shell threaded BB can still come drilled for a
-19mm or 22mm spindle, so both facts must be modeled and both must match for a real "fits" verdict.
+`bb.shell`, and `bb.spindleDiameter` must equal `cranks.spindleDiameter`. A BB shell type and a
+crank spindle diameter are two independent axes — e.g. a Euro-shell threaded BB can still come
+drilled for a 19mm or 22mm spindle, so both facts must be modeled and both must match for a real
+"fits" verdict.
+
+**The spindle is TWO axes, and the BB only sees one of them** (mechanic ruling **FRM-61**,
+`tools/mechanic/frame-standards-bearings.md`; the model was corrected to match on 2026-07-24):
+
+| Axis | Field | What it constrains |
+|---|---|---|
+| **Diameter** (`19mm`/`22mm`/`24mm`/`30mm`) | `spindleDiameter` on both `cranks` and `bb` | The BB bearing **bore**. This is the one and only thing `bmx-bb-spindle` compares. |
+| **Spline pattern** (`8-spline`/`48-spline`/`bolt-drive`) | optional `splinePattern` | The **crank-arm↔spindle** joint (and a spline-drive sprocket↔spindle). Inside a purchased crankset — the BB is blind to it, so **no rule reads it**. |
+
+Until 2026-07-24 both lived in one `spindle` enum and the rule exact-matched the tokens, which was
+wrong in both directions and could not be fixed by a mapping table: Fit's *48 Spline Complete BB
+Kit (24mm)* is a 48-spline spindle at 24mm while Rant's *Bangin' 48* is "19mm ... 48 spline", so
+keying on the spline **false-fits** them to each other's BB; and Rant's *Bangin' 8* and *Bangin'
+48* are both 19mm and run the identical 19mm BB, so keying on the spline **false-rejects** a
+correct BB. `splinePattern` is optional and entered only where the maker's page states it — a row
+whose source doesn't name the spline carries no token rather than a guess.
 
 ## 4. Cranks — REAL compat check
 
@@ -248,9 +265,12 @@ never feeds compat), `wheelSize` (`'20'`/`'24'`) where relevant. Provenance fiel
   (same vocab as frame), optional `maxTire`.
 - **headset**: `fit` (matches `frame.headTube`/`fork.steerer` vocab).
 - **gyro**: `steererFit`, `cableRouting` (`dual`/`upper-only`).
-- **cranks**: `spindle` (`19mm`/`22mm`/`24mm`), `pieces` (`3-piece`/`2-piece`), `ringMount`
-  (`spline`/`press-on`), optional `length` (mm, display).
-- **bb**: `shell` (matches `frame.bbShell`), `spindleFit` (matches `cranks.spindle`).
+- **cranks**: `spindleDiameter` (`19mm`/`22mm`/`24mm`/`30mm`), optional `splinePattern`
+  (`8-spline`/`48-spline`/`bolt-drive`, display-only — see section 3), `pieces`
+  (`3-piece`/`2-piece`), `ringMount` (`spline`/`press-on`), optional `length` (mm, display).
+- **bb**: `shell` (matches `frame.bbShell`), `spindleDiameter` (matches
+  `cranks.spindleDiameter`), optional `splinePattern` (a kit that ships a spindle may state it;
+  display-only, never rule-read).
 - **sprocket**: `teeth`, `mount` (`spline`/`press-on`), `pitch` (`1/8`/`3/32`).
 - **rearHub** / **rearWheel**: `driverType` (`cassette`/`freecoaster`), `driverTeeth`, `side`
   (`RHD`/`LHD`/`both`), `axle` (`14mm`).

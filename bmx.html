@@ -703,8 +703,11 @@
       case 'frame': bits.push(p.wheelSize+'in'); bits.push(p.bbShell+' shell'); if(typeof p.topTube==='number') bits.push(p.topTube+'in TT'); bits.push(p.frameOnly?'Frame only':'Frame + fork'); break;
       case 'fork': bits.push(p.wheelSize+'in'); bits.push(p.axle+' axle'); bits.push(p.brakeMount==='none'?'No brake mount':p.brakeMount+' mount'); break;
       case 'headset': bits.push(p.fit); break;
-      case 'cranks': bits.push(p.spindle+' spindle'); bits.push(p.pieces); break;
-      case 'bb': bits.push(p.shell+' shell'); bits.push(p.spindleFit+' spindle'); break;
+      /* two spindle axes since the 2026-07-24 FRM-61 split: the diameter is the
+         BB-checked fact (always present), the spline pattern is display-only and
+         optional — shown only when the maker's page actually stated it. */
+      case 'cranks': bits.push(p.spindleDiameter+' spindle'); if(p.splinePattern) bits.push(p.splinePattern); bits.push(p.pieces); break;
+      case 'bb': bits.push(p.shell+' shell'); bits.push(p.spindleDiameter+' spindle'); if(p.splinePattern) bits.push(p.splinePattern); break;
       case 'sprocket': bits.push(p.teeth+'T'); bits.push(p.pitch+'in pitch'); break;
       case 'chain': bits.push(p.pitch+'in pitch'); if(p.halfLink) bits.push('Half-link'); break;
       case 'rearCog': bits.push(p.teeth+'T'); bits.push(p.fitsDriver+' driver'); break;

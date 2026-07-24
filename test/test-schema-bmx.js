@@ -38,6 +38,46 @@ test('an out-of-vocab axle value is caught', function(){
   ok(probs.some(function(m){ return /rearAxle.*not in axle/.test(m); }), probs.join('\n'));
 });
 
+/* ---- FRM-61: the two spindle axes must not blur back into one ------------- */
+/** @param {string} cat @returns {any} */
+function aRow(cat){
+  var p = D.BMX_PARTS.find(function(x){ return x.cat === cat; });
+  if(!p) throw new Error('no BMX ' + cat + ' row found in data/bmx.js');
+  return p;
+}
+test('a SPLINE COUNT in the diameter field is caught (both categories)', function(){
+  ['cranks', 'bb'].forEach(function(cat){
+    var bad = Object.assign({}, aRow(cat), { spindleDiameter: '48-spline' });
+    var probs = S.validateBmxPart(bad, TODAY);
+    ok(probs.some(function(m){ return /spindleDiameter.*not in spindleDiameter/.test(m); }),
+      cat + ': ' + probs.join('\n'));
+  });
+});
+test('a DIAMETER in the spline field is caught (both categories)', function(){
+  ['cranks', 'bb'].forEach(function(cat){
+    var bad = Object.assign({}, aRow(cat), { splinePattern: '24mm' });
+    var probs = S.validateBmxPart(bad, TODAY);
+    ok(probs.some(function(m){ return /splinePattern.*not in splinePattern/.test(m); }),
+      cat + ': ' + probs.join('\n'));
+  });
+});
+test('spindleDiameter is REQUIRED and splinePattern is OPTIONAL on cranks and bb', function(){
+  ['cranks', 'bb'].forEach(function(cat){
+    var noDia = Object.assign({}, aRow(cat)); delete noDia.spindleDiameter;
+    ok(S.validateBmxPart(noDia, TODAY).some(function(m){ return /missing required field "spindleDiameter"/.test(m); }),
+      cat + ' must declare its diameter - it is the interface the BB check reads');
+    var noSpline = Object.assign({}, aRow(cat)); delete noSpline.splinePattern;
+    eq(S.validateBmxPart(noSpline, TODAY).length, 0,
+      cat + ': a row whose source never named the spline carries no token, and that is legal (never a guess)');
+  });
+});
+test('the retired single-axis field names are now strays, not silently accepted', function(){
+  ok(S.validateBmxPart(Object.assign({}, aRow('cranks'), { spindle: '19mm' }), TODAY)
+    .some(function(m){ return /unknown field "spindle"/.test(m); }), 'cranks.spindle is retired');
+  ok(S.validateBmxPart(Object.assign({}, aRow('bb'), { spindleFit: '19mm' }), TODAY)
+    .some(function(m){ return /unknown field "spindleFit"/.test(m); }), 'bb.spindleFit is retired');
+});
+
 test('a missing required field is caught', function(){
   var frame = aFrame();
   var bad = Object.assign({}, frame); delete bad.bbShell;

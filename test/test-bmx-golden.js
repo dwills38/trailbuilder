@@ -42,8 +42,11 @@ test('BMX vocab discipline: every enum field value is in BMX_VOCAB', function(){
   DATA.BMX_PARTS.forEach(function(/** @type {any} */ p){
     if(p.wheelSize) ok(BMX.BMX_VOCAB.wheel.indexOf(p.wheelSize) >= 0, p.id + ' wheelSize ' + p.wheelSize);
     if(p.bbShell) ok(BMX.BMX_VOCAB.bbShell.indexOf(p.bbShell) >= 0, p.id + ' bbShell');
-    if(p.cat === 'bb') ok(BMX.BMX_VOCAB.bbShell.indexOf(p.shell) >= 0 && BMX.BMX_VOCAB.spindle.indexOf(p.spindleFit) >= 0, p.id + ' bb interfaces');
-    if(p.cat === 'cranks') ok(BMX.BMX_VOCAB.spindle.indexOf(p.spindle) >= 0 && BMX.BMX_VOCAB.crankPieces.indexOf(p.pieces) >= 0, p.id + ' crank interfaces');
+    if(p.cat === 'bb') ok(BMX.BMX_VOCAB.bbShell.indexOf(p.shell) >= 0 && BMX.BMX_VOCAB.spindleDiameter.indexOf(p.spindleDiameter) >= 0, p.id + ' bb interfaces');
+    if(p.cat === 'cranks') ok(BMX.BMX_VOCAB.spindleDiameter.indexOf(p.spindleDiameter) >= 0 && BMX.BMX_VOCAB.crankPieces.indexOf(p.pieces) >= 0, p.id + ' crank interfaces');
+    /* the spline axis is optional catalog-wide, but never out of vocab and
+       never a diameter smuggled back onto one token (FRM-61) */
+    if(p.splinePattern) ok(BMX.BMX_VOCAB.splinePattern.indexOf(p.splinePattern) >= 0, p.id + ' splinePattern ' + p.splinePattern);
     if(p.pitch) ok(BMX.BMX_VOCAB.chainPitch.indexOf(p.pitch) >= 0, p.id + ' pitch');
     if(p.axleFit) ok(BMX.BMX_VOCAB.axle.indexOf(p.axleFit) >= 0, p.id + ' axleFit');
     if(p.driverType) ok(BMX.BMX_VOCAB.driverType.indexOf(p.driverType) >= 0, p.id + ' driverType');

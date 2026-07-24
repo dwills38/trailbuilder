@@ -68,6 +68,54 @@ test('a matching shell+spindle BB is silent; no BB -> advisory info only', funct
   eq(r2.errors.length, 0, 'the nudge is an info, never an error - no shell x spindle matrix guessing');
 });
 
+/* ---- BMX-1b THE DIAMETER/SPLINE SPLIT (mechanic ruling FRM-61, 2026-07-24) --
+   The spindle used to be ONE enum mixing diameters with a spline count, and
+   bmx-bb-spindle exact-matched the tokens. That was wrong in BOTH directions,
+   so these three cases pin both of them plus the true non-fit in between. Each
+   of the first and third FAILED before the split (a false red); the second is
+   the guard that the split did not buy the fix by loosening the real check. */
+test('FRM-61 (a): a 48-spline 24mm crank on a 24mm BB raises NO error - the false red is gone', function(){
+  var fit24 = bp('bmx-bb-fitbikeco-blunt48spline-24mm');          // 24mm bore, 48-spline spindle
+  var cr = /** @type {any} */ (Object.assign({}, bp('bmx-cr-profile-race'),
+    { id:'bmx-cr-synthetic-48spline-24', spindleDiameter:'24mm', splinePattern:'48-spline' }));
+  var r = BMX.checkBmxBuild({ bb: fit24, cranks: cr });
+  eq(of(r, 'bmx-bb-spindle').length, 0, 'same diameter -> fits, whatever the spline says');
+  eq(r.errors.length, 0, 'and nothing else fires on the pair either');
+});
+test('FRM-61 (b): a 48-spline 19mm crank on that same 24mm BB STILL errors - right reason, the diameter', function(){
+  var fit24 = bp('bmx-bb-fitbikeco-blunt48spline-24mm');
+  var rant = bp('bmx-cr-rant-bangin48');                          // 19mm bore, 48-spline
+  eq(rant.spindleDiameter, '19mm', 'the Rant Bangin\' 48 is a 19mm spindle (its own source sentence)');
+  eq(rant.splinePattern, '48-spline', 'and a 48-spline one - the same spline as the Fit BB kit');
+  var r = BMX.checkBmxBuild({ bb: fit24, cranks: rant });
+  var e = of(r, 'bmx-bb-spindle');
+  eq(e.length, 1, 'same spline, different bore = a REAL non-fit, still caught');
+  ok(/24mm/.test(e[0].msg) && /19mm/.test(e[0].msg), 'and the message names the two diameters: ' + e[0].msg);
+});
+test('FRM-61 (c): two same-diameter cranks of DIFFERENT spline both fit the one 19mm BB - the BB is spline-agnostic', function(){
+  var bb19 = bp('bmx-bb-salt-mid-19');
+  var spline48 = /** @type {any} */ (Object.assign({}, bp('bmx-cr-profile-race'),
+    { id:'bmx-cr-synthetic-48spline-19', spindleDiameter:'19mm', splinePattern:'48-spline' }));
+  var spline8 = /** @type {any} */ (Object.assign({}, bp('bmx-cr-profile-race'),
+    { id:'bmx-cr-synthetic-8spline-19', spindleDiameter:'19mm', splinePattern:'8-spline' }));
+  eq(of(BMX.checkBmxBuild({ bb: bb19, cranks: spline48 }), 'bmx-bb-spindle').length, 0, '48-spline 19mm in a 19mm BB');
+  eq(of(BMX.checkBmxBuild({ bb: bb19, cranks: spline8 }), 'bmx-bb-spindle').length, 0, '8-spline 19mm in the SAME 19mm BB');
+});
+test('FRM-61: the two axes are separate in the vocab, and no rule reads the spline', function(){
+  eq(BMX.BMX_VOCAB.spindleDiameter.indexOf('48-spline'), -1, 'a spline count is not a diameter');
+  ok(BMX.BMX_VOCAB.splinePattern.indexOf('48-spline') >= 0, 'it lives on its own axis');
+  ok(Object.keys(BMX.BMX_VOCAB).indexOf('spindle') < 0, 'the old conflated enum is gone, not left as a trap');
+  /* Behavioural proof that splinePattern feeds NO verdict: flipping only the
+     spline on both sides of a full build must not move a single verdict. */
+  var base = { frame: bp('bmx-fr-wethepeople-justice'), cranks: bp('bmx-cr-profile-race'), bb: bp('bmx-bb-salt-mid-19') };
+  var flipped = { frame: base.frame, bb: /** @type {any} */ (Object.assign({}, base.bb, { splinePattern:'48-spline' })),
+    cranks: /** @type {any} */ (Object.assign({}, base.cranks, { splinePattern:'8-spline' })) };
+  var a = BMX.checkBmxBuild(base), b = BMX.checkBmxBuild(flipped);
+  /** @param {any} r @returns {string} */
+  function keys(r){ return r.errors.concat(r.warnings).concat(r.infos).map(BMX.verdictKey).sort().join('|'); }
+  eq(keys(b), keys(a), 'mismatched spline patterns change nothing - the BB never sees them');
+});
+
 /* ---- BMX-2 crank piece-count ---------------------------------------------- */
 test('a 1-piece (Ashtabula) crank errors in a non-American shell', function(){
   var onePiece = /** @type {any} */ (Object.assign({}, bp('bmx-cr-profile-race'), { id:'bmx-cr-synthetic-1pc', pieces:'1-piece' }));

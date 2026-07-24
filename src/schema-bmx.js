@@ -125,11 +125,27 @@ var BMX_SCHEMA = {
   },
   headset: { fit:{type:'string',vocab:'headTube'} },
   gyro: { steererFit:{type:'string',vocab:'headTube'}, cableRouting:{type:'string',vocab:'cableRouting'} },
+  /* THE TWO SPINDLE AXES (split 2026-07-24, mechanic ruling FRM-61): the
+     BB-constrained `spindleDiameter` is REQUIRED on both the crank and the BB
+     (it is the interface bmx-bb-spindle checks); the BB-agnostic
+     `splinePattern` is OPTIONAL on both, present only where the maker's own
+     page states it — a row whose spline the source doesn't name carries no
+     token rather than a guess, exactly like the dormant-until-sourced frame
+     fields above. */
   cranks: {
-    spindle:{type:'string',vocab:'spindle'}, pieces:{type:'string',vocab:'crankPieces'},
+    spindleDiameter:{type:'string',vocab:'spindleDiameter'},
+    splinePattern:{type:'string',vocab:'splinePattern',optional:true},
+    pieces:{type:'string',vocab:'crankPieces'},
     ringMount:{type:'string',vocab:'ringMount'}, length:{type:'number',optional:true}
   },
-  bb: { shell:{type:'string',vocab:'bbShell'}, spindleFit:{type:'string',vocab:'spindle'} },
+  /* A BB kit may SHIP a spindle (Fit's "48 Spline Complete BB Kit (24mm)"), so
+     splinePattern is a legal optional BB field too — recorded for display, and
+     deliberately NOT read by any rule (the bearing bore is blind to it). */
+  bb: {
+    shell:{type:'string',vocab:'bbShell'},
+    spindleDiameter:{type:'string',vocab:'spindleDiameter'},
+    splinePattern:{type:'string',vocab:'splinePattern',optional:true}
+  },
   sprocket: { teeth:{type:'number'}, mount:{type:'string',vocab:'ringMount'}, pitch:{type:'string',vocab:'chainPitch'} },
   chain: { pitch:{type:'string',vocab:'chainPitch'}, halfLink:{type:'bool'} },
   rearWheel: {

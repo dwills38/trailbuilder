@@ -353,7 +353,7 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-premium-trestle-24mm', cat: 'cranks', brand: 'Premium', model: 'Trestle 24mm Cranks',
-    family: 'premium-trestle', spindle: '24mm', pieces: '3-piece', ringMount: 'spline', length: 170,
+    family: 'premium-trestle', spindleDiameter: '24mm', pieces: '3-piece', ringMount: 'spline', length: 170,
     price: 209.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
     source: 'https://harobikes.com/products/trestle-24mm-cranks',
     note: 'bmx-brand-depth-2: directly fetched harobikes.com (Premium\'s parent-brand storefront). States verbatim "Oversized 24mm hollow heat-treated chromoly 48-spline spindle" (spindle:24mm - the 24mm diameter is the fit-relevant dimension; "48-spline" here names the SPROCKET interface, not a competing spindle-diameter class) and is offered in 165/170/175mm arm lengths (length modeled at the middle 170mm option - display-only field, not fit-relevant). harobikes.de\'s companion CK Pro complete-bike spec sheet independently states "Premium Trestle 3-piece chromoly cranks. 24mm spindle" confirming pieces:3-piece. Compatible with "24mm spline drive sprockets" per empirebmx.com\'s retailer copy (ringMount:spline). Price $209.99 matches exactly; americancycle.com/alansbmx.com corroborate the same spec independently.'
@@ -496,7 +496,7 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-haro-fusion', cat: 'cranks', brand: 'Haro', model: 'Fusion Cranks',
-    family: 'haro-fusion', spindle: '22mm', pieces: '3-piece', ringMount: 'press-on', length: 175,
+    family: 'haro-fusion', spindleDiameter: '22mm', pieces: '3-piece', ringMount: 'press-on', length: 175,
     price: 189.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
     source: 'https://harobikes.com/products/fusion-cranks',
     note: 'bmx-brand-depth-2: correction to the bmx-fk-haro-downtown note above (a prior session claimed Haro sells "complete-bikes-only" - it does also run a live standalone-parts storefront at harobikes.com, this row + the Baseline bar below directly fetched from it). Fusion Cranks page states verbatim "22mm heat-treated chromoly spindle" (spindle:22mm) and "7050 aluminum arms with dual pinch bolts" sold as "arms and spindle" (pieces:3-piece - two bolted arms + a separate spindle). ringMount:press-on per the companion "Fusion Disc" sprocket\'s own listed spec ("Style: Sprocket Bolt Drive", kunstform.org/Alan\'s BMX, both independently corroborating a bolt-drive, non-spline interface for this exact 19/22mm crank family) - this field is display-only (no compat-bmx.js rule reads ringMount), so the coarse spline/press-on binary safely covers the "not spline" bolt-drive reality. Offered in 175/180mm (length:175 modeled). Price $189.99 confirmed exactly on the fetched page.'
@@ -644,98 +644,98 @@ var BMX_PARTS = [
   // ===== CRANKS ========================================================
   {
     id: 'bmx-cr-profile-elite-al-sl', cat: 'cranks', brand: 'Profile Racing', model: "Elite AL 'SL' Crank Kit",
-    spindle: '30mm', pieces: '3-piece', ringMount: 'spline', price: 489.99,
+    spindleDiameter: '30mm', pieces: '3-piece', ringMount: 'spline', price: 489.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-11', source: 'https://www.profileracing.com/product-category/profile-bmx/profile-cranks/',
     note: 'Aluminum arms, 30mm spindle (Profile\'s largest spindle option).'
   },
   {
     id: 'bmx-cr-profile-elite-al-hd', cat: 'cranks', brand: 'Profile Racing', model: "Elite AL 'HD' Crank Kit",
-    spindle: '30mm', pieces: '3-piece', ringMount: 'spline', price: 489.99,
+    spindleDiameter: '30mm', pieces: '3-piece', ringMount: 'spline', price: 489.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-11', source: 'https://www.profileracing.com/product-category/profile-bmx/profile-cranks/'
   },
   {
     id: 'bmx-cr-profile-race', cat: 'cranks', brand: 'Profile Racing', model: 'Race Cranks',
-    spindle: '19mm', pieces: '3-piece', ringMount: 'press-on', price: 286.99,
+    spindleDiameter: '19mm', pieces: '3-piece', ringMount: 'press-on', price: 286.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.profileracing.com/product/rhd-3-piece-chromoly-race-crankset-2/',
     note: 'Confirmed as the RHD (bolt-on boss) 3-Piece Chromoly Race Crankset: 19mm GDH CrMo axle, 3-piece, bolt-on sprocket boss, base price $286.99 (2026-07-17). No per-config weight published (arm length is a variant); left without a weight field like the existing verified Elite AL crank rows.'
   },
   {
     id: 'bmx-cr-odyssey-calibre', cat: 'cranks', brand: 'Odyssey', model: 'Calibur V2 Cranks',
-    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 900, price: 179.99,
+    spindleDiameter: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 900, price: 179.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-calibur-v2-bmx-cranks-rustproof-black',
     note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): spindle (hollow 22mm, 48-spline), 3-piece construction and spline sprocket mount are all raw-confirmed in the maker page\'s own spec list; price ($179.99) matches. No maker weight is published for this SKU and no reputable third-party MEASURED figure exists, so weight stays the 900g sample (basis: unchanged from the prior pass, not a shipping-weight figure).'
   },
   {
     id: 'bmx-cr-stolen-team', cat: 'cranks', brand: 'Stolen', model: 'Team Cranks',
-    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', price: 189.99,
+    spindleDiameter: '22mm', pieces: '3-piece', ringMount: 'spline', price: 189.99,
     note: 'UNCONFIRMED, checked 2026-07-21 (bmx-sweep-4): fetched stolenbrand.com/collections/cranks (17 products, current maker storefront) - the full "Team" crankset is NOT sold today; current complete-crankset lineup is Odin, Mob V4, and Talon V2. Only Team-compatible SPARE parts remain listed ("TEAM/TALON CRANK SPINDLE", "TEAM 19MM CRANK BOLT KIT", "TEAM 22 CRANK BOLT KIT", "TEAM 2.5 CRANK BOLT KIT"), confirming a 22mm Team variant existed (matching this row\'s spindle:22mm) but is discontinued as a complete SKU. A third-party retailer listing (samsbmx.com, "Stolen Bikes Team 22 Bmx Cranks") independently corroborates spindle:22mm, 3-piece-equivalent (P2 arms + 1-piece spindle/sprocket boss), 48-spline, 876g, but sourceType:retailer cannot verify per THE BAR. Left unverified/unchanged; flagged for the coordinator as likely discontinued.'
   },
   {
     id: 'bmx-cr-profile-race-22', cat: 'cranks', brand: 'Profile Racing', model: 'Race Cranks 22mm',
-    spindle: '22mm', pieces: '3-piece', ringMount: 'press-on', price: 299.99,
+    spindleDiameter: '22mm', pieces: '3-piece', ringMount: 'press-on', price: 299.99,
     note: '22mm-spindle version of Profile\'s classic chromoly race crank family (Profile\'s Tech Tip #37 covers the 19mm vs 22mm tradeoff). UNCONFIRMED 2026-07-17: fetched profileracing.com/product-category/profile-bmx/profile-cranks/ and both current Race Crankset SKUs (RHD, No Boss) list ONLY a 19mm axle today - no 22mm option found. Left unverified/unchanged (no better source found) - may be a discontinued spec; flagged for the coordinator.'
   },
   {
     id: 'bmx-cr-flybikes-pz1', cat: 'cranks', brand: 'Fly Bikes', model: 'PZ1 Cranks',
-    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 920, price: 209.99,
+    spindleDiameter: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 920, price: 209.99,
     note: 'Checked flybikes.com 2026-07-17: current Fly crank lineup is only "Dolmen II Cranks" ($250.00) -- no PZ1 found, appears discontinued/renamed. Left unverified; spec unchanged.'
   },
   {
     id: 'bmx-cr-chase-rsp', cat: 'cranks', brand: 'Chase', model: 'RSP Race Cranks',
-    spindle: '19mm', pieces: '3-piece', ringMount: 'press-on', price: 279.99,
+    spindleDiameter: '19mm', pieces: '3-piece', ringMount: 'press-on', price: 279.99,
     note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (see bmx-fk-chase-rsp note). Left unchanged, not verified.'
   },
 
   // ===== BOTTOM BRACKETS ===============================================
   {
     id: 'bmx-bb-profile-euro-22', cat: 'bb', brand: 'Profile Racing', model: 'Euro Outboard BB',
-    shell: 'euro', spindleFit: '22mm', weight: 148, price: 71.99,
+    shell: 'euro', spindleDiameter: '22mm', weight: 148, price: 71.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.profileracing.com/product/euro-externaloutboard-bottom-bracket/',
     note: 'CORRECTED 2026-07-17: maker page confirms Euro External (Outboard) BB is ONE SKU sold in both 19mm and 22mm axle fit at a single price, $71.99 (was $39.99) and 148g/5.18oz (weight was missing).'
   },
   {
     id: 'bmx-bb-salt-mid-19', cat: 'bb', brand: 'Salt', model: 'Mid Sealed BB',
-    shell: 'mid', spindleFit: '19mm', price: 24.99,
+    shell: 'mid', spindleDiameter: '19mm', price: 24.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://saltbmx.com/products/salt-rookie-mid-bb',
     note: 'Matches the press-fit spec published on the WeThePeople Justice frame page (bmx-fr-wethepeople-justice). Maker page (current lineup name: Rookie Mid BB Set) confirms a mid-shell 19mm-spindle sealed BB kit exists in Salt\'s current range.'
   },
   {
     id: 'bmx-bb-odyssey-american', cat: 'bb', brand: 'Odyssey', model: 'American BB',
-    shell: 'american', spindleFit: '19mm', price: 24.99,
+    shell: 'american', spindleDiameter: '19mm', price: 24.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/odyssey-american-bb-silver',
     note: 'American shell + 19mm spindle fit and price ($24.99, was $22.99) confirmed on the fetched maker page ("made to fit 19mm crank spindles and American BB frames"). No weight is published or needed (this row never carried one).'
   },
   {
     id: 'bmx-bb-totalbmx-mid-22', cat: 'bb', brand: 'Total BMX', model: 'Mid BB',
-    shell: 'mid', spindleFit: '22mm', weight: 158, price: 27.99,
+    shell: 'mid', spindleDiameter: '22mm', weight: 158, price: 27.99,
     verified: true, lastChecked: '2026-07-17', source: 'https://totalbmx.com/products/total-bmx-team-mid-bottom-bracket-black',
     note: 'Real product name is "Team Mid Bottom Bracket"; totalbmx.com confirms mid shell, 19mm/22mm spindle options (this row is the 22mm SKU), and 0.158kg/5.6oz weight. totalbmx.com lists EUR32.95, not a USD MSRP, so price is kept as the prior unconfirmed sample figure.'
   },
   {
     id: 'bmx-bb-profile-euro-19', cat: 'bb', brand: 'Profile Racing', model: 'Euro Outboard BB 19mm',
-    shell: 'euro', spindleFit: '19mm', weight: 148, price: 71.99,
+    shell: 'euro', spindleDiameter: '19mm', weight: 148, price: 71.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.profileracing.com/product/euro-externaloutboard-bottom-bracket/',
     note: 'CORRECTED 2026-07-17: maker page confirms Euro External (Outboard) BB is ONE SKU sold in both 19mm and 22mm axle fit at a single price, $71.99 (was $39.99) and 148g/5.18oz (weight was missing).'
   },
   {
     id: 'bmx-bb-gt-mid-22', cat: 'bb', brand: 'GT', model: 'Mid BB',
-    shell: 'mid', spindleFit: '22mm', price: 24.99,
+    shell: 'mid', spindleDiameter: '22mm', price: 24.99,
     note: 'shell/spindleFit confirmed 2026-07-17 against the GT Pro Performer 20 spec sheet ("Sealed Mid 22mm" BB, https://gtbicycles.com/products/pro-performer-20) - values already matched, no correction needed. GT does not sell this BB as a standalone SKU (only a "Power Series American BB" appears in gtbicycles.com/collections/cranks-bb), so price is unconfirmed and this row is left unverified despite the confirmed interface.'
   },
   {
     id: 'bmx-bb-flybikes-mid-22', cat: 'bb', brand: 'Fly Bikes', model: 'Mid BB',
-    shell: 'mid', spindleFit: '22mm', price: 26.99,
+    shell: 'mid', spindleDiameter: '22mm', price: 26.99,
     note: 'Checked flybikes.com 2026-07-17: current Fly BB lineup is only "Rotar Bottom Brackets" ($40.00) -- no "Mid BB" found by that name, appears renamed/discontinued. Left unverified; spec unchanged.'
   },
   {
     id: 'bmx-bb-odyssey-mid-22', cat: 'bb', brand: 'Odyssey', model: 'Mid BB (22mm)',
-    shell: 'mid', spindleFit: '22mm', price: 24.99,
+    shell: 'mid', spindleDiameter: '22mm', price: 24.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-bmx-mid-bb-black',
     note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): raw-confirmed via the maker page ("Made to fit all 19mm or 22mm crank spindles and press-fit Mid BB frames"), with 22mm and 19mm sold as the same product\'s two variant options - shell:\'mid\' and spindleFit:\'22mm\' both match exactly. Price ($24.99) matches. No weight field on this row to begin with.'
   },
   {
     id: 'bmx-bb-odyssey-mid-19', cat: 'bb', brand: 'Odyssey', model: 'Mid BB (19mm)',
-    shell: 'mid', spindleFit: '19mm', price: 24.99,
+    shell: 'mid', spindleDiameter: '19mm', price: 24.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-bmx-mid-bb-black',
     note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): the 19mm-spindle variant of the same raw-confirmed Odyssey Mid BB product as bmx-bb-odyssey-mid-22 (see that row\'s note). shell:\'mid\' and spindleFit:\'19mm\' both match exactly; price ($24.99) matches. No weight field on this row to begin with.'
   },
@@ -743,13 +743,13 @@ var BMX_PARTS = [
   // ===== BOTTOM BRACKETS — bmx-breadth-7 (new brand: Empire BMX house parts) ====
   {
     id: 'bmx-bb-empirebmx-spanish', cat: 'bb', brand: 'Empire BMX', model: 'Spanish Bottom Bracket',
-    shell: 'spanish', spindleFit: '19mm', price: 19.95,
+    shell: 'spanish', spindleDiameter: '19mm', price: 19.95,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.empirebmx.com/products/empire-bmx-spanish-bottom-bracket-2',
     note: 'bmx-breadth-7: new brand (Empire BMX absent entirely before this batch) — Empire BMX\'s own house-brand parts line, sold on its own storefront (SKU 1101332). FETCHED empirebmx.com/products/empire-bmx-spanish-bottom-bracket-2 directly: "complete Spanish bottom bracket (19mm or 22mm)... 2x precision sealed Spanish bearings... machined alloy bearing cones... 15/16\\" / 24mm to 19mm or 22mm sprocket adapter", flat $19.95 across the 19mm/22mm spindle options (this row models the 19mm SKU). No weight published on the page.'
   },
   {
     id: 'bmx-bb-empirebmx-american', cat: 'bb', brand: 'Empire BMX', model: 'USA / American Bottom Bracket',
-    shell: 'american', spindleFit: '19mm', price: 39.95,
+    shell: 'american', spindleDiameter: '19mm', price: 39.95,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.empirebmx.com/products/empire-bmx-usa-american-bottom-bracket',
     note: 'bmx-breadth-7: second Empire BMX house-brand row (frame + BB position covered above via the Bone Deth batch; this is Empire\'s own American-shell BB, SKU 1094784). FETCHED empirebmx.com/products/empire-bmx-usa-american-bottom-bracket directly: "complete USA / American bottom bracket... includes two bearings/cups and complete hardware (tube spacer, alignment spacers, and conical bearing spacers)... 19mm, 22mm, or 24mm (choose the one that fits the crank spindle you\'ll be using)", flat $39.95 across all three spindle options (this row models the 19mm SKU). No weight published on the page.'
   },
@@ -1344,13 +1344,13 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-cult-3piece', cat: 'cranks', brand: 'Cult', model: '3-Piece Crank Set',
-    spindle: '19mm', pieces: '3-piece', ringMount: 'spline', price: 139.99,
+    spindleDiameter: '19mm', pieces: '3-piece', ringMount: 'spline', price: 139.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://cultcrew.com/products/crew-crank',
     note: 'Corrected spindle 22mm -> 19mm and price 249.99 -> 139.99 (base 160mm/Black) to match Cult\'s current "Crew Cranks": "3-pc tubular design... 19mm hollow chromoly spindle with 48 splines". pieces:\'3-piece\' confirmed. ringMount left as \'spline\' (plausible for the splined sprocket boss design, not independently confirmed and not checkBmxBuild-critical). NOT recording the page\'s weight (1814g): identical placeholder figure also shown for an unrelated tire SKU on this store (see the Cult frame notes above) — a shipping-weight bucket, not the crank\'s real mass.'
   },
   {
     id: 'bmx-bb-cult-mid-22', cat: 'bb', brand: 'Cult', model: 'Mid BB',
-    shell: 'mid', spindleFit: '22mm', price: 27.99,
+    shell: 'mid', spindleDiameter: '22mm', price: 27.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://cultcrew.com/products/bottom-bracket',
     note: 'shell:\'mid\' and spindleFit:\'22mm\' CONFIRMED via Cult\'s current "Bottom Bracket" (cultcrew.com/products/bottom-bracket: "precision sealed MID bearings... 19mm and 22mm" spindle options — 22mm is a real purchasable variant). Price corrected 24.99 -> 27.99. Page weight (907g) not recorded: identical placeholder figure shared with the unrelated Headset product page — a shipping-weight bucket.'
   },
@@ -1498,7 +1498,7 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-wethepeople-logic', cat: 'cranks', brand: 'WeThePeople', model: 'Logic Crank',
-    family: 'wethepeople-logic', spindle: '22mm', pieces: '3-piece', ringMount: 'spline', length: 165,
+    family: 'wethepeople-logic', spindleDiameter: '22mm', pieces: '3-piece', ringMount: 'spline', length: 165,
     weight: 920, price: 159.99, verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-23',
     source: 'https://www.wethepeoplebmx.de/cranks-bottom-brackets/logic-crank',
     note: 'bmx-brand-depth-2: directly fetched wethepeoplebmx.de. States verbatim "SPINDLE: 22mm, butted 4130 crmo" (spindle:22mm), "CRANK ARM: 3pc design" (pieces:3-piece), and "165mm: 920g (32.4oz) (w/o BB set)" (weight:920, this row\'s 165mm length). ringMount:spline per LUXBMX\'s independent corroborating copy describing this exact model as "These 48 spline cranks" (a spline sprocket interface, not press-on). No price on the maker\'s own EU site; entered via a named retailer (Source BMX AM storefront, sourcebmx-am.myshopify.com, $159.99 standalone-crank price) per the third-party-listed tier - other retailers price the same crank anywhere from $149.95 (SkateHut, GBP-converted) to $229 (The Cut BMX) to $265 (LUXBMX, but that bundle explicitly INCLUDES the WTP bottom bracket, inflating the figure) - the sourcebmx-am figure was chosen as the plain crank-only price closest to the maker\'s own described product (crank comes WITH a BB per the spec text, so some retailer variance reflects bundling differences, not different SKUs).'
@@ -1514,13 +1514,13 @@ var BMX_PARTS = [
   // ---- Eclat (new brand to the catalog) --------------------------------
   {
     id: 'bmx-cr-eclat-onyx', cat: 'cranks', brand: 'Eclat', model: 'Onyx Cranks',
-    spindle: '24mm', pieces: '3-piece', ringMount: 'spline', weight: 833, price: 179.99,
+    spindleDiameter: '24mm', pieces: '3-piece', ringMount: 'spline', weight: 833, price: 179.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/onyx-cranks',
     note: 'CORRECTED: spindle was wrongly entered as 22mm; Eclat\'s own page confirms the Onyx is a 24mm crmo ultra-hollow spindle (165mm/175mm arm lengths). Weight is the 175mm arm-length figure (833g); the 160mm/165mm options weigh slightly less. Compatible with both 24mm spline-drive and bolt-drive sprockets.'
   },
   {
     id: 'bmx-bb-eclat-mid-22', cat: 'bb', brand: 'Eclat', model: 'Mid BB',
-    shell: 'mid', spindleFit: '22mm', weight: 174, price: 31.99,
+    shell: 'mid', spindleDiameter: '22mm', weight: 174, price: 31.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/mid-bottom-bracket-set',
     note: 'Weight is the 22mm-spindle figure from Eclat\'s own page (19mm=189g, 24mm=148g).'
   },
@@ -1581,7 +1581,7 @@ var BMX_PARTS = [
   // ---- The Shadow Conspiracy depth (parts brand, no frames/forks) ------
   {
     id: 'bmx-cr-shadow-finest', cat: 'cranks', brand: 'The Shadow Conspiracy', model: 'Finest Cranks',
-    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 907, price: 249.99,
+    spindleDiameter: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 907, price: 249.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-finest-cranks',
     note: 'Hollow 22mm / 48-spline spindle, 4130 chromoly, LHD/RHD compatible. Weight per maker page (32oz).'
   },
@@ -1739,7 +1739,7 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-fitbikeco-bosslessindent', cat: 'cranks', brand: 'Fit Bike Co', model: 'Boss-Less 2-Piece Indent Crank',
-    spindle: '24mm', pieces: '2-piece', ringMount: 'spline', price: 199.99
+    spindleDiameter: '24mm', pieces: '2-piece', ringMount: 'spline', price: 199.99
   },
   {
     id: 'bmx-gr-fitbikeco-crossfit', cat: 'grips', brand: 'Fit Bike Co', model: 'CrossFIT Grips',
@@ -1860,7 +1860,7 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-redline-flight', cat: 'cranks', brand: 'Redline', model: 'Flight Cranks (Retro)',
-    family: 'redline-flight', spindle: '19mm', pieces: '3-piece', ringMount: 'spline', length: 175,
+    family: 'redline-flight', spindleDiameter: '19mm', pieces: '3-piece', ringMount: 'spline', length: 175,
     weight: 631, price: 169.95,
     note: 'bmx-brand-depth-2: Redline\'s current (2026) legacy old-school race crank, still sold as used on the Diamondback-era Supercross SX250 complete bikes. diamondback.com/collections/redline-bmx sells only complete bikes (no standalone parts store for the brand), so this is retailer-sourced (supercrossbmx.com, directly fetched) rather than a Redline-owned page - stays unverified per THE BAR (retailer, not manufacturer). States verbatim "Redline cr-mo 19mm splined spindle" (spindle:19mm) and "Tubular chromoly...crank arms" sold as "Arms and Spindle only" (pieces:3-piece - two arms + a separate spindle, pinch-bolted, not a solid 1-piece or a modern 2-piece unibody); ringMount:spline per the splined-spindle interface driving Redline\'s classic spline-drive "Tiger Tooth" sprocket (the page\'s own suggested pairing). Weight: "Right Hand 325g, Left Hand 306g" summed = 631g (both arms, no BB, per the page). Available in 175mm only (length:175). Price $169.95, listed Sold Out at fetch time (a stock status, not a discontinuation - Redline Flight cranks remain a current catalog item across multiple other retailers at the same price band). GENUINE GAP flagged: no standalone Redline handlebar (Flight V-Bar) could be entered - five independent retailers (J&R, LUXBMX, Albe\'s, BMX International, Sams BMX) describe rise/width/sweep consistently but NONE states a clamp diameter, a required schema field, so it was not entered rather than guessed; no Redline wheel/wheelset row was entered either - planetbmx.com sells Redline-branded race wheelsets but only as tire+tube+freewheel bundles with no stated driverTeeth/axle spec, insufficient for this catalog\'s rearWheel schema.'
   },
@@ -2252,7 +2252,7 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-eclat-tibiaxlt', cat: 'cranks', brand: 'Eclat', model: 'Tibia XLT Cranks',
-    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 770, price: 259.99,
+    spindleDiameter: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 770, price: 259.99,
     verified: true, lastChecked: '2026-07-23', source: 'https://eclatbmx.com/products/eclat-tibia-xlt-crank-1',
     priceBasis: 'msrp-confirmed',
     note: 'bmx-verify-1 (2026-07-23): re-fetched eclatbmx.com/products/eclat-tibia-xlt-crank-1.js directly this session. Description states, verbatim: "Spindle 22mm crmo ultra hollow XLT" and "3pc construction" — confirms spindle:\'22mm\' and pieces:\'3-piece\' (both bmx-bb-spindle/bmx-crank-pieces-critical fields) directly. "Weight complete: 770g (160mm)" confirms weight for the 160mm arm length this row pins. ringMount:\'spline\' is display-only in checkBmxBuild. Price $259.99 confirmed exactly.'
@@ -2416,7 +2416,7 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-sunday-sakerv2', cat: 'cranks', brand: 'Sunday', model: 'Saker v2 Cranks',
-    family: 'sunday-saker', spindle: '19mm', pieces: '3-piece', ringMount: 'spline', length: 175,
+    family: 'sunday-saker', spindleDiameter: '19mm', pieces: '3-piece', ringMount: 'spline', length: 175,
     price: 84.99, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
     source: 'https://shop.sundaybikes.com/products/saker-v2-cranks',
     note: 'bmx-brand-depth-2: directly fetched shop.sundaybikes.com (Sunday\'s own storefront). States verbatim "It uses a 19mm chromoly spindle with 8 splines" (spindle:19mm, ringMount:spline - the 8-spline sprocket interface) and "designed to be an affordable 3-pc crank" (pieces:3-piece); offered in 155/165/170/175mm (length:175 modeled, display-only field). Black colorway price $84.99 matches the storefront listing exactly.'
@@ -2446,21 +2446,21 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-fiend-teamv2', cat: 'cranks', brand: 'Fiend', model: 'Team V2 Cranks',
-    spindle: '22mm', pieces: '2-piece', ringMount: 'spline', weight: 964, price: 209.99,
+    spindleDiameter: '22mm', pieces: '2-piece', ringMount: 'spline', weight: 964, price: 209.99,
     verified: true, lastChecked: '2026-07-23', source: 'https://fiendbmx.com/products/fiend-team-2-cranks',
     priceBasis: 'msrp-confirmed',
     note: 'bmx-verify-1 (2026-07-23): re-fetched fiendbmx.com/products/fiend-team-2-cranks.js directly this session. Description states, verbatim: "2pc design...48 spline 22mm hollow chromoly spindle...Weight:34ozs. @ 165mm" — confirms spindle:\'22mm\' and pieces:\'2-piece\' directly (both bmx-bb-spindle/bmx-crank-pieces-critical fields), and 34oz = 964g independently oz-stated for the 165mm arm length this row pins (not the JSON shipping-weight field of 1361g, discarded — that figure recurs identically on the unrelated Process Fork). Price $209.99 confirmed exactly. ringMount:\'spline\' is display-only in checkBmxBuild, follows the "1pc spindle/sprocket boss" phrasing/this catalog\'s existing convention, not independently re-stated.'
   },
   {
     id: 'bmx-bb-fiend-mid-19', cat: 'bb', brand: 'Fiend', model: 'Mid Bottom Bracket (19mm)',
-    shell: 'mid', spindleFit: '19mm', weight: 408, price: 27.99,
+    shell: 'mid', spindleDiameter: '19mm', weight: 408, price: 27.99,
     verified: true, lastChecked: '2026-07-23', source: 'https://fiendbmx.com/products/mid-bottom-bracket',
     priceBasis: 'msrp-confirmed',
     note: 'bmx-verify-1 (2026-07-23): re-fetched fiendbmx.com/products/mid-bottom-bracket.js directly this session. Title "Fiend Mid Bottom Bracket" + the 19mm variant confirm shell:\'mid\'/spindleFit:\'19mm\' (both bmx-bb-spindle-critical fields) exactly. JSON weight 408g kept as trustworthy — it does NOT recur on any other unrelated Fiend product fetched this session (unlike the 227g/454g/907g/1361g shipping-bucket figures caught elsewhere in this batch), and both the 19mm and 22mm variants of this SAME product report it identically, consistent with a real per-unit weight rather than a coincidence across unrelated SKUs. Price $27.99 confirmed exactly.'
   },
   {
     id: 'bmx-bb-fiend-mid-22', cat: 'bb', brand: 'Fiend', model: 'Mid Bottom Bracket (22mm)',
-    shell: 'mid', spindleFit: '22mm', weight: 408, price: 27.99,
+    shell: 'mid', spindleDiameter: '22mm', weight: 408, price: 27.99,
     verified: true, lastChecked: '2026-07-23', source: 'https://fiendbmx.com/products/mid-bottom-bracket',
     priceBasis: 'msrp-confirmed',
     note: 'bmx-verify-1 (2026-07-23): re-fetched fiendbmx.com/products/mid-bottom-bracket.js directly this session — same product as the 19mm row above, this row pins the 22mm spindle variant (its own listed weight 408g, matching the 19mm variant, per-unit not shipping-bucket per that row\'s note). Price $27.99 confirmed exactly.'
@@ -2547,12 +2547,12 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-saltplus-metron48-175', cat: 'cranks', brand: 'Salt', model: 'SaltPlus METRON48 Crank 175mm',
-    spindle: '19mm', pieces: '3-piece', ringMount: 'spline', weight: 952, price: 139.99,
+    spindleDiameter: '19mm', pieces: '3-piece', ringMount: 'spline', weight: 952, price: 139.99,
     note: 'bmx-depth-8 (2026-07-22): real current product, saltbmx.com/products/saltplus-metron-48-crank. Description states, verbatim: "48 spline 19 mm spindle...Weight: 952 g (33.58 oz : 2.09 lbs) – 175 mm" (this row pins the 175mm arm length). pieces:\'3-piece\' and ringMount:\'spline\' follow this catalog\'s universal pattern for every other 48-spline-spindle crank already cataloged (Cult/Odyssey/Fiend) — not independently re-stated as such on this specific page. Unverified sample.'
   },
   {
     id: 'bmx-bb-saltplus-echo-mid-19', cat: 'bb', brand: 'Salt', model: 'SaltPlus ECHO Mid BB (19mm)',
-    shell: 'mid', spindleFit: '19mm', weight: 235, price: 22.99,
+    shell: 'mid', spindleDiameter: '19mm', weight: 235, price: 22.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://saltbmx.com/products/saltplus-echo-mid-bb',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Size: mid bb, for 19mm or 20 mm spindle...Weight: 235 g (8.29 oz : 0.52 lbs)"; this row pins the 19mm spindle variant (the page\'s own variant list is 19mm/22mm, not the "20mm" the prose loosely mentions). Both of the bb category\'s schema fields (shell, spindleFit) are directly page-confirmed.'
@@ -2651,10 +2651,10 @@ var BMX_PARTS = [
   // Mission selling through kinkbmx.com below. bmx-depth-9, 2026-07-22. -----
   {
     id: 'bmx-cr-rant-bangin48', cat: 'cranks', brand: 'Rant', model: "Bangin' 48 Crank",
-    spindle: '48-spline', pieces: '3-piece', ringMount: 'spline', weight: 978, price: 159.99,
-    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
+    spindleDiameter: '19mm', splinePattern: '48-spline', pieces: '3-piece', ringMount: 'spline', weight: 978, price: 159.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
     source: 'https://www.sparkysbrands.com/products/rant-bangin-48-crank',
-    note: 'bmx-depth-9: VERIFIED via sparkysbrands.com (Rant\'s own retail channel — rantbmx.com\'s own "Shop" link points here). Page states verbatim: "19mm 8 spline or 48 spline heat treated chromoly spindle", "3pc design", "RHD and LHD compatible sprocket bosses", "34.5 oz for 175mm" (=978g). This SKU is the 48-spline variant (spindle:\'48-spline\' — the sister "Bangin\' 8" SKU at the same URL family is the 8-spline/19mm variant, not entered here to avoid an ambiguous near-duplicate row). Price $159.99 confirmed; currently sold out in all sizes/colors per the page (does not block a real-part entry per catalog policy).'
+    note: 'bmx-depth-9: VERIFIED via sparkysbrands.com (Rant\'s own retail channel — rantbmx.com\'s own "Shop" link points here). Page states verbatim: "19mm 8 spline or 48 spline heat treated chromoly spindle", "3pc design", "RHD and LHD compatible sprocket bosses", "34.5 oz for 175mm" (=978g). This SKU is the 48-spline variant. Price $159.99 confirmed; currently sold out in all sizes/colors per the page (does not block a real-part entry per catalog policy).\n\n    SPINDLE-AXIS SPLIT 2026-07-24 (fix/bmx-spindle-split, mechanic ruling FRM-61): this row previously read spindle:\'48-spline\' — a SPLINE COUNT sitting in the same enum as the DIAMETERS, which made it hard-error against every 24mm BB and silently match nothing at 19mm. Its own already-cited source sentence carries BOTH facts explicitly ("19mm 8 spline or 48 spline ... spindle"): the diameter is 19mm and the spline is 48. Re-tokenized to spindleDiameter:\'19mm\' + splinePattern:\'48-spline\' — no new source needed, the diameter was always on the page. (The sister "Bangin\' 8" SKU at the same URL is the 8-spline variant of the SAME 19mm spindle — the pair is precisely FRM-61\'s same-diameter/different-spline case, and both run the identical 19mm BB. Still not entered, to avoid an ambiguous near-duplicate row.)'
   },
   {
     id: 'bmx-rh-rant-partyonv2-rhd', cat: 'rearWheel', brand: 'Rant', model: 'Party On V2 Cassette Rear Wheel (RHD)',
@@ -2682,20 +2682,20 @@ var BMX_PARTS = [
   // here as the primary maker source). bmx-depth-9, 2026-07-22. -------------
   {
     id: 'bmx-bb-mission-american', cat: 'bb', brand: 'Mission', model: 'American BB Kit',
-    shell: 'american', spindleFit: '19mm', weight: 298, price: 34.99,
+    shell: 'american', spindleDiameter: '19mm', weight: 298, price: 34.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://missionbmx.com/products/american-bb-kit',
     note: 'bmx-depth-9: VERIFIED via missionbmx.com (Mission\'s own domain). Page states verbatim: "TYPE: American...WEIGHT: 10.5oz" (=298g), price $34.99. This kit is sold in 19mm and 22mm spindle variants — this row pins the 19mm SKU (spindleFit:\'19mm\'); the 19mm size shows sold-out on the page (does not block a real-part entry).'
   },
   {
     id: 'bmx-bb-colony-mid-19', cat: 'bb', brand: 'Colony', model: 'Mid Bottom Bracket Kit',
-    shell: 'mid', spindleFit: '19mm', weight: 176, price: 29.99,
+    shell: 'mid', spindleDiameter: '19mm', weight: 176, price: 29.99,
     verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-23', source: 'https://www.danscomp.com/colony-mid-bottom-bracket-black-19mm-i24-900/p1132694?v=1063691',
     note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched colonybmx.com.au/products/bb-kit-mid/: "Available in 19mm & 22mm sizes" (shell:mid CONFIRMED, this row pins the 19mm spindle) - the AU maker page jokes it states no weight ("Come on... it\'s a BB kit!") and carries no price. Priced+weighed via Dan\'s Comp\'s matching current listing ("In Stock Online", not discontinued, unlike this catalog\'s other recent Colony finds): regular price $29.99 (a $22.99 sale price is shown alongside - NOT used per THE PRICE RULE) and "Weight: 6.2 oz (19mm)" (=176g) - promoted to verified:true under priceBasis:third-party-listed per this catalog\'s established convention.'
   },
   {
     id: 'bmx-bb-stolen-revolver-19', cat: 'bb', brand: 'Stolen', model: 'Revolver Mid Bottom Bracket',
-    shell: 'mid', spindleFit: '19mm', price: 27.99,
+    shell: 'mid', spindleDiameter: '19mm', price: 27.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.stolenbrand.com/products/revolver-bottom-bracket',
     note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched stolenbrand.com (Stolen\'s own storefront): "REVOLVER MID BOTTOM BRACKET 19mm or 22mm...STYLE: MID" (shell:mid CONFIRMED, this row pins the 19mm size), "Regular price $27.99" CONFIRMED. Currently shows "Out Of Stock! ...Coming This Fall" on the maker\'s own site (restocking, not discontinued - the listing carries 14 customer reviews, a well-established current product). No weight published.'
   },
@@ -2771,20 +2771,20 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-federal-vice2-24mm', cat: 'cranks', brand: 'Federal', model: 'Vice 2 24mm Cranks',
-    spindle: '24mm', pieces: '3-piece', ringMount: 'spline', weight: 936, price: 215.89,
+    spindleDiameter: '24mm', pieces: '3-piece', ringMount: 'spline', weight: 936, price: 215.89,
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22',
     source: 'https://federalbikes.com/products/federal-vice-2-24mm-cranks-chrome',
     note: 'bmx-depth-9: VERIFIED via federalbikes.com. Page states verbatim: "24mm hollow 48 spline Chromoly spindle", "3-piece" (spindle and arms separate), "0.936kg/ 2lbs 1oz" (=936g) — confirms spindle:\'24mm\', pieces:\'3-piece\'; ringMount:\'spline\' follows directly from the stated "48 spline" spindle/sprocket interface. Price: GBP RRP £169.99 converted to a $215.89 USD sample at ~1.27 USD/GBP, no US price published — THE PRICE RULE.'
   },
   {
     id: 'bmx-cr-speedline-minicarbon', cat: 'cranks', brand: 'Speedline Parts', model: 'Mini Carbon Hollow Race Cranks',
-    spindle: '24mm', pieces: '3-piece', ringMount: 'spline', length: 150, weight: 450, price: 699.95,
+    spindleDiameter: '24mm', pieces: '3-piece', ringMount: 'spline', length: 150, weight: 450, price: 699.95,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://supercrossbmx.com/collections/speedline-parts/products/speedline-parts-mini-carbon-hollow-carbon-fiber-bmx-race-cranks',
     note: 'bmx-depth-10: supercrossbmx.com BROWSER-PANE RETRY - the site renders cleanly with no CAPTCHA/challenge (WebFetch still 429s on this domain; the pane clears it, same as the earlier Pivot precedent - rendering, not circumvention). Shopify .js product JSON fetched via same-origin fetch() inside the pane (avoids the WebFetch 429 entirely). Description states verbatim: "24mm Aluminum Spindle" + "packed into a 450-gram crankset" - confirms spindle:24mm, weight:450 exactly; pieces:3-piece follows from the separate-spindle construction (same reasoning as bmx-cr-federal-vice2-24mm); ringMount:spline from the described carbon-fiber spider/spline sprocket interface (Speedline\'s race-crank spider is a spline mount across its whole line, corroborated by the Elite Carbon variant below). Sold in 145/150/155/160mm lengths - length:150 modeled as a representative mid-size (a size axis, not a fit-distinct split per the DATA-ENTRY-TEMPLATE "length is a field, not a row" convention already used elsewhere in this file). Shopify variant "weight" field (1814g on most size variants) is the shipping-weight-bucket trap (phantom-number doctrine) - NOT used; the 450g figure is the page\'s own stated product spec, used instead. Price $699.95 matches exactly (US-domiciled store, real USD MSRP, no conversion needed).'
   },
   {
     id: 'bmx-cr-speedline-elitecarbon', cat: 'cranks', brand: 'Speedline Parts', model: 'Elite Carbon Hollow Race Cranks',
-    spindle: '30mm', pieces: '3-piece', ringMount: 'spline', length: 170, weight: 495, price: 699.95,
+    spindleDiameter: '30mm', pieces: '3-piece', ringMount: 'spline', length: 170, weight: 495, price: 699.95,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://supercrossbmx.com/collections/speedline-parts/products/speedline-elite-hollow-carbon-fiber-bmx-race-cranks',
     note: 'bmx-depth-10: supercrossbmx.com BROWSER-PANE RETRY (same wall/clearance as the Mini Carbon row above). Page\'s Overview/Specs text (fetched via get_page_text on the rendered product page, not the .js endpoint - this page\'s .js description field is CSS-junk from an injected liquid section, not the real spec text) states verbatim: "oversized 30mm Spindle" + "packed into a 495-gram crankset" - confirms spindle:30mm (a real, already-cataloged BMX_VOCAB value, distinct from the Mini variant\'s 24mm), weight:495 exactly; pieces:3-piece and ringMount:spline by the same carbon-spider-spline construction as the Mini Carbon row. Sold in 165/170/175/180mm lengths (the "Pro-size" tier, vs the Mini\'s 145-160mm run) - length:170 modeled as a representative mid-size. Price $699.95 matches exactly (same US-domiciled real USD MSRP).'
   },
@@ -2852,7 +2852,7 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-merritt-battle', cat: 'cranks', brand: 'Merritt', model: 'Battle Cranks',
-    family: 'merritt-battle', spindle: '22mm', pieces: '3-piece', ringMount: 'spline', length: 175,
+    family: 'merritt-battle', spindleDiameter: '22mm', pieces: '3-piece', ringMount: 'spline', length: 175,
     weight: 958, price: 185.00, verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
     source: 'https://merritt.bigcartel.com/product/battle-cranks',
     note: 'bmx-brand-depth-2: directly fetched merritt.bigcartel.com (Merritt\'s own storefront - confirmed genuinely current: Merritt makes no frames at all, that job moved to its sister brand Rixin per alansbmx.com\'s blog post, so no Merritt frame row exists or was fabricated). States verbatim "3-piece cranks made with heat-treated 4130, a 22mm spindle" (spindle:22mm, pieces:3-piece) and "compatible with...22mm spline drive sprockets" (empirebmx.com\'s independent corroborating spec: "48 spline 22mm hollow heat-treated 4130 cromo spindle") -> ringMount:spline. Offered in 165/170/175mm (length:175 modeled). Weight "958g (without BB)" per thebmxdude.com\'s independent teardown, matching shop.tbb-bike.com\'s retailer spec exactly. Price $185.00 confirmed on the maker\'s own page (currently sold out - a stock status, not a discontinuation). GENUINE GAP: the companion "90 Degrees Bars" ($80.00, also on merritt.bigcartel.com) was NOT entered - six independent sources (Merritt\'s own page, Albe\'s, Fifteen Distribution, Level7, Harvester) all state rise/width/sweep consistently but none states a clamp diameter, a required schema field.'
@@ -3047,14 +3047,14 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-bsd-substancexlv2', cat: 'cranks', brand: 'BSD', model: 'Substance XL V2 Crank',
-    spindle: '24mm', pieces: '3-piece', ringMount: 'spline', weight: 862, price: 229.99,
+    spindleDiameter: '24mm', pieces: '3-piece', ringMount: 'spline', weight: 862, price: 229.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
     source: 'https://us.bsdforever.com/products/substance-xl-v2-crank',
     note: 'Second BSD cranks row (closes part of the same thin-brand gap as the Dust Fork above). FETCHED us.bsdforever.com own product page directly. States verbatim "24mm diameter spindle" (spindle:24mm exact) and "Includes BSD Mid 24mm bottom bracket" (confirms the BB this crank is sold to run with is a Mid-shell 24mm kit, noted here rather than added as its own row - no standalone BSD-Mid-24mm BB product page was fetched this session). pieces:3-piece follows definitionally, not as a guess: no 1-piece (Ashtabula) BMX crank has ever used a 24mm hollow oversized spindle - 1-piece cranks are exclusively solid low-end steel units, a categorically different construction (the same reasoning this catalog already uses on bmx-cr-federal-vice2-24mm/bmx-cr-speedline-minicarbon) - so pieces is treated as confirmed for the bmx-crank-pieces rule. ringMount:spline is NOT stated on this specific page (unlike the Federal Vice 2 cranks explicit "48 spline") - carried from this catalogs near-universal convention for 22/24mm hollow-spindle chromoly cranks (Odyssey Calibre, S&M XLR8R, Stolen Team, Fly PZ1 all use spline) - a display-only field with no compat-bmx.js rule reading it, so the inference carries zero verdict risk. Weight "1.90lbs" = 862g and price $229.99 are the pages own stated figures (US-dollar-denominated store, no conversion).'
   },
   {
     id: 'bmx-cr-subrosa-rose', cat: 'cranks', brand: 'Subrosa', model: 'Rose Cranks',
-    spindle: '19mm', pieces: '3-piece', ringMount: 'spline', weight: 890, price: 183.41,
+    spindleDiameter: '19mm', pieces: '3-piece', ringMount: 'spline', weight: 890, price: 183.41,
     note: 'Deepens Subrosa (task brief: confirmed thin, only 3 frame rows). subrosabrand.com itself is the documented WALL already noted on the existing Subrosa frame rows (every URL serves a stale 2012 placeholder) - re-confirmed this session, still unfetchable, so this row is sourced from a named retailer instead (Albes BMX product page, retailer-sourced -> unverified per THE BAR, sourceType:retailer is validator-rejected on verified rows regardless). Page states verbatim "Hollow 19mm / 48 spline spindle" (spindle:19mm, ringMount:spline both exact) and "now the B.B. is included!" (a bundled 19mm Mid BB, same bundling pattern as the BSD crank above). pieces:3-piece follows definitionally (a 19mm hollow spline spindle is never a 1-piece Ashtabula construction), same reasoning as bmx-cr-bsd-substancexlv2. Weight "31.4 oz" = 890g is the pages own stated crank-only figure (the included BBs "7.1 oz" is a separate, uncataloged component, not added to this rows weight). PRICE CAVEAT, disclosed rather than hidden: the fetched retailer page priced this UK-import listing at 144.42 GBP; converted at the same ~1.27 USD/GBP rate this file uses elsewhere for GBP-only brands -> $183.41 sample (no priceBasis token per THE PRICE RULE - a retailer-sourced, currency-converted figure is a plain sample, not a claimed provenance tier).'
   },
 
@@ -3083,7 +3083,7 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-eastern-throttle', cat: 'cranks', brand: 'Eastern', model: 'Throttle Cranks',
-    family: 'eastern-throttle', spindle: '19mm', pieces: '3-piece', ringMount: 'spline',
+    family: 'eastern-throttle', spindleDiameter: '19mm', pieces: '3-piece', ringMount: 'spline',
     length: 170, weight: 888, price: 99.99,
     note: 'Third Eastern row (frame + fork position covered above; this is the drivetrain side). FETCHED easternbikes.com own product page (products/throttle-cranks) directly. States verbatim "Hollow 19mm 48-spline spindle" (spindle:19mm, ringMount:spline both exact) and "31.3 oz" = 888g; offered in 170mm/175mm arm lengths (length:170, the shorter option, display-only) at one $99.99 price, "BBs sold separately" (no bundled BB entered). pieces:3-piece is NOT stated on the page - entered per this catalog\'s established reasoning (bmx-cr-bsd-substancexlv2/bmx-cr-subrosa-rose, same batch precedent): a hollow 19mm splined spindle sold separately from the arms is never a 1-piece Ashtabula construction, so the value is definitional, not a guess, but the row stays UNVERIFIED since piece-count itself is inferred rather than page-literal.'
   },
@@ -3096,7 +3096,7 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-se-vridge', cat: 'cranks', brand: 'SE Bikes', model: 'V-Ridge Cranks',
-    family: 'se-v-ridge', spindle: '19mm', pieces: '3-piece', ringMount: 'spline',
+    family: 'se-v-ridge', spindleDiameter: '19mm', pieces: '3-piece', ringMount: 'spline',
     length: 175, price: 99.99,
     note: 'Second SE Bikes row (deepens the new brand added this batch) - the sold-separately replacement crank for the OM Flyer/Big Flyer/So Cal Flyer family above. sebikes.bike itself does not list this part as a standalone accessory SKU, so sourced from a named retailer instead (Firehouse Bicycles product page, corroborated independently by Cambria Bike, Stacked BMX Shop and J&R Bicycles all describing the identical spec) -> unverified per THE BAR (retailer-sourced, sourceType:retailer is validator-rejected on verified rows regardless). Every corroborating listing states verbatim "3 piece" tubular 4130 Cr-Mo construction with a cold-forged "19mm 8-spline spindle" (spindle:19mm, pieces:3-piece, ringMount:spline all exact and cross-confirmed across 4 independent retailers), sold in 175mm/180mm arm lengths (length:175, the shorter option) at a consistently ~$89.99-99.99 price band; $99.99 used (the Cambria Bike / J&R Bicycles current-listing figure, the two most recent-dated pages). "Bottom bracket not included" on every listing, matching this catalogs convention of leaving bb as its own optional slot.'
   },
@@ -3111,7 +3111,7 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-khe-mvpv2', cat: 'cranks', brand: 'KHE', model: 'MVP V2 48T Crankset',
-    family: 'khe-mvp', spindle: '19mm', pieces: '3-piece', ringMount: 'spline',
+    family: 'khe-mvp', spindleDiameter: '19mm', pieces: '3-piece', ringMount: 'spline',
     length: 175, weight: 812, price: 69.95,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23',
     source: 'https://en.khebikes.com/BMX-crank-set-KHE-MVP-V2-48T-175mm/M359195',
@@ -3254,14 +3254,14 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-box-three', cat: 'cranks', brand: 'Box', model: 'Three Hollow-Forged Crankset (170mm)',
-    family: 'box-three', spindle: '24mm', pieces: '2-piece', ringMount: 'press-on', length: 170,
+    family: 'box-three', spindleDiameter: '24mm', pieces: '2-piece', ringMount: 'press-on', length: 170,
     weight: 1010, price: 349.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://boxcomponents.com/products/box-three-hollow-forged-crankset',
     note: 'catalog/bmx-race-data-1: NEW BRAND. Box Components (boxcomponents.com, own US storefront - race-components brand, no complete bikes/frames). FETCHED the makers own product page directly. States verbatim "The 24mm spindle is pressed into the drive-side crank arm...the non-drive side crank arm features a 2-bolt pinch system" (spindle:24mm, pieces:2-piece - a pressed-spindle + pinch-bolt-arm design, distinct from this catalogs 3-piece bolt-together convention seen on Premium/Haro rows), "unique 4-bolt 104 BCD spider" (ringMount:press-on - a bolted 104 BCD spider is the catalogs "not spline" bucket, same call made on the Haro Fusion row for another bolt-drive interface), "Included Bottom Bracket: BSA 1.37" (bbShell-relevant fact, display-only on a cranks row - the matching BB is a real BSA/euro-shell fit, not modeled separately here), and per-length weights "170mm / 1,010g" (length:170 modeled - the middle of 4 offered lengths 170/175/177.5/180mm). Price $349.99 matches the makers own collections page exactly.'
   },
   {
     id: 'bmx-cr-box-twom30p', cat: 'cranks', brand: 'Box', model: 'Two Oversized M30-P Crankset (172.5mm)',
-    family: 'box-two-m30p', spindle: '30mm', pieces: '2-piece', ringMount: 'press-on', length: 172.5,
+    family: 'box-two-m30p', spindleDiameter: '30mm', pieces: '2-piece', ringMount: 'press-on', length: 172.5,
     weight: 800, price: 399.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://boxcomponents.com/products/box-two-m30-p-cranks',
     note: 'catalog/bmx-race-data-1: second Box row - the mid-tier "Oversized Technology" race crankset (below the flagship Box One M35, whose 35mm spindle is NOT representable - BMX_VOCAB.spindle stops at 30mm, so that SKU is deliberately left OUT of the catalog per the assignment brief rather than fabricating a vocab match). FETCHED the makers own product page directly. States verbatim "a show-stopping Praxis made 30mm [spindle]...cold-forged from 7075 T6 aluminum" (spindle:30mm exact) and "this will all fit in a European bottom bracket" i.e. BSA 30mm 1.37in (bbShell-relevant, display-only here); "The crank arms and spider are poached from the Box One M35 model" -> same 2-piece pressed-spindle/pinch-bolt-arm + bolted 104 BCD spider construction as the Box Three row above (pieces:2-piece, ringMount:press-on) - the makers own comparison table lists "Crank Type: 2-Piece" for the sibling Box One M35 SKU (sourcebmx.com/products/box-one-m35-race-crankset), confirming the shared family design language. Per-length weights "172.5mm / 800 grams" (length:172.5 modeled, the shortest of 4 offered lengths). Price $399.99 matches the makers own collections page exactly ("Box Two Oversized M30-P Crankset $399.99").'
@@ -3382,7 +3382,15 @@ var BMX_PARTS = [
   //      thread-on 990 hardware kit, not a caliper) was out of stock and not
   //      a clean single-purchase brake unit, so no Fit brake row was added
   //      either. -----------------------------------------------------------
-    {
+  {
+    id: 'bmx-bb-fitbikeco-blunt48spline-24mm', cat: 'bb', brand: 'Fit Bike Co',
+    model: 'Blunt 48 Spline Complete BB Kit (24mm)',
+    family: 'fitbikeco-blunt', shell: 'mid', spindleDiameter: '24mm', splinePattern: '48-spline', price: 74.95,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
+    source: 'https://thebuildingdistro.com/product/48-spline-complete-bb-kit-24mm/',
+    note: 'catalog/bmx-brand-completion-1: FETCHED thebuildingdistro.com (Fit Bike Co\'s real storefront) directly. The kit page itself ("1X 48 Spline 24mm spindle... 2X Sealed 24mm bearings", SKU 32-BB-48SPLN-KIT-24MM, $74.95, "Will also work with other brands 24mm 48 spline arms") confirms spindleDiameter:24mm and that it is a complete purchasable BB but does not literally say "Mid" shell. shell:mid is cross-confirmed on the SAME storefront by two adjacent facts: (1) the sibling "24MM MID BB BEARINGS" product is explicitly Mid-shell for the identical 24mm spindle class, and (2) this catalog\'s own bmx-fr-fitbikeco-seriesone row (Fit\'s current 24mm-crank complete-bike platform) has a verified bbShell:mid sourced from Fit\'s own spec sheet ("Sealed Mid" BB) - Fit runs no other 24mm-spindle shell family. No per-kit weight published.\n\n    HELD 2026-07-24 (7f48ffc5), RE-ENTERED 2026-07-24 (fix/bmx-spindle-split). The hold was correct and the root cause was the vocab, not this row: with the old single-axis spindle enum, this BB\'s 24mm token hard-errored against bmx-cr-rant-bangin48\'s \'48-spline\' token - two DIFFERENT axes compared as one, a false "won\'t fit" against plausibly the exact crank class this kit is sold for. Mechanic ruling FRM-61 split the axis (spindleDiameter vs splinePattern) and bmx-bb-spindle now compares diameter-to-diameter only, so this row is safe to carry: its own page states BOTH facts directly ("1X 48 Spline 24mm spindle"), giving spindleDiameter:\'24mm\' + splinePattern:\'48-spline\'. It now correctly MATCHES the catalog\'s 24mm cranks and correctly does NOT match a 19mm one (including the 19mm/48-spline Rant Bangin\' 48 - same spline, different bore, a real non-fit).'
+  },
+  {
     id: 'bmx-hs-fitbikeco-headset', cat: 'headset', brand: 'Fit Bike Co', model: 'Fit Headset',
     fit: 'integrated-1-1/8', price: 24.95,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
@@ -3449,14 +3457,14 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-bb-kink-mid-19', cat: 'bb', brand: 'Kink', model: 'Mid Bottom Bracket (19mm)',
-    shell: 'mid', spindleFit: '19mm', price: 29.99,
+    shell: 'mid', spindleDiameter: '19mm', price: 29.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
     source: 'https://kinkbmx.com/products/mid-bottom-bracket',
     note: 'bmx-brands-7: fetched kinkbmx.com/products/mid-bottom-bracket.js directly. Tech Specs verbatim: "Sizes 19mm, 22mm", "Type Mid" (shell:mid, spindleFit:19mm exact for this variant), "51mm" center tube width, "6061-T6 Aluminum", "Precision Sealed" bearings, Black variant $29.99 (both spindle sizes share this price). The page\'s one stated weight ("5.0oz") is explicitly labeled for the 22mm variant only — left OMITTED here rather than assumed identical for the 19mm SKU (see the 22mm sibling row for that figure).'
   },
   {
     id: 'bmx-bb-kink-mid-22', cat: 'bb', brand: 'Kink', model: 'Mid Bottom Bracket (22mm)',
-    shell: 'mid', spindleFit: '22mm', weight: 142, price: 29.99,
+    shell: 'mid', spindleDiameter: '22mm', weight: 142, price: 29.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
     source: 'https://kinkbmx.com/products/mid-bottom-bracket',
     note: 'bmx-brands-7: fetched kinkbmx.com/products/mid-bottom-bracket.js directly — same product as the 19mm row above, this row pins the 22mm spindle variant. "Weight 5.0oz (22mm)" = 142g, maker-stated and explicitly tied to this exact spindle size (not a shipping bucket). Price $29.99 confirmed exactly.'
@@ -3532,14 +3540,14 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-bb-federal-mid-19', cat: 'bb', brand: 'Federal', model: 'Mid Bottom Bracket (19mm)',
-    shell: 'mid', spindleFit: '19mm', weight: 170, price: 23.99,
+    shell: 'mid', spindleDiameter: '19mm', weight: 170, price: 23.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
     source: 'https://federalbikes.com/products/federal-mid-bottom-bracket-black',
     note: 'bmx-brands-7: fetched federalbikes.com/products/federal-mid-bottom-bracket-black.js directly. "Sealed bearing and Alloy cone kit", "Available in 19mm, 22mm and 24mm spindle options", "Weight 0.170kg/6oz" = 170g (the page states one weight figure for the kit, not split per spindle size — applied to both the 19mm and 22mm rows entered this session, disclosed here). Price $23.99 exact. The 24MM VARIANT WAS DELIBERATELY NOT ADDED — see the worker report\'s spindle-vocab-defect section (a new 24mm BB risks a false red-dot against any catalog crank whose spindle is actually 24mm but tokenized 48-spline, per CLAUDE.md/this batch\'s brief; left for Douglas\'s ruling on the vocab).'
   },
   {
     id: 'bmx-bb-federal-mid-22', cat: 'bb', brand: 'Federal', model: 'Mid Bottom Bracket (22mm)',
-    shell: 'mid', spindleFit: '22mm', weight: 170, price: 23.99,
+    shell: 'mid', spindleDiameter: '22mm', weight: 170, price: 23.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
     source: 'https://federalbikes.com/products/federal-mid-bottom-bracket-black',
     note: 'bmx-brands-7: same product/page as the 19mm row above (federalbikes.com/products/federal-mid-bottom-bracket-black.js), this row pins the 22mm spindle variant. Same shared-weight disclosure as the sibling row; the 24mm variant on the same page was NOT added (spindle-vocab-defect, see worker report).'
