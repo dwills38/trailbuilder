@@ -2739,6 +2739,12 @@ var BMX_PARTS = [
     note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched federalbikes.com: product name "Federal Half Link Chain" confirms halfLink:true (the checkBmxBuild-read field alongside pitch). Regular price "$36.00" used (page currently shows a labeled 22%-off sale price of $28.00 - NOT used per THE PRICE RULE). pitch:1/8 is the catalog-standard BMX freestyle default (not itself numerically stated on this thin product page), matching this catalog\'s convention for other maker-confirmed half-link chain rows.'
   },
   {
+    id: 'bmx-ch-wethepeople-demand', cat: 'chain', brand: 'WeThePeople', model: 'Demand Chain',
+    pitch: '1/8', halfLink: true, price: 26.99,
+    source: 'https://5150bmx.com/products/demand',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched wethepeoplebmx.de (maker\'s own storefront): "made by KMC...incl. half link...90 links" - halfLink:true CONFIRMED, WEIGHT stated as "TBA" (not stored, no phantom number). pitch:1/8 is the catalog-standard BMX freestyle default (not itself numerically stated on this page). No price on the maker\'s EU site; US retailer prices for this SKU range widely ($24.99-$38.00 across five listings) with no single figure standing out as the clear MSRP, so this row stays UNVERIFIED (no priceBasis claim) with the 5150bmx.com figure ($26.99) recorded as a representative sample price, not a confirmed one.'
+  },
+  {
     id: 'bmx-se-mission-carrier', cat: 'seat', brand: 'Mission', model: 'Carrier Seat',
     system: 'stealth', weight: 343, price: 34.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
@@ -2946,6 +2952,12 @@ var BMX_PARTS = [
     platform: 'plastic', spindle: '9/16', weight: 357, price: 30.00,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.flybikes.com/product/fly-ruben-graphite-pedals-black',
     note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched flybikes.com: "Nylon - Fiberglass Compound" body (platform:plastic CONFIRMED), "Weight 357 g / 12.59 oz" CONFIRMED, "$30.00" CONFIRMED (USD, flybikes.com\'s own storefront price). spindle:9/16 is this catalog\'s universal BMX pedal-thread default (not independently restated on this page).'
+  },
+  {
+    id: 'bmx-pd-wethepeople-logic', cat: 'pedals', brand: 'WeThePeople', model: 'Logic Pedals',
+    platform: 'plastic', spindle: '9/16', weight: 391, price: 18.99,
+    verified: true, priceBasis: 'third-party-listed', lastChecked: '2026-07-24', source: 'https://mashsf.com/products/we-the-people-logic-pedals-platform-composite-plas',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched wethepeoplebmx.de (maker\'s own storefront): "high-impact nylon/fiberglass" (platform:plastic), "SIZE: 9/16\\"" (spindle CONFIRMED, not the assumed default here), "WEIGHT: pair: 391g" CONFIRMED. No price on the maker\'s EU site; priced via named US retailer MASH SF ($18.99, mid-range among several US listings clustered $17-25) at the third-party-listed tier.'
   },
   {
     id: 'bmx-pd-sm-hoderbtm', cat: 'pedals', brand: 'S&M', model: 'Hoder BTM Pedals',
