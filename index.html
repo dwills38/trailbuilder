@@ -1310,6 +1310,11 @@
      Shared with KitBuilder/index.html via the same 'tb-theme' key. Button
      state syncs in the main script at the end of the body. -->
 <script src="src/ui-common.js"></script>
+<!-- Shared page chrome (src/page-shell.js): the ONE definition of the legal-link
+     tail, mounted into the [data-tb-legal] placeholder in the footer below. See
+     that file for what is deliberately NOT shared (the theme blocks differ per
+     page for real reasons). Renders inert in-page markup only - never a pop-up. -->
+<script src="src/page-shell.js"></script>
 <!-- Cloudflare Web Analytics (privacy-first, cookie-less; token is publishable — same
      committed-constant pattern as REPORT_REPO/src/config.js). Enabled by Douglas 2026-07-16. -->
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "321537b0321746628c925f357de5a74a"}'></script>
@@ -1339,13 +1344,7 @@
         <h1>BuildMyMTB</h1><span class="fam-caret" aria-hidden="true">▾</span>
       </summary>
       <div class="fam-pop" role="menu" aria-label="The BuildMy family">
-        <a class="here" href="/" role="menuitem" aria-current="page">🚵 BuildMyMTB <span class="fam-soft">— you're here</span></a>
-        <a href="bmx.html" role="menuitem">🏁 BuildMyBMX</a>
-        <a href="road.html" role="menuitem">🚴 BuildMyRoadbike</a>
-        <a href="gravel.html" role="menuitem">🌾 BuildMyGravelBike</a>
-        <a href="emtb.html" role="menuitem">⚙️ BuildMyEMTB</a>
-        <a href="KitBuilder/" role="menuitem">🧰 BuildMyRideKit</a>
-        <a href="about.html" role="menuitem">ℹ️ About BuildMy <span class="fam-soft">— mission, family &amp; what verified means</span></a>
+        <span data-tb-family="mtb"></span>
         <div class="fam-mission">BuildMyMTB is a free, unbiased bike-building tool with accurate data — pick parts and see, in real time, whether they fit. Same tool, every ride style.</div>
       </div>
     </details>
@@ -1694,9 +1693,7 @@
   or pick a 27.5 rear wheel + tire on the YT Capra.</p>
   <p class="footer-legal">
     <a href="about.html">About</a> &middot;
-    <a href="privacy.html">Privacy</a> &middot;
-    <a href="terms.html">Terms</a> &middot;
-    <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+    <span data-tb-legal></span>
   </p>
 </footer>
 
