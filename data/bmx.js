@@ -2599,6 +2599,12 @@ var BMX_PARTS = [
     note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched wethepeoplebmx.de (WeThePeople\'s own storefront): "PIVOTAL SEAT POST...SIZE: FOR STANDARD 25.4MM SEAT POSTS...SYSTEM: PIVOTAL SYSTEM" (diameter/system both CONFIRMED). No price on the maker\'s EU marketing site (the same gap this catalog\'s other WeThePeople rows already disclose); priced via named US retailer (us.sourcebmx.com, $39.99, matching the maker\'s 200mm length) per the third-party-listed tier. Weight NOT recorded: the maker page states "WEIGHT: 19G (0.65OZ)" but that figure is implausibly light for a full 200-300mm alloy post (likely a stray clamp-hardware weight mis-attached to this spec block) - fails the phantom-number bar, so no weight is stored.'
   },
   {
+    id: 'bmx-sp-sunday-pivotal-200', cat: 'seatpost', brand: 'Sunday', model: 'Pivotal Seat Post',
+    diameter: 25.4, system: 'pivotal', price: 36.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://shop.sundaybikes.com/collections/sunday-seating',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched shop.sundaybikes.com (Sunday\'s own storefront, Full Factory Marketplace): "Pivotal Seat Post $36.99 Pivotal mount. 200mm length. 25.4mm diameter." - diameter/system/price all CONFIRMED. No weight stated on the listing.'
+  },
+  {
     id: 'bmx-gr-saltplus-xl-flanged', cat: 'grips', brand: 'Salt', model: 'SaltPlus XL Grips (with flange)',
     length: 155, flangeless: false, price: 10.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
@@ -2864,6 +2870,12 @@ var BMX_PARTS = [
     id: 'bmx-pg-fiction-steel', cat: 'pegs', brand: 'Fiction', model: 'Steel Freestyle Pegs',
     axleFit: '14mm', material: 'steel', reducerIncluded: true, price: 30.95,
     note: 'bmx-breadth-3 (2026-07-22): real current Fiction product, WebSearch-corroborated (SkatePro $30.95): "made from solid Chromoly steel...come in sets of either 2 pieces or 4 pieces, designed for 14mm axles and with spacers included for 10mm setup" -> axleFit:14mm, material:steel, reducerIncluded:true (the 10mm spacers). Price entered at the single-peg-equivalent SkatePro figure; the page also sells 2- and 4-peg bundles at proportional prices, not modeled as separate rows (bundle count is a quantity axis, not a fit-distinct SKU per DATA-ENTRY-TEMPLATE §1). Left unverified (retailer-corroborated, no manufacturer page fetched).'
+  },
+  {
+    id: 'bmx-pg-sunday-seeley475', cat: 'pegs', brand: 'Sunday', model: 'Seeley 4.75" PC Peg',
+    axleFit: '14mm', material: 'alloy', reducerIncluded: true, price: 27.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24', source: 'https://shop.sundaybikes.com/collections/sunday-pegs',
+    note: 'bmx-smallparts-2 (2026-07-24): new brand for this category. Directly fetched shop.sundaybikes.com (Sunday\'s own storefront, Full Factory Marketplace - the same distributor front already trusted for Odyssey rows in this catalog): "Seeley 4.75\\" PC Peg...Black $27.99...Jake Seeley signature. Full aluminum alloy core. Replaceable plastic sleeve. 14mm with 3/8\\" adapters" - axleFit:14mm, material:alloy (aluminum alloy core), reducerIncluded:true (3/8in adapters included), price CONFIRMED. No weight stated on the listing.'
   },
 
   // ---- Tall Order BMX (new brand: UK, founded 2016 by Bas Keep; thin
