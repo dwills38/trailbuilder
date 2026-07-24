@@ -2628,6 +2628,123 @@ var EMTB_PARTS = [
     desc: 'Fetched directly from the maker\'s own product page (simplon.com/en/Bikes/E-Mountain-Bikes/Rapcon-eTQ_b_929052): "Frame material Carbon", "Travel (rear/front) 160 mm / 160 (170) mm", "Motor TQ-HPR60", "Battery 360 Wh", "Total bike weight from 19,29 kg", "60 Nm and currently the highest torque density on the market: 82 Nm/dm3", "the compact motor, which weighs in at only 1,850 g", starting price "from EUR 7,999.00". Cataloged at the stock 160/160mm spec (the page also lists an optional 170mm front); drivetrain/brakes not itemized on the fetched page section, left uncataloged rather than guessed. Battery is the integrated 360Wh pack (page: "the firmly integrated 360-Wh battery" on the sibling E2/e page copy; optional +160Wh dual-battery expansion noted, not cataloged as this SKU\'s standard spec). PRICE: EUR 7,999.00 ("from") maker-published starting price converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.138703) -> $9,108.47; Simplon has no US retail presence, no USD MSRP exists. Re-fetched directly verify/emtb-brands-1 (2026-07-23) — every field above re-confirmed byte-for-byte against the live page.',
     verified: true, priceBasis: 'regional-conversion',
     lastChecked: '2026-07-23', source: 'https://www.simplon.com/en/Bikes/E-Mountain-Bikes/Rapcon-eTQ_b_929052'
+  },
+
+  // ---------------------------------------------------------------------------
+  // catalog/emtb-breadth-5 wave — absent-brand pass (Stevens, Cotic, Jamis,
+  // NS Bikes, Orange, Atherton, Centurion, Bergamont newly present). Salsa,
+  // Scor, Alutech, Nicolai, Fuji and Kellys were confirmed as REAL full-power
+  // eMTB makers this wave but a clean single-manufacturer-page spec set
+  // (esp. an exact price or an exact bike-specific torque figure, not a
+  // search-summary guess) could not be pinned down in this session for any
+  // specific SKU without risking a fabricated number — left uncataloged
+  // rather than guessed (THE BAR); see the worker report for what was found
+  // and where each one stalled. Kalkhoff, Winora, Zerode, Sonder, Stanton and
+  // Diamondback were checked and found to sell NO genuine full-power trail/
+  // enduro eMTB (comfort/trekking/commuter e-bikes, a conversion-kit-only
+  // catalog, or no e-assist model at all) — not entered, per scope. Pole and
+  // Privateer were re-checked for depth and confirmed to be genuine
+  // single-SKU eMTB brands right now (Pole Hiisi is a 50-unit limited run,
+  // Privateer e161 ships in one build only) — 1 row each is their real
+  // current depth, not a gap. Evil's "GX mechanical"/"XT" builds surfacing in
+  // search results are prior-year listings; evil-bikes.com's own page today
+  // sells only the Eagle 90 and X0 builds already cataloged.
+  // ---------------------------------------------------------------------------
+
+  {
+    id: 'em-stevens-e-inception-ed-8-8-2-gtf', cat: 'emtb', brand: 'Stevens', model: 'E-Inception ED 8.8.2 GTF',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
+    batteryWh: 800, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'Shimano Deore XT 12-speed (FC-EM600 crankset)', brakes: 'Shimano Deore XT (203mm rotors)',
+    disciplines: ['e-enduro'], weight: 25300, price: 7855.88, modelYear: 2026,
+    note: 'First Stevens row in this catalog (Hamburg maker, absent before this wave) — full-carbon "SL HMF" e-enduro chassis, mullet (29in front/27.5in rear) wheels, FOX 38 Float Performance Elite eMTB+ fork / FOX Float X Performance Elite shock, USB-C charging port on the top tube, "GTF" (Gas To Flat) trim.',
+    desc: 'Fetched directly from the maker\'s own product page (stevensbikes.de/en/de/e-fully-full-assist/e-inception-ed-8.8.2-gtf): "Enduro full-suspension e-bike with high-tech carbon frame and 29\\"/27.5\\" wheels", "170 mm suspension from Fox: 38 Float Performance Elite eMTB+/Fox Float X Performance Elite", "Shimano EP801 drive unit with a full 85 Nm of torque", "battery has 800 Wh capacity", "Shimano Deore XT 12-speed" drivetrain and brakes, weight 25.3 kg, price EUR 6,899 (recommended retail, Germany). Motor peak wattage not stated on this page (left uncataloged rather than guessed). PRICE: EUR 6,899 maker-published RRP converted at the 2026-07-24 open.er-api.com EUR->USD rate (1.138703) -> $7,855.88; Stevens has no US retail presence (stevensbikes.de is the DE/EU shop), no USD MSRP exists. catalog/emtb-breadth-5 wave (first Stevens row).',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-24', source: 'https://www.stevensbikes.de/en/de/e-fully-full-assist/e-inception-ed-8.8.2-gtf'
+  },
+
+  {
+    id: 'em-cotic-rocket-gold', cat: 'emtb', brand: 'Cotic', model: 'Rocket Gold',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'steel', drivetrain: null, brakes: null,
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 11728.79, modelYear: 2026,
+    note: 'First Cotic row in this catalog (UK steel-frame boutique, absent before this wave) — Reynolds 853 main tubes + T45 down tube, Rocklink suspension, external swappable battery (a deliberate design choice per the maker, offered in 418/504/630Wh sizes), mullet (29in front/27.5in rear) wheels. Singletrackworld\'s 2025 eMTB of the Year. Cataloged at the top "Gold" build/630Wh battery.',
+    desc: 'Motor confirmed directly on the maker\'s own product page (cotic.co.uk/product/rocket): "The Shimano EP801 delivers 85Nm of torque and 600 watts of peak power", "Rocklink suspension delivering 150mm of calm, controlled travel", "Reynolds 853 and T45 steel", battery offered as "504Wh" or "630Wh" external packs (this row cataloged at 630Wh), "swapping takes ten seconds" (batteryRemovable:true). Front travel (150mm, one of two fork-travel options), wheel config (29in front/27.5in mullet) and the Gold-build price (GBP 8,799) were NOT itemized on that same fetched page in this session — corroborated instead via MBR (mbr.co.uk/news/cotic-launches-new-steel-ebike-442608) and Pinkbike\'s launch coverage, both citing Cotic\'s own press materials. Drivetrain/brakes vary by the bike\'s "built to order" custom-spec model and are not fixed per-build, so left uncataloged rather than guessed. Weight not found for this exact 630Wh/Gold configuration (a 21.5kg figure exists only for a 418Wh prototype, a different config, so left blank). PRICE: GBP 8,799 converted at the 2026-07-24 open.er-api.com GBP->USD rate (1.332969) -> $11,728.79; no USD MSRP exists (Cotic ships direct from the UK). Left unverified: the travel/wheel/price fields came from secondary press rather than this session\'s own direct fetch. catalog/emtb-breadth-5 wave (first Cotic row).',
+    lastChecked: '2026-07-24', source: 'https://cotic.co.uk/product/rocket'
+  },
+
+  {
+    id: 'em-jamis-defcon-e1', cat: 'emtb', brand: 'Jamis', model: 'Defcon E1',
+    motorBrand: 'shimano', motorModel: 'Shimano DU-EP801', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT 12-speed (KMC X12 chain)', brakes: 'TRP DH-R EVO 4-piston (203mm rotors)',
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 7499.95, modelYear: 2026,
+    note: 'First Jamis row in this catalog (US maker, absent before this wave) — MPX Horst-link suspension platform (a shift from Jamis\' prior single-pivot layouts), triple-butted 6061 alloy frame with an integrated downtube battery door and seat-tube charging port, alloy motor skid plate.',
+    desc: 'Fetched directly from the maker\'s own product page (jamisbikes.com/bikes/full-suspension/mpx-suspension/defcon/): "Shimano BT-EN806, 630Wh" battery via a "push button removable battery door", "160mm front (Fox 36 fork), 150mm rear (Fox Float X shock)" travel, "Triple-butted 6061 alloy" frame, "Shimano XT 12-speed" drivetrain, "TRP DH-R EVO 4-piston hydraulic disc, 203mm rotors" brakes, price $7,499.95 USD (matches the maker\'s own press announcement, bicycleretailer.com/new-products/2026/04/28/jamis-releases-new-defcon-full-suspension-e-mtb-models). Motor torque/peak power were NOT itemized on the fetched Jamis page itself in this session; 85Nm/600W is Shimano\'s own published standard spec for the DU-EP801 unit (the same figure this catalog already uses on its other EP801-equipped rows), not independently re-confirmed on jamisbikes.com this session — left unverified for that reason. Weight not found. catalog/emtb-breadth-5 wave (first Jamis row).',
+    lastChecked: '2026-07-24', source: 'https://www.jamisbikes.com/bikes/full-suspension/mpx-suspension/defcon/'
+  },
+
+  {
+    id: 'em-ns-e-fine-1', cat: 'emtb', brand: 'NS Bikes', model: 'E-Fine 1',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: false, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore 1x12 (FC-EM600 crankset, CS-MZ800 11-51T cassette)', brakes: 'Shimano Deore M6120 4-piston (203mm rotors)',
+    disciplines: ['e-enduro'], weight: 24500, price: 8653.19,
+    note: 'First NS Bikes row in this catalog (Polish maker, absent before this wave) — NS\' first eMTB platform, custom-hydroformed AL6061-T6 + AL6066-T6 tubing, mullet (29in front/27.5in rear) wheels, Maxxis Assegai MaxxGrip 3C DD TR tires front and rear. Flagship "E-Fine 1" build (a lower-travel/lower-spec "E-Fine 2" also exists on the same platform).',
+    desc: 'Fetched directly from the maker\'s own product page (nsbikes.com/e-fine-1,614,pl.html): "SHIMANO STEPS: BT - E8036, Capacity 17.5 (Ah) / 630 (Wh)" battery, described as integrated (not removable), "170 front / 160 rear" mm travel, "AL6061-T6 + AL6066-T6, custom hydroformed tubes" frame, "Shimano deore 1x12" drivetrain, "Shimano Deore M6120 4 piston, 203mm" brakes. Motor torque was not itemized on the fetched page (85Nm is Shimano\'s own published EP801 standard, not independently re-confirmed on nsbikes.com this session). Price and weight were not on the fetched page either; sourced instead from multiple corroborating EU retailers (cyclingelectric.com, simplebikestore.eu) citing a EUR 7,599 RRP and a 24.5kg size-M weight. PRICE: EUR 7,599 converted at the 2026-07-24 open.er-api.com EUR->USD rate (1.138703) -> $8,653.19 (no USD MSRP found; NS has no confirmed US retail presence). Left unverified: torque, price and weight all rest on sourcing outside this session\'s own direct fetch. catalog/emtb-breadth-5 wave (first NS Bikes row).',
+    lastChecked: '2026-07-24', source: 'https://nsbikes.com/e-fine-1,614,pl.html'
+  },
+
+  {
+    id: 'em-orange-phase-avinox-rs', cat: 'emtb', brand: 'Orange', model: 'Phase Avinox RS',
+    motorBrand: 'avinox', motorModel: 'Avinox M2S (DJI)', motorTorque: 150, motorPowerPeak: 1300,
+    batteryWh: 800, batteryRemovable: null, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: null, brakes: null,
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 10997.00, modelYear: 2026,
+    note: 'First Orange row in this catalog (UK boutique, hand-built in Halifax, absent before this wave) — Orange\'s "E.P.O." (Electric Powered Orange) full-power platform, aircraft-grade aluminium folded monocoque frame, trunnion-mount 205x65mm rear shock, UDH dropout, mullet (29in front/27.5in rear) wheels. "RS" is the mid-spec build (a higher "Factory" build and other tiers also exist on the same chassis).',
+    desc: 'Fetched directly from the maker\'s own product page (orangebikes.com/products/phase-avinox-rs): "F:160mm I R:160mm I W:MX", "Frame designed, built and manufactured in the UK", "Avinox (DJI) drive unit", "29\\" front, 27.5\\" rear — MX wheels", "Avinox (DJI) 800Wh battery", "UDH dropout", "Trunion mount 205x65 rear shock", price GBP 8,250.00. Torque/peak power were not itemized on this page; 130Nm continuous (150Nm boost)/1300W is the figure widely reported for this exact model across launch coverage (Pinkbike, BikeRadar, EMTB Forums) quoting Orange\'s own press materials for the Phase Avinox specifically (distinct from Atherton\'s separate 1500W tune of the same Avinox M2S motor, checked to avoid conflating the two brands\' tunes). Battery removability not stated either way on the fetched page. Frame material inferred from Orange\'s well-documented aluminium-monocoque construction (stated elsewhere on the same page: "aircraft grade aluminium folded monocoque construction"), not a numbered alloy spec. Drivetrain/brakes vary by build tier and were not itemized for "RS" specifically. PRICE: GBP 8,250.00 converted at the 2026-07-24 open.er-api.com GBP->USD rate (1.332969) -> $10,997.00. Left unverified: torque/peak power rest on press coverage, not this session\'s own direct fetch. catalog/emtb-breadth-5 wave (first Orange row).',
+    lastChecked: '2026-07-24', source: 'https://orangebikes.com/products/phase-avinox-rs'
+  },
+
+  {
+    id: 'em-atherton-s170e-3', cat: 'emtb', brand: 'Atherton', model: 'S.170E.3',
+    motorBrand: 'avinox', motorModel: 'Avinox M2S', motorTorque: 150, motorPowerPeak: 1500,
+    batteryWh: 700, batteryRemovable: false, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM Eagle 90 Transmission', brakes: null,
+    disciplines: ['e-enduro'], weight: null, price: 9329.50, modelYear: 2026,
+    note: 'First Atherton row in this catalog (Dan/Gee/Rachel Atherton\'s Welsh boutique, absent before this wave) — the brand\'s first eMTB, developed in the Dyfi Valley, DW4-linkage 7075 aluminum frame with machined lugs, twelve frame sizes, mullet (29in front/27.5in rear) wheels. "S.170E.3" is the entry-price build (Rockshox Select-series suspension + SRAM Eagle 90 Transmission); Build 1/2 use progressively higher-spec Fox/RockShox suspension and SRAM GX/X0 Transmission.',
+    desc: 'Motor/battery confirmed directly on the maker\'s own product page (athertonbikes.com/bike/emtb.html): "AVINOX M2S MOTOR — 150 Nm of torque and 1500 W peak output", "130 Nm MAX CONTINUOUS TORQUE (150 Nm IN BOOST)", "1500 W PEAK POWER", "2.6 kg DRIVE UNIT WEIGHT", "A 700 Wh battery... not designed for trailside swaps" (batteryRemovable:false), "twelve frame sizes". Travel (180mm fork/170mm rear), wheel config (mullet), frame material (7075 aluminum, machined lugs) and the three build-tier prices (S.170E.3 GBP 6,999 / S.170E.2 GBP 7,799 / S.170E.1 GBP 8,999) were not on the specific page section fetched this session — corroborated via BikeRadar/Bikerumor/road.cc launch coverage quoting Atherton\'s own press kit and pre-order page. This row is cataloged at the entry S.170E.3 build/price. Brakes not itemized for this build tier. PRICE: GBP 6,999 converted at the 2026-07-24 open.er-api.com GBP->USD rate (1.332969) -> $9,329.50. Left unverified: travel/frame/price rest on secondary press, not this session\'s own direct fetch of that page section. catalog/emtb-breadth-5 wave (first Atherton row).',
+    lastChecked: '2026-07-24', source: 'https://www.athertonbikes.com/bike/emtb.html'
+  },
+
+  {
+    id: 'em-centurion-numinis-r2000', cat: 'emtb', brand: 'Centurion', model: 'Numinis R2000',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 85,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano (Fox suspension)', brakes: null,
+    disciplines: ['e-trail'], weight: 25200, price: 6546.62, modelYear: 2025,
+    note: 'First Centurion row in this catalog (German Merida-group brand, absent before this wave) — Horselink rear-triangle suspension design, 150mm front/140mm rear travel trail eMTB (a shorter-travel 120/120mm "Lhasa" sibling and an EQ commuter-equipped variant also exist on related platforms, not cataloged here).',
+    desc: 'Sourced from corroborating maker-adjacent coverage (velomotion.net/2025/01/centurion-lhasa-numinis, pedelec-elektro-fahrrad.de/news/centurion-2025-neues-numinis-r2000-fuer-anspruchsvolle-trails-vorgestellt, emtb-news.de/news/centurion-numinis-r2000-suv-e-bike) quoting Centurion\'s own launch materials: "150 mm front suspension travel and 140 mm rear", "Bosch CX-Motor Gen5... up to 85 Nm torque", "BOSCH PowerTube 800Wh battery", "Fox suspension and Shimano drivetrain", "System weight of 25.2 kg", price EUR 5,749 for the base R2000 (an EQ commuter variant costs more). A direct centurion.de product-page fetch in this session repeatedly resolved to a different model (Lhasa) or a 404, so this row rests on secondary coverage rather than this session\'s own maker-page fetch — left unverified for that reason, and no `verified:true` claim is made. PRICE: EUR 5,749 converted at the 2026-07-24 open.er-api.com EUR->USD rate (1.138703) -> $6,546.62. catalog/emtb-breadth-5 wave (first Centurion row).',
+    lastChecked: '2026-07-24', source: 'https://www.velomotion.net/2025/01/centurion-lhasa-numinis/'
+  },
+
+  {
+    id: 'em-bergamont-e-trailster-150-elite', cat: 'emtb', brand: 'Bergamont', model: 'E-Trailster 150 Elite',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 4, BES3)', motorTorque: 85,
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore/Deore XT 1x12 (e*thirteen 34T crank)', brakes: 'Shimano BR-MT520 4-piston',
+    disciplines: ['e-trail'], weight: 27900, price: 6930.30, modelYear: 2024,
+    note: 'First Bergamont row in this catalog (German ZEG-group brand, absent before this wave) — "ultra lite AL-6061" frame, mullet (29in front/27.5in rear) wheels, RockShox Zeb Select fork / RockShox Deluxe Select+ shock, integrated 150mm dropper, Schwalbe Magic Mary/Hans Dampf Evo tires, 160kg max system weight.',
+    desc: 'Fetched directly from the maker\'s own product page (bergamont.com/global/en/product/bergamont-e-trailster-150-elite): "Bosch Performance Line CX, Gen. 4, BES3, 250 W, 36 V" drive unit, "Bosch PowerTube, 36 V Li Ion, 750 Wh" battery, "150 mm" front / "140 mm" rear travel, "ultra lite AL-6061 tubing" frame, "Shimano Deore / Deore XT, 1x12" drivetrain with an e*thirteen 34T/165mm crank, "Shimano BR-MT520, hydraulic disc brake, 4-piston" brakes, weight approximately 27.9 kg. The page states only the drive unit\'s rated/continuous 250W figure, not a torque number; 85Nm is Bosch\'s own long-published standard rating for the un-upgraded Performance Line CX Gen4/BES3 unit (independently confirmed on bosch-ebike.com/us/products/performance-line-cx, whose Performance-upgrade-2.0 copy states the STANDARD range starts at 85Nm/10-120Nm adjustable) — not itemized on the specific Bergamont page fetched, so left unverified rather than claimed as re-confirmed there. Price was not on the fetched product page; a GBP 5,199 retail figure recurs across multiple UK retailers (99spokes.com, garyscycles.com) for this exact SKU. PRICE: GBP 5,199 converted at the 2026-07-24 open.er-api.com GBP->USD rate (1.332969) -> $6,930.30. catalog/emtb-breadth-5 wave (first Bergamont row).',
+    lastChecked: '2026-07-24', source: 'https://www.bergamont.com/global/en/product/bergamont-e-trailster-150-elite'
   }
 
 ];
