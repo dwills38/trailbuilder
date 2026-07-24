@@ -4097,6 +4097,10 @@ var KIT_PARTS = [
     disciplines:['enduro','dh'],
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.sweetprotection.com/us/en/shin-guards-light-black/',
     desc:'Perforated Visco-Elastic shin protector designed to overlap with Sweet\'s Knee Guards Pro / Pro Hard Shell for continuous shin-to-knee coverage; no CE cert stated on the maker page, so left untagged. Price + weight (94g) both directly confirmed on the US storefront.' },
+  { id:'shg-blissprotection-team-kneeshin', cat:'shinguard', brand:'Bliss Protection', model:'Team Knee/Shin Pad', price:79.90,
+    disciplines:['enduro','dh'],
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://blisscamp.com/us/team-knee-shin-pad/123145000.2',
+    desc:'Combo knee/shin protector from Bliss\'s Team line. Price confirmed on blisscamp.com/us ($79.90, page marked "excl. VAT plus shipping costs" - the maker\'s own stated US-facing figure, not a computation). No weight published on the fetched page.' },
 
   /* -- Eyewear (type required: glasses / goggles) -- */
   { id:'ewr-oakley-sutro', cat:'eyewear', brand:'Oakley', model:'Sutro', price:203, weight:32,
