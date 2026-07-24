@@ -3382,15 +3382,7 @@ var BMX_PARTS = [
   //      thread-on 990 hardware kit, not a caliper) was out of stock and not
   //      a clean single-purchase brake unit, so no Fit brake row was added
   //      either. -----------------------------------------------------------
-  {
-    id: 'bmx-bb-fitbikeco-blunt48spline-24mm', cat: 'bb', brand: 'Fit Bike Co',
-    model: 'Blunt 48 Spline Complete BB Kit (24mm)',
-    family: 'fitbikeco-blunt', shell: 'mid', spindleFit: '24mm', price: 74.95,
-    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
-    source: 'https://thebuildingdistro.com/product/48-spline-complete-bb-kit-24mm/',
-    note: 'catalog/bmx-brand-completion-1: FETCHED thebuildingdistro.com (Fit Bike Co\'s real storefront) directly. The kit page itself ("1X 48 Spline 24mm spindle... 2X Sealed 24mm bearings", SKU 32-BB-48SPLN-KIT-24MM, $74.95, "Will also work with other brands 24mm 48 spline arms") confirms spindleFit:24mm and that it is a complete purchasable BB but does not literally say "Mid" shell. shell:mid is cross-confirmed on the SAME storefront by two adjacent facts: (1) the sibling "24MM MID BB BEARINGS" product is explicitly Mid-shell for the identical 24mm spindle class, and (2) this catalog\'s own bmx-fr-fitbikeco-seriesone row (Fit\'s current 24mm-crank complete-bike platform) has a verified bbShell:mid sourced from Fit\'s own spec sheet ("Sealed Mid" BB) - Fit runs no other 24mm-spindle shell family. No per-kit weight published.'
-  },
-  {
+    {
     id: 'bmx-hs-fitbikeco-headset', cat: 'headset', brand: 'Fit Bike Co', model: 'Fit Headset',
     fit: 'integrated-1-1/8', price: 24.95,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-24',
