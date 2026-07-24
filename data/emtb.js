@@ -2567,6 +2567,30 @@ var EMTB_PARTS = [
     note: 'CORRECTS an earlier-today finding in this file\'s own header claiming Wilier "carries NO e-MTB": that check looked only at the acoustic MTB category page and missed the separate E-Bikes category. Urta Hybrid is Wilier\'s real, current down-country e-MTB (based on the Urta SLR XC race platform), Fazua Ride 60 mid-drive (60Nm/450W peak, 430Wh internal battery), 120mm front/rear travel, carbon monocoque frame+bar. Top SRAM XX SL AXS T-Type build shown; a GX T-Type build also exists at a lower price point.',
     desc: "Fetched via Exa (wilier.com blocks WebFetch with a 403) from the maker's own Urta Hybrid product page, which lists per-trim spec accordions and a setup/price table. Top trim (code E557BS6X): SRAM XX SL Eagle AXS T-Type drivetrain, Shimano Deore XT M8100 brakes (180/160mm Shimano RT-MT800 rotors), RockShox SID FS 120mm fork / RockShox Deluxe Select 210x55 shock, maker-stated weight 16.400kg +/-5%. Motor torque/power (60Nm/450W) match this catalog's other Fazua Ride 60 rows exactly (independent cross-check, not guessed). PRICE: EUR 11,900 RRP (no USD market exists) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.141079, matching this file's other same-day regional-conversion rows) -> $13,579.",
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-23', source: 'https://www.wilier.com/en/bikes/e-bike/urta-hybrid'
+  },
+
+  // --- catalog/emtb-depth-10: third-model depth on thin brands (BH, Simplon) ---
+  {
+    id: 'em-bh-ilynx-sl-trail-carbon', cat: 'emtb', brand: 'BH', model: 'iLynx+ SL Trail',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: false, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 140,
+    frameMaterial: 'carbon', drivetrain: null, brakes: null,
+    disciplines: ['e-trail'], weight: 18900, price: 7969.77, modelYear: 2026,
+    note: 'A third, lighter-class motor tier alongside this catalog\'s existing BH iLynx+ DL (Avinox) and NX (Bosch) rows — the SL line pairs the full-torque Shimano EP801 motor in a lightweight-class chassis (sub-19kg top build), Fox 36/Float X suspension, 2150g claimed frame weight. Trail variant cataloged (140mm travel); a 160mm Enduro variant also exists on the same platform.',
+    desc: 'Sourced from BIKE Magazin\'s fetched hands-on feature (bike-magazin.de/en/enduro-bikes/bh-bikes-ilynx-sl-lots-of-power-low-weight-spanish-e-mtb-for-trail-and-enduro/), quoting: "Motor: Shimano EP801", "Battery: 630 Wh, permanently installed", "Optional: additional battery with 180 Wh", "3 Enduro and 4 Trail variants from 6999 euros", "Suspension travel: 160 mm (Enduro) or 140 mm (Trail)", "Wheel size: 29 inch", "Weight: from 18.9 kilos (top model Trail 0.0, manufacturer\'s specification)", "Carbon frame". BH\'s own bhbikes.com product page (fetched) confirms the 85Nm EP801 motor and 630Wh standard battery but lists no price or per-variant travel breakdown. Drivetrain/brakes not itemized per-variant in the fetched source, left uncataloged rather than guessed. PRICE: EUR 6,999 ("from", lineup-starting price across all Trail/Enduro variants) converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.138703) -> $7,969.77 — an editorial-disclosed starting price, not a maker-fetched fixed-SKU MSRP.',
+    lastChecked: '2026-07-23', source: 'https://www.bike-magazin.de/en/enduro-bikes/bh-bikes-ilynx-sl-lots-of-power-low-weight-spanish-e-mtb-for-trail-and-enduro/'
+  },
+  {
+    id: 'em-simplon-rapcon-etq', cat: 'emtb', brand: 'Simplon', model: 'Rapcon :eTQ',
+    motorBrand: 'tq', motorModel: 'TQ-HPR60', motorTorque: 60,
+    batteryWh: 360, batteryRemovable: false, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: null, brakes: null,
+    disciplines: ['e-trail', 'e-enduro'], weight: 19290, price: 9108.47, modelYear: 2026,
+    note: 'A genuinely distinct lightweight-class sibling to this catalog\'s existing Bosch-CX-powered Rapcon :e (full-power) and Rift AL:e Core rows — same Rapcon carbon chassis, but the quiet TQ-HPR60 mid-drive (1850g motor unit, 82 Nm/dm3 torque density) and a small fixed 360Wh battery instead of the Bosch platform\'s 600/800Wh packs. Optional 29"/27.5" mullet via flip chip (cataloged at the stock full-29in setup).',
+    desc: 'Fetched directly from the maker\'s own product page (simplon.com/en/Bikes/E-Mountain-Bikes/Rapcon-eTQ_b_929052): "Frame material Carbon", "Travel (rear/front) 160 mm / 160 (170) mm", "Motor TQ-HPR60", "Battery 360 Wh", "Total bike weight from 19,29 kg", "60 Nm and currently the highest torque density on the market: 82 Nm/dm3", "the compact motor, which weighs in at only 1,850 g", starting price "from EUR 7,999.00". Cataloged at the stock 160/160mm spec (the page also lists an optional 170mm front); drivetrain/brakes not itemized on the fetched page section, left uncataloged rather than guessed. Battery is the integrated 360Wh pack (page: "the firmly integrated 360-Wh battery" on the sibling E2/e page copy; optional +160Wh dual-battery expansion noted, not cataloged as this SKU\'s standard spec). PRICE: EUR 7,999.00 ("from") maker-published starting price converted at the 2026-07-23 open.er-api.com EUR->USD rate (1.138703) -> $9,108.47; Simplon has no US retail presence, no USD MSRP exists.',
+    lastChecked: '2026-07-23', source: 'https://www.simplon.com/en/Bikes/E-Mountain-Bikes/Rapcon-eTQ_b_929052'
   }
 
 ];
