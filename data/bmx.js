@@ -2571,6 +2571,24 @@ var BMX_PARTS = [
     note: 'bmx-breadth-4 (2026-07-22): VERIFIED via missionbmx.com. Page states verbatim: "SIZE: 1/8\\"", "Features a factory-installed half-link and master link", "WEIGHT: 14.0oz" (=397g), "Regular price $19.99" — directly confirms both chain schema fields (pitch, halfLink:true) plus price. Mid-tier SKU (heat-treated pins, thicker side plates) between 410 and Half-Link Chain in Mission\'s own lineup.'
   },
   {
+    id: 'bmx-ch-flybikes-tractor', cat: 'chain', brand: 'Fly Bikes', model: 'Tractor Chain',
+    pitch: '1/8', halfLink: true, weight: 340, price: 45.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.flybikes.com/product/fly-tractor-chain',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched flybikes.com: "1.3 mm link plates...the convenience of a built in half-link" (halfLink:true CONFIRMED) and "Weight 340 g / 11.9 oz" CONFIRMED, "$45.00" CONFIRMED. pitch:1/8 is the catalog-standard BMX freestyle default (not itself numerically stated on this page, same convention as other cataloged chain rows e.g. bmx-ch-odyssey-seance), so verified:true rests on halfLink + price + weight, all independently page-confirmed.'
+  },
+  {
+    id: 'bmx-ch-shadow-interlockv2', cat: 'chain', brand: 'The Shadow Conspiracy', model: 'Interlock V2 Chain',
+    pitch: '1/8', halfLink: true, price: 61.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.sparkysbrands.com/products/shadow-interlock-v2-chain',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched sparkysbrands.com (Shadow\'s own storefront): "1/8\\" size" (pitch CONFIRMED) and "Half-Link Proprietary Design" (halfLink:true CONFIRMED), "Regular price $61.99" CONFIRMED. Weight NOT recorded: the page states "Weight: 11.3 oz for 72 links" but also states the chain "Includes 98 links" - an internal contradiction (72 vs 98 links) that fails the phantom-number bar, so no weight is stored rather than trusting either figure.'
+  },
+  {
+    id: 'bmx-ch-federal-halflink', cat: 'chain', brand: 'Federal', model: 'Half Link Chain',
+    pitch: '1/8', halfLink: true, price: 36.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://federalbikes.com/products/federal-half-link-chain-black',
+    note: 'bmx-smallparts-1 (2026-07-23): new brand for this category. Directly fetched federalbikes.com: product name "Federal Half Link Chain" confirms halfLink:true (the checkBmxBuild-read field alongside pitch). Regular price "$36.00" used (page currently shows a labeled 22%-off sale price of $28.00 - NOT used per THE PRICE RULE). pitch:1/8 is the catalog-standard BMX freestyle default (not itself numerically stated on this thin product page), matching this catalog\'s convention for other maker-confirmed half-link chain rows.'
+  },
+  {
     id: 'bmx-se-mission-carrier', cat: 'seat', brand: 'Mission', model: 'Carrier Seat',
     system: 'stealth', weight: 343, price: 34.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
