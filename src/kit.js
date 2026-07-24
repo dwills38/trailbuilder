@@ -2067,7 +2067,8 @@ var KIT_PARTS = [
      flagged in the report for a single-SKU re-check rather than guessed at. -- */
   { id:'sht-clubrideapparel-rider9', cat:'shorts', brand:'Club Ride Apparel', model:"Men's Rider Short 9\"", price:85,
     liner:false, disciplines:['trail'], sizes:['S','M','L','XL','2XL'],
-    desc:'9" inseam, unpadded (chamois sold separately). Price inconsistent across clubrideapparel.com pages this session ($85/$119 both seen) - see the brand-note above.' },
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.clubrideapparel.com/products/mens-rider-short',
+    desc:'9" inseam, unpadded (chamois sold separately). Confirmed off clubrideapparel.com\'s own Shopify product JSON (.js endpoint, USD base currency - the rendered HTML defaults to EUR by geolocation, which is what caused the prior session\'s price-inconsistency finding): $85.00 USD across every size variant, exact match to the existing sample. Note this product no longer appears in the site\'s current "Mountain Bike Clothing" collection listing, but its product page and checkout are both still live.' },
 
   /* -- Loose Riders breadth (catalog/kit-apparel-brands-1, 2026-07-23): only one jersey +
      one shorts row existed (already 2, extending here). loose-riders.com auto-converts
@@ -2400,9 +2401,10 @@ var KIT_PARTS = [
     liner:false, disciplines:['trail'], sizes:['28','30','32','34','36','38'],
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://us.chromagbikes.com/products/seton-pant-mens',
     desc:'Lightweight "smart/casual" 4-way-stretch nylon/spandex trail pant, room for kneepads. Confirmed off us.chromagbikes.com\'s own Shopify product JSON (.js endpoint, bypassing the CZK-locale HTML rendering that blocked the prior session): $150.00 USD, exact match to the existing sample. No weight verified this pass (kit apparel weight is not required per protocol; the Shopify variant weight field is a shipping-weight bucket, not trustworthy net weight).' },
-  { id:'pnt-clubrideapparel-rider', cat:'pants', brand:'Club Ride Apparel', model:"Men's Rider Pant", price:88,
+  { id:'pnt-clubrideapparel-rider', cat:'pants', brand:'Club Ride Apparel', model:"Men's Rider Pant", price:110,
     liner:false, disciplines:['trail'], sizes:['S','M','L','XL','2XL'],
-    desc:'Lightweight alpine/shoulder-season riding pant, unpadded (chamois sold separately). Price inconsistent across clubrideapparel.com pages this session - entered unverified at the more frequently listed figure.' },
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-24', source:'https://www.clubrideapparel.com/products/mens-rider-pant',
+    desc:'Lightweight alpine/shoulder-season riding pant, unpadded (chamois sold separately). Confirmed off clubrideapparel.com\'s own Shopify product JSON: the regular per-variant price is $110.00 USD (confirmed against every size in the Desert Sand colorway, no active compare_at_price) - a real correction from the prior $88 sample, which was apparently caught during a temporary storewide sale on one colorway (the page\'s top-level "current" price was $88 against an $110 compare-at at fetch time). Also confirmed via clubrideapparel.com\'s own "Mountain Bike Clothing" collection listing, which shows the same $110.' },
 
   /* -- Fasthouse breadth (catalog/kit-apparel-brands-1, 2026-07-23): brand had jerseys +
      one pant but zero gloves. FETCHED both product pages directly. -- */
