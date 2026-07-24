@@ -2102,6 +2102,10 @@ var GRAVEL_PARTS = [
     diameter: '27.2', setback: 20, weight: 240, price: 45,
     note: 'gravel-depth-5 (2026-07-22): FETCHED eastoncycling.com/products/ea70-seatpost directly — "QUILL SIZES: 27.2mm, 30.9mm" confirms 27.2 is real, offset options are "20mm or 0mm" — no 15mm offset SKU exists. SETBACK CORRECTED 15->20 (nearest real option, matching the sibling EC70 carbon post row\'s modeling convention). PROMOTED to verified:true under the SEVENTH exception class — the page publishes only a 31.6mm-diameter weight (270g), no 27.2mm-specific figure, so this row\'s 240g stays the pre-existing sample per the exception (basis: no maker weight published for this diameter).',
     verified: true, lastChecked: '2026-07-22', source: 'https://eastoncycling.com/products/ea70-seatpost' },
+  { id: 'gsp-enve-carbon-272', cat: 'seatpost', brand: 'ENVE', model: 'Seatpost 400mm (27.2mm, 0mm offset)', family: 'enve-seatpost',
+    diameter: '27.2', setback: 0, weight: 204, price: 325,
+    note: 'catalog/gravel-components-3: NEW row — ENVE\'s own drivetrain/cockpit line (already cataloged in this file for stem/bar). FETCHED enve.com/products/seatpost directly this session (its own product/spec table, gravel-listed use case): "Lightweight, reliable, and adjustable Twin-Bolt patented design ENVE Carbon Bike Seatpost for road, gravel, and mountain bike use" — the spec table lists diameters 25.4/27.2/30.9/31.6mm, offsets 0mm/25mm, lengths 300/400mm, all priced identically "$325.00 USD" (single flat MSRP, not a range/midpoint). This row models the 400mm/27.2mm/0mm-offset SKU (300-1008-101, GRAVEL_VOCAB.seatpost already carries the 27.2 token), whose per-variant weight is stated verbatim in the same table ("27.2mm 0mm 400mm: 204g"). priceBasis:msrp-confirmed (maker\'s own USD price, not converted).',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://enve.com/products/seatpost' },
 
   // ===== DROPPER (gravel-specific, short travel) =========================
   { id: 'gdp-pnw-coast-272-60', cat: 'dropper', brand: 'PNW', model: 'Coast Suspension Seatpost',
@@ -2253,6 +2257,10 @@ var GRAVEL_PARTS = [
     mfgPn: 'SLITE-BARTAPE-BLK', weight: 77, price: 34.95,
     note: 'catalog/gravel-components-2: NEW row — closes the Wolf Tooth bartape brand gap (on the suggested brand list; Wolf Tooth already has a cataloged gravel headset in this file). FETCHED wolftoothcomponents.com/products/supple-lite-bar-tape directly this session (US consumer storefront rendered a clean USD price, unlike the ZAR-geo\'d headset page) — "$34.95", "SLITE-BARTAPE-BLK", "2.5mm thick, 40mm wide, 152cm long per roll (two rolls per package)", "EVA foam compound... 3M adhesive backing". Weight (77g for two rolls) confirmed via the same manufacturer\'s Tech Specs block. The thicker sibling "Supple Bar Tape" (100% silicone, 236g/2 rolls) is a real, separate SKU but its wolftoothcomponents.com page geo-rendered EUR only this session — not entered this pass to avoid a currency-conversion price on a row that has a cleaner USD sibling.',
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://www.wolftoothcomponents.com/products/supple-lite-bar-tape' },
+  { id: 'gtp-fabric-knurl-gravel', cat: 'bartape', brand: 'Fabric', model: 'Knurl Gravel Bar Tape', family: 'fabric-knurl-gravel',
+    weight: 130, price: 29.99,
+    note: 'catalog/gravel-components-3: NEW row — closes the Fabric bartape brand gap. FETCHED fabric.cc/products/knurl-gravel directly this session (its own US-storefront product page): "$29.99", "3.5mm foam-backed Kraton rubber and a knurled diamond texture... A silicone gel backing soaks up vibration—perfect for long days on gravel, dirt, or cobbles", spec block states "Weight: 130 g" (for the 2-roll package, matching this catalog\'s per-package weight convention for other bartape rows) and "Tape thickness: 3.5mm". priceBasis:msrp-confirmed (maker\'s own USD storefront price).',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-23', source: 'https://fabric.cc/products/knurl-gravel' },
 
 ];
 
